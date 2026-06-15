@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Driver DB">
+<title>Driver database</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{--ink:#0e1016;--panel:#161a24;--panel2:#1c2230;--line:#2b3344;--text:#eef0f6;--muted:#a3acc2;--dim:#7b859c;--amber:#f0a44a;--amber2:#f6c48a;--green:#6fd19a;--red:#e98b8b}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--ink);color:var(--text);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.5;padding:18px 16px calc(40px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .kick{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:flex;justify-content:space-between}
+  h1{font-family:"Fraunces",serif;font-weight:900;font-size:30px;margin:6px 0 16px}
+  input.filter{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:14px;outline:none;margin-bottom:14px}
+  .card{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;color:inherit;cursor:pointer}
+  .card .nm{font-weight:600;font-size:16px}
+  .card .sub{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:4px}
+  .back{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 14px;font-size:14px;margin-bottom:14px;cursor:pointer}
+  h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
+  .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin:4px 0 14px}
+  .tsgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+  .ts{background:var(--panel2);border-radius:9px;padding:8px}
+  .ts .k{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--dim)}
+  .ts .v{font-family:"IBM Plex Mono",monospace;font-size:14px}
+  .setttl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber2);display:flex;justify-content:space-between;align-items:center;margin:16px 0 6px}
+  .conf{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 8px;border-radius:999px;text-transform:uppercase}
+  .chartbox{background:#11141d;border:1px solid var(--line);border-radius:12px;padding:10px;position:relative;height:230px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--panel2);color:var(--muted);padding:2px 8px;border-radius:999px}
+  .chip.hint{color:var(--green)}
+  .chip.src{color:var(--dim);background:transparent;padding-left:0}
+  .empty{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--dim);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:12px}
+  .findings{font-size:14px;color:var(--muted);margin-top:14px}
+  .err{color:var(--red);font-family:"IBM Plex Mono",monospace;font-size:13px;padding:16px;border:1px solid var(--red);border-radius:12px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="mono" style="color:var(--dim)">loading…</div></div>
+
+<script>
+const PALETTE=["#f0a44a","#6fd19a","#7aa2f7","#e98b8b","#c4a3ff","#f6c48a"];
+const CONF={high:"#6fd19a",medium:"#f0a44a",low:"#e98b8b",none:"#7b859c"};
+const TS=[["Fs","Hz"],["Qts",""],["Vas","L"],["Sd","cm²"],["Xmax","mm"],["Bl","T·m"],["Re","Ω"],["Le","mH"]];
+const COND={spl_db:v=>v+" dB SPL",distance_mm:v=>v+" mm",signal:v=>""+v,drive_v:v=>v+" V"};
+let DB=null, charts=[];
+
+function condChips(c,source){
+  if(!c||typeof c!=="object") c = c? {note:c}:{};
+  let h="";
+  for(const[k,v] of Object.entries(c)){ if(v===""||v==null) continue; h+=`<span class="chip">${COND[k]?COND[k](v):k+": "+v}</span>`; }
+  const d=Number(c.distance_mm);
+  if(d>0&&d!==1000){ const off=20*Math.log10(1000/d); h+=`<span class="chip hint">→1 m: ${off>=0?"+":""}${off.toFixed(1)} dB</span>`; }
+  if(source) h+=`<span class="chip src">· ${source}</span>`;
+  return h?`<div class="chips">${h}</div>`:"";
+}
+
+function renderChart(canvas,set){
+  const ax=set.axes||{x:{},y:{}};
+  const xt=(ax.x?.label||"")+(ax.x?.unit?" ("+ax.x.unit+")":"");
+  const yt=(ax.y?.label||"")+(ax.y?.unit?" ("+ax.y.unit+")":"");
+  const isBar=set.chartType==="bar";
+  const ds=(set.series||[]).map((s,i)=>({
+    label:s.name, data:(s.points||[]).map(p=>({x:Number(p.x),y:Number(p.y)})),
+    backgroundColor:isBar?"#f0a44a":PALETTE[i%PALETTE.length],
+    borderColor:PALETTE[i%PALETTE.length], borderWidth:isBar?0:2,
+    pointRadius:0, tension:.25, barThickness:isBar?6:undefined
+  }));
+  const xType = isBar? "linear" : (ax.x?.scale==="log"?"logarithmic":"linear");
+  const grid={color:"#2b3344"}, tickc={color:"#a3acc2",font:{size:10}};
+  charts.push(new Chart(canvas,{
+    type:isBar?"bar":"line",
+    data:{datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,animation:false,
+      parsing:true,
+      plugins:{legend:{display:(set.series||[]).length>1,labels:{color:"#a3acc2",font:{size:11},boxWidth:10}}},
+      scales:{
+        x:{type:xType,title:{display:!!xt,text:xt,color:"#7b859c",font:{size:10}},grid,ticks:tickc},
+        y:{title:{display:!!yt,text:yt,color:"#7b859c",font:{size:10}},grid,ticks:tickc}
+      }}}));
+}
+
+function showList(filter=""){
+  charts.forEach(c=>c.destroy()); charts=[];
+  const q=filter.toLowerCase();
+  const items=DB.drivers.filter(d=>(d.name+d.manufacturer+d.role+d.band+(d.findings||"")).toLowerCase().includes(q));
+  const app=document.getElementById("app");
+  app.innerHTML=`<div class="kick"><span style="color:var(--amber)">Elementval</span> · driver db</span><span style="color:var(--dim)">${DB.drivers.length} drivers</span></div>
+    <h1>Driver database</h1>
+    <input class="filter" id="flt" placeholder="filter…" value="${filter.replace(/"/g,'&quot;')}">
+    <div id="list"></div>`;
+  const list=document.getElementById("list");
+  items.forEach(d=>{
+    const b=document.createElement("button"); b.className="card";
+    b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${[d.role,d.band].filter(Boolean).join(" · ")||"—"} · ${(d.measurements||[]).length} set${(d.measurements||[]).length!==1?"s":""}</div>`;
+    b.onclick=()=>showDetail(d.id); list.appendChild(b);
+  });
+  const f=document.getElementById("flt");
+  f.addEventListener("input",e=>{const v=e.target.value;showList(v);setTimeout(()=>{const n=document.getElementById("flt");n.focus();n.setSelectionRange(v.length,v.length);},0);});
+}
+
+function showDetail(id){
+  charts.forEach(c=>c.destroy()); charts=[];
+  const d=DB.drivers.find(x=>x.id===id);
+  const app=document.getElementById("app");
+  let h=`<button class="back" id="bk">← all drivers</button><h2>${d.name}</h2>
+    <div class="meta">${[d.manufacturer,d.role,d.band].filter(Boolean).join(" · ")}</div>
+    <div class="tsgrid">${TS.map(([k,u])=>`<div class="ts"><div class="k">${k}</div><div class="v">${d.ts&&d.ts[k]?d.ts[k]+(u?'<span style="color:#7b859c;font-size:10px"> '+u+'</span>':''):'—'}</div></div>`).join("")}</div>`;
+  const ms=d.measurements||[];
+  if(ms.length){
+    ms.forEach((set,i)=>{
+      const cc=CONF[set.confidence]||CONF.none;
+      const has=(set.series||[]).some(s=>(s.points||[]).length);
+      h+=`<div class="setttl"><span>${set.type}${set.method?" · "+set.method:""}</span><span class="conf" style="color:${cc};border:1px solid ${cc}55">${set.confidence||"none"}</span></div>`;
+      h+= has? `<div class="chartbox"><canvas id="ch${i}"></canvas></div>` : `<div class="empty">no points</div>`;
+      h+=condChips(set.conditions,set.source);
+    });
+  } else { h+=`<div class="empty">No measurements yet — extract one and push from the Mac.</div>`; }
+  if(d.findings) h+=`<div class="findings">${d.findings}</div>`;
+  app.innerHTML=h;
+  document.getElementById("bk").onclick=()=>showList();
+  ms.forEach((set,i)=>{ const cv=document.getElementById("ch"+i); if(cv) renderChart(cv,set); });
+}
+
+fetch("./drivers.json",{cache:"no-store"})
+  .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
+  .then(j=>{DB=j;showList();})
+  .catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Couldn't load drivers.json — ${e.message}. Make sure it sits next to index.html in the repo.</div>`;});
+</script>
+</body>
+</html>
