@@ -1,0 +1,6984 @@
+{
+  "meta": {
+    "version": 3,
+    "updated": "2026-06-15",
+    "schema": "driver-db/v3",
+    "dataset": "midbass IMD survey (diyAudio shrub0 #371979)",
+    "note": "Two-tone products; not level-matched across drivers (normalizable:false). Indicative only."
+  },
+  "drivers": [
+    {
+      "id": "at-c-quenze-18-h-52-17-06-sd",
+      "name": "Acoustic Technology (AT) AT C-Quenze 18 H 52 17 06 SD",
+      "manufacturer": "Acoustic Technology (AT)",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 4.0,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -48.0
+                },
+                {
+                  "x": 64,
+                  "y": -29.0
+                },
+                {
+                  "x": 72,
+                  "y": -28.0
+                },
+                {
+                  "x": 136,
+                  "y": -31.0
+                },
+                {
+                  "x": 176,
+                  "y": -32.0
+                },
+                {
+                  "x": 232,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 11.07,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -40.0
+                },
+                {
+                  "x": 64,
+                  "y": -32.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -21.0
+                },
+                {
+                  "x": 176,
+                  "y": -20.0
+                },
+                {
+                  "x": 232,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.109,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -55.0
+                },
+                {
+                  "x": 108,
+                  "y": -32.0
+                },
+                {
+                  "x": 204,
+                  "y": -59.0
+                },
+                {
+                  "x": 228,
+                  "y": -32.0
+                },
+                {
+                  "x": 264,
+                  "y": -34.0
+                },
+                {
+                  "x": 348,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 3.5,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -46.0
+                },
+                {
+                  "x": 108,
+                  "y": -32.0
+                },
+                {
+                  "x": 204,
+                  "y": -50.0
+                },
+                {
+                  "x": 228,
+                  "y": -30.0
+                },
+                {
+                  "x": 264,
+                  "y": -32.0
+                },
+                {
+                  "x": 348,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.48,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -55.0
+                },
+                {
+                  "x": 105,
+                  "y": -54.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -42.0
+                },
+                {
+                  "x": 285,
+                  "y": -25.0
+                },
+                {
+                  "x": 330,
+                  "y": -37.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 4.5,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -55.0
+                },
+                {
+                  "x": 105,
+                  "y": -47.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -39.0
+                },
+                {
+                  "x": 285,
+                  "y": -23.0
+                },
+                {
+                  "x": 330,
+                  "y": -37.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "diysg-anarchy-704",
+      "name": "DIY Sound Group DIYSG Anarchy 704",
+      "manufacturer": "DIY Sound Group",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -49.0
+                },
+                {
+                  "x": 64,
+                  "y": -41.0
+                },
+                {
+                  "x": 72,
+                  "y": -50.0
+                },
+                {
+                  "x": 136,
+                  "y": -34.0
+                },
+                {
+                  "x": 176,
+                  "y": -42.0
+                },
+                {
+                  "x": 232,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 6.88,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -34.0
+                },
+                {
+                  "x": 64,
+                  "y": -40.0
+                },
+                {
+                  "x": 72,
+                  "y": -50.0
+                },
+                {
+                  "x": 136,
+                  "y": -25.0
+                },
+                {
+                  "x": 176,
+                  "y": -25.0
+                },
+                {
+                  "x": 232,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -33.0
+                },
+                {
+                  "x": 64,
+                  "y": -33.0
+                },
+                {
+                  "x": 72,
+                  "y": -46.0
+                },
+                {
+                  "x": 136,
+                  "y": -19.0
+                },
+                {
+                  "x": 176,
+                  "y": -21.0
+                },
+                {
+                  "x": 232,
+                  "y": -33.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.019,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -56.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -44.0
+                },
+                {
+                  "x": 228,
+                  "y": -35.0
+                },
+                {
+                  "x": 264,
+                  "y": -29.0
+                },
+                {
+                  "x": 348,
+                  "y": -43.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 6.96,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -51.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -36.0
+                },
+                {
+                  "x": 228,
+                  "y": -33.0
+                },
+                {
+                  "x": 264,
+                  "y": -27.0
+                },
+                {
+                  "x": 348,
+                  "y": -40.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.01,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -49.0
+                },
+                {
+                  "x": 105,
+                  "y": -53.0
+                },
+                {
+                  "x": 135,
+                  "y": -29.0
+                },
+                {
+                  "x": 255,
+                  "y": -39.0
+                },
+                {
+                  "x": 285,
+                  "y": -32.0
+                },
+                {
+                  "x": 330,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 6.8,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -39.0
+                },
+                {
+                  "x": 105,
+                  "y": -46.0
+                },
+                {
+                  "x": 135,
+                  "y": -29.0
+                },
+                {
+                  "x": 255,
+                  "y": -40.0
+                },
+                {
+                  "x": 285,
+                  "y": -30.0
+                },
+                {
+                  "x": 330,
+                  "y": -36.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "dcs165",
+      "name": "Dayton Audio Dayton DCS165",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "6.5\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 3.478,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -44.0
+                },
+                {
+                  "x": 64,
+                  "y": -20.0
+                },
+                {
+                  "x": 72,
+                  "y": -23.0
+                },
+                {
+                  "x": 136,
+                  "y": -34.0
+                },
+                {
+                  "x": 176,
+                  "y": -37.0
+                },
+                {
+                  "x": 232,
+                  "y": -34.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 10.99,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -39.0
+                },
+                {
+                  "x": 64,
+                  "y": -20.0
+                },
+                {
+                  "x": 72,
+                  "y": -25.0
+                },
+                {
+                  "x": 136,
+                  "y": -20.0
+                },
+                {
+                  "x": 176,
+                  "y": -35.0
+                },
+                {
+                  "x": 232,
+                  "y": -36.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.615,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -50.0
+                },
+                {
+                  "x": 108,
+                  "y": -39.0
+                },
+                {
+                  "x": 204,
+                  "y": -57.0
+                },
+                {
+                  "x": 228,
+                  "y": -57.0
+                },
+                {
+                  "x": 264,
+                  "y": -48.0
+                },
+                {
+                  "x": 348,
+                  "y": -58.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.371,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -40.0
+                },
+                {
+                  "x": 108,
+                  "y": -38.0
+                },
+                {
+                  "x": 204,
+                  "y": -55.0
+                },
+                {
+                  "x": 228,
+                  "y": -50.0
+                },
+                {
+                  "x": 264,
+                  "y": -45.0
+                },
+                {
+                  "x": 348,
+                  "y": -44.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.797,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -55.0
+                },
+                {
+                  "x": 105,
+                  "y": -50.0
+                },
+                {
+                  "x": 135,
+                  "y": -53.0
+                },
+                {
+                  "x": 255,
+                  "y": -44.0
+                },
+                {
+                  "x": 285,
+                  "y": -47.0
+                },
+                {
+                  "x": 330,
+                  "y": -54.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.572,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -58.0
+                },
+                {
+                  "x": 105,
+                  "y": -40.0
+                },
+                {
+                  "x": 135,
+                  "y": -55.0
+                },
+                {
+                  "x": 255,
+                  "y": -40.0
+                },
+                {
+                  "x": 285,
+                  "y": -45.0
+                },
+                {
+                  "x": 330,
+                  "y": -56.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "e180he-44-coils-in-series",
+      "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 2.2,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -33.0
+                },
+                {
+                  "x": 64,
+                  "y": -40.0
+                },
+                {
+                  "x": 72,
+                  "y": -49.0
+                },
+                {
+                  "x": 136,
+                  "y": -45.0
+                },
+                {
+                  "x": 176,
+                  "y": -40.0
+                },
+                {
+                  "x": 232,
+                  "y": -44.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 6.9,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -49.0
+                },
+                {
+                  "x": 64,
+                  "y": -42.0
+                },
+                {
+                  "x": 72,
+                  "y": null
+                },
+                {
+                  "x": 136,
+                  "y": -30.0
+                },
+                {
+                  "x": 176,
+                  "y": -43.0
+                },
+                {
+                  "x": 232,
+                  "y": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 12.29,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -36.0
+                },
+                {
+                  "x": 64,
+                  "y": -27.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -25.0
+                },
+                {
+                  "x": 176,
+                  "y": -40.0
+                },
+                {
+                  "x": 232,
+                  "y": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -34.0
+                },
+                {
+                  "x": 64,
+                  "y": -44.0
+                },
+                {
+                  "x": 72,
+                  "y": null
+                },
+                {
+                  "x": 136,
+                  "y": -20.0
+                },
+                {
+                  "x": 176,
+                  "y": -38.0
+                },
+                {
+                  "x": 232,
+                  "y": -48.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.7,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -52.0
+                },
+                {
+                  "x": 108,
+                  "y": -45.0
+                },
+                {
+                  "x": 204,
+                  "y": null
+                },
+                {
+                  "x": 228,
+                  "y": null
+                },
+                {
+                  "x": 264,
+                  "y": -46.0
+                },
+                {
+                  "x": 348,
+                  "y": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 8.64,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -42.0
+                },
+                {
+                  "x": 108,
+                  "y": -40.0
+                },
+                {
+                  "x": 204,
+                  "y": -50.0
+                },
+                {
+                  "x": 228,
+                  "y": null
+                },
+                {
+                  "x": 264,
+                  "y": -44.0
+                },
+                {
+                  "x": 348,
+                  "y": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 3.15,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -46.0
+                },
+                {
+                  "x": 105,
+                  "y": -50.0
+                },
+                {
+                  "x": 135,
+                  "y": -31.0
+                },
+                {
+                  "x": 255,
+                  "y": -35.0
+                },
+                {
+                  "x": 285,
+                  "y": -28.0
+                },
+                {
+                  "x": 330,
+                  "y": -31.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 9.37,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -49.0
+                },
+                {
+                  "x": 105,
+                  "y": -41.0
+                },
+                {
+                  "x": 135,
+                  "y": -32.0
+                },
+                {
+                  "x": 255,
+                  "y": -35.0
+                },
+                {
+                  "x": 285,
+                  "y": -30.0
+                },
+                {
+                  "x": 330,
+                  "y": -32.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "e180he-44-single-coil",
+      "name": "Dayton Audio Dayton E180HE-44 single coil",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -39.0
+                },
+                {
+                  "x": 64,
+                  "y": -36.0
+                },
+                {
+                  "x": 72,
+                  "y": -47.0
+                },
+                {
+                  "x": 136,
+                  "y": -44.0
+                },
+                {
+                  "x": 176,
+                  "y": -43.0
+                },
+                {
+                  "x": 232,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 6.07,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -31.0
+                },
+                {
+                  "x": 64,
+                  "y": -36.0
+                },
+                {
+                  "x": 72,
+                  "y": -50.0
+                },
+                {
+                  "x": 136,
+                  "y": -31.0
+                },
+                {
+                  "x": 176,
+                  "y": -43.0
+                },
+                {
+                  "x": 232,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 10.45,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -29.0
+                },
+                {
+                  "x": 64,
+                  "y": -37.0
+                },
+                {
+                  "x": 72,
+                  "y": -48.0
+                },
+                {
+                  "x": 136,
+                  "y": -25.0
+                },
+                {
+                  "x": 176,
+                  "y": -41.0
+                },
+                {
+                  "x": 232,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "rs-180-4",
+      "name": "Dayton Audio Dayton RS 180-4",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 2.79,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -36.0
+                },
+                {
+                  "x": 64,
+                  "y": -25.0
+                },
+                {
+                  "x": 72,
+                  "y": -26.0
+                },
+                {
+                  "x": 136,
+                  "y": -30.0
+                },
+                {
+                  "x": 176,
+                  "y": -33.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 8.65,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -36.0
+                },
+                {
+                  "x": 64,
+                  "y": -23.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -18.0
+                },
+                {
+                  "x": 176,
+                  "y": -12.0
+                },
+                {
+                  "x": 232,
+                  "y": -30.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.7,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -52.0
+                },
+                {
+                  "x": 108,
+                  "y": -31.0
+                },
+                {
+                  "x": 204,
+                  "y": -50.0
+                },
+                {
+                  "x": 228,
+                  "y": -32.0
+                },
+                {
+                  "x": 264,
+                  "y": -30.0
+                },
+                {
+                  "x": 348,
+                  "y": -35.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 4.79,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -46.0
+                },
+                {
+                  "x": 108,
+                  "y": -31.0
+                },
+                {
+                  "x": 204,
+                  "y": -40.0
+                },
+                {
+                  "x": 228,
+                  "y": -32.0
+                },
+                {
+                  "x": 264,
+                  "y": -29.0
+                },
+                {
+                  "x": 348,
+                  "y": -35.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.71,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -58.0
+                },
+                {
+                  "x": 105,
+                  "y": -55.0
+                },
+                {
+                  "x": 135,
+                  "y": -29.0
+                },
+                {
+                  "x": 255,
+                  "y": -47.0
+                },
+                {
+                  "x": 285,
+                  "y": -23.0
+                },
+                {
+                  "x": 330,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.62,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -52.0
+                },
+                {
+                  "x": 105,
+                  "y": -52.0
+                },
+                {
+                  "x": 135,
+                  "y": -29.0
+                },
+                {
+                  "x": 255,
+                  "y": -38.0
+                },
+                {
+                  "x": 285,
+                  "y": -23.0
+                },
+                {
+                  "x": 330,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "rs-225-8",
+      "name": "Dayton Audio Dayton RS 225-8",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "8\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 3.41,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -40.0
+                },
+                {
+                  "x": 64,
+                  "y": -35.0
+                },
+                {
+                  "x": 72,
+                  "y": -32.0
+                },
+                {
+                  "x": 136,
+                  "y": -34.0
+                },
+                {
+                  "x": 176,
+                  "y": -31.0
+                },
+                {
+                  "x": 232,
+                  "y": -44.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 9.96,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -32.0
+                },
+                {
+                  "x": 64,
+                  "y": -35.0
+                },
+                {
+                  "x": 72,
+                  "y": -34.0
+                },
+                {
+                  "x": 136,
+                  "y": -23.0
+                },
+                {
+                  "x": 176,
+                  "y": -33.0
+                },
+                {
+                  "x": 232,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 19.5,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -25.0
+                },
+                {
+                  "x": 64,
+                  "y": -27.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -15.0
+                },
+                {
+                  "x": 176,
+                  "y": -18.0
+                },
+                {
+                  "x": 232,
+                  "y": -47.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.87,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -54.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -49.0
+                },
+                {
+                  "x": 228,
+                  "y": -37.0
+                },
+                {
+                  "x": 264,
+                  "y": -31.0
+                },
+                {
+                  "x": 348,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.7,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -49.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -41.0
+                },
+                {
+                  "x": 228,
+                  "y": -36.0
+                },
+                {
+                  "x": 264,
+                  "y": -31.0
+                },
+                {
+                  "x": 348,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.94,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -60.0
+                },
+                {
+                  "x": 105,
+                  "y": -51.0
+                },
+                {
+                  "x": 135,
+                  "y": -55.0
+                },
+                {
+                  "x": 255,
+                  "y": -53.0
+                },
+                {
+                  "x": 285,
+                  "y": -57.0
+                },
+                {
+                  "x": 330,
+                  "y": -63.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -62.0
+                },
+                {
+                  "x": 105,
+                  "y": -46.0
+                },
+                {
+                  "x": 135,
+                  "y": -56.0
+                },
+                {
+                  "x": 255,
+                  "y": -41.0
+                },
+                {
+                  "x": 285,
+                  "y": -50.0
+                },
+                {
+                  "x": 330,
+                  "y": -57.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "rss-210hf-4",
+      "name": "Dayton Audio Dayton RSS 210HF-4",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "8\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 2.22,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -43.0
+                },
+                {
+                  "x": 64,
+                  "y": -27.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -30.0
+                },
+                {
+                  "x": 176,
+                  "y": -23.0
+                },
+                {
+                  "x": 232,
+                  "y": -36.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -30.0
+                },
+                {
+                  "x": 64,
+                  "y": -28.0
+                },
+                {
+                  "x": 72,
+                  "y": -28.0
+                },
+                {
+                  "x": 136,
+                  "y": -20.0
+                },
+                {
+                  "x": 176,
+                  "y": -23.0
+                },
+                {
+                  "x": 232,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 11.74,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -23.0
+                },
+                {
+                  "x": 64,
+                  "y": -29.0
+                },
+                {
+                  "x": 72,
+                  "y": -28.0
+                },
+                {
+                  "x": 136,
+                  "y": -16.0
+                },
+                {
+                  "x": 176,
+                  "y": -21.0
+                },
+                {
+                  "x": 232,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.61,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -52.0
+                },
+                {
+                  "x": 108,
+                  "y": -63.0
+                },
+                {
+                  "x": 204,
+                  "y": -50.0
+                },
+                {
+                  "x": 228,
+                  "y": -60.0
+                },
+                {
+                  "x": 264,
+                  "y": -58.0
+                },
+                {
+                  "x": 348,
+                  "y": -66.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.27,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -50.0
+                },
+                {
+                  "x": 108,
+                  "y": -53.0
+                },
+                {
+                  "x": 204,
+                  "y": -44.0
+                },
+                {
+                  "x": 228,
+                  "y": -52.0
+                },
+                {
+                  "x": 264,
+                  "y": -51.0
+                },
+                {
+                  "x": 348,
+                  "y": -52.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.85,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -51.0
+                },
+                {
+                  "x": 105,
+                  "y": -55.0
+                },
+                {
+                  "x": 135,
+                  "y": -57.0
+                },
+                {
+                  "x": 255,
+                  "y": -46.0
+                },
+                {
+                  "x": 285,
+                  "y": -58.0
+                },
+                {
+                  "x": 330,
+                  "y": -51.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 7.6,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -60.0
+                },
+                {
+                  "x": 105,
+                  "y": -50.0
+                },
+                {
+                  "x": 135,
+                  "y": -52.0
+                },
+                {
+                  "x": 255,
+                  "y": -43.0
+                },
+                {
+                  "x": 285,
+                  "y": -53.0
+                },
+                {
+                  "x": 330,
+                  "y": -51.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "rss-210ho-4",
+      "name": "Dayton Audio Dayton RSS 210HO-4",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "8\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 3.1,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -48.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -31.0
+                },
+                {
+                  "x": 136,
+                  "y": -32.0
+                },
+                {
+                  "x": 176,
+                  "y": -27.0
+                },
+                {
+                  "x": 232,
+                  "y": -44.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 9.17,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -37.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -30.0
+                },
+                {
+                  "x": 136,
+                  "y": -28.0
+                },
+                {
+                  "x": 176,
+                  "y": -28.0
+                },
+                {
+                  "x": 232,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 16.47,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -31.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -30.0
+                },
+                {
+                  "x": 136,
+                  "y": -23.0
+                },
+                {
+                  "x": 176,
+                  "y": -24.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.1,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -47.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -56.0
+                },
+                {
+                  "x": 228,
+                  "y": -46.0
+                },
+                {
+                  "x": 264,
+                  "y": -42.0
+                },
+                {
+                  "x": 348,
+                  "y": -68.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 7.21,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -42.0
+                },
+                {
+                  "x": 108,
+                  "y": -29.0
+                },
+                {
+                  "x": 204,
+                  "y": -45.0
+                },
+                {
+                  "x": 228,
+                  "y": -48.0
+                },
+                {
+                  "x": 264,
+                  "y": -40.0
+                },
+                {
+                  "x": 348,
+                  "y": -56.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 3.08,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -50.0
+                },
+                {
+                  "x": 105,
+                  "y": -54.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -50.0
+                },
+                {
+                  "x": 285,
+                  "y": -22.0
+                },
+                {
+                  "x": 330,
+                  "y": -40.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 9.91,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -50.0
+                },
+                {
+                  "x": 105,
+                  "y": -57.0
+                },
+                {
+                  "x": 135,
+                  "y": -27.0
+                },
+                {
+                  "x": 255,
+                  "y": -50.0
+                },
+                {
+                  "x": 285,
+                  "y": -21.0
+                },
+                {
+                  "x": 330,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "ps180",
+      "name": "Dayton Audio Dayton ps180",
+      "manufacturer": "Dayton Audio",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 1.895,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -43.0
+                },
+                {
+                  "x": 64,
+                  "y": null
+                },
+                {
+                  "x": 72,
+                  "y": null
+                },
+                {
+                  "x": 136,
+                  "y": -29.0
+                },
+                {
+                  "x": 176,
+                  "y": -36.0
+                },
+                {
+                  "x": 232,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 6.56,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -39.0
+                },
+                {
+                  "x": 64,
+                  "y": null
+                },
+                {
+                  "x": 72,
+                  "y": -50.0
+                },
+                {
+                  "x": 136,
+                  "y": -19.0
+                },
+                {
+                  "x": 176,
+                  "y": -17.0
+                },
+                {
+                  "x": 232,
+                  "y": -27.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.513,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -48.0
+                },
+                {
+                  "x": 108,
+                  "y": null
+                },
+                {
+                  "x": 204,
+                  "y": -33.0
+                },
+                {
+                  "x": 228,
+                  "y": null
+                },
+                {
+                  "x": 264,
+                  "y": -37.0
+                },
+                {
+                  "x": 348,
+                  "y": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 4.7,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -38.0
+                },
+                {
+                  "x": 108,
+                  "y": null
+                },
+                {
+                  "x": 204,
+                  "y": -24.0
+                },
+                {
+                  "x": 228,
+                  "y": -40.0
+                },
+                {
+                  "x": 264,
+                  "y": -25.0
+                },
+                {
+                  "x": 348,
+                  "y": -53.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.109,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -56.0
+                },
+                {
+                  "x": 105,
+                  "y": -45.0
+                },
+                {
+                  "x": 135,
+                  "y": -58.0
+                },
+                {
+                  "x": 255,
+                  "y": -40.0
+                },
+                {
+                  "x": 285,
+                  "y": -55.0
+                },
+                {
+                  "x": 330,
+                  "y": -59.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 3.4,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -56.0
+                },
+                {
+                  "x": 105,
+                  "y": -36.0
+                },
+                {
+                  "x": 135,
+                  "y": -55.0
+                },
+                {
+                  "x": 255,
+                  "y": -31.0
+                },
+                {
+                  "x": 285,
+                  "y": -49.0
+                },
+                {
+                  "x": 330,
+                  "y": -51.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "mcm-55-2421",
+      "name": "MCM MCM 55-2421",
+      "manufacturer": "MCM",
+      "role": "midbass (survey)",
+      "band": "None\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -41.0
+                },
+                {
+                  "x": 64,
+                  "y": -31.0
+                },
+                {
+                  "x": 72,
+                  "y": -33.0
+                },
+                {
+                  "x": 136,
+                  "y": -37.0
+                },
+                {
+                  "x": 176,
+                  "y": null
+                },
+                {
+                  "x": 232,
+                  "y": -48.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -34.0
+                },
+                {
+                  "x": 64,
+                  "y": -33.0
+                },
+                {
+                  "x": 72,
+                  "y": -34.0
+                },
+                {
+                  "x": 136,
+                  "y": -27.0
+                },
+                {
+                  "x": 176,
+                  "y": -50.0
+                },
+                {
+                  "x": 232,
+                  "y": -43.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -28.0
+                },
+                {
+                  "x": 64,
+                  "y": -32.0
+                },
+                {
+                  "x": 72,
+                  "y": -33.0
+                },
+                {
+                  "x": 136,
+                  "y": -25.0
+                },
+                {
+                  "x": 176,
+                  "y": -48.0
+                },
+                {
+                  "x": 232,
+                  "y": -30.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "misco-bwx-6502",
+      "name": "MISCO Misco BWX-6502",
+      "manufacturer": "MISCO",
+      "role": "midbass (survey)",
+      "band": "6.5\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 4.1,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -45.0
+                },
+                {
+                  "x": 64,
+                  "y": -24.0
+                },
+                {
+                  "x": 72,
+                  "y": -26.0
+                },
+                {
+                  "x": 136,
+                  "y": -40.0
+                },
+                {
+                  "x": 176,
+                  "y": -44.0
+                },
+                {
+                  "x": 232,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 12.23,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -32.0
+                },
+                {
+                  "x": 64,
+                  "y": -23.0
+                },
+                {
+                  "x": 72,
+                  "y": -26.0
+                },
+                {
+                  "x": 136,
+                  "y": -25.0
+                },
+                {
+                  "x": 176,
+                  "y": -29.0
+                },
+                {
+                  "x": 232,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 19.4,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -21.0
+                },
+                {
+                  "x": 64,
+                  "y": -18.0
+                },
+                {
+                  "x": 72,
+                  "y": -24.0
+                },
+                {
+                  "x": 136,
+                  "y": -15.0
+                },
+                {
+                  "x": 176,
+                  "y": -20.0
+                },
+                {
+                  "x": 232,
+                  "y": -37.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 3.04,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -49.0
+                },
+                {
+                  "x": 108,
+                  "y": -58.0
+                },
+                {
+                  "x": 204,
+                  "y": -45.0
+                },
+                {
+                  "x": 228,
+                  "y": -49.0
+                },
+                {
+                  "x": 264,
+                  "y": -52.0
+                },
+                {
+                  "x": 348,
+                  "y": -58.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 8.25,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -42.0
+                },
+                {
+                  "x": 108,
+                  "y": -44.0
+                },
+                {
+                  "x": 204,
+                  "y": -44.0
+                },
+                {
+                  "x": 228,
+                  "y": -40.0
+                },
+                {
+                  "x": 264,
+                  "y": -38.0
+                },
+                {
+                  "x": 348,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.35,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -57.0
+                },
+                {
+                  "x": 105,
+                  "y": -57.0
+                },
+                {
+                  "x": 135,
+                  "y": -58.0
+                },
+                {
+                  "x": 255,
+                  "y": -44.0
+                },
+                {
+                  "x": 285,
+                  "y": -56.0
+                },
+                {
+                  "x": 330,
+                  "y": -57.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 6.73,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -59.0
+                },
+                {
+                  "x": 105,
+                  "y": -48.0
+                },
+                {
+                  "x": 135,
+                  "y": -44.0
+                },
+                {
+                  "x": 255,
+                  "y": -49.0
+                },
+                {
+                  "x": 285,
+                  "y": -42.0
+                },
+                {
+                  "x": 330,
+                  "y": -50.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "morel-kw-1",
+      "name": "Morel Morel KW-1",
+      "manufacturer": "Morel",
+      "role": "midbass (survey)",
+      "band": "None\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 3.029,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -39.0
+                },
+                {
+                  "x": 64,
+                  "y": -22.0
+                },
+                {
+                  "x": 72,
+                  "y": -28.0
+                },
+                {
+                  "x": 136,
+                  "y": -28.0
+                },
+                {
+                  "x": 176,
+                  "y": -39.0
+                },
+                {
+                  "x": 232,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 9.57,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -31.0
+                },
+                {
+                  "x": 64,
+                  "y": -20.0
+                },
+                {
+                  "x": 72,
+                  "y": -28.0
+                },
+                {
+                  "x": 136,
+                  "y": -24.0
+                },
+                {
+                  "x": 176,
+                  "y": -10.0
+                },
+                {
+                  "x": 232,
+                  "y": -35.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.62,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -46.0
+                },
+                {
+                  "x": 108,
+                  "y": -39.0
+                },
+                {
+                  "x": 204,
+                  "y": -55.0
+                },
+                {
+                  "x": 228,
+                  "y": -58.0
+                },
+                {
+                  "x": 264,
+                  "y": -46.0
+                },
+                {
+                  "x": 348,
+                  "y": -55.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 4.98,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -35.0
+                },
+                {
+                  "x": 108,
+                  "y": -39.0
+                },
+                {
+                  "x": 204,
+                  "y": -45.0
+                },
+                {
+                  "x": 228,
+                  "y": -51.0
+                },
+                {
+                  "x": 264,
+                  "y": -49.0
+                },
+                {
+                  "x": 348,
+                  "y": -54.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.79,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -54.0
+                },
+                {
+                  "x": 105,
+                  "y": -43.0
+                },
+                {
+                  "x": 135,
+                  "y": -27.0
+                },
+                {
+                  "x": 255,
+                  "y": -41.0
+                },
+                {
+                  "x": 285,
+                  "y": -31.0
+                },
+                {
+                  "x": 330,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.85,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -55.0
+                },
+                {
+                  "x": 105,
+                  "y": -35.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -32.0
+                },
+                {
+                  "x": 285,
+                  "y": -30.0
+                },
+                {
+                  "x": 330,
+                  "y": -48.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "xxls-830842",
+      "name": "Peerless Peerless XXLS 830842",
+      "manufacturer": "Peerless",
+      "role": "midbass (survey)",
+      "band": "8\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -43.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -31.0
+                },
+                {
+                  "x": 136,
+                  "y": -43.0
+                },
+                {
+                  "x": 176,
+                  "y": -45.0
+                },
+                {
+                  "x": 232,
+                  "y": -51.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -36.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -32.0
+                },
+                {
+                  "x": 136,
+                  "y": -37.0
+                },
+                {
+                  "x": 176,
+                  "y": -50.0
+                },
+                {
+                  "x": 232,
+                  "y": -43.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -30.0
+                },
+                {
+                  "x": 64,
+                  "y": -30.0
+                },
+                {
+                  "x": 72,
+                  "y": -32.0
+                },
+                {
+                  "x": 136,
+                  "y": -30.0
+                },
+                {
+                  "x": 176,
+                  "y": -41.0
+                },
+                {
+                  "x": 232,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -28.0
+                },
+                {
+                  "x": 64,
+                  "y": -29.0
+                },
+                {
+                  "x": 72,
+                  "y": -31.0
+                },
+                {
+                  "x": 136,
+                  "y": -26.0
+                },
+                {
+                  "x": 176,
+                  "y": -33.0
+                },
+                {
+                  "x": 232,
+                  "y": -36.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -52.0
+                },
+                {
+                  "x": 108,
+                  "y": -66.0
+                },
+                {
+                  "x": 204,
+                  "y": -57.0
+                },
+                {
+                  "x": 228,
+                  "y": -65.0
+                },
+                {
+                  "x": 264,
+                  "y": -59.0
+                },
+                {
+                  "x": 348,
+                  "y": -58.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -55.0
+                },
+                {
+                  "x": 108,
+                  "y": -51.0
+                },
+                {
+                  "x": 204,
+                  "y": -52.0
+                },
+                {
+                  "x": 228,
+                  "y": -50.0
+                },
+                {
+                  "x": 264,
+                  "y": -62.0
+                },
+                {
+                  "x": 348,
+                  "y": -47.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -55.0
+                },
+                {
+                  "x": 105,
+                  "y": -52.0
+                },
+                {
+                  "x": 135,
+                  "y": -56.0
+                },
+                {
+                  "x": 255,
+                  "y": -50.0
+                },
+                {
+                  "x": 285,
+                  "y": -60.0
+                },
+                {
+                  "x": 330,
+                  "y": -65.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -59.0
+                },
+                {
+                  "x": 105,
+                  "y": -56.0
+                },
+                {
+                  "x": 135,
+                  "y": -49.0
+                },
+                {
+                  "x": 255,
+                  "y": -41.0
+                },
+                {
+                  "x": 285,
+                  "y": -47.0
+                },
+                {
+                  "x": 330,
+                  "y": -44.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "ptt6.5x04-nfa-01",
+      "name": "Purifi Purifi PTT6.5X04-NFA-01",
+      "manufacturer": "Purifi",
+      "role": "midbass (survey)",
+      "band": "6.5\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 1.29,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -46.0
+                },
+                {
+                  "x": 64,
+                  "y": -50.0
+                },
+                {
+                  "x": 72,
+                  "y": -46.0
+                },
+                {
+                  "x": 136,
+                  "y": -43.0
+                },
+                {
+                  "x": 176,
+                  "y": -38.0
+                },
+                {
+                  "x": 232,
+                  "y": -46.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 3.9,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -40.0
+                },
+                {
+                  "x": 64,
+                  "y": -52.0
+                },
+                {
+                  "x": 72,
+                  "y": -45.0
+                },
+                {
+                  "x": 136,
+                  "y": -40.0
+                },
+                {
+                  "x": 176,
+                  "y": -34.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 7.54,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -47.0
+                },
+                {
+                  "x": 64,
+                  "y": -37.0
+                },
+                {
+                  "x": 72,
+                  "y": null
+                },
+                {
+                  "x": 136,
+                  "y": -33.0
+                },
+                {
+                  "x": 176,
+                  "y": -28.0
+                },
+                {
+                  "x": 232,
+                  "y": -47.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.544,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -56.0
+                },
+                {
+                  "x": 108,
+                  "y": -58.0
+                },
+                {
+                  "x": 204,
+                  "y": -55.0
+                },
+                {
+                  "x": 228,
+                  "y": -59.0
+                },
+                {
+                  "x": 264,
+                  "y": -56.0
+                },
+                {
+                  "x": 348,
+                  "y": -50.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 8.15,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -55.0
+                },
+                {
+                  "x": 108,
+                  "y": -52.0
+                },
+                {
+                  "x": 204,
+                  "y": -45.0
+                },
+                {
+                  "x": 228,
+                  "y": -49.0
+                },
+                {
+                  "x": 264,
+                  "y": -50.0
+                },
+                {
+                  "x": 348,
+                  "y": -55.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.5,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -57.0
+                },
+                {
+                  "x": 105,
+                  "y": -56.0
+                },
+                {
+                  "x": 135,
+                  "y": -43.0
+                },
+                {
+                  "x": 255,
+                  "y": -54.0
+                },
+                {
+                  "x": 285,
+                  "y": -52.0
+                },
+                {
+                  "x": 330,
+                  "y": -48.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.07,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -41.0
+                },
+                {
+                  "x": 105,
+                  "y": -52.0
+                },
+                {
+                  "x": 135,
+                  "y": -40.0
+                },
+                {
+                  "x": 255,
+                  "y": -46.0
+                },
+                {
+                  "x": 285,
+                  "y": -52.0
+                },
+                {
+                  "x": 330,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "radio-shack-40-1354a",
+      "name": "RadioShack Radio Shack 40-1354A",
+      "manufacturer": "RadioShack",
+      "role": "midbass (survey)",
+      "band": "None\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.46,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -52.0
+                },
+                {
+                  "x": 108,
+                  "y": -31.0
+                },
+                {
+                  "x": 204,
+                  "y": -52.0
+                },
+                {
+                  "x": 228,
+                  "y": -30.0
+                },
+                {
+                  "x": 264,
+                  "y": -24.0
+                },
+                {
+                  "x": 348,
+                  "y": -33.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 7.05,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -51.0
+                },
+                {
+                  "x": 108,
+                  "y": -31.0
+                },
+                {
+                  "x": 204,
+                  "y": -45.0
+                },
+                {
+                  "x": 228,
+                  "y": -30.0
+                },
+                {
+                  "x": 264,
+                  "y": -20.0
+                },
+                {
+                  "x": 348,
+                  "y": -32.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "sb23mfcl45-4",
+      "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+      "manufacturer": "SB Acoustics",
+      "role": "midbass (survey)",
+      "band": "9\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 2.48,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -40.0
+                },
+                {
+                  "x": 64,
+                  "y": -22.0
+                },
+                {
+                  "x": 72,
+                  "y": -24.0
+                },
+                {
+                  "x": 136,
+                  "y": -34.0
+                },
+                {
+                  "x": 176,
+                  "y": -29.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 7.9,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -36.0
+                },
+                {
+                  "x": 64,
+                  "y": -21.0
+                },
+                {
+                  "x": 72,
+                  "y": -24.0
+                },
+                {
+                  "x": 136,
+                  "y": -29.0
+                },
+                {
+                  "x": 176,
+                  "y": -30.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 13.13,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -37.0
+                },
+                {
+                  "x": 64,
+                  "y": -21.0
+                },
+                {
+                  "x": 72,
+                  "y": -23.0
+                },
+                {
+                  "x": 136,
+                  "y": -26.0
+                },
+                {
+                  "x": 176,
+                  "y": -30.0
+                },
+                {
+                  "x": 232,
+                  "y": -41.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.73,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -55.0
+                },
+                {
+                  "x": 108,
+                  "y": -32.0
+                },
+                {
+                  "x": 204,
+                  "y": -58.0
+                },
+                {
+                  "x": 228,
+                  "y": -40.0
+                },
+                {
+                  "x": 264,
+                  "y": -50.0
+                },
+                {
+                  "x": 348,
+                  "y": -57.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 5.2,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -49.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -46.0
+                },
+                {
+                  "x": 228,
+                  "y": -35.0
+                },
+                {
+                  "x": 264,
+                  "y": -45.0
+                },
+                {
+                  "x": 348,
+                  "y": -45.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.4,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -50.0
+                },
+                {
+                  "x": 105,
+                  "y": -50.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -49.0
+                },
+                {
+                  "x": 285,
+                  "y": -28.0
+                },
+                {
+                  "x": 330,
+                  "y": -30.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 4.08,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -57.0
+                },
+                {
+                  "x": 105,
+                  "y": -45.0
+                },
+                {
+                  "x": 135,
+                  "y": -27.0
+                },
+                {
+                  "x": 255,
+                  "y": -41.0
+                },
+                {
+                  "x": 285,
+                  "y": -29.0
+                },
+                {
+                  "x": 330,
+                  "y": -31.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "seas-l26roy-x1001-04-4",
+      "name": "SEAS Seas L26ROY X1001-04-4",
+      "manufacturer": "SEAS",
+      "role": "midbass (survey)",
+      "band": "10\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -50.0
+                },
+                {
+                  "x": 64,
+                  "y": -28.0
+                },
+                {
+                  "x": 72,
+                  "y": -31.0
+                },
+                {
+                  "x": 136,
+                  "y": -45.0
+                },
+                {
+                  "x": 176,
+                  "y": -51.0
+                },
+                {
+                  "x": 232,
+                  "y": -49.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -51.0
+                },
+                {
+                  "x": 64,
+                  "y": -29.0
+                },
+                {
+                  "x": 72,
+                  "y": -33.0
+                },
+                {
+                  "x": 136,
+                  "y": -53.0
+                },
+                {
+                  "x": 176,
+                  "y": -54.0
+                },
+                {
+                  "x": 232,
+                  "y": -47.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -41.0
+                },
+                {
+                  "x": 64,
+                  "y": -24.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -51.0
+                },
+                {
+                  "x": 176,
+                  "y": -48.0
+                },
+                {
+                  "x": 232,
+                  "y": -42.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -42.0
+                },
+                {
+                  "x": 64,
+                  "y": -23.0
+                },
+                {
+                  "x": 72,
+                  "y": -27.0
+                },
+                {
+                  "x": 136,
+                  "y": -39.0
+                },
+                {
+                  "x": 176,
+                  "y": -50.0
+                },
+                {
+                  "x": 232,
+                  "y": -38.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -49.0
+                },
+                {
+                  "x": 108,
+                  "y": -36.0
+                },
+                {
+                  "x": 204,
+                  "y": -51.0
+                },
+                {
+                  "x": 228,
+                  "y": -45.0
+                },
+                {
+                  "x": 264,
+                  "y": -62.0
+                },
+                {
+                  "x": 348,
+                  "y": -65.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -41.0
+                },
+                {
+                  "x": 108,
+                  "y": -37.0
+                },
+                {
+                  "x": 204,
+                  "y": -43.0
+                },
+                {
+                  "x": 228,
+                  "y": -42.0
+                },
+                {
+                  "x": 264,
+                  "y": -48.0
+                },
+                {
+                  "x": 348,
+                  "y": -59.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -58.0
+                },
+                {
+                  "x": 105,
+                  "y": -50.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -48.0
+                },
+                {
+                  "x": 285,
+                  "y": -56.0
+                },
+                {
+                  "x": 330,
+                  "y": -55.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": null,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -58.0
+                },
+                {
+                  "x": 105,
+                  "y": -42.0
+                },
+                {
+                  "x": 135,
+                  "y": -28.0
+                },
+                {
+                  "x": 255,
+                  "y": -38.0
+                },
+                {
+                  "x": 285,
+                  "y": -51.0
+                },
+                {
+                  "x": 330,
+                  "y": -53.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    },
+    {
+      "id": "sw182bd03",
+      "name": "Wavecor Wavecor SW182BD03",
+      "manufacturer": "Wavecor",
+      "role": "midbass (survey)",
+      "band": "7\"",
+      "ts": {},
+      "findings": "stub - T/S not populated",
+      "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+      "measurements": [
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 70,
+            "drive_v": 2.76,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -31.0
+                },
+                {
+                  "x": 64,
+                  "y": -49.0
+                },
+                {
+                  "x": 72,
+                  "y": -45.0
+                },
+                {
+                  "x": 136,
+                  "y": -37.0
+                },
+                {
+                  "x": 176,
+                  "y": -42.0
+                },
+                {
+                  "x": 232,
+                  "y": -49.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 8.06,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -24.0
+                },
+                {
+                  "x": 64,
+                  "y": -44.0
+                },
+                {
+                  "x": 72,
+                  "y": -53.0
+                },
+                {
+                  "x": 136,
+                  "y": -32.0
+                },
+                {
+                  "x": 176,
+                  "y": -26.0
+                },
+                {
+                  "x": 232,
+                  "y": -49.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 40+96 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "40 Hz",
+            "f2": "96 Hz",
+            "ref_spl_db": 85,
+            "drive_v": 14.9,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 56,
+                  "y": -19.0
+                },
+                {
+                  "x": 64,
+                  "y": -24.0
+                },
+                {
+                  "x": 72,
+                  "y": -41.0
+                },
+                {
+                  "x": 136,
+                  "y": -17.0
+                },
+                {
+                  "x": 176,
+                  "y": -15.0
+                },
+                {
+                  "x": 232,
+                  "y": -39.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 2.049,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -44.0
+                },
+                {
+                  "x": 108,
+                  "y": -30.0
+                },
+                {
+                  "x": 204,
+                  "y": -47.0
+                },
+                {
+                  "x": 228,
+                  "y": -50.0
+                },
+                {
+                  "x": 264,
+                  "y": -42.0
+                },
+                {
+                  "x": 348,
+                  "y": -47.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 60+144 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "60 Hz",
+            "f2": "144 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 6.48,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 84,
+                  "y": -40.0
+                },
+                {
+                  "x": 108,
+                  "y": -29.0
+                },
+                {
+                  "x": 204,
+                  "y": -55.0
+                },
+                {
+                  "x": 228,
+                  "y": -48.0
+                },
+                {
+                  "x": 264,
+                  "y": -48.0
+                },
+                {
+                  "x": 348,
+                  "y": -56.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 80,
+            "drive_v": 1.82,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -51.0
+                },
+                {
+                  "x": 105,
+                  "y": -53.0
+                },
+                {
+                  "x": 135,
+                  "y": -57.0
+                },
+                {
+                  "x": 255,
+                  "y": -60.0
+                },
+                {
+                  "x": 285,
+                  "y": -45.0
+                },
+                {
+                  "x": 330,
+                  "y": -65.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "IMD two-tone 75+180 Hz",
+          "method": "diyaudio-2tone-shrub0",
+          "conditions": {
+            "f1": "75 Hz",
+            "f2": "180 Hz",
+            "ref_spl_db": 90,
+            "drive_v": 6.25,
+            "ref": "fundamental"
+          },
+          "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
+          "confidence": "medium",
+          "note": "Not level-matched across drivers (normalizable: false).",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Product frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level",
+              "unit": "dBc"
+            }
+          },
+          "series": [
+            {
+              "name": "products",
+              "points": [
+                {
+                  "x": 45,
+                  "y": -60.0
+                },
+                {
+                  "x": 105,
+                  "y": -49.0
+                },
+                {
+                  "x": 135,
+                  "y": -55.0
+                },
+                {
+                  "x": 255,
+                  "y": -44.0
+                },
+                {
+                  "x": 285,
+                  "y": -50.0
+                },
+                {
+                  "x": 330,
+                  "y": -56.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "updated": "2026-06-15"
+    }
+  ]
+}

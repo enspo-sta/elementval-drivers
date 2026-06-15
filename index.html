@@ -18,26 +18,38 @@
   .mono{font-family:"IBM Plex Mono",monospace}
   .kick{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:flex;justify-content:space-between}
   h1{font-family:"Fraunces",serif;font-weight:900;font-size:30px;margin:6px 0 16px}
-  input.filter{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:14px;outline:none;margin-bottom:14px}
+  input.filter{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:14px;outline:none;margin-bottom:10px}
+  .ds{display:flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-bottom:14px;cursor:pointer;user-select:none}
+  .ds input{accent-color:var(--amber);width:15px;height:15px}
+  .rolehdr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
   .card{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;color:inherit;cursor:pointer}
   .card .nm{font-weight:600;font-size:16px}
   .card .sub{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:4px}
   .back{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 14px;font-size:14px;margin-bottom:14px;cursor:pointer}
   h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
   .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin:4px 0 14px}
-  .tsgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+  .tsgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}
   .ts{background:var(--panel2);border-radius:9px;padding:8px}
   .ts .k{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--dim)}
   .ts .v{font-family:"IBM Plex Mono",monospace;font-size:14px}
-  .setttl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber2);display:flex;justify-content:space-between;align-items:center;margin:16px 0 6px}
-  .conf{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 8px;border-radius:999px;text-transform:uppercase}
+  .tsmore{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim);margin-bottom:18px}
+  .tsmore b{color:var(--muted);font-weight:500}
+  .setttl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber2);display:flex;justify-content:space-between;align-items:center;gap:10px;margin:16px 0 6px}
+  .setttl span:first-child{flex:1}
+  .conf{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 8px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
   .chartbox{background:#11141d;border:1px solid var(--line);border-radius:12px;padding:10px;position:relative;height:230px}
+  .dtable{width:100%;border-collapse:collapse;font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:#11141d;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .dtable th{text-align:left;color:var(--dim);font-weight:500;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--line)}
+  .dtable td{padding:7px 12px;border-bottom:1px solid #232b3a;color:var(--text)}
+  .dtable td:first-child{color:var(--muted)}
+  .dtable tr:last-child td{border-bottom:none}
   .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
   .chip{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--panel2);color:var(--muted);padding:2px 8px;border-radius:999px}
   .chip.hint{color:var(--green)}
   .chip.src{color:var(--dim);background:transparent;padding-left:0}
+  .setnote{font-size:12.5px;color:var(--amber2);background:rgba(240,164,74,.07);border-left:2px solid var(--amber);border-radius:0 8px 8px 0;padding:8px 12px;margin-top:8px;line-height:1.45}
   .empty{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--dim);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:12px}
-  .findings{font-size:14px;color:var(--muted);margin-top:14px}
+  .findings{font-size:14px;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
   .err{color:var(--red);font-family:"IBM Plex Mono",monospace;font-size:13px;padding:16px;border:1px solid var(--red);border-radius:12px}
 </style>
 </head>
@@ -45,11 +57,38 @@
 <div class="wrap" id="app"><div class="mono" style="color:var(--dim)">loading…</div></div>
 
 <script>
+// ---- editable display label; change this string to rebrand the header ----
+const BRAND = "driver database";
+const MAIN_DB   = "./drivers.json";
+const SURVEY_DB = "./drivers_survey_midbass.json";
+
 const PALETTE=["#f0a44a","#6fd19a","#7aa2f7","#e98b8b","#c4a3ff","#f6c48a"];
 const CONF={high:"#6fd19a",medium:"#f0a44a",low:"#e98b8b",none:"#7b859c"};
 const TS=[["Fs","Hz"],["Qts",""],["Vas","L"],["Sd","cm²"],["Xmax","mm"],["Bl","T·m"],["Re","Ω"],["Le","mH"]];
-const COND={spl_db:v=>v+" dB SPL",distance_mm:v=>v+" mm",signal:v=>""+v,drive_v:v=>v+" V"};
-let DB=null, charts=[];
+const TS_EXTRA={Vd:"cm³",Pe:"W",sens:"dB",sens1W:"dB/W",Mms:"g",Cms:"mm/N",Qms:"",Qes:"",Z:"Ω"};
+const COND={spl_db:v=>v+" dB",distance_mm:v=>v+" mm",drive_v:v=>v+" V",drive_V:v=>v+" V",
+            f1:v=>"f1 "+v,f2:v=>"f2 "+v,ratio:v=>v,x_pk_mm:v=>"x̂ "+v+" mm",band:v=>v,
+            hpf:v=>v,lab:v=>v,test:v=>v,standard:v=>v,space:v=>v,ref:v=>"re "+v,ref_spl_db:v=>"ref "+v+" dB"};
+const ROLE_ORDER=["tweeter","tweeter (waveguide)","midrange","midbass","midbass / mid","midbass (survey)",
+                  "woofer / midbass","woofer","woofer (pair)","comparison"];
+let DB=null, SURVEY=null, showSurvey=false, charts=[], view={mode:"list",id:null,filter:""};
+
+// Comparisons are stored top-level (DB.comparisons[]); surface them as pseudo-records
+// so the exact same detail/chart renderer draws them. Each carries its own chart set.
+function comparisonRecords(){
+  return ((DB&&DB.comparisons)||[]).map(c=>({
+    id:c.id, name:c.title, manufacturer:"", role:"comparison", band:"",
+    isComparison:true, comparesN:(c.drivers||[]).length, ts:{}, findings:"",
+    measurements:[c]   // c already has type/method/source/confidence/chartType/axes/series/note
+  }));
+}
+function allDrivers(){
+  const a=(DB&&DB.drivers)?DB.drivers.slice():[];
+  if(showSurvey && SURVEY) a.push(...SURVEY.drivers);
+  a.push(...comparisonRecords());
+  return a;
+}
+function roleRank(r){const i=ROLE_ORDER.indexOf(r);return i<0?99:i;}
 
 function condChips(c,source){
   if(!c||typeof c!=="object") c = c? {note:c}:{};
@@ -59,6 +98,14 @@ function condChips(c,source){
   if(d>0&&d!==1000){ const off=20*Math.log10(1000/d); h+=`<span class="chip hint">→1 m: ${off>=0?"+":""}${off.toFixed(1)} dB</span>`; }
   if(source) h+=`<span class="chip src">· ${source}</span>`;
   return h?`<div class="chips">${h}</div>`:"";
+}
+
+function fmt(v){ if(v===null||v===undefined||v==="") return "—"; return (typeof v==="number")? (Number.isInteger(v)?v:v.toFixed(2)) : v; }
+
+function renderTable(set){
+  const cols=set.columns||[], rows=set.rows||[];
+  return `<table class="dtable"><thead><tr>${cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead>`+
+    `<tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${fmt(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
 }
 
 function renderChart(canvas,set){
@@ -77,8 +124,7 @@ function renderChart(canvas,set){
   charts.push(new Chart(canvas,{
     type:isBar?"bar":"line",
     data:{datasets:ds},
-    options:{responsive:true,maintainAspectRatio:false,animation:false,
-      parsing:true,
+    options:{responsive:true,maintainAspectRatio:false,animation:false,parsing:true,
       plugins:{legend:{display:(set.series||[]).length>1,labels:{color:"#a3acc2",font:{size:11},boxWidth:10}}},
       scales:{
         x:{type:xType,title:{display:!!xt,text:xt,color:"#7b859c",font:{size:10}},grid,ticks:tickc},
@@ -86,51 +132,77 @@ function renderChart(canvas,set){
       }}}));
 }
 
-function showList(filter=""){
+function showList(){
   charts.forEach(c=>c.destroy()); charts=[];
-  const q=filter.toLowerCase();
-  const items=DB.drivers.filter(d=>(d.name+d.manufacturer+d.role+d.band+(d.findings||"")).toLowerCase().includes(q));
+  const q=view.filter.toLowerCase();
+  const items=allDrivers().filter(d=>(d.name+d.manufacturer+d.role+d.band+(d.findings||"")).toLowerCase().includes(q));
+  items.sort((a,b)=> roleRank(a.role)-roleRank(b.role) || (a.name||"").localeCompare(b.name||""));
   const app=document.getElementById("app");
-  app.innerHTML=`<div class="kick"><span style="color:var(--amber)">Elementval</span> · driver db</span><span style="color:var(--dim)">${DB.drivers.length} drivers</span></div>
+  const surveyN = SURVEY? SURVEY.drivers.length : 0;
+  app.innerHTML=`<div class="kick"><span style="color:var(--amber)">${BRAND}</span><span style="color:var(--dim)">${items.length} shown</span></div>
     <h1>Driver database</h1>
-    <input class="filter" id="flt" placeholder="filter…" value="${filter.replace(/"/g,'&quot;')}">
+    <input class="filter" id="flt" placeholder="filter by name, role, finding…" value="${view.filter.replace(/"/g,'&quot;')}">
+    <label class="ds"><input type="checkbox" id="surv" ${showSurvey?"checked":""}>
+      include midbass IMD survey${surveyN?` (${surveyN} drivers · indicative)`:" (unavailable)"}</label>
     <div id="list"></div>`;
   const list=document.getElementById("list");
+  let lastRole=null;
   items.forEach(d=>{
+    if(d.role!==lastRole){ const hd=document.createElement("div"); hd.className="rolehdr"; hd.textContent=d.role||"—"; list.appendChild(hd); lastRole=d.role; }
+    const n=(d.measurements||[]).length;
     const b=document.createElement("button"); b.className="card";
-    b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${[d.role,d.band].filter(Boolean).join(" · ")||"—"} · ${(d.measurements||[]).length} set${(d.measurements||[]).length!==1?"s":""}</div>`;
-    b.onclick=()=>showDetail(d.id); list.appendChild(b);
+    const sub = d.isComparison
+      ? `compares ${d.comparesN} drivers · ${(d.measurements[0].series||[]).length} series`
+      : `${[d.manufacturer,d.band].filter(Boolean).join(" · ")||"—"} · ${n} measurement${n!==1?"s":""}`;
+    b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${sub}</div>`;
+    b.onclick=()=>{view={mode:"detail",id:d.id,filter:view.filter};showDetail(d.id);}; list.appendChild(b);
   });
   const f=document.getElementById("flt");
-  f.addEventListener("input",e=>{const v=e.target.value;showList(v);setTimeout(()=>{const n=document.getElementById("flt");n.focus();n.setSelectionRange(v.length,v.length);},0);});
+  f.addEventListener("input",e=>{view.filter=e.target.value;showList();setTimeout(()=>{const x=document.getElementById("flt");x.focus();x.setSelectionRange(view.filter.length,view.filter.length);},0);});
+  document.getElementById("surv").addEventListener("change",e=>{showSurvey=e.target.checked;showList();});
 }
 
 function showDetail(id){
   charts.forEach(c=>c.destroy()); charts=[];
-  const d=DB.drivers.find(x=>x.id===id);
+  const d=allDrivers().find(x=>x.id===id);
   const app=document.getElementById("app");
+  const extra=Object.entries(TS_EXTRA).filter(([k])=>d.ts && d.ts[k]!=null && d.ts[k]!=="")
+              .map(([k,u])=>`<b>${k}</b> ${d.ts[k]}${u?" "+u:""}`).join("  ·  ");
   let h=`<button class="back" id="bk">← all drivers</button><h2>${d.name}</h2>
-    <div class="meta">${[d.manufacturer,d.role,d.band].filter(Boolean).join(" · ")}</div>
-    <div class="tsgrid">${TS.map(([k,u])=>`<div class="ts"><div class="k">${k}</div><div class="v">${d.ts&&d.ts[k]?d.ts[k]+(u?'<span style="color:#7b859c;font-size:10px"> '+u+'</span>':''):'—'}</div></div>`).join("")}</div>`;
+    <div class="meta">${d.isComparison?("comparison · "+(d.comparesN||0)+" drivers"):[d.manufacturer,d.role,d.band].filter(Boolean).join(" · ")}</div>`;
+  if(!d.isComparison){
+    h+=`<div class="tsgrid">${TS.map(([k,u])=>`<div class="ts"><div class="k">${k}</div><div class="v">${d.ts&&d.ts[k]!=null&&d.ts[k]!==""?d.ts[k]+(u?'<span style="color:#7b859c;font-size:10px"> '+u+'</span>':''):'—'}</div></div>`).join("")}</div>
+    ${extra?`<div class="tsmore">${extra}</div>`:""}`;
+  }
   const ms=d.measurements||[];
   if(ms.length){
     ms.forEach((set,i)=>{
       const cc=CONF[set.confidence]||CONF.none;
-      const has=(set.series||[]).some(s=>(s.points||[]).length);
+      const isTable=set.chartType==="table";
+      const has=isTable? (set.rows||[]).length : (set.series||[]).some(s=>(s.points||[]).length);
       h+=`<div class="setttl"><span>${set.type}${set.method?" · "+set.method:""}</span><span class="conf" style="color:${cc};border:1px solid ${cc}55">${set.confidence||"none"}</span></div>`;
-      h+= has? `<div class="chartbox"><canvas id="ch${i}"></canvas></div>` : `<div class="empty">no points</div>`;
+      if(!has){ h+=`<div class="empty">no data</div>`; }
+      else if(isTable){ h+=renderTable(set); }
+      else { h+=`<div class="chartbox"><canvas id="ch${i}"></canvas></div>`; }
       h+=condChips(set.conditions,set.source);
+      if(set.note) h+=`<div class="setnote">${set.note}</div>`;
     });
-  } else { h+=`<div class="empty">No measurements yet — extract one and push from the Mac.</div>`; }
+  } else { h+=`<div class="empty">No measurements yet.</div>`; }
   if(d.findings) h+=`<div class="findings">${d.findings}</div>`;
   app.innerHTML=h;
-  document.getElementById("bk").onclick=()=>showList();
-  ms.forEach((set,i)=>{ const cv=document.getElementById("ch"+i); if(cv) renderChart(cv,set); });
+  document.getElementById("bk").onclick=()=>{view={mode:"list",id:null,filter:view.filter};showList();};
+  ms.forEach((set,i)=>{ if(set.chartType!=="table"){ const cv=document.getElementById("ch"+i); if(cv) renderChart(cv,set); } });
 }
 
-fetch("./drivers.json",{cache:"no-store"})
+function boot(){ view.mode==="detail" && allDrivers().find(x=>x.id===view.id) ? showDetail(view.id) : showList(); }
+
+fetch(MAIN_DB,{cache:"no-store"})
   .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
-  .then(j=>{DB=j;showList();})
+  .then(j=>{ DB=j;
+    // try to load the optional survey dataset; absence is fine
+    return fetch(SURVEY_DB,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null)
+      .then(s=>{ SURVEY=s; boot(); });
+  })
   .catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Couldn't load drivers.json — ${e.message}. Make sure it sits next to index.html in the repo.</div>`;});
 </script>
 </body>
