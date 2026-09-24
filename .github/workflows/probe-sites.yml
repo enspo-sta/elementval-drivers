@@ -7,35 +7,28 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - run: pip install --quiet pymupdf
-      - name: Probe
+      - name: Probe 2
         shell: python3 {0}
         run: |
-          import urllib.request, urllib.parse, re, html, time, struct, io, gzip
+          import urllib.request, urllib.parse, re, html, time, struct, gzip, pymupdf
           UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-          last = {}
           def get(u, raw=False):
-              host = urllib.parse.urlparse(u).netloc
-              if "hificompass" in host and host in last:
-                  time.sleep(max(0, 10 - (time.time() - last[host])))
-              last[host] = time.time()
               try:
                   r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Encoding": "gzip"}), timeout=40)
                   b = r.read()
                   if r.headers.get("Content-Encoding") == "gzip": b = gzip.decompress(b)
-                  return r.status, r.geturl(), dict(r.headers), (b if raw else b.decode("utf-8", "replace"))
+                  return r.status, r.geturl(), (b if raw else b.decode("utf-8", "replace"))
               except Exception as e:
-                  return getattr(e, "code", 0), u, {}, (b"" if raw else f"ERROR {e}")
+                  return getattr(e, "code", 0), u, (b"" if raw else f"ERROR {e}")
           def text(s):
               s = re.sub(r"<(script|style|noscript)\b.*?</\1>", " ", s, flags=re.S | re.I)
               return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
-          def links(base, s):
-              return sorted(set(urllib.parse.urljoin(base, html.unescape(h)) for h in re.findall(r'href=["\']([^"\'#]+)["\']', s)))
-          def section(name): print("\n" + "#" * 110 + f"\n### {name}\n" + "#" * 110, flush=True)
           def imgsize(b):
               if b[:8] == b"\x89PNG\r\n\x1a\n": return struct.unpack(">II", b[16:24])
+              if b[:4] == b"RIFF" and b[8:12] == b"WEBP": return ("webp", len(b))
               if b[:2] == b"\xff\xd8":
                   i = 2
                   while i < len(b):
@@ -45,108 +38,35 @@ jobs:
                       i += 2 + struct.unpack(">H", b[i+2:i+4])[0]
               return None
 
-          # ---------- 1. audioXpress ----------
-          section("AUDIOXPRESS")
-          for u in ["https://audioxpress.com/robots.txt"]:
-              st, fu, h, b = get(u); print(u, st); print(b[:2500])
-          sm = []
-          for u in ["https://audioxpress.com/sitemap.xml", "https://audioxpress.com/sitemap_index.xml", "https://audioxpress.com/sitemaps.xml"]:
-              st, fu, h, b = get(u); print("SITEMAP", u, st, len(b)); print(b[:1500])
-              sm += re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", b)
-          print("sitemap locs:", len(sm)); print("\n".join(sm[:80]))
-          for u in ["https://audioxpress.com/", "https://audioxpress.com/search?q=test+bench", "https://audioxpress.com/news/test-bench", "https://audioxpress.com/tags/test-bench", "https://audioxpress.com/article/test-bench"]:
-              st, fu, h, b = get(u); L = links(fu, b)
-              print(f"\nPAGE {u} -> {fu} status {st} {len(b)} bytes")
-              tb = [l for l in L if re.search(r"test.?bench|purifi|satori|sb-?acoustics|bliesma|woofer|tweeter|midrange|driver", l, re.I)]
-              print("relevant links:", len(tb)); print("\n".join(tb[:120]))
-          # follow test bench article candidates
-          cand = []
-          for u in ["https://audioxpress.com/", "https://audioxpress.com/news/test-bench", "https://audioxpress.com/tags/test-bench"]:
-              st, fu, h, b = get(u)
-              cand += [l for l in links(fu, b) if re.search(r"/article/.*test-bench|test-bench-", l, re.I)]
-          cand = sorted(set(cand)); print("\nTEST BENCH ARTICLE LINKS:", len(cand)); print("\n".join(cand[:60]))
-          for u in cand[:2]:
-              st, fu, h, b = get(u); t = text(b)
-              print(f"\nARTICLE {u} status {st}"); print(t[:6000])
-              print("IMAGES:", re.findall(r'<img[^>]+src=["\']([^"\']+)', b)[:30])
-              print("DATA LINKS:", [l for l in links(fu, b) if re.search(r"\.(zip|pdf|frd|zma|txt|csv)(\?|$)", l, re.I)])
+          print("\n### PURIFI PDF VECTOR CURVES")
+          st, fu, pb = get("https://hificompass.com/sites/default/files/documents/ptt5.25x04-naa-05_data_sheet.pdf", raw=True)
+          doc = pymupdf.open(stream=pb, filetype="pdf")
+          for pno in (2, 3):
+              p = doc[pno]
+              caps = [b[4].strip().replace("\n", " ") for b in p.get_text("blocks") if re.match(r"\s*Figure", b[4])]
+              print(f"\npage {pno+1} captions: {caps}")
+              polys = []
+              for d in p.get_drawings():
+                  segs = [it for it in d["items"] if it[0] in ("l", "c")]
+                  if len(segs) >= 40:
+                      xs = [pt.x for it in segs for pt in it[1:] if hasattr(pt, "x")]
+                      polys.append((len(segs), d.get("color"), d.get("width"), tuple(round(v) for v in d["rect"]), round(min(xs)), round(max(xs))))
+              polys.sort(key=lambda t: -t[0])
+              print(f"  long paths (>=40 segments): {len(polys)}")
+              for t in polys[:25]: print("   segments=%d color=%s width=%s rect=%s" % t[:4])
 
-          # ---------- 2. audiohorn.net ----------
-          section("AUDIOHORN")
-          for u in ["https://audiohorn.net/robots.txt", "https://audiohorn.net/sitemap.xml", "https://audiohorn.net/sitemap_index.xml", "https://audiohorn.net/wp-sitemap.xml"]:
-              st, fu, h, b = get(u); print("\n", u, st, len(b)); print(b[:3000])
-          for u in ["https://audiohorn.net/", "https://www.audiohorn.net/"]:
-              st, fu, h, b = get(u); L = links(fu, b)
-              print(f"\nPAGE {u} -> {fu} status {st} {len(b)} bytes server {h.get('Server')}")
-              print(text(b)[:4000])
-              print("ALL LINKS:", len(L)); print("\n".join(L[:250]))
+          print("\n### AUDIOHORN TEST PAGES")
+          for u in ["https://audiohorn.net/test/woofer/6-7inch/", "https://audiohorn.net/test/medium/8inch/"]:
+              st, fu, b = get(u); t = text(b)
+              print(f"\nPAGE {u} status {st} {len(b)} bytes"); print(t[:5000])
+              imgs = re.findall(r'<img[^>]+src=["\']([^"\']+)', b)
+              print("IMAGES:", len(imgs)); print("\n".join(imgs[:40]))
+              for im in imgs[:3]:
+                  iu = urllib.parse.urljoin(fu, im); s2, _, ib = get(iu, raw=True); print("  img", iu, s2, len(ib), imgsize(ib)); time.sleep(1)
+              print("DATA LINKS:", [l for l in re.findall(r'href=["\']([^"\']+)', b) if re.search(r"\.(zip|pdf|frd|zma|txt|csv|mdat)(\?|$)", l, re.I)])
+              time.sleep(2)
 
-          # ---------- 3. HiFiCompass image resolution ----------
-          section("HIFICOMPASS IMAGES")
-          for styled in ["https://hificompass.com/sites/default/files/styles/1000_px/public/afc/ptt5.25x04-naa-05_315mm_2v83_0deg.png?itok=AgVmjPQ6",
-                         "https://hificompass.com/sites/default/files/styles/1000_px/public/imd.jpg?itok=US1EnPGK"]:
-              orig = re.sub(r"/styles/[^/]+/public/", "/", styled).split("?")[0]
-              for u in (styled, orig):
-                  st, fu, h, b = get(u, raw=True)
-                  print(u, "status", st, "bytes", len(b), "size", imgsize(b) if b else None)
-
-          # ---------- 4. Erin image resolution ----------
-          section("ERIN IMAGES")
-          for u in ["https://dl.dropboxusercontent.com/s/7qi9c981nlripz5/PTT8.0X04-NAB-02%20Harmonic%20Distortion%20%2886dB%20%40%201m%29.png?dl=0",
-                    "https://dl.dropboxusercontent.com/s/ze127p64b4dc7ik/IMD_1.png?dl=0",
-                    "https://erinsaudiocorner.com/images/Reviews/Drivers/SB_Acoustics/Satori_MW13P-4/Satori-MW13P-4-HD-96dB.png"]:
-              st, fu, h, b = get(u, raw=True); print(u, "status", st, "bytes", len(b), "size", imgsize(b) if b else None)
-
-          # ---------- 5. Purifi datasheet: vector or raster? ----------
-          section("PURIFI DATASHEET")
-          import fitz
-          st, fu, h, b = get("https://purifi-audio.com/sitemap.xml")
-          locs = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", b)
-          shop = [l for l in locs if "ptt6-5x04-naa-08" in l.lower()]
-          print("shop pages:", shop[:5])
-          pdfs = []
-          for u in shop[:2]:
-              st, fu, h, pb = get(u)
-              pdfs += [l for l in links(fu, pb) if re.search(r"\.pdf|/web/content|download|datasheet", l, re.I)]
-          pdfs = sorted(set(pdfs)); print("pdf-ish links:", pdfs[:20])
-          tried = pdfs[:6] + ["https://hificompass.com/sites/default/files/documents/ptt5.25x04-naa-05_data_sheet.pdf"]
-          for u in tried:
-              st, fu, h, pb = get(u, raw=True)
-              if not pb.startswith(b"%PDF"):
-                  print("not a pdf:", u, st, pb[:80]); continue
-              doc = fitz.open(stream=pb, filetype="pdf")
-              print(f"\nPDF {u}: {len(pb)} bytes, {doc.page_count} pages, producer={doc.metadata.get('producer')} creator={doc.metadata.get('creator')}")
-              for pno in range(doc.page_count):
-                  p = doc[pno]
-                  dr = p.get_drawings()
-                  npts = sum(len(d.get('items', [])) for d in dr)
-                  imgs = p.get_images(full=True)
-                  isz = [(i[2], i[3]) for i in imgs]
-                  words = " ".join(w[4] for w in p.get_text("words")[:25])
-                  print(f"  page {pno+1}: vector drawings={len(dr)} path segments={npts} raster images={len(imgs)} sizes={isz[:6]} text: {words[:160]}")
-              break
-
-          # ---------- 6. Pricing / docs pages (full text) ----------
-          section("DOCS AND PRICING")
-          pages = [
-            "https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages",
-            "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility",
-            "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
-            "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
-            "https://docs.github.com/en/get-started/learning-about-github/githubs-plans",
-            "https://github.com/pricing",
-            "https://developers.cloudflare.com/pages/platform/limits/",
-            "https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/",
-            "https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-public-app/",
-            "https://developers.cloudflare.com/pages/configuration/preview-deployments/",
-            "https://www.cloudflare.com/plans/zero-trust-services/",
-            "https://www.cloudflare.com/plans/developer-platform/",
-            "https://www.statichost.eu/pricing/",
-            "https://www.statichost.eu/",
-          ]
-          for u in pages:
-              st, fu, h, b = get(u); t = text(b)
-              print(f"\n==== PAGE {u} -> {fu} status {st} text {len(t)} chars")
-              print(t[:24000])
-          st, fu, h, b = get("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml")
-          print("\n==== ECB", st); print(re.findall(r"time='[^']+'", b), re.findall(r"currency='(USD|SEK)' rate='([^']+)'", b))
+          print("\n### AUDIOXPRESS PURIFI TAG")
+          st, fu, b = get("https://audioxpress.com/tags/purifi-audio/")
+          arts = sorted(set(urllib.parse.urljoin(fu, h) for h in re.findall(r'href=["\']([^"\']*/article/[^"\']+)', b)))
+          print(st, len(arts)); print("\n".join(arts))
