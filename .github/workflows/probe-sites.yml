@@ -26,11 +26,10 @@ jobs:
               s = re.sub(r"<(script|style|noscript|nav|header|footer)\b.*?</\1>", " ", s, flags=re.S | re.I)
               return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
           for u in [
-            "https://support.google.com/accounts/answer/185833?hl=en",
-            "https://support.google.com/mail/answer/6584?hl=en",
-            "https://support.google.com/mail/answer/7126229?hl=en",
-            "https://rclone.org/drive/",
-            "https://rclone.org/remote_setup/",
+            "https://developers.google.com/apps-script/guides/web",
+            "https://developers.google.com/apps-script/guides/content",
+            "https://developers.google.com/apps-script/guides/services/quotas",
+            "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets",
           ]:
               st, fu, b = get(u)
               t = text(b)
