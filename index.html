@@ -10,6 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="./compare-core.js"></script>
+<script src="./sim-core.js"></script>
+<script src="./tools.js"></script>
 <style>
   :root{--ink:#0e1016;--panel:#161a24;--panel2:#1c2230;--line:#2b3344;--text:#eef0f6;--muted:#a3acc2;--dim:#7b859c;--amber:#f0a44a;--amber2:#f6c48a;--green:#6fd19a;--red:#e98b8b}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -24,6 +27,7 @@
   .rolehdr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
   .srchdr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:26px 0 2px;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between}
   .srchdr span:last-child{color:var(--dim);letter-spacing:.06em}
+  .srchdr .relt{font-weight:400;color:var(--muted);letter-spacing:.06em}
   .card .srcs{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--green);margin-top:3px}
   .card{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;color:inherit;cursor:pointer}
   .card .nm{font-weight:600;font-size:16px}
@@ -54,6 +58,77 @@
   .empty{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--dim);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:12px}
   .findings{font-size:14px;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
   .err{color:var(--red);font-family:"IBM Plex Mono",monospace;font-size:13px;padding:16px;border:1px solid var(--red);border-radius:12px}
+  /* navigation and the Compare / Simulate views (tools.js) */
+  .wrap.wide{max-width:1040px}
+  .tabs{display:flex;gap:6px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .tabs a{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:9px;border:1px solid transparent}
+  .tabs a.on{color:var(--ink);background:var(--amber);font-weight:500}
+  .tabs a:not(.on):hover{border-color:var(--line);color:var(--text)}
+  .lede{color:var(--muted);font-size:14px;margin:-8px 0 14px;max-width:72ch}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+  .ptitle{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber2);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:14px 0 6px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .panel>.lbl:first-child,.grid2 .lbl{margin-top:0}
+  .lbl .hint{letter-spacing:.03em;text-transform:none}
+  .hint2{font-size:12px;color:var(--dim);margin-top:8px}
+  .dim{color:var(--dim)}
+  .srcrow{display:flex;flex-wrap:wrap;gap:8px}
+  .srcbtn{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px 11px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;cursor:pointer;font-family:inherit;font-size:13.5px;text-align:left}
+  .srcbtn.on{border-color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber)}
+  .srcbtn:disabled{opacity:.45;cursor:not-allowed}
+  .srcbtn .cnt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--dim)}
+  .rel{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:1px 8px;border-radius:999px;border:1px solid;white-space:nowrap;text-transform:none;letter-spacing:0}
+  .sel,.num{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 10px;font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:14px;max-width:100%}
+  .sel{width:100%}
+  .sel.mini{width:auto;padding:5px 8px;font-size:13px}
+  .num{width:110px;font-family:"IBM Plex Mono",monospace}
+  .num.mini{width:74px;padding:5px 8px;font-size:13px}
+  .togrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .tog{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .tog.small{font-size:11px;padding:4px 10px}
+  .tog.on{background:#2a2410;border-color:var(--amber);color:var(--amber2)}
+  .tog .dash{display:block}
+  .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+  .odot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  input.filter.small{padding:7px 10px;font-size:13px;margin:0 0 8px}
+  .picks{display:flex;flex-direction:column;gap:4px;max-height:380px;overflow:auto}
+  .pick{display:grid;grid-template-columns:auto auto 1fr;gap:2px 10px;align-items:center;padding:7px 10px;border-radius:9px;background:var(--panel2);border:1px solid transparent;cursor:pointer}
+  .pick.on{border-color:var(--line);background:#222a3a}
+  .pick.dis{opacity:.45;cursor:not-allowed}
+  .pick input{accent-color:var(--amber);width:16px;height:16px}
+  .sw{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:12px;line-height:1;border:1px dashed var(--line);color:#0e1016}
+  .pn{font-size:14px}
+  .pd{grid-column:3;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:4px 0 10px;font-size:13px}
+  .lg{display:inline-flex;align-items:center;gap:6px}
+  .lgm{font-size:14px;line-height:1}
+  .lgl{display:inline-block;width:18px;height:3px;border-radius:2px}
+  .lgl.dashed{height:0;border-top:3px dashed;background:none}
+  .lgl.sq{width:12px;height:12px;border-radius:3px}
+  .chartbox.tall{height:340px}
+  .tscroll{overflow-x:auto;margin-top:12px}
+  .ctab{font-size:12px}
+  .ctab td,.ctab th{white-space:nowrap}
+  .ctab tr.sumrow td{border-top:1px solid var(--line);color:var(--amber2)}
+  .warn{font-size:13px;color:var(--amber2);background:rgba(240,164,74,.08);border:1px solid rgba(240,164,74,.35);border-radius:10px;padding:9px 12px;margin:10px 0 0;line-height:1.45}
+  .warn b{color:var(--amber)}
+  details.conds{margin-top:12px;font-size:13px;color:var(--muted)}
+  details.conds summary{cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--dim)}
+  .cond{margin:10px 0 0;font-size:13px}
+  ul.how{margin:8px 0 0 18px;line-height:1.55}
+  ul.how li{margin-bottom:4px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .ways{display:flex;flex-direction:column;gap:6px}
+  .way{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border-radius:10px;padding:10px}
+  .wdot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none;color:#0e1016;font-size:12px;margin-top:2px}
+  .wbody{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+  .wname{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+  .wmeta{font-size:12px;color:var(--dim)}
+  .xo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:4px 10px 4px 46px;font-size:13px}
+  .xol{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;min-width:92px}
+  .slope{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+  .cmpbtn{background:var(--panel2);border:1px solid var(--amber);color:var(--amber2);border-radius:10px;padding:8px 14px;font-size:14px;margin:0 0 14px 8px;cursor:pointer}
+  @media (max-width:640px){ .grid2{grid-template-columns:1fr} .xo{padding-left:10px} .chartbox.tall{height:300px} }
 </style>
 </head>
 <body>
@@ -105,6 +180,14 @@ function allDrivers(){
 }
 function roleRank(r){const i=ROLE_ORDER.indexOf(r);return i<0?99:i;}
 
+// ---- navigation shared by all views; the part after '#' in the address says which view is open ----
+function navHtml(page){
+  const t=[["","Drivers"],["compare","Compare"],["simulate","Simulate"]];
+  return `<nav class="tabs">${t.map(([h,l])=>`<a href="#${h}" class="${(page===h||(page==="driver"&&h===""))?"on":""}">${l}</a>`).join("")}</nav>`;
+}
+function clearCharts(){ charts.forEach(c=>c.destroy()); charts=[]; }
+function newChart(canvas,cfg){ const c=new Chart(canvas,cfg); charts.push(c); return c; }
+
 function condChips(c,source){
   if(!c||typeof c!=="object") c = c? {note:c}:{};
   let h="";
@@ -148,13 +231,13 @@ function renderChart(canvas,set){
 }
 
 function showList(){
-  charts.forEach(c=>c.destroy()); charts=[];
+  clearCharts(); document.getElementById("app").classList.remove("wide");
   const q=view.filter.toLowerCase();
   const items=allDrivers().filter(d=>(d.name+d.manufacturer+d.role+d.band+(d.findings||"")).toLowerCase().includes(q));
   items.sort((a,b)=> roleRank(a.role)-roleRank(b.role) || (a.name||"").localeCompare(b.name||""));
   const app=document.getElementById("app");
   const surveyN = SURVEY? SURVEY.drivers.length : 0;
-  app.innerHTML=`<div class="kick"><span style="color:var(--amber)">${BRAND}</span><span style="color:var(--dim)">${items.length} shown</span></div>
+  app.innerHTML=navHtml("")+`<div class="kick"><span style="color:var(--amber)">${BRAND}</span><span style="color:var(--dim)">${items.length} shown</span></div>
     <h1>Driver database</h1>
     <input class="filter" id="flt" placeholder="filter by name, role, finding…" value="${view.filter.replace(/"/g,'&quot;')}">
     <label class="ds"><input type="checkbox" id="surv" ${showSurvey?"checked":""}>
@@ -172,7 +255,7 @@ function showList(){
     const srcs=d.isComparison?[]:sourceNames(d);
     b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${sub}</div>`+
       (srcs.length?`<div class="srcs">${srcs.length>1?srcs.length+" sources: ":"source: "}${srcs.join(" · ")}</div>`:"");
-    b.onclick=()=>{view={mode:"detail",id:d.id,filter:view.filter};showDetail(d.id);}; list.appendChild(b);
+    b.onclick=()=>{ scrollY0=window.scrollY; location.hash="driver/"+encodeURIComponent(d.id); }; list.appendChild(b);
   });
   const f=document.getElementById("flt");
   f.addEventListener("input",e=>{view.filter=e.target.value;showList();setTimeout(()=>{const x=document.getElementById("flt");x.focus();x.setSelectionRange(view.filter.length,view.filter.length);},0);});
@@ -180,12 +263,12 @@ function showList(){
 }
 
 function showDetail(id){
-  charts.forEach(c=>c.destroy()); charts=[];
+  clearCharts(); document.getElementById("app").classList.remove("wide");
   const d=allDrivers().find(x=>x.id===id);
   const app=document.getElementById("app");
   const extra=Object.entries(TS_EXTRA).filter(([k])=>d.ts && d.ts[k]!=null && d.ts[k]!=="")
               .map(([k,u])=>`<b>${k}</b> ${d.ts[k]}${u?" "+u:""}`).join("  ·  ");
-  let h=`<button class="back" id="bk">← all drivers</button><h2>${d.name}</h2>
+  let h=navHtml("driver")+`<button class="back" id="bk">← all drivers</button>${d.isComparison?"":`<button class="cmpbtn" id="cmpd">compare with other drivers</button>`}<h2>${d.name}</h2>
     <div class="meta">${d.isComparison?("comparison · "+(d.comparesN||0)+" drivers"):[d.manufacturer,d.role,d.band].filter(Boolean).join(" · ")}</div>`;
   if(!d.isComparison){
     h+=`<div class="tsgrid">${TS.map(([k,u])=>`<div class="ts"><div class="k">${k}</div><div class="v">${d.ts&&d.ts[k]!=null&&d.ts[k]!==""?d.ts[k]+(u?'<span style="color:#7b859c;font-size:10px"> '+u+'</span>':''):'—'}</div></div>`).join("")}</div>
@@ -204,7 +287,7 @@ function showDetail(id){
         const f=familyOf(set), name=f?f.name:"Other";
         if(name!==lastFam){
           const n=ms.filter(x=>(familyOf(x)||{name:"Other"}).name===name).length;
-          h+=`<div class="srchdr"><span>${name}</span><span>${n} set${n!==1?"s":""}</span></div>`;
+          h+=`<div class="srchdr"><span>${name}${f&&f.reliability?` <b class="relt">· ${f.reliability}</b>`:""}</span><span>${n} set${n!==1?"s":""}</span></div>`;
           lastFam=name;
         }
       }
@@ -221,11 +304,26 @@ function showDetail(id){
   } else { h+=`<div class="empty">No measurements yet.</div>`; }
   if(d.findings) h+=`<div class="findings">${d.findings}</div>`;
   app.innerHTML=h;
-  document.getElementById("bk").onclick=()=>{view={mode:"list",id:null,filter:view.filter};showList();};
+  document.getElementById("bk").onclick=()=>{ location.hash=""; };
+  const cb=document.getElementById("cmpd"); if(cb) cb.onclick=()=>Tools.compareDriver(d.id);
   ms.forEach((set,i)=>{ if(set.chartType!=="table"){ const cv=document.getElementById("ch"+i); if(cv) renderChart(cv,set); } });
 }
 
-function boot(){ view.mode==="detail" && allDrivers().find(x=>x.id===view.id) ? showDetail(view.id) : showList(); }
+let scrollY0=0;
+function route(){
+  const h=location.hash.slice(1), page=h.split("?")[0];
+  if(page==="compare") return Tools.showCompare();
+  if(page==="simulate") return Tools.showSimulate();
+  if(page.startsWith("driver/")){
+    const id=decodeURIComponent(page.slice(7));
+    if(allDrivers().some(x=>x.id===id) || (SURVEY&&SURVEY.drivers.some(x=>x.id===id))){
+      if(!allDrivers().some(x=>x.id===id)) showSurvey=true;
+      showDetail(id); window.scrollTo(0,0); return;
+    }
+  }
+  showList(); window.scrollTo(0,scrollY0);
+}
+function boot(){ window.addEventListener("hashchange",route); route(); }
 
 // "no-cache" re-checks with the server on every visit but only downloads a file again when it changed.
 fetch(MAIN_DB,{cache:"no-cache"})
@@ -237,7 +335,9 @@ fetch(MAIN_DB,{cache:"no-cache"})
       fetch(SOURCES_CFG,{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null)
     ]).then(([s,c])=>{ SURVEY=s; FAMILIES=(c&&c.families)||[]; boot(); });
   })
-  .catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Couldn't load drivers.json — ${e.message}. Make sure it sits next to index.html in the repo.</div>`;});
+  .catch(e=>{document.getElementById("app").innerHTML= DB
+    ? `<div class="err">The page failed to start: ${e.message}. Check that compare-core.js, sim-core.js and tools.js sit next to index.html.</div>`
+    : `<div class="err">Couldn't load drivers.json — ${e.message}. Make sure it sits next to index.html in the repo.</div>`;});
 </script>
 </body>
 </html>

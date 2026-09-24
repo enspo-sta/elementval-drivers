@@ -3,10 +3,11 @@ name: Validate driver database
 on:
   push:
     paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
-            "watch/coverage.py", "watch/config.json", ".github/workflows/validate-db.yml"]
+            "watch/coverage.py", "watch/config.json", ".github/workflows/validate-db.yml",
+            "index.html", "*.js", "tests/**"]
   pull_request:
     paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
-            "watch/coverage.py", "watch/config.json"]
+            "watch/coverage.py", "watch/config.json", "index.html", "*.js", "tests/**"]
   workflow_dispatch:
 
 permissions:
@@ -21,6 +22,13 @@ jobs:
       - run: python3 watch/validate_db.py
       - name: Coverage list builds
         run: python3 watch/coverage.py --stdout > /dev/null
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Viewer scripts parse
+        run: for f in *.js; do node --check "$f"; done
+      - name: Viewer maths and comparison rules
+        run: node --test tests/*.test.js
 
   # After a database change lands on main, rebuild watch/coverage.md so the shortlist stays current.
   coverage:
