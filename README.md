@@ -11,6 +11,7 @@ Loudspeaker driver database (`drivers.json`, `drivers_survey_midbass.json`) and 
 | Open one issue for new measurement pages about drivers already in the database | after each scan | issues labelled `driver-update` |
 | Rebuild the list of where every driver is measured | after each scan, and after each database change on `main` | `watch/coverage.md` |
 | Check both database files | every push and pull request that changes them | `.github/workflows/validate-db.yml` |
+| Back up everything (software, database, full history) | Sundays 03:40 UTC | `.github/workflows/backup.yml`, see `BACKUP.md` |
 
 Watched sites, each kept as a separate source (edit `watch/config.json` to change them):
 

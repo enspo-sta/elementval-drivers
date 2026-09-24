@@ -6,7 +6,9 @@ name: Backup
 #                                          (restore with: git clone <file>)
 #   elementval-drivers-files-<date>.zip    the current files on main, usable without Git
 # The run first proves the backup restores, then keeps both files as a download on
-# the run page (Actions → Backup → the run → Artifacts) for 90 days.
+# the run page (Actions → Backup → the run → Artifacts) for 90 days, and, once the
+# secret GOOGLE_DRIVE_BACKUP_URL is set up (see BACKUP.md), also saves them in your
+# Google Drive, outside GitHub.
 on:
   schedule:
     - cron: "40 3 * * 0"          # Sundays 03:40 UTC
@@ -21,6 +23,8 @@ jobs:
   backup:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      DRIVE_URL: ${{ secrets.GOOGLE_DRIVE_BACKUP_URL }}   # empty until set up (BACKUP.md)
     steps:
       - name: Copy the repository with its full history
         env:
@@ -57,3 +61,29 @@ jobs:
           path: backup/
           retention-days: 90
           if-no-files-found: error
+
+      - name: Save the backup in Google Drive
+        if: env.DRIVE_URL != ''
+        run: |
+          for f in backup/*; do
+            name=$(basename "$f")
+            base64 -w 0 "$f" > body.txt
+            # the receiver answers through a redirect, so follow it (-L); curl then fetches the answer with GET
+            curl -sS -L --fail --max-time 120 -H "Content-Type: text/plain" --data-binary @body.txt \
+                 "${DRIVE_URL}?name=${name}" > answer.json
+            python3 - "$f" <<'PY'
+          import json, os, sys
+          answer = json.load(open("answer.json"))
+          size = os.path.getsize(sys.argv[1])
+          if not answer.get("ok") or answer.get("bytes") != size:
+              sys.exit(f"Google Drive did not store {sys.argv[1]} correctly: {answer}")
+          print(f"Saved in Google Drive: {answer['name']} ({size} bytes)")
+          PY
+          done
+          echo "Also saved in Google Drive, folder 'elementval-drivers backups'." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remind about the Google Drive copy
+        if: env.DRIVE_URL == ''
+        run: |
+          echo "::notice::Only kept on GitHub. To also keep a copy in your Google Drive, follow BACKUP.md (one-time, about 5 minutes)."
+          echo "Not copied outside GitHub yet: see BACKUP.md to add the Google Drive copy." >> "$GITHUB_STEP_SUMMARY"
