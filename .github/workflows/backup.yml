@@ -1,0 +1,59 @@
+name: Backup
+
+# Weekly backup of the whole repository: the viewer and scripts, the driver
+# database, and the full history of every branch. Each run makes two files:
+#   elementval-drivers-<date>.bundle       everything, with full history
+#                                          (restore with: git clone <file>)
+#   elementval-drivers-files-<date>.zip    the current files on main, usable without Git
+# The run first proves the backup restores, then keeps both files as a download on
+# the run page (Actions → Backup → the run → Artifacts) for 90 days.
+on:
+  schedule:
+    - cron: "40 3 * * 0"          # Sundays 03:40 UTC
+  workflow_dispatch:
+  push:                            # a change to this file runs it once as a test
+    paths: [".github/workflows/backup.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Copy the repository with its full history
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git clone --quiet --mirror "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo.git
+
+      - name: Make the backup files
+        run: |
+          d=$(date -u +%F)
+          mkdir backup
+          # branches and tags only (a mirror copy also carries GitHub's internal pull request references)
+          git -C repo.git bundle create "$PWD/backup/elementval-drivers-$d.bundle" HEAD --branches --tags
+          git -C repo.git bundle verify --quiet "$PWD/backup/elementval-drivers-$d.bundle"
+          git -C repo.git archive --format=zip -o "$PWD/backup/elementval-drivers-files-$d.zip" HEAD
+          echo "BACKUP_DATE=$d" >> "$GITHUB_ENV"
+
+      - name: Prove the backup restores
+        run: |
+          git clone --quiet "backup/elementval-drivers-${BACKUP_DATE}.bundle" restore-test
+          python3 -c "import json; [json.load(open(f'restore-test/{f}')) for f in ('drivers.json', 'drivers_survey_midbass.json')]"
+          test -s restore-test/index.html
+          echo "Restored $(git -C restore-test rev-list --all --count) commits on $(git -C restore-test branch -r | grep -vc HEAD) branches"
+          ls -la backup
+          {
+            echo "### Backup ${BACKUP_DATE}"
+            echo ""
+            echo "Restored and checked: $(git -C restore-test rev-list --all --count) commits; drivers.json and index.html present."
+            echo "Download it under **Artifacts** below (kept 90 days)."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: elementval-drivers-backup-${{ env.BACKUP_DATE }}
+          path: backup/
+          retention-days: 90
+          if-no-files-found: error

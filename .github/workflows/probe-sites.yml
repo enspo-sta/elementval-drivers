@@ -26,19 +26,10 @@ jobs:
               s = re.sub(r"<(script|style|noscript|nav|header|footer)\b.*?</\1>", " ", s, flags=re.S | re.I)
               return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
           pages = [
-            "https://docs.github.com/en/repositories/creating-and-managing-repositories/restoring-a-deleted-repository",
-            "https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository",
-            "https://docs.github.com/en/desktop/overview/about-github-desktop",
-            "https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop",
-            "https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop",
-            "https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts",
-            "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow",
-            "https://docs.codeberg.org/getting-started/faq/",
-            "https://codeberg.org/Codeberg/org/raw/branch/main/TermsOfUse.md",
-            "https://docs.codeberg.org/advanced/access-token/",
-            "https://docs.codeberg.org/git/using-ssh/",
-            "https://codeberg.org/Codeberg/org/raw/branch/main/Imprint.md",
-            "https://git-scm.com/docs/git-bundle",
+            "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication",
+            "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods",
+            "https://github.com/actions/upload-artifact/releases/latest",
+            "https://desktop.github.com/download/",
           ]
           for u in pages:
               st, fu, b = get(u)
