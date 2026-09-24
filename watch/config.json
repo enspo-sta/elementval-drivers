@@ -1,22 +1,14 @@
 {
-  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemaps are followed one level into child sitemaps). 'brands' limits which model-number patterns are applied to that source. Add a model key to 'ignore' to stop it being reported.",
-  "brands": {
-    "Purifi": "(?<![A-Za-z0-9])PTT\\s?\\d{1,2}(?:[.\\-]\\d{1,2})?\\s?[A-Z]\\d{2}[\\s\\-]?[A-Z]{3}[\\s\\-]?\\d{2}[A-Z]?(?![A-Za-z0-9])",
-    "SB Acoustics": "(?<![A-Za-z0-9])SB\\d{2}[A-Z]{2,8}\\d{0,3}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])",
-    "SB Acoustics Satori": "(?<![A-Za-z0-9])(?:WO|MW|MR|TW|WB)\\d{2}[A-Z]{0,6}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])",
-    "BlieSMa": "(?<![A-Za-z0-9])[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2}(?![A-Za-z0-9])"
-  },
+  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemap indexes are followed into their child sitemaps; HTML start pages are followed one level into same-site product-looking links). 'patterns' maps a pattern name to {brand, regex}; if the regex has a named group 'model', only that part is the model number. A source lists the pattern names it applies. Add a model number to 'ignore' to stop it being reported.",
   "sources": [
     {
       "name": "Purifi",
       "home": "https://purifi-audio.com/",
       "start": [
         "https://purifi-audio.com/",
-        "https://purifi-audio.com/sitemap.xml",
-        "https://purifi-audio.com/sitemap_index.xml",
-        "https://purifi-audio.com/wp-sitemap.xml"
+        "https://purifi-audio.com/sitemap.xml"
       ],
-      "brands": [
+      "patterns": [
         "Purifi"
       ]
     },
@@ -26,24 +18,26 @@
       "start": [
         "https://sbacoustics.com/",
         "https://sbacoustics.com/sitemap.xml",
-        "https://sbacoustics.com/sitemap_index.xml",
-        "https://sbacoustics.com/wp-sitemap.xml"
+        "https://sbacoustics.com/sitemap_index.xml"
       ],
-      "brands": [
+      "patterns": [
         "SB Acoustics",
         "SB Acoustics Satori"
       ]
     },
     {
       "name": "BlieSMa",
-      "home": "https://www.bliesma.com/",
+      "home": "https://bliesma.com/",
       "start": [
+        "https://bliesma.com/",
         "https://www.bliesma.com/",
-        "https://www.bliesma.com/sitemap.xml",
-        "https://bliesma.com/sitemap.xml"
+        "https://bliesma.de/",
+        "https://www.bliesma.de/",
+        "https://bliesma.com/sitemap.xml",
+        "https://bliesma.de/sitemap.xml"
       ],
-      "brands": [
-        "BlieSMa"
+      "patterns": [
+        "BlieSMa (manufacturer site)"
       ]
     },
     {
@@ -54,10 +48,11 @@
         "https://hificompass.com/sitemap.xml",
         "https://hificompass.com/en/speakers/measurements"
       ],
-      "brands": [
+      "patterns": [
         "Purifi",
         "SB Acoustics",
-        "SB Acoustics Satori"
+        "SB Acoustics Satori",
+        "BlieSMa (named)"
       ]
     },
     {
@@ -68,13 +63,35 @@
         "https://www.erinsaudiocorner.com/sitemap.xml",
         "https://www.erinsaudiocorner.com/driveunits/"
       ],
-      "brands": [
+      "patterns": [
         "Purifi",
         "SB Acoustics",
         "SB Acoustics Satori",
-        "BlieSMa"
+        "BlieSMa (named)"
       ]
     }
   ],
-  "ignore": []
+  "ignore": [],
+  "patterns": {
+    "Purifi": {
+      "brand": "Purifi",
+      "regex": "(?<![A-Za-z0-9])PTT\\s?\\d{1,2}(?:[.\\-]\\d{1,2})?\\s?[A-Z]-?\\d{2}[\\s\\-]?[A-Z]{3}[\\s\\-]?\\d{2}[A-Z]?(?![A-Za-z0-9])"
+    },
+    "SB Acoustics": {
+      "brand": "SB Acoustics",
+      "regex": "(?<![A-Za-z0-9])SB\\d{2}[A-Z]{2,8}\\d{0,3}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])"
+    },
+    "SB Acoustics Satori": {
+      "brand": "SB Acoustics Satori",
+      "regex": "(?<![A-Za-z0-9])(?:WO|MW|MR|TW|WB)\\d{2}[A-Z]{0,6}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])"
+    },
+    "BlieSMa (manufacturer site)": {
+      "brand": "BlieSMa",
+      "regex": "(?<![A-Za-z0-9])[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2}(?![A-Za-z0-9])"
+    },
+    "BlieSMa (named)": {
+      "brand": "BlieSMa",
+      "regex": "(?i:bliesma)[\\s_\\-/]{1,3}(?P<model>[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2})(?![A-Za-z0-9])"
+    }
+  }
 }

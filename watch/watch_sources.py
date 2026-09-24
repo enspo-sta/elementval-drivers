@@ -37,6 +37,7 @@ DATABASES = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/124.0 Safari/537.36 elementval-drivers-watcher/1.0 "
       "(+https://github.com/enspo-sta/elementval-drivers)")
+IMAGE = re.compile(r"\.(jpe?g|png|gif|webp|svg|avif)(\?|$)", re.I)   # gallery file names are not products
 FOLLOW_HINT = re.compile(r"product|driver|speaker|woofer|tweeter|mid|bass|satori|ptt|measure|shop|range|series",
                          re.I)
 MAX_CHILD_SITEMAPS = 40
@@ -52,7 +53,8 @@ def key_of(model):
 def pretty(model):
     """Display form. Slugs such as ptt6-5x04-naa-08 get their decimal point back."""
     m = model.upper().replace(" ", "")
-    return re.sub(r"^PTT(\d{1,2})-(\d{1,2})(?=[A-Z])", r"PTT\1.\2", m)
+    m = re.sub(r"^PTT(\d{1,2})-(\d{1,2})(?=[A-Z])", r"PTT\1.\2", m)
+    return re.sub(r"^(PTT[\d.]+[A-Z])-(\d{2})", r"\1\2", m)       # ptt6.5m-08 -> PTT6.5M08
 
 
 def fetch(url):
@@ -70,14 +72,23 @@ def page_parts(base, text):
     if re.search(r"<(urlset|sitemapindex)\b", text[:2000]):
         for loc in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", text):
             loc = html.unescape(loc)
-            yield loc, urllib.parse.unquote(loc)
+            if not IMAGE.search(loc):
+                yield loc, urllib.parse.unquote(loc)
         return
     for href, label in re.findall(r"<a\b[^>]*href=[\"']([^\"'#]+)[\"'][^>]*>(.*?)</a>", text, re.I | re.S):
         url = urllib.parse.urljoin(base, html.unescape(href))
+        if IMAGE.search(url):
+            continue
         yield url, urllib.parse.unquote(url)
         yield url, html.unescape(re.sub(r"<[^>]+>", " ", label))
     body = re.sub(r"<(script|style)\b.*?</\1>", " ", text, flags=re.I | re.S)
     yield base, html.unescape(re.sub(r"<[^>]+>", " ", body))
+
+
+def match_models(pattern, text):
+    """Model numbers in text; a named group 'model' narrows the match to just the model number."""
+    for m in pattern.finditer(text):
+        yield m.group("model") if "model" in pattern.groupindex else m.group(0)
 
 
 def scan_source(src, patterns, log):
@@ -109,12 +120,13 @@ def scan_source(src, patterns, log):
                     queue.append(ev)
                     child_sitemaps += 1
                 continue
-            for brand in src["brands"]:
-                for m in patterns[brand].finditer(chunk):
-                    k = key_of(m.group(0))
-                    rec = found.setdefault(k, {"brand": brand, "display": pretty(m.group(0)), "urls": []})
-                    if "." in m.group(0) and not ev.endswith(".xml"):
-                        rec["display"] = pretty(m.group(0))     # prefer the printed form over a slug
+            for pname in src["patterns"]:
+                brand, rx = patterns[pname]
+                for model in match_models(rx, chunk):
+                    k = key_of(model)
+                    rec = found.setdefault(k, {"brand": brand, "display": pretty(model), "urls": []})
+                    if "." in model and not ev.endswith(".xml"):
+                        rec["display"] = pretty(model)          # prefer the printed form over a slug
                     if ev not in rec["urls"]:
                         rec["urls"].append(ev)
             # Follow same-site product-looking links from HTML start pages (one level only).
@@ -135,9 +147,9 @@ def database_keys(patterns):
         if not path.exists():
             continue
         for d in json.loads(path.read_text()).get("drivers", []):
-            for p in patterns.values():
-                for m in p.finditer(f"{d.get('name', '')} {d.get('id', '')}"):
-                    keys.setdefault(key_of(m.group(0)), d.get("id"))
+            for _, rx in patterns.values():
+                for model in match_models(rx, f"{d.get('name', '')} {d.get('id', '')}"):
+                    keys.setdefault(key_of(model), d.get("id"))
     return keys
 
 
@@ -150,7 +162,7 @@ def main():
     log = lambda s: print(s, flush=True)
 
     cfg = json.loads(CONFIG.read_text())
-    patterns = {b: re.compile(p, re.I) for b, p in cfg["brands"].items()}
+    patterns = {n: (p["brand"], re.compile(p["regex"], re.I)) for n, p in cfg["patterns"].items()}
     ignore = {key_of(x) for x in cfg.get("ignore", [])}
     in_db = database_keys(patterns)
     baseline = not STATE.exists()
