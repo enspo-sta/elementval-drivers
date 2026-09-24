@@ -130,8 +130,10 @@ def scan_source(src, patterns, log, aliases=None):
                         rec["display"] = pretty(model)          # prefer the printed form over a slug
                     if ev not in rec["urls"]:
                         rec["urls"].append(ev)
-                    if src["_measured"].search(urllib.parse.urlparse(ev).path) and ev not in rec["measured"]:
-                        rec["measured"].append(ev)
+                    evp = urllib.parse.urlparse(ev)
+                    if (evp.netloc.removeprefix("www.") == host and src["_measured"].search(evp.path)
+                            and ev not in rec["measured"]):
+                        rec["measured"].append(ev)          # a measurement page on the source's own site
             # Follow same-site links that match the source's 'follow' pattern.
             if may_follow and not ev.lower().endswith((".pdf", ".jpg", ".png", ".zip", ".xml")):
                 p = urllib.parse.urlparse(ev)
