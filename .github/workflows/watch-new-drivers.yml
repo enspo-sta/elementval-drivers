@@ -30,7 +30,7 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       DRY_RUN: ${{ github.event_name == 'push' || inputs.dry_run == true }}
     steps:

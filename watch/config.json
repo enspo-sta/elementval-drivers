@@ -1,5 +1,5 @@
 {
-  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemap indexes are followed into their child sitemaps; HTML start pages are followed one level into same-site product-looking links). 'patterns' maps a pattern name to {brand, regex}; if the regex has a named group 'model', only that part is the model number. A source lists the pattern names it applies. Add a model number to 'ignore' to stop it being reported.",
+  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemap indexes are followed into their child sitemaps; HTML start pages are followed one level into same-site product-looking links). 'patterns' maps a pattern name to {brand, regex}; if the regex has a named group 'model', only that part is the model number. A source lists the pattern names it applies. Add a model number to 'ignore' to stop it being reported. 'delay_s' (optional, default 1) is the pause between pages for that source; HiFiCompass asks for 10 s in https://hificompass.com/robots.txt.",
   "sources": [
     {
       "name": "Purifi",
@@ -48,7 +48,8 @@
         "SB Acoustics",
         "SB Acoustics Satori",
         "BlieSMa (named)"
-      ]
+      ],
+      "delay_s": 10
     },
     {
       "name": "Erin's Audio Corner",

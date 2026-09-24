@@ -42,7 +42,7 @@ FOLLOW_HINT = re.compile(r"product|produkt|driver|speaker|lautsprecher|chassis|w
                          re.I)
 MAX_CHILD_SITEMAPS = 40
 MAX_FOLLOW_PAGES = 60
-DELAY_S = 1.0
+DELAY_S = 1.0                 # default pause between pages; a source can set its own 'delay_s'
 
 
 def key_of(model):
@@ -125,7 +125,7 @@ def scan_source(src, patterns, log):
             log(f"  ! {url}: {e}")
             continue
         finally:
-            time.sleep(DELAY_S)
+            time.sleep(src.get("delay_s", DELAY_S))
 
         is_index = bool(re.search(r"<sitemapindex\b", text[:2000]))
         for ev, chunk in page_parts(final, text):
