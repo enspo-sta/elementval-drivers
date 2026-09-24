@@ -44,7 +44,7 @@
     const p = new URLSearchParams();
     for (const [k, v] of Object.entries(obj)) if (v != null && v !== "") p.set(k, v);
     const s = p.toString();
-    history.replaceState(null, "", "#" + page + (s ? "?" + s : ""));
+    try { history.replaceState(null, "", "#" + page + (s ? "?" + s : "")); } catch (e) { /* some embedded frames refuse; the view still works */ }
   }
   const pct = v => (v == null ? null : SC.dbToPct(v));
   const fmtDb = v => (v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(1) + " dB");
