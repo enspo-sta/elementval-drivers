@@ -1,8 +1,7 @@
-// Tests for sim-core.js (crossover and distortion maths). Run: node --test tests/
-"use strict";
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const S = require("../sim-core.js");
+// Tests for app/core/sim.js (crossover and distortion maths). Run: node --test tests/
+import test from "node:test";
+import assert from "node:assert/strict";
+import * as S from "../app/core/sim.js";
 const { abs, add, C } = S._c;
 const dB = x => 20 * Math.log10(x);
 const near = (a, b, tol, msg) => assert.ok(Math.abs(a - b) <= tol, `${msg}: ${a} is not within ${tol} of ${b}`);
@@ -146,4 +145,19 @@ test("dbToPct converts dB re fundamental to percent", () => {
   near(S.dbToPct(-40), 1, 1e-12, "-40 dB");
   near(S.dbToPct(-60), 0.1, 1e-12, "-60 dB");
   assert.equal(S.dbToPct(null), null);
+});
+
+test("simulate: several measured levels are interpolated at the level the driver plays at", () => {
+  const at = y => [{ x: 10, y }, { x: 30000, y }];
+  const way = { name: "two levels", curves: [{ L0: 90, hd: { H2: at(-60) } }, { L0: 100, hd: { H2: at(-50) } }], slope: () => 1 };
+  near(S.harmonicAt(way, "H2", 1000, 95), -55, 1e-9, "halfway between 90 and 100 dB");
+  near(S.harmonicAt(way, "H2", 1000, 90), -60, 1e-9, "at the lower level");
+  near(S.harmonicAt(way, "H2", 1000, 104), -46, 1e-9, "above the highest level: slope 1 from 100 dB");
+  near(S.harmonicAt(way, "H2", 1000, 85), -65, 1e-9, "below the lowest level: slope 1 from 90 dB");
+  assert.equal(S.harmonicAt(way, "H3", 1000, 95), null, "no curve for H3");
+  // a level that covers only part of the band: outside it the other level is used alone
+  const part = { name: "part", curves: [{ L0: 90, hd: { H2: at(-60) } }, { L0: 100, hd: { H2: [{ x: 100, y: -50 }, { x: 500, y: -50 }] } }], slope: () => 1 };
+  near(S.harmonicAt(part, "H2", 2000, 95), -55, 1e-9, "only the 90 dB curve has 2 kHz: moved up 5 dB");
+  const r = S.simulate({ freqs: [100], target: 95, orders: ["H2"], points: [{ fc: 2000, type: "LR4" }], ways: [way, flatDriver("high", 95)] });
+  near(r.system.H2[0], -55, 0.01, "speaker H2 from the interpolated level");
 });

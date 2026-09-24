@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": 4,
-    "updated": "2026-06-15",
+    "updated": "2026-09-24",
     "schema": "driver-db/v4 self-describing measurements (line|bar|table) + comparisons[]",
     "policy": "identities are never merged; every measurement carries a source; proxy variants are separate records"
   },
@@ -13,20 +13,21 @@
       "role": "midrange",
       "band": "midrange (mfr HP 2nd-order Butterworth @200 Hz)",
       "ts": {
-        "Fs": "38",
-        "Qts": "0.31",
-        "Vas": "21.6",
-        "Sd": "132.7",
-        "Xmax": "2.9",
-        "Bl": "9.6",
-        "Re": "6.2",
-        "Le": "0.36"
+        "Fs": 38,
+        "Qts": 0.31,
+        "Vas": 21.6,
+        "Sd": 132.7,
+        "Xmax": 2.9,
+        "Bl": 9.6,
+        "Re": 6.2,
+        "Le": 0.36
       },
       "findings": "Dedicated 6.5\" aluminium-cone midrange, PURIFI neutral surround. Qms 6.7, Qes 0.33, Mms 20.8 g, Cms 0.87 mm/N, D 13.0 cm, SPL 87.9 dB@2.83V/1m, mech Xmax +/-14.5 mm. Pixel-extracted: IMD Figs 10/11 (Purifi conv. 94 dB/1m, ~+/-2 dB); Fig.6 SPL HD H2/H3 600 Hz-3 kHz (<~550 Hz hidden by legend; fundamental ref 94 dB so ratio = value-94); Fig.7 current-domain HD vs freq @2.83 V. Fig.9 (HD-vs-level @250/1000 Hz) NOT extracted: black gridlines collide with black H2 curves and the blue 250/1000 Hz curves cross ~95-100 dB, so clean auto-separation isn't reliable - needs manual digitization. Figs 3/4 (Bl/Le vs x) not logged.",
       "source": "Purifi datasheet PTT6.5M08-NAA-08 v1.02 (Oct 2024)",
       "measurements": [
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "Purifi conv. 250 + 2125 Hz",
           "conditions": {
             "spl_db": 94,
@@ -76,6 +77,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "Purifi conv. 500 + 4250 Hz",
           "conditions": {
             "spl_db": 94,
@@ -129,6 +131,7 @@
         },
         {
           "type": "HD (orders)",
+          "kind": "hd-frequency",
           "method": "datasheet Fig.6 (harmonic SPL vs freq)",
           "conditions": {
             "spl_db": 94,
@@ -235,6 +238,7 @@
         },
         {
           "type": "HD (current-domain)",
+          "kind": "hd-current",
           "method": "datasheet Fig.7 (current HD vs freq)",
           "conditions": {
             "drive": "2.83 Vrms",
@@ -365,20 +369,21 @@
       "role": "woofer / midbass",
       "band": "20–300 Hz (system LF/midbass)",
       "ts": {
-        "Fs": "26",
-        "Qts": "0.36",
-        "Vas": "70.4",
-        "Sd": "235.1",
-        "Xmax": "9.3",
-        "Bl": "8.0",
-        "Re": "3.5",
-        "Le": "0.18"
+        "Fs": 26,
+        "Qts": 0.36,
+        "Vas": 70.4,
+        "Sd": 235.1,
+        "Xmax": 9.3,
+        "Bl": 8.0,
+        "Re": 3.5,
+        "Le": 0.18
       },
       "findings": "X04 long-throw 8\" woofer. n94 band Gm: 300–2.5k −55.8, 80–300 −54.6 dB (high conf). Holds midrange linearity through the midbass (H3 −71.8 @80–300). Level sweep @125 Hz: H3 slope only 1.51 dB/dB (sub-cubic) — distortion barely accelerates with excursion. @1 kHz H3 is level-invariant (slope −0.33). Displacement-limited max SPL 111 dB @80 Hz (single, 2π). At system level its case rests on Fig.10 IMD (30+255 Hz) under simultaneous load — swept-sine HD washes out vs the 6.5.",
       "source": "Purifi datasheet PTT8.0X04-NAB-01 v1.00 (Jun 2023)",
       "measurements": [
         {
           "type": "HD vs frequency (ratio)",
+          "kind": "hd-frequency",
           "method": "swept sine, Gm = 20log10(√((2d2)²+(4.5d3)²))",
           "conditions": {
             "spl_db": 94,
@@ -1100,6 +1105,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "30 + 255 Hz",
           "conditions": {
             "spl_db": 80,
@@ -1194,6 +1200,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "50 + 425 Hz",
           "conditions": {
             "spl_db": 80,
@@ -1248,6 +1255,7 @@
         },
         {
           "type": "HD vs SPL (level sweep)",
+          "kind": "hd-level",
           "method": "0–28.3 Vrms (woofer) / 0–14 Vrms (tweeter); ratio-slope: quad H2=1, cubic H3=2 dB/dB",
           "conditions": {
             "distance_mm": 1000,
@@ -2185,6 +2193,7 @@
         },
         {
           "type": "Max SPL (displacement model)",
+          "kind": "max-spl",
           "method": "sealed rigid piston 2π 1m single unit at Xmax (modeled, not measured)",
           "conditions": {
             "distance_mm": 1000,
@@ -2703,20 +2712,21 @@
       "role": "midbass / mid",
       "band": "80 Hz–2.5 kHz",
       "ts": {
-        "Fs": "32",
-        "Qts": "0.35",
-        "Vas": "20.5",
-        "Sd": "132.7",
-        "Xmax": "9.8",
-        "Bl": "7.8",
-        "Re": "3.7",
-        "Le": "0.36"
+        "Fs": 32,
+        "Qts": 0.35,
+        "Vas": 20.5,
+        "Sd": 132.7,
+        "Xmax": 9.8,
+        "Bl": 7.8,
+        "Re": 3.7,
+        "Le": 0.36
       },
       "findings": "X04 6.5\" (NAA-08, aluminium). n94 Gm: 300–2.5k −54.8, 80–300 −46.3 dB. ~8 dB behind the 8.0 in midbass at equal SPL (excursion tax, Sd 132.7). Level sweep @125 Hz H3 slope 0.69 dB/dB; @1 kHz H3 level-invariant. Max SPL 107 dB @80 Hz single. NOTE: this is the X04 woofer, distinct from the M08 midrange entry.",
       "source": "Purifi datasheet PTT6.5X04-NAA-08 v1.01 (Apr 2023)",
       "measurements": [
         {
           "type": "HD vs frequency (ratio)",
+          "kind": "hd-frequency",
           "method": "swept sine, Gm = 20log10(√((2d2)²+(4.5d3)²))",
           "conditions": {
             "spl_db": 94,
@@ -3398,6 +3408,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "30 + 255 Hz",
           "conditions": {
             "spl_db": 80,
@@ -3496,6 +3507,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "50 + 425 Hz",
           "conditions": {
             "spl_db": 80,
@@ -3578,6 +3590,7 @@
         },
         {
           "type": "HD vs SPL (level sweep)",
+          "kind": "hd-level",
           "method": "0–28.3 Vrms (woofer) / 0–14 Vrms (tweeter); ratio-slope: quad H2=1, cubic H3=2 dB/dB",
           "conditions": {
             "distance_mm": 1000,
@@ -4379,6 +4392,7 @@
         },
         {
           "type": "Max SPL (displacement model)",
+          "kind": "max-spl",
           "method": "sealed rigid piston 2π 1m single unit at Xmax (modeled, not measured)",
           "conditions": {
             "distance_mm": 1000,
@@ -4897,20 +4911,21 @@
       "role": "midrange",
       "band": "300 Hz–2.5 kHz",
       "ts": {
-        "Fs": "29",
-        "Qts": "0.27",
-        "Vas": "11.8",
-        "Sd": "84.9",
-        "Xmax": "9.8",
-        "Bl": "7.9",
-        "Re": "3.6",
-        "Le": "0.37"
+        "Fs": 29,
+        "Qts": 0.27,
+        "Vas": 11.8,
+        "Sd": 84.9,
+        "Xmax": 9.8,
+        "Bl": 7.9,
+        "Re": 3.6,
+        "Le": 0.37
       },
       "findings": "X04 5.25\" (NAA-05). n94 Gm: 300–2.5k −53.7, 80–300 −43.2 dB. Cleanest small cone above 300 Hz but pays the excursion tax below. @125 Hz H3 slope 0.79. Needs 36% of Xmax for 94 dB @80 Hz. Max SPL 103 dB @80 Hz single.",
       "source": "Purifi datasheet PTT5.25X04-NAA-05 v1.00 (Dec 2025)",
       "measurements": [
         {
           "type": "HD vs frequency (ratio)",
+          "kind": "hd-frequency",
           "method": "swept sine, Gm = 20log10(√((2d2)²+(4.5d3)²))",
           "conditions": {
             "spl_db": 94,
@@ -5600,6 +5615,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "30 + 255 Hz",
           "conditions": {
             "spl_db": 80,
@@ -5698,6 +5714,7 @@
         },
         {
           "type": "IMD (two-tone)",
+          "kind": "imd-spectrum",
           "method": "50 + 425 Hz",
           "conditions": {
             "spl_db": 80,
@@ -5792,6 +5809,7 @@
         },
         {
           "type": "HD vs SPL (level sweep)",
+          "kind": "hd-level",
           "method": "0–28.3 Vrms (woofer) / 0–14 Vrms (tweeter); ratio-slope: quad H2=1, cubic H3=2 dB/dB",
           "conditions": {
             "distance_mm": 1000,
@@ -6529,6 +6547,7 @@
         },
         {
           "type": "Max SPL (displacement model)",
+          "kind": "max-spl",
           "method": "sealed rigid piston 2π 1m single unit at Xmax (modeled, not measured)",
           "conditions": {
             "distance_mm": 1000,
@@ -7039,6 +7058,7 @@
         },
         {
           "type": "HD (orders) vs frequency @ 94 dB",
+          "kind": "hd-frequency",
           "method": "swept-sine, HPF-comp, level-normalized to 94 dB",
           "conditions": {
             "spl_db": 94,
@@ -9439,6 +9459,7 @@
         },
         {
           "type": "94 dB band metrics",
+          "kind": "thd-bands",
           "method": "THD / GedLee-weighted Gm",
           "conditions": {
             "spl_db": 94
@@ -9489,20 +9510,15 @@
       "role": "tweeter (waveguide)",
       "band": "≥1.8 kHz",
       "ts": {
-        "Fs": "",
-        "Qts": "",
-        "Vas": "",
-        "Sd": "",
-        "Xmax": "0.5",
-        "Bl": "",
-        "Re": "4.6",
-        "Le": ""
+        "Xmax": 0.5,
+        "Re": 4.6
       },
       "findings": "1.3\" dome, 104 mm waveguide. 1–20k power avg: H2 −50.2, H3 −78.9, Gm −44.1 dB at 94 dB. H2-dominated, H3 at floor above 2k. CRITICAL: H3 @1 kHz grows at 2.25 dB/dB — −55.4 @94 dB but −43.6 @100 dB. Clean crossover floor at 94 dB is not clean at 100+. ~1.5–2 dB cleaner than HAG-01.",
       "source": "Purifi datasheet PTT1.3T04-HAG-10 v1.00 (Jan 2026)",
       "measurements": [
         {
           "type": "HD vs frequency (ratio)",
+          "kind": "hd-frequency",
           "method": "swept sine, Gm = 20log10(√((2d2)²+(4.5d3)²))",
           "conditions": {
             "spl_db": 94,
@@ -9964,6 +9980,7 @@
         },
         {
           "type": "HD vs SPL (level sweep)",
+          "kind": "hd-level",
           "method": "0–28.3 Vrms (woofer) / 0–14 Vrms (tweeter); ratio-slope: quad H2=1, cubic H3=2 dB/dB",
           "conditions": {
             "distance_mm": 1000,
@@ -11499,20 +11516,15 @@
       "role": "tweeter (waveguide)",
       "band": "≥1.8 kHz",
       "ts": {
-        "Fs": "",
-        "Qts": "",
-        "Vas": "",
-        "Sd": "",
-        "Xmax": "0.5",
-        "Bl": "",
-        "Re": "4.6",
-        "Le": ""
+        "Xmax": 0.5,
+        "Re": 4.6
       },
       "findings": "1.3\" dome, 104 mm waveguide (HAG-01). 1–20k power avg: H2 −48.6, H3 −70.7, Gm −42.5 dB. H3 @1 kHz slope 1.5 dB/dB (−50.9 @94 → −43.0 @100). Slightly higher LF distortion than HAG-10; both argue against crossing the dome low at high SPL.",
       "source": "Purifi datasheet PTT1.3T04-HAG-01 v1.00 (Jan 2026)",
       "measurements": [
         {
           "type": "HD vs frequency (ratio)",
+          "kind": "hd-frequency",
           "method": "swept sine, Gm = 20log10(√((2d2)²+(4.5d3)²))",
           "conditions": {
             "spl_db": 94,
@@ -11974,6 +11986,7 @@
         },
         {
           "type": "HD vs SPL (level sweep)",
+          "kind": "hd-level",
           "method": "0–28.3 Vrms (woofer) / 0–14 Vrms (tweeter); ratio-slope: quad H2=1, cubic H3=2 dB/dB",
           "conditions": {
             "distance_mm": 1000,
@@ -13423,6 +13436,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency",
+          "kind": "hd-frequency",
           "method": "swept-sine, ratio to fundamental",
           "conditions": {
             "spl_db": 91,
@@ -13596,6 +13610,7 @@
         },
         {
           "type": "Band THD @ 91 dB",
+          "kind": "thd-bands",
           "method": "power-averaged THD (integrated from HD curve)",
           "conditions": {
             "spl_db": 91
@@ -13624,6 +13639,7 @@
         },
         {
           "type": "Max SPL (model)",
+          "kind": "max-spl",
           "method": "min(excursion Sd*Xmax*f^2, thermal sens+10logPe), sealed/IB",
           "conditions": {
             "distance_mm": 1000,
@@ -13715,6 +13731,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency",
+          "kind": "hd-frequency",
           "method": "swept-sine, ratio to fundamental",
           "conditions": {
             "spl_db": 91,
@@ -13888,6 +13905,7 @@
         },
         {
           "type": "Band THD @ 91 dB",
+          "kind": "thd-bands",
           "method": "power-averaged THD (integrated from HD curve)",
           "conditions": {
             "spl_db": 91
@@ -13916,6 +13934,7 @@
         },
         {
           "type": "Max SPL (model)",
+          "kind": "max-spl",
           "method": "min(excursion Sd*Xmax*f^2, thermal sens+10logPe), sealed/IB",
           "conditions": {
             "distance_mm": 1000,
@@ -13978,6 +13997,7 @@
         },
         {
           "type": "IMD two-tone 30+255 Hz (4:1)",
+          "kind": "imd-summary",
           "method": "ARTA two-tone, summary metrics",
           "conditions": {
             "f1": "30 Hz",
@@ -14070,6 +14090,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency",
+          "kind": "hd-frequency",
           "method": "swept-sine, ratio to fundamental",
           "conditions": {
             "spl_db": 91,
@@ -14243,6 +14264,7 @@
         },
         {
           "type": "Band THD @ 91 dB",
+          "kind": "thd-bands",
           "method": "power-averaged THD (integrated from HD curve)",
           "conditions": {
             "spl_db": 91
@@ -14271,6 +14293,7 @@
         },
         {
           "type": "Max SPL (model)",
+          "kind": "max-spl",
           "method": "min(excursion Sd*Xmax*f^2, thermal Lm+10logPe), 1W-sens basis",
           "conditions": {
             "distance_mm": 1000,
@@ -14333,6 +14356,7 @@
         },
         {
           "type": "HD (orders) vs frequency @ 94 dB",
+          "kind": "hd-frequency",
           "method": "swept-sine, HPF-comp, level-normalized to 94 dB",
           "conditions": {
             "spl_db": 94,
@@ -16736,6 +16760,7 @@
         },
         {
           "type": "94 dB band metrics",
+          "kind": "thd-bands",
           "method": "THD / GedLee-weighted Gm",
           "conditions": {
             "spl_db": 94
@@ -16803,6 +16828,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency",
+          "kind": "hd-frequency",
           "method": "swept-sine, ratio to fundamental",
           "conditions": {
             "spl_db": 91,
@@ -16976,6 +17002,7 @@
         },
         {
           "type": "Band THD @ 91 dB",
+          "kind": "thd-bands",
           "method": "power-averaged THD (integrated from HD curve)",
           "conditions": {
             "spl_db": 91
@@ -17004,6 +17031,7 @@
         },
         {
           "type": "Max SPL (model)",
+          "kind": "max-spl",
           "method": "min(excursion Sd*Xmax*f^2, thermal Lm+10logPe est), 1W-sens basis",
           "conditions": {
             "distance_mm": 1000,
@@ -17066,6 +17094,7 @@
         },
         {
           "type": "IMD two-tone 30+255 Hz (4:1)",
+          "kind": "imd-summary",
           "method": "ARTA two-tone, summary metrics",
           "conditions": {
             "f1": "30 Hz",
@@ -17138,20 +17167,20 @@
         "Sd_total_cm2": 1016,
         "Xmax": 10,
         "Vd_total_cm3": 1016,
-        "Pe_total_W": 400,
-        "note": "2x SB34NRXL75-8"
+        "Pe_total_W": 400
       },
-      "findings": "Lowest THD of the five across 20-600 Hz (0.45%) and highest max SPL (+6 dB everywhere, 120 dB plateau), at ~half the cost of one PTT10. THD reduction is H2-dominated; H3/H5 sub-linear so drop only ~3-4 dB. Costs 2x cabinet volume + 2nd channel. Beats single PTT10 on distortion, max SPL and cost for deep bass.",
+      "findings": "Two SB34NRXL75-8 driven together (calculated from the single driver). Lowest THD of the five across 20-600 Hz (0.45%) and highest max SPL (+6 dB everywhere, 120 dB plateau), at ~half the cost of one PTT10. THD reduction is H2-dominated; H3/H5 sub-linear so drop only ~3-4 dB. Costs 2x cabinet volume + 2nd channel. Beats single PTT10 on distortion, max SPL and cost for deep bass.",
       "source": "",
       "measurements": [
         {
           "type": "HD (orders) vs frequency",
+          "kind": "hd-frequency",
           "method": "swept-sine, ratio to fundamental",
           "conditions": {
             "spl_db": 91,
             "distance_mm": 1000
           },
-          "source": "HiFiCompass smoothed HD",
+          "source": "Calculated from the single SB34NRXL75-8 record's curves (see note)",
           "confidence": "high",
           "note": "From single SB34 NF level series (1V=82dB, 2.83V=91dB). Per-harmonic level slope s_n measured: H2 1.03, H3 0.68, H4 ~0, H5 0.47 dB/dB. Dual@91 total = each driver @85 dB = single@91 - 6.02*s_n, coherently summed. NOT the (n-1) law (which over-predicts H3 by 7-15 dB - validated false here).",
           "chartType": "line",
@@ -17319,6 +17348,7 @@
         },
         {
           "type": "Band THD @ 91 dB",
+          "kind": "thd-bands",
           "method": "power-averaged THD (integrated from HD curve)",
           "conditions": {
             "spl_db": 91
@@ -17347,6 +17377,7 @@
         },
         {
           "type": "Max SPL (model)",
+          "kind": "max-spl",
           "method": "single SB34 + 6 dB (excursion 2x Vd; thermal 2x Pe + coherent)",
           "conditions": {
             "distance_mm": 1000,
@@ -17422,6 +17453,7 @@
       "measurements": [
         {
           "type": "IMD two-tone 30+255 Hz (4:1)",
+          "kind": "imd-summary",
           "method": "ARTA two-tone, summary metrics",
           "conditions": {
             "f1": "30 Hz",
@@ -17496,6 +17528,7 @@
       "measurements": [
         {
           "type": "Large-signal compression vs frequency",
+          "kind": "compression",
           "method": "dense multitone @ max drive",
           "conditions": {
             "test": "EAC_multitone",
@@ -17817,6 +17850,7 @@
         },
         {
           "type": "Large-signal distortion vs frequency",
+          "kind": "multitone-distortion",
           "method": "dense multitone @ max drive",
           "conditions": {
             "test": "EAC_multitone",
@@ -18151,6 +18185,7 @@
       "measurements": [
         {
           "type": "Large-signal compression vs frequency",
+          "kind": "compression",
           "method": "dense multitone @ max drive",
           "conditions": {
             "test": "EAC_multitone",
@@ -18472,6 +18507,7 @@
         },
         {
           "type": "Large-signal distortion vs frequency",
+          "kind": "multitone-distortion",
           "method": "dense multitone @ max drive",
           "conditions": {
             "test": "EAC_multitone",
@@ -18806,6 +18842,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency @ 94 dB",
+          "kind": "hd-frequency",
           "method": "swept-sine, HPF-comp, level-normalized to 94 dB",
           "conditions": {
             "spl_db": 94,
@@ -21206,6 +21243,7 @@
         },
         {
           "type": "94 dB band metrics",
+          "kind": "thd-bands",
           "method": "THD / GedLee-weighted Gm",
           "conditions": {
             "spl_db": 94
@@ -21261,6 +21299,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency @ 94 dB",
+          "kind": "hd-frequency",
           "method": "swept-sine, HPF-comp, level-normalized to 94 dB",
           "conditions": {
             "spl_db": 94,
@@ -23661,6 +23700,7 @@
         },
         {
           "type": "94 dB band metrics",
+          "kind": "thd-bands",
           "method": "THD / GedLee-weighted Gm",
           "conditions": {
             "spl_db": 94
@@ -23716,6 +23756,7 @@
       "measurements": [
         {
           "type": "HD (orders) vs frequency @ 94 dB",
+          "kind": "hd-frequency",
           "method": "swept-sine, HPF-comp, level-normalized to 94 dB",
           "conditions": {
             "spl_db": 94,
@@ -25380,6 +25421,7 @@
         },
         {
           "type": "94 dB band metrics",
+          "kind": "thd-bands",
           "method": "THD / GedLee-weighted Gm",
           "conditions": {
             "spl_db": 94
@@ -25423,6 +25465,7 @@
       "id": "matched-spl-compression",
       "title": "Compression at matched SPL — SB17 vs PTT6.5",
       "type": "Compression vs frequency at matched nominal SPL",
+      "kind": "compression",
       "method": "EAC dense multitone; compression magnitude (dB), less-negative = less compression",
       "drivers": [
         "sb17cac35-4",

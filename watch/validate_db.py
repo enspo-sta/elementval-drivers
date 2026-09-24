@@ -6,7 +6,9 @@ Rules (from meta.policy): ids are unique and never merged; every driver and ever
 measurement carries a source; each measurement set comes from exactly one source
 family (watch/config.json 'families'), so sources are never blended; measurements
 are line | bar | table with data the viewer can draw; comparisons only reference
-drivers that exist.
+drivers that exist; every measurement names its kind from schema/kinds.json, and kinds
+taken at a sound pressure level state that level (conditions.spl_db or ref_spl_db); Thiele/Small
+parameters are numbers.
 
 Warnings (do not fail the check): curves on a logarithmic frequency axis captured
 with fewer points per decade than 'capture.minimum_points_per_decade' (CAPTURE.md).
@@ -23,12 +25,27 @@ from common import family_kind, families_of, load_config, points_per_decade
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 CONFIDENCE = {"high", "medium", "low", "none"}
+KINDS = {k["id"]: k for k in json.loads((ROOT / "schema" / "kinds.json").read_text())["kinds"]}
+
+
+def level_of(m):
+    c = m.get("conditions") or {}
+    for key in ("spl_db", "ref_spl_db"):
+        v = c.get(key)
+        if isinstance(v, numbers.Number):
+            return v
+    return None
 
 
 def check_set(where, m, errors, warnings, cfg):
-    for f in ("type", "source", "chartType"):
+    for f in ("type", "kind", "source", "chartType"):
         if not m.get(f):
             errors.append(f"{where}: missing '{f}'")
+    kind = KINDS.get(m.get("kind"))
+    if m.get("kind") and not kind:
+        errors.append(f"{where}: kind {m['kind']!r} is not in schema/kinds.json ({', '.join(KINDS)})")
+    elif kind and kind.get("level") in ("spl", "spl-near") and level_of(m) is None:
+        errors.append(f"{where}: a {kind['id']} set must state its level as a number in conditions.spl_db")
     fams = families_of(m.get("source"), cfg)
     if m.get("source") and not fams:
         errors.append(f"{where}: source {m['source'][:60]!r} names no known source family; name the source "
@@ -104,6 +121,14 @@ def validate(paths):
                     errors.append(f"{where}: missing '{f}'")
             if not isinstance(d.get("ts", {}), dict):
                 errors.append(f"{where}: 'ts' must be an object")
+            else:
+                for k, v in (d.get("ts") or {}).items():
+                    if isinstance(v, str):
+                        try:
+                            float(v)
+                            errors.append(f"{where}: parameter {k} = {v!r} is text; write it as a number")
+                        except ValueError:
+                            warnings.append(f"{where}: parameter {k} = {v!r} is not a number (unknown value?)")
             ms = d.get("measurements")
             if not isinstance(ms, list):
                 errors.append(f"{where}: 'measurements' must be a list")

@@ -2,12 +2,11 @@ name: Validate driver database
 
 on:
   push:
-    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
-            "watch/coverage.py", "watch/config.json", ".github/workflows/validate-db.yml",
-            "index.html", "*.js", "tests/**"]
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/**", "schema/**", "app/**", "capture/**",
+            "tools/**", "tests/**", "index.html", ".github/workflows/validate-db.yml"]
   pull_request:
-    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
-            "watch/coverage.py", "watch/config.json", "index.html", "*.js", "tests/**"]
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/**", "schema/**", "app/**", "capture/**",
+            "tools/**", "tests/**", "index.html"]
   workflow_dispatch:
 
 permissions:
@@ -16,21 +15,29 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
       - run: python3 watch/validate_db.py
       - name: Coverage list builds
         run: python3 watch/coverage.py --stdout > /dev/null
+      - name: Consistency report builds
+        run: python3 watch/check_consistency.py --stdout > /dev/null
+      - name: Capture work list builds
+        run: python3 capture/worklist.py
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - name: Viewer scripts parse
-        run: for f in *.js; do node --check "$f"; done
-      - name: Viewer maths and comparison rules
-        run: node --test tests/*.test.js
+      - name: Viewer modules parse
+        run: for f in app/*.js app/*/*.js tools/*.mjs; do node --check "$f"; done
+      - name: Viewer tests (maths, comparison rules, exports)
+        run: node --test tests/*.test.mjs
+      - name: Capture tool tests
+        run: |
+          python3 -m pip install --quiet pymupdf pillow numpy
+          python3 -m unittest discover -s tests -p "test_*.py" -v
 
-  # After a database change lands on main, rebuild watch/coverage.md so the shortlist stays current.
+  # After a change lands on main, rebuild watch/coverage.md, watch/consistency.md and capture/WORKLIST.md.
   coverage:
     needs: validate
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -46,12 +53,14 @@ jobs:
         with:
           fetch-depth: 0
       - run: python3 watch/coverage.py
-      - name: Commit coverage list
+      - run: python3 watch/check_consistency.py
+      - run: python3 capture/worklist.py
+      - name: Commit coverage list, consistency report and work list
         run: |
-          git add watch/coverage.md watch/coverage.json
+          git add watch/coverage.md watch/coverage.json watch/consistency.md capture/WORKLIST.md
           if git diff --cached --quiet; then echo "coverage unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Coverage list: rebuild after database change"
+          git commit -m "Coverage list, consistency report and work list: rebuild after database change"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
