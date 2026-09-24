@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: read
+  issues: write          # only used to open a "Backup failed" issue
 
 jobs:
   backup:
@@ -87,3 +88,34 @@ jobs:
         run: |
           echo "::notice::Only kept on GitHub. To also keep a copy in your Google Drive, follow BACKUP.md (one-time, about 5 minutes)."
           echo "Not copied outside GitHub yet: see BACKUP.md to add the Google Drive copy." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open an issue if the backup failed
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, urllib.error, urllib.request
+          repo, run = os.environ["GITHUB_REPOSITORY"], os.environ["RUN_URL"]
+          def gh(method, path, body=None):
+              req = urllib.request.Request("https://api.github.com" + path, method=method,
+                                           data=json.dumps(body).encode() if body is not None else None,
+                                           headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+                                                    "Accept": "application/vnd.github+json"})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.loads(r.read() or "null")
+          try:
+              gh("POST", f"/repos/{repo}/labels", {"name": "backup-failed", "color": "e06c75",
+                                                   "description": "The weekly backup did not complete"})
+          except urllib.error.HTTPError as e:
+              if e.code != 422:            # 422: the label already exists
+                  raise
+          text = (f"The weekly backup failed on {datetime.date.today()}. What went wrong: {run}\n\n"
+                  "See BACKUP.md. Close this issue once a backup has succeeded again.")
+          already = gh("GET", f"/repos/{repo}/issues?labels=backup-failed&state=open")
+          if already:
+              gh("POST", f"/repos/{repo}/issues/{already[0]['number']}/comments", {"body": text})
+          else:
+              gh("POST", f"/repos/{repo}/issues", {"title": "Backup failed", "body": text, "labels": ["backup-failed"]})
+          PY

@@ -40,8 +40,9 @@ Do this after pull request #1 is merged.
    `elementval-drivers backups` holds two files with today's date. Opening the web app URL in a
    browser also shows how many backups the folder holds and the latest date.
 
-From then on it runs every Sunday by itself. If a copy ever fails, the job fails and GitHub
-tells you.
+From then on it runs every Sunday by itself. The job checks that Google stored exactly as many
+bytes as it sent. If any part of the backup fails, the job opens an issue titled "Backup failed"
+(label `backup-failed`) in this repository, with a link to what went wrong.
 
 ## Restoring
 
