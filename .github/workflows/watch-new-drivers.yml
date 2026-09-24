@@ -34,7 +34,7 @@ jobs:
     env:
       DRY_RUN: ${{ github.event_name == 'push' || inputs.dry_run == true }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Scan sources
         run: |
