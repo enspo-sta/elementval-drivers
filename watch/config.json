@@ -27,14 +27,9 @@
     },
     {
       "name": "BlieSMa",
-      "home": "https://bliesma.com/",
+      "home": "https://www.bliesma.de/",
       "start": [
-        "https://bliesma.com/",
-        "https://www.bliesma.com/",
-        "https://bliesma.de/",
-        "https://www.bliesma.de/",
-        "https://bliesma.com/sitemap.xml",
-        "https://bliesma.de/sitemap.xml"
+        "https://www.bliesma.de/"
       ],
       "patterns": [
         "BlieSMa (manufacturer site)"

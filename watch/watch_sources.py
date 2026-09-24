@@ -38,7 +38,7 @@ UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/124.0 Safari/537.36 elementval-drivers-watcher/1.0 "
       "(+https://github.com/enspo-sta/elementval-drivers)")
 IMAGE = re.compile(r"\.(jpe?g|png|gif|webp|svg|avif)(\?|$)", re.I)   # gallery file names are not products
-FOLLOW_HINT = re.compile(r"product|driver|speaker|woofer|tweeter|mid|bass|satori|ptt|measure|shop|range|series",
+FOLLOW_HINT = re.compile(r"product|produkt|driver|speaker|lautsprecher|chassis|woofer|tweeter|hocht|tieft|mitt|mid|bass|satori|ptt|measure|shop|range|series",
                          re.I)
 MAX_CHILD_SITEMAPS = 40
 MAX_FOLLOW_PAGES = 60
