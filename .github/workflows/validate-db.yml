@@ -1,0 +1,19 @@
+name: Validate driver database
+
+on:
+  push:
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", ".github/workflows/validate-db.yml"]
+  pull_request:
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 watch/validate_db.py

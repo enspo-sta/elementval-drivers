@@ -1,0 +1,61 @@
+name: Watch for new drivers
+
+# Weekly scan of the manufacturer and measurement sites listed in watch/config.json.
+# New models become issues labelled "new-driver"; new pages or datasheets for drivers
+# already in the database become one "driver-update" issue. State is committed to
+# watch/state.json so each model is reported once.
+on:
+  schedule:
+    - cron: "17 4 * * 1"          # Mondays 04:17 UTC (06:17 Swedish summer time)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Scan and report only (no issues, no commit)"
+        type: boolean
+        default: false
+  push:                            # changes to the watcher itself get a dry run
+    paths:
+      - "watch/watch_sources.py"
+      - "watch/config.json"
+      - ".github/workflows/watch-new-drivers.yml"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: watch-new-drivers
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DRY_RUN: ${{ github.event_name == 'push' || inputs.dry_run == true }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan sources
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            python3 watch/watch_sources.py --dry-run --out findings.json --summary "$GITHUB_STEP_SUMMARY"
+          else
+            python3 watch/watch_sources.py --out findings.json --summary "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Open issues
+        if: env.DRY_RUN != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 watch/open_issues.py findings.json
+
+      - name: Commit scan state
+        if: env.DRY_RUN != 'true'
+        run: |
+          git add watch/state.json watch/catalogue.md
+          if git diff --cached --quiet; then echo "state unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Driver watch: scan of $(date -u +%F)"
+          git push

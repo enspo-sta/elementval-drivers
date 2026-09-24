@@ -1,0 +1,80 @@
+{
+  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemaps are followed one level into child sitemaps). 'brands' limits which model-number patterns are applied to that source. Add a model key to 'ignore' to stop it being reported.",
+  "brands": {
+    "Purifi": "(?<![A-Za-z0-9])PTT\\s?\\d{1,2}(?:[.\\-]\\d{1,2})?\\s?[A-Z]\\d{2}[\\s\\-]?[A-Z]{3}[\\s\\-]?\\d{2}[A-Z]?(?![A-Za-z0-9])",
+    "SB Acoustics": "(?<![A-Za-z0-9])SB\\d{2}[A-Z]{2,8}\\d{0,3}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])",
+    "SB Acoustics Satori": "(?<![A-Za-z0-9])(?:WO|MW|MR|TW|WB)\\d{2}[A-Z]{0,6}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])",
+    "BlieSMa": "(?<![A-Za-z0-9])[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2}(?![A-Za-z0-9])"
+  },
+  "sources": [
+    {
+      "name": "Purifi",
+      "home": "https://purifi-audio.com/",
+      "start": [
+        "https://purifi-audio.com/",
+        "https://purifi-audio.com/sitemap.xml",
+        "https://purifi-audio.com/sitemap_index.xml",
+        "https://purifi-audio.com/wp-sitemap.xml"
+      ],
+      "brands": [
+        "Purifi"
+      ]
+    },
+    {
+      "name": "SB Acoustics",
+      "home": "https://sbacoustics.com/",
+      "start": [
+        "https://sbacoustics.com/",
+        "https://sbacoustics.com/sitemap.xml",
+        "https://sbacoustics.com/sitemap_index.xml",
+        "https://sbacoustics.com/wp-sitemap.xml"
+      ],
+      "brands": [
+        "SB Acoustics",
+        "SB Acoustics Satori"
+      ]
+    },
+    {
+      "name": "BlieSMa",
+      "home": "https://www.bliesma.com/",
+      "start": [
+        "https://www.bliesma.com/",
+        "https://www.bliesma.com/sitemap.xml",
+        "https://bliesma.com/sitemap.xml"
+      ],
+      "brands": [
+        "BlieSMa"
+      ]
+    },
+    {
+      "name": "HiFiCompass",
+      "home": "https://hificompass.com/",
+      "start": [
+        "https://hificompass.com/",
+        "https://hificompass.com/sitemap.xml",
+        "https://hificompass.com/en/speakers/measurements"
+      ],
+      "brands": [
+        "Purifi",
+        "SB Acoustics",
+        "SB Acoustics Satori"
+      ]
+    },
+    {
+      "name": "Erin's Audio Corner",
+      "home": "https://www.erinsaudiocorner.com/",
+      "start": [
+        "https://www.erinsaudiocorner.com/",
+        "https://www.erinsaudiocorner.com/sitemap.xml",
+        "https://www.erinsaudiocorner.com/driveunits/"
+      ],
+      "brands": [
+        "Purifi",
+        "SB Acoustics",
+        "SB Acoustics Satori",
+        "BlieSMa"
+      ]
+    }
+  ],
+  "ignore": []
+}
