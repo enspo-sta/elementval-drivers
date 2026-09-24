@@ -3,7 +3,12 @@
 Use this as the prompt of a weekly Claude Code routine on the `enspo-sta/elementval-drivers`
 repository, scheduled after the Monday scan (for example Mondays 07:00 UTC). The routine's
 cloud environment must allow these hosts: purifi-audio.com, sbacoustics.com, www.bliesma.de,
-hificompass.com, www.erinsaudiocorner.com, erinsaudiocorner.com.
+hificompass.com, www.erinsaudiocorner.com, erinsaudiocorner.com, and dl.dropboxusercontent.com
+(Erin's Klippel-era charts are hosted there).
+
+The routine cannot log in to HiFiCompass. Pages it reads there are what a logged-out visitor
+sees; Premium-only content needs Claude Code on your own computer with Claude in Chrome
+(`claude --chrome`), which uses your browser's login.
 
 ---
 
@@ -12,7 +17,9 @@ enspo-sta/elementval-drivers, oldest first, at most three per run.
 
 For each `new-driver` issue:
 1. Read the issue and download the manufacturer datasheet (PDF) and any HiFiCompass or
-   Erin's Audio Corner measurement pages it links, with curl.
+   Erin's Audio Corner measurement pages it links, with curl. Pause 10 seconds between
+   HiFiCompass requests (its robots.txt asks for that). Erin's T/S and large-signal tables are
+   plain text in the page: take them from the text, not from images.
 2. Use the driver-analysis skill for the database conventions and the pixel-extraction skill
    for any curve that exists only as a plot image.
 3. Add one record to drivers.json following the existing records: T/S parameters in `ts`,
