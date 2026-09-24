@@ -1,8 +1,51 @@
 {
-  "comment": "Sources scanned by watch/watch_sources.py. 'start' URLs may be HTML pages or XML sitemaps (sitemap indexes are followed into their child sitemaps; HTML start pages are followed one level into same-site product-looking links). 'patterns' maps a pattern name to {brand, regex}; if the regex has a named group 'model', only that part is the model number. A source lists the pattern names it applies. Add a model number to 'ignore' to stop it being reported. 'delay_s' (optional, default 1) is the pause between pages for that source; HiFiCompass asks for 10 s in https://hificompass.com/robots.txt.",
+  "comment": "Settings for watch/watch_sources.py, watch/coverage.py and watch/validate_db.py. 'families' are the places a measurement can come from; every measurement set in the database must match exactly one family through its 'source' text, so data from different sources is never blended. 'sources' are the sites the weekly scan reads. Each belongs to one family, lists the model-number 'patterns' it applies, and says which of its pages are measurement pages ('measurement_url'); a model is only reported when it appears on a measurement page. 'start' URLs may be HTML pages or XML sitemaps. 'follow' is a pattern for same-site links to read from the start pages (null: none); 'follow_recursive' also follows them from followed pages. 'delay_s' is the pause between pages. 'patterns' maps a pattern name to {brand, regex}; a named group 'model' narrows the match. Add a model number to 'ignore' to stop it being reported. 'aliases' maps short forms some sites use (for example audiohorn's SB17NBAC-4) to the full model number.",
+  "families": [
+    {
+      "name": "Manufacturer datasheet",
+      "kind": "manufacturer",
+      "match": "\\bdata ?sheet\\b"
+    },
+    {
+      "name": "HiFiCompass",
+      "kind": "lab",
+      "match": "hificompass",
+      "url": "https://hificompass.com/en/speakers/measurements"
+    },
+    {
+      "name": "Erin's Audio Corner",
+      "kind": "lab",
+      "match": "erin.?s audio corner|\\bEAC\\b",
+      "url": "https://www.erinsaudiocorner.com/driveunits/"
+    },
+    {
+      "name": "audioXpress",
+      "kind": "lab",
+      "match": "audioxpress|\\btest bench\\b",
+      "url": "https://audioxpress.com/tags/test-bench"
+    },
+    {
+      "name": "audiohorn",
+      "kind": "lab",
+      "match": "audiohorn",
+      "url": "https://audiohorn.net/"
+    },
+    {
+      "name": "diyAudio",
+      "kind": "forum",
+      "match": "diyaudio",
+      "url": "https://www.diyaudio.com/"
+    },
+    {
+      "name": "Derived (model or calculation)",
+      "kind": "derived",
+      "match": "\\bmodel\\b|^from single|\\bderived\\b|\\bcalculat|\\bsimulat"
+    }
+  ],
   "sources": [
     {
       "name": "Purifi",
+      "family": "Manufacturer datasheet",
       "home": "https://purifi-audio.com/",
       "start": [
         "https://purifi-audio.com/",
@@ -10,33 +53,12 @@
       ],
       "patterns": [
         "Purifi"
-      ]
-    },
-    {
-      "name": "SB Acoustics",
-      "home": "https://sbacoustics.com/",
-      "start": [
-        "https://sbacoustics.com/",
-        "https://sbacoustics.com/sitemap.xml",
-        "https://sbacoustics.com/sitemap_index.xml"
       ],
-      "patterns": [
-        "SB Acoustics",
-        "SB Acoustics Satori"
-      ]
-    },
-    {
-      "name": "BlieSMa",
-      "home": "https://www.bliesma.de/",
-      "start": [
-        "https://www.bliesma.de/"
-      ],
-      "patterns": [
-        "BlieSMa (manufacturer site)"
-      ]
+      "measurement_url": "/shop/ptt"
     },
     {
       "name": "HiFiCompass",
+      "family": "HiFiCompass",
       "home": "https://hificompass.com/",
       "start": [
         "https://hificompass.com/",
@@ -47,12 +69,14 @@
         "Purifi",
         "SB Acoustics",
         "SB Acoustics Satori",
-        "BlieSMa (named)"
+        "BlieSMa"
       ],
+      "measurement_url": "/speakers/measurements/[^/?#]+/[^/?#]+|/news/(measurements|izmereniya)/",
       "delay_s": 10
     },
     {
       "name": "Erin's Audio Corner",
+      "family": "Erin's Audio Corner",
       "home": "https://www.erinsaudiocorner.com/",
       "start": [
         "https://www.erinsaudiocorner.com/",
@@ -63,11 +87,65 @@
         "Purifi",
         "SB Acoustics",
         "SB Acoustics Satori",
-        "BlieSMa (named)"
-      ]
+        "BlieSMa"
+      ],
+      "measurement_url": "/driveunits/[^/?#]+"
+    },
+    {
+      "name": "audioXpress",
+      "family": "audioXpress",
+      "home": "https://audioxpress.com/",
+      "start": [
+        "https://audioxpress.com/tags/test-bench",
+        "https://audioxpress.com/tags/purifi-audio/",
+        "https://audioxpress.com/tags/satori/"
+      ],
+      "patterns": [
+        "Purifi",
+        "SB Acoustics",
+        "SB Acoustics Satori",
+        "BlieSMa"
+      ],
+      "measurement_url": "/article/test-bench",
+      "follow": "^/tags/(test-bench|purifi-audio/?|satori/?)$",
+      "follow_recursive": true,
+      "delay_s": 5,
+      "note": "Only the tag listing pages are read (robots.txt: Crawl-delay 5; it blocks Anthropic's own crawlers, so articles are never fetched automatically)."
+    },
+    {
+      "name": "audiohorn",
+      "family": "audiohorn",
+      "home": "https://audiohorn.net/",
+      "start": [
+        "https://audiohorn.net/sitemap.xml",
+        "https://audiohorn.net/test/woofer/6-7inch/",
+        "https://audiohorn.net/test/woofer/8inch/",
+        "https://audiohorn.net/test/woofer/12inch/",
+        "https://audiohorn.net/test/medium/8inch/",
+        "https://audiohorn.net/test/compression-driver/1inch/",
+        "https://audiohorn.net/test/compression-driver/1.4inch/"
+      ],
+      "patterns": [
+        "Purifi",
+        "SB Acoustics",
+        "SB Acoustics Satori",
+        "BlieSMa"
+      ],
+      "measurement_url": "/test/",
+      "follow": null,
+      "delay_s": 2
     }
   ],
-  "ignore": [],
+  "excluded_sources": [
+    {
+      "name": "SB Acoustics (sbacoustics.com)",
+      "reason": "Publishes no distortion measurements. SB and Satori drivers are still found through the test labs."
+    },
+    {
+      "name": "BlieSMa (bliesma.de)",
+      "reason": "Publishes no distortion measurements. BlieSMa drivers are still found through the test labs."
+    }
+  ],
   "patterns": {
     "Purifi": {
       "brand": "Purifi",
@@ -79,15 +157,26 @@
     },
     "SB Acoustics Satori": {
       "brand": "SB Acoustics Satori",
-      "regex": "(?<![A-Za-z0-9])(?:WO|MW|MR|TW|WB)\\d{2}[A-Z]{0,6}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])"
+      "regex": "(?<![A-Za-z0-9])(?:WO|MW|MR|TW|WB)\\d{2}-?[A-Z]{0,6}(?:-[A-Z]\\d{3})?-\\d{1,2}(?![A-Za-z0-9])"
     },
-    "BlieSMa (manufacturer site)": {
-      "brand": "BlieSMa",
-      "regex": "(?<![A-Za-z0-9])[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2}(?![A-Za-z0-9])"
-    },
-    "BlieSMa (named)": {
+    "BlieSMa": {
       "brand": "BlieSMa",
       "regex": "(?i:bliesma)[\\s_\\-/]{1,3}(?P<model>[MT]\\d{2,3}[A-Z]{1,3}-\\d{1,2})(?![A-Za-z0-9])"
     }
-  }
+  },
+  "aliases": {
+    "comment": "Short forms some sites use, mapped to the full model number. Keys are written as found; identities are never merged, so an alias must name the exact variant (same impedance).",
+    "SB17NBAC-4": "SB17NBAC35-4",
+    "SB17NBAC-8": "SB17NBAC35-8",
+    "SB17CAC-4": "SB17CAC35-4",
+    "SB17CAC-8": "SB17CAC35-8",
+    "SB17NAC-4": "SB17NAC35-4",
+    "SB17NAC-8": "SB17NAC35-8"
+  },
+  "capture": {
+    "comment": "Resolution for curves digitised onto a logarithmic frequency axis, in points per decade. 1/24 octave = 80 points per decade (target); 1/12 octave = 40 (minimum, below it the validator warns). See CAPTURE.md.",
+    "target_points_per_decade": 80,
+    "minimum_points_per_decade": 40
+  },
+  "ignore": []
 }

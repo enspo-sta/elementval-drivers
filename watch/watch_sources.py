@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan manufacturer and measurement sites for driver model numbers.
+"""Scan manufacturer and test-lab sites for driver model numbers.
 
 Compares what it finds with drivers.json, drivers_survey_midbass.json and the
 previous scan (watch/state.json), then writes:
@@ -8,9 +8,13 @@ previous scan (watch/state.json), then writes:
   watch/catalogue.md    every model seen that is not in the database (browse list)
   <--out>               JSON list of findings for watch/open_issues.py
 
+A model is only reported when it appears on one of a source's measurement pages
+(see 'measurement_url' in watch/config.json), so a driver that is merely listed
+in a shop does not open an issue. Each source is scanned and stored separately.
+
 The first run (no state.json yet) is a baseline: it records everything and
-reports nothing as new, so the manufacturers' whole back catalogues do not
-arrive as hundreds of issues.
+reports nothing as new, so whole back catalogues do not arrive as hundreds of
+issues. A source added later gets the same treatment on its first scan.
 
 Standard library only. Usage:
   python3 watch/watch_sources.py [--dry-run] [--out findings.json] [--summary summary.md]
@@ -28,33 +32,18 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "watch" / "config.json"
-STATE = ROOT / "watch" / "state.json"
+from common import ROOT, STATE, database_keys, key_of, load_config, match_models, pretty
+
 CATALOGUE = ROOT / "watch" / "catalogue.md"
-DATABASES = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
-      "Chrome/124.0 Safari/537.36 elementval-drivers-watcher/1.0 "
-      "(+https://github.com/enspo-sta/elementval-drivers)")
+      "Chrome/124.0 Safari/537.36 elementval-drivers-watcher/1.1")
 IMAGE = re.compile(r"\.(jpe?g|png|gif|webp|svg|avif)(\?|$)", re.I)   # gallery file names are not products
-FOLLOW_HINT = re.compile(r"product|produkt|driver|speaker|lautsprecher|chassis|woofer|tweeter|hocht|tieft|mitt|mid|bass|satori|ptt|measure|shop|range|series",
-                         re.I)
+FOLLOW_HINT = (r"product|produkt|driver|speaker|lautsprecher|chassis|woofer|tweeter|hocht|tieft|mitt|"
+               r"mid|bass|satori|ptt|measure|shop|range|series")
 MAX_CHILD_SITEMAPS = 40
 MAX_FOLLOW_PAGES = 60
 DELAY_S = 1.0                 # default pause between pages; a source can set its own 'delay_s'
-
-
-def key_of(model):
-    """Canonical identity: upper-case letters and digits only (PTT6.5X04-NAA-08 == ptt6-5x04-naa-08)."""
-    return re.sub(r"[^A-Z0-9]", "", model.upper())
-
-
-def pretty(model):
-    """Display form. Slugs such as ptt6-5x04-naa-08 get their decimal point back."""
-    m = model.upper().replace(" ", "")
-    m = re.sub(r"^PTT(\d{1,2})-(\d{1,2})(?=[A-Z])", r"PTT\1.\2", m)
-    return re.sub(r"^(PTT[\d.]+[A-Z])-(\d{2})", r"\1\2", m)       # ptt6.5m-08 -> PTT6.5M08
 
 
 def fetch(url):
@@ -99,16 +88,12 @@ def page_parts(base, text):
     yield base, html.unescape(re.sub(r"<[^>]+>", " ", body))
 
 
-def match_models(pattern, text):
-    """Model numbers in text; a named group 'model' narrows the match to just the model number."""
-    for m in pattern.finditer(text):
-        yield m.group("model") if "model" in pattern.groupindex else m.group(0)
-
-
-def scan_source(src, patterns, log):
-    """Return ({key: {brand, display, urls}}, health) for one source."""
+def scan_source(src, patterns, log, aliases=None):
+    """Return ({key: {brand, display, urls, measured}}, health) for one source."""
     found, health = {}, {"ok": [], "failed": []}
     host = urllib.parse.urlparse(src["home"]).netloc.removeprefix("www.")
+    follow = src.get("follow", FOLLOW_HINT)
+    follow = re.compile(follow, re.I) if follow else None
     queue, seen = list(src["start"]), set()
     child_sitemaps = followed = 0
 
@@ -128,6 +113,8 @@ def scan_source(src, patterns, log):
             time.sleep(src.get("delay_s", DELAY_S))
 
         is_index = bool(re.search(r"<sitemapindex\b", text[:2000]))
+        is_urlset = bool(re.search(r"<urlset\b", text[:2000]))
+        may_follow = follow and not is_urlset and (url in src["start"] or src.get("follow_recursive"))
         for ev, chunk in page_parts(final, text):
             if is_index:
                 if child_sitemaps < MAX_CHILD_SITEMAPS and ev not in seen:
@@ -136,35 +123,25 @@ def scan_source(src, patterns, log):
                 continue
             for pname in src["patterns"]:
                 brand, rx = patterns[pname]
-                for model in match_models(rx, chunk):
+                for model in match_models(rx, chunk, aliases):
                     k = key_of(model)
-                    rec = found.setdefault(k, {"brand": brand, "display": pretty(model), "urls": []})
+                    rec = found.setdefault(k, {"brand": brand, "display": pretty(model), "urls": [], "measured": []})
                     if "." in model and not ev.endswith(".xml"):
                         rec["display"] = pretty(model)          # prefer the printed form over a slug
                     if ev not in rec["urls"]:
                         rec["urls"].append(ev)
-            # Follow same-site product-looking links from HTML start pages (one level only).
-            if (url in src["start"] and not ev.lower().endswith((".pdf", ".jpg", ".png", ".zip", ".xml"))
-                    and urllib.parse.urlparse(ev).netloc.removeprefix("www.") == host
-                    and FOLLOW_HINT.search(urllib.parse.urlparse(ev).path)
-                    and followed < MAX_FOLLOW_PAGES and ev not in seen and ev not in queue
-                    and not re.search(r"<urlset\b", text[:2000])):
-                queue.append(ev)
-                followed += 1
+                    if src["_measured"].search(urllib.parse.urlparse(ev).path) and ev not in rec["measured"]:
+                        rec["measured"].append(ev)
+            # Follow same-site links that match the source's 'follow' pattern.
+            if may_follow and not ev.lower().endswith((".pdf", ".jpg", ".png", ".zip", ".xml")):
+                p = urllib.parse.urlparse(ev)
+                if (p.netloc.removeprefix("www.") == host and follow.search(p.path)
+                        and followed < src.get("max_pages", MAX_FOLLOW_PAGES)
+                        and ev not in seen and ev not in queue):
+                    queue.append(ev)
+                    followed += 1
         log(f"  {url} -> {len(found)} models so far")
     return found, health
-
-
-def database_keys(patterns):
-    keys = {}
-    for path in DATABASES:
-        if not path.exists():
-            continue
-        for d in json.loads(path.read_text()).get("drivers", []):
-            for _, rx in patterns.values():
-                for model in match_models(rx, f"{d.get('name', '')} {d.get('id', '')}"):
-                    keys.setdefault(key_of(model), d.get("id"))
-    return keys
 
 
 def main():
@@ -175,75 +152,97 @@ def main():
     args = ap.parse_args()
     log = lambda s: print(s, flush=True)
 
-    cfg = json.loads(CONFIG.read_text())
-    patterns = {n: (p["brand"], re.compile(p["regex"], re.I)) for n, p in cfg["patterns"].items()}
+    cfg = load_config()
+    patterns = cfg["_patterns"]
     ignore = {key_of(x) for x in cfg.get("ignore", [])}
-    in_db = database_keys(patterns)
+    in_db = database_keys(cfg)
     baseline = not STATE.exists()
     state = {"sources": {}} if baseline else json.loads(STATE.read_text())
     today = dt.date.today().isoformat()
 
-    previously_seen = {k for s in state["sources"].values() for k in s.get("models", {})}
+    # Models already reported (or recorded at the baseline). Older state files without the list
+    # count every model they have seen as reported.
+    reported = set(state.get("reported") or {k for s in state["sources"].values() for k in s.get("models", {})})
     new_drivers, new_material, health_rows = {}, {}, []
 
     for src in cfg["sources"]:
-        log(f"== {src['name']}")
-        found, health = scan_source(src, patterns, log)
-        health_rows.append((src["name"], len(health["ok"]), health["failed"], len(found)))
+        log(f"== {src['name']} ({src['family']})")
+        # A source added since the last scan gets its own baseline: its back catalogue is recorded, not reported.
+        quiet = baseline or src["name"] not in state["sources"]
+        found, health = scan_source(src, patterns, log, cfg["_aliases"])
+        n_measured = sum(1 for r in found.values() if r["measured"])
+        health_rows.append((src["name"], len(health["ok"]), health["failed"], len(found), n_measured))
         sstate = state["sources"].setdefault(src["name"], {"models": {}})
+        sstate["family"] = src["family"]
         sstate["last_scan"] = today
         sstate["last_ok_pages"] = len(health["ok"])
         for k, rec in found.items():
             old = sstate["models"].get(k)
-            fresh_urls = [u for u in rec["urls"] if not old or u not in old["urls"]]
+            fresh_measured = [u for u in rec["measured"] if not old or u not in old.get("measured", [])]
             if old is None:
-                sstate["models"][k] = {"brand": rec["brand"], "display": rec["display"],
-                                       "first_seen": today, "urls": rec["urls"][:25]}
+                sstate["models"][k] = {"brand": rec["brand"], "display": rec["display"], "first_seen": today,
+                                       "urls": rec["urls"][:25], "measured": rec["measured"][:20]}
             else:
-                old["urls"] = (old["urls"] + fresh_urls)[:50]
+                old["urls"] = (old["urls"] + [u for u in rec["urls"] if u not in old["urls"]])[:50]
+                old["measured"] = (old.get("measured", []) + fresh_measured)[:20]
+                if rec["measured"] and not old.get("first_measured"):
+                    old["first_measured"] = today
                 if "." in rec["display"]:
                     old["display"] = rec["display"]
-            if baseline or k in ignore:
+            if rec["measured"]:
+                sstate["models"][k].setdefault("first_measured", today)
+            if k in ignore or not rec["measured"]:
                 continue
             if k in in_db:
-                # A driver already in the database: only interesting if a source has new pages/PDFs for it.
-                if old is not None and fresh_urls:
+                # A driver already in the database: interesting when a source has new measurement pages for it.
+                if not quiet and fresh_measured:
                     item = new_material.setdefault(k, {"key": k, "display": rec["display"], "brand": rec["brand"],
                                                        "db_id": in_db[k], "sources": {}})
-                    item["sources"].setdefault(src["name"], []).extend(fresh_urls[:10])
-            elif k not in previously_seen:
-                item = new_drivers.setdefault(k, {"key": k, "display": rec["display"], "brand": rec["brand"],
-                                                  "sources": {}})
-                item["sources"].setdefault(src["name"], []).extend(rec["urls"][:10])
+                    item["sources"].setdefault(src["name"], []).extend(fresh_measured[:10])
+            elif k not in reported:
+                if not quiet:
+                    item = new_drivers.setdefault(k, {"key": k, "display": rec["display"], "brand": rec["brand"],
+                                                      "sources": {}})
+                    item["sources"].setdefault(src["name"], []).extend(rec["measured"][:10])
+    # Everything with a measurement page now counts as reported, so it is never reported twice.
+    for s in state["sources"].values():
+        reported.update(k for k, m in s["models"].items() if m.get("measured"))
+    state["reported"] = sorted(reported)
 
     findings = {"date": today, "baseline": baseline,
                 "new_drivers": sorted(new_drivers.values(), key=lambda x: x["display"]),
                 "new_material": sorted(new_material.values(), key=lambda x: x["display"]),
-                "health": [{"source": n, "pages_ok": ok, "failed": f, "models": m} for n, ok, f, m in health_rows]}
+                "health": [{"source": n, "pages_ok": ok, "failed": f, "models": m, "measured": mm}
+                           for n, ok, f, m, mm in health_rows]}
     Path(args.out).write_text(json.dumps(findings, indent=2, ensure_ascii=False))
 
-    # Catalogue: everything seen anywhere that is not in the database.
+    # Catalogue: everything seen anywhere that is not in the database, measured or not.
     cat = {}
     for sname, s in state["sources"].items():
         for k, m in s["models"].items():
             if k in in_db or k in ignore:
                 continue
-            c = cat.setdefault(k, {"display": m["display"], "brand": m["brand"], "first_seen": m["first_seen"], "links": []})
+            c = cat.setdefault(k, {"display": m["display"], "brand": m["brand"], "first_seen": m["first_seen"],
+                                   "links": [], "measured": False})
             c["first_seen"] = min(c["first_seen"], m["first_seen"])
+            c["measured"] |= bool(m.get("measured"))
             if "." in m["display"]:
                 c["display"] = m["display"]
-            c["links"].append(f"[{sname}]({m['urls'][0]})")
-    lines = [f"# Drivers seen at the watched sources but not in the database",
+            c["links"].append(f"[{sname}]({(m.get('measured') or m['urls'])[0]})")
+    lines = ["# Drivers seen at the watched sources but not in the database",
              "", f"Last scan: {today}. Generated by `watch/watch_sources.py`; do not edit by hand.",
-             "", f"{len(cat)} models.", "", "| Brand | Model | First seen | Where |", "|---|---|---|---|"]
+             "Where each one is measured, and by how many sources, is in `watch/coverage.md`.",
+             "", f"{len(cat)} models, {sum(c['measured'] for c in cat.values())} of them on a measurement page.",
+             "", "| Brand | Model | Measured | First seen | Where |", "|---|---|---|---|---|"]
     for k, c in sorted(cat.items(), key=lambda kv: (kv[1]["brand"], kv[1]["display"])):
-        lines.append(f"| {c['brand']} | {c['display']} | {c['first_seen']} | {' · '.join(c['links'])} |")
+        lines.append(f"| {c['brand']} | {c['display']} | {'yes' if c['measured'] else 'no'} | {c['first_seen']} | "
+                     f"{' · '.join(c['links'])} |")
 
     report = [f"## Driver watch {today}{' (baseline run)' if baseline else ''}", "",
-              "| Source | Pages read | Pages failed | Models found |", "|---|---|---|---|"]
-    for n, ok, failed, m in health_rows:
-        report.append(f"| {n} | {ok} | {len(failed)} | {m} |")
-    report += ["", f"New drivers: **{len(new_drivers)}** · new material for drivers already in the database: "
+              "| Source | Pages read | Pages failed | Models found | On a measurement page |", "|---|---|---|---|---|"]
+    for n, ok, failed, m, mm in health_rows:
+        report.append(f"| {n} | {ok} | {len(failed)} | {m} | {mm} |")
+    report += ["", f"New drivers: **{len(new_drivers)}** · new measurement pages for drivers already in the database: "
                    f"**{len(new_material)}** · models in catalogue: {len(cat)}", ""]
     for d in findings["new_drivers"]:
         report.append(f"- NEW {d['brand']} {d['display']}: " +
@@ -251,7 +250,7 @@ def main():
     for d in findings["new_material"]:
         report.append(f"- UPDATE {d['brand']} {d['display']} ({d['db_id']}): " +
                       ", ".join(f"[{s}]({u[0]})" for s, u in d["sources"].items()))
-    failed_all = [f"- {n}: {'; '.join(f[:5])}" for n, ok, f, m in health_rows if f]
+    failed_all = [f"- {n}: {'; '.join(f[:5])}" for n, ok, f, m, mm in health_rows if f]
     if failed_all:
         report += ["", "### Pages that could not be read", *failed_all]
     text = "\n".join(report) + "\n"
@@ -265,8 +264,9 @@ def main():
         CATALOGUE.write_text("\n".join(lines) + "\n")
     else:
         print("\n".join(lines))
+        Path(args.out).with_suffix(".state.json").write_text(json.dumps(state, indent=1, ensure_ascii=False))
 
-    dead = [n for n, ok, f, m in health_rows if ok == 0]
+    dead = [n for n, ok, f, m, mm in health_rows if ok == 0]
     if len(dead) == len(health_rows):
         print("::error::no source could be read at all", file=sys.stderr)
         return 1

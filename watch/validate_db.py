@@ -3,8 +3,13 @@
 conventions, so a hand-made or automated addition cannot break index.html.
 
 Rules (from meta.policy): ids are unique and never merged; every driver and every
-measurement carries a source; measurements are line | bar | table with data the
-viewer can draw; comparisons only reference drivers that exist.
+measurement carries a source; each measurement set comes from exactly one source
+family (watch/config.json 'families'), so sources are never blended; measurements
+are line | bar | table with data the viewer can draw; comparisons only reference
+drivers that exist.
+
+Warnings (do not fail the check): curves on a logarithmic frequency axis captured
+with fewer points per decade than 'capture.minimum_points_per_decade' (CAPTURE.md).
 
 Usage: python3 watch/validate_db.py [files...]   (exit code 1 on any error)
 """
@@ -13,15 +18,28 @@ import numbers
 import sys
 from pathlib import Path
 
+from common import family_kind, families_of, load_config, points_per_decade
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 CONFIDENCE = {"high", "medium", "low", "none"}
 
 
-def check_set(where, m, errors):
+def check_set(where, m, errors, warnings, cfg):
     for f in ("type", "source", "chartType"):
         if not m.get(f):
             errors.append(f"{where}: missing '{f}'")
+    fams = families_of(m.get("source"), cfg)
+    if m.get("source") and not fams:
+        errors.append(f"{where}: source {m['source'][:60]!r} names no known source family; name the source "
+                      f"(for example 'HiFiCompass ...' or 'datasheet ...') or add a family to watch/config.json")
+    elif len(fams) > 1:
+        errors.append(f"{where}: source {m['source'][:60]!r} names several source families ({', '.join(fams)}); "
+                      f"keep one measurement set per source")
+    density = points_per_decade(m)
+    floor = cfg.get("capture", {}).get("minimum_points_per_decade", 40)
+    if density is not None and density < floor and not any(family_kind(f, cfg) == "derived" for f in fams):
+        warnings.append(f"{where}: {density:.0f} points per decade, below the {floor} minimum (CAPTURE.md)")
     if m.get("confidence") not in CONFIDENCE:
         errors.append(f"{where}: confidence must be one of {sorted(CONFIDENCE)}, got {m.get('confidence')!r}")
     ct = m.get("chartType")
@@ -56,7 +74,8 @@ def check_set(where, m, errors):
 
 
 def validate(paths):
-    errors, ids = [], {}
+    cfg = load_config()
+    errors, warnings, ids = [], [], {}
     comparisons = []
     for path in paths:
         try:
@@ -90,7 +109,7 @@ def validate(paths):
                 errors.append(f"{where}: 'measurements' must be a list")
                 continue
             for mi, m in enumerate(ms):
-                check_set(f"{where} measurement {mi} ({m.get('type', '?')})", m, errors)
+                check_set(f"{where} measurement {mi} ({m.get('type', '?')})", m, errors, warnings, cfg)
         for c in db.get("comparisons", []):
             comparisons.append((name, c))
     for name, c in comparisons:
@@ -102,14 +121,16 @@ def validate(paths):
         for ref in c.get("drivers", []):
             if ref not in ids:
                 errors.append(f"{where}: references unknown driver id '{ref}'")
-        check_set(where, c, errors)
-    return errors, len(ids)
+        check_set(where, c, errors, warnings, cfg)
+    return errors, warnings, len(ids)
 
 
 if __name__ == "__main__":
     paths = sys.argv[1:] or [p for p in DEFAULT if p.exists()]
-    errors, n = validate(paths)
+    errors, warnings, n = validate(paths)
+    for w in warnings:
+        print(f"::warning::{w}")
     for e in errors:
         print(f"::error::{e}")
-    print(f"{n} drivers checked in {len(paths)} file(s): {len(errors)} error(s)")
+    print(f"{n} drivers checked in {len(paths)} file(s): {len(errors)} error(s), {len(warnings)} warning(s)")
     sys.exit(1 if errors else 0)

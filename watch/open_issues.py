@@ -61,16 +61,16 @@ def stub(d):
 
 def new_driver_body(d, date):
     links = "\n".join(f"- **{s}**: " + " · ".join(f"<{u}>" for u in urls[:6]) for s, urls in d["sources"].items())
-    return f"""The weekly driver watch found a model that is not in `drivers.json` or the survey file.
+    return f"""The weekly driver watch found measurements of a model that is not in `drivers.json` or the survey file.
 
 **{d['brand']} {d['display']}** (first seen {date})
 
-Where it was found:
+Measurement pages, per source:
 {links}
 
 ### To add it
-- [ ] Get the datasheet and any HiFiCompass or Erin's Audio Corner measurements linked above
-- [ ] Extract T/S parameters and the distortion curves (harmonic and intermodulation), with a source on every measurement
+- [ ] Collect the measurements linked above; keep each source as its own measurement set
+- [ ] Capture the curves at 1/24 octave (80 points per decade) from the largest original image, or from the PDF's vector data where it has it (`CAPTURE.md`)
 - [ ] Add the record to `drivers.json` (the validation check runs on the pull request)
 - [ ] Close this issue from the pull request with `Closes #<this issue>`
 
@@ -93,8 +93,8 @@ def main():
     if findings.get("baseline"):
         print("Baseline run: no issues opened.")
         return 0
-    ensure_label(repo, LABEL_NEW, "f0a44a", "Driver found by the weekly watch, not yet in the database")
-    ensure_label(repo, LABEL_UPD, "6fd19a", "New source material for drivers already in the database")
+    ensure_label(repo, LABEL_NEW, "f0a44a", "Measured driver found by the weekly watch, not yet in the database")
+    ensure_label(repo, LABEL_UPD, "6fd19a", "New measurement pages for drivers already in the database")
 
     done = existing_keys(repo, LABEL_NEW)
     for d in findings["new_drivers"]:
@@ -112,9 +112,9 @@ def main():
             for d in findings["new_material"])
         i = gh("POST", f"/repos/{repo}/issues", {
             "title": f"New source material for drivers in the database ({findings['date']})",
-            "body": "Pages or PDFs mentioning these drivers appeared since the last scan "
-                    "(a new datasheet revision, a new HiFiCompass or Erin's Audio Corner measurement, "
-                    "or a page that simply moved). Check each and update the record if the data is new.\n\n"
+            "body": "New measurement pages for these drivers appeared since the last scan "
+                    "(a new lab test, a new datasheet revision, or a page that simply moved). "
+                    "Check each; new data goes in as its own measurement set with its own source.\n\n"
                     + rows + "\n",
             "labels": [LABEL_UPD]})
         print(f"opened #{i['number']} update digest")
