@@ -22,6 +22,9 @@
   .ds{display:flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-bottom:14px;cursor:pointer;user-select:none}
   .ds input{accent-color:var(--amber);width:15px;height:15px}
   .rolehdr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  .srchdr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:26px 0 2px;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between}
+  .srchdr span:last-child{color:var(--dim);letter-spacing:.06em}
+  .card .srcs{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--green);margin-top:3px}
   .card{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;color:inherit;cursor:pointer}
   .card .nm{font-weight:600;font-size:16px}
   .card .sub{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:4px}
@@ -61,6 +64,7 @@
 const BRAND = "driver database";
 const MAIN_DB   = "./drivers.json";
 const SURVEY_DB = "./drivers_survey_midbass.json";
+const SOURCES_CFG = "./watch/config.json";   // source families; optional
 
 const PALETTE=["#f0a44a","#6fd19a","#7aa2f7","#e98b8b","#c4a3ff","#f6c48a"];
 const CONF={high:"#6fd19a",medium:"#f0a44a",low:"#e98b8b",none:"#7b859c"};
@@ -71,7 +75,18 @@ const COND={spl_db:v=>v+" dB",distance_mm:v=>v+" mm",drive_v:v=>v+" V",drive_V:v
             hpf:v=>v,lab:v=>v,test:v=>v,standard:v=>v,space:v=>v,ref:v=>"re "+v,ref_spl_db:v=>"ref "+v+" dB"};
 const ROLE_ORDER=["tweeter","tweeter (waveguide)","midrange","midbass","midbass / mid","midbass (survey)",
                   "woofer / midbass","woofer","woofer (pair)","comparison"];
-let DB=null, SURVEY=null, showSurvey=false, charts=[], view={mode:"list",id:null,filter:""};
+let DB=null, SURVEY=null, FAMILIES=[], showSurvey=false, charts=[], view={mode:"list",id:null,filter:""};
+
+// Which source a measurement set comes from (watch/config.json "families"); every set belongs to one.
+function familyOf(set){
+  for(const f of FAMILIES){ try{ if(new RegExp(f.match,"i").test(set.source||"")) return f; }catch(e){} }
+  return null;
+}
+function sourceNames(d){
+  const out=[];
+  (d.measurements||[]).forEach(m=>{ const f=familyOf(m); if(f && f.kind!=="derived" && !out.includes(f.name)) out.push(f.name); });
+  return out;
+}
 
 // Comparisons are stored top-level (DB.comparisons[]); surface them as pseudo-records
 // so the exact same detail/chart renderer draws them. Each carries its own chart set.
@@ -154,7 +169,9 @@ function showList(){
     const sub = d.isComparison
       ? `compares ${d.comparesN} drivers · ${(d.measurements[0].series||[]).length} series`
       : `${[d.manufacturer,d.band].filter(Boolean).join(" · ")||"—"} · ${n} measurement${n!==1?"s":""}`;
-    b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${sub}</div>`;
+    const srcs=d.isComparison?[]:sourceNames(d);
+    b.innerHTML=`<div class="nm">${d.name||"(unnamed)"}</div><div class="sub">${sub}</div>`+
+      (srcs.length?`<div class="srcs">${srcs.length>1?srcs.length+" sources: ":"source: "}${srcs.join(" · ")}</div>`:"");
     b.onclick=()=>{view={mode:"detail",id:d.id,filter:view.filter};showDetail(d.id);}; list.appendChild(b);
   });
   const f=document.getElementById("flt");
@@ -175,8 +192,22 @@ function showDetail(id){
     ${extra?`<div class="tsmore">${extra}</div>`:""}`;
   }
   const ms=d.measurements||[];
+  // Group the sets by source so data from different sources stays visibly separate.
+  const order=FAMILIES.map(f=>f.name);
+  const rank=set=>{ const f=familyOf(set); return f? order.indexOf(f.name) : order.length; };
+  const idx=ms.map((set,i)=>i).sort((a,b)=>rank(ms[a])-rank(ms[b]) || a-b);
+  let lastFam;
   if(ms.length){
-    ms.forEach((set,i)=>{
+    idx.forEach(i=>{
+      const set=ms[i];
+      if(FAMILIES.length && !d.isComparison){
+        const f=familyOf(set), name=f?f.name:"Other";
+        if(name!==lastFam){
+          const n=ms.filter(x=>(familyOf(x)||{name:"Other"}).name===name).length;
+          h+=`<div class="srchdr"><span>${name}</span><span>${n} set${n!==1?"s":""}</span></div>`;
+          lastFam=name;
+        }
+      }
       const cc=CONF[set.confidence]||CONF.none;
       const isTable=set.chartType==="table";
       const has=isTable? (set.rows||[]).length : (set.series||[]).some(s=>(s.points||[]).length);
@@ -196,12 +227,15 @@ function showDetail(id){
 
 function boot(){ view.mode==="detail" && allDrivers().find(x=>x.id===view.id) ? showDetail(view.id) : showList(); }
 
-fetch(MAIN_DB,{cache:"no-store"})
+// "no-cache" re-checks with the server on every visit but only downloads a file again when it changed.
+fetch(MAIN_DB,{cache:"no-cache"})
   .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
   .then(j=>{ DB=j;
-    // try to load the optional survey dataset; absence is fine
-    return fetch(SURVEY_DB,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null)
-      .then(s=>{ SURVEY=s; boot(); });
+    // the survey dataset and the source families are optional; absence is fine
+    return Promise.all([
+      fetch(SURVEY_DB,{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch(SOURCES_CFG,{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null)
+    ]).then(([s,c])=>{ SURVEY=s; FAMILIES=(c&&c.families)||[]; boot(); });
   })
   .catch(e=>{document.getElementById("app").innerHTML=`<div class="err">Couldn't load drivers.json — ${e.message}. Make sure it sits next to index.html in the repo.</div>`;});
 </script>

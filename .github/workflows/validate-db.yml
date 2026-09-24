@@ -1,0 +1,49 @@
+name: Validate driver database
+
+on:
+  push:
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
+            "watch/coverage.py", "watch/config.json", ".github/workflows/validate-db.yml"]
+  pull_request:
+    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/validate_db.py", "watch/common.py",
+            "watch/coverage.py", "watch/config.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 watch/validate_db.py
+      - name: Coverage list builds
+        run: python3 watch/coverage.py --stdout > /dev/null
+
+  # After a database change lands on main, rebuild watch/coverage.md so the shortlist stays current.
+  coverage:
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    concurrency:
+      group: watch-new-drivers
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - run: python3 watch/coverage.py
+      - name: Commit coverage list
+        run: |
+          git add watch/coverage.md watch/coverage.json
+          if git diff --cached --quiet; then echo "coverage unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Coverage list: rebuild after database change"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

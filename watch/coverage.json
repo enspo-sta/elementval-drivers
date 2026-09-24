@@ -1,0 +1,542 @@
+{
+ "date": "2026-09-24",
+ "scan_state": false,
+ "in_database": [
+  {
+   "id": "ptt65m08naa08",
+   "name": "Purifi PTT6.5M08-NAA-08",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 4
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) (11/decade)",
+    "HD (current-domain) (5/decade)"
+   ]
+  },
+  {
+   "id": "ptt80x04nab01",
+   "name": "Purifi PTT8.0X04-NAB-01",
+   "role": "woofer / midbass",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 4
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD vs frequency (ratio) (20/decade)"
+   ]
+  },
+  {
+   "id": "ptt65x04naa08",
+   "name": "Purifi PTT6.5X04-NAA-08",
+   "role": "midbass / mid",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 4
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD vs frequency (ratio) (20/decade)"
+   ]
+  },
+  {
+   "id": "ptt525x04naa05",
+   "name": "Purifi PTT5.25X04-NAA-05",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 4,
+    "HiFiCompass": 2
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 2,
+   "below_capture_minimum": [
+    "HD vs frequency (ratio) (20/decade)"
+   ]
+  },
+  {
+   "id": "ptt13t04hag10",
+   "name": "Purifi PTT1.3T04-HAG-10",
+   "role": "tweeter (waveguide)",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD vs frequency (ratio) (20/decade)"
+   ]
+  },
+  {
+   "id": "ptt13t04hag01",
+   "name": "Purifi PTT1.3T04-HAG-01",
+   "role": "tweeter (waveguide)",
+   "file": "drivers.json",
+   "captured": {
+    "Manufacturer datasheet": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD vs frequency (ratio) (20/decade)"
+   ]
+  },
+  {
+   "id": "sb-satori-wo24p-8",
+   "name": "SB Acoustics Satori WO24P-8",
+   "role": "woofer",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 2
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) vs frequency (5/decade)"
+   ]
+  },
+  {
+   "id": "sb-sb34nrxl75-8",
+   "name": "SB Acoustics SB34NRXL75-8 (Norex)",
+   "role": "woofer",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 3
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) vs frequency (5/decade)"
+   ]
+  },
+  {
+   "id": "purifi-ptt8-0x04-nab-02",
+   "name": "Purifi PTT8.0X04-NAB-02",
+   "role": "woofer / midbass",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 4
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) vs frequency (5/decade)"
+   ]
+  },
+  {
+   "id": "purifi-ptt10-0x04-nab-02",
+   "name": "Purifi PTT10.0X04-NAB-02",
+   "role": "woofer",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 3
+   },
+   "derived_sets": 1,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) vs frequency (5/decade)"
+   ]
+  },
+  {
+   "id": "sb-sb34nrxl75-8-dual",
+   "name": "SB Acoustics SB34NRXL75-8 ×2 (coherent pair)",
+   "role": "woofer (pair)",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 1
+   },
+   "derived_sets": 2,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "HD (orders) vs frequency (5/decade)"
+   ]
+  },
+  {
+   "id": "sb-satori-wo24p-4",
+   "name": "SB Acoustics Satori WO24P-4",
+   "role": "woofer",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 1
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb17cac35-4",
+   "name": "SB Acoustics SB17CAC35-4 (proxy)",
+   "role": "midbass",
+   "file": "drivers.json",
+   "captured": {
+    "Erin's Audio Corner": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "Large-signal compression vs frequency (37/decade)",
+    "Large-signal distortion vs frequency (37/decade)"
+   ]
+  },
+  {
+   "id": "ptt65w04-paper",
+   "name": "Purifi PTT6.5W04 (paper, proxy)",
+   "role": "midbass / mid",
+   "file": "drivers.json",
+   "captured": {
+    "Erin's Audio Corner": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": [
+    "Large-signal compression vs frequency (37/decade)",
+    "Large-signal distortion vs frequency (37/decade)"
+   ]
+  },
+  {
+   "id": "ptt65x04naa08a",
+   "name": "Purifi PTT6.5X04-NAA-08A",
+   "role": "midbass / mid",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb17nbac35-8",
+   "name": "SB Acoustics SB17NBAC35-8",
+   "role": "midbass",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "m74t-6",
+   "name": "BlieSMa M74T-6",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "at-c-quenze-18-h-52-17-06-sd",
+   "name": "Acoustic Technology (AT) AT C-Quenze 18 H 52 17 06 SD",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 6
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "diysg-anarchy-704",
+   "name": "DIY Sound Group DIYSG Anarchy 704",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "dcs165",
+   "name": "Dayton Audio Dayton DCS165",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 6
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "e180he-44-coils-in-series",
+   "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 8
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "e180he-44-single-coil",
+   "name": "Dayton Audio Dayton E180HE-44 single coil",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 3
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "rs-180-4",
+   "name": "Dayton Audio Dayton RS 180-4",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 6
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "rs-225-8",
+   "name": "Dayton Audio Dayton RS 225-8",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "rss-210hf-4",
+   "name": "Dayton Audio Dayton RSS 210HF-4",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "rss-210ho-4",
+   "name": "Dayton Audio Dayton RSS 210HO-4",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "ps180",
+   "name": "Dayton Audio Dayton ps180",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 6
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "mcm-55-2421",
+   "name": "MCM MCM 55-2421",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 3
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "misco-bwx-6502",
+   "name": "MISCO Misco BWX-6502",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "morel-kw-1",
+   "name": "Morel Morel KW-1",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 6
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "xxls-830842",
+   "name": "Peerless Peerless XXLS 830842",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 8
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "ptt6.5x04-nfa-01",
+   "name": "Purifi Purifi PTT6.5X04-NFA-01",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "radio-shack-40-1354a",
+   "name": "RadioShack Radio Shack 40-1354A",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 2
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb23mfcl45-4",
+   "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "seas-l26roy-x1001-04-4",
+   "name": "SEAS Seas L26ROY X1001-04-4",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 8
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sw182bd03",
+   "name": "Wavecor Wavecor SW182BD03",
+   "role": "midbass (survey)",
+   "file": "drivers_survey_midbass.json",
+   "captured": {
+    "diyAudio": 7
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  }
+ ],
+ "shortlist_multiple_sources": [],
+ "single_source": []
+}
