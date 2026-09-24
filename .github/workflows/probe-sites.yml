@@ -1,0 +1,51 @@
+name: Temporary site probe
+on:
+  push:
+    paths: [".github/workflows/probe-sites.yml"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe
+        shell: python3 {0}
+        run: |
+          import urllib.request, re, html
+          UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"
+          def get(u):
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=30)
+                  return r.status, dict(r.headers), r.read().decode("utf-8", "replace")
+              except Exception as e:
+                  return getattr(e, "code", 0), {}, str(e)
+          def text(s):
+              s = re.sub(r"<(script|style)\b.*?</\1>", " ", s, flags=re.S | re.I)
+              return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s)))
+          pages = [
+            "https://www.erinsaudiocorner.com/",
+            "https://www.erinsaudiocorner.com/driveunits/",
+            "https://erinsaudiocorner.com/driveunits/purifi_ptt80x04-nab-02/",
+            "https://erinsaudiocorner.com/driveunits/sb_acoustics_satori_mw13p-4/",
+            "https://erinsaudiocorner.com/driveunits/purifi_ptt6.5x04-naa-08/",
+            "https://hificompass.com/en/speakers/measurements/purifi/purifi-ptt525x04-naa-05",
+            "https://hificompass.com/en/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8",
+            "https://hificompass.com/en/user/login",
+            "https://hificompass.com/en/terms-of-use",
+            "https://hificompass.com/en/content/terms-use",
+            "https://hificompass.com/en/rules",
+          ]
+          for u in pages:
+              st, h, body = get(u)
+              t = text(body)
+              print("\n" + "=" * 100 + f"\n{u}\nstatus {st} | server {h.get('Server') or h.get('server')} | {len(body)} bytes")
+              links = sorted(set(re.findall(r'href=["\']([^"\']+)["\']', body)))
+              print("GITHUB LINKS:", [l for l in links if "github" in l.lower()])
+              print("DATA/DOWNLOAD LINKS:", [l for l in links if re.search(r"\.(zip|csv|txt|frd|zma|mdat|xlsx?|json|pdf)(\?|$)|download|drive\.google|dropbox|patreon", l, re.I)][:40])
+              print("IMAGES (first 25):", re.findall(r'<img[^>]+src=["\']([^"\']+)', body)[:25])
+              for kw in ["github", "download", "raw data", "login", "log in", "sign in", "register", "premium", "subscri", "members", "parsing", "scraping", "automated", "robot", "copy", "reproduc", "permission", "prohibit", "distortion", "THD", "IMD"]:
+                  for m in list(re.finditer(re.escape(kw), t, re.I))[:3]:
+                      print(f"  [{kw}] ...{t[max(0, m.start()-160):m.end()+200]}...")
+          st, h, body = get("https://hificompass.com/robots.txt"); print("\n==== hificompass robots.txt", st); print(body[:3000])
+          st, h, body = get("https://www.erinsaudiocorner.com/robots.txt"); print("\n==== erin robots.txt", st); print(body[:1500])
