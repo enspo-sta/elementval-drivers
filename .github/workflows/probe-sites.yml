@@ -1,0 +1,47 @@
+name: Temporary site probe
+on:
+  push:
+    paths: [".github/workflows/probe-sites.yml"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe backup documentation
+        shell: python3 {0}
+        run: |
+          import urllib.request, re, html, gzip
+          UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          def get(u):
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Encoding": "gzip"}), timeout=40)
+                  b = r.read()
+                  if r.headers.get("Content-Encoding") == "gzip": b = gzip.decompress(b)
+                  return r.status, r.geturl(), b.decode("utf-8", "replace")
+              except Exception as e:
+                  return getattr(e, "code", 0), u, f"ERROR {e}"
+          def text(s):
+              s = re.sub(r"<(script|style|noscript|nav|header|footer)\b.*?</\1>", " ", s, flags=re.S | re.I)
+              return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
+          pages = [
+            "https://docs.github.com/en/repositories/creating-and-managing-repositories/restoring-a-deleted-repository",
+            "https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository",
+            "https://docs.github.com/en/desktop/overview/about-github-desktop",
+            "https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop",
+            "https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop",
+            "https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts",
+            "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow",
+            "https://docs.codeberg.org/getting-started/faq/",
+            "https://codeberg.org/Codeberg/org/raw/branch/main/TermsOfUse.md",
+            "https://docs.codeberg.org/advanced/access-token/",
+            "https://docs.codeberg.org/git/using-ssh/",
+            "https://codeberg.org/Codeberg/org/raw/branch/main/Imprint.md",
+            "https://git-scm.com/docs/git-bundle",
+          ]
+          for u in pages:
+              st, fu, b = get(u)
+              t = text(b) if not u.endswith(".md") else b
+              print(f"\n==== PAGE {u} -> {fu} status {st} chars {len(t)}")
+              print(t[:16000])
