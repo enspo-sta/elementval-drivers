@@ -51,7 +51,7 @@ jobs:
             echo "Download it under **Artifacts** below (kept 90 days)."
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: elementval-drivers-backup-${{ env.BACKUP_DATE }}
           path: backup/
