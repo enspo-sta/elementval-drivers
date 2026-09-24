@@ -58,6 +58,20 @@ def pretty(model):
 
 
 def fetch(url):
+    """GET a page; one retry after 5 s on a server error (5xx) or timeout."""
+    try:
+        return _fetch(url)
+    except (urllib.error.HTTPError, TimeoutError, urllib.error.URLError) as e:
+        if isinstance(e, urllib.error.HTTPError) and e.code < 500:
+            raise
+        if isinstance(e, urllib.error.URLError) and not isinstance(e, urllib.error.HTTPError) \
+                and "timed out" not in str(e.reason):
+            raise                   # refused / unknown host: retrying will not help
+        time.sleep(5)
+        return _fetch(url)
+
+
+def _fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Encoding": "gzip",
                                                "Accept": "text/html,application/xml;q=0.9,*/*;q=0.8"})
     with urllib.request.urlopen(req, timeout=30) as r:
