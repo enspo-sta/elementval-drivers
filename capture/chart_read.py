@@ -307,14 +307,15 @@ def read_chart(path, ctype):
     rows, cols, rcol, ccol = CP.grid_lines(img, box, bg)
     # a run taller than a few pixels is not a grid line: the dark watermark band across the HiFiCompass charts
     bands = [r for r in rows if r[1] - r[0] >= 4]
-    rows = [r for r in rows if r[1] - r[0] < 4]
-    rows = grid_rows_only(img, rows, box)
+    rows_all = [r for r in rows if r[1] - r[0] < 4]
+    rows = grid_rows_only(img, rows_all, box)
     left = CP.safe_ocr(path, [0, 0, max(cols[0][0] - 2 if cols else 40, 40), h], w, h)
     bottom = CP.safe_ocr(path, [0, rows[-1][1] + 2 if rows else int(h * 0.9), w, h], w, h)
     xa, ya = x_axis(cols, bottom), y_axis(rows, left)
     rec = {"background": bg, "grid_rows": len(rows), "grid_cols": [c[0] for c in cols], "x_axis": xa, "y_axis": ya,
            "left_labels": [(wd["text"], wd["y"]) for wd in left if "text" in wd], "bottom_labels": [(wd["text"], wd["x"]) for wd in bottom if "text" in wd],
-           "bands": bands, "band_colours": band_colours(path, img, bands, box, bg), "image_mode": mode, "transparent_share": clear_share}
+           "bands": bands, "band_colours": band_colours(path, img, bands, box, bg), "image_mode": mode, "transparent_share": clear_share,
+           "rows_found": [r[0] if r[0] == r[1] else r for r in rows_all][:80], "rows_kept": [r[0] for r in rows][:80], "grid_row_colour": rcol, "grid_col_colour": ccol}
     if not xa or not ya:
         rec["error"] = "axes could not be fitted"
         return rec
@@ -469,6 +470,7 @@ def main():
     ap.add_argument("--types", default="response,harmonics,current,impedance")
     ap.add_argument("--limit", type=int, default=0, help="at most N charts of each type per driver (0 = all)")
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_read.json"))
+    ap.add_argument("--keep", help="a directory to keep the fetched images in (a short-lived workflow artifact, never committed)")
     a = ap.parse_args()
     ids = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text().splitlines()) if x.strip()]
     types = set(a.types.split(","))
@@ -501,6 +503,9 @@ def main():
                     res.append({"file": name, "url": url, "type": ctype, "error": str(e)}); print(f"  {name}: cannot fetch ({e})", flush=True); continue
                 path = Path(tmp) / name
                 path.write_bytes(data)
+                if a.keep:
+                    Path(a.keep).mkdir(parents=True, exist_ok=True)
+                    (Path(a.keep) / name).write_bytes(data)
                 try:
                     rec = read_chart(path, ctype)
                 except Exception as e:
