@@ -61,6 +61,7 @@ class Site:
         self.last = 0.0
         self.disallow, self.allow, self.sitemaps = [], [], []
         self.fetched = 0
+        self.net_errors = 0                                # requests that failed below HTTP (no route, no DNS, timeout)
         self.ssl = None                                    # set when the shop's chain needed completing (fix_chain)
         self.read_robots()
 
@@ -96,6 +97,7 @@ class Site:
                 other = swap_www(url)                     # the other host form often has a complete certificate chain
                 log(f"  {self.shop['name']}: certificate problem at {urllib.parse.urlparse(url).netloc}, trying {urllib.parse.urlparse(other).netloc}")
                 return self.get(other, binary, retry=True)
+            self.net_errors += 1
             log(f"  {self.shop['name']}: cannot fetch {url}: {e}")
         return None
 
@@ -581,6 +583,86 @@ def load_drivers():
     return out
 
 
+def scan_shop(shop, wanted, drivers):
+    """One shop: its offers by driver id, its notes, and whether it could be reached at all."""
+    offers = {}
+    shop_notes = []
+    log(f"{shop['name']} ({shop['country']})")
+    site = Site(shop)
+    pages = list(dict.fromkeys(candidate_pages(site) + list(shop.get("pages") or [])))   # explicit product pages from the config too
+    hubs = list(shop.get("hubs") or [])
+    if not pages:
+        log(f"  no sitemap found (robots.txt lists none and the usual sitemap addresses gave nothing); {len(site.disallow)} disallow rule(s) in robots.txt")
+        if not hubs:
+            hubs = [shop["home"]]                      # no sitemap: follow links from the front page instead
+    hits = []
+    for url in pages:
+        n = norm(urllib.parse.urlparse(url).path)
+        for did, model, rx in wanted:
+            if rx.search(n):
+                hits.append((did, model, url))
+    log(f"  {len(pages)} addresses in sitemaps, {len(hits)} product pages match a driver")
+    makers = maker_words(drivers)
+    if pages and not hits:
+        log("  no match; addresses look like: " + " | ".join(pages[len(pages) // 2:len(pages) // 2 + 4]))
+        named = [u for u in pages if any(m in u.lower() for m in makers)][:MAX_HUBS]
+        log("  addresses naming a manufacturer: " + (" | ".join(named) if named else "none") + f" (looked for {', '.join(makers)})")
+        hubs = list(dict.fromkeys(hubs + named))       # brand pages usually link to the product pages
+    if hubs:
+        more = [h for h in crawl_hubs(site, hubs, wanted, makers) if h not in hits]
+        log(f"  {len(more)} product pages found by following links from {min(len(hubs), MAX_HUBS)} hub page(s)")
+        hits += more
+    if not pages and not hits:
+        shop_notes.append(f"{shop['name']}: no sitemap found and no product page reached from the front page")
+        return offers, shop_notes, site.fetched == 0 and site.net_errors > 0
+    if len(hits) > MAX_PAGES_PER_SHOP:
+        shop_notes.append(f"{shop['name']}: {len(hits)} matching pages, only the first {MAX_PAGES_PER_SHOP} read")
+    found = 0
+    for did, model, url in hits[:MAX_PAGES_PER_SHOP]:
+        text = site.get(url)
+        if not text:
+            continue
+        page_offers = offers_from_page(text, shop.get("currency"))
+        if not page_offers:
+            log(f"  no structured price on {url} ({why_no_price(text)})")
+            continue
+        best = min(page_offers, key=lambda o: o["price"])
+        offer = make_offer(shop, url, text, model, best)
+        same = [o for o in offers.get(did, []) if o["shop"] == shop["name"]]
+        if same:                                   # the same product in another language: keep the cheaper, prefer /en/
+            keep = same[0]
+            if offer["price"] < keep["price"] or (offer["price"] == keep["price"] and "/en/" in url and "/en/" not in keep["url"]):
+                offers[did].remove(keep); offers[did].append(offer)
+            continue
+        offers.setdefault(did, []).append(offer)
+        found += 1
+    shop_notes.append(f"{shop['name']}: {len(pages)} addresses, {len(hits)} matching pages, {found} prices read")
+    return offers, shop_notes, site.fetched == 0 and site.net_errors > 0
+
+
+def previous_offers(shop, today):
+    """The shop's offers in the committed prices.json, marked as kept from that scan (for a shop that could
+    not be reached at all in this scan; a note says so, the kept-from date is the first scan they came from)."""
+    try:
+        prev = json.loads(OUT.read_text())
+    except (OSError, ValueError):
+        return {}
+    since = prev.get("meta", {}).get("updated") or "an earlier scan"
+    out = {}
+    for did, rec in (prev.get("drivers") or {}).items():
+        for old in rec.get("offers") or []:
+            if old.get("shop") != shop["name"]:
+                continue
+            o = dict(old)
+            o["kept_from"] = old.get("kept_from") or since
+            o.pop("price_sek", None); o.pop("doubtful", None)
+            note = f"the shop could not be reached in the scan of {today}: price from the scan of {o['kept_from']}"
+            o["price_note"] = re.sub(r"; the shop could not be reached in the scan of [^;]*", "", old.get("price_note") or "").strip("; ")
+            o["price_note"] = (o["price_note"] + "; " if o["price_note"] else "") + note
+            out.setdefault(did, []).append(o)
+    return out
+
+
 def scan(cfg, drivers, only_shop=None, only_driver=None):
     wanted = []
     for d in drivers:
@@ -588,61 +670,31 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
             continue
         for m in models_of(d):
             wanted.append((d["id"], m, model_regex(m)))
-    offers = {}
-    shop_notes = []
+    offers, shop_notes, retry = {}, [], []
+    def merge(found):
+        for did, lst in found.items():
+            offers.setdefault(did, []).extend(lst)
     for shop in cfg["shops"]:
         if only_shop and shop["name"].lower() != only_shop.lower():
             continue
-        log(f"{shop['name']} ({shop['country']})")
-        site = Site(shop)
-        pages = list(dict.fromkeys(candidate_pages(site) + list(shop.get("pages") or [])))   # explicit product pages from the config too
-        hubs = list(shop.get("hubs") or [])
-        if not pages:
-            log(f"  no sitemap found (robots.txt lists none and the usual sitemap addresses gave nothing); {len(site.disallow)} disallow rule(s) in robots.txt")
-            if not hubs:
-                hubs = [shop["home"]]                      # no sitemap: follow links from the front page instead
-        hits = []
-        for url in pages:
-            n = norm(urllib.parse.urlparse(url).path)
-            for did, model, rx in wanted:
-                if rx.search(n):
-                    hits.append((did, model, url))
-        log(f"  {len(pages)} addresses in sitemaps, {len(hits)} product pages match a driver")
-        makers = maker_words(drivers)
-        if pages and not hits:
-            log("  no match; addresses look like: " + " | ".join(pages[len(pages) // 2:len(pages) // 2 + 4]))
-            named = [u for u in pages if any(m in u.lower() for m in makers)][:MAX_HUBS]
-            log("  addresses naming a manufacturer: " + (" | ".join(named) if named else "none") + f" (looked for {', '.join(makers)})")
-            hubs = list(dict.fromkeys(hubs + named))       # brand pages usually link to the product pages
-        if hubs:
-            more = [h for h in crawl_hubs(site, hubs, wanted, makers) if h not in hits]
-            log(f"  {len(more)} product pages found by following links from {min(len(hubs), MAX_HUBS)} hub page(s)")
-            hits += more
-        if not pages and not hits:
-            shop_notes.append(f"{shop['name']}: no sitemap found and no product page reached from the front page")
+        found, notes, unreachable = scan_shop(shop, wanted, drivers)
+        if unreachable:
+            retry.append(shop)                               # a network fault may be over after the other shops
             continue
-        if len(hits) > MAX_PAGES_PER_SHOP:
-            shop_notes.append(f"{shop['name']}: {len(hits)} matching pages, only the first {MAX_PAGES_PER_SHOP} read")
-        found = 0
-        for did, model, url in hits[:MAX_PAGES_PER_SHOP]:
-            text = site.get(url)
-            if not text:
-                continue
-            page_offers = offers_from_page(text, shop.get("currency"))
-            if not page_offers:
-                log(f"  no structured price on {url} ({why_no_price(text)})")
-                continue
-            best = min(page_offers, key=lambda o: o["price"])
-            offer = make_offer(shop, url, text, model, best)
-            same = [o for o in offers.get(did, []) if o["shop"] == shop["name"]]
-            if same:                                   # the same product in another language: keep the cheaper, prefer /en/
-                keep = same[0]
-                if offer["price"] < keep["price"] or (offer["price"] == keep["price"] and "/en/" in url and "/en/" not in keep["url"]):
-                    offers[did].remove(keep); offers[did].append(offer)
-                continue
-            offers.setdefault(did, []).append(offer)
-            found += 1
-        shop_notes.append(f"{shop['name']}: {len(pages)} addresses, {len(hits)} matching pages, {found} prices read")
+        merge(found); shop_notes += notes
+    today = dt.date.today().isoformat()
+    for shop in retry:
+        log(f"{shop['name']}: could not be reached (network error at every request); trying again after the other shops")
+        time.sleep(30)
+        found, notes, unreachable = scan_shop(shop, wanted, drivers)
+        if not unreachable:
+            merge(found); shop_notes += notes
+            continue
+        kept = previous_offers(shop, today)
+        merge(kept)
+        n = sum(len(v) for v in kept.values())
+        shop_notes.append(f"{shop['name']}: could not be reached in this scan (network error at every request, twice); "
+                          + (f"its {n} price(s) from the earlier scan are kept and marked" if n else "no earlier price to keep"))
     return offers, shop_notes
 
 

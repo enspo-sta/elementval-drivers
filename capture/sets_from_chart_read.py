@@ -14,6 +14,7 @@ same file replaces the earlier one.
 """
 import argparse
 import json
+import math
 import re
 import statistics
 import sys
@@ -101,7 +102,12 @@ def build(read, db):
             cond = conditions(name)
             note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
             for c in ch.get("checks", []):
-                note.append("; ".join(f"{k} {v}" for k, v in c.items()))
+                note.append(", ".join(f"{k.replace('_', ' ')} {v}" for k, v in c.items()))
+            for cv in ch["curves"]:
+                if cv.get("gaps"):
+                    note.append(f"{cv.get('name') or cv['colour']}: not visible in the chart between " + ", ".join(f"{g[0]:g} and {g[1]:g} Hz" for g in cv["gaps"]) + " (no points there)")
+                if cv.get("name_from"):
+                    note.append(f"{cv['name']} named after {cv['name_from']}")
             if kind in ("hd-frequency", "hd-current"):
                 # the reader attaches the legend's name to each curve; a curve without one is left out and noted
                 series = [{"name": cv["name"], "points": cv["points"]} for cv in ch["curves"] if cv.get("name") and cv.get("lines_per_column", 1) <= 1.5]
@@ -117,8 +123,15 @@ def build(read, db):
                     if v in levels:
                         cond["spl_db"] = levels[v]
                         note.append(f"level {levels[v]} dB at 1 m = the {v:g} V response read at 1 kHz")
+                    elif levels and v:
+                        # no response chart at this voltage: the nearest voltage's response at 1 kHz, scaled by the
+                        # voltage ratio (20 log10), which is how a sensitivity is restated for another voltage
+                        v0 = min(levels, key=lambda x: abs(math.log(x / v)))
+                        cond["spl_db"] = round(levels[v0] + 20 * math.log10(v / v0), 1)
+                        cond["spl_note"] = f"level from the {v0:g} V response at 1 kHz ({levels[v0]} dB) scaled by 20 log10({v:g}/{v0:g})"
+                        note.append(cond["spl_note"])
                     else:
-                        waiting.append((did, name, f"no response chart at {v} V to take the level from")); continue
+                        waiting.append((did, name, f"no response chart to take the level from")); continue
             elif kind == "frequency-response":
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
                 if cv.get("lines_per_column", 1) > 1.5:

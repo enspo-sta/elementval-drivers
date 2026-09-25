@@ -13,9 +13,11 @@ For every chart of those types, this tool:
      1/24 octave (CAPTURE.md), and
   4. checks itself where it can: the 2.83 V response at 1 kHz against the sensitivity the page states;
      the impedance minimum against Re; the impedance peak against Fs.
-A dark band across the middle of the green charts (a watermark) is not a grid row and not a curve: solid
-regions of a colour are left out of a curve, and where the curve is hidden for more than a few columns the
-gap is reported instead of bridged. Everything it writes is numbers and text (capture/chart_read.json);
+The green charts are RGBA images with a transparent canvas: under the transparent pixels lie a green field
+and a black band across the middle that a browser never shows. Transparent pixels are painted in the
+background colour before anything is read, so neither is a grid row or a curve. Solid regions of a colour
+are left out of a curve as well (bold text), and where a curve is not visible for more than a few columns
+the gap is reported instead of bridged. Everything it writes is numbers and text (capture/chart_read.json);
 no image is stored.
   python3 capture/chart_read.py [--ids m74a-6,...] [--types response,harmonics,current,impedance]
 """
@@ -279,10 +281,26 @@ def band_colours(path, img, bands, box, bg_hex):
     return out
 
 
-def read_chart(path, ctype):
+def load(path):
+    """The image as RGB with its transparent pixels painted in the background colour: the green charts are
+    drawn on a transparent canvas (RGBA, most pixels at alpha 0; under them lies a green field and a black
+    band that a browser never shows), so only what is actually drawn is left for the grid and curve reading."""
     import numpy as np
     from PIL import Image
-    img = np.asarray(Image.open(path).convert("RGB")).astype(int)
+    im = Image.open(path)
+    rgba = np.asarray(im.convert("RGBA")).astype(int)
+    img = rgba[:, :, :3].copy()
+    alpha = rgba[:, :, 3]
+    clear = alpha < 64
+    if im.mode in ("RGBA", "LA", "P") and clear.any():
+        bg, _, _ = CP.background(img)
+        img[clear] = [int(bg[i:i + 2], 16) for i in (1, 3, 5)]
+    return img, im.mode, (round(float(clear.mean()), 3) if clear.any() else 0.0)
+
+
+def read_chart(path, ctype):
+    import numpy as np
+    img, mode, clear_share = load(path)
     h, w = img.shape[:2]
     bg, bright, share = CP.background(img)
     box = CP.plot_box(img, bg) or [0, 0, w - 1, h - 1]
@@ -296,14 +314,16 @@ def read_chart(path, ctype):
     xa, ya = x_axis(cols, bottom), y_axis(rows, left)
     rec = {"background": bg, "grid_rows": len(rows), "grid_cols": [c[0] for c in cols], "x_axis": xa, "y_axis": ya,
            "left_labels": [(wd["text"], wd["y"]) for wd in left if "text" in wd], "bottom_labels": [(wd["text"], wd["x"]) for wd in bottom if "text" in wd],
-           "bands": bands, "band_colours": band_colours(path, img, bands, box, bg)}
+           "bands": bands, "band_colours": band_colours(path, img, bands, box, bg), "image_mode": mode, "transparent_share": clear_share}
     if not xa or not ya:
         rec["error"] = "axes could not be fitted"
         return rec
     # the frequency labels share one baseline: the plot ends above the largest group of words at one height
     # (a value label of the left axis that strayed into the band below the last grid row is not that group)
     label_top = baseline([wd["y"] for wd in bottom if "text" in wd], h) - 6
-    bottom_edge = max(rows[-1][1] + 1, min(label_top, h - 1)) if rows else min(label_top, h - 1)
+    # the plot ends just above the lowest grid line (a curve at the chart's floor, -100 dB or 50 dB, is clipped
+    # there and is not read as a value), and above the labels
+    bottom_edge = min(rows[-1][0] - 1, label_top, h - 1) if rows else min(label_top, h - 1)
     plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, bottom_edge] if rows and cols else box
     curves = []
     candidates = CP.all_colours(img, plot, bg, top=12)

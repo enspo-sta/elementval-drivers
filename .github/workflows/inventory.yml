@@ -39,13 +39,22 @@ jobs:
           python3 capture/inventory.py --models "$MODELS" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit the inventory
         run: |
-          git add capture/inventory.json capture/inventory.md
-          if git diff --cached --quiet; then echo "inventory unchanged"; exit 0; fi
+          FILES="capture/inventory.json capture/inventory.md"
+          git add $FILES
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Inventory: HiFiCompass pages (capture/inventory_request.txt)"
-          # another job may have committed the same files meanwhile: rebase, and on a conflict this run's
-          # files (the newest scan) win
-          git fetch origin "${GITHUB_REF_NAME}"
-          git rebase -X theirs "origin/${GITHUB_REF_NAME}" || { git checkout --theirs -- . && git add -A && GIT_EDITOR=true git rebase --continue; }
-          git push
+          # this run's files are whole results and replace the committed ones outright (a merge of two runs' files
+          # mixes them): the commit is made on the branch's newest commit, the files kept in a tar meanwhile
+          tar cf /tmp/run-files.tar $FILES
+          for try in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            tar xf /tmp/run-files.tar
+            git add $FILES
+            if git diff --cached --quiet; then echo "unchanged against the branch's newest commit"; exit 0; fi
+            git commit -q -m "Inventory: HiFiCompass pages (capture/inventory_request.txt)"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((try * 15))
+          done
+          echo "could not push after five tries"; exit 1

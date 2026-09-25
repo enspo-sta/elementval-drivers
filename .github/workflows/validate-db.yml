@@ -70,10 +70,22 @@ jobs:
       - run: python3 capture/worklist.py
       - name: Commit coverage list, consistency report and work list
         run: |
-          git add watch/coverage.md watch/coverage.json watch/consistency.md capture/WORKLIST.md
-          if git diff --cached --quiet; then echo "coverage unchanged"; exit 0; fi
+          FILES="watch/coverage.md watch/coverage.json watch/consistency.md capture/WORKLIST.md"
+          git add $FILES
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Coverage list, consistency report and work list: rebuild after database change"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          # this run's files are whole results and replace the committed ones outright (a merge of two runs' files
+          # mixes them): the commit is made on the branch's newest commit, the files kept in a tar meanwhile
+          tar cf /tmp/run-files.tar $FILES
+          for try in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            tar xf /tmp/run-files.tar
+            git add $FILES
+            if git diff --cached --quiet; then echo "unchanged against the branch's newest commit"; exit 0; fi
+            git commit -q -m "Coverage list, consistency report and work list: rebuild after database change"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((try * 15))
+          done
+          echo "could not push after five tries"; exit 1

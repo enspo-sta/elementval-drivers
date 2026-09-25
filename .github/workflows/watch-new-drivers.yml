@@ -63,10 +63,22 @@ jobs:
       - name: Commit scan state
         if: env.DRY_RUN != 'true'
         run: |
-          git add watch/state.json watch/catalogue.md watch/coverage.md watch/coverage.json
-          if git diff --cached --quiet; then echo "state unchanged"; exit 0; fi
+          FILES="watch/state.json watch/catalogue.md watch/coverage.md watch/coverage.json"
+          git add $FILES
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Driver watch: scan of $(date -u +%F)"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          # this run's files are whole results and replace the committed ones outright (a merge of two runs' files
+          # mixes them): the commit is made on the branch's newest commit, the files kept in a tar meanwhile
+          tar cf /tmp/run-files.tar $FILES
+          for try in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            tar xf /tmp/run-files.tar
+            git add $FILES
+            if git diff --cached --quiet; then echo "unchanged against the branch's newest commit"; exit 0; fi
+            git commit -q -m "Driver watch: scan of $(date -u +%F)"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((try * 15))
+          done
+          echo "could not push after five tries"; exit 1
