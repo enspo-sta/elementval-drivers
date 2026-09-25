@@ -31,7 +31,7 @@
   ],
   "notes": [
    "SoundImports: 33576 addresses, 80 matching pages, 10 prices read",
-   "Audio-hi.fi: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
+   "Audio-hi.fi: 10596 addresses, 16 matching pages, 0 prices read",
    "Lautsprechershop (Strassacker): 5402 addresses, 0 matching pages, 0 prices read",
    "Intertechnik: 10 addresses, 0 matching pages, 0 prices read",
    "Toutlehautparleur: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
@@ -49,7 +49,7 @@
  },
  "drivers": {
   "dcs165": {
-   "name": "Dayton Audio Dayton DCS165",
+   "name": "Dayton Audio DCS165",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -65,7 +65,7 @@
    ]
   },
   "e180he-44-coils-in-series": {
-   "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+   "name": "Dayton Audio E180HE-44 Coils in series",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -81,7 +81,7 @@
    ]
   },
   "e180he-44-single-coil": {
-   "name": "Dayton Audio Dayton E180HE-44 single coil",
+   "name": "Dayton Audio E180HE-44 single coil",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -97,7 +97,7 @@
    ]
   },
   "ps180": {
-   "name": "Dayton Audio Dayton ps180",
+   "name": "Dayton Audio ps180",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -148,6 +148,8 @@
      "price": 3750.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 42338
     }
    ]
@@ -176,6 +178,8 @@
      "price": 4120.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 46515
     }
    ]
@@ -192,6 +196,8 @@
      "price": 2400.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 27096
     }
    ]
@@ -208,6 +214,8 @@
      "price": 3000.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 33870
     }
    ]
@@ -236,6 +244,8 @@
      "price": 2725.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 30765
     }
    ]
@@ -264,6 +274,8 @@
      "price": 3000.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 33870
     }
    ]
@@ -292,6 +304,8 @@
      "price": 4375.0,
      "currency": "EUR",
      "availability": null,
+     "pack": true,
+     "pack_note": "Purifi's own shop sells whole boxes: the price is for a box of several drivers, not one driver",
      "price_sek": 49394
     }
    ]
@@ -313,7 +327,7 @@
    ]
   },
   "rs-180-4": {
-   "name": "Dayton Audio Dayton RS 180-4",
+   "name": "Dayton Audio RS 180-4",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -341,7 +355,7 @@
    ]
   },
   "rs-225-8": {
-   "name": "Dayton Audio Dayton RS 225-8",
+   "name": "Dayton Audio RS 225-8",
    "offers": [
     {
      "shop": "Audiophonics",
@@ -544,7 +558,7 @@
    ]
   },
   "sb23mfcl45-4": {
-   "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+   "name": "SB Acoustics SB23MFCL45-4",
    "offers": [
     {
      "shop": "Willys-HiFi",
@@ -571,7 +585,7 @@
    ]
   },
   "seas-l26roy-x1001-04-4": {
-   "name": "SEAS Seas L26ROY X1001-04-4",
+   "name": "SEAS L26ROY X1001-04-4",
    "offers": [
     {
      "shop": "HiFi-Kit",
