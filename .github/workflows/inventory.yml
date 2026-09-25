@@ -4,11 +4,16 @@ name: Inventory of measurement pages
 # addresses, data files, tables) to capture/inventory.json and .md for the capture routine.
 # The cloud sessions cannot reach hificompass.com; GitHub can. No page or image is stored.
 on:
+  push:                            # the models to read are listed in capture/inventory_request.txt
+    paths:
+      - "capture/inventory_request.txt"
+      - "capture/inventory.py"
+      - ".github/workflows/inventory.yml"
   workflow_dispatch:
     inputs:
       models:
-        description: "Models, comma-separated (e.g. BlieSMa M74A, SB Acoustics Satori TW29TX)"
-        required: true
+        description: "Models, comma-separated (else capture/inventory_request.txt is read)"
+        required: false
         type: string
 
 permissions:
@@ -27,13 +32,17 @@ jobs:
         with:
           fetch-depth: 0
       - name: Read the pages
-        run: python3 capture/inventory.py --models "${{ inputs.models }}" | tee -a "$GITHUB_STEP_SUMMARY"
+        env:
+          MODELS: ${{ inputs.models }}
+        run: |
+          if [ -z "$MODELS" ]; then MODELS="$(tr '\n' ',' < capture/inventory_request.txt)"; fi
+          python3 capture/inventory.py --models "$MODELS" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit the inventory
         run: |
           git add capture/inventory.json capture/inventory.md
           if git diff --cached --quiet; then echo "inventory unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Inventory: HiFiCompass pages of ${{ inputs.models }}"
+          git commit -m "Inventory: HiFiCompass pages (capture/inventory_request.txt)"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
