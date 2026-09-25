@@ -1,5 +1,6 @@
 """Tests for watch/prices.py that need no internet: price parsing, model matching, robots rules,
 structured-data reading and the ECB conversion. Run: python3 -m unittest discover -s tests -p "test_*.py" """
+import importlib
 import json
 import sys
 import unittest
@@ -91,3 +92,27 @@ class Pages(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Scanner(unittest.TestCase):
+    def test_odoo_price_span_with_shop_currency(self):
+        odoo = '<div><span class="oe_price"><span class="oe_currency_value">1,234.00</span> €</span></div>'
+        self.assertEqual(P.offers_from_page(odoo, "EUR"), [{"price": 1234.0, "currency": "EUR", "availability": None}])
+        self.assertEqual(P.offers_from_page('<span class="oe_currency_value">99</span>', None), [], "no currency known: no offer")
+
+    def test_why_no_price_names_what_the_page_has(self):
+        d = P.why_no_price('<script type="application/ld+json">{"@type":"WebPage"}</script> Nicht lieferbar')
+        self.assertIn("WebPage", d)
+        self.assertIn("out of stock", d)
+
+    def test_only_pages_on_the_shop_host_and_never_images(self):
+        site = P.Site.__new__(P.Site)
+        site.shop = {"name": "t", "home": "https://www.shop.example/"}
+        site.host, site.delay, site.last, site.disallow, site.allow, site.sitemaps, site.fetched = "www.shop.example", 0, 0, [], [], [], 0
+        site.origin = "https://www.shop.example"
+        urls = ["https://shop.example/p/ptt", "https://www.shop.example/p/ptt.jpg", "https://cdn.other.com/p/ptt", "https://www.shop.example/en/ptt.html"]
+        P.sitemap_urls = lambda s, u, depth=0, seen=None: urls
+        try:
+            self.assertEqual(P.candidate_pages(site), ["https://shop.example/p/ptt", "https://www.shop.example/en/ptt.html"])
+        finally:
+            importlib.reload(P)

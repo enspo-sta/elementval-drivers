@@ -194,7 +194,10 @@ def candidate_pages(site):
     urls = []
     for s in dict.fromkeys(starts):
         urls += sitemap_urls(site, s)
-    return list(dict.fromkeys(u for u in urls if u.startswith("http")))
+    host = site.host.lower().removeprefix("www.")
+    return list(dict.fromkeys(u for u in urls if u.startswith("http")
+                              and urllib.parse.urlparse(u).netloc.lower().removeprefix("www.") == host
+                              and not re.search(r"\.(jpe?g|png|gif|webp|svg|pdf|zip|mp4)(\?|$)", u, re.I)))
 
 
 # ---------------------------------------------------------------- prices from a page
@@ -233,8 +236,8 @@ def to_number(v):
         return None
 
 
-def offers_from_page(text):
-    """[{price, currency, availability, name}] from JSON-LD, else from meta tags."""
+def offers_from_page(text, default_currency=None):
+    """[{price, currency, availability}] from JSON-LD, else from meta tags, else from an Odoo price span."""
     out = []
     for m in re.finditer(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', text, re.S | re.I):
         raw = html.unescape(m.group(1)).strip()
@@ -268,13 +271,43 @@ def offers_from_page(text):
             if p is not None:
                 out.append({"price": p, "currency": cur.group(1).upper(), "availability": None})
     if not out:
+        m = re.search(r'class="[^"]*oe_currency_value[^"]*"[^>]*>\s*([\d.,\s\u00a0]+)\s*<', text)
+        if m:
+            p = to_number(m.group(1))
+            cur = re.search(r'itemprop=["\']priceCurrency["\'][^>]*content=["\']([^"\']+)', text, re.I)
+            sym = "EUR" if re.search(r"€|EUR", text[max(0, m.start() - 300):m.end() + 300]) else None
+            if p is not None:
+                out.append({"price": p, "currency": (cur.group(1) if cur else sym or default_currency or "").upper(), "availability": None})
+    if not out:
         ip = re.search(r'itemprop=["\']price["\'][^>]*content=["\']([^"\']+)', text, re.I)
         ic = re.search(r'itemprop=["\']priceCurrency["\'][^>]*content=["\']([^"\']+)', text, re.I)
         if ip and ic:
             p = to_number(ip.group(1))
             if p is not None:
                 out.append({"price": p, "currency": ic.group(1).upper(), "availability": None})
-    return [o for o in out if o["price"] > 0]
+    return [o for o in out if o["price"] > 0 and o["currency"]]
+
+
+def why_no_price(text):
+    """Short diagnosis for the log when a product page shows no structured price."""
+    types = sorted({str(n.get("@type")) for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', text, re.S | re.I)
+                    for n in _ld_nodes(m.group(1))})
+    bits = [f"JSON-LD types: {', '.join(types) or 'none'}"]
+    if re.search(r'itemprop=["\']price["\']', text, re.I):
+        bits.append("has itemprop=price")
+    if re.search(r"oe_currency_value", text):
+        bits.append("has an Odoo price span")
+    if re.search(r"out of stock|nicht lieferbar|rupture|slut i lager|uitverkocht|ausverkauft", text, re.I):
+        bits.append("page says out of stock")
+    return "; ".join(bits)
+
+
+def _ld_nodes(raw):
+    try:
+        data = json.loads(html.unescape(raw).strip())
+    except json.JSONDecodeError:
+        return []
+    return [n for n in walk(data) if isinstance(n, dict) and n.get("@type")]
 
 
 def page_title(text):
@@ -350,9 +383,9 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
             text = site.get(url)
             if not text:
                 continue
-            page_offers = offers_from_page(text)
+            page_offers = offers_from_page(text, shop.get("currency"))
             if not page_offers:
-                log(f"  no structured price on {url}")
+                log(f"  no structured price on {url} ({why_no_price(text)})")
                 continue
             best = min(page_offers, key=lambda o: o["price"])
             offer = {"shop": shop["name"], "country": shop["country"], "url": url, "page_title": page_title(text), "model": model,
@@ -361,6 +394,12 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
                 offer["shop_note"] = shop["note"]
             if shop.get("login_prices"):
                 offer["login_prices"] = True          # the public price; logged in it is often lower
+            same = [o for o in offers.get(did, []) if o["shop"] == shop["name"]]
+            if same:                                   # the same product in another language: keep the cheaper, prefer /en/
+                keep = same[0]
+                if offer["price"] < keep["price"] or (offer["price"] == keep["price"] and "/en/" in url and "/en/" not in keep["url"]):
+                    offers[did].remove(keep); offers[did].append(offer)
+                continue
             offers.setdefault(did, []).append(offer)
             found += 1
         shop_notes.append(f"{shop['name']}: {len(pages)} addresses, {len(hits)} matching pages, {found} prices read")
