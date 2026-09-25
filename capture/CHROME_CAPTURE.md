@@ -62,9 +62,20 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >    offer as `"price_logged_in": <number>` with `"checked": "<today>"` (add an offer with the page
 >    address when the shop has the driver but the scan found no public price). For BlieSMa drivers
 >    also check audio-hi.fi (<https://audio-hi.fi/en/>), the go-to European distributor.
-> 10. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
+> 10. Toutlehautparleur wishlist and cart: logged in there in this Chrome, open the wishlist ("Ma liste
+>     d'envies" / "Mes listes") and the cart ("Panier"). For every driver in either, note the name as the
+>     shop writes it, the page address, the price shown while logged in, the public price (open the page
+>     in a private window, or read the crossed-out price), the list it came from and the quantity. Write
+>     them to `capture/tlhp_wishlist.json` in the form the top of `capture/from_shop_list.py` shows, then
+>     run `python3 capture/from_shop_list.py`: a driver already in the database gets the shop page and the
+>     logged-in offer; a driver not yet in the database gets a new record, the offer, and a line in
+>     `capture/inventory_request.txt`. Commit and push: GitHub then reads each new driver's HiFiCompass
+>     page (`capture/inventory.py`) and `python3 capture/new_from_inventory.py --write` fills the record
+>     with its parameters; capture its curves as step 2 says (from HiFiCompass directly, or from the
+>     manufacturer's datasheet when HiFiCompass has not measured it).
+> 11. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
 >    `node --test tests/*.test.mjs` and `python3 capture/worklist.py`, and fix what they report.
-> 11. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
+> 12. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
 >    it every source address, and for every set whether it came from PDF vectors, a data file or an
 >    image. Do not merge it.
 

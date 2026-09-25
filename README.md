@@ -55,7 +55,9 @@ either, the scanner follows links from the front page and from brand pages found
 levels at most. A page without structured price data is read from its price element (marked in the offer). audio-hi.fi is the European distributor for
 BlieSMa. A shop's server that sends an incomplete certificate chain is completed the way a browser
 does (the missing intermediate certificate is fetched from the address in the certificate);
-verification is never turned off.
+verification is never turned off. Drivers from your Toutlehautparleur wishlist and cart come in through
+the same routine (step 10): the list you write while logged in becomes records, logged-in offers and
+inventory requests (`capture/from_shop_list.py`).
 
 ## Tests
 

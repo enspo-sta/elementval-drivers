@@ -16,6 +16,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "watch"))
+import prices as P  # noqa: E402
 # HiFiCompass "Technical data" labels -> keys of the record's `ts` (the existing records' names). The code in
 # parentheses is used where the label has one ("Free air resonance, (Fs)"); the others by their wording.
 CODES = {"fs": "Fs", "re": "Re", "le": "Le", "sd": "Sd", "qms": "Qms", "qes": "Qes", "qts": "Qts", "vas": "Vas", "bl": "Bl",
@@ -109,18 +111,43 @@ def main():
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
     inv = json.loads(Path(a.inventory).read_text())
-    db = json.loads((ROOT / "drivers.json").read_text())
-    have = {d["id"] for d in db["drivers"]}
-    recs = [r for r in records(inv) if r["id"] not in have]
+    dbp = ROOT / "drivers.json"
+    db = json.loads(dbp.read_text())
+    byid = {d["id"]: d for d in db["drivers"]}
+    # a record made from a shop list (capture/from_shop_list.py) has no parameters and no measurement page yet:
+    # it is matched by model number and filled rather than added twice
+    def existing_for(r):
+        if r["id"] in byid:
+            return byid[r["id"]]
+        text = P.norm(r["name"])
+        for d in db["drivers"]:
+            if not d.get("measurements") and not d.get("ts") and any(P.model_regex(m).search(text) for m in P.models_of(d)):
+                return d
+        return None
+    recs, fills = [], []
+    for r in records(inv):
+        ex = existing_for(r)
+        if ex is None:
+            recs.append(r)
+        elif not ex.get("measurements") and not ex.get("ts"):
+            fills.append((ex, r))
     for r in recs:
         print(json.dumps(r, ensure_ascii=False))
+    for ex, r in fills:
+        print("fill", ex["id"], "from", r["source"])
     if a.write:
+        for ex, r in fills:
+            for k in ("name", "manufacturer", "role", "band", "ts", "source", "datasheet", "updated"):
+                if k in r:
+                    ex[k] = r[k]
+        if fills:
+            dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
         for r in recs:
             tmp = ROOT / "capture" / f"_new_{r['id']}.json"
             tmp.write_text(json.dumps(r, ensure_ascii=False))
             subprocess.run([sys.executable, str(ROOT / "capture" / "add_set.py"), "--new-driver", str(tmp)], check=True)
             tmp.unlink()
-        print(f"{len(recs)} record(s) added")
+        print(f"{len(recs)} record(s) added, {len(fills)} filled")
 
 
 if __name__ == "__main__":

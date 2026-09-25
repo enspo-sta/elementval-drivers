@@ -135,6 +135,64 @@ def safe_ocr(path, crop, w, h):
     return ocr_words(path, [x0, y0, x1, y1])
 
 
+def plot_box(img, bg_hex):
+    """The plot area: the bounding box of the rows and columns that are mostly the background colour."""
+    import numpy as np
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    near = (np.abs(img - bg).sum(axis=2) < 40)
+    h, w = near.shape
+    rows = np.nonzero(near.sum(axis=1) > 0.5 * w)[0]
+    cols = np.nonzero(near.sum(axis=0) > 0.3 * h)[0]
+    if rows.size < 10 or cols.size < 10:
+        return None
+    return [int(cols[0]), int(rows[0]), int(cols[-1]), int(rows[-1])]
+
+
+def grid_lines(img, box, bg_hex):
+    """Rows and columns inside the plot area where most pixels differ from the background (grid lines),
+    with the colour they share."""
+    import numpy as np
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    x0, y0, x1, y1 = box
+    sub = img[y0:y1 + 1, x0:x1 + 1]
+    diff = np.abs(sub - bg).sum(axis=2) >= 40
+    rows = [int(y0 + r) for r in np.nonzero(diff.sum(axis=1) > 0.7 * diff.shape[1])[0]]
+    cols = [int(x0 + c) for c in np.nonzero(diff.sum(axis=0) > 0.7 * diff.shape[0])[0]]
+    def runs(v):
+        out = []
+        for x in v:
+            if out and x == out[-1][1] + 1:
+                out[-1][1] = x
+            else:
+                out.append([x, x])
+        return out
+    def colour_at(rs, axis):
+        if not rs:
+            return None
+        r = rs[len(rs) // 2][0]
+        line = img[r, x0:x1 + 1] if axis == "row" else img[y0:y1 + 1, r]
+        q = (line // 16) * 16 + 8
+        keys, counts = np.unique(q, axis=0, return_counts=True)
+        return "#%02x%02x%02x" % tuple(int(v) for v in keys[counts.argmax()])
+    rr, cc = runs(rows), runs(cols)
+    return rr[:60], cc[:60], colour_at(rr, "row"), colour_at(cc, "col")
+
+
+def all_colours(img, box, bg_hex, top=12):
+    """Every colour inside the plot area but the background, greys included (a black or white curve counts)."""
+    import numpy as np
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    x0, y0, x1, y1 = box
+    px = img[y0 + 2:y1 - 2, x0 + 2:x1 - 2].reshape(-1, 3)
+    px = px[np.abs(px - bg).sum(axis=1) >= 40]
+    if not px.size:
+        return []
+    q = (px // 16) * 16 + 8
+    keys, counts = np.unique(q, axis=0, return_counts=True)
+    order = counts.argsort()[::-1][:top]
+    return [{"hex": "#%02x%02x%02x" % tuple(int(v) for v in keys[i]), "pixels": int(counts[i])} for i in order]
+
+
 def probe(path):
     import numpy as np
     from PIL import Image
@@ -143,23 +201,17 @@ def probe(path):
     rec = {"width": w, "height": h}
     bg, bright, share = background(img)
     rec.update({"background": bg, "background_share": share, "mean_brightness": bright})
-    bg_dark = bright < 128
-    rows, cols = line_candidates(img, bg_dark)
-    rec["line_rows"], rec["line_cols"] = rows, cols
-    fr = frame_from_lines(rows, cols, w, h)
-    rec["frame"] = fr
-    box = fr or [int(w * 0.08), int(h * 0.06), int(w * 0.97), int(h * 0.9)]
-    x0, y0, x1, y1 = box
-    try:
-        rec["colours"] = colours(img, box)
-    except Exception as e:
-        rec["colours_error"] = str(e)
-    rec["x_labels"] = safe_ocr(path, [x0 - 30, y1 + 1, x1 + 30, y1 + 40], w, h)
-    rec["y_labels"] = safe_ocr(path, [x0 - 70, y0 - 12, x0 - 1, y1 + 12], w, h)
-    rec["y_labels_right"] = safe_ocr(path, [x1 + 1, y0 - 12, x1 + 70, y1 + 12], w, h)
-    rec["bottom_band_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, int(h * 0.88), w, h], w, h) if "text" in wd)
-    rec["left_band_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, 0, int(w * 0.1), h], w, h) if "text" in wd)
-    rec["top_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, 0, w, max(8, y0 - 1)], w, h) if "text" in wd)
+    box = plot_box(img, bg)
+    rec["plot_box"] = box
+    if box:
+        rr, cc, rcol, ccol = grid_lines(img, box, bg)
+        rec.update({"grid_rows": rr, "grid_cols": cc, "grid_row_colour": rcol, "grid_col_colour": ccol})
+        rec["colours"] = all_colours(img, box, bg)
+    x0, y0, x1, y1 = box or [int(w * 0.08), int(h * 0.06), int(w * 0.97), int(h * 0.9)]
+    rec["left_words"] = safe_ocr(path, [0, 0, x0 - 1, h], w, h)
+    rec["bottom_words"] = safe_ocr(path, [0, y1 + 1, w, h], w, h)
+    rec["right_words"] = safe_ocr(path, [x1 + 1, 0, w, h], w, h)
+    rec["top_words"] = safe_ocr(path, [0, 0, w, max(8, y0 - 1)], w, h)
     return rec
 
 
@@ -205,7 +257,7 @@ def main():
                 except Exception as e:
                     rec = {"error": f"probe failed: {e}"}
                 rec.update({"file": name, "url": url, "bytes": len(data)})
-                print(f"  {name}: {rec.get('width')}x{rec.get('height')} bg {rec.get('background')} bright {rec.get('mean_brightness')} frame {rec.get('frame')} x-labels {[w['text'] for w in rec.get('x_labels', []) if 'text' in w][:14]} y-labels {[w['text'] for w in rec.get('y_labels', []) if 'text' in w][:12]}", flush=True)
+                print(f"  {name}: {rec.get('width')}x{rec.get('height')} bg {rec.get('background')} box {rec.get('plot_box')} grid {len(rec.get('grid_rows', []))} rows {len(rec.get('grid_cols', []))} cols colours {[c['hex'] for c in rec.get('colours', [])[:5]]} bottom {[w['text'] for w in rec.get('bottom_words', []) if 'text' in w][:12]} left {[w['text'] for w in rec.get('left_words', []) if 'text' in w][:8]}", flush=True)
                 res.append(rec)
         out["drivers"][did] = res
     Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")

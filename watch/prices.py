@@ -460,8 +460,22 @@ def offers_from_page(text, default_currency=None):
             if p is not None:
                 out.append({"price": p, "currency": ic.group(1).upper(), "availability": None})
     if not out:
+        out += title_price(text, default_currency)
+    if not out:
         out += plain_prices(text, default_currency)
     return [o for o in out if o["price"] > 0 and o["currency"]]
+
+
+def title_price(text, default_currency=None):
+    """The price in the page title, as osCommerce shops write it ("BlieSMa M74T-6 - €506.80 : Shop")."""
+    t = page_title(text)
+    m = re.search(AMOUNT, t) if t else None
+    if not m:
+        return []
+    v = to_number(m.group(1) or m.group(2))
+    sym = re.search(r"€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr", m.group(0)).group(0)
+    cur = CURRENCY_SIGNS.get(sym.upper()) or (default_currency if default_currency in ("SEK", "DKK", "NOK") else "SEK")
+    return [{"price": v, "currency": cur, "availability": None, "price_note": "read from the page title"}] if v else []
 
 
 AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d[\d\s.,\u00a0]*\d|\d)|(\d[\d\s.,\u00a0]*\d|\d)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)(?![A-Za-z])"
