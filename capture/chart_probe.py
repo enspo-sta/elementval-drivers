@@ -27,6 +27,19 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 SKIP = re.compile(r"_side|_front|_back|_box|title|logo|SoundImports|clarity|eton|wood|acuton|no_data|banner", re.I)
 
 
+TYPES = [("current", r"chd"), ("impedance", r"impedance"), ("intermodulation", r"\d+hz\d|khz|to1"), ("harmonics", r"hpf|hd\.png|hd_|vhd"),
+         ("off-axis", r"offaxis"), ("near-field", r"_\d+mm_.*_\d+hz|_5mm_|_20mm_"), ("response", r"_0grad|_0deg"),
+         ("step", r"step"), ("waterfall", r"waterfall"), ("etc", r"_etc")]
+
+
+def chart_type(url):
+    name = url.rsplit("/", 1)[-1].lower()
+    for t, rx in TYPES:
+        if re.search(rx, name):
+            return t
+    return "other"
+
+
 def fetch(url, last, delay=10.0):
     gap = last[0] + delay - time.time()
     if gap > 0:
@@ -208,17 +221,23 @@ def probe(path):
         rec.update({"grid_rows": rr, "grid_cols": cc, "grid_row_colour": rcol, "grid_col_colour": ccol})
         rec["colours"] = all_colours(img, box, bg)
     x0, y0, x1, y1 = box or [int(w * 0.08), int(h * 0.06), int(w * 0.97), int(h * 0.9)]
-    rec["left_words"] = safe_ocr(path, [0, 0, x0 - 1, h], w, h)
-    rec["bottom_words"] = safe_ocr(path, [0, y1 + 1, w, h], w, h)
-    rec["right_words"] = safe_ocr(path, [x1 + 1, 0, w, h], w, h)
-    rec["top_words"] = safe_ocr(path, [0, 0, w, max(8, y0 - 1)], w, h)
+    gr, gc = rec.get("grid_rows") or [], rec.get("grid_cols") or []
+    # HiFiCompass charts fill the whole image: the label bands lie left of the first grid column and below
+    # the last grid row; the chart's own title sits below the labels
+    left_edge = gc[0][0] - 2 if gc else x0 - 1
+    bottom_edge = gr[-1][1] + 2 if gr else y1 + 1
+    rec["left_words"] = safe_ocr(path, [0, 0, max(left_edge, 40), h], w, h)
+    rec["bottom_words"] = safe_ocr(path, [0, bottom_edge, w, h], w, h)
+    rec["right_words"] = safe_ocr(path, [(gc[-1][1] + 2) if gc else x1 + 1, 0, w, h], w, h)
+    rec["top_words"] = safe_ocr(path, [0, 0, w, max(8, (gr[0][0] - 2) if gr else y0 - 1)], w, h)
+    rec["type"] = chart_type(str(path))
     return rec
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--ids", help="record ids, comma-separated (default: capture/chart_probe_request.txt)")
-    ap.add_argument("--limit", type=int, default=0, help="at most N charts per driver (0 = all)")
+    ap.add_argument("--limit", type=int, default=0, help="at most N charts of each type per driver (0 = all)")
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_probe.json"))
     a = ap.parse_args()
     ids = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_probe_request.txt").read_text().splitlines()) if x.strip()]
@@ -237,8 +256,11 @@ def main():
         if not page:
             print(f"{did}: no inventory page matches the record's source", flush=True); continue
         charts = [im for im in page["charts"] if not SKIP.search(im["original"])]
-        if a.limit:
-            charts = charts[:a.limit]
+        if a.limit:                                     # a few charts of every type rather than the first N
+            groups = {}
+            for im in charts:
+                groups.setdefault(chart_type(im["original"]), []).append(im)
+            charts = [im for g in groups.values() for im in g[:a.limit]]
         print(f"{did}: {len(charts)} charts", flush=True)
         res = []
         with tempfile.TemporaryDirectory() as tmp:

@@ -33,7 +33,7 @@ jobs:
       - name: Probe the charts
         run: python3 capture/chart_probe.py --limit "${PROBE_LIMIT:-0}" | tee -a "$GITHUB_STEP_SUMMARY"
         env:
-          PROBE_LIMIT: ${{ vars.PROBE_LIMIT || 8 }}
+          PROBE_LIMIT: ${{ vars.PROBE_LIMIT || 2 }}
       - name: Commit the results
         run: |
           git add capture/chart_probe.json
