@@ -34,7 +34,7 @@ jobs:
         run: node --test tests/*.test.mjs
       - name: Capture tool tests
         run: |
-          python3 -m pip install --quiet pymupdf pillow numpy
+          python3 -m pip install --quiet pymupdf pillow numpy matplotlib
           python3 -m unittest discover -s tests -p "test_*.py" -v
 
   # After a change lands on main, rebuild watch/coverage.md, watch/consistency.md and capture/WORKLIST.md.
