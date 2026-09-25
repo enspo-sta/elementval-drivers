@@ -34,6 +34,10 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 | band THD | `ptt525x04naa05` | 80–5000 Hz at 94 dB: table 0.254 %, from the curve 0.157 % (-4.2 dB) |
 | band THD | `purifi-ptt10-0x04-nab-02` | 50–300 Hz at 91 dB: table 0.156 %, from the curve 0.128 % (-1.7 dB) |
 | notes | `purifi-ptt10-0x04-nab-02` | a note says Pe was corrected to 350, the stored Pe is 'TBD (est 400)' |
+| parameters | `m74a-6` | Qes: stored 0.75, from the others 0.7 (6.7 % apart) |
+| parameters | `t25a-6` | Qes: stored 0.82, from the others 0.568 (30.7 % apart) |
+| parameters | `t34a-4` | Qes: stored 0.42, from the others 0.374 (10.9 % apart) |
+| parameters | `t34b-4` | Qes: stored 0.42, from the others 0.348 (17.2 % apart) |
 | sweep | `ptt13t04hag01` | H2 at 1000 Hz, 94 dB: sweep -60.9 dB, curve -69.2 dB (+8.3 dB) |
 | sweep | `ptt13t04hag01` | H3 at 1000 Hz, 94 dB: sweep -50.9 dB, curve -66.4 dB (+15.5 dB) |
 | sweep | `ptt13t04hag01` | H3 at 4000 Hz, 94 dB: sweep -98.2 dB, curve -91.1 dB (-7.2 dB) |
@@ -82,6 +86,24 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
 - **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB.
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa M74A-6** (`m74a-6`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa T25A-6** (`t25a-6`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25a-6> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa T25T-6** (`t25t-6`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25t-6> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa T34A-4** (`t34a-4`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34a-4> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa T34B-4** (`t34b-4`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34b-4> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b> (what it offers: `capture/inventory.md`).
+  Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
 
 ## 4. Random spot check
 

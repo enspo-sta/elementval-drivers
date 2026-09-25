@@ -23,15 +23,34 @@ CODES = {"fs": "Fs", "re": "Re", "le": "Le", "sd": "Sd", "qms": "Qms", "qes": "Q
 WORDS = {"linear coil travel": "Xmax", "rated power": "Pe", "sensitivity": "sens", "voice coil diameter": "coil_mm",
          "magnetic flux density": "B_T", "net weight": "weight_kg", "voice coil height": "coil_height_mm", "air gap height": "gap_mm"}
 TEXT = {"diaphragm material": "material"}
-ROLE = [("tw", "tweeter"), ("t2", "tweeter"), ("t3", "tweeter"), ("mr", "midrange"), ("m7", "midrange"), ("mw", "midwoofer"), ("wo", "woofer"), ("sw", "subwoofer")]
+# roles as the viewer groups them (app/views/drivers.js ROLE_ORDER); "wg" in a tweeter's model means a waveguide
+ROLE = [("tw", "tweeter"), ("t2", "tweeter"), ("t3", "tweeter"), ("mr", "midrange"), ("m7", "midrange"), ("mw", "woofer / midbass"), ("wo", "woofer"), ("sw", "woofer")]
+ID_PREFIX = {"bliesma-": "", "satori-": "sb-satori-", "sb-acoustics-": "sb-"}   # the database's id style: m74t-6, sb-satori-wo24p-8
 
 
 def role_of(model):
     m = model.lower().split()[-1]
     for pre, role in ROLE:
         if m.startswith(pre):
-            return role
+            return role + (" (waveguide)" if role == "tweeter" and "wg" in m else "")
     return ""
+
+
+def record_id(slug):
+    slug = re.sub(r"[^A-Za-z0-9._-]+", "-", slug.lower()).strip("-")
+    for pre, new in ID_PREFIX.items():
+        if slug.startswith(pre):
+            return new + slug[len(pre):]
+    return slug
+
+
+def record_name(maker, h1):
+    """'SB Acoustics Satori' + 'Satori MR16TX-8' -> 'SB Acoustics Satori MR16TX-8'; 'BlieSMa' + 'BlieSMa M74A-6' stays."""
+    mw = maker.split()
+    for i in range(len(mw)):
+        if h1.lower().startswith(" ".join(mw[i:]).lower()):
+            return " ".join(mw[:i] + [h1])
+    return f"{maker} {h1}"
 
 
 def number(s):
@@ -70,14 +89,17 @@ def records(inv):
             continue
         pg = pages[0]
         slug = pg["url"].rstrip("/").rsplit("/", 1)[-1]
-        name = pg["h1"] or pg["title"].split("|")[0].strip() or model
         maker = " ".join(model.split()[:-1]) if " " in model else model
-        if not name.lower().startswith(maker.split()[0].lower()):
-            name = f"{maker} {name}"
+        name = record_name(maker, pg["h1"] or pg["title"].split("|")[0].strip() or model)
         files = [f["href"] for f in pg["data_files"] if f["href"].lower().endswith(".pdf")]
-        out.append({"id": re.sub(r"[^A-Za-z0-9._-]+", "-", slug.lower()).strip("-"), "name": name, "manufacturer": maker.replace(" Satori", ""),
-                    "role": role_of(model), "band": "", "ts": ts_from_tables(pg["tables"]), "findings": "",
-                    "source": pg["url"] + (f" (datasheet: {files[0]})" if files else ""), "updated": inv["date"], "measurements": []})
+        ts = ts_from_tables(pg["tables"])
+        material, coil = ts.pop("material", None), ts.get("coil_mm")
+        rec = {"id": record_id(slug), "name": name, "manufacturer": maker.replace(" Satori", ""), "role": role_of(model),
+               "band": (f"{material} diaphragm" if material else "") + (f", {coil:g} mm voice coil" if coil else ""),
+               "ts": ts, "findings": "", "source": pg["url"], "updated": inv["date"], "measurements": []}
+        if files:
+            rec["datasheet"] = files[0]
+        out.append(rec)
     return out
 
 
