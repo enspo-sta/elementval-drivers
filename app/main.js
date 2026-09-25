@@ -8,7 +8,8 @@ import MODULES from "./modules.js";
 const fetchJson = url => fetch(url, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`); return r.json(); });
 
 function route() {
-  const where = readHash();
+  let where;
+  try { where = readHash(); } catch (e) { location.hash = ""; return; }
   const view = viewForPage(where.page);
   if (view) view.show(where);
 }
@@ -18,7 +19,10 @@ async function start() {
   try {
     await loadAll(fetchJson);
   } catch (e) {
-    box.innerHTML = `<div class="err">Couldn't load the database: ${e.message}. Make sure drivers.json sits next to index.html.</div>`;
+    box.textContent = "";
+    const err = document.createElement("div"); err.className = "err";
+    err.textContent = `Couldn't load the database: ${e.message}. Make sure drivers.json sits next to index.html.`;
+    box.appendChild(err);
     return;
   }
   const failed = [];

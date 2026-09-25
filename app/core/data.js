@@ -6,23 +6,26 @@ export const FILES = {
   survey: "./drivers_survey_midbass.json",
   sources: "./watch/config.json",
   kinds: "./schema/kinds.json",
+  prices: "./prices.json",
 };
 
-export const store = { db: null, survey: null, families: [], kinds: [], kindById: {} };
+export const store = { db: null, survey: null, families: [], kinds: [], kindById: {}, prices: null };
 
 /** Load every file (the survey and the settings are optional). fetchJson(url) returns parsed JSON or null. */
 export async function loadAll(fetchJson) {
-  const [db, survey, config, kinds] = await Promise.all([
+  const [db, survey, config, kinds, prices] = await Promise.all([
     fetchJson(FILES.main), fetchJson(FILES.survey).catch(() => null),
     fetchJson(FILES.sources).catch(() => null), fetchJson(FILES.kinds).catch(() => null),
+    fetchJson(FILES.prices).catch(() => null),
   ]);
   if (!db) throw new Error("drivers.json could not be read");
-  setData({ db, survey, config, kinds });
+  setData({ db, survey, config, kinds, prices });
 }
 
 /** Use already-parsed files (tests, tools). */
-export function setData({ db, survey, config, kinds }) {
+export function setData({ db, survey, config, kinds, prices }) {
   store.db = db;
+  store.prices = prices && prices.drivers ? prices : null;
   store.survey = survey || null;
   store.families = ((config && config.families) || []).slice().sort((a, b) => (a.rank || 99) - (b.rank || 99));
   store.kinds = (kinds && kinds.kinds) || [];
@@ -80,6 +83,15 @@ export function tonesOf(set) {
   const f1 = num(c.f1), f2 = num(c.f2);
   return f1 != null && f2 != null ? [f1, f2] : null;
 }
+
+/** Offers for a driver from prices.json, lowest first, or []. */
+export function pricesOf(id) {
+  const p = store.prices && store.prices.drivers[id];
+  return p ? p.offers : [];
+}
+export const priceDate = () => (store.prices && store.prices.meta && store.prices.meta.updated) || null;
+export const fmtSek = v => (v == null ? "" : Math.round(v).toLocaleString("sv-SE") + " kr");
+export const fmtPrice = o => `${o.price.toLocaleString("sv-SE", { maximumFractionDigits: 2 })} ${o.currency}`;
 
 export const fmtHz = f => (f >= 1000 ? Math.round(f / 100) / 10 + " kHz" : Math.round(f) + " Hz");
 export const fmtLevel = L => (L == null ? "" : (Math.round(L * 10) / 10) + " dB");

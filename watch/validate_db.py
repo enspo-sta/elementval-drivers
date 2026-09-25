@@ -16,6 +16,7 @@ with fewer points per decade than 'capture.minimum_points_per_decade' (CAPTURE.m
 Usage: python3 watch/validate_db.py [files...]   (exit code 1 on any error)
 """
 import json
+import re
 import numbers
 import sys
 from pathlib import Path
@@ -112,6 +113,8 @@ def validate(paths):
             where = f"{name} driver {did or '#' + str(i)}"
             if not did:
                 errors.append(f"{where}: missing 'id'")
+            elif not re.fullmatch(r"[A-Za-z0-9._-]+", str(did)):
+                errors.append(f"{where}: id may only use letters, digits, '.', '-' and '_' (a comma, '@' or space would break the Compare link)")
             elif did in ids:
                 errors.append(f"{where}: duplicate id (also in {ids[did]})")
             else:

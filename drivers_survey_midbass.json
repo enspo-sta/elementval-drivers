@@ -14,7 +14,7 @@
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -375,7 +375,7 @@
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -789,12 +789,12 @@
     },
     {
       "id": "dcs165",
-      "name": "Dayton Audio Dayton DCS165",
+      "name": "Dayton Audio DCS165",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "6.5\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -1150,12 +1150,12 @@
     },
     {
       "id": "e180he-44-coils-in-series",
-      "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+      "name": "Dayton Audio E180HE-44 Coils in series",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -1627,12 +1627,12 @@
     },
     {
       "id": "e180he-44-single-coil",
-      "name": "Dayton Audio Dayton E180HE-44 single coil",
+      "name": "Dayton Audio E180HE-44 single coil",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -1814,12 +1814,12 @@
     },
     {
       "id": "rs-180-4",
-      "name": "Dayton Audio Dayton RS 180-4",
+      "name": "Dayton Audio RS 180-4",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -2175,12 +2175,12 @@
     },
     {
       "id": "rs-225-8",
-      "name": "Dayton Audio Dayton RS 225-8",
+      "name": "Dayton Audio RS 225-8",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "8\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -2594,12 +2594,12 @@
     },
     {
       "id": "rss-210hf-4",
-      "name": "Dayton Audio Dayton RSS 210HF-4",
+      "name": "Dayton Audio RSS 210HF-4",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "8\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -3013,12 +3013,12 @@
     },
     {
       "id": "rss-210ho-4",
-      "name": "Dayton Audio Dayton RSS 210HO-4",
+      "name": "Dayton Audio RSS 210HO-4",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "8\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -3432,12 +3432,12 @@
     },
     {
       "id": "ps180",
-      "name": "Dayton Audio Dayton ps180",
+      "name": "Dayton Audio ps180",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -3793,12 +3793,12 @@
     },
     {
       "id": "mcm-55-2421",
-      "name": "MCM MCM 55-2421",
+      "name": "MCM 55-2421",
       "manufacturer": "MCM",
       "role": "midbass (survey)",
-      "band": "None\"",
+      "band": "",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -3980,12 +3980,12 @@
     },
     {
       "id": "misco-bwx-6502",
-      "name": "MISCO Misco BWX-6502",
+      "name": "MISCO BWX-6502",
       "manufacturer": "MISCO",
       "role": "midbass (survey)",
       "band": "6.5\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -4399,12 +4399,12 @@
     },
     {
       "id": "morel-kw-1",
-      "name": "Morel Morel KW-1",
+      "name": "Morel KW-1",
       "manufacturer": "Morel",
       "role": "midbass (survey)",
-      "band": "None\"",
+      "band": "",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -4760,12 +4760,12 @@
     },
     {
       "id": "xxls-830842",
-      "name": "Peerless Peerless XXLS 830842",
+      "name": "Peerless XXLS 830842",
       "manufacturer": "Peerless",
       "role": "midbass (survey)",
       "band": "8\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -5237,12 +5237,12 @@
     },
     {
       "id": "ptt6.5x04-nfa-01",
-      "name": "Purifi Purifi PTT6.5X04-NFA-01",
+      "name": "Purifi PTT6.5X04-NFA-01",
       "manufacturer": "Purifi",
       "role": "midbass (survey)",
       "band": "6.5\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -5659,9 +5659,9 @@
       "name": "RadioShack Radio Shack 40-1354A",
       "manufacturer": "RadioShack",
       "role": "midbass (survey)",
-      "band": "None\"",
+      "band": "",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -5785,12 +5785,12 @@
     },
     {
       "id": "sb23mfcl45-4",
-      "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+      "name": "SB Acoustics SB23MFCL45-4",
       "manufacturer": "SB Acoustics",
       "role": "midbass (survey)",
       "band": "9\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -6204,12 +6204,12 @@
     },
     {
       "id": "seas-l26roy-x1001-04-4",
-      "name": "SEAS Seas L26ROY X1001-04-4",
+      "name": "SEAS L26ROY X1001-04-4",
       "manufacturer": "SEAS",
       "role": "midbass (survey)",
       "band": "10\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {
@@ -6681,12 +6681,12 @@
     },
     {
       "id": "sw182bd03",
-      "name": "Wavecor Wavecor SW182BD03",
+      "name": "Wavecor SW182BD03",
       "manufacturer": "Wavecor",
       "role": "midbass (survey)",
       "band": "7\"",
       "ts": {},
-      "findings": "stub - T/S not populated",
+      "findings": "",
       "source": "shrub0 diyAudio midbassIMD8 (thread #371979); 14 L sealed, ~1.5 m mic, in-room; chart 2022-09-26",
       "measurements": [
         {

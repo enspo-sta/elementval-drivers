@@ -16,7 +16,9 @@ const XO_DEFAULT = { 2: [2000], 3: [350, 3000], 4: [120, 700, 4000] };
 const ORDERS = ["H2", "H3", "H4", "H5"];
 const TYPICAL = SC.LAWS.typical.slopes;
 const sim = { mix: false, src: null, n: 3, w: null, c: [1, 1, 1, 1], x: null, t: null, L: 94, law: "measured",
-              s: Object.assign({}, TYPICAL), al: true, o: null, u: "db", sh: null };
+              s: Object.assign({}, TYPICAL), al: true, o: null, u: "db", sh: null, note: "" };
+const ORDER_SORT = a => ORDERS.filter(k => a.includes(k)).concat(a.includes("THD") ? ["THD"] : []);
+const clampSlope = v => Math.min(5, Math.max(-1, v));
 const cache = {};
 
 function load(params) {
@@ -26,12 +28,12 @@ function load(params) {
   sim.src = params.get("src");
   sim.n = [2, 3, 4].includes(Number(params.get("n"))) ? Number(params.get("n")) : 3;
   sim.w = params.get("w") ? params.get("w").split(",") : null;
-  const c = nums("c"); if (c.length) sim.c = [0, 1, 2, 3].map(i => (c[i] >= 1 && c[i] <= 4 ? c[i] : 1));
+  const c = nums("c"); if (c.length) sim.c = [0, 1, 2, 3].map(i => (Number.isInteger(c[i]) && c[i] >= 1 && c[i] <= 4 ? c[i] : 1));
   sim.x = nums("x").length ? nums("x") : null;
   sim.t = params.get("t") ? params.get("t").split(",") : null;
   if (params.get("L") && isFinite(Number(params.get("L")))) sim.L = Number(params.get("L"));
   if (["measured", "typical", "classic", "none"].includes(params.get("law"))) sim.law = params.get("law");
-  const s = nums("s"); if (s.length === 4 && s.every(isFinite)) ORDERS.forEach((k, i) => (sim.s[k] = s[i]));
+  const s = nums("s"); if (s.length === 4 && s.every(isFinite)) ORDERS.forEach((k, i) => (sim.s[k] = clampSlope(s[i])));
   sim.al = params.get("al") !== "0";
   sim.o = params.get("o") ? params.get("o").split(",") : null;
   sim.u = params.get("u") === "pct" ? "pct" : "db";
@@ -100,15 +102,18 @@ function normalise() {
   const cands = candidates(sim.mix, sim.src);
   const nx = sim.n - 1;
   if (!sim.x || sim.x.length !== nx || sim.x.some(v => !(v >= 20 && v <= 20000))) sim.x = XO_DEFAULT[sim.n].slice();
-  sim.x = sim.x.slice().sort((a, b) => a - b);
   if (!sim.t || sim.t.length !== nx || sim.t.some(t => !SC.TYPES[t])) sim.t = Array(nx).fill("LR4");
+  // crossovers go up from left to right; a filter type travels with its frequency when they are reordered
+  const pairs = sim.x.map((fc, i) => ({ fc, t: sim.t[i] })).sort((a, b) => a.fc - b.fc);
+  if (pairs.some((p, i) => p.fc !== sim.x[i])) sim.note = (sim.note ? sim.note + " " : "") + "The crossovers were put in rising order, each with its filter.";
+  sim.x = pairs.map(p => p.fc); sim.t = pairs.map(p => p.t);
   if (!sim.w || sim.w.length !== sim.n || sim.w.some(id => !cands.some(c => c.id === id))) sim.w = autoPick(sim.n, sim.x, cands);
   if (!(sim.L >= 60 && sim.L <= 125)) sim.L = 94;
   ORDERS.forEach(k => { if (!isFinite(sim.s[k])) sim.s[k] = TYPICAL[k]; });
   const chosen = sim.w.map(id => cands.find(c => c.id === id)).filter(Boolean);
   const avail = ORDERS.filter(k => chosen.length && chosen.every(c => c.orders.includes(k)));
   const shows = avail.concat(avail.length ? ["THD"] : []);
-  sim.o = (sim.o || []).filter(k => shows.includes(k));
+  sim.o = ORDER_SORT((sim.o || []).filter(k => shows.includes(k)));
   if (!sim.o.length) sim.o = shows.filter(k => ["H2", "H3", "THD"].includes(k));
   if (!shows.includes(sim.sh)) sim.sh = shows[0] || null;
   return { srcs, cands, chosen, avail, shows };
@@ -154,7 +159,7 @@ function render() {
     <p class="lede">Estimates a 2-, 3- or 4-way speaker's harmonic distortion from each driver's measured curves and the crossover you choose. Drivers come from one source at a time. Every level a driver was measured at is used; between them the curves are interpolated at the level the driver actually plays at.</p>`;
   if (!srcs.length) { app().innerHTML = h + `<div class="empty">No harmonic distortion curves in the database yet.</div>`; return; }
   const names = WAY_NAMES[sim.n];
-  h += `<div class="panel"><div class="lbl"><span>Source</span><span class="hint">most reliable first</span></div><div class="srcrow">${srcs.map(f => {
+  h += `<div class="panel">${sim.note ? `<div class="warn">${esc(sim.note)}</div>` : ""}<div class="lbl"><span>Source</span><span class="hint">most reliable first</span></div><div class="srcrow">${srcs.map(f => {
     const n = new Set(candidates(false, f.name).map(c => c.e.driver.id)).size;
     return `<button class="srcbtn${!sim.mix && f.name === sim.src ? " on" : ""}" data-ssrc="${esc(f.name)}" ${sim.mix ? "disabled" : ""}><span class="sn">${esc(f.name)}</span>${badge(f)}<span class="cnt">${n} driver${n !== 1 ? "s" : ""}</span></button>`;
   }).join("")}</div>
@@ -165,9 +170,9 @@ function render() {
     </div>
     <div class="lbl"><span>Drivers and crossovers</span><span class="hint">low to high</span></div><div class="ways">`;
   for (let i = 0; i < sim.n; i++) {
-    h += `<div class="way"><span class="wdot" style="background:${COLORS[i]}">${MARK_CHARS[MARKERS[i]]}</span><div class="wbody">
-      <div class="wname">Way ${i + 1} · ${names[i]}</div>
-      <select class="sel" data-way="${i}">${cands.map(c => `<option value="${esc(c.id)}"${c.id === sim.w[i] ? " selected" : ""}>${esc(c.e.driver.name)}${sim.mix ? " · " + esc(c.e.family.name) : ""} · ${c.levels.join(" and ")} dB · ${fmtHz(c.lo)} to ${fmtHz(c.hi)} · ${c.orders.join(" ")}</option>`).join("")}</select>
+    h += `<div class="way"><div class="wbody">
+      <div class="wname"><span class="wdot" style="background:${COLORS[i]}">${MARK_CHARS[MARKERS[i]]}</span>Way ${i + 1} · ${names[i]}</div>
+      <select class="sel" data-way="${i}">${cands.map(c => `<option value="${esc(c.id)}"${c.id === sim.w[i] ? " selected" : ""}>${esc(c.e.driver.name)}${sim.mix ? " · " + esc(c.e.family.name) : ""} · ${c.levels.join("/")} dB · ${fmtHz(c.lo)}–${fmtHz(c.hi)}${c.orders.length < 4 ? " · " + c.orders.join(" ") : ""}</option>`).join("")}</select>
       <div class="wmeta"><label>drivers in this way <select class="sel mini" data-count="${i}">${[1, 2, 3, 4].map(k => `<option${sim.c[i] === k ? " selected" : ""}>${k}</option>`).join("")}</select></label></div>
     </div></div>`;
     if (i < sim.n - 1) h += `<div class="xo"><span class="xol">crossover ${i + 1}</span>
@@ -193,10 +198,12 @@ function render() {
   if (chosen.length === sim.n && avail.length) {
     const slopes = chosen.map(c => slopeFor(c));
     let fLo = Math.max(20, chosen[0].lo), fHi = Math.min(20000, chosen[sim.n - 1].hi);
-    if (!(fHi > fLo * 1.5)) { fLo = 20; fHi = 20000; }
-    res = SC.simulate({ freqs: SC.logGrid(fLo, fHi, 24), target: sim.L, orders: avail, aligned: sim.al,
+    if (!(fHi > fLo * 1.5)) {
+      warnings.push(`The lowest way's data ends at ${fmtHz(chosen[0].hi)} and the highest way's begins at ${fmtHz(chosen[sim.n - 1].lo)}: they do not overlap, so no speaker can be simulated from these drivers. Pick a lower way with data further up, or a higher way with data further down.`);
+    } else res = SC.simulate({ freqs: SC.logGrid(fLo, fHi, 24), target: sim.L, orders: avail, aligned: sim.al,
       points: sim.x.map((fc, i) => ({ fc, type: sim.t[i] })),
       ways: chosen.map((c, i) => ({ name: c.e.driver.name, curves: c.curves, slope: slopes[i].fn, count: sim.c[i] })) });
+    if (res) {
     res.slopes = slopes;
     res.range = [res.freqs[0], res.freqs[res.freqs.length - 1]];
     const merged = [];
@@ -205,17 +212,19 @@ function render() {
       if (m) m.orders.push(gp.order); else merged.push({ way: gp.way, from: gp.from, to: gp.to, orders: [gp.order] });
     }
     const list = a => (a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0]);
-    for (const gp of merged) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data from ${fmtHz(gp.from)} to ${fmtHz(gp.to)}, where it still plays within 40 dB of the other ways. The speaker's ${list(gp.orders)} and THD are left empty there rather than guessed.`);
+    const span = gp => (fmtHz(gp.from) === fmtHz(gp.to) ? `at ${fmtHz(gp.from)}` : `from ${fmtHz(gp.from)} to ${fmtHz(gp.to)}`);
+    for (const gp of merged) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data ${span(gp)}, where it still plays within 40 dB of the other ways. The speaker's ${list(gp.orders)} and THD are left empty there rather than guessed.`);
     chosen.forEach((c, i) => {
+      const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
+      if (sim.L > hi + 6) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at up to ${hi} dB; at ${sim.L} dB its result leans on the level rule more than on measurements.`);
+      else if (sim.L < lo - 12) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at ${lo} dB and above; at ${sim.L} dB its result leans on the level rule.`);
       const mx = (c.e.driver.measurements || []).find(m => kindOf(m).id === "max-spl" && m.series && m.series[0]);
       if (!mx) return;
       const pts = mx.series[0].points.map(p => ({ x: Number(p.x), y: Number(p.y) })).sort((a, b) => a.x - b.x);
       const over = res.freqs.filter((f, j) => { const m = SC.interpLog(pts, f); return m != null && sim.L + res.response.ways[i][j] > m + 20 * Math.log10(sim.c[i]); });
       if (over.length) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}${sim.c[i] > 1 ? " ×" + sim.c[i] : ""}) cannot reach ${sim.L} dB from ${fmtHz(over[0])} to ${fmtHz(over[over.length - 1])}: it runs out of excursion there (${esc(mx.type)}, calculated, not measured). Its distortion there is higher than shown.`);
-      const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
-      if (sim.L > hi + 6) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at up to ${hi} dB; at ${sim.L} dB its result leans on the level rule more than on measurements.`);
-      else if (sim.L < lo - 12) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at ${lo} dB and above; at ${sim.L} dB its result leans on the level rule.`);
     });
+    }
     sim.x.forEach((fc, i) => { if (i > 0 && fc / sim.x[i - 1] < 2) warnings.push(`Crossovers ${i} and ${i + 1} are less than an octave apart (${fmtHz(sim.x[i - 1])} and ${fmtHz(fc)}); the middle way then never plays at full level.`); });
   } else if (chosen.length === sim.n) warnings.push("The picked drivers share no harmonic order (one source has only H2 and H3, another only H4 and H5).");
   const thdLabel = avail.length === 4 ? "THD" : `THD (${avail.join(" + ")} only)`;
@@ -248,6 +257,7 @@ function render() {
       </ul></details></div>`;
   }
   app().innerHTML = h;
+  sim.note = "";
   wire();
   if (res && !noChart()) draw(res, chosen, avail, thdLabel);
   wireExports(app());
@@ -269,19 +279,25 @@ function wire() {
   const rerender = () => render();
   document.querySelectorAll("[data-ssrc]").forEach(b => b.onclick = () => { sim.src = b.dataset.ssrc; sim.w = null; rerender(); });
   const mix = $("smix"); if (mix) mix.onchange = () => { sim.mix = mix.checked; if (!sim.mix) sim.w = null; rerender(); };
-  document.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { const n = Number(b.dataset.n); if (n !== sim.n) { sim.n = n; sim.x = null; sim.t = null; sim.w = null; } rerender(); });
-  const L = $("sL"); if (L) L.onchange = () => { const v = Number(L.value); if (v >= 60 && v <= 125) sim.L = v; rerender(); };
+  document.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { const n = Number(b.dataset.n); if (n !== sim.n) { sim.n = n; sim.x = null; sim.t = null; sim.w = null; sim.c = [1, 1, 1, 1]; } rerender(); });
+  const L = $("sL"); if (L) L.onchange = () => { const v = Number(L.value); if (L.value.trim() !== "" && v >= 60 && v <= 125) sim.L = v; else sim.note = `The level must be a number from 60 to 125 dB; kept ${sim.L} dB.`; rerender(); };
   document.querySelectorAll("[data-way]").forEach(s => s.onchange = () => { sim.w[Number(s.dataset.way)] = s.value; rerender(); });
   document.querySelectorAll("[data-count]").forEach(s => s.onchange = () => { sim.c[Number(s.dataset.count)] = Number(s.value); rerender(); });
-  document.querySelectorAll("[data-xf]").forEach(inp => inp.onchange = () => { const v = Number(inp.value); if (v >= 20 && v <= 20000) sim.x[Number(inp.dataset.xf)] = v; rerender(); });
+  document.querySelectorAll("[data-xf]").forEach(inp => inp.onchange = () => { const v = Number(inp.value), i = Number(inp.dataset.xf); if (inp.value.trim() !== "" && v >= 20 && v <= 20000) sim.x[i] = v; else sim.note = `A crossover must be a number from 20 to 20000 Hz; kept ${sim.x[i]} Hz.`; rerender(); });
   document.querySelectorAll("[data-xt]").forEach(s => s.onchange = () => { sim.t[Number(s.dataset.xt)] = s.value; rerender(); });
   const al = $("sal"); if (al) al.onchange = () => { sim.al = al.value === "1"; rerender(); };
   const law = $("slaw"); if (law) law.onchange = () => { sim.law = law.value; rerender(); };
-  document.querySelectorAll("[data-slope]").forEach(inp => inp.onchange = () => { const v = Number(inp.value); if (isFinite(v)) sim.s[inp.dataset.slope] = v; rerender(); });
+  document.querySelectorAll("[data-slope]").forEach(inp => inp.onchange = () => {
+    const v = Number(inp.value), k = inp.dataset.slope;
+    if (inp.value.trim() === "" || !isFinite(v)) sim.note = `The ${k} slope must be a number from -1 to 5 dB per dB; kept ${sim.s[k]}.`;
+    else if (v !== clampSlope(v)) { sim.s[k] = clampSlope(v); sim.note = `The ${k} slope is limited to -1 to 5 dB per dB; set to ${sim.s[k]}.`; }
+    else sim.s[k] = v;
+    rerender();
+  });
   const rs = $("sreset"); if (rs) rs.onclick = () => { sim.s = Object.assign({}, TYPICAL); rerender(); };
   document.querySelectorAll("[data-o]").forEach(b => b.onclick = () => {
     const k = b.dataset.o;
-    if (sim.o.includes(k)) { if (sim.o.length > 1) sim.o = sim.o.filter(x => x !== k); } else sim.o = sim.o.concat(k);
+    if (sim.o.includes(k)) { if (sim.o.length > 1) sim.o = sim.o.filter(x => x !== k); } else sim.o = ORDER_SORT(sim.o.concat(k));
     rerender();
   });
   document.querySelectorAll("[data-su]").forEach(b => b.onclick = () => { sim.u = b.dataset.su; rerender(); });

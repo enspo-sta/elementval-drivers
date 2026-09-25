@@ -81,12 +81,24 @@ test("Driver page: sources, level charts, export download", { skip: skip() }, as
   await page.click('[data-src="HiFiCompass"]');
   assert.match(await page.evaluate(() => location.hash), /src=HiFiCompass/);
   assert.ok(await page.$("text=2 levels"), "the two HiFiCompass levels share one chart");
+  assert.ok(await page.$("text=Lowest price in Europe"), "the price card from prices.json");
+  assert.match(await page.textContent(".price"), /kr/, "the lowest price is given in kronor");
   assert.ok((await chartCount(page)) >= 1);
   const [download] = await Promise.all([page.waitForEvent("download"), page.click(".exportrow >> nth=0 >> [data-dl]")]);
   const file = join(dl, download.suggestedFilename());
   await download.saveAs(file);
   assert.ok((await stat(file)).size > 200, "the CSV is not empty");
   assert.match(await readF(file, "utf8"), /^Frequency \(Hz\),/m);
+  assert.deepEqual(errors, []);
+  await close();
+});
+
+test("An unknown driver id gets a message and a way back", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/does-not-exist");
+  await page.waitForSelector("#bk");
+  assert.match(await page.textContent(".empty"), /No driver with the id/);
+  await page.click("#bk");
+  await page.waitForSelector("#flt");
   assert.deepEqual(errors, []);
   await close();
 });
@@ -121,6 +133,12 @@ test("Compare: five drivers, one quantity, level buttons, the limit, export", { 
   assert.match(await page.textContent(".legend"), /moved to 91 dB/);
   const [download] = await Promise.all([page.waitForEvent("download"), page.click(".exportrow [data-dl]")]);
   assert.match(download.suggestedFilename(), /^comparison_/);
+  for (let i = 0; i < 5; i++) { await page.click(".pick.on input"); await page.waitForTimeout(100); }
+  assert.match(await page.evaluate(() => location.hash), /d=none/, "no driver picked is kept in the address");
+  await page.reload(); await page.waitForSelector(".tabs"); await page.waitForTimeout(300);
+  assert.equal((await page.$$(".pick.on")).length, 0, "still none picked after a reload");
+  assert.match(await page.textContent(".panel:last-of-type, #app"), /Pick at least one driver/);
+  for (let i = 0; i < 5; i++) { await page.click(".pick:not(.on) input"); await page.waitForTimeout(100); }
   const table = await page.$$eval("#cgrp option", o => o.find(x => /THD in frequency bands/.test(x.textContent)).value);
   await page.selectOption("#cgrp", table);
   await page.waitForSelector("#cchart");
@@ -149,6 +167,10 @@ test("Simulate: 2-, 3- and 4-way with every crossover type", { skip: skip() }, a
   await page.fill("#sL", "104"); await page.press("#sL", "Enter");
   await page.waitForSelector("#schart");
   assert.match(await page.textContent(".ptitle"), /104 dB/);
+  await page.fill("#sL", "999"); await page.press("#sL", "Enter");
+  await page.waitForSelector("#schart");
+  assert.match(await page.textContent(".warn"), /60 to 125/, "an out-of-range level is refused with a message");
+  assert.match(await page.textContent(".ptitle"), /104 dB/, "and the old level is kept");
   await page.click('[data-ssrc="HiFiCompass"]');
   await page.waitForSelector("#schart");
   const [download] = await Promise.all([page.waitForEvent("download"), page.click(".exportrow [data-dl]")]);
@@ -159,12 +181,12 @@ test("Simulate: 2-, 3- and 4-way with every crossover type", { skip: skip() }, a
 
 for (const [name, size] of Object.entries(SIZES)) {
   test(`No sideways scrolling and usable controls at ${name} (${size.join("×")})`, { skip: skip() }, async () => {
-    for (const hash of ["", "#driver/purifi-ptt8-0x04-nab-02?src=HiFiCompass", "#compare", "#simulate?n=4"]) {
+    for (const hash of ["", "#driver/purifi-ptt8-0x04-nab-02?src=HiFiCompass", "#driver/at-c-quenze-18-h-52-17-06-sd", "#compare", "#compare?src=diyAudio&g=diyAudio%3A%3Aimd-spectrum%7C40%2B96&q=products", "#simulate?n=4"]) {
       const { page, errors, close } = await open(hash, size);
       await page.waitForTimeout(300);
       assert.ok(await noSidewaysScroll(page), `${hash || "list"} scrolls sideways at ${name}`);
       // every control a finger has to hit: at least 32 px tall (a tick box counts with its label)
-      const small = await page.$$eval("button, select, input, .tabs a", els => els
+      const small = await page.$$eval("button, select, input, summary, .tabs a", els => els
         .map(e => (e.type === "checkbox" && e.closest("label")) || e)
         .filter(e => e.offsetParent !== null && e.getBoundingClientRect().height > 0 && e.getBoundingClientRect().height < 32)
         .map(e => e.tagName + "." + e.className + " " + Math.round(e.getBoundingClientRect().height) + "px " + (e.textContent || e.value || "").trim().slice(0, 30)));

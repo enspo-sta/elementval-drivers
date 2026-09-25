@@ -40,19 +40,21 @@ export function tickLog(v) {
   return v >= 1000 ? v / 1000 + "k" : String(+v.toPrecision(3));
 }
 export function xAxis(log, title, min, max) {
-  const ticks = { color: TICK, font: { size: 10 }, maxRotation: 0 };
-  if (log) { ticks.autoSkip = false; ticks.callback = v => tickLog(v); }
+  const ticks = { color: TICK, font: { size: 11 }, maxRotation: 0 };
+  // 20, 50, 100, 200, 500, ... on a log axis; on a narrow phone only 100, 500, 1k, 5k so labels do not touch
+  const narrow = typeof window !== "undefined" && window.innerWidth < 420;
+  if (log) { ticks.autoSkip = false; ticks.callback = v => { const t = tickLog(v); return narrow && /^2/.test(t) ? "" : t; }; }
   return { type: log ? "logarithmic" : "linear", min, max, grid: { color: GRID }, ticks,
            title: { display: !!title, text: title, color: TITLE, font: { size: 11 } } };
 }
 export function yAxis(units, title, extra) {
-  const ticks = { color: TICK, font: { size: 10 } };
+  const ticks = { color: TICK, font: { size: 11 } };
   if (units === "pct") ticks.callback = v => { const t = tickLog(v); return t && t + " %"; };
   return Object.assign({ type: units === "pct" ? "logarithmic" : "linear", grid: { color: GRID }, ticks,
            title: { display: !!title, text: title, color: TITLE, font: { size: 11 } } }, extra || {});
 }
 export function categoryAxis(title, rotate = 40) {
-  return { grid: { display: false }, ticks: { color: TICK, font: { size: 10 }, maxRotation: rotate, autoSkip: false },
+  return { grid: { display: false }, ticks: { color: TICK, font: { size: 11 }, maxRotation: rotate, autoSkip: false },
            title: { display: !!title, text: title, color: TITLE, font: { size: 11 } } };
 }
 export function chartOptions(scales, tooltipLabel) {
@@ -121,18 +123,25 @@ export function exportHtml(getCurves, title, label = "Export") {
   return `<div class="export" data-exp="${id}"><select class="sel mini" aria-label="Export format"></select>
     <button class="tog" data-dl>${esc(label)}</button><button class="tog" data-copy title="Copy the file's text">copy</button><span class="expmsg"></span></div>`;
 }
+/** Mark tables that scroll sideways, so the stylesheet can say so on phones. */
+export function markScrollables(root = document) {
+  root.querySelectorAll(".tscroll").forEach(el => { if (el.scrollWidth > el.clientWidth + 2) el.dataset.scrolls = "1"; else delete el.dataset.scrolls; });
+}
 export function wireExports(root = document) {
+  markScrollables(root);
   root.querySelectorAll("[data-exp]").forEach(el => {
     const src = exportSources.get(el.dataset.exp);
     if (!src) return;
     const curves = src.getCurves();
     const sel = el.querySelector("select"), msg = el.querySelector(".expmsg");
-    const usable = getExporters().filter(x => curves.some(c => x.accepts(c)));
+    // a kind may name the formats that make sense for it (schema/kinds.json "export"); csv-se counts as csv
+    const kindAllows = (c, x) => { const k = store.kindById[c.kind]; return !k || !k.export || k.export.includes(x.id.split("-")[0]); };
+    const usable = getExporters().filter(x => curves.some(c => x.accepts(c) && kindAllows(c, x)));
     sel.innerHTML = usable.map(x => `<option value="${esc(x.id)}">${esc(x.label)}</option>`).join("");
     if (!usable.length) { el.hidden = true; return; }
     const build = () => {
       const x = usable.find(e => e.id === sel.value) || usable[0];
-      return x.files(curves.filter(c => x.accepts(c)), { title: src.title });
+      return x.files(curves.filter(c => x.accepts(c) && kindAllows(c, x)), { title: src.title });
     };
     el.querySelector("[data-dl]").onclick = () => {
       const files = build();

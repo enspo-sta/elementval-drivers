@@ -95,3 +95,10 @@ test("the calculated two-driver curve is filed as Derived, not HiFiCompass", () 
   assert.ok(!g.entries.some(e => e.driver.id === "sb-sb34nrxl75-8-dual"));
   assert.ok(CC.buildGroups().find(x => x.key === "Derived (model or calculation)::hd-frequency").entries.some(e => e.driver.id === "sb-sb34nrxl75-8-dual"));
 });
+
+import { nearLevels } from "../app/core/compare.js";
+test("nearLevels: levels within 1 dB share one button, given as their mean", () => {
+  assert.deepEqual(nearLevels([91.67, 91.1, 91.15, 94]), [91.3, 94]);
+  assert.deepEqual(nearLevels([80, 85, 90]), [80, 85, 90]);
+  assert.deepEqual(nearLevels([]), []);
+});

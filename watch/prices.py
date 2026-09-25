@@ -22,6 +22,8 @@ import gzip
 import html
 import json
 import re
+import ssl
+import subprocess
 import sys
 import time
 import urllib.error
@@ -56,6 +58,7 @@ class Site:
         self.last = 0.0
         self.disallow, self.allow, self.sitemaps = [], [], []
         self.fetched = 0
+        self.ssl = None                                    # set when the shop's chain needed completing (fix_chain)
         self.read_robots()
 
     def wait(self):
@@ -71,7 +74,7 @@ class Site:
         self.wait()
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Encoding": "gzip", "Accept": "*/*"})
         try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            with urllib.request.urlopen(req, timeout=TIMEOUT, context=self.ssl) as r:
                 data = r.read()
                 if r.headers.get("Content-Encoding") == "gzip" or url.endswith(".gz"):
                     try:
@@ -84,30 +87,57 @@ class Site:
             log(f"  {self.shop['name']}: HTTP {e.code} for {url}")
         except (urllib.error.URLError, TimeoutError, OSError) as e:
             if "CERTIFICATE_VERIFY_FAILED" in str(e) and not retry:
+                if self.fix_chain(urllib.parse.urlparse(url).netloc):
+                    return self.get(url, binary, retry=True)
                 other = swap_www(url)                     # the other host form often has a complete certificate chain
                 log(f"  {self.shop['name']}: certificate problem at {urllib.parse.urlparse(url).netloc}, trying {urllib.parse.urlparse(other).netloc}")
                 return self.get(other, binary, retry=True)
             log(f"  {self.shop['name']}: cannot fetch {url}: {e}")
         return None
 
+    def fix_chain(self, netloc):
+        """The server sends an incomplete certificate chain (a common misconfiguration; browsers hide it by
+        fetching the missing certificate themselves). Do the same: read the 'CA Issuers' address from the
+        certificate, fetch the intermediate certificate(s) and verify against them plus the system roots.
+        Verification stays on: nothing is accepted that the system roots do not sign."""
+        pems = missing_intermediates(netloc)
+        if not pems:
+            return False
+        ctx = ssl.create_default_context()
+        ctx.load_verify_locations(cadata="".join(pems))
+        self.ssl = ctx
+        log(f"  {self.shop['name']}: {netloc} sends an incomplete certificate chain; fetched {len(pems)} intermediate certificate(s) from the issuer address in the certificate")
+        return True
+
+    def _robots(self, origin):
+        """("ok", text), ("cert", None) for a certificate problem, or ("none", None) when there is no robots.txt."""
+        self.wait()
+        req = urllib.request.Request(origin + "/robots.txt", headers={"User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT, context=self.ssl) as r:
+                return "ok", r.read().decode("utf-8", "replace")
+        except Exception as e:
+            if "CERTIFICATE_VERIFY_FAILED" in str(e):
+                return "cert", None
+            log(f"  {self.shop['name']}: no robots.txt ({e})")
+            return "none", None
+
     def read_robots(self):
         text = None
         for origin in (self.origin, swap_www(self.origin)):
-            self.wait()
-            req = urllib.request.Request(origin + "/robots.txt", headers={"User-Agent": UA})
-            try:
-                with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                    text = r.read().decode("utf-8", "replace")
-                if origin != self.origin:
-                    log(f"  {self.shop['name']}: using {origin} (the other host form failed)")
-                    self.origin = origin
-                    self.host = urllib.parse.urlparse(origin).netloc
-                break
-            except Exception as e:                   # no robots.txt: everything allowed
-                if "CERTIFICATE_VERIFY_FAILED" not in str(e):
-                    log(f"  {self.shop['name']}: no robots.txt ({e})")
-                    return
+            state, text = self._robots(origin)
+            if state == "cert" and self.fix_chain(urllib.parse.urlparse(origin).netloc):
+                state, text = self._robots(origin)
+            if state == "none":                          # no robots.txt: everything allowed
+                return
+            if state == "cert":
                 log(f"  {self.shop['name']}: certificate problem at {origin}")
+                continue
+            if origin != self.origin:
+                log(f"  {self.shop['name']}: using {origin} (the other host form failed)")
+                self.origin = origin
+                self.host = urllib.parse.urlparse(origin).netloc
+            break
         if text is None:
             return
         applies = False
@@ -139,6 +169,61 @@ class Site:
             if re.match(pat, path) and len(rule) > best:
                 best, verdict = len(rule), ok
         return verdict
+
+
+# ---------------------------------------------------------------- incomplete certificate chains
+def missing_intermediates(netloc, hops=3):
+    """PEM texts of the intermediate certificates a server forgot to send: the chain it does send is read
+    with openssl, and the 'CA Issuers' address of its last certificate is followed (up to `hops` times), as a
+    browser does. Returns [] when openssl is missing, the server cannot be reached or the certificate names
+    no issuer address."""
+    host, _, port = netloc.partition(":")
+    try:
+        out = subprocess.run(["openssl", "s_client", "-connect", f"{host}:{port or 443}", "-servername", host, "-showcerts"],
+                             input=b"", capture_output=True, timeout=TIMEOUT).stdout.decode("utf-8", "replace")
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+    sent = re.findall(r"-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----\n?", out, re.S)
+    if not sent:
+        return []
+    pems, last = [], sent[-1]
+    for _ in range(hops):
+        url = ca_issuers_url(last)
+        if not url:
+            break
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=TIMEOUT) as r:
+                raw = r.read()
+        except Exception:
+            break
+        pem = raw.decode("ascii", "replace") if raw.startswith(b"-----BEGIN") else der_to_pem(raw)
+        if not pem or pem in pems:
+            break
+        pems.append(pem)
+        last = pem
+    return pems
+
+
+def ca_issuers_url(pem):
+    """The 'CA Issuers' address in a certificate's Authority Information Access extension, or None."""
+    try:
+        txt = subprocess.run(["openssl", "x509", "-noout", "-text"], input=pem.encode(), capture_output=True, timeout=30).stdout.decode("utf-8", "replace")
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    m = re.search(r"CA Issuers - URI:(\S+)", txt)
+    return m.group(1) if m else None
+
+
+def der_to_pem(raw):
+    """A certificate (DER) or a PKCS#7 bundle as PEM text, or None."""
+    for cmd in (["openssl", "x509", "-inform", "DER"], ["openssl", "pkcs7", "-inform", "DER", "-print_certs"]):
+        try:
+            r = subprocess.run(cmd, input=raw, capture_output=True, timeout=30)
+        except (OSError, subprocess.TimeoutExpired):
+            return None
+        if r.returncode == 0 and b"BEGIN CERTIFICATE" in r.stdout:
+            return "\n".join(re.findall(r"-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----", r.stdout.decode("utf-8", "replace"), re.S)) + "\n"
+    return None
 
 
 # ---------------------------------------------------------------- matching model numbers
@@ -401,8 +486,9 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
             continue
         log(f"{shop['name']} ({shop['country']})")
         site = Site(shop)
-        pages = candidate_pages(site)
+        pages = list(dict.fromkeys(candidate_pages(site) + list(shop.get("pages") or [])))   # explicit product pages from the config too
         if not pages:
+            log(f"  no sitemap found (robots.txt lists none and the usual sitemap addresses gave nothing); {len(site.disallow)} disallow rule(s) in robots.txt")
             shop_notes.append(f"{shop['name']}: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)")
             continue
         hits = []
@@ -414,6 +500,9 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
         log(f"  {len(pages)} addresses in sitemaps, {len(hits)} product pages match a driver")
         if pages and not hits:
             log("  no match; addresses look like: " + " | ".join(pages[len(pages) // 2:len(pages) // 2 + 4]))
+            makers = sorted({(d.get("manufacturer") or d["name"]).split()[0].lower() for d in drivers if d.get("name")})
+            named = [u for u in pages if any(m in u.lower() for m in makers)][:6]
+            log("  addresses naming a manufacturer: " + (" | ".join(named) if named else "none") + f" (looked for {', '.join(makers)})")
         if len(hits) > MAX_PAGES_PER_SHOP:
             shop_notes.append(f"{shop['name']}: {len(hits)} matching pages, only the first {MAX_PAGES_PER_SHOP} read")
         found = 0
@@ -426,15 +515,7 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
                 log(f"  no structured price on {url} ({why_no_price(text)})")
                 continue
             best = min(page_offers, key=lambda o: o["price"])
-            offer = {"shop": shop["name"], "country": shop["country"], "url": url, "page_title": page_title(text), "model": model,
-                     "price": best["price"], "currency": best["currency"], "availability": best["availability"]}
-            if len(best.get("prices_on_page") or []) > 1:
-                offer["prices_on_page"] = best["prices_on_page"]
-                offer["price_note"] = "the page shows several prices (quantity prices?); the lowest is used, check the page"
-            if shop.get("note"):
-                offer["shop_note"] = shop["note"]
-            if shop.get("login_prices"):
-                offer["login_prices"] = True          # the public price; logged in it is often lower
+            offer = make_offer(shop, url, text, model, best)
             same = [o for o in offers.get(did, []) if o["shop"] == shop["name"]]
             if same:                                   # the same product in another language: keep the cheaper, prefer /en/
                 keep = same[0]
@@ -447,13 +528,30 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
     return offers, shop_notes
 
 
+def make_offer(shop, url, text, model, best):
+    """One offer record from the best price on a page and the shop's settings."""
+    offer = {"shop": shop["name"], "country": shop["country"], "url": url, "page_title": page_title(text), "model": model,
+             "price": best["price"], "currency": best["currency"], "availability": best["availability"]}
+    if len(best.get("prices_on_page") or []) > 1:
+        offer["prices_on_page"] = best["prices_on_page"]
+        offer["price_note"] = "the page shows several prices (quantity prices?); the lowest is used, check the page"
+    if shop.get("note"):
+        offer["shop_note"] = shop["note"]
+    if shop.get("login_prices"):
+        offer["login_prices"] = True                  # the public price; logged in it is often lower
+    if shop.get("pack"):
+        offer["pack"] = True                          # the price is for a box of several drivers, not one
+        offer["pack_note"] = shop["pack"]
+    return offer
+
+
 def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, summary):
     today = dt.date.today().isoformat()
     byid = {d["id"]: d for d in drivers}
     for lst in offers.values():
         for o in lst:
             o["price_sek"] = to_sek(o["price"], o["currency"], rates)
-        lst.sort(key=lambda o: (o["price_sek"] is None, o["price_sek"] or o["price"]))
+        lst.sort(key=lambda o: (bool(o.get("pack")), o["price_sek"] is None, o["price_sek"] or o["price"]))
     data = {"meta": {"updated": today, "rates_date": rate_date, "rates_per_eur": {k: rates[k] for k in sorted(rates) if k in ("SEK", "EUR", "GBP", "DKK", "NOK", "PLN", "CZK", "CHF", "HUF")},
                      "shops_scanned": [s["name"] for s in cfg["shops"]], "notes": shop_notes,
                      "how": "watch/prices.py: shop sitemaps searched for the model number, price read from the page's structured data, converted with ECB reference rates. Check the shop before buying."},
@@ -464,9 +562,9 @@ def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, s
              "| Driver | Lowest | Shop | Others |", "|---|---|---|---|"]
     for did, rec in data["drivers"].items():
         o = rec["offers"][0]
-        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" + (" (public price; lower when logged in)" if x.get("login_prices") else "") for x in rec["offers"][1:])
+        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" + (" (public price; lower when logged in)" if x.get("login_prices") else "") + (" (box price)" if x.get("pack") else "") for x in rec["offers"][1:])
         lines.append(f"| {rec['name']} | {o['price']:g} {o['currency']}" + (f" ≈ {o['price_sek']} kr" if o["price_sek"] else "") +
-                     f" | [{o['shop']}]({o['url']})" + (" (public price; lower when logged in)" if o.get("login_prices") else "") + f" | {rest or '—'} |")
+                     f" | [{o['shop']}]({o['url']})" + (" (public price; lower when logged in)" if o.get("login_prices") else "") + (" (box price)" if o.get("pack") else "") + f" | {rest or '—'} |")
     missing = [d["name"] for d in drivers if d["id"] not in data["drivers"]]
     lines += ["", f"No price found for {len(missing)} driver(s): {', '.join(missing) if missing else 'none'}.", "", "Shops:"]
     lines += [f"- {n}" for n in shop_notes]

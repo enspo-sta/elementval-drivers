@@ -97,7 +97,7 @@ if __name__ == "__main__":
 class Scanner(unittest.TestCase):
     def test_odoo_price_span_with_shop_currency(self):
         odoo = '<div><span class="oe_price"><span class="oe_currency_value">1,234.00</span> €</span></div>'
-        self.assertEqual(P.offers_from_page(odoo, "EUR"), [{"price": 1234.0, "currency": "EUR", "availability": None}])
+        self.assertEqual(P.offers_from_page(odoo, "EUR"), [{"price": 1234.0, "currency": "EUR", "availability": None, "prices_on_page": [1234.0]}])
         self.assertEqual(P.offers_from_page('<span class="oe_currency_value">99</span>', None), [], "no currency known: no offer")
 
     def test_why_no_price_names_what_the_page_has(self):
@@ -132,3 +132,40 @@ class MoreShops(unittest.TestCase):
     def test_swap_www(self):
         self.assertEqual(P.swap_www("https://audio-hi.fi/robots.txt"), "https://www.audio-hi.fi/robots.txt")
         self.assertEqual(P.swap_www("https://www.shop.example/a?b=1"), "https://shop.example/a?b=1")
+
+
+class Certificates(unittest.TestCase):
+    """The scanner completes an incomplete certificate chain the way a browser does (watch/prices.py fix_chain)."""
+    def test_ca_issuers_address_is_read_from_a_certificate(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            r = subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-keyout", tmp + "/k.pem", "-out", tmp + "/c.pem",
+                                "-days", "1", "-subj", "/CN=shop.example", "-addext", "authorityInfoAccess=caIssuers;URI:http://ca.example/int.der"],
+                               capture_output=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            pem = Path(tmp + "/c.pem").read_text()
+            self.assertEqual(P.ca_issuers_url(pem), "http://ca.example/int.der")
+            self.assertIsNone(P.ca_issuers_url("-----BEGIN CERTIFICATE-----\nnot a certificate\n-----END CERTIFICATE-----\n"))
+            der = subprocess.run(["openssl", "x509", "-in", tmp + "/c.pem", "-outform", "DER"], capture_output=True).stdout
+            self.assertIn("BEGIN CERTIFICATE", P.der_to_pem(der))
+            self.assertIsNone(P.der_to_pem(b"garbage"))
+
+    def test_unreachable_server_gives_no_intermediates(self):
+        self.assertEqual(P.missing_intermediates("127.0.0.1:9"), [])
+
+
+class Offers(unittest.TestCase):
+    def test_make_offer_marks_box_prices_login_prices_and_several_prices(self):
+        best = {"price": 375.0, "currency": "EUR", "availability": None, "prices_on_page": [375.0, 3750.0]}
+        shop = {"name": "Purifi (direct)", "country": "DK", "pack": "sold by the box"}
+        o = P.make_offer(shop, "https://purifi-audio.com/shop/x", "<title>PTT6.5X04</title>", "PTT6.5X04-NAA-08", best)
+        self.assertEqual((o["price"], o["currency"], o["page_title"], o["pack"], o["pack_note"]), (375.0, "EUR", "PTT6.5X04", True, "sold by the box"))
+        self.assertEqual(o["prices_on_page"], [375.0, 3750.0])
+        self.assertIn("several prices", o["price_note"])
+        o2 = P.make_offer({"name": "T", "country": "FR", "login_prices": True, "note": "cheap when logged in"}, "u", "", "M", {"price": 1, "currency": "EUR", "availability": "InStock"})
+        self.assertTrue(o2["login_prices"]); self.assertEqual(o2["shop_note"], "cheap when logged in"); self.assertNotIn("pack", o2)
+
+    def test_config_marks_purifi_direct_as_box_prices(self):
+        cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text())
+        purifi = next(s for s in cfg["shops"] if s["name"] == "Purifi (direct)")
+        self.assertIn("box", purifi["pack"])

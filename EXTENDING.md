@@ -95,6 +95,9 @@ Add an entry to `schema/kinds.json`, for example an off-axis response:
 - `level`: `"spl"` when every set of this kind is taken at a stated sound pressure level
   (`conditions.spl_db`); sets at different levels are then matched by level in Compare, overlaid per
   level on the driver page, and interpolated in Simulate. `"drive"` when the level is a drive voltage.
+  `"spl-near"` for kinds whose stated levels differ slightly between drivers although they were meant
+  to be the same (an intermodulation summary at 91.1, 91.2 and 91.7 dB): Compare then offers one level
+  button per whole dB and treats a set within 1 dB of the target as measured at it.
 - `match`: conditions that must be equal before two sets share a chart (for example the test tones
   of intermodulation, or the angle of an off-axis curve).
 

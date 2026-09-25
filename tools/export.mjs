@@ -10,7 +10,7 @@
  *
  * Files go to ./exports (or --out). Needs only Node.js. */
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { setData, allDrivers, familyOf, kindOf } from "../app/core/data.js";
 import { getExporters } from "../app/core/registry.js";
@@ -43,7 +43,7 @@ if (args["list-formats"]) {
 const formats = String(args.format || "csv").split(",");
 const unknown = formats.filter(f => !getExporters().some(e => e.id === f));
 if (unknown.length) { console.error(`unknown format ${unknown.join(", ")}; see --list-formats`); process.exit(1); }
-const out = join(process.cwd(), String(args.out || "exports"));
+const out = resolve(process.cwd(), String(args.out || "exports"));   // an absolute --out is used as it is
 mkdirSync(out, { recursive: true });
 
 let n = 0;

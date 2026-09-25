@@ -11,7 +11,7 @@ import { writeHash, hasParams } from "../core/state.js";
 import { $, app, esc, navHtml, beginView, newChart, noChart, noChartMsg, xAxis, yAxis, categoryAxis, chartOptions, markerRadius,
          barBase, barTop, badge, familyByName, condChips, exportHtml, wireExports, pct, fmtDb, fmtPct } from "../core/ui.js";
 
-const cmp = { mix: false, src: null, g: null, q: [], picks: null, u: "db", rows: null, L: null, shift: false };
+const cmp = { mix: false, src: null, g: null, q: [], picks: null, u: "db", rows: null, L: null, shift: false, filt: "", pickScroll: 0 };
 const cache = {};
 const groups = mix => cache[mix ? "mix" : "one"] || (cache[mix ? "mix" : "one"] = buildGroups({ mix }));
 const driversIn = g => new Set(g.entries.map(e => e.driver.id)).size;
@@ -23,7 +23,7 @@ function load(params) {
   cmp.src = params.get("src");
   cmp.g = params.get("g");
   cmp.q = (params.get("q") || "").split(",").filter(Boolean);
-  const d = (params.get("d") || "").split(",").filter(Boolean).slice(0, MAX_PICK);
+  const d = (params.get("d") === "none" ? [] : (params.get("d") || "").split(",").filter(Boolean)).slice(0, MAX_PICK);
   cmp.picks = d.length ? d.map((id, slot) => ({ id, slot })) : (params.has("d") ? [] : null);
   cmp.u = params.get("u") === "pct" ? "pct" : "db";
   cmp.rows = params.get("r") ? params.get("r").split("|") : null;
@@ -33,7 +33,7 @@ function load(params) {
 function save() {
   writeHash("compare", {
     mix: cmp.mix ? "1" : "", src: cmp.mix ? "" : cmp.src, g: cmp.g, q: cmp.q.join(","),
-    d: (cmp.picks || []).slice().sort((a, b) => a.slot - b.slot).map(p => p.id).join(","),
+    d: cmp.picks && !cmp.picks.length ? "none" : (cmp.picks || []).slice().sort((a, b) => a.slot - b.slot).map(p => p.id).join(","),
     u: cmp.u === "pct" ? "pct" : "", r: cmp.rows ? cmp.rows.join("|") : "", L: cmp.L, shift: cmp.shift ? "1" : "",
   });
 }
@@ -45,7 +45,8 @@ function focusDriver(id) {
   const g = own.slice().sort((a, b) => a.rank - b.rank || (b.kind.id === "hd-frequency") - (a.kind.id === "hd-frequency") || driversIn(b) - driversIn(a))[0];
   const mine = g.entries.find(e => e.driver.id === id);
   Object.assign(cmp, { mix: false, src: g.family, g: g.key, q: [], rows: null, shift: false,
-    L: mine.sets.some(s => s.level != null) ? (defaultLevel(g) ?? null) : null,
+    // the level the driver you came from was measured at (its level closest to the group's usual one)
+    L: mine.sets.some(s => s.level != null) ? pickSet(mine, defaultLevel(g)).level : null,
     picks: [{ id: mine.id, slot: 0 }].concat(g.entries.filter(e => e !== mine).slice(0, MAX_PICK - 1).map((e, i) => ({ id: e.id, slot: i + 1 }))) });
 }
 
@@ -113,7 +114,7 @@ function render() {
     <div class="lbl"><span>Measurement</span></div><select id="cgrp" class="sel">${avail.map(x =>
       `<option value="${esc(x.key)}"${x.key === g.key ? " selected" : ""}>${esc(x.label)} · ${driversIn(x)} driver${driversIn(x) !== 1 ? "s" : ""}${x.levels.length > 1 ? " · " + x.levels.length + " levels" : ""}${cmp.mix ? " · " + [...new Set(x.entries.map(e => e.family.name))].join(" + ") : ""}</option>`).join("")}</select>`;
   if (g.levels.length) {
-    const count = L => g.entries.filter(e => e.sets.some(s => s.level === L)).length;
+    const count = L => g.entries.filter(e => e.sets.some(s => (g.kind.level === "spl-near" ? Math.abs(s.level - L) <= 1 : s.level === L))).length;
     h += `<div class="lbl"><span>Level</span><span class="hint">each driver uses its measured level closest to this</span></div>
       <div class="togrow"><input type="number" class="num" id="cL" min="40" max="140" step="1" value="${cmp.L}"><span class="dim">dB SPL at 1 m</span><span class="sep"></span>
       ${g.levels.map(L => `<button class="tog small${L === cmp.L ? " on" : ""}" data-lvl="${L}">${lv(L)} · ${count(L)}</button>`).join("")}</div>`;
@@ -130,7 +131,7 @@ function render() {
   if (view === "table") h += `<div class="lbl"><span>Rows</span><span class="hint">tap to leave a row out</span></div><div class="togrow">${rowLabels(g, cmp.q[0]).map(r =>
     `<button class="tog small${cmp.rows.includes(r) ? " on" : ""}" data-row="${esc(r)}">${esc(r)}</button>`).join("")}</div>`;
   h += `<div class="lbl"><span>Drivers</span><span class="hint">${picked.length} picked · up to ${MAX_PICK}</span></div>`;
-  if (g.entries.length > 8) h += `<input class="filter small" id="cfilt" placeholder="filter drivers…">`;
+  if (g.entries.length > 8) h += `<input class="filter small" id="cfilt" placeholder="filter drivers…" value="${esc(cmp.filt)}" autocomplete="off">`;
   h += `<div class="picks">${g.entries.map(e => {
     const p = cmp.picks.find(x => x.id === e.id), on = !!p, dis = !on && full;
     const sw = on ? `<span class="sw" style="background:${COLORS[p.slot]};border-color:${COLORS[p.slot]}">${MARK_CHARS[MARKERS[p.slot]]}</span>` : `<span class="sw"></span>`;
@@ -142,11 +143,12 @@ function render() {
   const fam = familyByName(g.family);
   h += `<div class="panel"><div class="ptitle">${esc(g.label)}${cmp.L != null ? " · target " + lv(cmp.L) : ""}${cmp.mix ? "" : " · " + esc(g.family) + " " + badge(fam)}</div>`;
   if (cmp.mix) h += `<div class="warn"><b>Sources mixed.</b> Each source measures differently (distance, room or anechoic, windowing, smoothing, calibration), so differences between sources can be larger than differences between drivers. Use this to see how sources disagree, not to rank drivers. Most reliable first: ${srcs.map(f => esc(f.name) + " (" + esc(f.reliability) + ")").join(", ")}.</div>`;
-  const off = picked.filter(x => x.chosen.delta);
+  const off = picked.filter(x => x.chosen.delta && !(g.kind.level === "spl-near" && Math.abs(x.chosen.delta) < 1));
   if (off.length && !cmp.shift) h += `<div class="warn">Not measured at ${lv(cmp.L)}: ${off.map(x => `${esc(x.e.driver.name)} (nearest ${lv(x.chosen.level)})`).join(", ")}. Its nearest level is drawn${g.kind.id === "hd-frequency" ? "; tick “move each curve” to correct the rest with the level rule" : ""}.</div>`;
   if (!picked.length) h += `<div class="empty">Pick at least one driver above.</div>`;
   else {
-    h += `<div class="legend">${picked.map(x => `<span class="lg"><span class="lgm" style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]}</span><span class="lgl${view === "curve" ? "" : " sq"}" style="background:${COLORS[x.p.slot]}"></span>${esc(entryName(x.e))}<span class="dim">${esc(levelNote(x))}</span></span>`).join("")}</div>`;
+    const drawn = x => cmp.q.some(qid => x.quantities.some(q => q.id === qid));
+    h += `<div class="legend">${picked.map(x => `<span class="lg${drawn(x) ? "" : " off"}"><span class="lgm" style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]}</span><span class="lgl${view === "curve" ? "" : " sq"}" style="background:${COLORS[x.p.slot]}"></span>${esc(entryName(x.e))}<span class="dim">${esc(drawn(x) ? levelNote(x) : " · no " + cmp.q.join(", ") + " in this set")}</span></span>`).join("")}</div>`;
     h += noChart() ? noChartMsg : `<div class="chartbox tall"><canvas id="cchart"></canvas></div>`;
     h += `<div id="csum"></div><div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
     h += `<details class="conds"><summary>Test conditions and sources of the picked drivers</summary>${picked.map(x =>
@@ -169,7 +171,9 @@ function exportCurves(g, picked) {
     const only = g.kind.view === "table" ? null : cmp.q.filter(q => q !== "sum");
     const curves = curvesOfSet(x.e.driver, x.chosen.set, { quantities: x.quantities, only: only && only.length ? only : null });
     if (g.kind.view === "table") curves.forEach(c => { c.points = c.points.filter(p => cmp.rows.includes(p.x)); });
-    return curves.map(c => Object.assign(c, { label: c.label + (cmp.shift && x.chosen.delta ? ` (moved to ${cmp.L} dB)` : "") }));
+    const moved = cmp.shift && x.chosen.delta;
+    return curves.map(c => Object.assign(c, moved ? { level: cmp.L, label: c.label.replace(/ · [\d.]+ dB$/, "") + ` · ${cmp.L} dB (moved from ${x.chosen.level} dB with the level rule)`,
+      sourceText: `${c.sourceText}; moved from ${x.chosen.level} dB to ${cmp.L} dB with the level rule (H2 +1.0, H3 to H5 +0.7 dB per dB)` } : {}));
   });
 }
 
@@ -208,10 +212,20 @@ function wire(g) {
     else cmp.picks = cmp.picks.filter(p => p.id !== id);
     render();
   });
-  const f = $("cfilt"); if (f) f.oninput = () => {
-    const q = f.value.toLowerCase();
-    document.querySelectorAll(".pick").forEach(l => { l.hidden = !l.dataset.text.includes(q); });
+  const f = $("cfilt");
+  const applyFilter = () => {
+    const q = cmp.filt.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll(".pick").forEach(l => { l.hidden = !l.dataset.text.includes(q); if (!l.hidden) shown++; });
+    let msg = $("cnomatch");
+    if (!msg) { msg = document.createElement("div"); msg.id = "cnomatch"; msg.className = "empty"; document.querySelector(".picks").appendChild(msg); }
+    msg.hidden = shown > 0;
+    msg.textContent = `No driver matches “${cmp.filt.trim()}” in this source and measurement.`;
   };
+  if (f) { f.oninput = () => { cmp.filt = f.value; applyFilter(); }; if (cmp.filt) applyFilter(); }
+  // the pick list keeps its scroll position when a tick redraws the panel
+  const box = document.querySelector(".picks");
+  if (box) { box.scrollTop = cmp.pickScroll; box.onscroll = () => { cmp.pickScroll = box.scrollTop; }; }
 }
 
 function drawCurves(g, picked) {
@@ -237,7 +251,7 @@ function drawCurves(g, picked) {
   // median, highest and lowest over the range every picked driver covers
   const rows = [];
   cmp.q.forEach(qid => {
-    const curves = picked.map(x => ({ x, q: x.quantities.find(y => y.id === qid) })).filter(c => c.q);
+    const curves = picked.map(x => ({ x, q: x.quantities.find(y => y.id === qid) })).filter(c => c.q && c.q.points.length);
     if (!curves.length) return;
     const lo = Math.max(...curves.map(c => c.q.points[0].x)), hi = Math.min(...curves.map(c => c.q.points[c.q.points.length - 1].x));
     curves.forEach(c => {

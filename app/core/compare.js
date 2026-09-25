@@ -68,7 +68,7 @@ export function quantitiesOf(set, kind = kindOf(set)) {
       out.push({ id: s.name, label: s.name, points: pts });
       by[s.name] = pts;
     }
-    if (kind.id === "hd-frequency" && ["H2", "H3", "H4", "H5"].every(k => by[k])) out.push(thdOf(by));
+    if (kind.id === "hd-frequency" && ["H2", "H3", "H4", "H5"].every(k => by[k])) { const thd = thdOf(by); if (thd.points.length) out.push(thd); }
     return out;
   }
   if (kind.view === "bars") {
@@ -166,9 +166,11 @@ export function buildGroups({ mix = false, drivers = allDrivers() } = {}) {
   const list = [...groups.values()];
   for (const g of list) {
     const ids = new Set(), levels = new Set();
+    // "spl-near" kinds: levels meant to be the same but stated slightly apart (91.1, 91.2, 91.7 dB) share one button
+    const near = g.kind.level === "spl-near";
     g.entries.forEach(e => e.sets.forEach(s => { s.quantities.forEach(q => ids.add(q.id)); if (s.level != null) levels.add(s.level); }));
     g.quantityIds = sortQuantities([...ids]);
-    g.levels = [...levels].sort((a, b) => a - b);
+    g.levels = near ? nearLevels([...levels]) : [...levels].sort((a, b) => a - b);
     g.entries.forEach(e => e.sets.sort((a, b) => (a.level ?? 0) - (b.level ?? 0)));
     g.entries.sort((a, b) => (a.family.rank || 99) - (b.family.rank || 99) || a.driver.name.localeCompare(b.driver.name));
   }
@@ -182,6 +184,15 @@ export function sourcesOf(groups, families) {
 }
 
 /** The level most drivers in a group were measured at (the higher one on a tie), or null. */
+/** Levels that lie within 1 dB of each other, each group given as its mean to 0.1 dB: [91.1, 91.15, 91.67, 94] -> [91.3, 94]. */
+export function nearLevels(levels) {
+  const out = [];
+  for (const L of levels.slice().sort((a, b) => a - b)) {
+    if (out.length && L - out[out.length - 1][0] <= 1) out[out.length - 1].push(L); else out.push([L]);
+  }
+  return out.map(c => Math.round(c.reduce((a, b) => a + b, 0) / c.length * 10) / 10);
+}
+
 export function defaultLevel(group) {
   const count = new Map();
   group.entries.forEach(e => new Set(e.sets.map(s => s.level).filter(v => v != null)).forEach(L => count.set(L, (count.get(L) || 0) + 1)));

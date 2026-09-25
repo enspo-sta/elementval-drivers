@@ -76,7 +76,7 @@ compare them side by side instead. The families are listed in `watch/config.json
 
 ## File size
 
-`drivers.json` is 627 KB today for 17 drivers and 5,766 points (about 109 bytes per point as
+`drivers.json` is 615 KB today for 17 drivers and 5,736 curve points (about 109 bytes per point as
 written, 51 KB when the web server compresses it). A richly measured driver at the target
 resolution (15 curves of 240 points) adds about 390 KB as written today, or about 105 KB if the
 points are written compactly (`{"x":81.2,"y":-52.3}` on one line). Keep the file below about
