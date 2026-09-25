@@ -1,0 +1,46 @@
+name: Chart read
+
+# Reads the curves of the drivers listed in capture/chart_read_request.txt from their HiFiCompass chart
+# images (capture/chart_read.py): axes from each chart's grid and labels, curves by colour, 1/24 octave,
+# self-checks against the page's table. Numbers only (capture/chart_read.json); no image is stored.
+on:
+  push:
+    paths:
+      - "capture/chart_read_request.txt"
+      - "capture/chart_read.py"
+      - ".github/workflows/chart-read.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chart-read
+  cancel-in-progress: false
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
+          python3 -m pip install -q pillow numpy
+      - name: Read the charts
+        env:
+          READ_LIMIT: ${{ vars.READ_LIMIT || 2 }}
+        run: python3 capture/chart_read.py --limit "$READ_LIMIT" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the results
+        run: |
+          git add capture/chart_read.json
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Chart read: curves of the requested charts, with the self-checks"
+          git fetch origin "${GITHUB_REF_NAME}"
+          git rebase -X theirs "origin/${GITHUB_REF_NAME}" || { git checkout --theirs -- . && git add -A && GIT_EDITOR=true git rebase --continue; }
+          git push
