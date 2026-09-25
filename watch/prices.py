@@ -464,7 +464,7 @@ def offers_from_page(text, default_currency=None):
     return [o for o in out if o["price"] > 0 and o["currency"]]
 
 
-AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d[\d\s.,\u00a0]*\d|\d)|(\d[\d\s.,\u00a0]*\d|\d)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\b"
+AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d[\d\s.,\u00a0]*\d|\d)|(\d[\d\s.,\u00a0]*\d|\d)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)(?![A-Za-z])"
 
 
 def plain_prices(text, default_currency=None):
