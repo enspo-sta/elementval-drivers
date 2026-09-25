@@ -194,7 +194,40 @@ def read_chart(path, ctype):
             continue
         curves.append({"colour": hexv, "pixels": c["pixels"], "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
     rec["curves"] = curves
+    rec["legend"] = legend(path, img, rows, w, h)
     return rec
+
+
+def legend(path, img, rows, w, h):
+    """Words in the band below the grid read with letters allowed (the chart's legend: "H2 H3 THD", the
+    title), each with the colour of the swatch or text just left of it."""
+    import subprocess
+    from PIL import Image
+    y0 = (rows[-1][1] + 2) if rows else int(h * 0.9)
+    if h - y0 < 8:
+        return []
+    im = Image.open(path).convert("L").crop((0, y0, w, h))
+    im = im.resize((im.width * 3, im.height * 3))
+    tmp = path.with_suffix(".legend.png")
+    im.save(tmp)
+    try:
+        out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, text=True, timeout=120).stdout
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+    words = []
+    for line in out.splitlines()[1:]:
+        f = line.split("\t")
+        if len(f) < 12 or not f[11].strip() or float(f[10]) < 30:
+            continue
+        left, top, width, height = (int(v) // 3 for v in f[6:10])
+        cx, cy = left + width // 2, y0 + top + height // 2
+        # the colour left of the word (a swatch or the coloured text itself): the most saturated pixel there
+        x_from, x_to = max(0, left - 40), min(w - 1, left + width)
+        patch = img[max(0, cy - 6):cy + 7, x_from:x_to + 1].reshape(-1, 3)
+        spread = patch.max(axis=1) - patch.min(axis=1)
+        col = patch[spread.argmax()] if patch.size and spread.max() > 60 else None
+        words.append({"text": f[11].strip(), "x": cx, "y": cy, "colour": "#%02x%02x%02x" % tuple(int(v) for v in col) if col is not None else None})
+    return words
 
 
 def checks(did, d, ctype, name, rec):
@@ -262,7 +295,7 @@ def main():
                 rec.update({"file": name, "url": url, "type": ctype})
                 rec["checks"] = checks(did, d, ctype, name, rec) if not rec.get("error") else []
                 cv = rec.get("curves", [])
-                print(f"  {name}: x {rec.get('x_axis')} y {rec.get('y_axis')} curves {[(c['colour'], c['columns'], c['lines_per_column'], len(c['points'])) for c in cv]} checks {rec['checks']} {rec.get('error', '')}", flush=True)
+                print(f"  {name}: legend {[(wd['text'], wd['colour']) for wd in rec.get('legend', [])][:10]} x {rec.get('x_axis')} y {rec.get('y_axis')} curves {[(c['colour'], c['columns'], c['lines_per_column'], len(c['points'])) for c in cv]} checks {rec['checks']} {rec.get('error', '')}", flush=True)
                 res.append(rec)
         out["drivers"][did] = res
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")

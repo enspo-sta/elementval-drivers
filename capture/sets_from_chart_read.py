@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""Measurement sets from capture/chart_read.json (curves read on GitHub from HiFiCompass chart images).
+
+For every chart read without error: the drive voltage, distance and high-pass filter from the file name
+(m74a-6_315mm_2v83_hpf2-300.png), the kind from the chart type, the curves as series. A response chart
+becomes one frequency-response set (its 2.83 V curve at 1 kHz is compared with the page's stated
+sensitivity, and the difference is written in the note); an impedance chart one impedance set; a
+harmonics or current chart one hd-frequency or hd-current set only when the chart's legend names the
+colours (H2, H3, ...), else it is listed as waiting. Every set says it was read automatically
+(confidence "medium") so it can be spot-checked by eye later. Nothing is added twice: a set from the
+same file replaces the earlier one.
+
+  python3 capture/sets_from_chart_read.py [--write]
+"""
+import argparse
+import json
+import re
+import statistics
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "watch"))
+from validate_db import validate  # noqa: E402
+
+KIND = {"response": "frequency-response", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
+TYPE = {"response": "Axial frequency response", "impedance": "Impedance", "harmonics": "HD (orders) vs frequency", "current": "Voice-coil current HD vs frequency"}
+AXES = {"frequency-response": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "SPL", "unit": "dB"}},
+        "impedance": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Impedance", "unit": "ohm"}},
+        "hd-frequency": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Harmonic ratio", "unit": "dB re fund"}},
+        "hd-current": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Current harmonic", "unit": "dB"}}}
+
+
+def volts(name):
+    m = re.search(r"_(\d+)v(\d*)(?:_|hd|\.)", name)
+    if not m:
+        return None
+    return float(m.group(1) + ("." + m.group(2) if m.group(2) else ""))
+
+
+def conditions(name):
+    c = {}
+    v = volts(name)
+    if v is not None:
+        c["drive_v"] = v
+    m = re.search(r"_(\d+)mm_", name)
+    if m:
+        c["distance_mm"] = int(m.group(1))
+    m = re.search(r"hpf(\d)-(\d+)", name)
+    if m:
+        c["hpf"] = f"HPF{m.group(1)}-{m.group(2)}"
+    if re.search(r"_0(grad|deg)", name):
+        c["angle_deg"] = 0
+    c["lab"] = "HiFiCompass"
+    return c
+
+
+def series_names(chart):
+    """Colour -> harmonic name from the legend (H2, H3, H4, H5, THD), when the legend was read."""
+    names = {}
+    for wd in chart.get("legend") or []:
+        t = wd["text"].upper().strip(",;:")
+        if re.fullmatch(r"H[2-9]|THD", t) and wd.get("colour"):
+            names[wd["colour"]] = t
+    return names
+
+
+def close(a, b, tol=90):
+    return sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5)) <= tol
+
+
+def build(read, db):
+    byid = {d["id"]: d for d in db["drivers"]}
+    made, waiting = [], []
+    for did, charts in read["drivers"].items():
+        d = byid.get(did)
+        if not d:
+            continue
+        for ch in charts:
+            if ch.get("error") or not ch.get("curves"):
+                waiting.append((did, ch["file"], ch.get("error") or "no curve read")); continue
+            ctype, name = ch["type"], ch["file"]
+            kind = KIND.get(ctype)
+            if not kind:
+                continue
+            cond = conditions(name)
+            note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
+            for c in ch.get("checks", []):
+                note.append("; ".join(f"{k} {v}" for k, v in c.items()))
+            if kind in ("hd-frequency", "hd-current"):
+                names = series_names(ch)
+                series = []
+                for cv in ch["curves"]:
+                    nm = next((n for col, n in names.items() if close(col, cv["colour"])), None)
+                    if nm is None:
+                        break
+                    if cv.get("lines_per_column", 1) > 1.5:
+                        nm = None; break
+                    series.append({"name": nm, "points": cv["points"]})
+                else:
+                    if not series:
+                        waiting.append((did, name, "no curve")); continue
+                if not series or any(s["name"] is None for s in series):
+                    waiting.append((did, name, f"legend does not name the colours: {[(w['text'], w['colour']) for w in ch.get('legend', [])][:8]}")); continue
+                series.sort(key=lambda s: s["name"])
+            elif kind == "frequency-response":
+                cv = max(ch["curves"], key=lambda c: c["pixels"])
+                if cv.get("lines_per_column", 1) > 1.5:
+                    waiting.append((did, name, "more than one line in the response colour")); continue
+                series = [{"name": "SPL", "points": cv["points"]}]
+                at1k = [p["y"] for p in cv["points"] if 900 <= p["x"] <= 1100]
+                if at1k:
+                    cond["spl_db_1khz"] = round(statistics.mean(at1k), 1)
+            else:
+                cv = max(ch["curves"], key=lambda c: c["pixels"])
+                series = [{"name": "Z", "points": cv["points"]}]
+            made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else ""), "kind": kind,
+                              "method": "automated pixel reading (GitHub), calibrated from the chart's own grid and labels",
+                              "conditions": cond, "source": f"HiFiCompass ({name}, automated reading)", "confidence": "medium",
+                              "note": "; ".join(note), "chartType": "line", "axes": AXES[kind], "series": series, "file": name}))
+    return made, waiting
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--read", default=str(ROOT / "capture" / "chart_read.json"))
+    ap.add_argument("--write", action="store_true")
+    a = ap.parse_args()
+    read = json.loads(Path(a.read).read_text())
+    dbp = ROOT / "drivers.json"
+    db = json.loads(dbp.read_text())
+    made, waiting = build(read, db)
+    for did, s in made:
+        print(f"{did}: {s['type']} ({s['kind']}) {len(s['series'])} series, {len(s['series'][0]['points'])} points; {s['note'][:160]}")
+    for did, f, why in waiting:
+        print(f"waiting {did} {f}: {why}")
+    if a.write and made:
+        byid = {d["id"]: d for d in db["drivers"]}
+        for did, s in made:
+            d = byid[did]
+            d["measurements"] = [m for m in d["measurements"] if m.get("source") != s["source"]]
+            d["measurements"].append(s)
+            d["updated"] = read["date"]
+        tmp = ROOT / "capture" / "_chart_read_candidate.json"
+        tmp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
+        errors = result[0] if isinstance(result, tuple) else result
+        tmp.unlink()
+        if errors:
+            sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
+        dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        print(f"{len(made)} set(s) written")
+
+
+if __name__ == "__main__":
+    main()
