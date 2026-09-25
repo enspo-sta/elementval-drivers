@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: watch-new-drivers
+  group: inventory
   cancel-in-progress: false
 
 jobs:
