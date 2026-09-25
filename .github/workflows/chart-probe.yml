@@ -1,0 +1,45 @@
+name: Chart probe
+
+# Measures the chart images of the drivers listed in capture/chart_probe_request.txt (size, plot
+# frame, curve colours, axis labels read with tesseract) and commits the numbers to
+# capture/chart_probe.json. Images are read on the runner only; none is stored.
+on:
+  push:
+    paths:
+      - "capture/chart_probe_request.txt"
+      - "capture/chart_probe.py"
+      - ".github/workflows/chart-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chart-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
+          python3 -m pip install -q pillow numpy
+      - name: Probe the charts
+        run: python3 capture/chart_probe.py --limit "${PROBE_LIMIT:-0}" | tee -a "$GITHUB_STEP_SUMMARY"
+        env:
+          PROBE_LIMIT: ${{ vars.PROBE_LIMIT || 8 }}
+      - name: Commit the results
+        run: |
+          git add capture/chart_probe.json
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Chart probe: sizes, frames, colours and axis labels of the requested charts"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
