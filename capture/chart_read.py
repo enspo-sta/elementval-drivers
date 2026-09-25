@@ -116,13 +116,26 @@ def grid_rows_only(img, rows, box):
     cols = {tuple(r): colour(r) for r in rows}
     if not cols:
         return rows
-    common = Counter(cols.values()).most_common(1)[0][0]
-    return [r for r in rows if cols[tuple(r)] == common]
+    counts = Counter(cols.values())
+    keep = {c for c, n in counts.items() if n >= 3} or {counts.most_common(1)[0][0]}
+    rows = [r for r in rows if cols[tuple(r)] in keep]
+    # grid rows are evenly spaced: a row off the regular spacing (a flat curve in the grid's colour) is not grid
+    import statistics
+    if len(rows) >= 4:
+        ys = [r[0] for r in rows]
+        steps = [b - a for a, b in zip(ys, ys[1:])]
+        d = statistics.median(steps)
+        if d > 0:
+            base = ys[0]
+            rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.15]
+    return rows
 
 
 def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     import numpy as np
     target = np.array([int(colour_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    if max(target) - min(target) < 30:
+        tol = 40                                       # a black or grey curve: keep the dark-grey dotted grid out
     x0, y0, x1, y1 = box
     dist = np.sqrt(((img - target) ** 2).sum(axis=2))
     mask = dist <= tol
@@ -180,19 +193,28 @@ def read_chart(path, ctype):
     if not xa or not ya:
         rec["error"] = "axes could not be fitted"
         return rec
-    plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, rows[-1][0] - 1] if rows and cols else box
+    label_top = min([wd["y"] for wd in bottom if "text" in wd] or [h]) - 6
+    bottom_edge = max(rows[-1][1] + 1, min(label_top, h - 1)) if rows else min(label_top, h - 1)
+    plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, bottom_edge] if rows and cols else box
     curves = []
-    for c in CP.all_colours(img, plot, bg, top=12):
+    candidates = CP.all_colours(img, plot, bg, top=12)
+    # the on-axis response is drawn in the grid's own colour (black on green): read that colour too, off the grid lines
+    if ctype == "response" and rcol and not any(c["hex"] == rcol for c in candidates):
+        candidates.append({"hex": rcol, "pixels": MIN_CURVE_PIXELS})
+    for c in candidates:
         hexv = c["hex"]
-        if hexv in (rcol, ccol) or c["pixels"] < MIN_CURVE_PIXELS:
+        if hexv == ccol or c["pixels"] < MIN_CURVE_PIXELS:
+            continue
+        if hexv == rcol and ctype != "response":
             continue
         r, g, b = (int(hexv[i:i + 2], 16) for i in (1, 3, 5))
-        if max(r, g, b) - min(r, g, b) < 30 and not (ctype == "response" and 100 <= r <= 140):
-            continue                                   # grey: grid, text, anti-aliasing (the response curve is dark grey)
+        if max(r, g, b) - min(r, g, b) < 30 and hexv != rcol:
+            continue                                   # grey: minor grid, text, anti-aliasing
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
-        if len(pts) < 50:
-            continue
-        curves.append({"colour": hexv, "pixels": c["pixels"], "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
+        if len(pts) < 50 or runs >= 3:
+            continue                                   # a dotted grid gives several runs per column; a curve gives one
+        curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
+    curves.sort(key=lambda c: -c["columns"])
     rec["curves"] = curves
     rec["legend"] = legend(path, img, rows, w, h)
     return rec
@@ -245,7 +267,8 @@ def checks(did, d, ctype, name, rec):
         if ys and ts.get("Re"):
             out.append({"check": "impedance minimum against Re", "read": round(min(ys), 2), "stated": ts["Re"]})
         if ys and ts.get("Fs"):
-            peak = max(c["points"], key=lambda p: p["y"])
+            low = [p for p in c["points"] if p["x"] < 2000] or c["points"]
+            peak = max(low, key=lambda p: p["y"])
             out.append({"check": "impedance peak against Fs", "read_hz": peak["x"], "read_ohm": peak["y"], "stated_fs": ts["Fs"]})
     return out
 
