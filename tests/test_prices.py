@@ -245,3 +245,17 @@ class PlainMarkupOrder(unittest.TestCase):
         self.assertTrue(lst[1]["doubtful"]); self.assertNotIn("doubtful", lst[0])
         lst.sort(key=lambda o: (bool(o.get("pack")) or bool(o.get("doubtful")), o["price_sek"] is None, o["price_sek"] or o["price"]))
         self.assertEqual([o["shop"] for o in lst], ["A", "C", "B"])
+
+
+class HandWritten(unittest.TestCase):
+    def test_logged_in_prices_survive_a_rebuild(self):
+        previous = {"drivers": {"m74t-6": {"offers": [
+            {"shop": "Toutlehautparleur", "url": "https://www.toutlehautparleur.com/x", "price": 420.0, "currency": "EUR", "price_logged_in": 389.0, "checked": "2026-09-25"},
+            {"shop": "SoundImports", "url": "u", "price": 450.0, "currency": "EUR"}]}}}
+        offers = {"m74t-6": [{"shop": "SoundImports", "url": "u", "price": 455.0, "currency": "EUR"}]}
+        P.carry_hand_written(offers, previous)
+        shops = {o["shop"]: o for o in offers["m74t-6"]}
+        self.assertEqual(shops["SoundImports"]["price"], 455.0)                       # the scan's price wins
+        self.assertNotIn("price_logged_in", shops["SoundImports"])
+        self.assertEqual((shops["Toutlehautparleur"]["price_logged_in"], shops["Toutlehautparleur"]["checked"]), (389.0, "2026-09-25"))
+        self.assertTrue(shops["Toutlehautparleur"]["hand_written"])                     # kept although the scan saw nothing

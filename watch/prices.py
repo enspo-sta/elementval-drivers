@@ -664,9 +664,31 @@ def mark_doubtful(lst):
             o["price_note"] += f"; far below the other shops ({median} kr): probably not the product's price"
 
 
+def carry_hand_written(offers, previous):
+    """Fields written by hand into the previous prices.json (a logged-in price from the Chrome routine:
+    price_logged_in, checked; a hand-added offer without a public price) survive the rebuild: matched by
+    driver and shop."""
+    for did, rec in (previous.get("drivers") or {}).items():
+        for old in rec.get("offers") or []:
+            if not any(k in old for k in ("price_logged_in", "checked", "hand_written")):
+                continue
+            mine = [o for o in offers.get(did, []) if o["shop"] == old["shop"]]
+            if mine:
+                for k in ("price_logged_in", "checked", "hand_written"):
+                    if k in old:
+                        mine[0][k] = old[k]
+            else:
+                offers.setdefault(did, []).append(dict(old, hand_written=True))
+    return offers
+
+
 def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, summary):
     today = dt.date.today().isoformat()
     byid = {d["id"]: d for d in drivers}
+    try:
+        carry_hand_written(offers, json.loads(OUT.read_text()))
+    except (OSError, ValueError):
+        pass
     for lst in offers.values():
         for o in lst:
             o["price_sek"] = to_sek(o["price"], o["currency"], rates)

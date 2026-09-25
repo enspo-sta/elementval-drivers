@@ -136,3 +136,8 @@ ul.how li{margin-bottom:4px}
 .price .from{font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--green)}
 .price .from small{font-size:12px;color:var(--muted)}
 .card .from{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--green);margin-top:3px}
+
+/* price table: the note wraps; on a phone the export format select takes its own row */
+.price .ctab td,.price .ctab th{white-space:normal}
+.price .ctab td:nth-child(2),.price .ctab td:nth-child(3){white-space:nowrap}
+@media (max-width:480px){ .export .sel.mini{flex-basis:100%} }

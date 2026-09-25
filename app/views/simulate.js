@@ -199,13 +199,18 @@ function render() {
     const slopes = chosen.map(c => slopeFor(c));
     let fLo = Math.max(20, chosen[0].lo), fHi = Math.min(20000, chosen[sim.n - 1].hi);
     if (!(fHi > fLo * 1.5)) {
-      warnings.push(`The lowest way's data ends at ${fmtHz(chosen[0].hi)} and the highest way's begins at ${fmtHz(chosen[sim.n - 1].lo)}: they do not overlap, so no speaker can be simulated from these drivers. Pick a lower way with data further up, or a higher way with data further down.`);
+      warnings.push(`The lowest way's data begins at ${fmtHz(chosen[0].lo)} and the highest way's ends at ${fmtHz(chosen[sim.n - 1].hi)}: they do not overlap, so no speaker can be simulated from these drivers. Pick a lower way with data further up, or a higher way with data further down.`);
     } else res = SC.simulate({ freqs: SC.logGrid(fLo, fHi, 24), target: sim.L, orders: avail, aligned: sim.al,
       points: sim.x.map((fc, i) => ({ fc, type: sim.t[i] })),
       ways: chosen.map((c, i) => ({ name: c.e.driver.name, curves: c.curves, slope: slopes[i].fn, count: sim.c[i] })) });
     if (res) {
     res.slopes = slopes;
     res.range = [res.freqs[0], res.freqs[res.freqs.length - 1]];
+    // a harmonic calculated above the fundamental is the level rule stretched beyond sense, not a result
+    for (const k of Object.keys(res.system)) {
+      const over = res.freqs.filter((f, j) => res.system[k][j] != null && res.system[k][j] > 0);
+      if (over.length) warnings.push(`${k} comes out above the fundamental (over 0 dB) from ${fmtHz(over[0])} to ${fmtHz(over[over.length - 1])}: the level rule was stretched far beyond the measurements there, and those numbers mean nothing.`);
+    }
     const merged = [];
     for (const gp of res.gaps) {
       const m = merged.find(x => x.way === gp.way && x.from === gp.from && x.to === gp.to);

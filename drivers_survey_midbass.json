@@ -9,7 +9,7 @@
   "drivers": [
     {
       "id": "at-c-quenze-18-h-52-17-06-sd",
-      "name": "Acoustic Technology (AT) AT C-Quenze 18 H 52 17 06 SD",
+      "name": "Acoustic Technology (AT) C-Quenze 18 H 52 17 06 SD",
       "manufacturer": "Acoustic Technology (AT)",
       "role": "midbass (survey)",
       "band": "7\"",
@@ -370,7 +370,7 @@
     },
     {
       "id": "diysg-anarchy-704",
-      "name": "DIY Sound Group DIYSG Anarchy 704",
+      "name": "DIY Sound Group Anarchy 704",
       "manufacturer": "DIY Sound Group",
       "role": "midbass (survey)",
       "band": "7\"",
@@ -3432,7 +3432,7 @@
     },
     {
       "id": "ps180",
-      "name": "Dayton Audio ps180",
+      "name": "Dayton Audio PS180",
       "manufacturer": "Dayton Audio",
       "role": "midbass (survey)",
       "band": "7\"",
@@ -5656,7 +5656,7 @@
     },
     {
       "id": "radio-shack-40-1354a",
-      "name": "RadioShack Radio Shack 40-1354A",
+      "name": "RadioShack 40-1354A",
       "manufacturer": "RadioShack",
       "role": "midbass (survey)",
       "band": "",

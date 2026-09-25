@@ -30,6 +30,9 @@ async function start() {
     try { await import(m); } catch (e) { failed.push(`${m}: ${e.message}`); console.error(e); }
   }
   window.addEventListener("hashchange", route);
+  // a phone turned between portrait and landscape crosses the narrow-screen tick rule: redraw the view
+  let narrow = window.innerWidth < 420;
+  window.addEventListener("resize", () => { const n = window.innerWidth < 420; if (n !== narrow) { narrow = n; route(); } });
   route();
   if (failed.length) box.insertAdjacentHTML("afterbegin", `<div class="err">Some features failed to load and are left out: ${failed.map(f => f.replace(/[<>&]/g, "")).join("; ")}</div>`);
 }

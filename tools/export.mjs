@@ -55,7 +55,7 @@ for (const d of allDrivers()) {
     const curves = curvesOfSet(d, set);
     for (const id of formats) {
       const e = getExporters().find(x => x.id === id);
-      const ok = curves.filter(c => e.accepts(c));
+      const ok = curves.filter(c => e.accepts(c) && (!kindOf(set).export || kindOf(set).export.includes(e.id.split("-")[0])));   // the kind's own format list
       if (!ok.length) continue;
       for (const f of e.files(ok, { title: `${d.id}_${kindOf(set).id}_${i}` })) {
         writeFileSync(join(out, f.name), f.text);

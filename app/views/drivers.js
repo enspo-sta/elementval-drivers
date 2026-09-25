@@ -37,7 +37,9 @@ function sourceNames(d) {
 
 function matches(d, q) {
   const text = [d.id, d.name, d.manufacturer, d.role, d.band, d.findings || "", d.isComparison ? "" : sourceNames(d).join(" ")].join(" ").toLowerCase();
-  return text.includes(q);
+  // "rs180" finds "RS 180-4": spaces and dashes do not count in model numbers
+  const tight = s => s.replace(/[\s-]/g, "");
+  return text.includes(q) || (q.length > 2 && tight(text).includes(tight(q)));
 }
 
 function showList() {
@@ -231,7 +233,7 @@ function pricesHtml(d) {
   const sorted = offers.slice().sort((a, b) => (sek(a) ?? Infinity) - (sek(b) ?? Infinity));
   const best = sorted.find(o => !o.pack) || sorted[0];   // a box price is never the headline
   const priceText = o => `${eff(o).toLocaleString("sv-SE", { maximumFractionDigits: 2 })} ${o.currency}` + (o.pack ? " (price for a box, not one driver)" : "") + (o.price_logged_in != null ? " (logged in)" : o.login_prices ? " (public price; lower when logged in)" : "");
-  return `<div class="price"><div class="lbl"><span>Lowest price in Europe</span><span class="hint">checked ${esc(date)} · prices and stock change: check the shop</span></div>
+  return `<div class="price"><div class="lbl"><span>${best.pack ? "Price in Europe (a box only)" : "Lowest price in Europe"}</span><span class="hint">checked ${esc(date)} · prices and stock change: check the shop</span></div>
     <div class="from">${esc(sek(best) != null ? fmtSek(sek(best)) : priceText(best))} <small>${sek(best) != null ? esc(priceText(best)) + " at " : "at "}<a href="${esc(best.url)}" target="_blank" rel="noopener">${esc(best.shop)}</a> (${esc(best.country)})${best.availability ? " · " + esc(best.availability) : ""}${best.shop_note ? " · " + esc(best.shop_note) : ""}</small></div>
     ${sorted.length > 1 ? `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Shop</th><th>Price</th><th>In kronor</th><th>Stock</th><th>Note</th></tr></thead><tbody>${sorted.map(o =>
       `<tr><td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.shop)}</a> (${esc(o.country)})</td><td>${esc(priceText(o))}</td><td>${esc(sek(o) != null ? fmtSek(sek(o)) : "—")}</td><td>${esc(o.availability || "—")}</td><td>${esc(o.shop_note || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>`;
@@ -269,7 +271,8 @@ function drawSet(canvas, set) {
 // Several levels of a bar measurement (an intermodulation spectrum at 70, 80, 85 dB): grouped bars, one colour per level.
 function drawLevelBars(canvas, card, cols) {
   if (!canvas) return;
-  const freqs = [...new Set(card.sets.flatMap(s => ((s.set.series[0] || {}).points || []).map(p => Number(p.x))))].sort((a, b) => a - b);
+  // only frequencies where at least one level has a value (a stored null is not a bar)
+  const freqs = [...new Set(card.sets.flatMap(s => ((s.set.series[0] || {}).points || []).filter(p => p.y != null).map(p => Number(p.x))))].sort((a, b) => a - b);
   const all = card.sets.flatMap(s => ((s.set.series[0] || {}).points || []).map(p => p.y)).filter(v => v != null);
   const base = barBase(all);
   const ds = card.sets.map((s, i) => ({ label: levelName(s), backgroundColor: cols[i], base,

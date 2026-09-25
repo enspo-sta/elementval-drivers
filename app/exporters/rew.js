@@ -9,7 +9,7 @@ registerExporter({
   accepts: c => isFrequencyCurve(c),
   files: curves => curves.filter(isFrequencyCurve).map(c => ({
     name: curveFileName(c, "txt"),
-    text: [`* ${describeCurve(c)}`, `* ${c.kindLabel}; source: ${c.source}`, `* exported ${today()} from the driver database viewer`,
+    text: [`* ${describeCurve(c)}`, `* ${c.kindLabel}; source: ${c.sourceText || c.source}`, `* exported ${today()} from the driver database viewer`,
            `* Freq(Hz) ${c.yLabel || "Value"}(${c.yUnit || ""})`,
            ...c.points.map(p => `${fmt(p.x)}\t${fmt(p.y)}`)].join("\n") + "\n",
   })),

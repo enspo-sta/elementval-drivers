@@ -180,14 +180,14 @@ function exportCurves(g, picked) {
 const dashSvg = dash => `<svg class="dash" width="22" height="8" aria-hidden="true"><line x1="1" y1="4" x2="21" y2="4" stroke="#eef0f6" stroke-width="2" stroke-dasharray="${(dash || []).join(",")}"/></svg>`;
 
 function wire(g) {
-  document.querySelectorAll("[data-src]").forEach(b => b.onclick = () => { cmp.src = b.dataset.src; cmp.g = null; cmp.q = []; render(); });
+  document.querySelectorAll("[data-src]").forEach(b => b.onclick = () => { cmp.src = b.dataset.src; cmp.g = null; cmp.q = []; cmp.pickScroll = 0; render(); });
   const mix = $("cmix"); if (mix) mix.onchange = () => {
     cmp.mix = mix.checked;
     const target = groups(cmp.mix).find(x => x.kind.id === g.kind.id && x.key.endsWith(g.key.split("::").pop()) && (cmp.mix || x.family === cmp.src));
     cmp.g = target ? target.key : null;
     render();
   };
-  const sel = $("cgrp"); if (sel) sel.onchange = () => { cmp.g = sel.value; cmp.q = []; cmp.picks = null; cmp.rows = null; cmp.L = null; render(); };
+  const sel = $("cgrp"); if (sel) sel.onchange = () => { cmp.g = sel.value; cmp.q = []; cmp.picks = null; cmp.rows = null; cmp.L = null; cmp.pickScroll = 0; render(); };
   const L = $("cL"); if (L) L.onchange = () => { const v = Number(L.value); if (v >= 40 && v <= 140) cmp.L = v; render(); };
   document.querySelectorAll("[data-lvl]").forEach(b => b.onclick = () => { cmp.L = Number(b.dataset.lvl); render(); });
   const sh = $("cshift"); if (sh) sh.onchange = () => { cmp.shift = sh.checked; render(); };
