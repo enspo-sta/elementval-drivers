@@ -123,10 +123,21 @@ def grid_rows_only(img, rows, box):
     import statistics
     if len(rows) >= 4:
         ys = [r[0] for r in rows]
-        # the spacing: the median over two steps (rows alternate 18 and 19 px when the spacing is 18.46), then
-        # refined twice from every row's distance to the first
-        d = statistics.median((c - a) / 2 for a, c in zip(ys, ys[2:]))
-        base = ys[0]
+        # the spacing: the span divided by n-1, n-2 or n-3 (one or two rows may be a flat curve), from the first
+        # or the second row, whichever keeps the most rows on a whole multiple; then refined from every row
+        def kept(base, d):
+            return [y for y in ys if abs(((y - base) / d) - round((y - base) / d)) <= 0.25]
+        best = None
+        for bi in (0, 1):
+            base = ys[bi]
+            for extra in (0, 1, 2):
+                k = len(ys) - 1 - bi - extra
+                if k >= 2:
+                    d = (ys[-1] - base) / k
+                    n = len(kept(base, d))
+                    if best is None or n > best[0]:
+                        best = (n, base, d)
+        _, base, d = best
         for _ in range(2):
             ks = [round((y - base) / d) for y in ys]
             d = statistics.median([(y - base) / k for y, k in zip(ys, ks) if k > 0]) or d
