@@ -118,7 +118,11 @@ def build(read, db):
             if cond.get("smoothing") == "none":
                 extra.append("no smoothing")
             note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
+            scale = re.search(r"_(\d+)_ohm", name)
             for c in ch.get("checks", []):
+                if "peak" in c.get("check", "") and scale and c.get("read_ohm", 0) >= 0.97 * float(scale.group(1)):
+                    note.append(f"the resonance peak lies above this chart's {scale.group(1)} ohm scale (clipped), so it is not checked against Fs {c.get('stated_fs')}")
+                    continue
                 note.append(", ".join(f"{k.replace('_', ' ')} {v}" for k, v in c.items()))
                 if "1 kHz" in c.get("check", "") and "tweeter" in (d.get("role") or ""):
                     note.append("a tweeter's stated sensitivity is an average over its band, so a difference at 1 kHz is expected")
