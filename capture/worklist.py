@@ -5,6 +5,7 @@
   2. stored values that disagree with each other (watch/check_consistency.py), to check against the source
   3. per driver: what HiFiCompass and Purifi publish that is not stored yet (every curve, every level)
   4. a random spot check: three drivers whose stored curves are compared point by point with the source
+  5. the sets read automatically from chart images, to check by eye
 
 Run it after any database change:  python3 capture/worklist.py
 """
@@ -116,8 +117,17 @@ def main():
         sets = [f"{i}: {m['type']}" for i, m in enumerate(d["measurements"])
                 if (families_of(m.get("source"), cfg) or [""])[0] in ("HiFiCompass", "Manufacturer datasheet") and m.get("chartType") == "line"]
         lines.append(f"- **{d['name']}** (`{d['id']}`): sets {'; '.join(sets)}")
+    auto = [(d, i, m) for d in db["drivers"] for i, m in enumerate(d["measurements"]) if "automated" in str(m.get("method", ""))]
+    if auto:
+        lines += ["", "## 5. Sets read automatically from chart images (check by eye)", "",
+                  "Read on GitHub by `capture/chart_read.py` from the source's chart images and stored with confidence *medium*. "
+                  "Open the chart named in the set's note beside the viewer's curve; a difference above 1 dB (0.3 ohm for impedance) "
+                  "outside the noise floor needs a note or a recapture. The self-checks in each note compare the reading with the page's table.", ""]
+        for d, i, m in auto:
+            checks = [part for part in str(m.get("note", "")).split("; ") if part.startswith("check ")]
+            lines.append(f"- **{d['name']}** (`{d['id']}`), set {i}: {m['type']} — {'; '.join(checks) if checks else 'no self-check possible for this kind'}")
     OUT.write_text("\n".join(lines) + "\n")
-    print(f"{OUT.relative_to(ROOT)}: {n1} to recapture, {len(diffs)} disagreements, spot check {', '.join(d['id'] for d in pick)}")
+    print(f"{OUT.relative_to(ROOT)}: {n1} to recapture, {len(diffs)} disagreements, spot check {', '.join(d['id'] for d in pick)}, {len(auto)} automated sets")
 
 
 if __name__ == "__main__":

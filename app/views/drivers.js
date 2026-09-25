@@ -231,12 +231,14 @@ function pricesHtml(d) {
   const sek = o => (o.price_sek != null && o.price ? Math.round(o.price_sek * eff(o) / o.price) : null);
   // lowest in kronor first; an offer whose currency could not be converted goes last
   const sorted = offers.slice().sort((a, b) => (sek(a) ?? Infinity) - (sek(b) ?? Infinity));
-  const best = sorted.find(o => !o.pack) || sorted[0];   // a box price is never the headline
+  const best = sorted.find(o => !o.pack && !o.doubtful) || sorted.find(o => !o.pack) || sorted[0];   // a box price or a doubtful one is never the headline
+  // what the scan says about an offer: the shop's note, a price kept from an earlier scan, a doubtful reading
+  const noteOf = o => [o.shop_note, o.kept_from ? "price from the scan of " + o.kept_from + " (the shop could not be reached at the last scan)" : "", o.doubtful ? "doubtful: far from the other shops" : "", o.price_note && !o.kept_from && !o.doubtful ? o.price_note : ""].filter(Boolean).join(" · ");
   const priceText = o => `${eff(o).toLocaleString("sv-SE", { maximumFractionDigits: 2 })} ${o.currency}` + (o.pack ? " (price for a box, not one driver)" : "") + (o.price_logged_in != null ? " (logged in)" : o.login_prices ? " (public price; lower when logged in)" : "");
   return `<div class="price"><div class="lbl"><span>${best.pack ? "Price in Europe (a box only)" : "Lowest price in Europe"}</span><span class="hint">checked ${esc(date)} · prices and stock change: check the shop</span></div>
-    <div class="from">${esc(sek(best) != null ? fmtSek(sek(best)) : priceText(best))} <small>${sek(best) != null ? esc(priceText(best)) + " at " : "at "}<a href="${esc(best.url)}" target="_blank" rel="noopener">${esc(best.shop)}</a> (${esc(best.country)})${best.availability ? " · " + esc(best.availability) : ""}${best.shop_note ? " · " + esc(best.shop_note) : ""}</small></div>
+    <div class="from">${esc(sek(best) != null ? fmtSek(sek(best)) : priceText(best))} <small>${sek(best) != null ? esc(priceText(best)) + " at " : "at "}<a href="${esc(best.url)}" target="_blank" rel="noopener">${esc(best.shop)}</a> (${esc(best.country)})${best.availability ? " · " + esc(best.availability) : ""}${noteOf(best) ? " · " + esc(noteOf(best)) : ""}</small></div>
     ${sorted.length > 1 ? `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Shop</th><th>Price</th><th>In kronor</th><th>Stock</th><th>Note</th></tr></thead><tbody>${sorted.map(o =>
-      `<tr><td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.shop)}</a> (${esc(o.country)})</td><td>${esc(priceText(o))}</td><td>${esc(sek(o) != null ? fmtSek(sek(o)) : "—")}</td><td>${esc(o.availability || "—")}</td><td>${esc(o.shop_note || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>`;
+      `<tr><td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.shop)}</a> (${esc(o.country)})</td><td>${esc(priceText(o))}</td><td>${esc(sek(o) != null ? fmtSek(sek(o)) : "—")}</td><td>${esc(o.availability || "—")}</td><td>${esc(noteOf(o))}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>`;
 }
 
 function renderTable(set) {
