@@ -25,6 +25,13 @@ Read by every Claude Code session that works here. Keep it short; details live i
   prices show only when logged in. Reading them needs Claude Code with the Chrome plugin on
   David's own computer (`capture/CHROME_CAPTURE.md`); the weekly scan sees only the public price.
 - Prices are shown in kronor and in the shop's currency; prefer European shops.
+- What the scans found (September 2026): **Purifi's own shop** lists prices six to eight times
+  retail (2 400 to 3 000 EUR): treated as box prices (`"pack"` in `watch/prices_config.json`), never
+  the headline price; the box size is not known. **audio-hi.fi** and **loudspeakerfreaks.com** send
+  an incomplete certificate chain; the scanner completes it the way a browser does (verification
+  stays on, never turned off). **Toutlehautparleur** refuses automatic reading (HTTP 403).
+  **Lautsprechershop, Intertechnik, Speakerbuddies, Europe Audio, Hificollective, BlieSMa** have no
+  usable sitemap; their product pages can be listed by hand (`"pages"`).
 
 ## Where things run
 
