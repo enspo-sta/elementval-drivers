@@ -82,9 +82,9 @@ def x_axis(cols, bottom_words):
         if abs(math.log10(v) - round(math.log10(v))) > 0.02 and v not in (20, 50, 200, 500, 2000, 5000, 20000):
             continue
         x = w["x"]
-        near = [c for c in cols if abs(c[0] - x) <= 12]
-        if near:
-            pairs.append((near[0][0], math.log10(v)))
+        near = min(cols, key=lambda c: abs(c[0] - x), default=None)   # the nearest decade line, not the first within reach
+        if near and abs(near[0] - x) <= 12:
+            pairs.append((near[0], math.log10(v)))
     fit = fit_line(pairs)
     if fit is None and len(cols) >= 2 and pairs:
         # one label only: the decade lines are one decade apart
@@ -101,9 +101,9 @@ def y_axis(rows, left_words):
         v = number(w["text"]) if "text" in w else None
         if v is None:
             continue
-        near = [r for r in rows if abs(r[0] - w["y"]) <= 9]
-        if near:
-            pairs.append((near[0][0], v))
+        near = min(rows, key=lambda r: abs(r[0] - w["y"]), default=None)   # the nearest grid line (a 2-ohm grid is 8 px apart)
+        if near and abs(near[0] - w["y"]) <= 9:
+            pairs.append((near[0], v))
     return fit_line(pairs)
 
 
@@ -133,15 +133,18 @@ def grid_rows_only(img, rows, box):
     rows = [r for r in rows if sum(detail[tuple(r)].get(c, 0) for c in grid_colours) >= 0.3 * width]
     if len(rows) >= 4:
         ys = [r[0] for r in rows]
-        d0 = statistics.median(b - a for a, b in zip(ys, ys[1:]))
-        ests = []
-        for i in range(len(ys)):
-            for j in range(i + 1, len(ys)):
-                span = ys[j] - ys[i]
-                k = round(span / d0) if d0 else 0
-                if k >= 1:
-                    ests.append(span / k)
-        d = statistics.median(ests) if ests else d0
+        d = statistics.median(b - a for a, b in zip(ys, ys[1:]))
+        for _ in range(3):                                # a whole-pixel first guess drifts over 70 rows: refine
+            ests = []
+            for i in range(len(ys)):
+                for j in range(i + 1, len(ys)):
+                    span = ys[j] - ys[i]
+                    k = round(span / d) if d else 0
+                    if k >= 1:
+                        ests.append(span / k)
+            if not ests:
+                break
+            d = statistics.median(ests)
         def kept(base):
             return {y for y in ys if abs(((y - base) / d) - round((y - base) / d)) <= 0.25}
         best = max(ys, key=lambda b: len(kept(b)))
