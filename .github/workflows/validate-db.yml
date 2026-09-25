@@ -2,11 +2,11 @@ name: Validate driver database
 
 on:
   push:
-    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/**", "schema/**", "app/**", "capture/**",
-            "tools/**", "tests/**", "index.html", ".github/workflows/validate-db.yml"]
+    paths: ["drivers.json", "drivers_survey_midbass.json", "prices.json", "watch/**", "schema/**", "app/**", "capture/**",
+            "tools/**", "tests/**", "index.html", "package.json", ".github/workflows/validate-db.yml"]
   pull_request:
-    paths: ["drivers.json", "drivers_survey_midbass.json", "watch/**", "schema/**", "app/**", "capture/**",
-            "tools/**", "tests/**", "index.html"]
+    paths: ["drivers.json", "drivers_survey_midbass.json", "prices.json", "watch/**", "schema/**", "app/**", "capture/**",
+            "tools/**", "tests/**", "index.html", "package.json"]
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,19 @@ jobs:
         run: |
           python3 -m pip install --quiet pymupdf pillow numpy
           python3 -m unittest discover -s tests -p "test_*.py" -v
+
+  # The viewer in a real browser: every tab, exports, an empty search, phone to laptop screen sizes.
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
 
   # After a change lands on main, rebuild watch/coverage.md, watch/consistency.md and capture/WORKLIST.md.
   coverage:

@@ -1,0 +1,14 @@
+{
+  "name": "elementval-drivers",
+  "private": true,
+  "description": "Loudspeaker driver database and viewer. Node.js is used only for the viewer's tests and tools/export.mjs.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node --test tests/browser.test.mjs",
+    "export": "node tools/export.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

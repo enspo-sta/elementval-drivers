@@ -3,3 +3,5 @@ __pycache__/
 findings.json
 incoming/
 exports/
+node_modules/
+package-lock.json

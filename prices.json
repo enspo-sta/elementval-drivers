@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "updated": null,
+  "rates_date": null,
+  "rates_per_eur": {},
+  "shops_scanned": [],
+  "notes": [
+   "not scanned yet: the first run of .github/workflows/prices.yml fills this file"
+  ],
+  "how": "watch/prices.py: shop sitemaps searched for the model number, price read from the page's structured data, converted with ECB reference rates. Check the shop before buying."
+ },
+ "drivers": {}
+}

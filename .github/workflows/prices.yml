@@ -1,0 +1,35 @@
+name: Lowest prices in Europe
+
+on:
+  schedule:
+    - cron: "40 5 * * 1"          # Mondays 05:40 UTC, after the driver scan
+  workflow_dispatch:
+  push:
+    paths: ["watch/prices.py", "watch/prices_config.json", ".github/workflows/prices.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch-new-drivers        # shares the group with the other jobs that commit to the repository
+  cancel-in-progress: false
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Scan the shops
+        run: python3 watch/prices.py --summary "$GITHUB_STEP_SUMMARY"
+      - name: Commit prices.json
+        run: |
+          git add prices.json prices.md
+          if git diff --cached --quiet; then echo "prices unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Prices: scan of European shops"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

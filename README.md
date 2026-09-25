@@ -36,6 +36,27 @@ The viewer is built from small parts: every tab and every export format is one f
 `app/modules.js`, and the kinds of measurement are listed in `schema/kinds.json`. How to add a
 feature: `EXTENDING.md`.
 
+## Prices
+
+`prices.json` holds the lowest price found for each driver at European shops (`watch/prices_config.json`
+lists the shops; add or remove one there). `watch/prices.py` rebuilds it every Monday
+(`.github/workflows/prices.yml`): it obeys each shop's `robots.txt`, finds product pages through the
+shop's sitemap, reads the price from the page's structured data (schema.org offers) and converts to
+Swedish kronor with the European Central Bank's daily rates. The viewer shows the offers on each
+driver's page and the lowest price on its card. Prices are as found on the day in `prices.json`
+(`meta.updated`); check the shop before buying. `prices.md` is the same as a table.
+
+## Tests
+
+| Command | Checks |
+|---|---|
+| `python3 watch/validate_db.py` | the database files against the rules |
+| `node --test tests/*.test.mjs` | the viewer's maths, comparison rules and exports |
+| `python3 -m unittest discover -s tests -p "test_*.py"` | the capture tools, the datasheet PDF reader and the price scanner (no internet needed) |
+| `npm install && npx playwright install chromium && npm run test:browser` | the viewer in a real browser: every tab, exports, an empty search, and screen sizes from a 320 px phone to a 1440 px laptop |
+
+GitHub runs all of them on every push (`.github/workflows/validate-db.yml`).
+
 ## Data quality
 
 | File | What it holds |
@@ -55,6 +76,7 @@ feature: `EXTENDING.md`.
 | Check both database files; test the viewer, the exports and the capture tools | every push and pull request that changes them | `.github/workflows/validate-db.yml` |
 | Rebuild the consistency report and the capture work list | after each change on `main` | `watch/consistency.md`, `capture/WORKLIST.md` |
 | Back up everything (software, database, full history) | Sundays 03:40 UTC | `.github/workflows/backup.yml`, see `BACKUP.md` |
+| Find the lowest price of every driver at European shops | Mondays 05:40 UTC | `.github/workflows/prices.yml`, result in `prices.json` and `prices.md` |
 
 Watched sites, each kept as a separate source (edit `watch/config.json` to change them):
 
@@ -100,8 +122,10 @@ python3 watch/validate_db.py               # check the database files
 python3 watch/coverage.py --stdout         # print where each driver is measured
 python3 watch/check_consistency.py         # rebuild watch/consistency.md
 python3 capture/worklist.py                # rebuild capture/WORKLIST.md
+python3 watch/prices.py --dry-run          # scan the shops and print the prices found
 node --test tests/*.test.mjs               # test the viewer: maths, comparison rules, exports
-python3 -m unittest discover -s tests -p "test_*.py"   # test the capture tools
+python3 -m unittest discover -s tests -p "test_*.py"   # test the capture tools and the price scanner
+npm run test:browser                       # test the viewer in a real browser (after npm install)
 ```
 
 The watch scripts use only the Python standard library; the capture tools also need PyMuPDF,
