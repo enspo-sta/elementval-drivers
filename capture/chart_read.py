@@ -217,20 +217,46 @@ def read_chart(path, ctype):
             continue                                   # a dotted grid gives several runs per column; a curve gives one
         curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
     curves.sort(key=lambda c: -c["columns"])
+    rec["legend"] = legend(path, img, rows, w, h, bg)
+    # every colour the legend names is read as a curve too (H3 in black, H4 in grey): the legend's own
+    # names decide, not the colour's saturation
+    named = {}
+    for wd in rec["legend"]:
+        t = wd["text"].upper().strip("(),;:")
+        if re.fullmatch(r"H[2-9]|THD", t) and wd.get("colour"):
+            named[t] = wd["colour"]
+    dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
+    for name, hexv in named.items():
+        if any(dist(hexv, c["colour"]) <= 150 for c in curves):
+            continue                                    # already read in a near colour
+        pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
+        if len(pts) >= 50 and runs < 3:
+            curves.append({"colour": hexv, "pixels": len(pts), "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
+    # every curve gets the legend name whose colour is nearest (one name per curve)
+    taken = set()
+    for c in sorted(curves, key=lambda c: -c["columns"]):
+        best = min(((dist(c["colour"], hexv), name) for name, hexv in named.items() if name not in taken), default=None)
+        if best and best[0] <= 200:
+            c["name"] = best[1]; taken.add(best[1])
     rec["curves"] = curves
-    rec["legend"] = legend(path, img, rows, w, h)
     return rec
 
 
-def legend(path, img, rows, w, h):
+def legend(path, img, rows, w, h, bg_hex="#000000"):
     """Words in the band below the grid read with letters allowed (the chart's legend: "H2 H3 THD", the
-    title), each with the colour of the swatch or text just left of it."""
+    title), each with the colour of its own text."""
     import subprocess
+    import numpy as np
     from PIL import Image
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
     y0 = (rows[-1][1] + 2) if rows else int(h * 0.9)
     if h - y0 < 8:
         return []
-    im = Image.open(path).convert("L").crop((0, y0, w, h))
+    # the band as "distance from the background": text of any colour (grey on green too) becomes dark on white
+    band = img[y0:h, 0:w]
+    dist = np.abs(band - bg).sum(axis=2)
+    gray = (255 - np.clip(dist * 255 / max(1, dist.max()), 0, 255)).astype("uint8")
+    im = Image.fromarray(gray)
     im = im.resize((im.width * 3, im.height * 3))
     tmp = path.with_suffix(".legend.png")
     im.save(tmp)
@@ -245,11 +271,19 @@ def legend(path, img, rows, w, h):
             continue
         left, top, width, height = (int(v) // 3 for v in f[6:10])
         cx, cy = left + width // 2, y0 + top + height // 2
-        # the colour left of the word (a swatch or the coloured text itself): the most saturated pixel there
-        x_from, x_to = max(0, left - 40), min(w - 1, left + width)
-        patch = img[max(0, cy - 6):cy + 7, x_from:x_to + 1].reshape(-1, 3)
-        spread = patch.max(axis=1) - patch.min(axis=1)
-        col = patch[spread.argmax()] if patch.size and spread.max() > 60 else None
+        # the colour of the word's own pixels (the legend text is drawn in its curve's colour, black included):
+        # the most common colour inside the word's box that is not the background
+        patch = img[max(0, y0 + top - 1):y0 + top + height + 2, max(0, left - 2):min(w, left + width + 3)].reshape(-1, 3)
+        col = None
+        if patch.size:
+            d = np.abs(patch - bg).sum(axis=1)
+            far = patch[d >= 60]
+            if far.size:
+                # the pixels farthest from the background are the stroke centres: the text's own colour, not the
+                # anti-aliased mix with the background
+                dd = np.abs(far - bg).sum(axis=1)
+                top_q = far[dd >= np.percentile(dd, 80)]
+                col = np.median(top_q, axis=0).astype(int)
         words.append({"text": f[11].strip(), "x": cx, "y": cy, "colour": "#%02x%02x%02x" % tuple(int(v) for v in col) if col is not None else None})
     return words
 
