@@ -49,8 +49,8 @@ Always use the most exact form a source publishes, in this order:
 1. **Vector data in a PDF.** Purifi's datasheets draw their graphs as vector lines. Checked on the
    PTT5.25X04-NAA-05 datasheet v1.00 (December 2025): figures 5 to 11 (frequency response, current
    harmonic distortion, sound pressure harmonic distortion against level, intermodulation) are
-   coloured vector paths with 200 to 600 points each. Read them with `capture/pdf_vectors.py`
-   (PyMuPDF), which lists the paths and the printed axis numbers and maps page coordinates to Hz and dB. The result is the
+   coloured vector paths with 200 to 600 points each. Read them with `watch/pdf_curves.py` (see
+   "PDF vector data" below). The result is the
    manufacturer's own data points, with no pixel rounding. Record it as
    `"method": "... (PDF vector)"` with `"confidence": "high"`.
 2. **Raw data files.** HiFiCompass offers `.frd` and `.zma` files (frequency response and
@@ -65,6 +65,36 @@ Always use the most exact form a source publishes, in this order:
    - audioXpress: charts are shown at 1200 pixels wide. Its `robots.txt` excludes the original image
      folder and blocks Anthropic's crawlers, so audioXpress figures are only captured by hand from
      articles you open yourself.
+
+## PDF vector data: `watch/pdf_curves.py`
+
+Purifi's datasheets draw every graph as stroked, coloured vector paths. `watch/pdf_curves.py` reads
+them exactly, with no pixels, so datasheet curves are never pixel-extracted. It needs PyMuPDF
+(`python3 -m pip install pymupdf`); the other `watch/` scripts need nothing but Python.
+
+1. List the figures, their plot frames and the curves inside them:
+
+   ```sh
+   python3 watch/pdf_curves.py datasheet.pdf --list
+   ```
+
+2. Extract one figure, giving the axis values at the frame's edges (tick labels are often drawn as
+   glyph outlines, so the tool does not read them; take them from the datasheet):
+
+   ```sh
+   python3 watch/pdf_curves.py datasheet.pdf --figure 7 --x 10:20000:log --y=-80:0:lin --names red=H2,black=H3
+   ```
+
+   `--x` and `--y` are "value at the left (bottom) edge : value at the right (top) edge : log|lin";
+   write `--y=` with "=" when the first value is negative. The output is JSON with `series` ready
+   for a measurement set (y rounded to 0.01 dB, at most 160 points per decade).
+
+The plot frame is found from the drawing itself: the outer rectangle, or the extreme grid lines
+spanning the plot, and it must coincide with the axis ends you give. When no frame is found, or a
+caption fits two frames, the tool stops and says so; `--frame N` then picks a frame by the number
+`--list` shows. Intermodulation spectra (spikes) keep their drawn points unthinned. Tested on PDFs
+drawn with known curves: within 0.02 dB and 0.04 % in frequency (`tests/test_pdf_curves.py`).
+Record such sets as `"method": "... (PDF vector)"` with `"confidence": "high"`.
 
 ## Keeping sources separate
 
