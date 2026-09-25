@@ -33,38 +33,6 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 | band THD | `ptt525x04naa05` | 450–1800 Hz at 94 dB: table 0.095 %, from the curve 0.0774 % (-1.8 dB) |
 | band THD | `ptt525x04naa05` | 80–5000 Hz at 94 dB: table 0.254 %, from the curve 0.157 % (-4.2 dB) |
 | band THD | `purifi-ptt10-0x04-nab-02` | 50–300 Hz at 91 dB: table 0.156 %, from the curve 0.128 % (-1.7 dB) |
-| levels | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 87.2 dB curve = +16.8 dB on average over 180 shared frequencies (typical slope expects +12.6 dB) |
-| levels | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 90.2 dB curve = +15.2 dB on average over 180 shared frequencies (typical slope expects +10.5 dB) |
-| levels | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 93.2 dB curve = +13.1 dB on average over 180 shared frequencies (typical slope expects +8.4 dB) |
-| levels | `sb-satori-mw19tx-4` | H3: 101.9 dB curve minus 89.9 dB curve = +3.6 dB on average over 176 shared frequencies (typical slope expects +8.4 dB) |
-| levels | `sb-satori-mw19tx-4` | H3: 101.9 dB curve minus 92.9 dB curve = +2.3 dB on average over 176 shared frequencies (typical slope expects +6.3 dB) |
-| levels | `sb-satori-mw19tx-4` | H3: 98.9 dB curve minus 89.9 dB curve = +2.0 dB on average over 182 shared frequencies (typical slope expects +6.3 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 90.5 dB curve = +13.1 dB on average over 187 shared frequencies (typical slope expects +18.0 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 93.5 dB curve = +10.4 dB on average over 187 shared frequencies (typical slope expects +15.0 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 96.5 dB curve = +7.8 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 93.5 dB curve = +13.1 dB on average over 172 shared frequencies (typical slope expects +6.3 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 96.5 dB curve = +9.2 dB on average over 172 shared frequencies (typical slope expects +4.2 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 93.5 dB curve = +15.0 dB on average over 172 shared frequencies (typical slope expects +8.5 dB) |
-| levels | `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 96.5 dB curve = +11.1 dB on average over 172 shared frequencies (typical slope expects +6.4 dB) |
-| levels | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 87.7 dB curve = +5.5 dB on average over 172 shared frequencies (typical slope expects +10.4 dB) |
-| levels | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 96.6 dB curve = -0.0 dB on average over 172 shared frequencies (typical slope expects +4.2 dB) |
-| levels | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 99.6 dB curve = -2.2 dB on average over 172 shared frequencies (typical slope expects +2.1 dB) |
-| levels | `t25a-6` | H2: 96 dB curve minus 84 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
-| levels | `t25a-6` | H2: 96 dB curve minus 87 dB curve = +4.9 dB on average over 187 shared frequencies (typical slope expects +9.0 dB) |
-| levels | `t25a-6` | H2: 98.9 dB curve minus 84 dB curve = +8.9 dB on average over 187 shared frequencies (typical slope expects +14.9 dB) |
-| levels | `t25a-6` | H2: 98.9 dB curve minus 87 dB curve = +6.4 dB on average over 187 shared frequencies (typical slope expects +11.9 dB) |
-| levels | `t25a-6` | H2: 98.9 dB curve minus 90 dB curve = +3.5 dB on average over 187 shared frequencies (typical slope expects +8.9 dB) |
-| levels | `t25a-6` | H3: 96 dB curve minus 84 dB curve = +2.2 dB on average over 172 shared frequencies (typical slope expects +8.4 dB) |
-| levels | `t25a-6` | H3: 96 dB curve minus 87 dB curve = -0.6 dB on average over 172 shared frequencies (typical slope expects +6.3 dB) |
-| levels | `t25a-6` | H3: 96 dB curve minus 90 dB curve = -2.0 dB on average over 172 shared frequencies (typical slope expects +4.2 dB) |
-| levels | `t25a-6` | H3: 96 dB curve minus 93 dB curve = -2.9 dB on average over 172 shared frequencies (typical slope expects +2.1 dB) |
-| levels | `t25a-6` | H3: 98.9 dB curve minus 84 dB curve = +5.5 dB on average over 172 shared frequencies (typical slope expects +10.4 dB) |
-| levels | `t25a-6` | H3: 98.9 dB curve minus 87 dB curve = +2.8 dB on average over 172 shared frequencies (typical slope expects +8.3 dB) |
-| levels | `t25a-6` | H3: 98.9 dB curve minus 90 dB curve = +1.4 dB on average over 172 shared frequencies (typical slope expects +6.2 dB) |
-| levels | `t25t-6` | H2: 99.8 dB curve minus 87.8 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
-| levels | `t25t-6` | H3: 93.9 dB curve minus 87.8 dB curve = -0.9 dB on average over 172 shared frequencies (typical slope expects +4.3 dB) |
-| levels | `t25t-6` | H3: 96.8 dB curve minus 87.8 dB curve = +1.4 dB on average over 172 shared frequencies (typical slope expects +6.3 dB) |
-| levels | `t25t-6` | H3: 99.8 dB curve minus 87.8 dB curve = +2.5 dB on average over 172 shared frequencies (typical slope expects +8.4 dB) |
 | notes | `purifi-ptt10-0x04-nab-02` | a note says Pe was corrected to 350, the stored Pe is 'TBD (est 400)' |
 | parameters | `m74a-6` | Qes: stored 0.75, from the others 0.7 (6.7 % apart) |
 | parameters | `t25a-6` | Qes: stored 0.82, from the others 0.568 (30.7 % apart) |
@@ -77,6 +45,43 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 | sweep | `ptt13t04hag10` | H3 at 1000 Hz, 94 dB: sweep -55.4 dB, curve -66.7 dB (+11.4 dB) |
 | sweep | `ptt13t04hag10` | H3 at 4000 Hz, 94 dB: sweep -97.1 dB, curve -91.0 dB (-6.1 dB) |
 | sweep | `ptt65x04naa08` | H3 at 125 Hz, 94 dB: sweep -65.6 dB, curve -70.6 dB (+5.0 dB) |
+
+Level slopes that differ from the typical rule (H2 +1.0, H3 +0.7 dB per dB). Information, not an error: each drive level is stored as the source measured it and the viewer prefers a measured level over a scaled one; a slope far off the rule says only that the rule would mislead for this driver. Look at the curve if it also looks wrong beside its chart.
+
+| Driver | Detail |
+|---|---|
+| `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 87.2 dB curve = +17.1 dB on average over 145 shared frequencies (typical slope expects +12.6 dB) |
+| `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 90.2 dB curve = +15.0 dB on average over 148 shared frequencies (typical slope expects +10.5 dB) |
+| `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 93.2 dB curve = +12.5 dB on average over 150 shared frequencies (typical slope expects +8.4 dB) |
+| `sb-satori-mw19tx-4` | H3: 101.9 dB curve minus 89.9 dB curve = +3.3 dB on average over 171 shared frequencies (typical slope expects +8.4 dB) |
+| `sb-satori-mw19tx-4` | H3: 101.9 dB curve minus 92.9 dB curve = +2.0 dB on average over 172 shared frequencies (typical slope expects +6.3 dB) |
+| `sb-satori-mw19tx-4` | H3: 98.9 dB curve minus 89.9 dB curve = +1.9 dB on average over 178 shared frequencies (typical slope expects +6.3 dB) |
+| `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 90.5 dB curve = +13.1 dB on average over 187 shared frequencies (typical slope expects +18.0 dB) |
+| `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 93.5 dB curve = +10.4 dB on average over 187 shared frequencies (typical slope expects +15.0 dB) |
+| `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 96.5 dB curve = +7.8 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 93.5 dB curve = +13.0 dB on average over 131 shared frequencies (typical slope expects +6.3 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 96.5 dB curve = +9.1 dB on average over 157 shared frequencies (typical slope expects +4.2 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 93.5 dB curve = +14.5 dB on average over 131 shared frequencies (typical slope expects +8.5 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 96.5 dB curve = +10.9 dB on average over 157 shared frequencies (typical slope expects +6.4 dB) |
+| `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 87.7 dB curve = +5.4 dB on average over 155 shared frequencies (typical slope expects +10.4 dB) |
+| `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 96.6 dB curve = -0.0 dB on average over 160 shared frequencies (typical slope expects +4.2 dB) |
+| `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 99.6 dB curve = -2.2 dB on average over 164 shared frequencies (typical slope expects +2.1 dB) |
+| `t25a-6` | H2: 96 dB curve minus 84 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
+| `t25a-6` | H2: 96 dB curve minus 87 dB curve = +4.9 dB on average over 187 shared frequencies (typical slope expects +9.0 dB) |
+| `t25a-6` | H2: 98.9 dB curve minus 84 dB curve = +8.9 dB on average over 187 shared frequencies (typical slope expects +14.9 dB) |
+| `t25a-6` | H2: 98.9 dB curve minus 87 dB curve = +6.4 dB on average over 187 shared frequencies (typical slope expects +11.9 dB) |
+| `t25a-6` | H2: 98.9 dB curve minus 90 dB curve = +3.5 dB on average over 187 shared frequencies (typical slope expects +8.9 dB) |
+| `t25a-6` | H3: 96 dB curve minus 84 dB curve = +2.7 dB on average over 122 shared frequencies (typical slope expects +8.4 dB) |
+| `t25a-6` | H3: 96 dB curve minus 87 dB curve = -1.2 dB on average over 123 shared frequencies (typical slope expects +6.3 dB) |
+| `t25a-6` | H3: 96 dB curve minus 90 dB curve = -2.6 dB on average over 128 shared frequencies (typical slope expects +4.2 dB) |
+| `t25a-6` | H3: 96 dB curve minus 93 dB curve = -3.7 dB on average over 133 shared frequencies (typical slope expects +2.1 dB) |
+| `t25a-6` | H3: 98.9 dB curve minus 87 dB curve = +3.1 dB on average over 122 shared frequencies (typical slope expects +8.3 dB) |
+| `t25a-6` | H3: 98.9 dB curve minus 90 dB curve = +1.7 dB on average over 127 shared frequencies (typical slope expects +6.2 dB) |
+| `t25t-6` | H2: 99.8 dB curve minus 87.8 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
+| `t25t-6` | H3: 93.9 dB curve minus 87.8 dB curve = -0.2 dB on average over 130 shared frequencies (typical slope expects +4.3 dB) |
+| `t25t-6` | H3: 96.8 dB curve minus 87.8 dB curve = +2.2 dB on average over 136 shared frequencies (typical slope expects +6.3 dB) |
+| `t25t-6` | H3: 99.8 dB curve minus 87.8 dB curve = +2.8 dB on average over 138 shared frequencies (typical slope expects +8.4 dB) |
+| `t34b-4` | H3: 100.1 dB curve minus 97.1 dB curve = +6.2 dB on average over 141 shared frequencies (typical slope expects +2.1 dB) |
 
 ## 3. Every curve HiFiCompass and Purifi publish
 

@@ -205,8 +205,11 @@ def check_levels(d, rep, cfg):
                 pl, ph = series(lo, k), series(hi, k)
                 if not pl or not ph:
                     continue
-                diffs = [interp_log(ph, p["x"]) - p["y"] for p in pl if interp_log(ph, p["x"]) is not None]
-                if not diffs:
+                # a harmonic ratio near the measurement's floor (HiFiCompass charts end at -100 dB re fundamental)
+                # does not move with the level: only frequencies where both curves are above -80 dB count
+                diffs = [interp_log(ph, p["x"]) - p["y"] for p in pl
+                         if interp_log(ph, p["x"]) is not None and (p["y"] >= 0 or (p["y"] > -80 and interp_log(ph, p["x"]) > -80))]
+                if len(diffs) < 12:
                     continue
                 mean = sum(diffs) / len(diffs)
                 expect = TYPICAL[k] * dl

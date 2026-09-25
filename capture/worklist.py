@@ -78,8 +78,15 @@ def main():
     lines += ["", "## 2. Values that disagree: check against the source", "",
               "From `watch/check_consistency.py` (full list in `watch/consistency.md`).", "",
               "| Check | Driver | Detail |", "|---|---|---|"]
-    diffs = [r for r in rep.rows if r[2] == "differs"]
+    diffs = [r for r in rep.rows if r[2] == "differs" and r[0] != "levels"]
     lines += [f"| {c} | `{drv}` | {det.replace('|', '/')} |" for c, drv, _, det in sorted(diffs)] or ["| — | | nothing disagrees |"]
+    slopes = [r for r in rep.rows if r[2] == "differs" and r[0] == "levels"]
+    if slopes:
+        lines += ["", "Level slopes that differ from the typical rule (H2 +1.0, H3 +0.7 dB per dB). Information, not an error: "
+                  "each drive level is stored as the source measured it and the viewer prefers a measured level over a scaled "
+                  "one; a slope far off the rule says only that the rule would mislead for this driver. Look at the curve "
+                  "if it also looks wrong beside its chart.", "", "| Driver | Detail |", "|---|---|"]
+        lines += [f"| `{drv}` | {det.replace('|', '/')} |" for c, drv, _, det in sorted(slopes)]
 
     lines += ["", "## 3. Every curve HiFiCompass and Purifi publish", "",
               "Stored now, and what to add. Capture each drive level as its own set with the SPL it gives at 1 m.", ""]
@@ -127,7 +134,7 @@ def main():
             checks = [part for part in str(m.get("note", "")).split("; ") if part.startswith("check ")]
             lines.append(f"- **{d['name']}** (`{d['id']}`), set {i}: {m['type']} — {'; '.join(checks) if checks else 'no self-check possible for this kind'}")
     OUT.write_text("\n".join(lines) + "\n")
-    print(f"{OUT.relative_to(ROOT)}: {n1} to recapture, {len(diffs)} disagreements, spot check {', '.join(d['id'] for d in pick)}, {len(auto)} automated sets")
+    print(f"{OUT.relative_to(ROOT)}: {n1} to recapture, {len(diffs)} disagreements, {len(slopes)} level slopes off the rule, spot check {', '.join(d['id'] for d in pick)}, {len(auto)} automated sets")
 
 
 if __name__ == "__main__":

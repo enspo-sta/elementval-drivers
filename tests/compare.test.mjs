@@ -42,13 +42,15 @@ test("groups never mix sources unless asked", () => {
   assert.deepEqual([...new Set(mixed.entries.map(e => e.family.name))].sort(), ["Derived (model or calculation)", "HiFiCompass", "Manufacturer datasheet"]);
 });
 
-test("levels are not a reason to split a chart: HiFiCompass harmonic curves at 91 and 94 dB share one group", () => {
+test("levels are not a reason to split a chart: every HiFiCompass harmonic level shares one group", () => {
   const g = CC.buildGroups().find(x => x.key === "HiFiCompass::hd-frequency");
-  assert.deepEqual(g.levels, [91, 94]);
+  assert.ok(g.levels.includes(91) && g.levels.includes(94), "the Purifi levels 91 and 94 dB are in the group");
+  assert.deepEqual(g.levels, [...new Set(g.levels)].sort((a, b) => a - b), "levels are unique and ascending");
+  assert.ok(g.levels.length >= 50, "the nine drivers read from charts bring their own levels (84 to 108.5 dB)");
   assert.deepEqual(g.quantityIds, ["H2", "H3", "H4", "H5", "THD"]);
   const ptt8 = g.entries.find(e => e.driver.id === "purifi-ptt8-0x04-nab-02");
   assert.deepEqual(ptt8.sets.map(s => s.level), [91, 94]);
-  assert.equal(CC.defaultLevel(g), 94, "94 dB: five drivers (91 dB: four)");
+  assert.equal(CC.defaultLevel(g), 94, "94 dB: five drivers (91 dB: four; every other level fewer)");
 });
 
 test("pickSet uses the level closest to the target", () => {
