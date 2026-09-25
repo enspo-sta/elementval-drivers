@@ -103,20 +103,13 @@ def build(read, db):
             for c in ch.get("checks", []):
                 note.append("; ".join(f"{k} {v}" for k, v in c.items()))
             if kind in ("hd-frequency", "hd-current"):
-                names = series_names(ch)
-                series = []
-                for cv in ch["curves"]:
-                    nm = next((n for col, n in names.items() if close(col, cv["colour"])), None)
-                    if nm is None:
-                        break
-                    if cv.get("lines_per_column", 1) > 1.5:
-                        nm = None; break
-                    series.append({"name": nm, "points": cv["points"]})
-                else:
-                    if not series:
-                        waiting.append((did, name, "no curve")); continue
-                if not series or any(s["name"] is None for s in series):
-                    waiting.append((did, name, f"legend does not name the colours: {[(w['text'], w['colour']) for w in ch.get('legend', [])][:8]}")); continue
+                # the reader attaches the legend's name to each curve; a curve without one is left out and noted
+                series = [{"name": cv["name"], "points": cv["points"]} for cv in ch["curves"] if cv.get("name") and cv.get("lines_per_column", 1) <= 1.5]
+                unnamed = [cv["colour"] for cv in ch["curves"] if not cv.get("name")]
+                if not series:
+                    waiting.append((did, name, f"no curve carries a legend name: {[(w['text'], w['colour']) for w in ch.get('legend', []) if '(' in w['text']][:8]}")); continue
+                if unnamed:
+                    note.append(f"curves without a legend name left out: {', '.join(unnamed)}")
                 series.sort(key=lambda s: s["name"])
                 # the level of a harmonic set: the sound pressure the same drive voltage gives at 1 kHz on the response chart
                 v = cond.get("drive_v")
