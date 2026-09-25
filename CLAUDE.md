@@ -31,7 +31,14 @@ Read by every Claude Code session that works here. Keep it short; details live i
   an incomplete certificate chain; the scanner completes it the way a browser does (verification
   stays on, never turned off). **Toutlehautparleur** refuses automatic reading (HTTP 403).
   **Lautsprechershop, Intertechnik, Speakerbuddies, Europe Audio, Hificollective, BlieSMa** have no
-  usable sitemap; their product pages can be listed by hand (`"pages"`).
+  usable sitemap; their product pages can be listed by hand (`"pages"`). **audio-hi.fi** has no
+  structured price data: its product price is in the page title ("BlieSMa M74T-6 - €506.80"); the
+  price elements on its pages are instalments and related products. **SoundImports** pages without
+  structured data show the price next to a stock count ("399,95 € 2"): a space inside an amount is a
+  thousands separator only. A price read from a page element or title that is far from the other
+  shops' prices is marked doubtful and never the lowest.
+- **Toutlehautparleur wishlist and cart** (David's): read only on his computer while logged in
+  (`capture/CHROME_CAPTURE.md` step 10, `capture/from_shop_list.py`).
 
 ## Where things run
 
