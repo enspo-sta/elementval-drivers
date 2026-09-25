@@ -1,2 +1,9 @@
 m74a-6
+t25a-6
+t25t-6
+t34a-4
+t34b-4
 sb-satori-mr16tx-8
+sb-satori-mw19tx-4
+sb-satori-tw29bnwg-4
+sb-satori-tw29txn-b

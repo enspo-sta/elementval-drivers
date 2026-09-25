@@ -32,7 +32,7 @@ jobs:
           python3 -m pip install -q pillow numpy
       - name: Read the charts
         env:
-          READ_LIMIT: ${{ vars.READ_LIMIT || 2 }}
+          READ_LIMIT: ${{ vars.READ_LIMIT || 0 }}
         run: python3 capture/chart_read.py --limit "$READ_LIMIT" --keep /tmp/charts | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Keep the images one day as an artifact (never committed; lets the reader be tuned offline)
         uses: actions/upload-artifact@v4
