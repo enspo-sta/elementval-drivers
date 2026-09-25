@@ -108,45 +108,45 @@ def y_axis(rows, left_words):
 
 
 def grid_rows_only(img, rows, box):
-    """A flat curve spans the width like a grid line: keep only the rows drawn in the grid's own colour
-    (the colour most of the candidate rows share)."""
+    """Which of the candidate rows are grid lines. The grid's colours are the quantised colours that are the
+    most common colour of at least three rows (an impedance chart alternates a lighter major and a darker
+    minor grey); a row is a grid row when those colours cover at least 30 % of it (the watermark text across
+    the middle of a chart covers part of a grid row, the black frame lines and a flat curve none of it).
+    Then the grid's spacing is the median over every pair of rows of their distance divided by the whole
+    number of steps it spans (robust to a missing row and to an extra one), and a row off that lattice is
+    not grid."""
     import numpy as np
+    import statistics
     from collections import Counter
     x0, y0, x1, y1 = box
-    def colour(r):
+    width = x1 - x0 + 1
+    detail = {}
+    for r in rows:
         line = img[r[0], x0:x1 + 1]
         q = (line // 32) * 32
         keys, counts = np.unique(q, axis=0, return_counts=True)
-        return tuple(int(v) for v in keys[counts.argmax()])
-    cols = {tuple(r): colour(r) for r in rows}
-    if not cols:
+        detail[tuple(r)] = {tuple(int(v) for v in k): int(c) for k, c in zip(keys, counts)}
+    if not detail:
         return rows
-    counts = Counter(cols.values())
-    keep = {c for c, n in counts.items() if n >= 3} or {counts.most_common(1)[0][0]}
-    rows = [r for r in rows if cols[tuple(r)] in keep]
-    # grid rows are evenly spaced: a row off the regular spacing (a flat curve in the grid's colour) is not grid
-    import statistics
+    tops = Counter(max(d, key=d.get) for d in detail.values())
+    grid_colours = {c for c, n in tops.items() if n >= 3} or {tops.most_common(1)[0][0]}
+    rows = [r for r in rows if sum(detail[tuple(r)].get(c, 0) for c in grid_colours) >= 0.3 * width]
     if len(rows) >= 4:
         ys = [r[0] for r in rows]
-        # the spacing: the span divided by n-1, n-2 or n-3 (one or two rows may be a flat curve), from the first
-        # or the second row, whichever keeps the most rows on a whole multiple; then refined from every row
-        def kept(base, d):
-            return [y for y in ys if abs(((y - base) / d) - round((y - base) / d)) <= 0.25]
-        best = None
-        for bi in (0, 1):
-            base = ys[bi]
-            for extra in (0, 1, 2):
-                k = len(ys) - 1 - bi - extra
-                if k >= 2:
-                    d = (ys[-1] - base) / k
-                    n = len(kept(base, d))
-                    if best is None or n > best[0]:
-                        best = (n, base, d)
-        _, base, d = best
-        for _ in range(2):
-            ks = [round((y - base) / d) for y in ys]
-            d = statistics.median([(y - base) / k for y, k in zip(ys, ks) if k > 0]) or d
-        rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.25]
+        d0 = statistics.median(b - a for a, b in zip(ys, ys[1:]))
+        ests = []
+        for i in range(len(ys)):
+            for j in range(i + 1, len(ys)):
+                span = ys[j] - ys[i]
+                k = round(span / d0) if d0 else 0
+                if k >= 1:
+                    ests.append(span / k)
+        d = statistics.median(ests) if ests else d0
+        def kept(base):
+            return {y for y in ys if abs(((y - base) / d) - round((y - base) / d)) <= 0.25}
+        best = max(ys, key=lambda b: len(kept(b)))
+        keep = kept(best)
+        rows = [r for r in rows if r[0] in keep]
     return rows
 
 
