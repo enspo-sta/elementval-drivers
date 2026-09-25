@@ -1,13 +1,832 @@
 {
  "meta": {
-  "updated": null,
-  "rates_date": null,
-  "rates_per_eur": {},
-  "shops_scanned": [],
+  "updated": "2026-09-25",
+  "rates_date": "2026-09-25",
+  "rates_per_eur": {
+   "CHF": 0.9445,
+   "CZK": 24.345,
+   "DKK": 7.4755,
+   "EUR": 1.0,
+   "GBP": 0.86045,
+   "HUF": 365.28,
+   "NOK": 10.84,
+   "PLN": 4.3718,
+   "SEK": 11.29
+  },
+  "shops_scanned": [
+   "SoundImports",
+   "Lautsprechershop (Strassacker)",
+   "Intertechnik",
+   "Toutlehautparleur",
+   "Audiophonics",
+   "HiFi-Kit",
+   "Speakerbuddies",
+   "Europe Audio",
+   "Loudspeakerfreaks",
+   "Hificollective",
+   "Willys-HiFi",
+   "Purifi (direct)",
+   "BlieSMa (direct)"
+  ],
   "notes": [
-   "not scanned yet: the first run of .github/workflows/prices.yml fills this file"
+   "SoundImports: 33576 addresses, 80 matching pages, 34 prices read",
+   "Lautsprechershop (Strassacker): 5402 addresses, 0 matching pages, 0 prices read",
+   "Intertechnik: 10 addresses, 0 matching pages, 0 prices read",
+   "Toutlehautparleur: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
+   "Audiophonics: 46080 addresses, 27 matching pages, 14 prices read",
+   "HiFi-Kit: 4110 addresses, 7 matching pages, 7 prices read",
+   "Speakerbuddies: 1 addresses, 0 matching pages, 0 prices read",
+   "Europe Audio: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
+   "Loudspeakerfreaks: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
+   "Hificollective: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)",
+   "Willys-HiFi: 2040 addresses, 14 matching pages, 7 prices read",
+   "Purifi (direct): 101 addresses, 8 matching pages, 0 prices read",
+   "BlieSMa (direct): no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)"
   ],
   "how": "watch/prices.py: shop sitemaps searched for the model number, price read from the page's structured data, converted with ECB reference rates. Check the shop before buying."
  },
- "drivers": {}
+ "drivers": {
+  "dcs165": {
+   "name": "Dayton Audio Dayton DCS165",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/hautparleurs-subwoofers/dayton-audio-dcs165-4-classic-haut-parleur-subwoofer-kevlar-100w-4-ohm-87db-36hz-1100hz-o165cm-p-10155.html",
+     "page_title": "DAYTON AUDIO DCS165-4 Classic Haut-Parleur Subwoofer Kevlar 100W 4 Ohm 87dB 36Hz - 1100Hz Ø16.5cm - Audiophonics",
+     "model": "DCS165",
+     "price": 73.2,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 826
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-dcs165-4-6-1-2-classic-speaker-driver-subwoofer-kevlar-100w-4-ohm-87db-36hz-1100hz-o165cm-p-10155.html",
+     "page_title": "DAYTON AUDIO DCS165-4 6-1/2\" Classic Speaker Driver Subwoofer Kevlar 100W 4 Ohm 87dB 36Hz - 1100Hz Ø16.5cm - Audiophonic",
+     "model": "DCS165",
+     "price": 73.2,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 826
+    }
+   ]
+  },
+  "e180he-44-coils-in-series": {
+   "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/hautparleurs-subwoofers/dayton-audio-epique-e180he-44-haut-parleur-subwoofer-dvc-mmag-fibre-de-carbone-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
+     "page_title": "DAYTON AUDIO EPIQUE E180HE-44 Haut-Parleur Subwoofer DVC MMAG Fibre de Carbone 200W 8 Ohm 84dB 25Hz - 3000Hz Ø17.8cm - A",
+     "model": "E180HE-44",
+     "price": 189.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2144
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-epique-e180he-44-speaker-driver-subwoofer-dvc-mmag-carbon-fiber-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
+     "page_title": "DAYTON AUDIO EPIQUE E180HE-44 Speaker Driver Subwoofer DVC MMAG Carbon Fiber 200W 8 Ohm 84dB 25Hz - 3000Hz Ø17.8cm - Aud",
+     "model": "E180HE-44",
+     "price": 189.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2144
+    }
+   ]
+  },
+  "e180he-44-single-coil": {
+   "name": "Dayton Audio Dayton E180HE-44 single coil",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/hautparleurs-subwoofers/dayton-audio-epique-e180he-44-haut-parleur-subwoofer-dvc-mmag-fibre-de-carbone-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
+     "page_title": "DAYTON AUDIO EPIQUE E180HE-44 Haut-Parleur Subwoofer DVC MMAG Fibre de Carbone 200W 8 Ohm 84dB 25Hz - 3000Hz Ø17.8cm - A",
+     "model": "E180HE-44",
+     "price": 189.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2144
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-epique-e180he-44-speaker-driver-subwoofer-dvc-mmag-carbon-fiber-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
+     "page_title": "DAYTON AUDIO EPIQUE E180HE-44 Speaker Driver Subwoofer DVC MMAG Carbon Fiber 200W 8 Ohm 84dB 25Hz - 3000Hz Ø17.8cm - Aud",
+     "model": "E180HE-44",
+     "price": 189.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2144
+    }
+   ]
+  },
+  "ps180": {
+   "name": "Dayton Audio Dayton ps180",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/medium-bas-medium-large-bande/dayton-audio-ps180-8-haut-parleur-large-bande-papier-30w-8-ohm-95db-48hz-25khz-o18cm-p-8243.html",
+     "page_title": "DAYTON AUDIO PS180-8 Haut-Parleur Large Bande Papier 30W 8 Ohm 95dB 48Hz - 25kHz Ø18cm - Audiophonics",
+     "model": "ps180",
+     "price": 179.0,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2021
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/midrange-midbass-full-range/dayton-audio-ps180-8-speaker-driver-full-range-paper-30w-8-ohm-95db-48hz-25khz-o18cm-p-8243.html",
+     "page_title": "DAYTON AUDIO PS180-8 Speaker Driver Full Range Paper 30W 8 Ohm 95dB 48Hz - 25kHz Ø18cm - Audiophonics",
+     "model": "ps180",
+     "price": 179.0,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 2021
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/dayton-audio-ps180-8.html",
+     "page_title": "Dayton Audio PS180-8 Full-range Woofer - SoundImports",
+     "model": "ps180",
+     "price": 189.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 2145
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/dayton-audio-ps180-8.html",
+     "page_title": "Dayton Audio PS180-8 Woofer a Gamma Completa - SoundImports",
+     "model": "ps180",
+     "price": 189.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 2145
+    }
+   ]
+  },
+  "ptt13t04hag01": {
+   "name": "Purifi PTT1.3T04-HAG-01",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/purifi-ptt13t04-hag-01.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-01 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-01",
+     "price": 629.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7112
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/purifi-ptt13t04-hag-01.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-01 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-01",
+     "price": 629.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7112
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/purifi-ptt13t04-hag-01.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-01 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-01",
+     "price": 629.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7112
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/purifi-ptt13t04-hag-01.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-01 Tweeter a Cupola - SoundImports",
+     "model": "PTT1.3T04-HAG-01",
+     "price": 629.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7112
+    }
+   ]
+  },
+  "ptt13t04hag10": {
+   "name": "Purifi PTT1.3T04-HAG-10",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/purifi-ptt13t04-hag-10.html",
+     "page_title": "PTT1.3T04-HAG-10 USHINDI Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-10",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/purifi-ptt13t04-hag-10.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-10 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-10",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/purifi-ptt13t04-hag-10.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-10 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-10",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/purifi-ptt13t04-hag-10.html",
+     "page_title": "PURIFI PTT1.3T04-HAG-10 Dome Tweeter - SoundImports",
+     "model": "PTT1.3T04-HAG-10",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 7902
+    }
+   ]
+  },
+  "ptt65w04-paper": {
+   "name": "Purifi PTT6.5W04 (paper, proxy)",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/purifi-ptt65w04-nfa-01.html",
+     "page_title": "PURIFI PTT6.5W04-NFA-01 Bass-midwoofer - SoundImports",
+     "model": "PTT6.5W04",
+     "price": 429.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 4854
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/purifi-ptt65w04-nfa-01.html",
+     "page_title": "PURIFI PTT6.5W04-NFA-01 Tiefmitteltöner - SoundImports",
+     "model": "PTT6.5W04",
+     "price": 429.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 4854
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/purifi-ptt65w04-nfa-01.html",
+     "page_title": "PURIFI PTT6.5W04-NFA-01 Bass-midwoofer - SoundImports",
+     "model": "PTT6.5W04",
+     "price": 429.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 4854
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/purifi-ptt65w04-nfa-01.html",
+     "page_title": "PURIFI PTT6.5W04-NFA-01 Woofer Medio-Bassi - SoundImports",
+     "model": "PTT6.5W04",
+     "price": 429.95,
+     "currency": "EUR",
+     "availability": "BackOrder",
+     "price_sek": 4854
+    }
+   ]
+  },
+  "ptt65x04naa08": {
+   "name": "Purifi PTT6.5X04-NAA-08",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/purifi-ptt65x04-naa-08.html",
+     "page_title": "PURIFI PTT6.5X04-NAA-08 Bass-midwoofer - SoundImports",
+     "model": "PTT6.5X04-NAA-08",
+     "price": 469.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 5306
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/purifi-ptt65x04-naa-08.html",
+     "page_title": "PURIFI PTT6.5X04-NAA-08 Tiefmitteltöner - SoundImports",
+     "model": "PTT6.5X04-NAA-08",
+     "price": 469.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 5306
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/purifi-ptt65x04-naa-08.html",
+     "page_title": "PURIFI PTT6.5X04-NAA-08 Bass-midwoofer - SoundImports",
+     "model": "PTT6.5X04-NAA-08",
+     "price": 469.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 5306
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/purifi-ptt65x04-naa-08.html",
+     "page_title": "PURIFI PTT6.5X04-NAA-08 Woofer Medio-Bassi - SoundImports",
+     "model": "PTT6.5X04-NAA-08",
+     "price": 469.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 5306
+    }
+   ]
+  },
+  "ptt80x04nab01": {
+   "name": "Purifi PTT8.0X04-NAB-01",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/purifi-ptt80x04-nab-01.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-01 Mid-range Woofer - SoundImports",
+     "model": "PTT8.0X04-NAB-01",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/purifi-ptt80x04-nab-01.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-01 Mitteltieftöner - SoundImports",
+     "model": "PTT8.0X04-NAB-01",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/purifi-ptt80x04-nab-01.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-01 Mid-range Woofer - SoundImports",
+     "model": "PTT8.0X04-NAB-01",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7902
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/purifi-ptt80x04-nab-01.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-01 Woofer a Gamma Media - SoundImports",
+     "model": "PTT8.0X04-NAB-01",
+     "price": 699.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 7902
+    }
+   ]
+  },
+  "purifi-ptt8-0x04-nab-02": {
+   "name": "Purifi PTT8.0X04-NAB-02",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/medium-bas-medium-large-bande/purifi-ptt8-0x04-nab-02-p-21562.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-02 Haut-Parleur Large Bande",
+     "model": "PTT8.0X04-NAB-02",
+     "price": 689.0,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 7779
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/midrange-midbass-full-range/purifi-ptt8-0x04-nab-02-p-21562.html",
+     "page_title": "PURIFI PTT8.0X04-NAB-02 Speaker Driver Full Range",
+     "model": "PTT8.0X04-NAB-02",
+     "price": 689.0,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 7779
+    }
+   ]
+  },
+  "rs-180-4": {
+   "name": "Dayton Audio Dayton RS 180-4",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/medium-bas-medium-large-bande/dayton-audio-rs180-4-reference-haut-parleur-bas-medium-60w-4-ohm-89db-39hz-3600hz-o18cm-p-8233.html",
+     "page_title": "DAYTON AUDIO RS180-4 Reference Haut-Parleur Bas Médium 60W 4 Ohm 89dB 39Hz - 3600Hz Ø18cm - Audiophonics",
+     "model": "RS 180-4",
+     "price": 85.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 970
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/midrange-midbass-full-range/dayton-audio-rs180-4-reference-speaker-driver-midbass-60w-4-ohm-89db-39hz-3600hz-o18cm-p-8233.html",
+     "page_title": "DAYTON AUDIO RS180-4 Reference Speaker Driver Midbass 60W 4 Ohm 89dB 39Hz - 3600Hz Ø18cm - Audiophonics",
+     "model": "RS 180-4",
+     "price": 85.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 970
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/dayton-audio-rs180-4.html",
+     "page_title": "Dayton Audio Reference RS180-4 Bass-midwoofer - SoundImports",
+     "model": "RS 180-4",
+     "price": 89.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1016
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/dayton-audio-rs180-4.html",
+     "page_title": "Dayton Audio Reference RS180-4 Tiefmitteltöner - SoundImports",
+     "model": "RS 180-4",
+     "price": 89.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1016
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/dayton-audio-rs180-4.html",
+     "page_title": "Dayton Audio Reference RS180-4 Woofer Medio-Bassi - SoundImports",
+     "model": "RS 180-4",
+     "price": 89.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1016
+    }
+   ]
+  },
+  "rs-225-8": {
+   "name": "Dayton Audio Dayton RS 225-8",
+   "offers": [
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/fr/grave/dayton-audio-rs225-8-reference-haut-parleur-de-grave-80w-8-ohm-87db-28hz-2400hz-o22cm-p-8487.html",
+     "page_title": "DAYTON AUDIO RS225-8 Reference Haut-Parleur de Grave 80W 8 Ohm 87dB 28Hz - 2400Hz Ø22cm - Audiophonics",
+     "model": "RS 225-8",
+     "price": 124.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 1410
+    },
+    {
+     "shop": "Audiophonics",
+     "country": "FR",
+     "url": "https://www.audiophonics.fr/en/woofer/dayton-audio-rs225-8-reference-speaker-driver-woofer-80w-8-ohm-87db-28hz-2400hz-o22cm-p-8487.html",
+     "page_title": "DAYTON AUDIO RS225-8 Reference Speaker Driver Woofer 80W 8 Ohm 87dB 28Hz - 2400Hz Ø22cm - Audiophonics",
+     "model": "RS 225-8",
+     "price": 124.9,
+     "currency": "EUR",
+     "availability": null,
+     "price_sek": 1410
+    }
+   ]
+  },
+  "sb-satori-wo24p-4": {
+   "name": "SB Acoustics Satori WO24P-4",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-satori-wo24p-4-woofer",
+     "page_title": "SB Acoustics Satori WO24P-4 Woofer - Willys-Hifi Ltd",
+     "model": "WO24P-4",
+     "price": 186.29,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 2444
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-wo24p-4.html",
+     "page_title": "Satori WO24P-4",
+     "model": "WO24P-4",
+     "price": 2758.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 2758
+    }
+   ]
+  },
+  "sb-satori-wo24p-8": {
+   "name": "SB Acoustics Satori WO24P-8",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-satori-wo24p-8-woofer",
+     "page_title": "SB Acoustics Satori WO24P-8 Woofer - Willys-Hifi Ltd",
+     "model": "WO24P-8",
+     "price": 186.29,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 2444
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-wo24p-8.html",
+     "page_title": "Satori WO24P-8",
+     "model": "WO24P-8",
+     "price": 2758.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 2758
+    }
+   ]
+  },
+  "sb-sb34nrxl75-8": {
+   "name": "SB Acoustics SB34NRXL75-8 (Norex)",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb34nrxl75-8-norex-woofer",
+     "page_title": "SB Acoustics SB34NRXL75-8 Norex Woofer - Willys-Hifi Ltd",
+     "model": "SB34NRXL75-8",
+     "price": 226.83,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 2976
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Tieftöner - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB34NRXL75-8",
+     "model": "SB34NRXL75-8",
+     "price": 3566.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 3566
+    }
+   ]
+  },
+  "sb-sb34nrxl75-8-dual": {
+   "name": "SB Acoustics SB34NRXL75-8 ×2 (coherent pair)",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb34nrxl75-8-norex-woofer",
+     "page_title": "SB Acoustics SB34NRXL75-8 Norex Woofer - Willys-Hifi Ltd",
+     "model": "SB34NRXL75-8",
+     "price": 226.83,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 2976
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Tieftöner - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 3499
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB34NRXL75-8",
+     "model": "SB34NRXL75-8",
+     "price": 3566.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 3566
+    }
+   ]
+  },
+  "sb17cac35-4": {
+   "name": "SB Acoustics SB17CAC35-4 (proxy)",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb17cac35-4-ceramic-midwoofer-speaker",
+     "page_title": "SB Acoustics SB17CAC35-4 Ceramic Midwoofer - Willys-Hifi Ltd",
+     "model": "SB17CAC35-4",
+     "price": 82.93,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 1088
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb17cac35-4.html",
+     "page_title": "SB Acoustics SB17CAC35-4 Bass-midwoofer - SoundImports",
+     "model": "SB17CAC35-4",
+     "price": 104.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1185
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/de/sb-acoustics-sb17cac35-4.html",
+     "page_title": "SB Acoustics SB17CAC35-4 Tiefmitteltöner - SoundImports",
+     "model": "SB17CAC35-4",
+     "price": 104.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1185
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/it/sb-acoustics-sb17cac35-4.html",
+     "page_title": "SB Acoustics SB17CAC35-4 Woofer Medio-Bassi - SoundImports",
+     "model": "SB17CAC35-4",
+     "price": 104.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "price_sek": 1185
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-sb17cac35-4.html",
+     "page_title": "SB17CAC35-4",
+     "model": "SB17CAC35-4",
+     "price": 1233.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 1233
+    }
+   ]
+  },
+  "sb17nbac35-8": {
+   "name": "SB Acoustics SB17NBAC35-8",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb17nbac35-8-aluminium-midwoofer",
+     "page_title": "SB Acoustics SB17NBAC35-8 Aluminium Midwoofer - Willys-Hifi Ltd",
+     "model": "SB17NBAC35-8",
+     "price": 69.7,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 915
+    }
+   ]
+  },
+  "sb23mfcl45-4": {
+   "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb23mfcl45-4-polypropylene-subwoofer",
+     "page_title": "SB Acoustics SB23MFCL45-4 Polypropylene Subwoofer - Willys-Hifi Ltd",
+     "model": "SB23MFCL45-4",
+     "price": 122.93,
+     "currency": "GBP",
+     "availability": "OutOfStock",
+     "price_sek": 1613
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-sb23mfcl45-4.html",
+     "page_title": "SB23MFCL45-4",
+     "model": "SB23MFCL45-4",
+     "price": 1755.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 1755
+    }
+   ]
+  },
+  "seas-l26roy-x1001-04-4": {
+   "name": "SEAS Seas L26ROY X1001-04-4",
+   "offers": [
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/seas-xm001-04s-l26roy.html",
+     "page_title": "Extreme XM001-04S L26ROY",
+     "model": "L26ROY",
+     "price": 5931.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 5931
+    }
+   ]
+  }
+ }
 }
