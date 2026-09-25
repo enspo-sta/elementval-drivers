@@ -123,11 +123,13 @@ def grid_rows_only(img, rows, box):
     import statistics
     if len(rows) >= 4:
         ys = [r[0] for r in rows]
-        steps = [b - a for a, b in zip(ys, ys[1:])]
-        d = statistics.median(steps)
-        if d > 0:
+        d0 = statistics.median(b - a for a, b in zip(ys, ys[1:]))
+        if d0 > 0:
             base = ys[0]
-            rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.15]
+            # the exact spacing from the rows' positions (the median step is a whole pixel, the spacing is not)
+            ks = [round((y - base) / d0) for y in ys]
+            d = statistics.median((y - base) / k for y, k in zip(ys, ks) if k > 0) or d0
+            rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.2]
     return rows
 
 
