@@ -30,9 +30,14 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >
 > 1. Save every page, chart image, PDF and data file you download under `incoming/` (one folder per
 >    driver id). That folder is ignored by Git: never commit source files, the repository is public.
-> 2. Drivers just added with no measurement yet (section 3 lists them with their page address, and
->    `capture/inventory.md` lists every chart, data file and table their page offers): capture every
->    chart at every drive level, every table, and the parameters, so the record is complete.
+> 2. Drivers just added (section 3 lists them with their page address, and `capture/inventory.md`
+>    lists every chart, data file and table their page offers): a GitHub job (`capture/chart_read.py`,
+>    request file `capture/chart_read_request.txt`) reads the on-axis response, harmonics, current
+>    distortion and impedance charts of HiFiCompass by itself and `python3 capture/sets_from_chart_read.py
+>    --write` stores them as sets of confidence *medium* (section 5 of the work list lists them: check
+>    each by eye against its chart). Capture by hand what the job does not take: the intermodulation
+>    charts (their printed values are in the "text" image variants), the off-axis charts, the 10 Ω
+>    impedance zooms, every table, and any chart whose reading the job reports as failed.
 > 3. HiFiCompass: I am logged in in this Chrome. Start at
 >    <https://hificompass.com/en/speakers/measurements>, find each driver listed in the work list and
 >    download the original of every chart on its page (remove `/styles/<style>/public/` from the image
@@ -86,4 +91,5 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 | `capture/pdf_vectors.py` | Reads curves that a PDF draws as lines, exactly (Purifi datasheets). Checked on a test chart: within 0.05 dB. |
 | `capture/image_curves.py` | Reads a curve of one colour from a chart image and resamples it to 1/24 octave. Checked on a test chart: within 0.3 dB (one pixel). |
 | `capture/add_set.py` | Adds or replaces a measurement set in `drivers.json`; refuses anything the validation check would reject. |
+| `capture/chart_read.py` | Runs on GitHub (which can reach HiFiCompass): reads the response, harmonics, current-distortion and impedance charts of the drivers in `capture/chart_read_request.txt`, calibrated from each chart's grid and labels, with self-checks against the page's table; `capture/sets_from_chart_read.py --write` turns the result into sets. |
 | `capture/worklist.py` | Rebuilds `capture/WORKLIST.md` from the database: low resolution, disagreements, missing curves, a weekly random spot check. |
