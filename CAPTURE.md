@@ -26,8 +26,11 @@ exact data (PDF vectors, raw data files), where more points than 160 per decade 
 
 Store every level a source measured, each as its own measurement set, exactly as measured:
 
-- `conditions.spl_db`: the sound pressure the fundamental reaches at 1 m (from a nearer measuring
-  distance add 20 × log10(1 m / distance), for example +10.0 dB from 315 mm);
+- `conditions.spl_db`: the sound pressure the fundamental reaches at 1 m, as the source states it.
+  HiFiCompass already states its levels at 1 m (the 315 mm microphone distance is corrected on the
+  site), so take its numbers as shown and never correct them again. Only for a source that states
+  the level at the microphone, convert with 20 × log10(distance / 1 m), far field only (for example
+  −10.0 dB from 315 mm to 1 m);
 - `conditions.drive_v` and `conditions.distance_mm` as the source states them.
 
 Do not normalise curves to a common level. The viewer does the matching: Compare draws every driver

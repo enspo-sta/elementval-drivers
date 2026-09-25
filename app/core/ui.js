@@ -104,8 +104,6 @@ export function condChips(c, source) {
   if (!c || typeof c !== "object") c = c ? { note: c } : {};
   let h = "";
   for (const [k, v] of Object.entries(c)) { if (v === "" || v == null) continue; h += `<span class="chip">${esc(COND[k] ? COND[k](v) : k + ": " + v)}</span>`; }
-  const d = Number(c.distance_mm);
-  if (d > 0 && d !== 1000) { const off = 20 * Math.log10(1000 / d); h += `<span class="chip hint">→1 m: ${off >= 0 ? "+" : ""}${off.toFixed(1)} dB</span>`; }
   if (source) h += `<span class="chip src">· ${esc(source)}</span>`;
   return h ? `<div class="chips">${h}</div>` : "";
 }

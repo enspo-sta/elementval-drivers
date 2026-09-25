@@ -43,8 +43,8 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >    the curve before using them.
 > 5. Store each drive level as its own measurement set: `kind` from `schema/kinds.json` (add a kind
 >    there if a chart fits none, as `EXTENDING.md` describes), `conditions.spl_db` = the sound
->    pressure the fundamental reaches at 1 m (convert from the measuring distance with
->    20 × log10(distance / 1 m)), `conditions.drive_v`, `conditions.distance_mm`, and a `source`
+>    pressure the fundamental reaches at 1 m as the source states it (HiFiCompass already states its
+>    levels at 1 m: take them as shown, never add a distance correction), `conditions.drive_v`, `conditions.distance_mm`, and a `source`
 >    naming the source (for example "HiFiCompass HD 4 V (original image)" or "datasheet v1.00 Fig.7
 >    (PDF vector)"). Add sets with `capture/add_set.py`; for section 1 of the work list use
 >    `--replace <set>`.
