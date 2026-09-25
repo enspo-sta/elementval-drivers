@@ -89,8 +89,10 @@ def main():
             if fams:
                 lvl = (m.get("conditions") or {}).get("spl_db")
                 by_fam.setdefault(fams[0], []).append(f"{m.get('kind')}{' ' + str(lvl) + ' dB' if isinstance(lvl, (int, float)) else ''}")
+        # a record whose `source` names a measurement page but holds no set yet (a driver just added) is listed in full
+        page_fams = families_of(d.get("source") or "", cfg) if not d["measurements"] else []
         for fam, wants in PUBLISHES.items():
-            if fam not in by_fam and not (fam == "Manufacturer datasheet" and d["manufacturer"] == "Purifi" and "proxy" not in d["name"]):
+            if fam not in by_fam and fam not in page_fams and not (fam == "Manufacturer datasheet" and d["manufacturer"] == "Purifi" and "proxy" not in d["name"]):
                 continue
             have = sorted(set(by_fam.get(fam, [])))
             missing = [w for k, w in wants if not any(h.startswith(k) for h in have)]
@@ -100,7 +102,8 @@ def main():
                 missing.insert(0, "the harmonics at each drive level actually measured (the stored "
                                f"{normalised[0]['conditions'].get('spl_db')} dB curve was normalised from them; keep it until they are in)")
             prefix = "if Purifi publishes a datasheet for this exact variant: " if fam == "Manufacturer datasheet" and not have else ""
-            lines.append(f"- **{d['name']}** (`{d['id']}`), {fam}: stored {', '.join(have) or 'nothing'}.")
+            page = f" Page: <{d['source']}> (what it offers: `capture/inventory.md`)." if fam in page_fams else ""
+            lines.append(f"- **{d['name']}** (`{d['id']}`), {fam}: stored {', '.join(have) or 'nothing'}.{page}")
             lines.append(f"  Add{' (' + prefix.rstrip(': ') + ')' if prefix else ''}: {'; '.join(missing) if missing else 'check every drive level is stored, as measured'}.")
 
     week = int(dt.date.today().strftime("%G%V"))

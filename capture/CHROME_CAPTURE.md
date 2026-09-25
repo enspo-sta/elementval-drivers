@@ -30,38 +30,41 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >
 > 1. Save every page, chart image, PDF and data file you download under `incoming/` (one folder per
 >    driver id). That folder is ignored by Git: never commit source files, the repository is public.
-> 2. HiFiCompass: I am logged in in this Chrome. Start at
+> 2. Drivers just added with no measurement yet (section 3 lists them with their page address, and
+>    `capture/inventory.md` lists every chart, data file and table their page offers): capture every
+>    chart at every drive level, every table, and the parameters, so the record is complete.
+> 3. HiFiCompass: I am logged in in this Chrome. Start at
 >    <https://hificompass.com/en/speakers/measurements>, find each driver listed in the work list and
 >    download the original of every chart on its page (remove `/styles/<style>/public/` from the image
 >    address) for every drive level shown, and the `.frd` and `.zma` files where offered. Wait 10
 >    seconds between HiFiCompass pages, as their `robots.txt` asks.
-> 3. Purifi: download the datasheet PDF of each Purifi driver in the work list from
+> 4. Purifi: download the datasheet PDF of each Purifi driver in the work list from
 >    <https://purifi-audio.com/>.
-> 4. Capture every curve: PDFs with `capture/pdf_vectors.py` (`list`, `ticks`, `extract`), images with
+> 5. Capture every curve: PDFs with `capture/pdf_vectors.py` (`list`, `ticks`, `extract`), images with
 >    `capture/image_curves.py` (`colors`, `extract`). Look at each image yourself to set the plot
 >    frame and the axis values, then plot the extracted points over the image and check they sit on
 >    the curve before using them.
-> 5. Store each drive level as its own measurement set: `kind` from `schema/kinds.json` (add a kind
+> 6. Store each drive level as its own measurement set: `kind` from `schema/kinds.json` (add a kind
 >    there if a chart fits none, as `EXTENDING.md` describes), `conditions.spl_db` = the sound
 >    pressure the fundamental reaches at 1 m as the source states it (HiFiCompass already states its
 >    levels at 1 m: take them as shown, never add a distance correction), `conditions.drive_v`, `conditions.distance_mm`, and a `source`
 >    naming the source (for example "HiFiCompass HD 4 V (original image)" or "datasheet v1.00 Fig.7
 >    (PDF vector)"). Add sets with `capture/add_set.py`; for section 1 of the work list use
 >    `--replace <set>`.
-> 6. Section 2: check each disagreement against the source. Correct the stored value, or add a note
+> 7. Section 2: check each disagreement against the source. Correct the stored value, or add a note
 >    to the set explaining why the two differ.
-> 7. Section 4: capture the listed curves again and compare them with the stored ones point by
+> 8. Section 4: capture the listed curves again and compare them with the stored ones point by
 >    point. Report every difference above 1 dB (outside the measurement's noise floor).
-> 8. Prices: the weekly scan on GitHub (`watch/prices.py`) reads only public prices. Toutlehautparleur
+> 9. Prices: the weekly scan on GitHub (`watch/prices.py`) reads only public prices. Toutlehautparleur
 >    (<https://www.toutlehautparleur.com/>) shows its good prices only when logged in: log in there in
 >    this Chrome, open the page of every driver that has a Toutlehautparleur offer in `prices.json`
 >    (and search the shop for the drivers that have none), and write the logged-in price into that
 >    offer as `"price_logged_in": <number>` with `"checked": "<today>"` (add an offer with the page
 >    address when the shop has the driver but the scan found no public price). For BlieSMa drivers
 >    also check audio-hi.fi (<https://audio-hi.fi/en/>), the go-to European distributor.
-> 9. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
+> 10. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
 >    `node --test tests/*.test.mjs` and `python3 capture/worklist.py`, and fix what they report.
-> 10. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
+> 11. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
 >    it every source address, and for every set whether it came from PDF vectors, a data file or an
 >    image. Do not merge it.
 

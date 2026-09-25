@@ -47,7 +47,7 @@ driver's page and the lowest price on its card. Prices are as found on the day i
 (`meta.updated`); check the shop before buying. `prices.md` is the same as a table.
 
 What the scan cannot see: Toutlehautparleur refuses automatic reading and shows its best prices only
-when logged in, so it is checked by hand on David's computer (step 8 of `capture/CHROME_CAPTURE.md`
+when logged in, so it is checked by hand on David's computer (step 9 of `capture/CHROME_CAPTURE.md`
 writes `price_logged_in` into the offer); a shop that sells whole boxes (Purifi's own shop, `"pack"`
 in the config) is listed with its box price but never counted as the lowest; a shop without a sitemap
 can be given its product pages by hand (`"pages"`) or pages to follow links from (`"hubs"`); without
