@@ -30,18 +30,18 @@
    "BlieSMa (direct)"
   ],
   "notes": [
-   "SoundImports: 33576 addresses, 80 matching pages, 20 prices read",
-   "Audio-hi.fi: 10596 addresses, 16 matching pages, 8 prices read",
+   "SoundImports: 33576 addresses, 117 matching pages, 28 prices read",
+   "Audio-hi.fi: 10596 addresses, 36 matching pages, 17 prices read",
    "Lautsprechershop (Strassacker): 5402 addresses, 0 matching pages, 0 prices read",
    "Intertechnik: 10 addresses, 0 matching pages, 0 prices read",
    "Toutlehautparleur: no sitemap found and no product page reached from the front page",
    "Audiophonics: 24816 addresses, 14 matching pages, 7 prices read",
-   "HiFi-Kit: 4110 addresses, 7 matching pages, 7 prices read",
+   "HiFi-Kit: 4110 addresses, 12 matching pages, 11 prices read",
    "Speakerbuddies: 1 addresses, 0 matching pages, 0 prices read",
    "Europe Audio: no sitemap found and no product page reached from the front page",
    "Loudspeakerfreaks: no sitemap found and no product page reached from the front page",
    "Hificollective: no sitemap found and no product page reached from the front page",
-   "Willys-HiFi: 1056 addresses, 7 matching pages, 7 prices read",
+   "Willys-HiFi: 1056 addresses, 10 matching pages, 9 prices read",
    "Purifi (direct): 101 addresses, 8 matching pages, 7 prices read",
    "BlieSMa (direct): no sitemap found and no product page reached from the front page"
   ],
@@ -52,23 +52,6 @@
    "name": "Dayton Audio DCS165",
    "offers": [
     {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/dayton-audio-dcs165-4.html",
-     "page_title": "Dayton Audio DCS165-4 Subwoofer - SoundImports",
-     "model": "DCS165",
-     "price": 60.7,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      60.7,
-      73.45
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 685
-    },
-    {
      "shop": "Audiophonics",
      "country": "FR",
      "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-dcs165-4-6-1-2-classic-speaker-driver-subwoofer-kevlar-100w-4-ohm-87db-36hz-1100hz-o165cm-p-10155.html",
@@ -78,6 +61,23 @@
      "currency": "EUR",
      "availability": null,
      "price_sek": 826
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/dayton-audio-dcs165-4.html",
+     "page_title": "Dayton Audio DCS165-4 Subwoofer - SoundImports",
+     "model": "DCS165",
+     "price": 73.45,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      60.7,
+      73.45
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 829
     }
    ]
   },
@@ -85,23 +85,6 @@
    "name": "Dayton Audio E180HE-44 Coils in series",
    "offers": [
     {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/dayton-audio-e180he-44.html",
-     "page_title": "Dayton Audio Epique E180HE-44 Subwoofer - SoundImports",
-     "model": "E180HE-44",
-     "price": 165.25,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      165.25,
-      199.951
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 1866
-    },
-    {
      "shop": "Audiophonics",
      "country": "FR",
      "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-epique-e180he-44-speaker-driver-subwoofer-dvc-mmag-carbon-fiber-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
@@ -111,6 +94,23 @@
      "currency": "EUR",
      "availability": null,
      "price_sek": 2144
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/dayton-audio-e180he-44.html",
+     "page_title": "Dayton Audio Epique E180HE-44 Subwoofer - SoundImports",
+     "model": "E180HE-44",
+     "price": 199.951,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      165.25,
+      199.951
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2257
     }
    ]
   },
@@ -118,23 +118,6 @@
    "name": "Dayton Audio E180HE-44 single coil",
    "offers": [
     {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/dayton-audio-e180he-44.html",
-     "page_title": "Dayton Audio Epique E180HE-44 Subwoofer - SoundImports",
-     "model": "E180HE-44",
-     "price": 165.25,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      165.25,
-      199.951
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 1866
-    },
-    {
      "shop": "Audiophonics",
      "country": "FR",
      "url": "https://www.audiophonics.fr/en/loudspeakers-subwoofers/dayton-audio-epique-e180he-44-speaker-driver-subwoofer-dvc-mmag-carbon-fiber-200w-8-ohm-84db-25hz-3000hz-o178cm-p-15610.html",
@@ -144,6 +127,68 @@
      "currency": "EUR",
      "availability": null,
      "price_sek": 2144
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/dayton-audio-e180he-44.html",
+     "page_title": "Dayton Audio Epique E180HE-44 Subwoofer - SoundImports",
+     "model": "E180HE-44",
+     "price": 199.951,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      165.25,
+      199.951
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2257
+    }
+   ]
+  },
+  "m74a-6": {
+   "name": "BlieSMa M74A-6",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_m74a-6-p-5334.html",
+     "page_title": "BlieSMa M74A-6 - €356.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "M74A-6",
+     "price": 296.8,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      236.8,
+      296.8,
+      356.8,
+      466.8,
+      506.8,
+      528.6,
+      886.6,
+      1186.8
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 3351
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/bliesma-m74a-6.html",
+     "page_title": "BlieSMa M74A-6 Mid-range woofer - SoundImports",
+     "model": "M74A-6",
+     "price": 379.95,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      314.01,
+      379.95
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 4290
     }
    ]
   },
@@ -153,59 +198,53 @@
     {
      "shop": "Audio-hi.fi",
      "country": "FI",
-     "url": "https://audio-hi.fi/en/bliesma_m74t-6-p-5388.html",
-     "page_title": "BlieSMa M74T-6 - €506.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "url": "https://audio-hi.fi/ru/bliesma_m74t-6-p-5388.html",
+     "page_title": "BlieSMa M74T-6 - €506.80 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
      "model": "M74T-6",
-     "price": 17.8,
+     "price": 88.0,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
-      17.8,
-      19.9,
+      74.6,
+      88.0,
       248.6,
       356.8,
       466.8,
       506.8,
       528.6,
-      678.6,
-      1186.8
+      1056.8
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 201
+     "price_sek": 994
     }
    ]
   },
   "ps180": {
-   "name": "Dayton Audio ps180",
+   "name": "Dayton Audio PS180",
    "offers": [
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/dayton-audio-ps180-8.html",
-     "page_title": "Dayton Audio PS180-8 Full-range Woofer - SoundImports",
-     "model": "ps180",
-     "price": 156.98,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      156.98,
-      189.951
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 1772
-    },
     {
      "shop": "Audiophonics",
      "country": "FR",
      "url": "https://www.audiophonics.fr/en/midrange-midbass-full-range/dayton-audio-ps180-8-speaker-driver-full-range-paper-30w-8-ohm-95db-48hz-25khz-o18cm-p-8243.html",
      "page_title": "DAYTON AUDIO PS180-8 Speaker Driver Full Range Paper 30W 8 Ohm 95dB 48Hz - 25kHz Ø18cm - Audiophonics",
-     "model": "ps180",
+     "model": "PS180",
      "price": 179.0,
      "currency": "EUR",
      "availability": null,
      "price_sek": 2021
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/dayton-audio-ps180-8.html",
+     "page_title": "Dayton Audio PS180-8 Full-range Woofer - SoundImports",
+     "model": "PS180",
+     "price": 189.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2145
     }
    ]
   },
@@ -278,7 +317,7 @@
      "url": "https://www.soundimports.eu/en/purifi-ptt525x04-naa-05.html",
      "page_title": "PURIFI PTT5.25X04-NAA-05 Woofer - SoundImports",
      "model": "PTT5.25X04-NAA-05",
-     "price": 330.54,
+     "price": 399952.0,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
@@ -287,7 +326,7 @@
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 3732
+     "price_sek": 4515458
     },
     {
      "shop": "Purifi (direct)",
@@ -432,23 +471,6 @@
    "name": "Dayton Audio RS 180-4",
    "offers": [
     {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/dayton-audio-rs180-4.html",
-     "page_title": "Dayton Audio Reference RS180-4 Bass-midwoofer - SoundImports",
-     "model": "RS 180-4",
-     "price": 74.34,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      74.34,
-      89959.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 839
-    },
-    {
      "shop": "Audiophonics",
      "country": "FR",
      "url": "https://www.audiophonics.fr/en/midrange-midbass-full-range/dayton-audio-rs180-4-reference-speaker-driver-midbass-60w-4-ohm-89db-39hz-3600hz-o18cm-p-8233.html",
@@ -458,6 +480,18 @@
      "currency": "EUR",
      "availability": null,
      "price_sek": 970
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/dayton-audio-rs180-4.html",
+     "page_title": "Dayton Audio Reference RS180-4 Bass-midwoofer - SoundImports",
+     "model": "RS 180-4",
+     "price": 89.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 1016
     }
    ]
   },
@@ -470,7 +504,7 @@
      "url": "https://www.soundimports.eu/en/dayton-audio-rs225-8.html",
      "page_title": "Dayton Audio Reference RS225-8 Bass-midwoofer - SoundImports",
      "model": "RS 225-8",
-     "price": 90.87,
+     "price": 109.951,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
@@ -479,7 +513,7 @@
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 1026
+     "price_sek": 1241
     },
     {
      "shop": "Audiophonics",
@@ -494,24 +528,254 @@
     }
    ]
   },
+  "sb-satori-mr16tx-8": {
+   "name": "SB Acoustics Satori MR16TX-8",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-mr16tx-8.html",
+     "page_title": "SB Acoustics Satori MR16TX-8 Bass-midwoofer - SoundImports",
+     "model": "MR16TX-8",
+     "price": 329.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 3725
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-mr16tx-8.html",
+     "page_title": "Satori MR16TX-8",
+     "model": "MR16TX-8",
+     "price": 3893.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 3893
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_mr16tx-8-p-6058.html",
+     "page_title": "SB Acoustics MR16TX-8 'Satori' - €268.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "MR16TX-8",
+     "price": 33.8,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      8.3,
+      9.9,
+      12.6,
+      28.8,
+      33.8,
+      36.4,
+      42.6,
+      156.0,
+      238.6,
+      268.6
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used; far below the other shops (3893 kr): probably not the product's price",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 382,
+     "doubtful": true
+    }
+   ]
+  },
+  "sb-satori-mw19tx-4": {
+   "name": "SB Acoustics Satori MW19TX-4",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-satori-mw19tx-4-midwoofer",
+     "page_title": "SB Acoustics Satori MW19TX-4 Midwoofer - Willys-Hifi Ltd",
+     "model": "MW19TX-4",
+     "price": 256.06,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 3360
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-mw19tx-4.html",
+     "page_title": "SB Acoustics Satori MW19TX-4 TeXtreme Midwoofer - SoundImports",
+     "model": "MW19TX-4",
+     "price": 339.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 3838
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-mw19tx-4.html",
+     "page_title": "Satori MW19TX-4",
+     "model": "MW19TX-4",
+     "price": 4229.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 4229
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_mw19tx-4_2983-p-5114.html",
+     "page_title": "SB Acoustics MW19TX-4 'Satori' - €286.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "MW19TX-4",
+     "price": 13.9,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      12.8,
+      13.9,
+      226.8,
+      238.6,
+      286.8
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used; far below the other shops (3838 kr): probably not the product's price",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 157,
+     "doubtful": true
+    }
+   ]
+  },
+  "sb-satori-tw29bnwg-4": {
+   "name": "SB Acoustics Satori TW29BNWG-4",
+   "offers": [
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-tw29bnwg-4.html",
+     "page_title": "Satori TW29BNWG-4",
+     "model": "TW29BNWG-4",
+     "price": 8122.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 8122
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-tw29bnwg-4.html",
+     "page_title": "SB Acoustics Satori TW29BNWG-4 Beryllium Tweeter - SoundImports",
+     "model": "TW29BNWG-4",
+     "price": 849.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 9596
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_tw29bnwg-4-p-5097.html",
+     "page_title": "SB Acoustics TW29BNWG-4 'Satori' - €698.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
+     "model": "TW29BNWG-4",
+     "price": 159.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      5.8,
+      7.9,
+      9.6,
+      81.3,
+      136.8,
+      159.0,
+      235.3,
+      298.6,
+      326.8,
+      698.6
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used; far below the other shops (9596 kr): probably not the product's price",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 1795,
+     "doubtful": true
+    }
+   ]
+  },
+  "sb-satori-tw29txn-b": {
+   "name": "SB Acoustics Satori TW29TXN-B",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-satori-tw29txn-b-tweeter",
+     "page_title": "SB Acoustics Satori TW29TXN-B Tweeter - Willys-Hifi Ltd",
+     "model": "TW29TXN-B",
+     "price": 201.22,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 2640
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-tw29txn-b-8.html",
+     "page_title": "SB Acoustics Satori TW29TXN-B-8 Dome Tweeter - SoundImports",
+     "model": "TW29TXN-B",
+     "price": 264.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2991
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-tw29txn-b.html",
+     "page_title": "Satori TW29TXN-B",
+     "model": "TW29TXN-B",
+     "price": 3162.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 3162
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_tw29txn-b-p-5078.html",
+     "page_title": "SB Acoustics TW29TXN-B 'Satori' - €218.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
+     "model": "TW29TXN-B",
+     "price": 11.9,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      9.9,
+      11.9,
+      218.6,
+      238.6,
+      298.6,
+      598.6
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used; far below the other shops (2991 kr): probably not the product's price",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 134,
+     "doubtful": true
+    }
+   ]
+  },
   "sb-satori-wo24p-4": {
    "name": "SB Acoustics Satori WO24P-4",
    "offers": [
     {
      "shop": "Audio-hi.fi",
      "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_wo24p-4_2032-p-992.html",
-     "page_title": "SB Acoustics WO24P-4 'Satori' - €198.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_wo24p-4_2032-p-992.html",
+     "page_title": "SB Acoustics WO24P-4 'Satori' - €198.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
      "model": "WO24P-4",
-     "price": 7.9,
+     "price": 159.0,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
-      7.9,
-      22.8,
-      23.4,
-      35.8,
-      103.9,
+      6.6,
+      14.3,
+      31.3,
+      46.4,
+      136.8,
+      159.0,
       189.8,
       198.6,
       226.0,
@@ -521,24 +785,7 @@
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 89
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-wo24p-4.html",
-     "page_title": "SB Acoustics Satori WO24P-4 Woofer - SoundImports",
-     "model": "WO24P-4",
-     "price": 198.31,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      198.31,
-      239955.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 2239
+     "price_sek": 1795
     },
     {
      "shop": "Willys-HiFi",
@@ -561,6 +808,23 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 2758
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-wo24p-4.html",
+     "page_title": "SB Acoustics Satori WO24P-4 Woofer - SoundImports",
+     "model": "WO24P-4",
+     "price": 239955.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      198.31,
+      239955.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2709092
     }
    ]
   },
@@ -570,41 +834,22 @@
     {
      "shop": "Audio-hi.fi",
      "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_wo24p-8_2033-p-802.html",
-     "page_title": "SB Acoustics WO24P-8 'Satori' - €198.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_wo24p-8_2033-p-802.html",
+     "page_title": "SB Acoustics WO24P-8 'Satori' - €198.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
      "model": "WO24P-8",
-     "price": 158.6,
+     "price": 196.0,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
       158.6,
       168.6,
+      196.0,
       198.6,
-      326.8,
-      376.6,
-      456.8,
-      468.6
+      326.8
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 1791
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-wo24p-8.html",
-     "page_title": "SB Acoustics Satori WO24P-8 Woofer - SoundImports",
-     "model": "WO24P-8",
-     "price": 198.31,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      198.31,
-      239952.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 2239
+     "price_sek": 2213
     },
     {
      "shop": "Willys-HiFi",
@@ -627,51 +872,29 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 2758
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-wo24p-8.html",
+     "page_title": "SB Acoustics Satori WO24P-8 Woofer - SoundImports",
+     "model": "WO24P-8",
+     "price": 239952.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      198.31,
+      239952.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 2709058
     }
    ]
   },
   "sb-sb34nrxl75-8": {
    "name": "SB Acoustics SB34NRXL75-8 (Norex)",
    "offers": [
-    {
-     "shop": "Audio-hi.fi",
-     "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_sb34nrxl75-8_2575-p-626.html",
-     "page_title": "SB Acoustics SB34NRXL75-8 'NRX' - €268.60 : AUDIO-HI.FI, Loudspeaker shop",
-     "model": "SB34NRXL75-8",
-     "price": 106.8,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      106.8,
-      128.6,
-      186.8,
-      268.6,
-      276.8,
-      296.8,
-      698.6
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 1206
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-sb34nrxl75-8.html",
-     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
-     "model": "SB34NRXL75-8",
-     "price": 256.16,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      256.16,
-      309958.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 2892
-    },
     {
      "shop": "Willys-HiFi",
      "country": "GB",
@@ -682,6 +905,40 @@
      "currency": "GBP",
      "availability": "InStock",
      "price_sek": 2976
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_sb34nrxl75-8_2575-p-626.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 'NRX' - €268.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "SB34NRXL75-8",
+     "price": 296.8,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      106.8,
+      128.6,
+      186.8,
+      236.8,
+      268.6,
+      296.8,
+      698.6
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 3351
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 3499
     },
     {
      "shop": "HiFi-Kit",
@@ -702,41 +959,24 @@
     {
      "shop": "Audio-hi.fi",
      "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_sb34nrxl75-8_2575-p-626.html",
-     "page_title": "SB Acoustics SB34NRXL75-8 'NRX' - €268.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_sb34nrxl75-8_2575-p-626.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 'NRX' - €268.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
      "model": "SB34NRXL75-8",
-     "price": 106.8,
+     "price": 146.8,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
       106.8,
       128.6,
+      138.6,
+      146.8,
       186.8,
       268.6,
-      326.8,
-      348.6,
       698.6
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 1206
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-sb34nrxl75-8.html",
-     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
-     "model": "SB34NRXL75-8",
-     "price": 256.16,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      256.16,
-      309958.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 2892
+     "price_sek": 1657
     },
     {
      "shop": "Willys-HiFi",
@@ -748,6 +988,18 @@
      "currency": "GBP",
      "availability": "InStock",
      "price_sek": 2976
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb34nrxl75-8.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 Woofer - SoundImports",
+     "model": "SB34NRXL75-8",
+     "price": 309.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 3499
     },
     {
      "shop": "HiFi-Kit",
@@ -766,44 +1018,6 @@
    "name": "SB Acoustics SB17CAC35-4 (proxy)",
    "offers": [
     {
-     "shop": "Audio-hi.fi",
-     "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_sb17cac35-4_2483-p-2585.html",
-     "page_title": "SB Acoustics SB17CAC35-4 - €88.60 : AUDIO-HI.FI, Loudspeaker shop",
-     "model": "SB17CAC35-4",
-     "price": 48.6,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      48.6,
-      86.8,
-      88.6,
-      128.6,
-      236.8,
-      296.8
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 549
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-sb17cac35-4.html",
-     "page_title": "SB Acoustics SB17CAC35-4 Bass-midwoofer - SoundImports",
-     "model": "SB17CAC35-4",
-     "price": 86.74,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      86.74,
-      104954.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 979
-    },
-    {
      "shop": "Willys-HiFi",
      "country": "GB",
      "url": "https://willys-hifi.com/products/sb-acoustics-sb17cac35-4-ceramic-midwoofer-speaker",
@@ -815,6 +1029,18 @@
      "price_sek": 1088
     },
     {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/nl/sb-acoustics-sb17cac35-4.html",
+     "page_title": "SB Acoustics SB17CAC35-4 Bass-midwoofer - SoundImports",
+     "model": "SB17CAC35-4",
+     "price": 104.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 1185
+    },
+    {
      "shop": "HiFi-Kit",
      "country": "SE",
      "url": "https://www.hifikit.se/sb-acoustics-sb17cac35-4.html",
@@ -824,49 +1050,33 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 1233
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_sb17cac35-4_2483-p-2585.html",
+     "page_title": "SB Acoustics SB17CAC35-4 - €88.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
+     "model": "SB17CAC35-4",
+     "price": 196.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      48.6,
+      86.8,
+      88.6,
+      128.6,
+      168.6,
+      196.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2213
     }
    ]
   },
   "sb17nbac35-8": {
    "name": "SB Acoustics SB17NBAC35-8",
    "offers": [
-    {
-     "shop": "Audio-hi.fi",
-     "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_sb17nbac35-8_2498-p-1222.html",
-     "page_title": "SB Acoustics SB17NBAC35-8 - €76.80 : AUDIO-HI.FI, Loudspeaker shop",
-     "model": "SB17NBAC35-8",
-     "price": 68.6,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      68.6,
-      76.8,
-      88.6,
-      278.9,
-      357.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 774
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-sb17nbac35-8.html",
-     "page_title": "SB Acoustics SB17NBAC35-8 Bass-midwoofer - SoundImports",
-     "model": "SB17NBAC35-8",
-     "price": 71.45,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      71.45,
-      86452.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 807
-    },
     {
      "shop": "Willys-HiFi",
      "country": "GB",
@@ -877,6 +1087,43 @@
      "currency": "GBP",
      "availability": "InStock",
      "price_sek": 915
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_sb17nbac35-8_2498-p-1222.html",
+     "page_title": "SB Acoustics SB17NBAC35-8 - €76.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "SB17NBAC35-8",
+     "price": 88.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      68.6,
+      72.6,
+      74.6,
+      76.8,
+      88.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 994
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-sb17nbac35-8.html",
+     "page_title": "SB Acoustics SB17NBAC35-8 Bass-midwoofer - SoundImports",
+     "model": "SB17NBAC35-8",
+     "price": 86452.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      71.45,
+      86452.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 976043
     }
    ]
   },
@@ -886,10 +1133,10 @@
     {
      "shop": "Audio-hi.fi",
      "country": "FI",
-     "url": "https://audio-hi.fi/en/sb_acoustics_sb23mfcl45-4_2510-p-687.html",
-     "page_title": "SB Acoustics SB23MFCL45-4 - €128.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "url": "https://audio-hi.fi/ru/sb_acoustics_sb23mfcl45-4_2510-p-687.html",
+     "page_title": "SB Acoustics SB23MFCL45-4 - €128.60 : AUDIO-HI.FI, Интернет-магазин с доставкой в Россию",
      "model": "SB23MFCL45-4",
-     "price": 4.3,
+     "price": 88.0,
      "currency": "EUR",
      "availability": null,
      "prices_on_page": [
@@ -897,33 +1144,15 @@
       4.6,
       4.9,
       5.6,
-      7.9,
-      8.6,
+      56.8,
+      74.6,
+      88.0,
       128.6,
-      268.6,
-      278.9,
-      357.0
+      268.6
      ],
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "the go-to distributor in Europe for BlieSMa",
-     "price_sek": 49
-    },
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/sb-acoustics-sb23mfcl45-4.html",
-     "page_title": "SB Acoustics SB23MFCL45-4 Subwoofer - SoundImports",
-     "model": "SB23MFCL45-4",
-     "price": 128.06,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      128.06,
-      154955.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 1446
+     "price_sek": 994
     },
     {
      "shop": "Willys-HiFi",
@@ -946,29 +1175,29 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 1755
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-sb23mfcl45-4.html",
+     "page_title": "SB Acoustics SB23MFCL45-4 Subwoofer - SoundImports",
+     "model": "SB23MFCL45-4",
+     "price": 154955.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      128.06,
+      154955.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 1749442
     }
    ]
   },
   "seas-l26roy-x1001-04-4": {
    "name": "SEAS L26ROY X1001-04-4",
    "offers": [
-    {
-     "shop": "SoundImports",
-     "country": "NL",
-     "url": "https://www.soundimports.eu/en/seas-l26roy.html",
-     "page_title": "SEAS Extreme L26ROY - XM001-04 Subwoofer - SoundImports",
-     "model": "L26ROY",
-     "price": 355.33,
-     "currency": "EUR",
-     "availability": null,
-     "prices_on_page": [
-      355.33,
-      429956.0
-     ],
-     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
-     "shop_note": "often the most expensive; no longer carries BlieSMa",
-     "price_sek": 4012
-    },
     {
      "shop": "HiFi-Kit",
      "country": "SE",
@@ -979,6 +1208,173 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 5931
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/seas-l26roy.html",
+     "page_title": "SEAS Extreme L26ROY - XM001-04 Subwoofer - SoundImports",
+     "model": "L26ROY",
+     "price": 429956.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      355.33,
+      429956.0
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 4854203
+    }
+   ]
+  },
+  "t25a-6": {
+   "name": "BlieSMa T25A-6",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t25a-6-p-4942.html",
+     "page_title": "BlieSMa T25A-6 - €148.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T25A-6",
+     "price": 196.0,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      148.6,
+      168.6,
+      186.8,
+      196.0,
+      248.6,
+      288.6,
+      376.8,
+      386.8
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2213
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/bliesma-t25a-6.html",
+     "page_title": "BlieSMa T25A-6 Dome Tweeter Matched Pair - SoundImports",
+     "model": "T25A-6",
+     "price": 269.95,
+     "currency": "EUR",
+     "availability": "OutOfStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 3048
+    }
+   ]
+  },
+  "t25t-6": {
+   "name": "BlieSMa T25T-6",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t25t-6-p-6066.html",
+     "page_title": "BlieSMa T25T-6 - €248.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T25T-6",
+     "price": 19.9,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      17.8,
+      19.9,
+      148.6,
+      186.8,
+      248.6,
+      386.8,
+      389.6,
+      506.8,
+      528.6,
+      678.6,
+      1056.8
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 225
+    }
+   ]
+  },
+  "t34a-4": {
+   "name": "BlieSMa T34A-4",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t34a-4-p-1174.html",
+     "page_title": "BlieSMa T34A-4 - €288.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T34A-4",
+     "price": 296.8,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      148.6,
+      186.8,
+      236.8,
+      288.6,
+      296.8,
+      298.6,
+      376.8
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 3351
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/bliesma-t34a-4.html",
+     "page_title": "BlieSMa T34A-4 Dome Tweeter Matched Pair - SoundImports",
+     "model": "T34A-4",
+     "price": 599.95,
+     "currency": "EUR",
+     "availability": "OutOfStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 6773
+    }
+   ]
+  },
+  "t34b-4": {
+   "name": "BlieSMa T34B-4",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/bliesma-t34b-4.html",
+     "page_title": "BlieSMa T34B-4 Dome Tweeter Matched Pair - SoundImports",
+     "model": "T34B-4",
+     "price": 799.95,
+     "currency": "EUR",
+     "availability": "OutOfStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 9031
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t34b-4-p-1181.html",
+     "page_title": "BlieSMa T34B-4 - €478.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T34B-4",
+     "price": 228.6,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      218.6,
+      228.6,
+      288.6,
+      376.8,
+      386.8,
+      478.6,
+      548.6
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used; far below the other shops (9031 kr): probably not the product's price",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2581,
+     "doubtful": true
     }
    ]
   }
