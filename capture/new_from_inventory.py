@@ -16,9 +16,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# the T/S labels HiFiCompass uses (case-insensitive, unit stripped) -> keys of the record's `ts`
-LABELS = {"fs": "Fs", "re": "Re", "qms": "Qms", "qes": "Qes", "qts": "Qts", "vas": "Vas", "sd": "Sd", "bl": "Bl", "mms": "Mms",
-          "cms": "Cms", "rms": "Rms", "le": "Le", "xmax": "Xmax", "sensitivity": "sensitivity", "spl": "sensitivity", "pe": "Pe", "n0": "n0"}
+# HiFiCompass "Technical data" labels -> keys of the record's `ts` (the existing records' names). The code in
+# parentheses is used where the label has one ("Free air resonance, (Fs)"); the others by their wording.
+CODES = {"fs": "Fs", "re": "Re", "le": "Le", "sd": "Sd", "qms": "Qms", "qes": "Qes", "qts": "Qts", "vas": "Vas", "bl": "Bl",
+         "mms": "Mms", "cms": "Cms", "rms": "Rms", "zn": "Z"}
+WORDS = {"linear coil travel": "Xmax", "rated power": "Pe", "sensitivity": "sens", "voice coil diameter": "coil_mm",
+         "magnetic flux density": "B_T", "net weight": "weight_kg", "voice coil height": "coil_height_mm", "air gap height": "gap_mm"}
+TEXT = {"diaphragm material": "material"}
 ROLE = [("tw", "tweeter"), ("t2", "tweeter"), ("t3", "tweeter"), ("mr", "midrange"), ("m7", "midrange"), ("mw", "midwoofer"), ("wo", "woofer"), ("sw", "subwoofer")]
 
 
@@ -36,23 +40,32 @@ def number(s):
 
 
 def ts_from_tables(tables):
+    """Parameters as the page states them (numbers only, units as the existing records use them; a stated 0 is
+    left out: HiFiCompass prints 'Vas 0.0 L' for tweeters). Text values (diaphragm material) go in as text."""
     ts = {}
     for t in tables:
         for row in t:
             if len(row) < 2:
                 continue
-            label = re.sub(r"[\s,]*\(.*?\)|[\s,]*\[.*?\]|:$", "", row[0]).strip().lower()
-            label = re.sub(r"[^a-z0-9]", "", label)
-            key = LABELS.get(label)
-            if key and number(row[1]) is not None:
-                ts[key] = number(row[1])
+            label, value = row[0].strip(), row[1].strip()
+            code = re.search(r"\(([A-Za-z]+)\)", label)
+            words = re.sub(r"[\s,]*\(.*?\)", "", label).strip().lower()
+            key = CODES.get(code.group(1).lower()) if code else None
+            key = key or WORDS.get(words)
+            if key:
+                v = number(value)
+                if v is not None and v != 0:
+                    ts[key] = v
+            elif words in TEXT and value:
+                ts[TEXT[words]] = value
     return ts
 
 
 def records(inv):
     out = []
     for model, rec in inv["models"].items():
-        pages = [p for p in rec["pages"] if not p.get("error")]
+        # the measurement page itself (not the site's front page or a news item that only links to it)
+        pages = [p for p in rec["pages"] if not p.get("error") and "/speakers/measurements/" in p["url"] and p["tables"]]
         if not pages:
             continue
         pg = pages[0]
@@ -61,9 +74,10 @@ def records(inv):
         maker = " ".join(model.split()[:-1]) if " " in model else model
         if not name.lower().startswith(maker.split()[0].lower()):
             name = f"{maker} {name}"
+        files = [f["href"] for f in pg["data_files"] if f["href"].lower().endswith(".pdf")]
         out.append({"id": re.sub(r"[^A-Za-z0-9._-]+", "-", slug.lower()).strip("-"), "name": name, "manufacturer": maker.replace(" Satori", ""),
                     "role": role_of(model), "band": "", "ts": ts_from_tables(pg["tables"]), "findings": "",
-                    "source": pg["url"], "updated": inv["date"], "measurements": []})
+                    "source": pg["url"] + (f" (datasheet: {files[0]})" if files else ""), "updated": inv["date"], "measurements": []})
     return out
 
 

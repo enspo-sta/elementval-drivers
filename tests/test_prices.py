@@ -226,3 +226,22 @@ class Hubs(unittest.TestCase):
         site.disallow = ["/sitemap"]
         self.assertEqual(site.rule_for("https://www.shop.example/sitemap.xml"), (False, "/sitemap"))
         self.assertEqual(site.rule_for("https://www.shop.example/p/x"), (True, None))
+
+
+class PlainMarkupOrder(unittest.TestCase):
+    def test_first_price_element_wins_and_instalments_are_skipped(self):
+        page = ('<div class="klarna-price">alk. 17,80 €/kk</div><span class="productSpecialPrice">399,00 €</span>'
+                '<div class="related"><span class="price">89,00 €</span></div>')
+        o = P.offers_from_page(page, None)[0]
+        self.assertEqual(o["price"], 399.0)
+        self.assertEqual(o["prices_on_page"], [89.0, 399.0])
+        self.assertEqual(P.offers_from_page('<span class="price">from 17,80 € / month</span>', None), [])
+
+    def test_doubtful_page_element_price_is_never_the_lowest(self):
+        lst = [{"price": 220.0, "currency": "EUR", "price_sek": 2464, "shop": "A"},
+               {"price": 17.8, "currency": "EUR", "price_sek": 199, "shop": "B", "price_note": "read from the page's price element, not from structured data; check the page"},
+               {"price": 250.0, "currency": "EUR", "price_sek": 2800, "shop": "C"}]
+        P.mark_doubtful(lst)
+        self.assertTrue(lst[1]["doubtful"]); self.assertNotIn("doubtful", lst[0])
+        lst.sort(key=lambda o: (bool(o.get("pack")) or bool(o.get("doubtful")), o["price_sek"] is None, o["price_sek"] or o["price"]))
+        self.assertEqual([o["shop"] for o in lst], ["A", "C", "B"])

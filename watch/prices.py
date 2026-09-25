@@ -473,9 +473,12 @@ def plain_prices(text, default_currency=None):
     code. The lowest amount in the first currency seen is the price; all amounts are kept for the reader."""
     found = []
     for m in re.finditer(r'<(?:span|div|p|td|b|strong|em|dd|li|h\d)\b[^>]*\b(?:class|id)=["\']([^"\']*price[^"\']*)["\']', text, re.I):
-        if re.search(r"ship|deliver|postage|tax|vat|per.?unit|unit.?price|old|regular|before|strike|was", m.group(1), re.I):
+        if re.search(r"ship|deliver|postage|tax|vat|per.?unit|unit.?price|old|regular|before|strike|was|month|instal|klarna|financ|rate", m.group(1), re.I):
             continue
         window = html.unescape(re.sub(r"<[^>]+>", " ", text[m.end():m.end() + 300]))
+        # an instalment ("from 17,80 €/month", Finnish "/kk", Swedish "/mån") is not the price
+        if re.search(r"/\s*(kk|mån|month|mo|monat|mois|md)\b|per month|kuukau|instal|klarna|financ", window, re.I):
+            continue
         for am in re.finditer(AMOUNT, window):
             num = am.group(1) or am.group(2)
             sym = re.search(r"€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr", am.group(0)).group(0)
@@ -487,9 +490,11 @@ def plain_prices(text, default_currency=None):
             break                                          # one amount per element: the first is the price shown
     if not found:
         return []
-    cur = found[0][1]
+    # the first price element on the page is the product's price (the ones after it are related products or
+    # other amounts); every amount seen is kept for the reader
+    price, cur = found[0]
     vals = sorted({v for v, c in found if c == cur})
-    return [{"price": vals[0], "currency": cur, "availability": None, "prices_on_page": vals,
+    return [{"price": price, "currency": cur, "availability": None, "prices_on_page": vals,
              "price_note": "read from the page's price element, not from structured data; check the page"}]
 
 
@@ -646,13 +651,27 @@ def make_offer(shop, url, text, model, best):
     return offer
 
 
+def mark_doubtful(lst):
+    """A price read from a page element (no structured data) that is below 30 % of the median of the driver's
+    structured-data prices is marked doubtful: kept in the list, never the lowest."""
+    solid = sorted(o["price_sek"] for o in lst if o.get("price_sek") and "price element" not in (o.get("price_note") or "") and not o.get("pack"))
+    if not solid:
+        return
+    median = solid[len(solid) // 2]
+    for o in lst:
+        if o.get("price_sek") and "price element" in (o.get("price_note") or "") and o["price_sek"] < 0.3 * median:
+            o["doubtful"] = True
+            o["price_note"] += f"; far below the other shops ({median} kr): probably not the product's price"
+
+
 def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, summary):
     today = dt.date.today().isoformat()
     byid = {d["id"]: d for d in drivers}
     for lst in offers.values():
         for o in lst:
             o["price_sek"] = to_sek(o["price"], o["currency"], rates)
-        lst.sort(key=lambda o: (bool(o.get("pack")), o["price_sek"] is None, o["price_sek"] or o["price"]))
+        mark_doubtful(lst)
+        lst.sort(key=lambda o: (bool(o.get("pack")) or bool(o.get("doubtful")), o["price_sek"] is None, o["price_sek"] or o["price"]))
     data = {"meta": {"updated": today, "rates_date": rate_date, "rates_per_eur": {k: rates[k] for k in sorted(rates) if k in ("SEK", "EUR", "GBP", "DKK", "NOK", "PLN", "CZK", "CHF", "HUF")},
                      "shops_scanned": [s["name"] for s in cfg["shops"]], "notes": shop_notes,
                      "how": "watch/prices.py: shop sitemaps searched for the model number, price read from the page's structured data, converted with ECB reference rates. Check the shop before buying."},
@@ -663,7 +682,7 @@ def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, s
              "| Driver | Lowest | Shop | Others |", "|---|---|---|---|"]
     for did, rec in data["drivers"].items():
         o = rec["offers"][0]
-        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" + (" (public price; lower when logged in)" if x.get("login_prices") else "") + (" (box price)" if x.get("pack") else "") for x in rec["offers"][1:])
+        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" + (" (public price; lower when logged in)" if x.get("login_prices") else "") + (" (box price)" if x.get("pack") else "") + (" (doubtful)" if x.get("doubtful") else "") for x in rec["offers"][1:])
         lines.append(f"| {rec['name']} | {o['price']:g} {o['currency']}" + (f" ≈ {o['price_sek']} kr" if o["price_sek"] else "") +
                      f" | [{o['shop']}]({o['url']})" + (" (public price; lower when logged in)" if o.get("login_prices") else "") + (" (box price)" if o.get("pack") else "") + f" | {rest or '—'} |")
     missing = [d["name"] for d in drivers if d["id"] not in data["drivers"]]
