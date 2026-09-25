@@ -69,6 +69,20 @@ def close(a, b, tol=90):
     return sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5)) <= tol
 
 
+def level_by_volts(charts):
+    """Drive voltage -> sound pressure at 1 kHz read from that voltage's response chart (HiFiCompass
+    states its levels at 1 m: the response chart's scale is that level)."""
+    out = {}
+    for ch in charts:
+        if ch.get("type") == "response" and ch.get("curves") and not ch.get("error"):
+            v = volts(ch["file"])
+            cv = max(ch["curves"], key=lambda c: c["pixels"])
+            at1k = [p["y"] for p in cv["points"] if 900 <= p["x"] <= 1100]
+            if v is not None and at1k:
+                out[v] = round(statistics.mean(at1k), 1)
+    return out
+
+
 def build(read, db):
     byid = {d["id"]: d for d in db["drivers"]}
     made, waiting = [], []
@@ -76,6 +90,7 @@ def build(read, db):
         d = byid.get(did)
         if not d:
             continue
+        levels = level_by_volts(charts)
         for ch in charts:
             if ch.get("error") or not ch.get("curves"):
                 waiting.append((did, ch["file"], ch.get("error") or "no curve read")); continue
@@ -103,6 +118,14 @@ def build(read, db):
                 if not series or any(s["name"] is None for s in series):
                     waiting.append((did, name, f"legend does not name the colours: {[(w['text'], w['colour']) for w in ch.get('legend', [])][:8]}")); continue
                 series.sort(key=lambda s: s["name"])
+                # the level of a harmonic set: the sound pressure the same drive voltage gives at 1 kHz on the response chart
+                v = cond.get("drive_v")
+                if kind == "hd-frequency":
+                    if v in levels:
+                        cond["spl_db"] = levels[v]
+                        note.append(f"level {levels[v]} dB at 1 m = the {v:g} V response read at 1 kHz")
+                    else:
+                        waiting.append((did, name, f"no response chart at {v} V to take the level from")); continue
             elif kind == "frequency-response":
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
                 if cv.get("lines_per_column", 1) > 1.5:
