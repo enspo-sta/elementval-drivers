@@ -1,5 +1,5 @@
 {
- "date": "2026-09-24",
+ "date": "2026-09-25",
  "scan_state": false,
  "in_database": [
   {
@@ -169,16 +169,12 @@
    "name": "SB Acoustics SB34NRXL75-8 ×2 (coherent pair)",
    "role": "woofer (pair)",
    "file": "drivers.json",
-   "captured": {
-    "HiFiCompass": 1
-   },
-   "derived_sets": 2,
+   "captured": {},
+   "derived_sets": 3,
    "also_measured_at": {},
    "tracked": true,
-   "independent_sources": 1,
-   "below_capture_minimum": [
-    "HD (orders) vs frequency (5/decade)"
-   ]
+   "independent_sources": 0,
+   "below_capture_minimum": []
   },
   {
    "id": "sb-satori-wo24p-4",

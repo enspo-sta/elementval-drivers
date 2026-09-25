@@ -1,6 +1,6 @@
 # Where each driver is measured
 
-Generated 2026-09-24 by `watch/coverage.py` from the database and the weekly scan; do not edit by hand.
+Generated 2026-09-25 by `watch/coverage.py` from the database and the weekly scan; do not edit by hand.
 
 Each source is counted separately: a driver measured by HiFiCompass and by Erin's Audio Corner has two sources, and their data is stored as separate measurement sets. Models and calculations ("Derived") are not counted as sources.
 
@@ -24,9 +24,9 @@ Each source is counted separately: a driver measured by HiFiCompass and by Erin'
 | SB Acoustics SB17CAC35-4 (proxy) | midbass | Erin's Audio Corner (2) | none found | 1 | Large-signal compression vs frequency (37/decade); Large-signal distortion vs frequency (37/decade) |
 | SB Acoustics SB17NBAC35-8 | midbass | HiFiCompass (2) | none found | 1 | none |
 | SB Acoustics SB34NRXL75-8 (Norex) | woofer | HiFiCompass (3); derived (1) | none found | 1 | HD (orders) vs frequency (5/decade) |
-| SB Acoustics SB34NRXL75-8 ×2 (coherent pair) | woofer (pair) | HiFiCompass (1); derived (2) | none found | 1 | HD (orders) vs frequency (5/decade) |
 | SB Acoustics Satori WO24P-4 | woofer | HiFiCompass (1) | none found | 1 | none |
 | SB Acoustics Satori WO24P-8 | woofer | HiFiCompass (2); derived (1) | none found | 1 | HD (orders) vs frequency (5/decade) |
+| SB Acoustics SB34NRXL75-8 ×2 (coherent pair) | woofer (pair) | none; derived (3) | none found | 0 | none |
 
 ### Midbass survey (19 drivers in drivers_survey_midbass.json)
 

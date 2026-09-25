@@ -1,6 +1,6 @@
 # Capture work list
 
-Written by `capture/worklist.py` on 2026-09-24. How to work through it: `capture/CHROME_CAPTURE.md`.
+Written by `capture/worklist.py` on 2026-09-25. How to work through it: `capture/CHROME_CAPTURE.md`.
 
 ## 1. Capture again at higher resolution
 
