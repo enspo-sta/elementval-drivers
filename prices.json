@@ -31,7 +31,7 @@
   ],
   "notes": [
    "SoundImports: 33576 addresses, 117 matching pages, 28 prices read",
-   "Audio-hi.fi: no sitemap found and no product page reached from the front page",
+   "Audio-hi.fi: 10596 addresses, 36 matching pages, 17 prices read",
    "Lautsprechershop (Strassacker): 5402 addresses, 0 matching pages, 0 prices read",
    "Intertechnik: 10 addresses, 0 matching pages, 0 prices read",
    "Toutlehautparleur: no sitemap found and no product page reached from the front page",
@@ -151,6 +151,19 @@
    "name": "BlieSMa M74A-6",
    "offers": [
     {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_m74a-6-p-5334.html",
+     "page_title": "BlieSMa M74A-6 - €356.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "M74A-6",
+     "price": 356.8,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 4028
+    },
+    {
      "shop": "SoundImports",
      "country": "NL",
      "url": "https://www.soundimports.eu/en/bliesma-m74a-6.html",
@@ -166,6 +179,24 @@
      "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
      "shop_note": "often the most expensive; no longer carries BlieSMa",
      "price_sek": 4290
+    }
+   ]
+  },
+  "m74t-6": {
+   "name": "BlieSMa M74T-6",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_m74t-6-p-5388.html",
+     "page_title": "BlieSMa M74T-6 - €506.80 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "M74T-6",
+     "price": 506.8,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 5722
     }
    ]
   },
@@ -682,6 +713,19 @@
    "name": "SB Acoustics Satori WO24P-4",
    "offers": [
     {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_wo24p-4_2032-p-992.html",
+     "page_title": "SB Acoustics WO24P-4 'Satori' - €198.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "WO24P-4",
+     "price": 198.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2242
+    },
+    {
      "shop": "Willys-HiFi",
      "country": "GB",
      "url": "https://willys-hifi.com/products/sb-acoustics-satori-wo24p-4-woofer",
@@ -725,6 +769,19 @@
   "sb-satori-wo24p-8": {
    "name": "SB Acoustics Satori WO24P-8",
    "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_wo24p-8_2033-p-802.html",
+     "page_title": "SB Acoustics WO24P-8 'Satori' - €198.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "WO24P-8",
+     "price": 198.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2242
+    },
     {
      "shop": "Willys-HiFi",
      "country": "GB",
@@ -779,6 +836,19 @@
      "currency": "GBP",
      "availability": "InStock",
      "price_sek": 2976
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_sb34nrxl75-8_2575-p-626.html",
+     "page_title": "SB Acoustics SB34NRXL75-8 'NRX' - €268.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "SB34NRXL75-8",
+     "price": 268.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 3032
     },
     {
      "shop": "SoundImports",
@@ -974,6 +1044,19 @@
    "name": "SB Acoustics SB23MFCL45-4",
    "offers": [
     {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_sb23mfcl45-4_2510-p-687.html",
+     "page_title": "SB Acoustics SB23MFCL45-4 - €128.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "SB23MFCL45-4",
+     "price": 128.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 1452
+    },
+    {
      "shop": "Willys-HiFi",
      "country": "GB",
      "url": "https://willys-hifi.com/products/sb-acoustics-sb23mfcl45-4-polypropylene-subwoofer",
@@ -1051,6 +1134,19 @@
    "name": "BlieSMa T25A-6",
    "offers": [
     {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t25a-6-p-4942.html",
+     "page_title": "BlieSMa T25A-6 - €148.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T25A-6",
+     "price": 148.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 1678
+    },
+    {
      "shop": "SoundImports",
      "country": "NL",
      "url": "https://www.soundimports.eu/en/bliesma-t25a-6.html",
@@ -1064,9 +1160,40 @@
     }
    ]
   },
+  "t25t-6": {
+   "name": "BlieSMa T25T-6",
+   "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t25t-6-p-6066.html",
+     "page_title": "BlieSMa T25T-6 - €248.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T25T-6",
+     "price": 248.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 2807
+    }
+   ]
+  },
   "t34a-4": {
    "name": "BlieSMa T34A-4",
    "offers": [
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/bliesma_t34a-4-p-1174.html",
+     "page_title": "BlieSMa T34A-4 - €288.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "T34A-4",
+     "price": 288.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 3258
+    },
     {
      "shop": "SoundImports",
      "country": "NL",
