@@ -478,7 +478,7 @@ def title_price(text, default_currency=None):
     return [{"price": v, "currency": cur, "availability": None, "price_note": "read from the page title"}] if v else []
 
 
-AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d[\d\s.,\u00a0]*\d|\d)|(\d[\d\s.,\u00a0]*\d|\d)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)(?![A-Za-z])"
+AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d{1,3}(?:[ \u00a0]\d{3})+(?:[.,]\d{1,2})?|\d+(?:[.,]\d+)?)|(\d{1,3}(?:[ \u00a0]\d{3})+(?:[.,]\d{1,2})?|\d+(?:[.,]\d+)?)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)(?![A-Za-z])"   # a space only as a thousands separator
 
 
 def plain_prices(text, default_currency=None):
@@ -673,9 +673,10 @@ def mark_doubtful(lst):
         return
     median = solid[len(solid) // 2]
     for o in lst:
-        if o.get("price_sek") and "price element" in (o.get("price_note") or "") and o["price_sek"] < 0.3 * median:
+        loose = any(k in (o.get("price_note") or "") for k in ("price element", "page title"))
+        if o.get("price_sek") and loose and not 0.3 * median <= o["price_sek"] <= 3 * median:
             o["doubtful"] = True
-            o["price_note"] += f"; far below the other shops ({median} kr): probably not the product's price"
+            o["price_note"] += f"; far from the other shops ({median} kr): probably not the product's price"
 
 
 def carry_hand_written(offers, previous):

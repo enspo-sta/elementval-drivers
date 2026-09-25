@@ -292,3 +292,18 @@ class ShopList(unittest.TestCase):
             o = prices["drivers"]["ptt65x04naa08"]["offers"][0]
             self.assertEqual((o["shop"], o["price"], o["price_logged_in"], o["checked"], o["hand_written"], o["price_sek"]), ("Toutlehautparleur", 420.0, 389.0, "2026-09-26", True, 4742))
             self.assertEqual((root / "capture" / "inventory_request.txt").read_text().splitlines(), ["BlieSMa M74A", "Scan-Speak 18W/8531G00"])
+
+
+class GluedAmounts(unittest.TestCase):
+    def test_a_stock_count_after_the_price_is_not_part_of_it(self):
+        page = '<span class="price">€ 399,95</span> 2 in stock'
+        self.assertEqual(P.offers_from_page(page, None)[0]["price"], 399.95)
+        page = '<span class="price">109.95 € 1 piece</span>'
+        self.assertEqual(P.offers_from_page(page, None)[0]["price"], 109.95)
+        self.assertEqual(P.offers_from_page('<span class="price">3 495 kr</span>', "SEK")[0]["price"], 3495.0)
+
+    def test_a_page_element_price_far_above_the_others_is_doubtful_too(self):
+        lst = [{"price": 220.0, "currency": "EUR", "price_sek": 2464, "shop": "A"},
+               {"price": 399952.0, "currency": "EUR", "price_sek": 4515458, "shop": "B", "price_note": "read from the page's price element, not from structured data; check the page"}]
+        P.mark_doubtful(lst)
+        self.assertTrue(lst[1]["doubtful"])
