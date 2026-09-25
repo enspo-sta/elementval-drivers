@@ -42,6 +42,7 @@ function matches(d, q) {
 
 function showList() {
   beginView(false);
+  shown.id = null;
   const surveyN = store.survey ? store.survey.drivers.length : 0;
   app().innerHTML = navHtml("drivers") + `<div class="kick"><span>${BRAND}</span><span style="color:var(--dim)" id="shown"></span></div>
     <h1>Driver database</h1>
@@ -108,6 +109,9 @@ function cardsOf(d, sourceName) {
 const levelName = s => (s.level != null ? `${Math.round(s.level * 10) / 10} dB` :
   (s.set.conditions || {}).drive_v != null ? `${[].concat(s.set.conditions.drive_v).join(" and ")} V` : s.set.method || `set ${s.index + 1}`);
 
+// the driver page keeps its scroll position when a toggle or source button redraws the same driver
+const shown = { id: null };
+
 function showDetail(id, params) {
   const d = records().find(x => x.id === id) || (store.survey && store.survey.drivers.find(x => x.id === id));
   if (!d) {
@@ -117,6 +121,7 @@ function showDetail(id, params) {
     return;
   }
   beginView(false);
+  const keep = shown.id === d.id ? window.scrollY : 0;   // same driver redrawn: stay where the reader is
   const fams = [...new Set((d.measurements || []).map(m => familyOf(m)).filter(Boolean))]
     .sort((a, b) => (a.rank || 99) - (b.rank || 99));
   let src = params.get("src");
@@ -210,7 +215,8 @@ function showDetail(id, params) {
   });
   draws.forEach(f => f());
   wireExports(app());
-  window.scrollTo(0, 0);
+  window.scrollTo(0, keep);
+  shown.id = d.id;
 }
 
 // Lowest prices from prices.json (rebuilt weekly by watch/prices.py).

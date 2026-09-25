@@ -82,6 +82,10 @@ test("Driver page: sources, level charts, export download", { skip: skip() }, as
   assert.match(await page.evaluate(() => location.hash), /src=HiFiCompass/);
   assert.ok(await page.$("text=2 levels"), "the two HiFiCompass levels share one chart");
   assert.ok(await page.$("text=Lowest price in Europe"), "the price card from prices.json");
+  await page.evaluate(() => window.scrollTo(0, 350)); await page.waitForTimeout(100);
+  await page.click("[data-card] >> text=THD"); await page.waitForTimeout(200);
+  const y = await page.evaluate(() => window.scrollY);
+  assert.ok(y > 250 && y < 450, `a harmonic toggle keeps the page where it was (scrollY ${y})`);
   assert.match(await page.textContent(".price"), /kr/, "the lowest price is given in kronor");
   assert.ok((await chartCount(page)) >= 1);
   const [download] = await Promise.all([page.waitForEvent("download"), page.click(".exportrow >> nth=0 >> [data-dl]")]);
