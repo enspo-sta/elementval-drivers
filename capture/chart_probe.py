@@ -188,7 +188,7 @@ def grid_lines(img, box, bg_hex):
         keys, counts = np.unique(q, axis=0, return_counts=True)
         return "#%02x%02x%02x" % tuple(int(v) for v in keys[counts.argmax()])
     rr, cc = runs(rows), runs(cols)
-    return rr[:60], cc[:60], colour_at(rr, "row"), colour_at(cc, "col")
+    return rr[:400], cc[:400], colour_at(rr, "row"), colour_at(cc, "col")
 
 
 def all_colours(img, box, bg_hex, top=12):

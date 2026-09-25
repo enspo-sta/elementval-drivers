@@ -13,7 +13,10 @@ For every chart of those types, this tool:
      1/24 octave (CAPTURE.md), and
   4. checks itself where it can: the 2.83 V response at 1 kHz against the sensitivity the page states;
      the impedance minimum against Re; the impedance peak against Fs.
-Everything it writes is numbers and text (capture/chart_read.json); no image is stored.
+A dark band across the middle of the green charts (a watermark) is not a grid row and not a curve: solid
+regions of a colour are left out of a curve, and where the curve is hidden for more than a few columns the
+gap is reported instead of bridged. Everything it writes is numbers and text (capture/chart_read.json);
+no image is stored.
   python3 capture/chart_read.py [--ids m74a-6,...] [--types response,harmonics,current,impedance]
 """
 import argparse
@@ -145,6 +148,25 @@ def grid_rows_only(img, rows, box):
     return rows
 
 
+def opened(mask, r=3):
+    """Morphological opening with a (2r+1)-square: what is left is the solid regions of the mask (a block of
+    colour, a watermark band, bold text); lines thinner than the square vanish. Separable min then max."""
+    import numpy as np
+    e = mask.copy()
+    for ax in (0, 1):
+        acc = e.copy()
+        for sft in range(1, r + 1):
+            acc &= np.roll(e, sft, axis=ax) & np.roll(e, -sft, axis=ax)
+        e = acc
+    d = e.copy()
+    for ax in (0, 1):
+        acc = d.copy()
+        for sft in range(1, r + 1):
+            acc |= np.roll(d, sft, axis=ax) | np.roll(d, -sft, axis=ax)
+        d = acc
+    return d
+
+
 def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     import numpy as np
     target = np.array([int(colour_hex[i:i + 2], 16) for i in (1, 3, 5)])
@@ -153,13 +175,16 @@ def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     x0, y0, x1, y1 = box
     dist = np.sqrt(((img - target) ** 2).sum(axis=2))
     mask = dist <= tol
+    # a curve is a thin line: solid regions of the same colour (the dark watermark band across the HiFiCompass
+    # charts, a block, bold text) are left out, so the middle of a column's pixels stays on the curve
+    mask &= ~opened(mask, 3)
     # a black or grey curve shares its colour with the grid lines: leave those rows and columns out (the curve
     # is interpolated across them); a coloured curve is far from the grey grid and needs no such gap
     if max(target) - min(target) < 30:
         for r in grid[0]:
-            mask[max(0, r[0] - 1):r[1] + 2, :] = False
+            mask[r[0]:r[1] + 1, :] = False
         for c in grid[1]:
-            mask[:, max(0, c[0] - 1):c[1] + 2] = False
+            mask[:, c[0]:c[1] + 1] = False
     pts, runs = [], []
     for col in range(x0, x1 + 1):
         ys = np.nonzero(mask[y0:y1 + 1, col])[0]
@@ -171,23 +196,86 @@ def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     return pts, (statistics.median(runs) if runs else 0)
 
 
+GAP_PX = 12   # columns without the curve: up to this many are bridged, more is a gap left out and reported
+
+
 def resample(points, xa, xb):
-    """(x pixel, y pixel) -> 1/24-octave points in (f, value) with the axis fits."""
+    """(x pixel, y pixel) -> 1/24-octave points in (f, value) with the axis fits, and the gaps (in Hz) where
+    the curve was not visible for more than GAP_PX columns (hidden behind the watermark band, or drawn on
+    a grid line of its own colour): no point is made up there."""
     if not points:
-        return []
+        return [], []
     fx = lambda x: 10 ** (xa[0] + xa[1] * x)
     fy = lambda y: xb[0] + xb[1] * y
-    raw = [(fx(x), fy(y)) for x, y in points]
+    raw = [(fx(x), fy(y), x) for x, y in points]
     lo, hi = raw[0][0], raw[-1][0]
     n = int(math.log2(hi / lo) * PER_OCTAVE)
-    out, j = [], 0
+    out, gaps, j = [], [], 0
     for i in range(n + 1):
         f = lo * 2 ** (i / PER_OCTAVE)
         while j < len(raw) - 2 and raw[j + 1][0] < f:
             j += 1
-        (f0, v0), (f1, v1) = raw[j], raw[j + 1]
+        (f0, v0, x0), (f1, v1, x1) = raw[j], raw[j + 1]
+        if x1 - x0 > GAP_PX and f0 < f < f1:
+            g = [round(f0, 1), round(f1, 1)]
+            if not gaps or gaps[-1] != g:
+                gaps.append(g)
+            continue
         t = 0 if f1 == f0 else (math.log(f / f0) / math.log(f1 / f0))
         out.append({"x": round(f, 2), "y": round(v0 + t * (v1 - v0), 2)})
+    return out, gaps
+
+
+def baseline(ys, h):
+    """The height most of the words share (within 3 px); the image height when there are none."""
+    if not ys:
+        return h
+    best = max(ys, key=lambda y: sum(1 for v in ys if abs(v - y) <= 3))
+    group = [v for v in ys if abs(v - best) <= 3]
+    return min(group)
+
+
+def band_colours(path, img, bands, box, bg_hex):
+    """What the band across the plot is made of (a diagnostic written with the reading): the image mode,
+    its transparency if any, and the exact colours of the first band with their share of it."""
+    import numpy as np
+    from PIL import Image
+    out = {}
+    try:
+        im = Image.open(path)
+        out["mode"] = im.mode
+        if "transparency" in im.info:
+            out["transparency"] = str(im.info["transparency"])[:40]
+        if im.mode in ("RGBA", "LA"):
+            al = np.asarray(im.convert("RGBA"))[:, :, 3]
+            out["alpha_min"] = int(al.min()); out["alpha_mean"] = round(float(al.mean()), 1)
+            if bands:
+                b = bands[0]
+                out["alpha_band_mean"] = round(float(al[b[0]:b[1] + 1, box[0]:box[2] + 1].mean()), 1)
+    except Exception as e:  # noqa: BLE001
+        out["error"] = str(e)
+    if bands:
+        b = bands[0]
+        region = img[b[0]:b[1] + 1, box[0]:box[2] + 1].reshape(-1, 3)
+        keys, counts = np.unique(region, axis=0, return_counts=True)
+        order = counts.argsort()[::-1][:6]
+        out["first_band"] = b
+        out["colours"] = [{"hex": "#%02x%02x%02x" % tuple(int(v) for v in keys[i]), "share": round(float(counts[i]) / region.shape[0], 3)} for i in order]
+        # the band's profile: share of pixels away from the background in a few rows and at a few columns
+        bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+        far = np.abs(img - bg).sum(axis=2) >= 40
+        out["row_shares"] = {str(y): round(float(far[y, box[0]:box[2] + 1].mean()), 2) for y in range(b[0], b[1] + 1, max(1, (b[1] - b[0]) // 6))}
+        out["column_runs"] = {}
+        for x in range(box[0] + 100, box[2], max(1, (box[2] - box[0]) // 6)):
+            col = far[max(0, b[0] - 10):b[1] + 11, x]
+            ys = np.nonzero(col)[0]
+            runs = []
+            for y in ys:
+                if runs and y == runs[-1][1] + 1:
+                    runs[-1][1] = int(y)
+                else:
+                    runs.append([int(y), int(y)])
+            out["column_runs"][str(x)] = [[max(0, b[0] - 10) + r0, max(0, b[0] - 10) + r1] for r0, r1 in runs][:12]
     return out
 
 
@@ -199,16 +287,22 @@ def read_chart(path, ctype):
     bg, bright, share = CP.background(img)
     box = CP.plot_box(img, bg) or [0, 0, w - 1, h - 1]
     rows, cols, rcol, ccol = CP.grid_lines(img, box, bg)
+    # a run taller than a few pixels is not a grid line: the dark watermark band across the HiFiCompass charts
+    bands = [r for r in rows if r[1] - r[0] >= 4]
+    rows = [r for r in rows if r[1] - r[0] < 4]
     rows = grid_rows_only(img, rows, box)
     left = CP.safe_ocr(path, [0, 0, max(cols[0][0] - 2 if cols else 40, 40), h], w, h)
     bottom = CP.safe_ocr(path, [0, rows[-1][1] + 2 if rows else int(h * 0.9), w, h], w, h)
     xa, ya = x_axis(cols, bottom), y_axis(rows, left)
     rec = {"background": bg, "grid_rows": len(rows), "grid_cols": [c[0] for c in cols], "x_axis": xa, "y_axis": ya,
-           "left_labels": [(wd["text"], wd["y"]) for wd in left if "text" in wd], "bottom_labels": [(wd["text"], wd["x"]) for wd in bottom if "text" in wd]}
+           "left_labels": [(wd["text"], wd["y"]) for wd in left if "text" in wd], "bottom_labels": [(wd["text"], wd["x"]) for wd in bottom if "text" in wd],
+           "bands": bands, "band_colours": band_colours(path, img, bands, box, bg)}
     if not xa or not ya:
         rec["error"] = "axes could not be fitted"
         return rec
-    label_top = min([wd["y"] for wd in bottom if "text" in wd] or [h]) - 6
+    # the frequency labels share one baseline: the plot ends above the largest group of words at one height
+    # (a value label of the left axis that strayed into the band below the last grid row is not that group)
+    label_top = baseline([wd["y"] for wd in bottom if "text" in wd], h) - 6
     bottom_edge = max(rows[-1][1] + 1, min(label_top, h - 1)) if rows else min(label_top, h - 1)
     plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, bottom_edge] if rows and cols else box
     curves = []
@@ -228,7 +322,8 @@ def read_chart(path, ctype):
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
         if len(pts) < 50 or runs >= 3:
             continue                                   # a dotted grid gives several runs per column; a curve gives one
-        curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
+        points, gaps = resample(pts, xa, ya)
+        curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps})
     curves.sort(key=lambda c: -c["columns"])
     rec["legend"] = legend(path, img, rows, w, h, bg)
     # every colour the legend names is read as a curve too (H3 in black, H4 in grey): the legend's own
@@ -244,7 +339,8 @@ def read_chart(path, ctype):
             continue                                    # already read in a near colour
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
         if len(pts) >= 50 and runs < 3:
-            curves.append({"colour": hexv, "pixels": len(pts), "columns": len(pts), "lines_per_column": runs, "points": resample(pts, xa, ya)})
+            points, gaps = resample(pts, xa, ya)
+            curves.append({"colour": hexv, "pixels": len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps})
     # every curve gets the legend name whose colour is nearest (one name per curve)
     taken = set()
     for c in sorted(curves, key=lambda c: -c["columns"]):
@@ -304,12 +400,15 @@ def legend(path, img, rows, w, h, bg_hex="#000000"):
 def checks(did, d, ctype, name, rec):
     out = []
     ts = d.get("ts") or {}
-    if ctype == "response" and "2v83" in name and rec.get("curves") and ts.get("sens"):
+    if ctype == "response" and rec.get("curves") and ts.get("sens"):
+        m = re.search(r"_(\d+)v(\d*)(?:_|\.)", name)
+        volts = float(m.group(1) + ("." + m.group(2) if m.group(2) else "")) if m else None
         c = rec["curves"][0]
         at1k = [p["y"] for p in c["points"] if 900 <= p["x"] <= 1100]
-        if at1k:
+        if at1k and volts:
             v = statistics.mean(at1k)
-            out.append({"check": "2.83 V response at 1 kHz against the stated sensitivity", "read": round(v, 1), "stated": ts["sens"], "difference_db": round(v - ts["sens"], 1)})
+            expected = ts["sens"] + 20 * math.log10(volts / 2.83)
+            out.append({"check": f"{volts:g} V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage)", "read": round(v, 1), "expected": round(expected, 1), "stated_sens": ts["sens"], "difference_db": round(v - expected, 1)})
     if ctype == "impedance" and rec.get("curves"):
         c = max(rec["curves"], key=lambda c: c["pixels"])
         ys = [p["y"] for p in c["points"]]
@@ -320,6 +419,28 @@ def checks(did, d, ctype, name, rec):
             peak = max(low, key=lambda p: p["y"])
             out.append({"check": "impedance peak against Fs", "read_hz": peak["x"], "read_ohm": peak["y"], "stated_fs": ts["Fs"]})
     return out
+
+
+def share_names(res):
+    """A colour the legend named in one chart names the same colour in the driver's other charts of that
+    type when their own legend missed it (the OCR of a legend word fails now and then)."""
+    dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
+    by_type = {}
+    for rec in res:
+        for c in rec.get("curves", []):
+            if c.get("name"):
+                by_type.setdefault(rec["type"], {}).setdefault(c["colour"], set()).add(c["name"])
+    for rec in res:
+        known = by_type.get(rec["type"], {})
+        taken = {c["name"] for c in rec.get("curves", []) if c.get("name")}
+        for c in rec.get("curves", []):
+            if c.get("name"):
+                continue
+            near = sorted((dist(c["colour"], hexv), hexv) for hexv in known)
+            if near and near[0][0] <= 60:
+                names = known[near[0][1]] - taken
+                if len(names) == 1:
+                    c["name"] = next(iter(names)); c["name_from"] = "the legend of another chart of this driver"; taken.add(c["name"])
 
 
 def main():
@@ -369,6 +490,7 @@ def main():
                 cv = rec.get("curves", [])
                 print(f"  {name}: legend {[(wd['text'], wd['colour']) for wd in rec.get('legend', [])][:10]} x {rec.get('x_axis')} y {rec.get('y_axis')} curves {[(c['colour'], c['columns'], c['lines_per_column'], len(c['points'])) for c in cv]} checks {rec['checks']} {rec.get('error', '')}", flush=True)
                 res.append(rec)
+        share_names(res)
         out["drivers"][did] = res
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
     print(f"written {a.out}")
