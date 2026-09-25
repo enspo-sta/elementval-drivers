@@ -6,7 +6,8 @@
       "country": "NL",
       "home": "https://www.soundimports.eu/",
       "delay_s": 3,
-      "note": "often the most expensive; no longer carries BlieSMa"
+      "note": "often the most expensive; no longer carries BlieSMa",
+      "currency": "EUR"
     },
     {
       "name": "Audio-hi.fi",
@@ -32,7 +33,7 @@
       "country": "FR",
       "home": "https://www.toutlehautparleur.com/",
       "delay_s": 3,
-      "note": "often the cheapest, but the good prices show only when logged in",
+      "note": "often the cheapest, but the good prices show only when logged in; its site also refuses automatic reading (HTTP 403), so it is checked on David’s computer",
       "login_prices": true
     },
     {

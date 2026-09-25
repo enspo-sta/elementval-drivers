@@ -64,7 +64,7 @@ class Site:
             time.sleep(gap)
         self.last = time.time()
 
-    def get(self, url, binary=False):
+    def get(self, url, binary=False, retry=False):
         if not self.allowed(url):
             log(f"  {self.shop['name']}: robots.txt disallows {url}")
             return None
@@ -83,17 +83,32 @@ class Site:
         except urllib.error.HTTPError as e:
             log(f"  {self.shop['name']}: HTTP {e.code} for {url}")
         except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if "CERTIFICATE_VERIFY_FAILED" in str(e) and not retry:
+                other = swap_www(url)                     # the other host form often has a complete certificate chain
+                log(f"  {self.shop['name']}: certificate problem at {urllib.parse.urlparse(url).netloc}, trying {urllib.parse.urlparse(other).netloc}")
+                return self.get(other, binary, retry=True)
             log(f"  {self.shop['name']}: cannot fetch {url}: {e}")
         return None
 
     def read_robots(self):
-        self.wait()
-        req = urllib.request.Request(self.origin + "/robots.txt", headers={"User-Agent": UA})
-        try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                text = r.read().decode("utf-8", "replace")
-        except Exception as e:                       # no robots.txt: everything allowed
-            log(f"  {self.shop['name']}: no robots.txt ({e})")
+        text = None
+        for origin in (self.origin, swap_www(self.origin)):
+            self.wait()
+            req = urllib.request.Request(origin + "/robots.txt", headers={"User-Agent": UA})
+            try:
+                with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                    text = r.read().decode("utf-8", "replace")
+                if origin != self.origin:
+                    log(f"  {self.shop['name']}: using {origin} (the other host form failed)")
+                    self.origin = origin
+                    self.host = urllib.parse.urlparse(origin).netloc
+                break
+            except Exception as e:                   # no robots.txt: everything allowed
+                if "CERTIFICATE_VERIFY_FAILED" not in str(e):
+                    log(f"  {self.shop['name']}: no robots.txt ({e})")
+                    return
+                log(f"  {self.shop['name']}: certificate problem at {origin}")
+        if text is None:
             return
         applies = False
         for raw in text.splitlines():
@@ -127,6 +142,12 @@ class Site:
 
 
 # ---------------------------------------------------------------- matching model numbers
+def swap_www(url):
+    u = urllib.parse.urlparse(url)
+    host = u.netloc[4:] if u.netloc.startswith("www.") else "www." + u.netloc
+    return urllib.parse.urlunparse(u._replace(netloc=host))
+
+
 def norm(s):
     """lower case, letters and digits kept, every run of other characters becomes one '|'."""
     return re.sub(r"[^a-z0-9]+", "|", s.lower()).strip("|")
@@ -176,6 +197,8 @@ def sitemap_urls(site, url, depth=0, seen=None):
         return []
     tag = root.tag.lower()
     locs = [e.text.strip() for e in root.iter() if e.tag.lower().endswith("}loc") and e.text]
+    if not tag.endswith("sitemapindex") and locs and all(re.search(r"\.xml(\.gz)?(\?|$)", l) for l in locs):
+        tag = "sitemapindex"                          # a plain list whose entries are themselves sitemaps
     if tag.endswith("sitemapindex"):
         out = []
         children = [l for l in locs if not re.search(r"image|blog|news|cms|category|categories|tag", l, re.I)]
@@ -190,10 +213,15 @@ def sitemap_urls(site, url, depth=0, seen=None):
 def candidate_pages(site):
     starts = list(site.shop.get("sitemaps") or []) + site.sitemaps
     if not starts:
-        starts = [site.origin + "/sitemap.xml", site.shop["home"].rstrip("/") + "/sitemap.xml"]
+        starts = [site.origin + p for p in ("/sitemap.xml", "/sitemap_index.xml", "/sitemap-index.xml", "/sitemap.xml.gz",
+                                            "/sitemaps/sitemap.xml", "/media/sitemap.xml", "/pub/sitemap.xml", "/sitemap_products_1.xml")]
+        if site.shop["home"].rstrip("/") != site.origin:
+            starts.insert(1, site.shop["home"].rstrip("/") + "/sitemap.xml")
     urls = []
     for s in dict.fromkeys(starts):
         urls += sitemap_urls(site, s)
+        if urls and not site.shop.get("sitemaps") and not site.sitemaps:
+            break                                     # the first address that works is enough
     host = site.host.lower().removeprefix("www.")
     return list(dict.fromkeys(u for u in urls if u.startswith("http")
                               and urllib.parse.urlparse(u).netloc.lower().removeprefix("www.") == host
@@ -271,13 +299,21 @@ def offers_from_page(text, default_currency=None):
             if p is not None:
                 out.append({"price": p, "currency": cur.group(1).upper(), "availability": None})
     if not out:
-        m = re.search(r'class="[^"]*oe_currency_value[^"]*"[^>]*>\s*([\d.,\s\u00a0]+)\s*<', text)
-        if m:
-            p = to_number(m.group(1))
+        amounts = [to_number(v) for v in re.findall(r'data-price-type="finalPrice"[^>]*data-price-amount="([\d.]+)"', text)]
+        amounts += [to_number(v) for v in re.findall(r'"finalPrice"\s*:\s*\{\s*"amount"\s*:\s*"?([\d.]+)', text)]
+        amounts = [a for a in amounts if a]
+        if amounts:
+            cur = re.search(r'"currencyCode"\s*:\s*"([A-Z]{3})"', text) or re.search(r'itemprop=["\']priceCurrency["\'][^>]*content=["\']([^"\']+)', text, re.I)
+            out.append({"price": min(amounts), "currency": (cur.group(1) if cur else default_currency or "").upper(),
+                        "availability": "OutOfStock" if re.search(r"out of stock|nicht lieferbar|uitverkocht|ausverkauft", text, re.I) else None})
+    if not out:
+        vals = [to_number(v) for v in re.findall(r'class="[^"]*oe_currency_value[^"]*"[^>]*>\s*([\d.,\s\u00a0]+)\s*<', text)]
+        vals = [v for v in vals if v]
+        if vals:
             cur = re.search(r'itemprop=["\']priceCurrency["\'][^>]*content=["\']([^"\']+)', text, re.I)
-            sym = "EUR" if re.search(r"€|EUR", text[max(0, m.start() - 300):m.end() + 300]) else None
-            if p is not None:
-                out.append({"price": p, "currency": (cur.group(1) if cur else sym or default_currency or "").upper(), "availability": None})
+            sym = "EUR" if re.search(r"€|EUR", text) else None
+            out.append({"price": min(vals), "currency": (cur.group(1) if cur else sym or default_currency or "").upper(), "availability": None,
+                        "prices_on_page": sorted(set(vals))})
     if not out:
         ip = re.search(r'itemprop=["\']price["\'][^>]*content=["\']([^"\']+)', text, re.I)
         ic = re.search(r'itemprop=["\']priceCurrency["\'][^>]*content=["\']([^"\']+)', text, re.I)
@@ -376,6 +412,8 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
                 if rx.search(n):
                     hits.append((did, model, url))
         log(f"  {len(pages)} addresses in sitemaps, {len(hits)} product pages match a driver")
+        if pages and not hits:
+            log("  no match; addresses look like: " + " | ".join(pages[len(pages) // 2:len(pages) // 2 + 4]))
         if len(hits) > MAX_PAGES_PER_SHOP:
             shop_notes.append(f"{shop['name']}: {len(hits)} matching pages, only the first {MAX_PAGES_PER_SHOP} read")
         found = 0
@@ -390,6 +428,9 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
             best = min(page_offers, key=lambda o: o["price"])
             offer = {"shop": shop["name"], "country": shop["country"], "url": url, "page_title": page_title(text), "model": model,
                      "price": best["price"], "currency": best["currency"], "availability": best["availability"]}
+            if len(best.get("prices_on_page") or []) > 1:
+                offer["prices_on_page"] = best["prices_on_page"]
+                offer["price_note"] = "the page shows several prices (quantity prices?); the lowest is used, check the page"
             if shop.get("note"):
                 offer["shop_note"] = shop["note"]
             if shop.get("login_prices"):

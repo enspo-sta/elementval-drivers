@@ -116,3 +116,19 @@ class Scanner(unittest.TestCase):
             self.assertEqual(P.candidate_pages(site), ["https://shop.example/p/ptt", "https://www.shop.example/en/ptt.html"])
         finally:
             importlib.reload(P)
+
+
+class MoreShops(unittest.TestCase):
+    def test_magento_price_markup(self):
+        mag = '<span data-price-type="finalPrice" data-price-amount="469.95"></span><script>"currencyCode":"EUR"</script>'
+        self.assertEqual(P.offers_from_page(mag, "EUR"), [{"price": 469.95, "currency": "EUR", "availability": None}])
+
+    def test_odoo_quantity_prices_take_the_lowest_and_keep_all(self):
+        odoo = '<span class="oe_currency_value">3,750.00</span> € <span class="oe_currency_value">375.00</span>'
+        o = P.offers_from_page(odoo, "EUR")[0]
+        self.assertEqual(o["price"], 375.0)
+        self.assertEqual(o["prices_on_page"], [375.0, 3750.0])
+
+    def test_swap_www(self):
+        self.assertEqual(P.swap_www("https://audio-hi.fi/robots.txt"), "https://www.audio-hi.fi/robots.txt")
+        self.assertEqual(P.swap_www("https://www.shop.example/a?b=1"), "https://shop.example/a?b=1")
