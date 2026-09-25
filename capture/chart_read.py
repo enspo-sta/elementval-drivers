@@ -123,13 +123,14 @@ def grid_rows_only(img, rows, box):
     import statistics
     if len(rows) >= 4:
         ys = [r[0] for r in rows]
-        d0 = statistics.median(b - a for a, b in zip(ys, ys[1:]))
-        if d0 > 0:
-            base = ys[0]
-            # the exact spacing from the rows' positions (the median step is a whole pixel, the spacing is not)
-            ks = [round((y - base) / d0) for y in ys]
-            d = statistics.median((y - base) / k for y, k in zip(ys, ks) if k > 0) or d0
-            rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.2]
+        # the spacing: the median over two steps (rows alternate 18 and 19 px when the spacing is 18.46), then
+        # refined twice from every row's distance to the first
+        d = statistics.median((c - a) / 2 for a, c in zip(ys, ys[2:]))
+        base = ys[0]
+        for _ in range(2):
+            ks = [round((y - base) / d) for y in ys]
+            d = statistics.median([(y - base) / k for y, k in zip(ys, ks) if k > 0]) or d
+        rows = [r for r in rows if abs(((r[0] - base) / d) - round((r[0] - base) / d)) <= 0.25]
     return rows
 
 
@@ -141,12 +142,13 @@ def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     x0, y0, x1, y1 = box
     dist = np.sqrt(((img - target) ** 2).sum(axis=2))
     mask = dist <= tol
-    # the grid lines are close in colour to a grey curve: leave those rows and columns out (the curve is
-    # interpolated across them)
-    for r in grid[0]:
-        mask[max(0, r[0] - 1):r[1] + 2, :] = False
-    for c in grid[1]:
-        mask[:, max(0, c[0] - 1):c[1] + 2] = False
+    # a black or grey curve shares its colour with the grid lines: leave those rows and columns out (the curve
+    # is interpolated across them); a coloured curve is far from the grey grid and needs no such gap
+    if max(target) - min(target) < 30:
+        for r in grid[0]:
+            mask[max(0, r[0] - 1):r[1] + 2, :] = False
+        for c in grid[1]:
+            mask[:, max(0, c[0] - 1):c[1] + 2] = False
     pts, runs = [], []
     for col in range(x0, x1 + 1):
         ys = np.nonzero(mask[y0:y1 + 1, col])[0]
