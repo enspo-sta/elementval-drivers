@@ -50,7 +50,9 @@ What the scan cannot see: Toutlehautparleur refuses automatic reading and shows 
 when logged in, so it is checked by hand on David's computer (step 8 of `capture/CHROME_CAPTURE.md`
 writes `price_logged_in` into the offer); a shop that sells whole boxes (Purifi's own shop, `"pack"`
 in the config) is listed with its box price but never counted as the lowest; a shop without a sitemap
-can be given its product pages by hand (`"pages"`). audio-hi.fi is the European distributor for
+can be given its product pages by hand (`"pages"`) or pages to follow links from (`"hubs"`); without
+either, the scanner follows links from the front page and from brand pages found in the sitemap, two
+levels at most. A page without structured price data is read from its price element (marked in the offer). audio-hi.fi is the European distributor for
 BlieSMa. A shop's server that sends an incomplete certificate chain is completed the way a browser
 does (the missing intermediate certificate is fetched from the address in the certificate);
 verification is never turned off.

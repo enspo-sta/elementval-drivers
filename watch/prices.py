@@ -40,6 +40,9 @@ UA = "elementval-drivers-prices/1.0 (+https://github.com/enspo-sta/elementval-dr
 ECB = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
 MAX_CHILD_SITEMAPS = 40
 MAX_PAGES_PER_SHOP = 120
+MAX_HUBS = 8                 # hub pages (brand pages, the front page) followed per shop
+MAX_HUB_LINKS = 25           # brand-named links followed from each hub
+CURRENCY_SIGNS = {"€": "EUR", "£": "GBP", "EUR": "EUR", "GBP": "GBP", "SEK": "SEK", "DKK": "DKK", "NOK": "NOK", "CHF": "CHF", "PLN": "PLN", "CZK": "CZK"}
 TIMEOUT = 30
 
 
@@ -68,8 +71,9 @@ class Site:
         self.last = time.time()
 
     def get(self, url, binary=False, retry=False):
-        if not self.allowed(url):
-            log(f"  {self.shop['name']}: robots.txt disallows {url}")
+        ok, rule = self.rule_for(url)
+        if not ok:
+            log(f"  {self.shop['name']}: robots.txt disallows {url} (rule: Disallow: {rule})")
             return None
         self.wait()
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Encoding": "gzip", "Accept": "*/*"})
@@ -161,14 +165,18 @@ class Site:
                 except ValueError:
                     pass
 
-    def allowed(self, url):
+    def rule_for(self, url):
+        """(allowed, the robots.txt rule that decided it or None): the longest matching rule wins."""
         path = urllib.parse.urlparse(url).path or "/"
-        best, verdict = -1, True
+        best, verdict, which = -1, True, None
         for rule, ok in [(r, False) for r in self.disallow] + [(r, True) for r in self.allow]:
             pat = "^" + re.escape(rule).replace(r"\*", ".*").rstrip("\\$") + ("$" if rule.endswith("$") else "")
             if re.match(pat, path) and len(rule) > best:
-                best, verdict = len(rule), ok
-        return verdict
+                best, verdict, which = len(rule), ok, rule
+        return verdict, which
+
+    def allowed(self, url):
+        return self.rule_for(url)[0]
 
 
 # ---------------------------------------------------------------- incomplete certificate chains
@@ -313,6 +321,51 @@ def candidate_pages(site):
                               and not re.search(r"\.(jpe?g|png|gif|webp|svg|pdf|zip|mp4)(\?|$)", u, re.I)))
 
 
+def links_of(site, url, text):
+    """Addresses linked from a page, on the shop's own host, without images, styles or scripts."""
+    host = site.host.lower().removeprefix("www.")
+    out = []
+    for h in re.findall(r'href=["\']([^"\'#>]+)', text, re.I):
+        u = urllib.parse.urljoin(url, html.unescape(h.strip())).split("#")[0]
+        if u.startswith("http") and urllib.parse.urlparse(u).netloc.lower().removeprefix("www.") == host \
+                and not re.search(r"\.(jpe?g|png|gif|webp|svg|pdf|zip|mp4|css|js|ico)(\?|$)", u, re.I):
+            out.append(u)
+    return list(dict.fromkeys(out))
+
+
+def crawl_hubs(site, hubs, wanted, makers):
+    """Product pages reached from hub pages (a brand page in the sitemap, a page named in the config, or
+    the front page when there is no sitemap): the hub's own links that match a model, plus the links of the
+    hub's brand-named links. Two levels, bounded by MAX_HUBS and MAX_HUB_LINKS."""
+    hits, seen = [], set()
+    def match(urls):
+        for u in urls:
+            n = norm(urllib.parse.urlparse(u).path)
+            for did, model, rx in wanted:
+                if rx.search(n):
+                    hits.append((did, model, u))
+    for hub in hubs[:MAX_HUBS]:
+        text = site.get(hub)
+        if not text:
+            continue
+        links = links_of(site, hub, text)
+        match(links)
+        brand = [u for u in links if u != hub and u not in seen and any(m in u.lower() for m in makers)][:MAX_HUB_LINKS]
+        for u in brand:
+            seen.add(u)
+            t2 = site.get(u)
+            if t2:
+                match(links_of(site, u, t2))
+    return list(dict.fromkeys(hits))
+
+
+def maker_words(drivers):
+    """Words that name a manufacturer in an address: 'dayton', 'purifi', 'sbacoustics', ... (short or common words left out)."""
+    words = {(d.get("manufacturer") or d.get("name") or "").split()[0].lower() for d in drivers if d.get("name")}
+    words = {w for w in words if len(w) >= 4 and w not in ("sound", "group", "audio")}
+    return sorted(words | {"sbacoustics", "sb-acoustics", "sb_acoustics", "satori", "bliesma"})
+
+
 # ---------------------------------------------------------------- prices from a page
 def walk(obj):
     if isinstance(obj, dict):
@@ -406,7 +459,38 @@ def offers_from_page(text, default_currency=None):
             p = to_number(ip.group(1))
             if p is not None:
                 out.append({"price": p, "currency": ic.group(1).upper(), "availability": None})
+    if not out:
+        out += plain_prices(text, default_currency)
     return [o for o in out if o["price"] > 0 and o["currency"]]
+
+
+AMOUNT = r"(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\s*(\d[\d\s.,\u00a0]*\d|\d)|(\d[\d\s.,\u00a0]*\d|\d)\s*(?:€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr)\b"
+
+
+def plain_prices(text, default_currency=None):
+    """Prices from plain shop markup (osCommerce, Zen Cart, older PrestaShop): an element whose class or id
+    says 'price' (not shipping or tax), followed within 300 characters by an amount with a currency sign or
+    code. The lowest amount in the first currency seen is the price; all amounts are kept for the reader."""
+    found = []
+    for m in re.finditer(r'<(?:span|div|p|td|b|strong|em|dd|li|h\d)\b[^>]*\b(?:class|id)=["\']([^"\']*price[^"\']*)["\']', text, re.I):
+        if re.search(r"ship|deliver|postage|tax|vat|per.?unit|unit.?price|old|regular|before|strike|was", m.group(1), re.I):
+            continue
+        window = html.unescape(re.sub(r"<[^>]+>", " ", text[m.end():m.end() + 300]))
+        for am in re.finditer(AMOUNT, window):
+            num = am.group(1) or am.group(2)
+            sym = re.search(r"€|£|EUR|GBP|SEK|DKK|NOK|CHF|PLN|CZK|kr", am.group(0)).group(0)
+            v = to_number(num)
+            if not v:
+                continue
+            cur = CURRENCY_SIGNS.get(sym.upper()) or (default_currency if default_currency in ("SEK", "DKK", "NOK") else "SEK")
+            found.append((v, cur))
+            break                                          # one amount per element: the first is the price shown
+    if not found:
+        return []
+    cur = found[0][1]
+    vals = sorted({v for v, c in found if c == cur})
+    return [{"price": vals[0], "currency": cur, "availability": None, "prices_on_page": vals,
+             "price_note": "read from the page's price element, not from structured data; check the page"}]
 
 
 def why_no_price(text):
@@ -420,6 +504,12 @@ def why_no_price(text):
         bits.append("has an Odoo price span")
     if re.search(r"out of stock|nicht lieferbar|rupture|slut i lager|uitverkocht|ausverkauft", text, re.I):
         bits.append("page says out of stock")
+    plain = re.sub(r"<[^>]+>", " ", text)
+    m = re.search(r".{0,50}(?:€|£|EUR|SEK|GBP|\bkr\b).{0,40}", html.unescape(plain), re.S)
+    if m:
+        bits.append("text near the first currency sign: " + re.sub(r"\s+", " ", m.group(0)).strip()[:100])
+    else:
+        bits.append("no currency sign in the page text")
     return "; ".join(bits)
 
 
@@ -487,10 +577,11 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
         log(f"{shop['name']} ({shop['country']})")
         site = Site(shop)
         pages = list(dict.fromkeys(candidate_pages(site) + list(shop.get("pages") or [])))   # explicit product pages from the config too
+        hubs = list(shop.get("hubs") or [])
         if not pages:
             log(f"  no sitemap found (robots.txt lists none and the usual sitemap addresses gave nothing); {len(site.disallow)} disallow rule(s) in robots.txt")
-            shop_notes.append(f"{shop['name']}: no sitemap found (robots.txt lists none and /sitemap.xml gave nothing)")
-            continue
+            if not hubs:
+                hubs = [shop["home"]]                      # no sitemap: follow links from the front page instead
         hits = []
         for url in pages:
             n = norm(urllib.parse.urlparse(url).path)
@@ -498,11 +589,19 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
                 if rx.search(n):
                     hits.append((did, model, url))
         log(f"  {len(pages)} addresses in sitemaps, {len(hits)} product pages match a driver")
+        makers = maker_words(drivers)
         if pages and not hits:
             log("  no match; addresses look like: " + " | ".join(pages[len(pages) // 2:len(pages) // 2 + 4]))
-            makers = sorted({(d.get("manufacturer") or d["name"]).split()[0].lower() for d in drivers if d.get("name")})
-            named = [u for u in pages if any(m in u.lower() for m in makers)][:6]
+            named = [u for u in pages if any(m in u.lower() for m in makers)][:MAX_HUBS]
             log("  addresses naming a manufacturer: " + (" | ".join(named) if named else "none") + f" (looked for {', '.join(makers)})")
+            hubs = list(dict.fromkeys(hubs + named))       # brand pages usually link to the product pages
+        if hubs:
+            more = [h for h in crawl_hubs(site, hubs, wanted, makers) if h not in hits]
+            log(f"  {len(more)} product pages found by following links from {min(len(hubs), MAX_HUBS)} hub page(s)")
+            hits += more
+        if not pages and not hits:
+            shop_notes.append(f"{shop['name']}: no sitemap found and no product page reached from the front page")
+            continue
         if len(hits) > MAX_PAGES_PER_SHOP:
             shop_notes.append(f"{shop['name']}: {len(hits)} matching pages, only the first {MAX_PAGES_PER_SHOP} read")
         found = 0
@@ -535,6 +634,8 @@ def make_offer(shop, url, text, model, best):
     if len(best.get("prices_on_page") or []) > 1:
         offer["prices_on_page"] = best["prices_on_page"]
         offer["price_note"] = "the page shows several prices (quantity prices?); the lowest is used, check the page"
+    if best.get("price_note"):
+        offer["price_note"] = best["price_note"] + ("; several amounts on the page, the lowest is used" if len(best.get("prices_on_page") or []) > 1 else "")
     if shop.get("note"):
         offer["shop_note"] = shop["note"]
     if shop.get("login_prices"):

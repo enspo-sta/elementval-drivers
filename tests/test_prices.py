@@ -169,3 +169,60 @@ class Offers(unittest.TestCase):
         cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text())
         purifi = next(s for s in cfg["shops"] if s["name"] == "Purifi (direct)")
         self.assertIn("box", purifi["pack"])
+
+
+class PlainMarkup(unittest.TestCase):
+    """Shops without structured price data (osCommerce-style pages such as audio-hi.fi)."""
+    def test_price_element_with_currency_sign(self):
+        page = '<div class="productPrice"><span>1 234,00</span> €</div>'
+        o = P.offers_from_page(page, None)[0]
+        self.assertEqual((o["price"], o["currency"]), (1234.0, "EUR"))
+        self.assertIn("price element", o["price_note"])
+
+    def test_shipping_and_old_prices_are_not_the_price(self):
+        page = '<span class="shipping-price">5,90 €</span><span class="old-price">129 €</span><span id="price">99 €</span>'
+        self.assertEqual(P.offers_from_page(page, None)[0]["price"], 99.0)
+
+    def test_kronor_use_the_shop_currency(self):
+        self.assertEqual(P.offers_from_page('<td class="price"><b>3 495</b> kr</td>', "SEK")[0]["currency"], "SEK")
+        self.assertEqual(P.offers_from_page('<td class="price">3 495 kr</td>', "DKK")[0]["currency"], "DKK")
+        self.assertEqual(P.offers_from_page('<p>no price element 12 €</p>', "EUR"), [])
+
+    def test_why_no_price_quotes_the_text_near_the_currency_sign(self):
+        d = P.why_no_price("<html><body><p>Price incl. VAT: 199,00 €</p></body></html>")
+        self.assertIn("199,00 €", d)
+
+
+class Hubs(unittest.TestCase):
+    def fake_site(self, pages):
+        site = P.Site.__new__(P.Site)
+        site.shop = {"name": "t", "home": "https://www.shop.example/"}
+        site.host, site.delay, site.last, site.disallow, site.allow, site.sitemaps, site.fetched, site.ssl = "www.shop.example", 0, 0, [], [], [], 0, None
+        site.origin = "https://www.shop.example"
+        site.get = lambda url, binary=False, retry=False: pages.get(url)
+        return site
+
+    def test_links_of_keeps_own_host_pages_only(self):
+        site = self.fake_site({})
+        text = '<a href="/chassis/dayton.htm">Dayton</a> <a href="https://cdn.other.com/x.htm">x</a> <a href="pic.jpg">img</a> <a href="https://shop.example/a.htm#top">a</a>'
+        self.assertEqual(P.links_of(site, "https://www.shop.example/hifi/", text),
+                         ["https://www.shop.example/chassis/dayton.htm", "https://shop.example/a.htm"])
+
+    def test_crawl_hubs_reaches_product_pages_two_levels_down(self):
+        pages = {"https://www.shop.example/": '<a href="/chassis/dayton.htm">Dayton</a><a href="/about.htm">about</a>',
+                 "https://www.shop.example/chassis/dayton.htm": '<a href="/chassis/dayton_rs180-4.htm">RS180-4</a><a href="/chassis/dayton_rs225-8.htm">RS225-8</a>',
+                 "https://www.shop.example/about.htm": "nothing"}
+        site = self.fake_site(pages)
+        wanted = [("rs-180-4", "RS 180-4", P.model_regex("RS 180-4"))]
+        self.assertEqual(P.crawl_hubs(site, ["https://www.shop.example/"], wanted, ["dayton"]),
+                         [("rs-180-4", "RS 180-4", "https://www.shop.example/chassis/dayton_rs180-4.htm")])
+
+    def test_maker_words(self):
+        words = P.maker_words([{"name": "Dayton Audio RS 180-4", "manufacturer": "Dayton Audio"}, {"name": "SB Acoustics X", "manufacturer": "SB Acoustics"}, {"name": "DIY Sound Group Anarchy", "manufacturer": "DIY Sound Group"}])
+        self.assertIn("dayton", words); self.assertIn("sbacoustics", words); self.assertNotIn("sb", words); self.assertNotIn("diy", words)
+
+    def test_robots_rule_is_named(self):
+        site = self.fake_site({})
+        site.disallow = ["/sitemap"]
+        self.assertEqual(site.rule_for("https://www.shop.example/sitemap.xml"), (False, "/sitemap"))
+        self.assertEqual(site.rule_for("https://www.shop.example/p/x"), (True, None))
