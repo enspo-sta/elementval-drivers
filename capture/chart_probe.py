@@ -89,20 +89,77 @@ def ocr_words(path, crop, scale=3):
     return words
 
 
+def background(img):
+    """The most common colour (the chart's background) and the mean brightness."""
+    import numpy as np
+    q = (img.reshape(-1, 3) // 8) * 8
+    keys, counts = np.unique(q, axis=0, return_counts=True)
+    i = counts.argmax()
+    return "#%02x%02x%02x" % tuple(int(v) for v in keys[i]), round(float(img.mean()), 1), round(float(counts[i]) / q.shape[0], 3)
+
+
+def line_candidates(img, bg_dark):
+    """Rows and columns that look like axis or grid lines: at least 60 % of their pixels differ from the
+    background in the same direction (dark lines on a light chart, light lines on a dark one)."""
+    import numpy as np
+    g = img.mean(axis=2)
+    h, w = g.shape
+    mark = (g > 140) if bg_dark else (g < 110)
+    rows = [int(r) for r in np.nonzero(mark.sum(axis=1) > 0.6 * w)[0]]
+    cols = [int(c) for c in np.nonzero(mark.sum(axis=0) > 0.6 * h)[0]]
+    def runs(v):                                        # consecutive pixels become one line: first..last
+        out = []
+        for x in v:
+            if out and x == out[-1][1] + 1:
+                out[-1][1] = x
+            else:
+                out.append([x, x])
+        return out[:40]
+    return runs(rows), runs(cols)
+
+
+def frame_from_lines(rows, cols, w, h):
+    """The plot frame from the line candidates: the outermost lines that are not at the image edge."""
+    rs = [r for r in rows if r[0] > 2 and r[1] < h - 3]
+    cs = [c for c in cols if c[0] > 2 and c[1] < w - 3]
+    if len(rs) < 2 or len(cs) < 2:
+        return None
+    return [cs[0][0], rs[0][0], cs[-1][1], rs[-1][1]]
+
+
+def safe_ocr(path, crop, w, h):
+    x0, y0, x1, y1 = [max(0, int(v)) for v in crop]
+    x1, y1 = min(w, x1), min(h, y1)
+    if x1 - x0 < 8 or y1 - y0 < 6:
+        return []
+    return ocr_words(path, [x0, y0, x1, y1])
+
+
 def probe(path):
     import numpy as np
     from PIL import Image
     img = np.asarray(Image.open(path).convert("RGB")).astype(int)
     h, w = img.shape[:2]
-    fr = frame_of(img)
-    rec = {"width": w, "height": h, "frame": fr}
-    if fr:
-        x0, y0, x1, y1 = fr
-        rec["colours"] = colours(img, fr)
-        rec["x_labels"] = ocr_words(path, [max(0, x0 - 30), y1 + 1, min(w, x1 + 30), min(h, y1 + 40)])
-        rec["y_labels"] = ocr_words(path, [max(0, x0 - 70), max(0, y0 - 12), x0 - 1, min(h, y1 + 12)])
-        rec["y_labels_right"] = ocr_words(path, [x1 + 1, max(0, y0 - 12), min(w, x1 + 70), min(h, y1 + 12)])
-        rec["top_text"] = " ".join(wd["text"] for wd in ocr_words(path, [0, 0, w, max(1, y0 - 1)]) if "text" in wd)
+    rec = {"width": w, "height": h}
+    bg, bright, share = background(img)
+    rec.update({"background": bg, "background_share": share, "mean_brightness": bright})
+    bg_dark = bright < 128
+    rows, cols = line_candidates(img, bg_dark)
+    rec["line_rows"], rec["line_cols"] = rows, cols
+    fr = frame_from_lines(rows, cols, w, h)
+    rec["frame"] = fr
+    box = fr or [int(w * 0.08), int(h * 0.06), int(w * 0.97), int(h * 0.9)]
+    x0, y0, x1, y1 = box
+    try:
+        rec["colours"] = colours(img, box)
+    except Exception as e:
+        rec["colours_error"] = str(e)
+    rec["x_labels"] = safe_ocr(path, [x0 - 30, y1 + 1, x1 + 30, y1 + 40], w, h)
+    rec["y_labels"] = safe_ocr(path, [x0 - 70, y0 - 12, x0 - 1, y1 + 12], w, h)
+    rec["y_labels_right"] = safe_ocr(path, [x1 + 1, y0 - 12, x1 + 70, y1 + 12], w, h)
+    rec["bottom_band_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, int(h * 0.88), w, h], w, h) if "text" in wd)
+    rec["left_band_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, 0, int(w * 0.1), h], w, h) if "text" in wd)
+    rec["top_text"] = " ".join(wd["text"] for wd in safe_ocr(path, [0, 0, w, max(8, y0 - 1)], w, h) if "text" in wd)
     return rec
 
 
@@ -148,7 +205,7 @@ def main():
                 except Exception as e:
                     rec = {"error": f"probe failed: {e}"}
                 rec.update({"file": name, "url": url, "bytes": len(data)})
-                print(f"  {name}: {rec.get('width')}x{rec.get('height')} frame {rec.get('frame')} x-labels {[w['text'] for w in rec.get('x_labels', []) if 'text' in w][:14]} y-labels {[w['text'] for w in rec.get('y_labels', []) if 'text' in w][:12]}", flush=True)
+                print(f"  {name}: {rec.get('width')}x{rec.get('height')} bg {rec.get('background')} bright {rec.get('mean_brightness')} frame {rec.get('frame')} x-labels {[w['text'] for w in rec.get('x_labels', []) if 'text' in w][:14]} y-labels {[w['text'] for w in rec.get('y_labels', []) if 'text' in w][:12]}", flush=True)
                 res.append(rec)
         out["drivers"][did] = res
     Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
