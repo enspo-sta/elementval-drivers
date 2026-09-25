@@ -1,18 +1,93 @@
 {
-  "comment": "European shops that sell loudspeaker drivers, read weekly by watch/prices.py. 'home' is the shop's front page (its robots.txt and sitemap are found from it; 'sitemaps' can name them directly). 'delay_s' is the pause between requests to that shop (a Crawl-delay in robots.txt overrides it when longer). Add a shop as one more entry; remove one by deleting its entry.",
+  "comment": "European shops that sell loudspeaker drivers, read weekly by watch/prices.py. 'home' is the shop's front page (its robots.txt and sitemap are found from it; 'sitemaps' can name them directly). 'delay_s' is the pause between requests to that shop (a Crawl-delay in robots.txt overrides it when longer). Add a shop as one more entry; remove one by deleting its entry. 'note' is shown with the shop's offers; 'login_prices' marks a shop whose better prices show only when logged in (the scan sees the public price; the logged-in price is read on David's computer, see capture/CHROME_CAPTURE.md).",
   "shops": [
-    {"name": "SoundImports", "country": "NL", "home": "https://www.soundimports.eu/", "delay_s": 3},
-    {"name": "Lautsprechershop (Strassacker)", "country": "DE", "home": "https://www.lautsprechershop.de/", "delay_s": 3},
-    {"name": "Intertechnik", "country": "DE", "home": "https://www.intertechnik.de/", "delay_s": 3},
-    {"name": "Toutlehautparleur", "country": "FR", "home": "https://www.toutlehautparleur.com/", "delay_s": 3},
-    {"name": "Audiophonics", "country": "FR", "home": "https://www.audiophonics.fr/", "delay_s": 3},
-    {"name": "HiFi-Kit", "country": "SE", "home": "https://www.hifikit.se/", "delay_s": 3},
-    {"name": "Speakerbuddies", "country": "NL", "home": "https://www.speakerbuddies.eu/", "delay_s": 3},
-    {"name": "Europe Audio", "country": "NL", "home": "https://www.europe-audio.com/", "delay_s": 3},
-    {"name": "Loudspeakerfreaks", "country": "NL", "home": "https://www.loudspeakerfreaks.com/", "delay_s": 3},
-    {"name": "Hificollective", "country": "GB", "home": "https://www.hificollective.co.uk/", "delay_s": 3},
-    {"name": "Willys-HiFi", "country": "GB", "home": "https://www.willys-hifi.com/", "delay_s": 3},
-    {"name": "Purifi (direct)", "country": "DK", "home": "https://purifi-audio.com/", "delay_s": 3},
-    {"name": "BlieSMa (direct)", "country": "DE", "home": "https://www.bliesma.de/", "delay_s": 3}
+    {
+      "name": "SoundImports",
+      "country": "NL",
+      "home": "https://www.soundimports.eu/",
+      "delay_s": 3,
+      "note": "often the most expensive; no longer carries BlieSMa"
+    },
+    {
+      "name": "Audio-hi.fi",
+      "country": "FI",
+      "home": "https://audio-hi.fi/en/",
+      "delay_s": 3,
+      "note": "the go-to distributor in Europe for BlieSMa"
+    },
+    {
+      "name": "Lautsprechershop (Strassacker)",
+      "country": "DE",
+      "home": "https://www.lautsprechershop.de/",
+      "delay_s": 3
+    },
+    {
+      "name": "Intertechnik",
+      "country": "DE",
+      "home": "https://www.intertechnik.de/",
+      "delay_s": 3
+    },
+    {
+      "name": "Toutlehautparleur",
+      "country": "FR",
+      "home": "https://www.toutlehautparleur.com/",
+      "delay_s": 3,
+      "note": "often the cheapest, but the good prices show only when logged in",
+      "login_prices": true
+    },
+    {
+      "name": "Audiophonics",
+      "country": "FR",
+      "home": "https://www.audiophonics.fr/",
+      "delay_s": 3
+    },
+    {
+      "name": "HiFi-Kit",
+      "country": "SE",
+      "home": "https://www.hifikit.se/",
+      "delay_s": 3
+    },
+    {
+      "name": "Speakerbuddies",
+      "country": "NL",
+      "home": "https://www.speakerbuddies.eu/",
+      "delay_s": 3
+    },
+    {
+      "name": "Europe Audio",
+      "country": "NL",
+      "home": "https://www.europe-audio.com/",
+      "delay_s": 3
+    },
+    {
+      "name": "Loudspeakerfreaks",
+      "country": "NL",
+      "home": "https://www.loudspeakerfreaks.com/",
+      "delay_s": 3
+    },
+    {
+      "name": "Hificollective",
+      "country": "GB",
+      "home": "https://www.hificollective.co.uk/",
+      "delay_s": 3
+    },
+    {
+      "name": "Willys-HiFi",
+      "country": "GB",
+      "home": "https://www.willys-hifi.com/",
+      "delay_s": 3
+    },
+    {
+      "name": "Purifi (direct)",
+      "country": "DK",
+      "home": "https://purifi-audio.com/",
+      "delay_s": 3
+    },
+    {
+      "name": "BlieSMa (direct)",
+      "country": "DE",
+      "home": "https://www.bliesma.de/",
+      "delay_s": 3
+    }
   ]
 }

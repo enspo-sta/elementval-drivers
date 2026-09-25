@@ -52,9 +52,16 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >    to the set explaining why the two differ.
 > 7. Section 4: capture the listed curves again and compare them with the stored ones point by
 >    point. Report every difference above 1 dB (outside the measurement's noise floor).
-> 8. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
+> 8. Prices: the weekly scan on GitHub (`watch/prices.py`) reads only public prices. Toutlehautparleur
+>    (<https://www.toutlehautparleur.com/>) shows its good prices only when logged in: log in there in
+>    this Chrome, open the page of every driver that has a Toutlehautparleur offer in `prices.json`
+>    (and search the shop for the drivers that have none), and write the logged-in price into that
+>    offer as `"price_logged_in": <number>` with `"checked": "<today>"` (add an offer with the page
+>    address when the shop has the driver but the scan found no public price). For BlieSMa drivers
+>    also check audio-hi.fi (<https://audio-hi.fi/en/>), the go-to European distributor.
+> 9. After each driver run `python3 watch/validate_db.py`, `python3 watch/check_consistency.py`,
 >    `node --test tests/*.test.mjs` and `python3 capture/worklist.py`, and fix what they report.
-> 9. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
+> 10. Commit to a new branch named `capture/<today's date>`, push it and open a pull request. List in
 >    it every source address, and for every set whether it came from PDF vectors, a data file or an
 >    image. Do not merge it.
 

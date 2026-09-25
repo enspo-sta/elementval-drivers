@@ -49,7 +49,9 @@ def log(*a):
 class Site:
     def __init__(self, shop):
         self.shop = shop
-        self.host = urllib.parse.urlparse(shop["home"]).netloc
+        u = urllib.parse.urlparse(shop["home"])
+        self.host = u.netloc
+        self.origin = f"{u.scheme}://{u.netloc}"          # robots.txt and the default sitemap live at the root
         self.delay = float(shop.get("delay_s", 3))
         self.last = 0.0
         self.disallow, self.allow, self.sitemaps = [], [], []
@@ -86,7 +88,7 @@ class Site:
 
     def read_robots(self):
         self.wait()
-        req = urllib.request.Request(self.shop["home"].rstrip("/") + "/robots.txt", headers={"User-Agent": UA})
+        req = urllib.request.Request(self.origin + "/robots.txt", headers={"User-Agent": UA})
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                 text = r.read().decode("utf-8", "replace")
@@ -188,7 +190,7 @@ def sitemap_urls(site, url, depth=0, seen=None):
 def candidate_pages(site):
     starts = list(site.shop.get("sitemaps") or []) + site.sitemaps
     if not starts:
-        starts = [site.shop["home"].rstrip("/") + "/sitemap.xml"]
+        starts = [site.origin + "/sitemap.xml", site.shop["home"].rstrip("/") + "/sitemap.xml"]
     urls = []
     for s in dict.fromkeys(starts):
         urls += sitemap_urls(site, s)
@@ -353,10 +355,13 @@ def scan(cfg, drivers, only_shop=None, only_driver=None):
                 log(f"  no structured price on {url}")
                 continue
             best = min(page_offers, key=lambda o: o["price"])
-            offers.setdefault(did, []).append({"shop": shop["name"], "country": shop["country"], "url": url,
-                                               "page_title": page_title(text), "model": model,
-                                               "price": best["price"], "currency": best["currency"],
-                                               "availability": best["availability"]})
+            offer = {"shop": shop["name"], "country": shop["country"], "url": url, "page_title": page_title(text), "model": model,
+                     "price": best["price"], "currency": best["currency"], "availability": best["availability"]}
+            if shop.get("note"):
+                offer["shop_note"] = shop["note"]
+            if shop.get("login_prices"):
+                offer["login_prices"] = True          # the public price; logged in it is often lower
+            offers.setdefault(did, []).append(offer)
             found += 1
         shop_notes.append(f"{shop['name']}: {len(pages)} addresses, {len(hits)} matching pages, {found} prices read")
     return offers, shop_notes
@@ -379,9 +384,9 @@ def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, s
              "| Driver | Lowest | Shop | Others |", "|---|---|---|---|"]
     for did, rec in data["drivers"].items():
         o = rec["offers"][0]
-        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" for x in rec["offers"][1:])
+        rest = "; ".join(f"{x['shop']} {x['price']:g} {x['currency']}" + (" (public price; lower when logged in)" if x.get("login_prices") else "") for x in rec["offers"][1:])
         lines.append(f"| {rec['name']} | {o['price']:g} {o['currency']}" + (f" ≈ {o['price_sek']} kr" if o["price_sek"] else "") +
-                     f" | [{o['shop']}]({o['url']}) | {rest or '—'} |")
+                     f" | [{o['shop']}]({o['url']})" + (" (public price; lower when logged in)" if o.get("login_prices") else "") + f" | {rest or '—'} |")
     missing = [d["name"] for d in drivers if d["id"] not in data["drivers"]]
     lines += ["", f"No price found for {len(missing)} driver(s): {', '.join(missing) if missing else 'none'}.", "", "Shops:"]
     lines += [f"- {n}" for n in shop_notes]
