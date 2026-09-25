@@ -172,8 +172,8 @@ def opened(mask, r=3):
 def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     import numpy as np
     target = np.array([int(colour_hex[i:i + 2], 16) for i in (1, 3, 5)])
-    if max(target) - min(target) < 30:
-        tol = 40                                       # a black or grey curve: keep the dark-grey dotted grid out
+    if max(target) - min(target) < 30 and tol == 60:
+        tol = 40                                       # a black or grey curve: keep other greys out
     x0, y0, x1, y1 = box
     dist = np.sqrt(((img - target) ** 2).sum(axis=2))
     mask = dist <= tol
@@ -298,6 +298,40 @@ def load(path):
     return img, im.mode, (round(float(clear.mean()), 3) if clear.any() else 0.0)
 
 
+def row_detail(img, rows, box):
+    """For each grid-row candidate: its height, and the two most common quantised colours along it with
+    their counts (a diagnostic written with the reading)."""
+    import numpy as np
+    x0, y0, x1, y1 = box
+    out = []
+    for r in rows[:60]:
+        line = img[r[0], x0:x1 + 1]
+        q = (line // 32) * 32
+        keys, counts = np.unique(q, axis=0, return_counts=True)
+        order = counts.argsort()[::-1][:2]
+        out.append([r[0], r[1] - r[0] + 1] + [["#%02x%02x%02x" % tuple(int(v) for v in keys[i]), int(counts[i])] for i in order])
+    return out
+
+
+def drawn_colours(path, top=10):
+    """The exact colours of the drawn pixels (alpha 64 or more) with their counts and mean alpha, or of every
+    pixel when the image has no alpha (a diagnostic)."""
+    import numpy as np
+    from PIL import Image
+    im = Image.open(path)
+    rgba = np.asarray(im.convert("RGBA"))
+    px = rgba.reshape(-1, 4)
+    if im.mode in ("RGBA", "LA", "P"):
+        px = px[px[:, 3] >= 64]
+    keys, inv, counts = np.unique(px[:, :3], axis=0, return_inverse=True, return_counts=True)
+    order = counts.argsort()[::-1][:top]
+    out = []
+    for i in order:
+        al = px[inv.ravel() == i, 3]
+        out.append({"hex": "#%02x%02x%02x" % tuple(int(v) for v in keys[i]), "pixels": int(counts[i]), "alpha_mean": round(float(al.mean()), 1), "alpha_min": int(al.min())})
+    return out
+
+
 def read_chart(path, ctype):
     import numpy as np
     img, mode, clear_share = load(path)
@@ -315,7 +349,8 @@ def read_chart(path, ctype):
     rec = {"background": bg, "grid_rows": len(rows), "grid_cols": [c[0] for c in cols], "x_axis": xa, "y_axis": ya,
            "left_labels": [(wd["text"], wd["y"]) for wd in left if "text" in wd], "bottom_labels": [(wd["text"], wd["x"]) for wd in bottom if "text" in wd],
            "bands": bands, "band_colours": band_colours(path, img, bands, box, bg), "image_mode": mode, "transparent_share": clear_share,
-           "rows_found": [r[0] if r[0] == r[1] else r for r in rows_all][:80], "rows_kept": [r[0] for r in rows][:80], "grid_row_colour": rcol, "grid_col_colour": ccol}
+           "rows_found": [r[0] if r[0] == r[1] else r for r in rows_all][:80], "rows_kept": [r[0] for r in rows][:80], "grid_row_colour": rcol, "grid_col_colour": ccol,
+           "rows_detail": row_detail(img, rows_all, box), "drawn_colours": drawn_colours(path)}
     if not xa or not ya:
         rec["error"] = "axes could not be fitted"
         return rec
@@ -328,19 +363,19 @@ def read_chart(path, ctype):
     plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, bottom_edge] if rows and cols else box
     curves = []
     candidates = CP.all_colours(img, plot, bg, top=12)
-    # the on-axis response is drawn in the grid's own colour (black on green): read that colour too, off the grid lines
-    if ctype == "response" and rcol and not any(c["hex"] == rcol for c in candidates):
-        candidates.append({"hex": rcol, "pixels": MIN_CURVE_PIXELS})
+    dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
     for c in candidates:
         hexv = c["hex"]
-        if hexv == ccol or c["pixels"] < MIN_CURVE_PIXELS:
-            continue
-        if hexv == rcol and ctype != "response":
+        if hexv in (ccol, rcol) or c["pixels"] < MIN_CURVE_PIXELS:
             continue
         r, g, b = (int(hexv[i:i + 2], 16) for i in (1, 3, 5))
-        if max(r, g, b) - min(r, g, b) < 30 and hexv != rcol:
-            continue                                   # grey: minor grid, text, anti-aliasing
-        pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
+        grey = max(r, g, b) - min(r, g, b) < 30
+        if grey and ctype != "response":
+            continue                                   # grey: text, anti-aliasing (a grey harmonic is read by its legend name)
+        # the on-axis response is a dark-grey line close to the grid's grey: a tolerance below their distance keeps
+        # the grid lines out of its mask (they are masked off as well)
+        tol = min(60, max(12, int(0.6 * min(dist(hexv, rcol or "#ffffff"), dist(hexv, ccol or "#ffffff"))))) if grey else 60
+        pts, runs = read_curve(img, hexv, bg, plot, (rows, cols), tol=tol)
         if len(pts) < 50 or runs >= 3:
             continue                                   # a dotted grid gives several runs per column; a curve gives one
         points, gaps = resample(pts, xa, ya)
@@ -356,8 +391,8 @@ def read_chart(path, ctype):
             named[t] = wd["colour"]
     dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
     for name, hexv in named.items():
-        if any(dist(hexv, c["colour"]) <= 150 for c in curves):
-            continue                                    # already read in a near colour
+        if any(dist(hexv, c["colour"]) <= 150 for c in curves) or hexv in (rcol, ccol):
+            continue                                    # already read in a near colour, or the grid's own colour
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
         if len(pts) >= 50 and runs < 3:
             points, gaps = resample(pts, xa, ya)
