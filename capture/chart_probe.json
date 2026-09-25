@@ -1,0 +1,105 @@
+{
+ "date": "2026-09-25",
+ "drivers": {
+  "m74a-6": [
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_1v41_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_1v41_0grad.png",
+    "bytes": 32470
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_2v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v_0grad.png",
+    "bytes": 32334
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_2v83_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v83_0grad.png",
+    "bytes": 32054
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_4v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_4v_0grad.png",
+    "bytes": 31841
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_5v6_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_5v6_0grad.png",
+    "bytes": 31533
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_315mm_8v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_8v_0grad.png",
+    "bytes": 31689
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_offaxis.png",
+    "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png",
+    "bytes": 47334
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "m74a-6_offaxis_normalized_10-50db.png",
+    "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png",
+    "bytes": 40896
+   }
+  ],
+  "sb-satori-mw19tx-4": [
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_2v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v_0grad.png",
+    "bytes": 32238
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_2v83_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v83_0grad.png",
+    "bytes": 32332
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_4v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_4v_0grad.png",
+    "bytes": 32357
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_5v6_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_5v6_0grad.png",
+    "bytes": 32597
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_8v_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_8v_0grad.png",
+    "bytes": 32538
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_315mm_11v2_0grad.png",
+    "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_11v2_0grad.png",
+    "bytes": 32494
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_offaxis.png",
+    "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis.png",
+    "bytes": 48438
+   },
+   {
+    "error": "probe failed: height and width must be > 0",
+    "file": "mw19tx-4_offaxis_normalized_10-50db.png",
+    "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_10-50db.png",
+    "bytes": 46155
+   }
+  ]
+ }
+}
