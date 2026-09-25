@@ -1,0 +1,973 @@
+# HiFiCompass inventory (2026-09-25)
+
+Written by `capture/inventory.py` on GitHub. What each measurement page offers, for `capture/CHROME_CAPTURE.md`.
+
+## BlieSMa M74A
+- Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> — BlieSMa M74A-6 | HiFiCompass — mentions premium or login
+  - Headings: You are here · Technical data · Features/comments · Axial magnitude frequency response · Off axis magnitude frequency response · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Voice coil current harmonic distortion · Near field HD spectrum (20 mm distance) · Intermodulation distortion · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 1, 2, 2.83, 30, 50, 95.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_side.jpg?itok=vBF73A5h> — alt:  m74a-6_side — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_side2.jpg?itok=OhL2aB3-> — alt:  m74a-6_side2 — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_side3.jpg?itok=P2Z1O3wR> — alt:  m74a-6_side3 — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_front.jpg?itok=d0Jt5s_f> — alt: m74a-6_front — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_front_no_grid.jpg?itok=Ba0HDWef> — alt:  m74a-6_front_no_grid — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/m74a-6_back.jpg?itok=B1U3CKQ1> — alt:  m74a-6_back — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa M74A-6 You are here Home » Speakers » Measurements » BlieSMa M74A-6”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_1v41_0grad.png?itok=buJeqAU0> — alt: m74a-6_315mm_1v41_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v_0grad.png?itok=VE30iRQf> — alt: m74a-6_315mm_2v_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v83_0grad.png?itok=eEVOsyL4> — alt:  m74a-6_315mm_2v83_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_4v_0grad.png?itok=kA8wkyJP> — alt:  m74a-6_315mm_4v_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_5v6_0grad.png?itok=VQeTAiYA> — alt:  m74a-6_315mm_5v6_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/m74a-6_315mm_8v_0grad.png?itok=atfGtyem> — alt: m74a-6_315mm_8v_0grad — before: “z cutoff, HPF2-300) The review of the BlieSMa M74A-6 ​midrange Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png?itok=QJmz9dHg> — alt:  m74a-6_offaxis — before: “ 8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png?itok=r2buXaew> — alt:  m74a-6_offaxis_normalized_10-50db — before: “ 8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_5-30db.png?itok=IJmny3hI> — alt: m74a-6_offaxis_normalized_5-30db — before: “ 8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_1v41_hpf2-300_0.png?itok=m3L28JQT> — alt:  m74a-6_315mm_1v41_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_2v0_hpf2-300.png?itok=u-hpoASh> — alt:  m74a-6_315mm_2v0_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_2v83_hpf2-300_0.png?itok=tW2lEO8m> — alt:  m74a-6_315mm_2v83_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_4v_hpf2-300_0.png?itok=jK8m-ynC> — alt:  m74a-6_315mm_4v_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_5v6_hpf2-300_0.png?itok=nFnQ810p> — alt:  m74a-6_315mm_5v6_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_8v_hpf2-300_0.png?itok=6G9oE_MU> — alt: m74a-6_315mm_8v_hpf2-300 — before: “-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_135.png?itok=fBbwPFV6> — before: “ized_5-30dB HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_1v41_chd_hpf2-300.png?itok=W2y2LsM-> — alt: m74a-6_1v41_chd_hpf2-300 — before: “1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 1v41 2v 2v83”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_2v0_chd_hpf2-300.png?itok=P1BhFCiz> — alt: m74a-6_2v0_chd_hpf2-300 — before: “1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 1v41 2v 2v83”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_2v83_chd_hpf2-300.png?itok=aXkzV7sK> — alt: m74a-6_2v83_chd_hpf2-300 — before: “1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 1v41 2v 2v83”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_363.png?itok=oXPk9zVp> — before: “0 mm distance) NoData Voice coil current harmonic distortion 1v41 2v 2v83 Near field HD spectrum (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v4.25khz1v.png?itok=w3SGMfzh> — alt: m74a-6_315mm_500hz1v4.25khz1v — before: “a Intermodulation distortion 1V(500Hz)+1V(4250Hz) 1V41(500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v414.25khz1v41.png?itok=WevxUZHT> — alt:  m74a-6_315mm_500hz1v414.25khz1v41 — before: “a Intermodulation distortion 1V(500Hz)+1V(4250Hz) 1V41(500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v4.25khz2vtext.png?itok=M_fQCrsb> — alt:  m74a-6_315mm_500hz2v4.25khz2vtext — before: “a Intermodulation distortion 1V(500Hz)+1V(4250Hz) 1V41(500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v834.25khz2v83.png?itok=3V7ykiyX> — alt:  m74a-6_315mm_500hz2v834.25khz2v83 — before: “a Intermodulation distortion 1V(500Hz)+1V(4250Hz) 1V41(500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_50_ohm.png?itok=oykPIdMo> — alt:  m74a-6_impedance_50_ohm — before: “500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz) Impedance frequency response Scale 50 Ohm Scale 10 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_10_ohm.png?itok=jj6yDEJB> — alt:  m74a-6_impedance_10_ohm — before: “500Hz)+1V41(4250Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz) Impedance frequency response Scale 50 Ohm Scale 10 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/m74a-6_step_response.png?itok=-x_wI_k_> — alt:  m74a-6_step_response — before: “50Hz) 2V(500Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz) Impedance frequency response Scale 50 Ohm Scale 10 Ohm Step response”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/m74a-6_waterfall.png?itok=gG7c7JKj> — alt:  m74a-6_waterfall — before: “00Hz)+2V(4250Hz) 2V83(500Hz)+2V83(4250Hz) Impedance frequency response Scale 50 Ohm Scale 10 Ohm Step response Waterfall”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/m74a-6_etc.png?itok=1B5x5T4g> — alt:  m74a-6_etc — before: “0Hz)+2V83(4250Hz) Impedance frequency response Scale 50 Ohm Scale 10 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323.png> — before: “nce frequency response Scale 50 Ohm Scale 10 Ohm Step response Waterfall Energy-Time Curve (ETC) Log in to post comments”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ush-pull 8% (162 votes) Hybrid (tube+solid state) 6% (126 votes) FET based SE 6% (125 votes) Total votes: 2032 All polls”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sb_acoustics_logo.png> — alt:  sb_acoustics_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/purifi_logo.png> — alt: purifi_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wavecor-logo.png> — alt:  wavecor-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “up to three drivers for comparing. CONTACTS Ukraine (+380) 95 904 7827 hificompass@gmail.com LAST NEWS T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “l.com LAST NEWS T34T-4_title2.jpg Review of the BlieSMa T34T-4 34mm TeXtreme dome tweeter 27 Jul 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “7 Jul 2026 grt145w-4_side.jpg Viawave GRT-145W-4 Waveguide Ribbon Tweeter Review 21 Jul 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “5.25m08-naa-05_side2.jpg 5.25" Alu cone midrange PURIFI PTT5.25M08-NAA-05 review 20 Jun 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/datasheet-m74a.pdf> datasheet-m74a.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 6 Ohm |
+    | DC resistance, (Re) | 5.6 Ohm |
+    | Voice coil inductance, (Le) | 0.036 mH |
+    | Effective piston area, (Sd) | 50.25 cm2 |
+    | Voice coil diameter | 74 mm |
+    | Voice coil height | 1.8 mm |
+    | Air gap height | 4.2 mm |
+    | Linear coil travel | 1.2 mm |
+    | Magnetic flux density | 1.35 T |
+    | Diaphragm material | Al-Mg |
+    | Net weight | 0.68 kg |
+  - Table:
+    | Free air resonance, (Fs) | 400 Hz |
+    | Sensitivity, (2.83V/1m) | 95.0 dB |
+    | Mechanical Q-factor, (Qms) | 6.4 |
+    | Electrical Q-factor, (Qes) | 0.75 |
+    | Total Q-factor, (Qts) | 0.67 |
+    | Moving mass incl. air, (Mms) | 2.3 g |
+    | Force factor, (Bl) | 6.8 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 2.87 N/√W |
+    | Ratio Fs/Qts | 597 Hz |
+
+## BlieSMa T25A
+- Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25a-6> — BlieSMa T25A-6 | HiFiCompass — mentions premium or login
+  - Headings: You are here · Technical data · Features/comments · Axial magnitude frequency response · Off axis magnitude frequency response · Near field FR (20 mm) normalized to 200Hz · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Near field HD spectrum (20 mm distance) · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 30, 50, 93.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25a-6_front.jpg?itok=dCPdFHeD> — alt: t25a-6_front — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25A-6 You are here Home » Speakers » Measurements » BlieSMa T25A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25a-6_back.jpg?itok=GovAJovn> — alt: t25a-6_back — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25A-6 You are here Home » Speakers » Measurements » BlieSMa T25A-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25a-6_side.jpg?itok=SZ3VIsap> — alt:  t25a-6_side — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25A-6 You are here Home » Speakers » Measurements » BlieSMa T25A-6”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_2v_0grad.png?itok=TzuceWHG> — alt: t25a-6_315mm_2v_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_2v83_0grad.png?itok=h1W7tLIi> — alt: t25a-6_315mm_2v83_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_4v_0grad.png?itok=b8ff73zL> — alt:  t25a-6_315mm_4v_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_5v6_0grad.png?itok=3e3vAhkX> — alt:  t25a-6_315mm_5v6_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_8v_0grad.png?itok=IMxz8okt> — alt:  t25a-6_315mm_8v_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25a-6_315mm_11v2_0grad.png?itok=HBTaEput> — alt:  t25a-6_315mm_11v2_0grad — before: “er "on" (2nd order Butterworth type, 800 Hz cutoff, HPF2-800)​ Axial magnitude frequency response 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis.png?itok=VRbrlB-b> — alt:  t25a-6_offaxis — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_10-50db.png?itok=PL4ILmt7> — alt:  t25a-6_offaxis_normalized_10-50db — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_5-30db.png?itok=fQD7AVve> — alt:  t25a-6_offaxis_normalized_5-30db — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_264.png?itok=ZMmT1uqa> — before: “0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_2v_hpf2-800.png?itok=sDi4LgoA> — alt:  t25a-6_315mm_2v_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_2v83_hpf2-800.png?itok=yMcTtPFA> — alt:  t25a-6_315mm_2v83_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_4v_hpf2-800.png?itok=K769UGh0> — alt:  t25a-6_315mm_4v_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_5v6_hpf2-800.png?itok=dV9uQBxd> — alt: t25a-6_315mm_5v6_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_8v_hpf2-800.png?itok=MxKQOmov> — alt:  t25a-6_315mm_8v_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_11v2_hpf2-800.png?itok=jSY9RBUR> — alt:  t25a-6_315mm_11v2_hpf2-800 — before: “rmalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_103.png?itok=TjMQ94gI> — before: “ed to 200Hz HD frequency response (315 mm distance) 2v 2v83 4v 5v6 8v 11v2 HD frequency response (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_265.png?itok=TVfGOe1B> — before: “HD frequency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_912.png?itok=skeV7LcP> — before: “uency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_913.png?itok=cU8_Gd--> — before: “esponse (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_914.png?itok=khHfX6vQ> — before: “ (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_915.png?itok=GJo_Piad> — before: “ distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_916.png?itok=6XzVdZpq> — before: “ce) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_917.png?itok=4qNo9e_O> — before: “ata Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t25a-6_impedance_15_ohm.png?itok=xhNmCTXd> — alt:  t25a-6_impedance_15_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 15 Ohm Scale 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t25a-6_impedance_7_ohm.png?itok=x9F23qVa> — alt:  t25a-6_impedance_7_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 15 Ohm Scale 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/t25a-6_step_response.png?itok=kBTB01b7> — alt: t25a-6_step_response — before: “1V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 15 Ohm Scale 7 Ohm Step response”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/t25a-6_waterfall.png?itok=mEEsWErJ> — alt:  t25a-6_waterfall — before: “ NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 15 Ohm Scale 7 Ohm Step response Waterfall”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/t25a-6_etc.png?itok=ojGAt1or> — alt: t25a-6_etc — before: “Data NoData NoData Impedance frequency response Scale 15 Ohm Scale 7 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323.png> — before: “ance frequency response Scale 15 Ohm Scale 7 Ohm Step response Waterfall Energy-Time Curve (ETC) Log in to post comments”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ush-pull 8% (162 votes) Hybrid (tube+solid state) 6% (126 votes) FET based SE 6% (125 votes) Total votes: 2032 All polls”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sb_acoustics_logo.png> — alt:  sb_acoustics_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/purifi_logo.png> — alt: purifi_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wavecor-logo.png> — alt:  wavecor-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “up to three drivers for comparing. CONTACTS Ukraine (+380) 95 904 7827 hificompass@gmail.com LAST NEWS T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “l.com LAST NEWS T34T-4_title2.jpg Review of the BlieSMa T34T-4 34mm TeXtreme dome tweeter 27 Jul 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “7 Jul 2026 grt145w-4_side.jpg Viawave GRT-145W-4 Waveguide Ribbon Tweeter Review 21 Jul 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “5.25m08-naa-05_side2.jpg 5.25" Alu cone midrange PURIFI PTT5.25M08-NAA-05 review 20 Jun 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/datasheet-t25a-6.pdf> datasheet-t25a-6.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 6 Ohm |
+    | DC resistance, (Re) | 5.2 Ohm |
+    | Voice coil inductance, (Le) | 0.008mH |
+    | Effective piston area, (Sd) | 5.7 cm2 |
+    | Voice coil diameter | 24 mm |
+    | Voice coil height | 1 mm |
+    | Air gap height | 3 mm |
+    | Linear coil travel | 1 mm |
+    | Magnetic flux density | 2 T |
+    | Diaphragm material | Aluminum |
+    | Rated power | 100 W |
+    | Net weight | 0.23 kg |
+  - Table:
+    | Free air resonance, (Fs) | 980 Hz |
+    | Sensitivity, (2.83V/1m) | 93.0 dB |
+    | Mechanical Q-factor, (Qms) | 1.35 |
+    | Electrical Q-factor, (Qes) | 0.82 |
+    | Total Q-factor, (Qts) | 0.51 |
+    | Moving mass incl. air, (Mms) | 0.12 g |
+    | Force factor, (Bl) | 2.6 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.14 N/√W |
+    | Ratio Fs/Qts | 1921 Hz |
+
+## BlieSMa T25T
+- Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25t-6> — BlieSMa T25T-6 | HiFiCompass — mentions premium or login
+  - Headings: You are here · Technical data · Features/comments · Axial magnitude frequency response · Off axis magnitude frequency response · Near field FR (20 mm) normalized to 200Hz · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Voice coil current harmonic distortion · Near field HD spectrum (20 mm distance) · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2.83, 30, 50, 91.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_front.jpg?itok=9b1jE2ZB> — alt: t25t-6_front — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_back.jpg?itok=FtvMUrCq> — alt:  t25t-6_back — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_side.jpg?itok=ilPqaXQg> — alt: t25t-6_side — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_box1.jpg?itok=tSAUr0XS> — alt:  t25t-6_box1 — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_box2.jpg?itok=fzFjpZW4> — alt:  t25t-6_box2 — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/t25t-6_box3.jpg?itok=h-Jfe-or> — alt:  t25t-6_box3 — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T25T-6 You are here Home » Speakers » Measurements » BlieSMa T25T-6”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25t-6_315mm_2v83_0deg.png?itok=W2pGNg8V> — alt: t25t-6_315mm_2v83_0deg — before: “00 Hz cutoff, HPF2-800) The detailed review of the T25T-6 speaker Axial magnitude frequency response 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25t-6_315mm_4v_0deg.png?itok=Q3AyYBw1> — alt:  t25t-6_315mm_4v_0deg — before: “00 Hz cutoff, HPF2-800) The detailed review of the T25T-6 speaker Axial magnitude frequency response 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25t-6_315mm_5v6_0deg.png?itok=vHYTTwV1> — alt:  t25t-6_315mm_5v6_0deg — before: “00 Hz cutoff, HPF2-800) The detailed review of the T25T-6 speaker Axial magnitude frequency response 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25t-6_315mm_8v_0deg.png?itok=9zW0W1wV> — alt:  t25t-6_315mm_8v_0deg — before: “00 Hz cutoff, HPF2-800) The detailed review of the T25T-6 speaker Axial magnitude frequency response 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t25t-6_315mm_11v2_0deg.png?itok=BWEPwrBD> — alt:  t25t-6_315mm_11v2_0deg — before: “00 Hz cutoff, HPF2-800) The detailed review of the T25T-6 speaker Axial magnitude frequency response 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis.png?itok=4VagTju6> — alt:  t25t-6_offaxis — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_10-50db.png?itok=j1uxQ6wS> — alt:  t25t-6_offaxis_normalized_10-50db — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_5-30db.png?itok=6fSmaXrQ> — alt:  t25t-6_offaxis_normalized_5-30db — before: “1v2 Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_432.png?itok=UEzGXJDX> — before: “0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_2v83_hpf2-800.png?itok=pTdlXt7c> — alt: t25t-6_315mm_2v83_hpf2-800 — before: “_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_4v_hpf2-800.png?itok=GtT9d_Qb> — alt:  t25t-6_315mm_4v_hpf2-800 — before: “_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_5v6_hpf2-800.png?itok=3lSsI2Lg> — alt:  t25t-6_315mm_5v6_hpf2-800 — before: “_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_8v_hpf2-800.png?itok=b8RmxVzW> — alt: t25t-6_315mm_8v_hpf2-800 — before: “_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_11v2_hpf2-800.png?itok=BB6xktOG> — alt:  t25t-6_315mm_11v2_hpf2-800 — before: “_normalized_5-30dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_169.png?itok=VvCPw2Rc> — before: “lized to 200Hz HD frequency response (315 mm distance) 2v83 4v 5v6 8v 11v2 HD frequency response (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_2v83.png?itok=RmfgyqWl> — alt:  t25t-6_chd_2v83 — before: “ce) 2v83 4v 5v6 8v 11v2 HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_4v.png?itok=UUwYcdQG> — alt: t25t-6_chd_4v — before: “ce) 2v83 4v 5v6 8v 11v2 HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_5v6.png?itok=7b2WWsHj> — alt:  t25t-6_chd_5v6 — before: “ce) 2v83 4v 5v6 8v 11v2 HD frequency response (20 mm distance) NoData Voice coil current harmonic distortion 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_433.png?itok=oRfELfZG> — before: “20 mm distance) NoData Voice coil current harmonic distortion 2v83 4v 5v6 Near field HD spectrum (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t25t-6_impedance_20_ohm.png?itok=W6he_vfT> — alt: t25t-6_impedance_20_ohm — before: “harmonic distortion 2v83 4v 5v6 Near field HD spectrum (20 mm distance) NoData Impedance frequency response 20 Ohm 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t25t-6_impedance_7_ohm.png?itok=_WYZF1NN> — alt: t25t-6_impedance_7_ohm — before: “harmonic distortion 2v83 4v 5v6 Near field HD spectrum (20 mm distance) NoData Impedance frequency response 20 Ohm 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/t25t-6_step_response.png?itok=NW5ScNO9> — alt:  t25t-6_step_response — before: “rtion 2v83 4v 5v6 Near field HD spectrum (20 mm distance) NoData Impedance frequency response 20 Ohm 7 Ohm Step response”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/t25t-6_waterfall.png?itok=KgJKncgj> — alt: t25t-6_waterfall — before: “ 4v 5v6 Near field HD spectrum (20 mm distance) NoData Impedance frequency response 20 Ohm 7 Ohm Step response Waterfall”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/t25t-6_etc.png?itok=2htoJblg> — alt:  t25t-6_etc — before: “ectrum (20 mm distance) NoData Impedance frequency response 20 Ohm 7 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323.png> — before: “NoData Impedance frequency response 20 Ohm 7 Ohm Step response Waterfall Energy-Time Curve (ETC) Log in to post comments”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ush-pull 8% (162 votes) Hybrid (tube+solid state) 6% (126 votes) FET based SE 6% (125 votes) Total votes: 2032 All polls”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sb_acoustics_logo.png> — alt:  sb_acoustics_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/purifi_logo.png> — alt: purifi_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wavecor-logo.png> — alt:  wavecor-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “up to three drivers for comparing. CONTACTS Ukraine (+380) 95 904 7827 hificompass@gmail.com LAST NEWS T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “l.com LAST NEWS T34T-4_title2.jpg Review of the BlieSMa T34T-4 34mm TeXtreme dome tweeter 27 Jul 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “7 Jul 2026 grt145w-4_side.jpg Viawave GRT-145W-4 Waveguide Ribbon Tweeter Review 21 Jul 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “5.25m08-naa-05_side2.jpg 5.25" Alu cone midrange PURIFI PTT5.25M08-NAA-05 review 20 Jun 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/datasheet_t25t-6.pdf> datasheet_t25t-6.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 6 Ohm |
+    | DC resistance, (Re) | 5.2 Ohm |
+    | Voice coil inductance, (Le) | 0.008 mH |
+    | Effective piston area, (Sd) | 5.7 cm2 |
+    | Voice coil diameter | 24 mm |
+    | Voice coil height | 1 mm |
+    | Air gap height | 3 mm |
+    | Linear coil travel | 1 mm |
+    | Magnetic flux density | 2 T |
+    | Diaphragm material | TeXtreme |
+    | Rated power | 100 W |
+    | Net weight | 0.23 kg |
+  - Table:
+    | Free air resonance, (Fs) | 940 Hz |
+    | Sensitivity, (2.83V/1m) | 91.0 dB |
+    | Mechanical Q-factor, (Qms) | 1.31 |
+    | Electrical Q-factor, (Qes) | 0.71 |
+    | Total Q-factor, (Qts) | 0.46 |
+    | Moving mass incl. air, (Mms) | 0.15 g |
+    | Force factor, (Bl) | 2.6 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.14 N/√W |
+    | Ratio Fs/Qts | 2043 Hz |
+
+## BlieSMa T34A
+- Page: <https://hificompass.com/index.php> — HiFiCompass - всё для акустических систем и не только |
+  - Headings: HiFiCompass - ваш ориентир в мире HiFi звука! · Наши последние работы · Последние новости · T34T-4_title2.jpg · Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme · grt145w-4_side.jpg · Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 · ptt5.25m08-naa-05_side2.jpg · Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 · ptt5.25x04-naa-05_front.jpg · Обзор 5.25" Алюминиевого мидвуфера PURIFI PTT5.25X04-NAA-05 · brax_group.jpg · Групповой обзор автомобильных динамиков BRAX · Опрос · Ваш любимый тип усилителя? · Последние измерения · Новые товары · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/t34a_3_2.jpg> — before: “е Рупоры и волноводы Другие Динамики Измерения История брендов Обзоры Услуги Магазин Каталог товаров Корзина FAQ's О нас”
+  - Chart: <https://hificompass.com/sites/default/files/bliesma_t34b-4_banner1.jpg> — before: “мики Измерения История брендов Обзоры Услуги Магазин Каталог товаров Корзина FAQ's О нас BlieSMa T34A-4 Go to the review”
+  - Chart: <https://hificompass.com/sites/default/files/1.jpg> — before: “ги Магазин Каталог товаров Корзина FAQ's О нас BlieSMa T34A-4 Go to the review BlieSMa T34B-4 Beryllium Go to the review”
+  - Chart: <https://hificompass.com/sites/default/files/slide-2.jpg> — before: “eSMa T34A-4 Go to the review BlieSMa T34B-4 Beryllium Go to the review Repair kits for speaker drivers Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/banana.jpg> — before: “Ma T34B-4 Beryllium Go to the review Repair kits for speaker drivers Go to the section Speaker drivers Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/2xProjects/PuriWave/PuriWave_banner2.jpg> — before: “pair kits for speaker drivers Go to the section Speaker drivers Go to the section Connectors for Audio Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/purpur-6p33a_banner3.jpg?itok=-Wnkc-M7> — alt:  purpur-6p33a_banner3 — before: “наш сайт поможет вам стать на шаг ближе к своей мечте! Содержимое главной страницы еще не создано. Наши последние работы”
+  - Chart: <https://hificompass.com/sites/default/files/purpur-6a33a_1.jpg?itok=q7zSz-xa> — alt: purpur-6a33a_1 — before: “ с алюминиевой диафрагмой, обладающими самыми низкими искажениями из всех, которые мне когда-либо доводилось тестировать”
+  - Chart: <https://hificompass.com/sites/default/files/final_assembly_21.jpg?itok=6rBN6Qpu> — alt: MatriXover-III — before: “твитере PTT1.3T04-HAG-01 , обладающими самыми низкими искажениями из всех, которые мне когда-либо доводилось тестировать”
+  - Chart: <https://hificompass.com/sites/default/files/t34b-4wg104-xx-34.jpg?itok=nsQWg4Rk> — alt:  t34b-4wg104-xx-34 — before: “и из всех, которые мне когда-либо доводилось тестировать MatriXover-III - универсальный матричный 3-х полосный кроссовер”
+  - Chart: <https://hificompass.com/sites/default/files/wg104_banner_small.jpg?itok=0YtYTwZk> — alt:  wg104_banner_small — before: “ универсальный матричный 3-х полосный кроссовер Волновод WG104-XX/34 для твитеров BlieSMa T34B-4, T34D-4, T34T-4, T34S-4”
+  - Chart: <https://hificompass.com/sites/default/files/puribliss-4p25s_title.jpg?itok=fjXqOqoO> — alt: puribliss-4p25s_title — before: “/34 для твитеров BlieSMa T34B-4, T34D-4, T34T-4, T34S-4 Волновод WG104-XX/25 для твитеров BlieSMa T25B-6, T25D-6, T25S-6”
+  - Chart: <https://hificompass.com/sites/default/files/puribliss-4p25b_title4_0.jpg?itok=jzWL51wr> — alt:  puribliss-4p25b_title4 — before: “чная акустическая система на основе 4" бумажных мидвуферов Purifi PTT4.0X04-NFC-01 и 1" шёлкового твитера BlieSMa T25S-6”
+  - Chart: <https://hificompass.com/sites/default/files/matrixover.jpg?itok=uu9FFMXs> — alt: matrixover-II — before: “я акустическая система на основе 4" бумажных мидвуферов Purifi PTT4.0X04-NFA-01 и 1" бериллиевого твитера BlieSMa T25B-6”
+  - Chart: <https://hificompass.com/sites/default/files/wg150-11_flyer.png?itok=qRWVJKax> — alt:  wg150-11 — before: “PTT4.0X04-NFA-01 и 1" бериллиевого твитера BlieSMa T25B-6 MatriXover-II - универсальный матричный двухполосный кроссовер”
+  - Chart: <https://hificompass.com/sites/default/files/puriwave_title.jpg?itok=vt7gWXv6> — alt:  puriwave_title — before: “ieSMa T25B-6 MatriXover-II - универсальный матричный двухполосный кроссовер Волновод для твитера BlieSMa T25B-6 (T25D-6)”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=eGt39tFd> — before: “АС на основе мидвуферов Purifi PTT6.5W08-01B ленточных твитеров Viawave SRT-7 Последние новости 27 Jul T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=NJK4_bdV> — before: “eme Обзор купольного твитера немецкой компании BlieSMa с диафрагмой 34 мм из TeXtreme - T34T-4 21 Jul grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=_86OTUF6> — before: “еле! Сегодня на обзоре ленточный твитер с волноводом и герметичным зазором GRT-145W-4 20 Jun ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=8s9u5J7p> — before: “" среднечастотника с алюминиевой диафрагмой PTT5.25M08-NAA-05 датской компании PURIFI 09 Jun ptt5.25x04-naa-05_front.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/review/brax_group.jpg?itok=PBpG8UTl> — before: “о 5.25" длинноходного мидвуфера с алюминиевой диафрагмой PTT5.25X04-NAA-05 датской компании PURIFI 15 Apr brax_group.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “ильных динамиков ML28 PRO , ML2 , ML80 PRO и GL1 MK2 топовой линейки BRAX немецкой компании Audiotec Fischer Все новости”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “-E/SPe Hemp loudspeakers) BlieSMa T34T-4 Purifi PTT5.25X04-NAA-05 Purifi PTT5.25M08-NAA-05 Viawave GRT-145W-4 STEG MSS 3”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “lverGoldOil 1µF 1000VDC 2% КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34a-4> — BlieSMa T34A-4 | HiFiCompass — mentions premium or login
+  - Headings: You are here · Technical data · Axial magnitude frequency response · Off axis magnitude frequency response · Near field FR (20 mm) normalized to 200Hz · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Near field HD spectrum (20 mm distance) · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 25, 50, 96.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34a-4_front.jpg?itok=alC4d8KQ> — alt:  bliesma_t34a-4_front — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34A-4 You are here Home » Speakers » Measurements » BlieSMa T34A-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34a-4_side.jpg?itok=i_viqmF3> — alt: bliesma_t34a-4_side — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34A-4 You are here Home » Speakers » Measurements » BlieSMa T34A-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34a-4_back.jpg?itok=Euw363Ax> — alt: bliesma_t34a-4_back — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34A-4 You are here Home » Speakers » Measurements » BlieSMa T34A-4”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_1v41_0grad.png?itok=y2yyKLsg> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_2v83_0grad.png?itok=iXC2Buvh> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_4v_0grad.png?itok=CXmuABTZ> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_5v6_0grad.png?itok=n8_EQ-x1> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_8v_0grad.png?itok=gFAJY2GW> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_11v2_0grad.png?itok=5hjiAb4m> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34a-4_315mm_1v41_0grad_nosmoothing.png?itok=fyAd4lxl> — alt: Bliesma_t34a-4 — before: “atio BL/√Re 1.93 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v83 4v 5v6 8v 11v2 1v41_no_smoothing”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis.png?itok=IWL5JJaL> — alt:  t34a-4_offaxis — before: “ng Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-50db.png?itok=Ohu40pS-> — alt:  t34a-4_offaxis_normalized_10-50db — before: “ng Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-25db.png?itok=U7btIrc4> — alt:  t34a-4_offaxis_normalized_10-25db — before: “ng Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_156.png?itok=VYJrpDLQ> — before: “-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB Near field FR (20 mm) normalized to 200Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_1v41hd.png?itok=ClNrVRlJ> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_2vhd.png?itok=ht7EtsbC> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_2v83hd.png?itok=V0RFDbNx> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_4vhd.png?itok=Y_yd0syt> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_5v6hd.png?itok=-4yJ6kdC> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_8vhd.png?itok=5xK-agSk> — alt: bliesma_t34a-4 — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_66.png?itok=WnvgCUfT> — before: “ed to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_157.png?itok=_KnKbkbo> — before: “HD frequency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_494.png?itok=oi1hXbwD> — before: “uency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_495.png?itok=5pPRbIbs> — before: “esponse (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_496.png?itok=QsQ7CHDs> — before: “ (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_497.png?itok=L0Ljsl4Q> — before: “ distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_498.png?itok=kSRX3190> — before: “ce) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_499.png?itok=X40ldypR> — before: “ata Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t34a-4_impedance_7_ohm.png?itok=ld3X0E4P> — alt:  t34a-4_impedance_7_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t34a-4_impedance_20_ohm.png?itok=gp-iGoZv> — alt:  t34a-4_impedance_20_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/t34a-4_step_response.png?itok=q_uNGeCi> — alt:  t34a-4_step_response — before: “1V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm Step response”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/t34a-4_waterfall.png?itok=U-Zki4Ot> — alt: t34a-4_waterfall — before: “ NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm Step response Waterfall”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/t34a-4_etc.png?itok=CyeCwDW-> — alt:  t34a-4_etc — before: “Data NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323.png> — before: “Data NoData NoData Impedance frequency response Scale 7 Ohm Scale 20 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ush-pull 8% (162 votes) Hybrid (tube+solid state) 6% (126 votes) FET based SE 6% (125 votes) Total votes: 2032 All polls”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sb_acoustics_logo.png> — alt:  sb_acoustics_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/purifi_logo.png> — alt: purifi_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wavecor-logo.png> — alt:  wavecor-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “up to three drivers for comparing. CONTACTS Ukraine (+380) 95 904 7827 hificompass@gmail.com LAST NEWS T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “l.com LAST NEWS T34T-4_title2.jpg Review of the BlieSMa T34T-4 34mm TeXtreme dome tweeter 27 Jul 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “7 Jul 2026 grt145w-4_side.jpg Viawave GRT-145W-4 Waveguide Ribbon Tweeter Review 21 Jul 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “5.25m08-naa-05_side2.jpg 5.25" Alu cone midrange PURIFI PTT5.25M08-NAA-05 review 20 Jun 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/datasheet_t34a-4.pdf> Datasheet T34A-4
+  - Table:
+    | Nominal impedance, (Zn) | 4 Ohm |
+    | DC resistance, (Re) | 3.3 Ohm |
+    | Voice coil inductance, (Le) | 0.008 mH |
+    | Effective piston area, (Sd) | 10.5 cm2 |
+    | Voice coil diameter | 34 mm |
+    | Voice coil height | 1.4 mm |
+    | Air gap height | 4.5 mm |
+    | Linear coil travel | 1.5 mm |
+    | Magnetic flux density | 2.2 T |
+    | Diaphragm material | Aluminum/Magnesium |
+    | Rated power | 80 W |
+    | Net weight | 0.68 kg |
+  - Table:
+    | Free air resonance, (Fs) | 790 Hz |
+    | Sensitivity, (2.83V/1m) | 96.0 dB |
+    | Mechanical Q-factor, (Qms) | 2.1 |
+    | Electrical Q-factor, (Qes) | 0.42 |
+    | Total Q-factor, (Qts) | 0.35 |
+    | Moving mass incl. air, (Mms) | 0.28 g |
+    | Force factor, (Bl) | 3.5 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.93 N/√W |
+    | Ratio Fs/Qts | 2257 Hz |
+
+## BlieSMa T34B
+- Page: <https://hificompass.com/index.php> — HiFiCompass - всё для акустических систем и не только |
+  - Headings: HiFiCompass - ваш ориентир в мире HiFi звука! · Наши последние работы · Последние новости · T34T-4_title2.jpg · Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme · grt145w-4_side.jpg · Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 · ptt5.25m08-naa-05_side2.jpg · Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 · ptt5.25x04-naa-05_front.jpg · Обзор 5.25" Алюминиевого мидвуфера PURIFI PTT5.25X04-NAA-05 · brax_group.jpg · Групповой обзор автомобильных динамиков BRAX · Опрос · Ваш любимый тип усилителя? · Последние измерения · Новые товары · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/t34a_3_2.jpg> — before: “е Рупоры и волноводы Другие Динамики Измерения История брендов Обзоры Услуги Магазин Каталог товаров Корзина FAQ's О нас”
+  - Chart: <https://hificompass.com/sites/default/files/bliesma_t34b-4_banner1.jpg> — before: “мики Измерения История брендов Обзоры Услуги Магазин Каталог товаров Корзина FAQ's О нас BlieSMa T34A-4 Go to the review”
+  - Chart: <https://hificompass.com/sites/default/files/1.jpg> — before: “ги Магазин Каталог товаров Корзина FAQ's О нас BlieSMa T34A-4 Go to the review BlieSMa T34B-4 Beryllium Go to the review”
+  - Chart: <https://hificompass.com/sites/default/files/slide-2.jpg> — before: “eSMa T34A-4 Go to the review BlieSMa T34B-4 Beryllium Go to the review Repair kits for speaker drivers Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/banana.jpg> — before: “Ma T34B-4 Beryllium Go to the review Repair kits for speaker drivers Go to the section Speaker drivers Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/2xProjects/PuriWave/PuriWave_banner2.jpg> — before: “pair kits for speaker drivers Go to the section Speaker drivers Go to the section Connectors for Audio Go to the section”
+  - Chart: <https://hificompass.com/sites/default/files/purpur-6p33a_banner3.jpg?itok=-Wnkc-M7> — alt:  purpur-6p33a_banner3 — before: “наш сайт поможет вам стать на шаг ближе к своей мечте! Содержимое главной страницы еще не создано. Наши последние работы”
+  - Chart: <https://hificompass.com/sites/default/files/purpur-6a33a_1.jpg?itok=q7zSz-xa> — alt: purpur-6a33a_1 — before: “ с алюминиевой диафрагмой, обладающими самыми низкими искажениями из всех, которые мне когда-либо доводилось тестировать”
+  - Chart: <https://hificompass.com/sites/default/files/final_assembly_21.jpg?itok=6rBN6Qpu> — alt: MatriXover-III — before: “твитере PTT1.3T04-HAG-01 , обладающими самыми низкими искажениями из всех, которые мне когда-либо доводилось тестировать”
+  - Chart: <https://hificompass.com/sites/default/files/t34b-4wg104-xx-34.jpg?itok=nsQWg4Rk> — alt:  t34b-4wg104-xx-34 — before: “и из всех, которые мне когда-либо доводилось тестировать MatriXover-III - универсальный матричный 3-х полосный кроссовер”
+  - Chart: <https://hificompass.com/sites/default/files/wg104_banner_small.jpg?itok=0YtYTwZk> — alt:  wg104_banner_small — before: “ универсальный матричный 3-х полосный кроссовер Волновод WG104-XX/34 для твитеров BlieSMa T34B-4, T34D-4, T34T-4, T34S-4”
+  - Chart: <https://hificompass.com/sites/default/files/puribliss-4p25s_title.jpg?itok=fjXqOqoO> — alt: puribliss-4p25s_title — before: “/34 для твитеров BlieSMa T34B-4, T34D-4, T34T-4, T34S-4 Волновод WG104-XX/25 для твитеров BlieSMa T25B-6, T25D-6, T25S-6”
+  - Chart: <https://hificompass.com/sites/default/files/puribliss-4p25b_title4_0.jpg?itok=jzWL51wr> — alt:  puribliss-4p25b_title4 — before: “чная акустическая система на основе 4" бумажных мидвуферов Purifi PTT4.0X04-NFC-01 и 1" шёлкового твитера BlieSMa T25S-6”
+  - Chart: <https://hificompass.com/sites/default/files/matrixover.jpg?itok=uu9FFMXs> — alt: matrixover-II — before: “я акустическая система на основе 4" бумажных мидвуферов Purifi PTT4.0X04-NFA-01 и 1" бериллиевого твитера BlieSMa T25B-6”
+  - Chart: <https://hificompass.com/sites/default/files/wg150-11_flyer.png?itok=qRWVJKax> — alt:  wg150-11 — before: “PTT4.0X04-NFA-01 и 1" бериллиевого твитера BlieSMa T25B-6 MatriXover-II - универсальный матричный двухполосный кроссовер”
+  - Chart: <https://hificompass.com/sites/default/files/puriwave_title.jpg?itok=vt7gWXv6> — alt:  puriwave_title — before: “ieSMa T25B-6 MatriXover-II - универсальный матричный двухполосный кроссовер Волновод для твитера BlieSMa T25B-6 (T25D-6)”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=eGt39tFd> — before: “АС на основе мидвуферов Purifi PTT6.5W08-01B ленточных твитеров Viawave SRT-7 Последние новости 27 Jul T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=NJK4_bdV> — before: “eme Обзор купольного твитера немецкой компании BlieSMa с диафрагмой 34 мм из TeXtreme - T34T-4 21 Jul grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=_86OTUF6> — before: “еле! Сегодня на обзоре ленточный твитер с волноводом и герметичным зазором GRT-145W-4 20 Jun ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=8s9u5J7p> — before: “" среднечастотника с алюминиевой диафрагмой PTT5.25M08-NAA-05 датской компании PURIFI 09 Jun ptt5.25x04-naa-05_front.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/review/brax_group.jpg?itok=PBpG8UTl> — before: “о 5.25" длинноходного мидвуфера с алюминиевой диафрагмой PTT5.25X04-NAA-05 датской компании PURIFI 15 Apr brax_group.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “ильных динамиков ML28 PRO , ML2 , ML80 PRO и GL1 MK2 топовой линейки BRAX немецкой компании Audiotec Fischer Все новости”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “-E/SPe Hemp loudspeakers) BlieSMa T34T-4 Purifi PTT5.25X04-NAA-05 Purifi PTT5.25M08-NAA-05 Viawave GRT-145W-4 STEG MSS 3”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “lverGoldOil 2.7µF 1000VDC 2% Mundorf Supreme SilverGoldOil 2.2µF 1000VDC 2% Mundorf Supreme SilverGoldOil 1µF 1000VDC 2%”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “lverGoldOil 1µF 1000VDC 2% КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34b-4> — BlieSMa T34B-4 | HiFiCompass — mentions premium or login
+  - Headings: You are here · Technical data · Axial magnitude frequency response · Off axis magnitude frequency response · Near field FR (20 mm) normalized to 200Hz · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Near field HD spectrum (20 mm distance) · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 25, 50, 97.5
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34b-4_front.jpg?itok=qqY8WwBB> — alt: bliesma_t34b-4_front — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34B-4 You are here Home » Speakers » Measurements » BlieSMa T34B-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34b-4_back.jpg?itok=4lgFPYuV> — alt: bliesma_t34b-4_back — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34B-4 You are here Home » Speakers » Measurements » BlieSMa T34B-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/bliesma_t34b-4_side.jpg?itok=DhRvUHsy> — alt: bliesma_t34b-4_side — before: “ws Services Shop Catalog Cart FAQ's About us BlieSMa T34B-4 You are here Home » Speakers » Measurements » BlieSMa T34B-4”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_1v41_0grad.png?itok=XHTstNme> — alt: t34b-4_315mm_1v41_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_2v_0grad.png?itok=snk9o6Rq> — alt: t34b-4_315mm_2v_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_2v83_0grad.png?itok=4MHb8lNn> — alt: t34b-4_315mm_2v83_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_4v_0grad.png?itok=S7-WgdCm> — alt: t34b-4_315mm_4v_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_5v6_0grad.png?itok=2aPmYa2g> — alt: t34b-4_315mm_5v6_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/t34b-4_315mm_8v_0grad.png?itok=Nnyxih2D> — alt: t34b-4_315mm_8v_0grad — before: “lume, (Vas) 0.0 L Ratio BL/√Re 1.926 N/√W Ratio Fs/Qts 2257 Hz Axial magnitude frequency response 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_0.png?itok=LO4zkNcg> — alt:  t34b-4_315mm_offaxis — before: “8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-50db_0.png?itok=ftRUN-kw> — alt:  t34b-4_315mm_offaxis_normalized_10-50db — before: “8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-25db.png?itok=6QSqLsVJ> — alt: t34b-4_315mm_offaxis_normalized_10-25db — before: “8v Off axis magnitude frequency response 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_170.png?itok=z1IsoZiq> — before: “-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_10-25dB Near field FR (20 mm) normalized to 200Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_1v41hd.png?itok=gvrzTD33> — alt: t34b-4_315mm_1v41hd — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_2vhd.png?itok=WIdVkuKd> — alt: t34b-4_315mm_2vhd — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_2v83hd.png?itok=9FdDIZyA> — alt: t34b-4_315mm_2v83hd — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_4vhd_hpf200hz.png?itok=m3rrUDd5> — alt: t34b-4_315mm_4vhd_hpf200hz — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_5v6hd_hpf200hz.png?itok=F1diSKmJ> — alt: t34b-4_315mm_5v6hd_hpf200hz — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_8vhd_hpf200hz.png?itok=mijXhiwM> — alt: t34b-4_315mm_8vhd_hpf200hz — before: “malized_10-25dB Near field FR (20 mm) normalized to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_72.png?itok=pOPsQ4cM> — before: “ed to 200Hz HD frequency response (315 mm distance) 1v41 2v 2v83 4v 5v6 8v HD frequency response (20 mm distance) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_171.png?itok=mzKcGSum> — before: “HD frequency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_539.png?itok=qqgWgHk7> — before: “uency response (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_540.png?itok=RqL2x2X6> — before: “esponse (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_541.png?itok=iHRBvx82> — before: “ (20 mm distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_542.png?itok=5zFCPLz0> — before: “ distance) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_543.png?itok=ByBj_Cc2> — before: “ce) NoData Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_544.png?itok=TCNHU5MA> — before: “ata Near field HD spectrum (20 mm distance) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t34b-4_impedance_5_ohm.png?itok=cJphWExW> — alt: t34b-4_impedance_5_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 5 Ohm Scale 20 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/t34b-4_impedance_20_ohm.png?itok=tpDpFrx6> — alt: t34b-4_impedance_20_ohm — before: “83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 5 Ohm Scale 20 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/t34b-4_step_response.png?itok=Z-hi-ASb> — alt:  t34b-4_step_response — before: “1V2 NoData NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 5 Ohm Scale 20 Ohm Step response”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/t34b-4_waterfall.png?itok=uNBsgMOI> — alt: t34b-4_waterfall — before: “ NoData NoData NoData NoData NoData NoData Impedance frequency response Scale 5 Ohm Scale 20 Ohm Step response Waterfall”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/t34b-4_etc.png?itok=4Le7NmZC> — alt:  t34b-4_etc — before: “Data NoData NoData Impedance frequency response Scale 5 Ohm Scale 20 Ohm Step response Waterfall Energy-Time Curve (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323.png> — before: “ance frequency response Scale 5 Ohm Scale 20 Ohm Step response Waterfall Energy-Time Curve (ETC) Log in to post comments”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ush-pull 8% (162 votes) Hybrid (tube+solid state) 6% (126 votes) FET based SE 6% (125 votes) Total votes: 2032 All polls”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sb_acoustics_logo.png> — alt:  sb_acoustics_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/purifi_logo.png> — alt: purifi_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wavecor-logo.png> — alt:  wavecor-logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “e place! More... Compare The compared speaker drivers are displayed here. You can add up to three drivers for comparing.”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “up to three drivers for comparing. CONTACTS Ukraine (+380) 95 904 7827 hificompass@gmail.com LAST NEWS T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “l.com LAST NEWS T34T-4_title2.jpg Review of the BlieSMa T34T-4 34mm TeXtreme dome tweeter 27 Jul 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “7 Jul 2026 grt145w-4_side.jpg Viawave GRT-145W-4 Waveguide Ribbon Tweeter Review 21 Jul 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “5.25m08-naa-05_side2.jpg 5.25" Alu cone midrange PURIFI PTT5.25M08-NAA-05 review 20 Jun 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/t34b-4.pdf> t34b-4.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 4 Ohm |
+    | DC resistance, (Re) | 3.3 Ohm |
+    | Voice coil inductance, (Le) | 0.008 mH |
+    | Effective piston area, (Sd) | 10.5 cm2 |
+    | Voice coil diameter | 34 mm |
+    | Voice coil height | 1.4 mm |
+    | Air gap height | 4.5 mm |
+    | Linear coil travel | 1.5 mm |
+    | Magnetic flux density | 2.2 T |
+    | Diaphragm material | Beryllium |
+    | Rated power | 80 W |
+    | Net weight | 0.68 kg |
+  - Table:
+    | Free air resonance, (Fs) | 790 Hz |
+    | Sensitivity, (2.83V/1m) | 97.5 dB |
+    | Mechanical Q-factor, (Qms) | 2.1 |
+    | Electrical Q-factor, (Qes) | 0.42 |
+    | Total Q-factor, (Qts) | 0.35 |
+    | Moving mass incl. air, (Mms) | 0.26 g |
+    | Force factor, (Bl) | 3.5 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.926 N/√W |
+    | Ratio Fs/Qts | 2257 Hz |
+
+## SB Acoustics Satori MR16TX
+- Page: <https://hificompass.com/ru/news/izmereniya/obzor-65-srednechastotnika-satori-mr16tx-8-s-tpcd-diafragmoy> — Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD диафрагмой | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · mr16tx-8_side.jpg · mr16tx-8_front.jpg · mr16tx-8_back.jpg · Feb · 10 · 2025 · Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD диафрагмой · Категории новостей · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_side.jpg?itok=UgfbclFw> — before: “Вы здесь Главная » Новости » Измерения » Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD диафрагмой mr16tx-8_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_front.jpg?itok=YeKUtV6k> — before: “Новости » Измерения » Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD диафрагмой mr16tx-8_side.jpg mr16tx-8_front.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_back.jpg?itok=T_gKq3Ws> — before: “я » Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD диафрагмой mr16tx-8_side.jpg mr16tx-8_front.jpg mr16tx-8_back.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “i MR16TX-8 с TPCD диафрагмой Обзор 6.5" среднечастотника Satori MR16TX-8 с TPCD ( TeXtreme ) диафрагмой Перейти к обзору”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “аша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта! Выберите интересующую категорию”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “ния Проекты Новости продаж КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8> — Satori MR16TX-8 | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · Технические данные · Отличительные особенности/комментарии · Осевая АЧХ · Внеосевая АЧХ · Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) · Частотная зависимость Кг (расстояние 315 мм) · Частотная зависимость Кг (расстояние 20 мм) · Гармонические искажения тока звуковой катушки · Спектр гармонических искажений в ближнем поле (20 мм) · Интермодуляционные искажения · Частотная характеристика модуля импеданса · Переходная характеристика · Водопад · Энергетическая огибающая (ETC) · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2.83, 30, 50, 89.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_front.jpg?itok=NEYhwi8R> — alt: mr16tx-8_front — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_back.jpg?itok=gCOCf12r> — alt: mr16tx-8_back — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_side.jpg?itok=F1hsg7JF> — alt: mr16tx-8_side — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_side2.jpg?itok=srjMEy1_> — alt:  mr16tx-8_side2 — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_box.jpg?itok=rlETHnFC> — alt:  mr16tx-8_box — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mr16tx-8_box2.jpg?itok=t-TeBYXm> — alt: mr16tx-8_box2 — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MR16TX-8 Вы здесь Главная » Динамики » Измерения » Satori MR16TX-8”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_2v83_0deg.png?itok=pwg6Krpy> — alt:  mr16tx-8_315mm_2v83_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_4v_0deg.png?itok=ZYoNnWao> — alt:  mr16tx-8_315mm_4v_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_5v6_0deg.png?itok=dSEj4AG6> — alt:  mr16tx-8_315mm_5v6_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_8v_0deg.png?itok=CI0DE1qJ> — alt:  mr16tx-8_315mm_8v_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_11v2_0deg.png?itok=JajgT5rh> — alt: mr16tx-8_315mm_11v2_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_16v_0deg.png?itok=HdlEKB4t> — alt:  mr16tx-8_315mm_16v_0deg — before: “PF2-50) Перед измерениями динамик был хорошо размят Детальный обзор динамика MR16TX-8 Осевая АЧХ 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis.png?itok=5s5msXFh> — alt:  mr16tx-8_offaxis — before: “АЧХ 2v83 4v 5v6 8v 11v2 16v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_10-50db.png?itok=E9RgLXLn> — alt:  mr16tx-8_offaxis_normalized_10-50db — before: “АЧХ 2v83 4v 5v6 8v 11v2 16v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_5-30db.png?itok=qZaIKe70> — alt:  mr16tx-8_offaxis_normalized_5-30db — before: “АЧХ 2v83 4v 5v6 8v 11v2 16v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/mr16tx-8_5mm_1v_0deg.png?itok=nqyy3lcW> — alt:  mr16tx-8_5mm_1v_0deg — before: “45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v_hpf2-50.png?itok=jkUGPwsx> — alt: mr16tx-8_315mm_2v_hpf2-50 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v83_hpf2-50.png?itok=EE-PIOdj> — alt: mr16tx-8_315mm_2v83_hpf2-50 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_4v_hpf2-50.png?itok=_AwdZK0o> — alt:  mr16tx-8_315mm_4v_hpf2-50 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_5v6_hpf2-50.png?itok=ZPkuJWVq> — alt:  mr16tx-8_315mm_5v6_hpf2-50 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_8v_hpf2-50.png?itok=DRTCifF0> — alt: mr16tx-8_315mm_8v_hpf2-50 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_11v2_hpf2-80.png?itok=2RSqyBA8> — alt:  mr16tx-8_315mm_11v2_hpf2-80 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_16v_hpf2-80.png?itok=UgPwHATo> — alt: mr16tx-8_315mm_16v_hpf2-80 — before: “ормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_165.png?itok=2tOvfXn_> — before: “стотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 16v Частотная зависимость Кг (расстояние 20 мм) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_2v83_hpf2-50.png?itok=sCiOyS4b> — alt: mr16tx-8_chd_2v83_hpf2-50 — before: “8v 11v2 16v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_4v_hpf2-50.png?itok=Y3vQf7KA> — alt:  mr16tx-8_chd_4v_hpf2-50 — before: “8v 11v2 16v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_5v6_hpf2-50.png?itok=B_tQqIIk> — alt: mr16tx-8_chd_5v6_hpf2-50 — before: “8v 11v2 16v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_424.png?itok=ykJwpUTA> — before: “a Гармонические искажения тока звуковой катушки 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png?itok=XwBS9xFH> — alt:  mr16tx-8_30hz255hz_xmax30hz1mm_4to1text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png?itok=-7M98vIz> — alt: mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz2mm_4to1text.png?itok=b5O5C7SL> — alt: mr16tx-8_30hz255hz_xmax30hz2mm_4to1text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz3mm_4to1text.png?itok=GqOM8jIs> — alt: mr16tx-8_30hz255hz_xmax30hz3mm_4to1text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz4mm_4to1text.png?itok=U22rWzpc> — alt:  mr16tx-8_30hz255hz_xmax30hz4mm_4to1text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v1063hz2vtext.png?itok=tXmfJIpw> — alt:  mr16tx-8_125hz2v1063hz2vtext — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v831063hz2v83text.png?itok=--QOKlcm> — alt:  mr16tx-8_125hz2v831063hz2v83text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz4v1063hz4vtext.png?itok=1DYs9YIK> — alt:  mr16tx-8_125hz4v1063hz4vtext — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz5v61063hz5v6text.png?itok=QdAaPTL2> — alt:  mr16tx-8_125hz5v61063hz5v6text — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz8v1063hz8vtext.png?itok=d2dk_dzw> — alt: mr16tx-8_125hz8v1063hz8vtext — before: “mm)+255Hz 2v(125Hz)+2v(1063Hz) 2v83(125Hz)+2v83(1063Hz) 4v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_150_ohm.png?itok=zv1NdMbf> — alt:  mr16tx-8_impedance_150_ohm — before: “v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz) Частотная характеристика модуля импеданса 150 Ohm 10 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_10_ohm.png?itok=fD4Sc5-U> — alt: mr16tx-8_impedance_10_ohm — before: “v(125Hz)+4v(1063Hz) 5v6(125Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz) Частотная характеристика модуля импеданса 150 Ohm 10 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/mr16tx-8_step_response.png?itok=CxsgO1-9> — alt: mr16tx-8_step_response — before: “5Hz)+5v6(1063Hz) 8v(125Hz)+8v(1063Hz) Частотная характеристика модуля импеданса 150 Ohm 10 Ohm Переходная характеристика”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/mr16tx-8_waterfall.png?itok=B-lrfmSM> — alt:  mr16tx-8_waterfall — before: “(1063Hz) 8v(125Hz)+8v(1063Hz) Частотная характеристика модуля импеданса 150 Ohm 10 Ohm Переходная характеристика Водопад”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/mr16tx-8_etc.png?itok=v0v0EYyn> — alt:  mr16tx-8_etc — before: “астотная характеристика модуля импеданса 150 Ohm 10 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “са 150 Ohm 10 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC) Войдите , чтобы оставлять комментарии”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ , чтобы оставлять комментарии Ваша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта!”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “udio in one place! More... КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/612in-satori-mr16tx-8.pdf> 612in-satori-mr16tx-8.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 8 Ohm |
+    | DC resistance, (Re) | 6.2 Ohm |
+    | Voice coil inductance, (Le) | 0.11 mH |
+    | Effective piston area, (Sd) | 117 cm2 |
+    | Voice coil diameter | 35.5 mm |
+    | Voice coil height | 10.7 mm |
+    | Air gap height | 5 mm |
+    | Linear coil travel | 2.85 mm |
+    | Magnetic flux density | 1.17 T |
+    | Diaphragm material | TeXtreme |
+    | Rated power | 30 W |
+    | Net weight | 1 kg |
+  - Table:
+    | Free air resonance, (Fs) | 35 Hz |
+    | Sensitivity, (2.83V/1m) | 89.0 dB |
+    | Mechanical Q-factor, (Qms) | 6.47 |
+    | Electrical Q-factor, (Qes) | 0.32 |
+    | Total Q-factor, (Qts) | 0.31 |
+    | Mechanical loss, (Rms) | 0.35 kg/s |
+    | Moving mass incl. air, (Mms) | 10.3 g |
+    | Force factor, (Bl) | 6.6 T*m |
+    | Equivalent volume, (Vas) | 38.9 L |
+    | Compliance, (Cms) | 2 mm/N |
+    | Ratio BL/√Re | 2.65 N/√W |
+    | Ratio Fs/Qts | 113 Hz |
+
+## SB Acoustics Satori MW19TX
+- Page: <https://hificompass.com/ru/news/izmereniya/satori-mw19tx-4> — Satori MW19TX-4 | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · mw19tx-4_front2.jpg · Jan · 23 · 2021 · Satori MW19TX-4 · Категории новостей · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mw19tx-4_front2.jpg?itok=-lBwbaRw> — before: “товаров Корзина FAQ's О нас Satori MW19TX-4 Вы здесь Главная » Новости » Измерения » Satori MW19TX-4 mw19tx-4_front2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “ Electric ( Indonesia ) - 7.5" мидвуфером Satori MW19TX-4 с мембраной из новейшего материала TeXtreme . Перейти к обзору”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “аша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта! Выберите интересующую категорию”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “ния Проекты Новости продаж КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4> — Satori MW19TX-4 | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · Технические данные · Отличительные особенности/комментарии · Осевая АЧХ · Внеосевая АЧХ · Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) · Частотная зависимость Кг (расстояние 315 мм) · Частотная зависимость Кг (расстояние 20 мм) · Гармонические искажения тока звуковой катушки · Спектр гармонических искажений в ближнем поле (20 мм) · Интермодуляционные искажения · Частотная характеристика модуля импеданса · Переходная характеристика · Водопад · Энергетическая огибающая (ETC) · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 93.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mw19tx-4_front2.jpg?itok=U4lmFpt0> — alt:  mw19tx-4_front — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MW19TX-4 Вы здесь Главная » Динамики » Измерения » Satori MW19TX-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mw19tx-4_back2.jpg?itok=InkIq-nt> — alt:  mw19tx-4_back — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MW19TX-4 Вы здесь Главная » Динамики » Измерения » Satori MW19TX-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/mw19tx-4_side.jpg?itok=UQ4OZetV> — alt:  mw19tx-4_side — before: “ги Магазин Каталог товаров Корзина FAQ's О нас Satori MW19TX-4 Вы здесь Главная » Динамики » Измерения » Satori MW19TX-4”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v_0grad.png?itok=FgsE-Wzx> — alt:  mw19tx-4_315mm_2v_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v83_0grad.png?itok=1fDikEBW> — alt:  mw19tx-4_315mm_2v83_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_4v_0grad.png?itok=Uq1HjvEj> — alt:  mw19tx-4_315mm_4v_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_5v6_0grad.png?itok=IRzQKLfF> — alt:  mw19tx-4_315mm_5v6_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_8v_0grad.png?itok=nhQYgq9T> — alt:  mw19tx-4_315mm_8v_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_11v2_0grad.png?itok=ZhFIJjdD> — alt:  mw19tx-4_315mm_11v2_0grad — before: “о порядка с частотой среза 20 Гц (HPF2-20) Перед измерениями динамик был хорошо размят Осевая АЧХ 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis.png?itok=hyCbXYAZ> — alt:  mw19tx-4_offaxis — before: “ АЧХ 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50db 0-15-30-45-60_normalized_5-30db”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_10-50db.png?itok=IITEIUGR> — alt:  mw19tx-4_offaxis_normalized_10-50db — before: “ АЧХ 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50db 0-15-30-45-60_normalized_5-30db”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_5-30db.png?itok=isCIEst9> — alt:  mw19tx-4_offaxis_normalized_5-30db — before: “ АЧХ 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50db 0-15-30-45-60_normalized_5-30db”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/mw19tx-4_20mm_2v83_0grad.png?itok=SdQFV8AH> — alt:  mw19tx-4_20mm_2v83_0grad — before: “45-60 0-15-30-45-60_normalized_10-50db 0-15-30-45-60_normalized_5-30db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_2v_hpf2-50.png?itok=zSjvZQ5f> — alt:  mw19tx-4_315mm_2v_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_2v83_hpf2-50.png?itok=07tIILoB> — alt:  mw19tx-4_315mm_2v83_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_4v_hpf2-50.png?itok=UGezS-Qu> — alt:  mw19tx-4_315mm_4v_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_5v6_hpf2-50.png?itok=Ej2-gPR8> — alt:  mw19tx-4_315mm_5v6_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_8v_hpf2-50.png?itok=IqXKB7Lq> — alt:  mw19tx-4_315mm_8v_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_11v2_hpf2-50.png?itok=kFV5L9j5> — alt:  mw19tx-4_315mm_11v2_hpf2-50 — before: “db Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v_hd.png?itok=lOnAeYrZ> — alt:  mw19tx-4_20mm_2v_hd — before: “ зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v83_hd.png?itok=VgtZX-wL> — alt:  mw19tx-4_20mm_2v83_hd — before: “ зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_4v_hd.png?itok=spYSeK_c> — alt:  mw19tx-4_20mm_4v_hd — before: “ зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_5v6_hd.png?itok=ROuHZECx> — alt:  mw19tx-4_20mm_5v6_hd — before: “ зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_8v_hpf2-20.png?itok=NjEct6H-> — alt:  mw19tx-4_20mm_8v_hpf2-20 — before: “ зависимость Кг (расстояние 315 мм) 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_2v_chd_hpf2-50.png?itok=xYgcTeSf> — alt:  mw19tx-4_2v_chd_hpf2-50 — before: “тная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v Гармонические искажения тока звуковой катушки 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_2v83_chd_hpf2-50.png?itok=r_0IZq2E> — alt:  mw19tx-4_2v83_chd_hpf2-50 — before: “тная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v Гармонические искажения тока звуковой катушки 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_4v_chd_hpf2-50.png?itok=CbaKL7QQ> — alt:  mw19tx-4_4v_chd_hpf2-50 — before: “тная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v Гармонические искажения тока звуковой катушки 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_5v6_chd_hpf2-50.png?itok=0P_JWodA> — alt:  mw19tx-4_5v6_chd_hpf2-50 — before: “тная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v Гармонические искажения тока звуковой катушки 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_8v_chd_hpf2-50.png?itok=3ktY6TTk> — alt:  mw19tx-4_8v_chd_hpf2-50 — before: “тная зависимость Кг (расстояние 20 мм) 2v 2v83 4v 5v6 8v Гармонические искажения тока звуковой катушки 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_337.png?itok=Y2FXT25l> — before: “ковой катушки 2v 2v83 4v 5v6 8v Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_20hz.png?itok=NSY3qdVV> — alt:  mw19tx-4_20mm_2v_20hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_30hz.png?itok=KYuCyECk> — alt:  mw19tx-4_20mm_2v_30hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_40hz.png?itok=OcV2VNwo> — alt:  mw19tx-4_20mm_2v_40hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_50hz.png?itok=IO8qYHC_> — alt:  mw19tx-4_20mm_2v_50hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_75hz.png?itok=9GhN9GK8> — alt:  mw19tx-4_20mm_2v_75hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_100hz.png?itok=AJyKLIRL> — alt:  mw19tx-4_20mm_2v_100hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_150hz.png?itok=4HqbxPuH> — alt:  mw19tx-4_20mm_2v_150hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_220hz.png?itok=ECfBfIvm> — alt:  mw19tx-4_20mm_2v_220hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_300hz.png?itok=DBbCx30I> — alt:  mw19tx-4_20mm_2v_300hz — before: “ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_20hz.png?itok=24NfWW-1> — alt:  mw19tx-4_20mm_2v83_20hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_30hz.png?itok=PjtTAf0I> — alt:  mw19tx-4_20mm_2v83_30hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_40hz.png?itok=tVLByzbb> — alt:  mw19tx-4_20mm_2v83_40hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_50hz.png?itok=K3pCi5Xo> — alt:  mw19tx-4_20mm_2v83_50hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_75hz.png?itok=u46ji1Nc> — alt:  mw19tx-4_20mm_2v83_75hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_100hz.png?itok=YLB_qr62> — alt:  mw19tx-4_20mm_2v83_100hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_150hz.png?itok=UY30hzeB> — alt:  mw19tx-4_20mm_2v83_150hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_220hz.png?itok=-FfaIXt-> — alt:  mw19tx-4_20mm_2v83_220hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_300hz.png?itok=xAD32ABb> — alt:  mw19tx-4_20mm_2v83_300hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_20hz.png?itok=lP7cF9d-> — alt:  mw19tx-4_20mm_4v_20hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_30hz.png?itok=j_QFBNMG> — alt:  mw19tx-4_20mm_4v_30hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_40hz.png?itok=_czguUTC> — alt:  mw19tx-4_20mm_4v_40hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_50hz.png?itok=zOVCOWQO> — alt:  mw19tx-4_20mm_4v_50hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_75hz.png?itok=Ov6OKdGU> — alt:  mw19tx-4_20mm_4v_75hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_100hz.png?itok=Xrmjn_pn> — alt:  mw19tx-4_20mm_4v_100hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_150hz.png?itok=2vqNxSWp> — alt:  mw19tx-4_20mm_4v_150hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_220hz.png?itok=bFtBM09Q> — alt:  mw19tx-4_20mm_4v_220hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_300hz.png?itok=-FcT5jOG> — alt:  mw19tx-4_20mm_4v_300hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_20hz.png?itok=eXpygQN-> — alt:  mw19tx-4_20mm_5v6_20hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_30hz.png?itok=hZH9HjmC> — alt:  mw19tx-4_20mm_5v6_30hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_40hz.png?itok=tfo6dRij> — alt:  mw19tx-4_20mm_5v6_40hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_50hz.png?itok=fZc_stTE> — alt:  mw19tx-4_20mm_5v6_50hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_75hz.png?itok=onGUwiXY> — alt:  mw19tx-4_20mm_5v6_75hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_100hz.png?itok=LJTNRcR0> — alt:  mw19tx-4_20mm_5v6_100hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_150hz.png?itok=uo3kFmhp> — alt:  mw19tx-4_20mm_5v6_150hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_220hz.png?itok=a4behGDC> — alt:  mw19tx-4_20mm_5v6_220hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_300hz.png?itok=XBM2rUj_> — alt:  mw19tx-4_20mm_5v6_300hz — before: “50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1137.png?itok=a9oPulKs> — before: “Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1138.png?itok=GYKbzFjN> — before: “75 Hz 100 Hz 150 Hz 220 Hz 300 Hz 20 Hz 30 Hz 40 Hz 50 Hz 75 Hz 100 Hz 150 Hz 220 Hz 300 Hz NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png?itok=t32LOLpd> — alt:  mw19tx-4_30hz255hz_xmax30hz3mm_4to1 — before: “Hz 150 Hz 220 Hz 300 Hz NoData NoData Интермодуляционные искажения 3 mm (30Hz+255Hz) 6 mm (30Hz+255Hz) 9 mm (30Hz+255Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz6mm_4to1.png?itok=PCvgME3_> — alt:  mw19tx-4_30hz255hz_xmax30hz6mm_4to1 — before: “Hz 150 Hz 220 Hz 300 Hz NoData NoData Интермодуляционные искажения 3 mm (30Hz+255Hz) 6 mm (30Hz+255Hz) 9 mm (30Hz+255Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz9mm_4to1.png?itok=g_sLdZoi> — alt:  mw19tx-4_30hz255hz_xmax30hz9mm_4to1 — before: “Hz 150 Hz 220 Hz 300 Hz NoData NoData Интермодуляционные искажения 3 mm (30Hz+255Hz) 6 mm (30Hz+255Hz) 9 mm (30Hz+255Hz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/mw19tx-4_impedance_70_ohm.png?itok=Xcrr3pfb> — alt:  mw19tx-4_impedance_70_ohm — before: “3 mm (30Hz+255Hz) 6 mm (30Hz+255Hz) 9 mm (30Hz+255Hz) Частотная характеристика модуля импеданса Scale 70 Ohm Scale 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/mw19tx-4_impedance_7_ohm.png?itok=FEG6Ds_g> — alt:  mw19tx-4_impedance_7_ohm — before: “3 mm (30Hz+255Hz) 6 mm (30Hz+255Hz) 9 mm (30Hz+255Hz) Частотная характеристика модуля импеданса Scale 70 Ohm Scale 7 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/mw19tx-4_step_response.png?itok=k0_rpOHq> — alt: mw19tx-4_step_response — before: “Hz+255Hz) 9 mm (30Hz+255Hz) Частотная характеристика модуля импеданса Scale 70 Ohm Scale 7 Ohm Переходная характеристика”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/mw19tx-4_waterfall_0.png?itok=dSt_m1m3> — alt: mw19tx-4_waterfall — before: “) 9 mm (30Hz+255Hz) Частотная характеристика модуля импеданса Scale 70 Ohm Scale 7 Ohm Переходная характеристика Водопад”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/mw19tx-4_etc.png?itok=X7YNNoAm> — alt:  mw19tx-4_etc — before: “арактеристика модуля импеданса Scale 70 Ohm Scale 7 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “0 Ohm Scale 7 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC) Войдите , чтобы оставлять комментарии”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ , чтобы оставлять комментарии Ваша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта!”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “udio in one place! More... КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/7.5in-satori-mw19tx-4.pdf> 7.5in-satori-mw19tx-4.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 4 Ohm |
+    | DC resistance, (Re) | 3.4 Ohm |
+    | Voice coil inductance, (Le) | 0.14 mH |
+    | Effective piston area, (Sd) | 158 cm2 |
+    | Voice coil diameter | 39 mm |
+    | Voice coil height | 19.6 mm |
+    | Air gap height | 6 mm |
+    | Linear coil travel | 6.8 mm |
+    | Magnetic flux density | 1.1 T |
+    | Diaphragm material | Carbon fiber (Textreme) |
+    | Rated power | 70 W |
+    | Net weight | 1.46 kg |
+  - Table:
+    | Free air resonance, (Fs) | 32 Hz |
+    | Sensitivity, (2.83V/1m) | 93.0 dB |
+    | Mechanical Q-factor, (Qms) | 5.43 |
+    | Electrical Q-factor, (Qes) | 0.28 |
+    | Total Q-factor, (Qts) | 0.27 |
+    | Mechanical loss, (Rms) | 0.6 kg/s |
+    | Moving mass incl. air, (Mms) | 16.2 g |
+    | Force factor, (Bl) | 6.3 T*m |
+    | Equivalent volume, (Vas) | 53.2 L |
+    | Compliance, (Cms) | 1.52 mm/N |
+    | Ratio BL/√Re | 3.42 N/√W |
+    | Ratio Fs/Qts | 118 Hz |
+
+## SB Acoustics Satori TW29BNWG
+- Page: <https://hificompass.com/ru/news/izmereniya/satori-tw29bnwg-4> — Satori TW29BNWG-4 | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · tw29bnwg-4_front.jpg · Feb · 15 · 2021 · Satori TW29BNWG-4 · Категории новостей · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29bnwg-4_front.jpg?itok=P7BoCTPA> — before: “ов Корзина FAQ's О нас Satori TW29BNWG-4 Вы здесь Главная » Новости » Измерения » Satori TW29BNWG-4 tw29bnwg-4_front.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “aja Electric ( Indonesia ) - твитером Satori TW29BNWG-4 с бериллиевой мембраной и волноводной нагрузкой Перейти к обзору”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “аша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта! Выберите интересующую категорию”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “ния Проекты Новости продаж КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4> — Satori TW29BNWG-4 | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · Технические данные · Отличительные особенности/комментарии · Осевая АЧХ · Внеосевая АЧХ · Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) · Частотная зависимость Кг (расстояние 315 мм) · Частотная зависимость Кг (расстояние 20 мм) · Гармонические искажения тока звуковой катушки · Спектр гармонических искажений в ближнем поле (20 мм) · Интермодуляционные искажения · Частотная характеристика модуля импеданса · Переходная характеристика · Водопад · Энергетическая огибающая (ETC) · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 30, 50, 97.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29bnwg-4_front.jpg?itok=bz_VhBIC> — alt:  tw29bnwg-4_front — before: “агазин Каталог товаров Корзина FAQ's О нас Satori TW29BNWG-4 Вы здесь Главная » Динамики » Измерения » Satori TW29BNWG-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29bnwg-4_back2.jpg?itok=0OpGcbXe> — alt:  tw29bnwg-4_back — before: “агазин Каталог товаров Корзина FAQ's О нас Satori TW29BNWG-4 Вы здесь Главная » Динамики » Измерения » Satori TW29BNWG-4”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29bnwg-4_side.jpg?itok=UU8D4w87> — alt:  tw29bnwg-4_side — before: “агазин Каталог товаров Корзина FAQ's О нас Satori TW29BNWG-4 Вы здесь Главная » Динамики » Измерения » Satori TW29BNWG-4”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_1v41_0grad.png?itok=q4B57oTL> — alt:  tw29bnwg-4_315mm_1v41_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_2v_0grad.png?itok=kVUq13wO> — alt:  tw29bnwg-4_315mm_2v_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_2v83_0grad.png?itok=hMM4RiCE> — alt:  tw29bnwg-4_315mm_2v83_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_4v_0grad.png?itok=KyyHABqU> — alt:  tw29bnwg-4_315mm_4v_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_5v6_0grad.png?itok=a7cz_SXd> — alt:  tw29bnwg-4_315mm_5v6_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_8v_0grad.png?itok=fs3HfVmS> — alt:  tw29bnwg-4_315mm_8v_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_11v2_0grad.png?itok=mA1wNlWM> — alt:  tw29bnwg-4_315mm_11v2_0grad — before: “нным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis.png?itok=SfsfLPHb> — alt:  tw29bnwg-4_offaxis — before: “1v41 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_10-50db.png?itok=CtS6OO5i> — alt:  tw29bnwg-4_offaxis_normalized_10-50db — before: “1v41 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_5-30db.png?itok=llQtRhY1> — alt:  tw29bnwg-4_offaxis_normalized_5-30db — before: “1v41 2v 2v83 4v 5v6 8v 11v2 Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_332.png?itok=5a2s2Sr4> — before: “45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_1v41_hpf2-800.png?itok=P8D81ifn> — alt:  tw29bnwg-4_315mm_1v41_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_2v_hpf2-800.png?itok=jzU7cIyk> — alt:  tw29bnwg-4_315mm_2v_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_2v83_hpf2-800.png?itok=JEQc5SUG> — alt:  tw29bnwg-4_315mm_2v83_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_4v_hpf2-800.png?itok=fej4ZYxy> — alt:  tw29bnwg-4_315mm_4v_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_5v6_hpf2-800.png?itok=EogqCbuc> — alt:  tw29bnwg-4_315mm_5v6_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_8v_hpf2-800.png?itok=st6E5ioD> — alt:  tw29bnwg-4_315mm_8v_hpf2-800 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_11v2_hpf2-1000.png?itok=Z27V8CgY> — alt:  tw29bnwg-4_315mm_11v2_hpf2-1000 — before: “рмированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_125.png?itok=Yb9rHeYG> — before: “тотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v 11v2 Частотная зависимость Кг (расстояние 20 мм) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_1v41_chd_hpf2-800.png?itok=Sz3oA5X1> — alt:  tw29bnwg-4_1v41_chd_hpf2-800 — before: “1v2 Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_2v_chd_hpf2-800.png?itok=cbgzmpwB> — alt:  tw29bnwg-4_2v_chd_hpf2-800 — before: “1v2 Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_2v83_chd_hpf2-800.png?itok=yAQR2Xi3> — alt:  tw29bnwg-4_2v83_chd_hpf2-800 — before: “1v2 Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_4v_chd_hpf2-800.png?itok=lyad2Z3H> — alt:  tw29bnwg-4_4v_chd_hpf2-800 — before: “1v2 Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_5v6_chd_hpf2-800.png?itok=ksvePt8p> — alt:  tw29bnwg-4_5v6_chd_hpf2-800 — before: “1v2 Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_333.png?itok=YN0p-JY5> — before: “вой катушки 1v41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1123.png?itok=5JJdX9If> — before: “ушки 1v41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1124.png?itok=u-eAfR9B> — before: “41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1125.png?itok=YeqpIjER> — before: “v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1126.png?itok=XaZWwTup> — before: “5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1127.png?itok=HrHILbeV> — before: “ктр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1128.png?itok=mUj8JjIs> — before: “монических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1_0.png?itok=X1onww2c> — alt:  tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1 — before: “ata NoData NoData Интермодуляционные искажения 2v83 (1kHz+10kHz) 2v83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1.png?itok=OWTSZClJ> — alt:  tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1 — before: “ata NoData NoData Интермодуляционные искажения 2v83 (1kHz+10kHz) 2v83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1.png?itok=zPrP6RG_> — alt: tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1 — before: “ata NoData NoData Интермодуляционные искажения 2v83 (1kHz+10kHz) 2v83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png?itok=PBNtdYS1> — alt: tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text — before: “ata NoData NoData Интермодуляционные искажения 2v83 (1kHz+10kHz) 2v83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_10_ohm.png?itok=JVteDvLS> — alt:  tw29bnwg-4_impedance_10_ohm — before: “83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz) Частотная характеристика модуля импеданса Scale 10 Ohm Scale 5 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_5_ohm.png?itok=lQEVol5E> — alt:  tw29bnwg-4_impedance_5_ohm — before: “83 (2kHz+10kHz) 2v83 (800Hz+10kHz) 2v83 (19kHz+20kHz) Частотная характеристика модуля импеданса Scale 10 Ohm Scale 5 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/tw29bnwg-4_step_response.png?itok=rZXaaMuS> — alt: tw29bnwg-4_step_response — before: “z+10kHz) 2v83 (19kHz+20kHz) Частотная характеристика модуля импеданса Scale 10 Ohm Scale 5 Ohm Переходная характеристика”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/tw29bnwg-4_waterfall_0.png?itok=qysHaAVX> — alt:  tw29bnwg-4_waterfall — before: “ 2v83 (19kHz+20kHz) Частотная характеристика модуля импеданса Scale 10 Ohm Scale 5 Ohm Переходная характеристика Водопад”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/tw29bnwg-4_etc.png?itok=PC2VGZvf> — alt:  tw29bnwg-4_etc — before: “арактеристика модуля импеданса Scale 10 Ohm Scale 5 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “0 Ohm Scale 5 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC) Войдите , чтобы оставлять комментарии”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ , чтобы оставлять комментарии Ваша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта!”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “udio in one place! More... КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/satori-tw29bnwg-4.pdf> satori-tw29bnwg-4.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 4 Ohm |
+    | DC resistance, (Re) | 3 Ohm |
+    | Voice coil inductance, (Le) | 0.02 mH |
+    | Effective piston area, (Sd) | 9.6 cm2 |
+    | Voice coil diameter | 29 mm |
+    | Voice coil height | 2 mm |
+    | Air gap height | 3 mm |
+    | Linear coil travel | 0.5 mm |
+    | Magnetic flux density | 1.5 T |
+    | Diaphragm material | Beryllium |
+    | Rated power | 80 W |
+    | Net weight | 0.63 kg |
+  - Table:
+    | Free air resonance, (Fs) | 700 Hz |
+    | Sensitivity, (2.83V/1m) | 97.0 dB |
+    | Mechanical Q-factor, (Qms) | 2.1 |
+    | Electrical Q-factor, (Qes) | 0.6 |
+    | Total Q-factor, (Qts) | 0.46 |
+    | Moving mass incl. air, (Mms) | 0.46 g |
+    | Force factor, (Bl) | 3.1 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.79 N/√W |
+    | Ratio Fs/Qts | 1522 Hz |
+
+## SB Acoustics Satori TW29TX
+- Page: <https://hificompass.com/ru/news/izmereniya/satori-tw29txn-b> — Satori TW29TXN-B | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · tw29txn-b_front.jpg · Jan · 26 · 2021 · Satori TW29TXN-B · Категории новостей · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 
+  - Chart: <https://hificompass.com/sites/default/files/review/tw29txn-b_front.jpg?itok=nQsN1LR0> — alt: tw29txn-b_front — before: “варов Корзина FAQ's О нас Satori TW29TXN-B Вы здесь Главная » Новости » Измерения » Satori TW29TXN-B tw29txn-b_front.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “nar Baja Electric ( Indonesia ) - твитером Satori TW29TXN-B с мембраной из новейшего материала TeXtreme Перейти к обзору”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “аша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта! Выберите интересующую категорию”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “ best components for audio in one place! More... Категории новостей Все новости Новости Измерения Проекты Новости продаж”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “ния Проекты Новости продаж КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+- Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b> — Satori TW29TXN-B | HiFiCompass - всё для акустических систем и не только
+  - Headings: Вы здесь · Технические данные · Отличительные особенности/комментарии · Осевая АЧХ · Внеосевая АЧХ · Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) · Частотная зависимость Кг (расстояние 315 мм) · Частотная зависимость Кг (расстояние 20 мм) · Гармонические искажения тока звуковой катушки · Спектр гармонических искажений в ближнем поле (20 мм) · Интермодуляционные искажения · Частотная характеристика модуля импеданса · Переходная характеристика · Водопад · Энергетическая огибающая (ETC) · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
+  - Levels mentioned: 2, 2.83, 4, 8, 30, 50, 96.0
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29txn-b-4_front.jpg?itok=7iO1ew9z> — alt:  tw29txn-b-4_front — before: “ Магазин Каталог товаров Корзина FAQ's О нас Satori TW29TXN-B Вы здесь Главная » Динамики » Измерения » Satori TW29TXN-B”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29txn-b-4_back.jpg?itok=qshFF3hE> — alt:  tw29txn-b-4_back — before: “ Магазин Каталог товаров Корзина FAQ's О нас Satori TW29TXN-B Вы здесь Главная » Динамики » Измерения » Satori TW29TXN-B”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/tw29txn-b-4_side.jpg?itok=ybxUq2wQ> — alt:  tw29txn-b-4_side — before: “ Магазин Каталог товаров Корзина FAQ's О нас Satori TW29TXN-B Вы здесь Главная » Динамики » Измерения » Satori TW29TXN-B”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_1v41_0grad.png?itok=jJwLuYwb> — alt:  tw29txn-4_315mm_1v41_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_2v_0grad.png?itok=pUFeDyt5> — alt:  tw29txn-4_315mm_2v_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_2v83_0grad.png?itok=fraAKbEW> — alt:  tw29txn-4_315mm_2v83_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_4v_0grad.png?itok=bfTrg3D3> — alt:  tw29txn-4_315mm_4v_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_5v6_0grad.png?itok=6mlzTKlk> — alt:  tw29txn-4_315mm_5v6_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_8v_0grad.png?itok=KpskLvLi> — alt:  tw29txn-4_315mm_8v_0grad — before: “ключенным фильтром верхних частот второго порядка с частотой среза 1000 Гц (HPF2-1000) Осевая АЧХ 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis.png?itok=pylBERR8> — alt:  tw29txn-4_offaxis — before: “ АЧХ 1v41 2v 2v83 4v 5v6 8v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_10-50db.png?itok=gKAl2QLP> — alt:  tw29txn-4_offaxis_normalized_10-50db — before: “ АЧХ 1v41 2v 2v83 4v 5v6 8v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_5-30db.png?itok=rJjTMHHA> — alt:  tw29txn-4_offaxis_normalized_5-30db — before: “ АЧХ 1v41 2v 2v83 4v 5v6 8v Внеосевая АЧХ 0-15-30-45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_302.png?itok=1jDH8F6S> — before: “45-60 0-15-30-45-60_normalized_10-50dB 0-15-30-45-60_normalized_5-30dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_1v41_hpf2-800.png?itok=41LyNRb_> — alt:  tw29txn-4_315mm_1v41_hpf2-800 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_2v_hpf2-800.png?itok=CKXUYwXO> — alt:  tw29txn-4_315mm_2v_hpf2-800 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_2v83_hpf2-800.png?itok=H24piUPv> — alt:  tw29txn-4_315mm_2v83_hpf2-800 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_4v_hpf2-800.png?itok=PBj7SX5v> — alt:  tw29txn-4_315mm_4v_hpf2-800 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_5v6_hpf2-800.png?itok=Y6ymQpUF> — alt:  tw29txn-4_315mm_5v6_hpf2-800 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_8v_hpf2-1000.png?itok=8VI4Xj7g> — alt:  tw29txn-4_315mm_8v_hpf2-1000 — before: “dB Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/afc520/no_data_114.png?itok=5oJUnHjp> — before: “) Частотная зависимость Кг (расстояние 315 мм) 1v41 2v 2v83 4v 5v6 8v Частотная зависимость Кг (расстояние 20 мм) NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_1v41_chd_hpf2-800.png?itok=1I95-J1N> — alt:  tw29txn-b_1v41_chd_hpf2-800 — before: “ 8v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_2v_chd_hpf2-800.png?itok=AHdBojrR> — alt:  tw29txn-b_2v_chd_hpf2-800 — before: “ 8v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_2v83_chd_hpf2-800.png?itok=hS-IhdjB> — alt:  tw29txn-b_2v83_chd_hpf2-800 — before: “ 8v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_4v_chd_hpf2-800.png?itok=kkkAxWiE> — alt:  tw29txn-b_4v_chd_hpf2-800 — before: “ 8v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_5v6_chd_hpf2-800.png?itok=lJf4pyvk> — alt: tw29txn-b_5v6_chd_hpf2-800 — before: “ 8v Частотная зависимость Кг (расстояние 20 мм) NoData Гармонические искажения тока звуковой катушки 1v41 2v 2v83 4v 5v6”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/no_data_303.png?itok=N2LFI8og> — before: “вой катушки 1v41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1024.png?itok=bf7BnDrk> — before: “ушки 1v41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1025.png?itok=L6yRFO7j> — before: “41 2v 2v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1026.png?itok=chBPamHd> — before: “v83 4v 5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1027.png?itok=l_g2cqpN> — before: “5v6 Спектр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1028.png?itok=2-v6LD0g> — before: “ктр гармонических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/spectr/no_data_1029.png?itok=fEcY5iPB> — before: “монических искажений в ближнем поле (20 мм) 1V41 2V 2V83 4V 5V6 8V 11V2 NoData NoData NoData NoData NoData NoData NoData”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_1khz10khz-1to1.png?itok=Yk-0tgbU> — alt:  tw29txn-b_315mm_2v83rms_1khz10khz-1to1 — before: “ 11V2 NoData NoData NoData NoData NoData NoData NoData Интермодуляционные искажения 1kHz+10kHz (2v83) 19kHz+20kHz (2v83)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_19khz20khz-1to1.png?itok=hP6rvB7M> — alt:  tw29txn-b_315mm_2v83rms_19khz20khz-1to1 — before: “ 11V2 NoData NoData NoData NoData NoData NoData NoData Интермодуляционные искажения 1kHz+10kHz (2v83) 19kHz+20kHz (2v83)”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/tw29txn-4_impedance_15_ohm.png?itok=i3MLsHrw> — alt:  tw29txn-4_impedance_15_ohm — before: “ионные искажения 1kHz+10kHz (2v83) 19kHz+20kHz (2v83) Частотная характеристика модуля импеданса Scale 15 Ohm Scale 5 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/module_impedance/tw29txn-4_impedance_5_ohm.png?itok=7uE6fVey> — alt:  tw29txn-4_impedance_5_ohm — before: “ионные искажения 1kHz+10kHz (2v83) 19kHz+20kHz (2v83) Частотная характеристика модуля импеданса Scale 15 Ohm Scale 5 Ohm”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/stepresp/tw29txn-4_step_response.png?itok=P9IrYGPe> — alt:  tw29txn-4_step_response — before: “z (2v83) 19kHz+20kHz (2v83) Частотная характеристика модуля импеданса Scale 15 Ohm Scale 5 Ohm Переходная характеристика”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/Waterfall/tw29txn-b_waterfall.png?itok=GFJD8TK_> — alt:  tw29txn-b_waterfall — before: “ 19kHz+20kHz (2v83) Частотная характеристика модуля импеданса Scale 15 Ohm Scale 5 Ohm Переходная характеристика Водопад”
+  - Chart: <https://hificompass.com/sites/default/files/zamer/etc/tw29txn-4_etc.png?itok=qSn8CpgP> — alt:  tw29txn-4_etc — before: “арактеристика модуля импеданса Scale 15 Ohm Scale 5 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC)”
+  - Chart: <https://hificompass.com/sites/default/files/pictures/Support-banner_blue26325d_160_bold_opacity100_orange_background_e88323_russian.png> — before: “5 Ohm Scale 5 Ohm Переходная характеристика Водопад Энергетическая огибающая (ETC) Войдите , чтобы оставлять комментарии”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/SoundImports.png> — before: “ , чтобы оставлять комментарии Ваша маленькая поддержка = огромная мотивация для нас и неоценимый вклад в будущее сайта!”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/seas-logo.png> — alt: seas-logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/viawave_logo.png> — alt:  viawave_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/audiotechnology_logo.png> — alt:  audiotechnology_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/mundorf_logo.png> — alt:  mundorf_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/bliesma_logo.png> — alt: bliesma_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/sonido_logo.png> — alt: sonido_logo — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/wood.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/eton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/clarity.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/logoaudax.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/brand-logos/acuton.png> — before: “= огромная мотивация для нас и неоценимый вклад в будущее сайта! All the best components for audio in one place! More...”
+  - Chart: <https://hificompass.com/sites/default/files/review/T34T-4/T34T-4_title2.jpg?itok=vRRODhkJ> — before: “udio in one place! More... КОНТАКТЫ Украина (+380) 95 904 7827 hificompass@gmail.com ПОСЛЕДНИЕ НОВОСТИ T34T-4_title2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/grt145w-4_side.jpg?itok=6rsFWfWK> — before: “И T34T-4_title2.jpg Обзор 34мм купольного твитера BlieSMa T34T-4 с диафрагмой из TeXtreme 27 июл 2026 grt145w-4_side.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25m08-naa-05_side2.jpg?itok=k_VTNHl0> — before: “g Обзор ленточного твитера с герметичным зазором и волноводом Viawave GRT-145W-4 21 июл 2026 ptt5.25m08-naa-05_side2.jpg”
+  - Chart: <https://hificompass.com/sites/default/files/castom_img_zamer/ptt5.25x04-naa-05_front.jpg?itok=_oCp_8xx> — before: “ptt5.25m08-naa-05_side2.jpg Обзор 5.25" Алюминиевого СЧ PURIFI PTT5.25M08-NAA-05 20 июн 2026 ptt5.25x04-naa-05_front.jpg”
+  - Data file: <https://hificompass.com/sites/default/files/documents/tw29txn4.pdf> tw29txn4.pdf
+  - Table:
+    | Nominal impedance, (Zn) | 4 Ohm |
+    | DC resistance, (Re) | 3 Ohm |
+    | Voice coil inductance, (Le) | 0.02 mH |
+    | Effective piston area, (Sd) | 9.6 cm2 |
+    | Voice coil diameter | 29 mm |
+    | Voice coil height | 2 mm |
+    | Air gap height | 3 mm |
+    | Linear coil travel | 0.5 mm |
+    | Magnetic flux density | 1.5 T |
+    | Diaphragm material | Carbon fibers |
+    | Rated power | 80 W |
+    | Net weight | 0.4 KG |
+  - Table:
+    | Free air resonance, (Fs) | 600 Hz |
+    | Sensitivity, (2.83V/1m) | 96.0 dB |
+    | Total Q-factor, (Qts) | 0.00 |
+    | Moving mass incl. air, (Mms) | 0.51 g |
+    | Force factor, (Bl) | 3.1 T*m |
+    | Equivalent volume, (Vas) | 0.0 L |
+    | Ratio BL/√Re | 1.79 N/√W |
+
