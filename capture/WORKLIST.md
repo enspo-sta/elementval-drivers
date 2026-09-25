@@ -61,9 +61,10 @@ Level slopes that differ from the typical rule (H2 +1.0, H3 +0.7 dB per dB). Inf
 | `sb-satori-tw29bnwg-4` | H2: 108.5 dB curve minus 96.5 dB curve = +7.8 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
 | `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 93.5 dB curve = +13.0 dB on average over 131 shared frequencies (typical slope expects +6.3 dB) |
 | `sb-satori-tw29bnwg-4` | H3: 102.5 dB curve minus 96.5 dB curve = +9.1 dB on average over 157 shared frequencies (typical slope expects +4.2 dB) |
-| `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 93.5 dB curve = +14.5 dB on average over 131 shared frequencies (typical slope expects +8.5 dB) |
-| `sb-satori-tw29bnwg-4` | H3: 105.6 dB curve minus 96.5 dB curve = +10.9 dB on average over 157 shared frequencies (typical slope expects +6.4 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 105.5 dB curve minus 93.5 dB curve = +14.5 dB on average over 131 shared frequencies (typical slope expects +8.4 dB) |
+| `sb-satori-tw29bnwg-4` | H3: 105.5 dB curve minus 96.5 dB curve = +10.9 dB on average over 157 shared frequencies (typical slope expects +6.3 dB) |
 | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 87.7 dB curve = +5.4 dB on average over 155 shared frequencies (typical slope expects +10.4 dB) |
+| `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 90.6 dB curve = +3.9 dB on average over 154 shared frequencies (typical slope expects +8.4 dB) |
 | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 96.6 dB curve = -0.0 dB on average over 160 shared frequencies (typical slope expects +4.2 dB) |
 | `sb-satori-tw29txn-b` | H3: 102.6 dB curve minus 99.6 dB curve = -2.2 dB on average over 164 shared frequencies (typical slope expects +2.1 dB) |
 | `t25a-6` | H2: 96 dB curve minus 84 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
@@ -137,9 +138,9 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: two-tone intermodulation, where measured.
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.9 dB, hd-frequency 104.9 dB, hd-frequency 89.9 dB, hd-frequency 92.9 dB, hd-frequency 95.9 dB, hd-frequency 98.9 dB, impedance.
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.5 dB, hd-frequency 105.6 dB, hd-frequency 108.5 dB, hd-frequency 90.5 dB, hd-frequency 93.5 dB, hd-frequency 96.5 dB, hd-frequency 99.5 dB, impedance.
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.5 dB, hd-frequency 105.5 dB, hd-frequency 108.5 dB, hd-frequency 90.5 dB, hd-frequency 93.5 dB, hd-frequency 96.5 dB, hd-frequency 99.5 dB, impedance.
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.6 dB, hd-frequency 87.7 dB, hd-frequency 93.6 dB, hd-frequency 96.6 dB, hd-frequency 99.6 dB, impedance.
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.6 dB, hd-frequency 87.7 dB, hd-frequency 90.6 dB, hd-frequency 93.6 dB, hd-frequency 96.6 dB, hd-frequency 99.6 dB, impedance.
   Add: two-tone intermodulation, where measured.
 
 ## 4. Random spot check
@@ -274,7 +275,7 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 2: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.5, expected 97.0, stated sens 97.0, difference db -0.5
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 3: Axial frequency response @ 4 V — check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 99.5, expected 100.0, stated sens 97.0, difference db -0.5
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 4: Axial frequency response @ 5.6 V — check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 102.5, expected 102.9, stated sens 97.0, difference db -0.5
-- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 5: Axial frequency response @ 8 V — check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 105.6, expected 106.0, stated sens 97.0, difference db -0.5
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 5: Axial frequency response @ 8 V — check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 105.5, expected 106.0, stated sens 97.0, difference db -0.5
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 6: Axial frequency response @ 11.2 V — check 11.2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 108.5, expected 108.9, stated sens 97.0, difference db -0.4
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 7: HD (orders) vs frequency @ 1.41 V — no self-check possible for this kind
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 8: HD (orders) vs frequency @ 2 V — no self-check possible for this kind
@@ -296,14 +297,15 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 4: Axial frequency response @ 5.6 V — check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 99.6, expected 101.9, stated sens 96.0, difference db -2.3
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 5: Axial frequency response @ 8 V — check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 102.6, expected 105.0, stated sens 96.0, difference db -2.4
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 6: HD (orders) vs frequency @ 1.41 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 7: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 8: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 9: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 10: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 11: Voice-coil current HD vs frequency @ 1.41 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 12: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 13: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 14: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 15: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 16: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 3.04, stated 3.0; check impedance peak against Fs, read hz 620.99, read ohm 10.31, stated fs 600.0
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 17: Impedance (chart to 5 ohm) — check impedance minimum against Re, read 3.04, stated 3.0
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 7: HD (orders) vs frequency @ 2 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 8: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 9: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 10: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 11: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 12: Voice-coil current HD vs frequency @ 1.41 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 13: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 14: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 15: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 16: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 17: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 3.04, stated 3.0; check impedance peak against Fs, read hz 620.99, read ohm 10.31, stated fs 600.0
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 18: Impedance (chart to 5 ohm) — check impedance minimum against Re, read 3.04, stated 3.0
