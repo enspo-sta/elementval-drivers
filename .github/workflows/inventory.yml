@@ -1,0 +1,39 @@
+name: Inventory of measurement pages
+
+# Reads the HiFiCompass measurement page of each model given and writes what it offers (chart
+# addresses, data files, tables) to capture/inventory.json and .md for the capture routine.
+# The cloud sessions cannot reach hificompass.com; GitHub can. No page or image is stored.
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Models, comma-separated (e.g. BlieSMa M74A, SB Acoustics Satori TW29TX)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch-new-drivers
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Read the pages
+        run: python3 capture/inventory.py --models "${{ inputs.models }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the inventory
+        run: |
+          git add capture/inventory.json capture/inventory.md
+          if git diff --cached --quiet; then echo "inventory unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Inventory: HiFiCompass pages of ${{ inputs.models }}"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
