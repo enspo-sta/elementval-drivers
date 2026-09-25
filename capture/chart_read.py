@@ -50,6 +50,19 @@ def number(s):
     return float(m.group(1)) * 1000 if m else None
 
 
+def monotone(pairs, increasing=True):
+    """The largest subset of (pos, value) pairs whose values run strictly one way with position: an axis
+    label split by the OCR ("10000" read as "10" and "00") or misread out of order is left out."""
+    import itertools
+    pairs = sorted(pairs)
+    for n in range(len(pairs), 1, -1):
+        for sub in itertools.combinations(pairs, n):
+            ok = all((b[1] > a[1]) if increasing else (b[1] < a[1]) for a, b in zip(sub, sub[1:]))
+            if ok:
+                return list(sub)
+    return pairs
+
+
 def fit_line(pairs):
     """value = a + b·pos from (pos, value) pairs; the slope is the median of all pairwise slopes and
     the offset the median of the offsets, so a misread label does not pull the fit."""
@@ -85,6 +98,7 @@ def x_axis(cols, bottom_words):
         near = min(cols, key=lambda c: abs(c[0] - x), default=None)   # the nearest decade line, not the first within reach
         if near and abs(near[0] - x) <= 12:
             pairs.append((near[0], math.log10(v)))
+    pairs = monotone(pairs, increasing=True)
     fit = fit_line(pairs)
     if fit is None and len(cols) >= 2 and pairs:
         # one label only: the decade lines are one decade apart
@@ -104,6 +118,7 @@ def y_axis(rows, left_words):
         near = min(rows, key=lambda r: abs(r[0] - w["y"]), default=None)   # the nearest grid line (a 2-ohm grid is 8 px apart)
         if near and abs(near[0] - w["y"]) <= 9:
             pairs.append((near[0], v))
+    pairs = monotone(pairs, increasing=False)
     return fit_line(pairs)
 
 

@@ -50,6 +50,11 @@ def conditions(name):
     m = re.search(r"hpf(\d)-(\d+)", name)
     if m:
         c["hpf"] = f"HPF{m.group(1)}-{m.group(2)}"
+    m = re.search(r"hpf(\d{2,})hz", name)
+    if m:
+        c["hpf"] = f"HPF {m.group(1)} Hz"
+    if "nosmoothing" in name:
+        c["smoothing"] = "none"
     if re.search(r"_0(grad|deg)", name):
         c["angle_deg"] = 0
     c["lab"] = "HiFiCompass"
@@ -99,10 +104,24 @@ def build(read, db):
             kind = KIND.get(ctype)
             if not kind:
                 continue
+            xa, ya = ch.get("x_axis") or [0, 0], ch.get("y_axis") or [0, 0]
+            if not (0.001 < xa[1] < 0.006) or not (ya[1] < 0):
+                waiting.append((did, name, f"axis fit not credible (x slope {xa[1]:.5f} per px, y slope {ya[1]:.4f} per px)")); continue
             cond = conditions(name)
+            # what the chart is, beyond kind and voltage: an impedance chart's full-scale, a near-field distance, no smoothing
+            extra = []
+            m = re.search(r"_(\d+)_ohm", name)
+            if m and ctype == "impedance":
+                extra.append(f"chart to {m.group(1)} ohm")
+            if cond.get("distance_mm") and cond["distance_mm"] < 100:
+                extra.append(f"near field {cond['distance_mm']} mm")
+            if cond.get("smoothing") == "none":
+                extra.append("no smoothing")
             note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
             for c in ch.get("checks", []):
                 note.append(", ".join(f"{k.replace('_', ' ')} {v}" for k, v in c.items()))
+                if "1 kHz" in c.get("check", "") and "tweeter" in (d.get("role") or ""):
+                    note.append("a tweeter's stated sensitivity is an average over its band, so a difference at 1 kHz is expected")
             for cv in ch["curves"]:
                 if cv.get("gaps"):
                     note.append(f"{cv.get('name') or cv['colour']}: not visible in the chart between " + ", ".join(f"{g[0]:g} and {g[1]:g} Hz" for g in cv["gaps"]) + " (no points there)")
@@ -143,7 +162,7 @@ def build(read, db):
             else:
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
                 series = [{"name": "Z", "points": cv["points"]}]
-            made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else ""), "kind": kind,
+            made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else "") + (f" ({', '.join(extra)})" if extra else ""), "kind": kind,
                               "method": "automated pixel reading (GitHub), calibrated from the chart's own grid and labels",
                               "conditions": cond, "source": f"HiFiCompass ({name}, automated reading)", "confidence": "medium",
                               "note": "; ".join(note), "chartType": "line", "axes": AXES[kind], "series": series, "file": name}))
