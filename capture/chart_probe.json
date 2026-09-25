@@ -3,49 +3,359 @@
  "drivers": {
   "m74a-6": [
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.795,
+    "mean_brightness": 74.1,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 444074
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 744-6315mm141Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_1v41_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_1v41_0grad.png",
     "bytes": 32470
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.795,
+    "mean_brightness": 74.0,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 443595
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m7446315mm2Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_2v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v_0grad.png",
     "bytes": 32334
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.794,
+    "mean_brightness": 73.9,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 443104
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "OO",
+      "conf": 4.529892,
+      "x": 659,
+      "y": 581
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 744-6315mm283Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_2v83_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v83_0grad.png",
     "bytes": 32054
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.794,
+    "mean_brightness": 73.9,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 443031
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 7446315mm4Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_4v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_4v_0grad.png",
     "bytes": 31841
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.794,
+    "mean_brightness": 73.9,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442974
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 744-6315mm56Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_5v6_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_5v6_0grad.png",
     "bytes": 31533
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.794,
+    "mean_brightness": 73.9,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442937
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m744-6315mm8Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50 100",
+    "top_text": "447 smhdssd",
     "file": "m74a-6_315mm_8v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_8v_0grad.png",
     "bytes": 31689
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.785,
+    "mean_brightness": 74.9,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 436379
+     },
+     {
+      "hex": "#0808f8",
+      "pixels": 3976
+     },
+     {
+      "hex": "#f80808",
+      "pixels": 3698
+     },
+     {
+      "hex": "#8888f8",
+      "pixels": 3654
+     },
+     {
+      "hex": "#08e808",
+      "pixels": 155
+     },
+     {
+      "hex": "#8878e8",
+      "pixels": 150
+     },
+     {
+      "hex": "#8878f8",
+      "pixels": 103
+     },
+     {
+      "hex": "#0808e8",
+      "pixels": 77
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 479,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "54 52 OO 100 1000 10000 Od 159d30d",
+    "left_band_text": "112 110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 100",
+    "top_text": "4119 smhdssd",
     "file": "m74a-6_offaxis.png",
     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png",
     "bytes": 47334
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.786,
+    "mean_brightness": 74.8,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 437817
+     },
+     {
+      "hex": "#8888f8",
+      "pixels": 4393
+     },
+     {
+      "hex": "#f80808",
+      "pixels": 3311
+     },
+     {
+      "hex": "#0808f8",
+      "pixels": 1481
+     },
+     {
+      "hex": "#8878f8",
+      "pixels": 123
+     },
+     {
+      "hex": "#8878e8",
+      "pixels": 92
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 477,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 929,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "3 100 1000 10000 OdOd 159dOd30dOd",
+    "left_band_text": "10 -2 -4 -6 -3 -10 -12 14 -16 -18 -20 -22 -24 -26 -26 -30 -32 -34 -36 -38 -40 -42 -44 -46 -48 100",
+    "top_text": "41m smhdssd",
     "file": "m74a-6_offaxis_normalized_10-50db.png",
     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png",
     "bytes": 40896
@@ -53,49 +363,409 @@
   ],
   "sb-satori-mw19tx-4": [
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.793,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442318
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m197-4-315mm2Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_2v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v_0grad.png",
     "bytes": 32238
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.792,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 441973
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m197-4315mm283Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_2v83_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v83_0grad.png",
     "bytes": 32332
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.793,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442041
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 50 100 1000 10000 m197-4315mm4Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_4v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_4v_0grad.png",
     "bytes": 32357
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.793,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442133
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m197-4315mm56Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_5v6_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_5v6_0grad.png",
     "bytes": 32597
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.793,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442300
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m197-4315mm8Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_8v_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_8v_0grad.png",
     "bytes": 32538
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.793,
+    "mean_brightness": 74.2,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 442311
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "52 OO 50 100 1000 10000 m197-4315mm112Od",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_315mm_11v2_0grad.png",
     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_11v2_0grad.png",
     "bytes": 32494
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.785,
+    "mean_brightness": 75.4,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 436569
+     },
+     {
+      "hex": "#8888f8",
+      "pixels": 3964
+     },
+     {
+      "hex": "#0808f8",
+      "pixels": 3689
+     },
+     {
+      "hex": "#f80808",
+      "pixels": 3317
+     },
+     {
+      "hex": "#8878e8",
+      "pixels": 365
+     },
+     {
+      "hex": "#8878f8",
+      "pixels": 294
+     },
+     {
+      "hex": "#08e808",
+      "pixels": 110
+     },
+     {
+      "hex": "#e80808",
+      "pixels": 64
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 636,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 994,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "- . 8 100 1000 10000 Od 159d30d",
+    "left_band_text": "110 108 106 104 102 100 98 96 94 92 30 88 86 64 62 80 78 76 74 72 70 68 66 64 62 60 58 56 54 52 50",
+    "top_text": "447 smhdssd",
     "file": "mw19tx-4_offaxis.png",
     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis.png",
     "bytes": 48438
    },
    {
-    "error": "probe failed: height and width must be > 0",
+    "width": 1276,
+    "height": 635,
+    "background": "#00f800",
+    "background_share": 0.782,
+    "mean_brightness": 75.6,
+    "line_rows": [],
+    "line_cols": [],
+    "frame": null,
+    "colours": [
+     {
+      "hex": "#08f808",
+      "pixels": 434660
+     },
+     {
+      "hex": "#8888f8",
+      "pixels": 7511
+     },
+     {
+      "hex": "#f80808",
+      "pixels": 3970
+     },
+     {
+      "hex": "#0808f8",
+      "pixels": 1572
+     },
+     {
+      "hex": "#8878f8",
+      "pixels": 363
+     },
+     {
+      "hex": "#8878e8",
+      "pixels": 349
+     },
+     {
+      "hex": "#e80808",
+      "pixels": 282
+     },
+     {
+      "hex": "#08e808",
+      "pixels": 221
+     }
+    ],
+    "x_labels": [
+     {
+      "text": "100",
+      "conf": 96.721367,
+      "x": 278,
+      "y": 599
+     },
+     {
+      "text": "1000",
+      "conf": 15.791405,
+      "x": 635,
+      "y": 599
+     },
+     {
+      "text": "10000",
+      "conf": 57.329819,
+      "x": 993,
+      "y": 599
+     }
+    ],
+    "y_labels": [],
+    "y_labels_right": [],
+    "bottom_band_text": "3 100 1000 10000 OdOd 159dOd30dOd",
+    "left_band_text": "10 -2 -4 -6 -3 -10 -12 14 -16 -18 -20 -22 -24 -26 -26 -30 -32 -34 -36 -38 -40 -42 -44 -46 -48",
+    "top_text": "41m smhdssd",
     "file": "mw19tx-4_offaxis_normalized_10-50db.png",
     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_10-50db.png",
     "bytes": 46155
