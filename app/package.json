@@ -1,0 +1,4 @@
+{
+  "comment": "Tells Node.js (used only by the tests and tools/export.mjs) that the files in app/ are JavaScript modules. Browsers ignore this file.",
+  "type": "module"
+}

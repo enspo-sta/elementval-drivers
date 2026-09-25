@@ -1,8 +1,9 @@
 # Capture standard
 
 How finely curves are captured into `drivers.json`, and why the limits are where they are.
-The validation check warns when a curve is below the minimum; `watch/coverage.md` lists those
-curves per driver so they can be captured again.
+The validation check warns when a curve is below the minimum; `capture/WORKLIST.md` lists those
+curves so they can be captured again. How to capture on your own computer, with your HiFiCompass
+login: `capture/CHROME_CAPTURE.md`.
 
 ## Resolution
 
@@ -21,6 +22,26 @@ between neighbouring points. Each point is then read from its own part of the cu
 than about 1 pixel per point adds file size without adding information. The upper limit applies to
 exact data (PDF vectors, raw data files), where more points than 160 per decade are thinned out.
 
+## Levels
+
+Store every level a source measured, each as its own measurement set, exactly as measured:
+
+- `conditions.spl_db`: the sound pressure the fundamental reaches at 1 m, as the source states it.
+  HiFiCompass already states its levels at 1 m (the 315 mm microphone distance is corrected on the
+  site), so take its numbers as shown and never correct them again. Only for a source that states
+  the level at the microphone, convert with 20 × log10(distance / 1 m), far field only (for example
+  −10.0 dB from 315 mm to 1 m);
+- `conditions.drive_v` and `conditions.distance_mm` as the source states them.
+
+Do not normalise curves to a common level. The viewer does the matching: Compare draws every driver
+at its measured level closest to the target level (and says how far off it is), the driver page
+overlays all levels of a curve, and Simulate interpolates between measured levels at the level a
+driver actually plays at. HiFiCompass shows axial sound pressure and harmonics at several drive
+levels; capture all of them.
+
+Every set also names its `kind` from `schema/kinds.json` (frequency response, impedance, harmonics
+vs frequency, level sweep, intermodulation, ...). See `EXTENDING.md` for the full format.
+
 ## Where to take the data from
 
 Always use the most exact form a source publishes, in this order:
@@ -28,13 +49,13 @@ Always use the most exact form a source publishes, in this order:
 1. **Vector data in a PDF.** Purifi's datasheets draw their graphs as vector lines. Checked on the
    PTT5.25X04-NAA-05 datasheet v1.00 (December 2025): figures 5 to 11 (frequency response, current
    harmonic distortion, sound pressure harmonic distortion against level, intermodulation) are
-   coloured vector paths with 200 to 600 points each. Read them with PyMuPDF (`page.get_drawings()`),
-   then map page coordinates to Hz and dB from the plot frame and the axis ticks. The result is the
+   coloured vector paths with 200 to 600 points each. Read them with `capture/pdf_vectors.py`
+   (PyMuPDF), which lists the paths and the printed axis numbers and maps page coordinates to Hz and dB. The result is the
    manufacturer's own data points, with no pixel rounding. Record it as
    `"method": "... (PDF vector)"` with `"confidence": "high"`.
 2. **Raw data files.** HiFiCompass offers `.frd` and `.zma` files (frequency response and
    impedance) for some drivers. Keep their native resolution, thinned to the upper limit.
-3. **The largest original image**, pixel-extracted:
+3. **The largest original image**, pixel-extracted with `capture/image_curves.py`:
    - HiFiCompass: remove `/styles/<style>/public/` from the image address to get the original upload.
      Checked: `.../styles/1000_px/public/afc/ptt5.25x04-naa-05_315mm_2v83_0deg.png` is 1000 × 498 pixels,
      `.../afc/ptt5.25x04-naa-05_315mm_2v83_0deg.png` is 1276 × 635.

@@ -1,45 +1,75 @@
 {
-  "comment": "Settings for watch/watch_sources.py, watch/coverage.py and watch/validate_db.py. 'families' are the places a measurement can come from; every measurement set in the database must match exactly one family through its 'source' text, so data from different sources is never blended. 'sources' are the sites the weekly scan reads. Each belongs to one family, lists the model-number 'patterns' it applies, and says which of its pages are measurement pages ('measurement_url'); a model is only reported when it appears on a measurement page. 'start' URLs may be HTML pages or XML sitemaps. 'follow' is a pattern for same-site links to read from the start pages (null: none); 'follow_recursive' also follows them from followed pages. 'delay_s' is the pause between pages. 'patterns' maps a pattern name to {brand, regex}; a named group 'model' narrows the match. Add a model number to 'ignore' to stop it being reported. 'aliases' maps short forms some sites use (for example audiohorn's SB17NBAC-4) to the full model number.",
+  "comment": "Settings for watch/watch_sources.py, watch/coverage.py and watch/validate_db.py. 'families' are the places a measurement can come from; every measurement set in the database must match exactly one family through its 'source' text, so data from different sources is never blended. 'rank' orders the families by how far their measurements can be trusted (1 = most reliable; equal numbers are equally reliable) and 'reliability' is the short label the viewer shows next to the source. 'sources' are the sites the weekly scan reads. Each belongs to one family, lists the model-number 'patterns' it applies, and says which of its pages are measurement pages ('measurement_url'); a model is only reported when it appears on a measurement page. 'start' URLs may be HTML pages or XML sitemaps. 'follow' is a pattern for same-site links to read from the start pages (null: none); 'follow_recursive' also follows them from followed pages. 'delay_s' is the pause between pages. 'patterns' maps a pattern name to {brand, regex}; a named group 'model' narrows the match. Add a model number to 'ignore' to stop it being reported. 'aliases' maps short forms some sites use (for example audiohorn's SB17NBAC-4) to the full model number.",
   "families": [
     {
       "name": "Manufacturer datasheet",
       "kind": "manufacturer",
-      "match": "\\bdata ?sheet\\b"
+      "match": "\\bdata ?sheet\\b",
+      "rank": 1,
+      "reliability": "best",
+      "reliability_note": "Purifi's own datasheet measurements: the most reliable source. SB Acoustics and BlieSMa publish no distortion measurements."
     },
     {
       "name": "HiFiCompass",
       "kind": "lab",
       "match": "hificompass",
-      "url": "https://hificompass.com/en/speakers/measurements"
+      "url": "https://hificompass.com/en/speakers/measurements",
+      "rank": 2,
+      "reliability": "state of the art",
+      "reliability_note": "Second to Purifi's datasheets; state-of-the-art lab measurements."
     },
     {
       "name": "Erin's Audio Corner",
       "kind": "lab",
       "match": "erin.?s audio corner|\\bEAC\\b",
-      "url": "https://www.erinsaudiocorner.com/driveunits/"
+      "url": "https://www.erinsaudiocorner.com/driveunits/",
+      "rank": 3,
+      "reliability": "less reliable",
+      "reliability_note": "Less reliable than Purifi's datasheets and HiFiCompass."
     },
     {
       "name": "audioXpress",
       "kind": "lab",
       "match": "audioxpress|\\btest bench\\b",
-      "url": "https://audioxpress.com/tags/test-bench"
+      "url": "https://audioxpress.com/tags/test-bench",
+      "rank": 3,
+      "reliability": "less reliable",
+      "reliability_note": "Less reliable than Purifi's datasheets and HiFiCompass."
     },
     {
       "name": "audiohorn",
       "kind": "lab",
       "match": "audiohorn",
-      "url": "https://audiohorn.net/"
+      "url": "https://audiohorn.net/",
+      "rank": 4,
+      "reliability": "not rated yet",
+      "reliability_note": "Not rated yet."
     },
     {
       "name": "diyAudio",
       "kind": "forum",
       "match": "diyaudio",
-      "url": "https://www.diyaudio.com/"
+      "url": "https://www.diyaudio.com/",
+      "rank": 5,
+      "reliability": "varies",
+      "reliability_note": "Some measurements are well made, most are not: judge each one on its own."
+    },
+    {
+      "name": "Parts Express",
+      "kind": "retailer",
+      "match": "parts.?express",
+      "url": "https://www.parts-express.com/",
+      "rank": 5,
+      "reliability": "varies",
+      "reliability_note": "Some measurements are well made, most are not: judge each one on its own."
     },
     {
       "name": "Derived (model or calculation)",
       "kind": "derived",
-      "match": "\\bmodel\\b|^from single|\\bderived\\b|\\bcalculat|\\bsimulat"
+      "match": "\\bmodel\\b|^from single|\\bderived\\b|\\bcalculat|\\bsimulat",
+      "rank": 9,
+      "reliability": "calculated",
+      "reliability_note": "Calculated from other data, not measured."
     }
   ],
   "sources": [
