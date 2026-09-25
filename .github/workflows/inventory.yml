@@ -44,5 +44,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Inventory: HiFiCompass pages (capture/inventory_request.txt)"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
+          # another job may have committed the same files meanwhile: rebase, and on a conflict this run's
+          # files (the newest scan) win
+          git fetch origin "${GITHUB_REF_NAME}"
+          git rebase -X theirs "origin/${GITHUB_REF_NAME}" || { git checkout --theirs -- . && git add -A && GIT_EDITOR=true git rebase --continue; }
           git push
