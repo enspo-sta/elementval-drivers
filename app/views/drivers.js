@@ -215,11 +215,13 @@ function showDetail(id, params) {
         h += `<div class="legend">${qs.map(q => `<span class="lg"><span class="lgl" style="background:${orderColor(q, ids.indexOf(q))}"></span>${esc(q)} at ${esc(names[c.sets.indexOf(one)])}</span>`).join("")}</div>`;
         h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
         draws.push(() => drawOneLevel($("ch" + ci), c, one, qs, ids, names[c.sets.indexOf(one)]));
+        h += overlayHtml(d, one.set, one.index, qs);
       } else {
         const cols = levelColors(c.sets.length);
         h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl" style="background:${cols[i]}"></span>${esc(names[i])}</span>`).join("")}</div>`;
         h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
         draws.push(() => drawLevels($("ch" + ci), c, pick, cols, names));
+        if (c.sets.some(x => x.set.calibration)) h += `<div class="hint2">Pick one level above to check its reading against the source chart.</div>`;
       }
     } else if (multi && c.kind.view === "bars") {
       const cols = levelColors(c.sets.length);
@@ -235,6 +237,7 @@ function showDetail(id, params) {
         if (series.length > 1) h += `<div class="legend">${series.map((x, i) => `<span class="lg"><span class="lgl" style="background:${PALETTE[i % PALETTE.length]}"></span>${esc(x.name)}</span>`).join("")}</div>`;
         h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}_${s.index}"></canvas></div>`;
         draws.push(() => drawSet($("ch" + ci + "_" + s.index), s.set));
+        h += overlayHtml(d, s.set, s.index, null);
       }
     }
     const notes = new Set();
@@ -266,6 +269,17 @@ function showDetail(id, params) {
     showDetail(d.id, readHash().params);
   });
   draws.forEach(f => f());
+  document.querySelectorAll("[data-ovl]").forEach(b => b.onclick = () => {
+    cardState[b.dataset.ovl] = !cardState[b.dataset.ovl];
+    showDetail(d.id, readHash().params);
+  });
+  document.querySelectorAll(".ovlbox img").forEach(img => {
+    const box = img.parentElement, set = d.measurements[Number(box.dataset.set)], only = box.dataset.q ? box.dataset.q.split(",") : null;
+    const draw = () => drawOverlay(box.querySelector("canvas"), img, set, only);
+    img.onload = draw;
+    img.onerror = () => { box.classList.add("failed"); box.nextElementSibling.insertAdjacentHTML("afterbegin", `<b>The chart image could not be loaded here</b> (this page may not be allowed to show images from other sites, or you are offline). `); };
+    if (img.complete && img.naturalWidth) draw();
+  });
   wireExports(app());
   window.scrollTo(0, keep);
   shown.id = d.id;
@@ -393,6 +407,43 @@ function drawLevels(canvas, card, quantity, cols, names) {
     x: xAxis((k.x || {}).scale === "log", `${(k.x || {}).label || ""}${(k.x || {}).unit ? " (" + k.x.unit + ")" : ""}`),
     y: yAxis("db", `${quantity} (${(k.y || {}).unit || ""})`) },
     c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${(k.x || {}).scale === "log" ? fmtHz(c.parsed.x) : c.parsed.x}`) });
+}
+
+// The check a person does by eye: the source's own chart image with our reading drawn on it (dashed magenta).
+// The image is loaded from the source's site in the reader's browser; nothing is copied or stored.
+function overlayHtml(d, set, index, qs) {
+  const cal = set.calibration;
+  if (!cal || !cal.image || noChart()) return "";
+  const key = d.id + "|ovl|" + index, on = !!cardState[key];
+  const share = set.check && set.check.on_curve ? Object.entries(set.check.on_curve).map(([k, v]) => `${k} ${Math.round(v * 100)} %`).join(", ") : "";
+  return `<div class="ovlrow"><button class="tog small${on ? " on" : ""}" data-ovl="${esc(key)}">${on ? "hide the source chart" : "check against the source chart"}</button>${share ? `<span class="dim">read points on the drawn curve: ${esc(share)}</span>` : ""}</div>` +
+    (on ? `<div class="ovlbox" data-set="${index}" data-q="${esc((qs || []).join(","))}" style="aspect-ratio:${cal.width}/${cal.height}"><img src="${esc(cal.image)}" alt="the source chart" referrerpolicy="no-referrer"><canvas></canvas></div>
+      <div class="hint2">The source's own chart, with this reading drawn on it in dashed magenta: where the magenta sits on the original line, the reading is right. <a href="${esc(cal.image)}" target="_blank" rel="noopener">Open the chart</a>.</div>` : "");
+}
+
+function drawOverlay(canvas, img, set, only) {
+  const cal = set.calibration;
+  if (!canvas || !cal) return;
+  const w = img.clientWidth, h = img.clientHeight, dpr = window.devicePixelRatio || 1;
+  canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  canvas.style.width = w + "px"; canvas.style.height = h + "px";
+  const g = canvas.getContext("2d");
+  g.setTransform(dpr * w / cal.width, 0, 0, dpr * h / cal.height, 0, 0);
+  g.lineWidth = 2 * cal.width / w; g.setLineDash([6 * cal.width / w, 4 * cal.width / w]); g.strokeStyle = "#ff2bd6";
+  for (const s of set.series || []) {
+    if (only && only.length && !only.includes(s.name)) continue;
+    g.beginPath();
+    let open = false, prev = null;
+    for (const p of s.points || []) {
+      if (p.y == null || !(p.x > 0)) { open = false; continue; }
+      const x = (Math.log10(p.x) - cal.x[0]) / cal.x[1], y = (p.y - cal.y[0]) / cal.y[1];
+      // the same breaks as the chart: no line across a stretch the reading could not see
+      if (open && prev && Math.log2(p.x / prev) > 1 / 6) open = false;
+      if (open) g.lineTo(x, y); else g.moveTo(x, y);
+      open = true; prev = p.x;
+    }
+    g.stroke();
+  }
 }
 
 // One level of a card: the chosen orders of that one set, one colour per order.

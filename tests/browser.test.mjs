@@ -80,12 +80,16 @@ test("Driver page: sources, level charts, export download", { skip: skip() }, as
   assert.ok((await page.$$("[data-src]")).length >= 3, "All sources + one button per source");
   await page.click('[data-src="HiFiCompass"]');
   assert.match(await page.evaluate(() => location.hash), /src=HiFiCompass/);
-  assert.ok(await page.$("text=2 levels"), "the two HiFiCompass levels share one chart");
+  assert.ok(await page.$("text=/\\d+ levels/"), "the HiFiCompass levels of one measurement share one chart");
+  assert.ok(await page.$("text=earlier capture"), "the superseded hand capture has a card of its own");
   assert.ok(await page.$("text=Lowest price in Europe"), "the price card from prices.json");
-  await page.evaluate(() => window.scrollTo(0, 350)); await page.waitForTimeout(100);
-  await page.click("[data-card] >> text=THD"); await page.waitForTimeout(200);
+  // a harmonic toggle redraws the page and keeps it where it was (measured after the button is scrolled into view)
+  const tog = page.locator("[data-card][data-q='H3']").first();
+  await tog.scrollIntoViewIfNeeded(); await page.waitForTimeout(100);
+  const before = await page.evaluate(() => window.scrollY);
+  await tog.click(); await page.waitForTimeout(200);
   const y = await page.evaluate(() => window.scrollY);
-  assert.ok(y > 250 && y < 450, `a harmonic toggle keeps the page where it was (scrollY ${y})`);
+  assert.ok(Math.abs(y - before) < 60, `a harmonic toggle keeps the page where it was (scrollY ${before} then ${y})`);
   assert.match(await page.textContent(".price"), /kr/, "the lowest price is given in kronor");
   assert.ok((await chartCount(page)) >= 1);
   const [download] = await Promise.all([page.waitForEvent("download"), page.click(".exportrow >> nth=0 >> [data-dl]")]);
@@ -258,6 +262,29 @@ test("Compare: intermodulation as lines per driver and against level, with table
   assert.match(await page.textContent("#csum"), /2nd-order products, re the 30 Hz tone/, "summary rows in plain words");
   assert.deepEqual(errors, []);
   await close();
+});
+
+test("Driver page: a reading drawn over the source chart (a stand-in image here), and a message when the image cannot load", { skip: skip() }, async () => {
+  for (const serve of [true, false]) {
+    const { page, errors, close } = await open("#driver/sb-satori-mr16tx-8");
+    // the source's chart images are not reachable from the test: a plain PNG stands in, or the request fails
+    const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNg+M8AAAMBAQDJ/pLvAAAAAElFTkSuQmCC", "base64");
+    await page.route("**/hificompass.com/**", r => (serve ? r.fulfill({ body: png, contentType: "image/png" }) : r.abort()));
+    await page.waitForSelector(".lvrow");
+    const lv = await page.evaluateHandle(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /Harmonic distortion vs frequency/.test(e.textContent)); let n = t; while (n && !(n.classList && n.classList.contains("lvrow"))) n = n.nextElementSibling; return n; });
+    await (await lv.$$("button"))[2].click();
+    await page.waitForSelector("[data-ovl]");
+    assert.match(await page.textContent(".ovlrow"), /read points on the drawn curve: H2 \d+ %/);
+    await page.click("[data-ovl]");
+    await page.waitForTimeout(600);
+    const r = await page.evaluate(() => { const box = document.querySelector(".ovlbox"), c = box.querySelector("canvas"), d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data;
+      let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) n++; return { failed: box.classList.contains("failed"), painted: n, hint: box.nextElementSibling.textContent }; });
+    if (serve) assert.ok(!r.failed && r.painted > 500, `the reading is drawn on the chart (${r.painted} pixels)`);
+    else assert.ok(r.failed && /could not be loaded/.test(r.hint), "a blocked image says so and keeps the link");
+    // the blocked case logs the refused image itself; nothing else may go wrong
+    assert.deepEqual(errors.filter(e => !(serve === false && /Failed to load resource/.test(e))), []);
+    await close();
+  }
 });
 
 test("Driver page: does it have every curve its source publishes?", { skip: skip() }, async () => {
