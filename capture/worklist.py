@@ -11,6 +11,7 @@ Run it after any database change:  python3 capture/worklist.py
 """
 import datetime as dt
 import json
+import re
 import random
 import sys
 from pathlib import Path
@@ -44,6 +45,23 @@ PUBLISHES = {
         ("imd-spectrum", "intermodulation spectra (both tone pairs)"),
     ],
 }
+
+
+def hifi_page(d):
+    """The HiFiCompass measurement page of a record from capture/inventory.json, matched by the model number in its
+    name (a record captured by hand before has no page address of its own)."""
+    inv_p = ROOT / "capture" / "inventory.json"
+    if not inv_p.exists():
+        return None
+    norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
+    models = [norm(w) for w in re.findall(r"[A-Za-z]*\d[\w.\-]*", d.get("name") or "") if len(norm(w)) >= 5]
+    pages = [pg["url"] for rec in json.loads(inv_p.read_text())["models"].values() for pg in rec.get("pages", [])
+             if "/speakers/measurements/" in pg.get("url", "")]
+    for m in models:
+        hit = [u for u in pages if m in norm(u.rsplit("/", 1)[-1])]
+        if len(hit) == 1:
+            return hit[0]
+    return None
 
 
 def main():
@@ -104,13 +122,22 @@ def main():
                 continue
             have = sorted(set(by_fam.get(fam, [])))
             missing = [w for k, w in wants if not any(h.startswith(k) for h in have)]
+            # a harmonics curve that stops early (a hand capture cut at 500 Hz): Simulate has no data above its end
+            short = [m for m in d["measurements"] if not m.get("superseded_by") and (families_of(m.get("source"), cfg) or [""])[0] == fam
+                     and m.get("kind") == "hd-frequency" and m.get("series")
+                     and max(p["x"] for s_ in m["series"] for p in s_.get("points", []) if p.get("y") is not None) < 5000]
+            if short and fam == "HiFiCompass":
+                top = max(p["x"] for s_ in short[0]["series"] for p in s_["points"] if p.get("y") is not None)
+                missing.insert(0, f"the harmonics above {top:g} Hz, up to the end of the page's harmonics charts (the stored curve stops at {top:g} Hz, "
+                                  "so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`)")
             normalised = [m for m in d["measurements"] if not m.get("superseded_by") and (families_of(m.get("source"), cfg) or [""])[0] == fam
                           and m.get("kind") == "hd-frequency" and "normali" in (str(m.get("source")) + str(m.get("note"))).lower()]
             if normalised:
                 missing.insert(0, "the harmonics at each drive level actually measured (the stored "
                                f"{normalised[0]['conditions'].get('spl_db')} dB curve was normalised from them; keep it until they are in)")
             prefix = "if Purifi publishes a datasheet for this exact variant: " if fam == "Manufacturer datasheet" and not have else ""
-            page = f" Page: <{d['source']}> (what it offers: `capture/inventory.md`)." if fam in page_fams else ""
+            known = page_fams and d.get("source") or (hifi_page(d) if fam == "HiFiCompass" else None)
+            page = f" Page: <{known}> (what it offers: `capture/inventory.md`)." if known and fam in (page_fams or [fam]) else ""
             lines.append(f"- **{d['name']}** (`{d['id']}`), {fam}: stored {', '.join(have) or 'nothing'}.{page}")
             lines.append(f"  Add{' (' + prefix.rstrip(': ') + ')' if prefix else ''}: {'; '.join(missing) if missing else 'check every drive level is stored, as measured'}.")
 
