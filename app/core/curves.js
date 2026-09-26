@@ -22,7 +22,7 @@ export function curvesOfSet(driver, set, { only = null, quantities = null, label
     const label = `${labelPrefix || driver.name}${q.label && q.id !== "products" ? " · " + q.label : ""}${level != null ? " · " + level + " " + levelUnit(set) : ""}`;
     if (q.points) {
       out.push(Object.assign({}, base, { label, quantity: q.id, points: q.points.map(p => ({ x: p.x, y: p.y })),
-        yUnit: q.relTo ? q.relTo.replace(/^dB /, "dB, ") : base.yUnit, xLabel: kind.view === "bars" ? "Product frequency" : base.xLabel }));
+        yUnit: q.relTo ? q.relTo.replace(/^dB /, "dB, ") : base.yUnit, xLabel: kind.view === "bars" ? ((kind.x && kind.x.label) || "Product frequency") : base.xLabel }));
     } else if (q.rows) {
       out.push(Object.assign({}, base, { label, quantity: q.id, category: true, yUnit: "", yLabel: q.id,
         points: q.rows.map(r => ({ x: r.label, y: r.value })) }));

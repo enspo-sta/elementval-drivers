@@ -388,7 +388,7 @@ function drawLevelBars(canvas, card, cols) {
     data: freqs.map(f => { const pt = ((s.set.series[0] || {}).points || []).find(p => Number(p.x) === f); return pt && pt.y != null ? Number(pt.y) : null; }) }));
   const yUnit = ((card.kind.y || {}).unit) || (((card.sets[0].set.axes || {}).y || {}).unit) || "";
   newChart(canvas, { type: "bar", data: { labels: freqs.map(fmtHz), datasets: ds },
-    options: chartOptions({ x: categoryAxis("Product frequency", 50), y: yAxis("db", yUnit, { min: base, max: barTop(all) }) },
+    options: chartOptions({ x: categoryAxis((card.kind.x && card.kind.x.label) || "Product frequency", 50), y: yAxis("db", yUnit, { min: base, max: barTop(all) }) },
       c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${c.label}`) });
 }
 

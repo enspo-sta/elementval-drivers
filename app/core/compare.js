@@ -37,6 +37,7 @@ export function matchLabel(set, kind) {
     else if (m === "type") { if (set.type && set.type !== kind.label) bits.push(set.type); }
     else if (m === "field") { const v = (set.conditions || {}).distance_mm; if (typeof v === "number" && v < 100) bits.push(`near field, ${v} mm`); }
     else if (m === "ratio") { const r = (set.conditions || {}).ratio; if (r) bits.push(r); }
+    else if (m === "f0") { const f = num((set.conditions || {}).f0); if (f != null) bits.push(`${fmtHz(f)} tone`); }
     else if (m === "distance_mm") { const v = (set.conditions || {}).distance_mm; if (v) bits.push(`${v} mm`); }
     else if (m === "angle_deg") { const v = (set.conditions || {}).angle_deg; if (v != null && v !== "") bits.push(`${v}°`); }
   }
@@ -77,15 +78,18 @@ export function quantitiesOf(set, kind = kindOf(set)) {
   if (kind.view === "bars") {
     const pts = ((set.series && set.series[0] && set.series[0].points) || []).filter(p => p && p.y != null)
       .map(p => ({ x: Number(p.x), y: Number(p.y) })).sort((a, b) => a.x - b.x);
-    const tones = tonesOf(set) || [];
-    const toneBar = pts.find(p => tones.length && Math.abs(p.x - tones[1]) < 0.5);
+    // two tones: relative to the upper one; one tone (a harmonic spectrum): relative to that tone
+    const f0 = num((set.conditions || {}).f0);
+    const tones = tonesOf(set) || (f0 != null ? [f0] : []);
+    const refTone = tones[tones.length - 1];
+    const toneBar = pts.find(p => tones.length && Math.abs(p.x - refTone) < 0.5);
     const ref = toneBar ? toneBar.y : 0;
     const products = pts.filter(p => !tones.some(t => Math.abs(p.x - t) < 0.5)).map(p => ({ x: p.x, y: p.y - ref }));
-    const relTo = toneBar ? `dB relative to the ${fmtHz(tones[1])} tone` : "dB relative to the fundamental, as published";
+    const relTo = toneBar ? `dB relative to the ${fmtHz(refTone)} tone` : "dB relative to the fundamental, as published";
     const total = products.length ? 10 * Math.log10(products.reduce((s, p) => s + Math.pow(10, p.y / 10), 0)) : null;
     return [
-      { id: "products", label: "Each product", points: products, relTo },
-      { id: "sum", label: "Sum of all products", value: total, relTo, computed: true },
+      { id: "products", label: kind.id === "hd-spectrum" ? "Each harmonic" : "Each product", points: products, relTo },
+      { id: "sum", label: kind.id === "hd-spectrum" ? "Sum of all harmonics" : "Sum of all products", value: total, relTo, computed: true },
     ];
   }
   const cols = set.columns || [], rows = set.rows || [];

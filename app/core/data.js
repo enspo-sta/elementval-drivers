@@ -73,7 +73,7 @@ export function kindOf(set) {
 /** The sound pressure level a set was taken at (dB SPL at 1 m), or null. */
 export function levelOf(set) {
   const c = set.conditions || {};
-  if (set.kind === "imd-products") return typeof c.x_pk_mm === "number" ? c.x_pk_mm : typeof c.drive_v === "number" ? c.drive_v : null;
+  if (set.kind === "imd-products" || set.kind === "hd-spectrum") return typeof c.x_pk_mm === "number" ? c.x_pk_mm : typeof c.drive_v === "number" ? c.drive_v : null;
   const v = typeof c.spl_db === "number" ? c.spl_db : typeof c.ref_spl_db === "number" ? c.ref_spl_db : null;
   return v;
 }
@@ -82,7 +82,7 @@ export function levelOf(set) {
  *  excursion) or V (the drive voltage). */
 export function levelUnit(set) {
   const c = (set && set.conditions) || {};
-  if (set && set.kind === "imd-products") return typeof c.x_pk_mm === "number" ? "mm" : "V";
+  if (set && (set.kind === "imd-products" || set.kind === "hd-spectrum")) return typeof c.x_pk_mm === "number" ? "mm" : "V";
   return "dB";
 }
 /** What a level unit means, for an axis or a field. */

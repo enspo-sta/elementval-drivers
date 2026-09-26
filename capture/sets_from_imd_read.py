@@ -15,6 +15,7 @@ set from the same file replaces the earlier one.
 """
 import argparse
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -42,6 +43,54 @@ def product_name(m, n):
     return f"{t(n, 'f2')} − {t(m, 'f1')}" if n > 0 else f"{t(m, 'f1')} − {t(n, 'f2')}"
 
 
+HARM = {2: "2nd", 3: "3rd"}
+
+
+def one_tone(c, t):
+    """A set of kind hd-spectrum from a one-tone chart, or the reason it waits."""
+    name = c.get("file", "")
+    tone = (c.get("tones") or [{}])[0]
+    level = tone.get("level")
+    if level is None:
+        return None, "the tone was not found on the chart"
+    chk = dict(c.get("check") or {})
+    px = [r[2] for r in (chk.get("column") or {}).get("pixels") or []]
+    note = [f"read from {c['url']}"]
+    if px and chk.get("difference_db") is not None and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
+        note.append(f"the chart's red cursor line covers the tone's peak, whose top is hidden (read {level:.2f} dB beside it); "
+                    f"its level is the {chk['stated_db']} dB the chart prints")
+        level = chk["stated_db"]
+        chk.update(difference_db=None, note="the cursor line covers the tone's peak; the printed level is used")
+    elif chk.get("difference_db") is not None:
+        if abs(chk["difference_db"]) > 1.5:
+            return None, f"the reading differs from the chart's printed readout by {chk['difference_db']} dB"
+        note.append(f"check: the chart prints {chk['stated_db']} dB at {chk['f']} Hz, read {chk['read_db']} dB ({chk['difference_db']:+.2f} dB)")
+    elif chk:
+        note.append(f"no check: {chk.get('note') or 'the cursor readout could not be used'}")
+    else:
+        note.append("no check: no cursor readout found on the chart")
+    if c.get("below_floor"):
+        note.append(f"{c['below_floor']} harmonic(s) under the noise floor left out")
+    f0 = num(t["f0"])
+    pts = [{"x": f0, "y": round(level, 1), "label": "tone"}]
+    pts += [{"x": num(p["f"]), "y": p["level"], "label": f"H{p['order']} ({HARM.get(p['order'], str(p['order']) + 'th')} harmonic)"} for p in c.get("products") or []]
+    cond = {"f0": f0, "drive_v": num(t["drive_v"]), "distance_mm": t["distance_mm"], "lab": "HiFiCompass"}
+    return {
+        "type": f"Harmonics of one tone, {f0} Hz at {num(t['drive_v'])} V (microphone at {t['distance_mm']} mm)",
+        "kind": "hd-spectrum",
+        "method": f"one-tone spectrum {f0} Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+        "conditions": cond,
+        "source": f"HiFiCompass ({name}, automated reading)",
+        "confidence": "medium",
+        "note": "; ".join(note),
+        "chartType": "bar",
+        "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level", "unit": "dB (the chart's scale)"}},
+        "series": [{"name": "tone and harmonics", "points": sorted(pts, key=lambda p: p["x"])}],
+        "file": name,
+        **({"check": {"cursor": {k: v for k, v in chk.items() if k != "column"}}} if chk else {}),
+    }, None
+
+
 def build(read, db):
     byid = {d["id"]: d for d in db["drivers"]}
     made, waiting = [], []
@@ -53,6 +102,13 @@ def build(read, db):
             t = c.get("test") or {}
             if c.get("error"):
                 waiting.append((did, name, c["error"])); continue
+            if "f0" in t:
+                st, why = one_tone(c, t)
+                if st:
+                    made.append((did, st))
+                else:
+                    waiting.append((did, name, why))
+                continue
             tones = {round(x["f"], 3): x for x in c.get("tones") or []}
             up = tones.get(round(t.get("f2", -1), 3)) or {}
             if up.get("level") is None:
@@ -76,10 +132,19 @@ def build(read, db):
             for f, x in sorted(tones.items()):
                 if x.get("level") is not None:
                     pts.append({"x": num(f), "y": round(x["level"], 1), "label": "f1 (lower tone)" if f == round(t["f1"], 3) else "f2 (upper tone)"})
-            harm = []
+            harm, both = [], []
             for p in c.get("products") or []:
-                (harm if p["m"] == 0 or p["n"] == 0 else pts).append({"x": num(p["f"]), "y": p["level"], "label": f"{product_name(p['m'], p['n'])} ({ORD[p['order']]})"})
-            pts.sort(key=lambda p: p["x"]); harm.sort(key=lambda p: p["x"])
+                # every way (m, n) up to the 5th order of reaching this frequency: when the upper tone is a whole
+                # multiple of the lower (2 + 10 kHz), a harmonic of one tone and a mixed product fall together and the
+                # bar holds both; it is named by every way and kept out of the intermodulation series
+                ways = [(m, n) for m in range(-5, 6) for n in range(-5, 6) if 2 <= abs(m) + abs(n) <= 5
+                        and abs(m * t["f1"] + n * t["f2"] - p["f"]) < 1e-6]
+                pure = [w for w in ways if w[0] == 0 or w[1] == 0]
+                mixed = [w for w in ways if w[0] != 0 and w[1] != 0]
+                name_of = lambda w: f"{product_name(*w)} ({ORD[abs(w[0]) + abs(w[1])]})"
+                bar = {"x": num(p["f"]), "y": p["level"], "label": " = ".join(name_of(w) for w in sorted(ways, key=lambda w: abs(w[0]) + abs(w[1])))}
+                (both if pure and mixed else harm if pure else pts).append(bar)
+            pts.sort(key=lambda p: p["x"]); harm.sort(key=lambda p: p["x"]); both.sort(key=lambda p: p["x"])
             f1, f2 = num(t["f1"]), num(t["f2"])
             cond = {"f1": f1, "f2": f2}
             if t.get("ratio"):
@@ -111,6 +176,11 @@ def build(read, db):
                 note.append(f"lower tone ({f1} Hz) not found")
             if not t.get("ratio"):
                 note.append("tone ratio not stated")
+            elif "to1" not in name.lower():
+                note.append(f"ratio {t['ratio']} from the voltage of each tone in the file name")
+            if both:
+                note.append(f"{len(both)} bar(s) where a harmonic of one tone and an intermodulation product fall at the same frequency "
+                            "(the upper tone is a whole multiple of the lower): kept apart, not counted as intermodulation")
             if "distance_mm" not in cond:
                 note.append("microphone distance not stated")
             ratio = f", {t['ratio']}" if t.get("ratio") else ""
@@ -127,11 +197,38 @@ def build(read, db):
                 # the intermodulation products (both tones take part) first: Compare sums that series; the
                 # harmonics of each tone alone (2·f1, 3·f1, 2·f2 ...) are distortion of one tone and kept apart
                 "series": [{"name": "tones and intermodulation products", "points": pts}]
-                          + ([{"name": "harmonics of each tone", "points": harm}] if harm else []),
+                          + ([{"name": "harmonics of each tone", "points": harm}] if harm else [])
+                          + ([{"name": "a harmonic and a product at the same frequency", "points": both}] if both else []),
                 "file": name,
                 **({"check": {"cursor": {k: v for k, v in chk.items() if k != "column"}}} if chk else {}),
             }))
+    level_check(made)
     return made, waiting
+
+
+def level_check(made):
+    """Across the levels of one test of one driver: the tones should rise with the drive (6 dB per doubling of
+    voltage, as the charts of most drivers show). Where they do not, the chart's scale is likely set per
+    measurement, so only values relative to a tone compare across levels; the notes say so."""
+    groups = {}
+    for did, s in made:
+        c = s["conditions"]
+        if s["kind"] != "imd-products" or not isinstance(c.get("drive_v"), (int, float)):
+            continue
+        groups.setdefault((did, c["f1"], c["f2"]), []).append(s)
+    for sets in groups.values():
+        if len(sets) < 2:
+            continue
+        sets.sort(key=lambda s: s["conditions"]["drive_v"])
+        up = lambda s: next(p["y"] for p in s["series"][0]["points"] if p["x"] == s["conditions"]["f2"])
+        lo, hi = sets[0], sets[-1]
+        expect = 20 * math.log10(hi["conditions"]["drive_v"] / lo["conditions"]["drive_v"])
+        rise = up(hi) - up(lo)
+        if expect >= 6 and rise < expect / 2:
+            for s in sets:
+                s["note"] += (f"; the upper tone rises {rise:+.1f} dB from {lo['conditions']['drive_v']:g} to {hi['conditions']['drive_v']:g} V "
+                              f"where the voltage ratio gives {expect:+.1f} dB: the chart's scale looks set per measurement, so compare "
+                              "values relative to the tone (as Compare does), not the tone levels themselves")
 
 
 def main():

@@ -167,7 +167,7 @@ function render() {
     h += noChart() ? noChartMsg : `<div class="chartbox tall"><canvas id="cchart"></canvas></div>`;
     h += `<div id="csum"></div>`;
     // intermodulation against level: every measured level of each picked driver, one line each
-    if (view !== "curve" && g.levels.length > 1) h += `<div class="ptitle sub">Against level: how each driver's ${view === "bars" ? "total intermodulation (sum of all products)" : "chosen row"} grows with level</div>
+    if (view !== "curve" && g.levels.length > 1) h += `<div class="ptitle sub">Against level: how each driver's ${view === "bars" ? (g.kind.id === "hd-spectrum" ? "total harmonic distortion (sum of all harmonics)" : "total intermodulation (sum of all products)") : "chosen row"} grows with level</div>
       ${view === "table" ? `<div class="togrow">${cmp.rows.map(r => `<button class="tog small${levelRow(g) === r ? " on" : ""}" data-lr="${esc(r)}">${esc(rowName(r))}</button>`).join("")}</div>` : ""}
       ${noChart() ? "" : `<div class="chartbox"><canvas id="clvl"></canvas></div>`}<div id="clsum"></div>`;
     h += `<div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
@@ -300,12 +300,12 @@ function drawBars(g, picked) {
   const relTo = (qs[0] && qs[0].q.relTo) || "dB";
   if (qid === "sum") {
     const vals = qs.map(y => y.q.value), base = barBase(vals);
-    newChart($("cchart"), { type: "bar", data: { labels: qs.map(y => y.x.e.driver.name), datasets: [{ label: "Sum of all products", data: vals,
+    newChart($("cchart"), { type: "bar", data: { labels: qs.map(y => y.x.e.driver.name), datasets: [{ label: g.kind.id === "hd-spectrum" ? "Sum of all harmonics" : "Sum of all products", data: vals,
       backgroundColor: qs.map(y => COLORS[y.x.p.slot]), base, barPercentage: 0.6 }] },
       options: chartOptions({ x: categoryAxis("", 30), y: yAxis("db", relTo, { min: base, max: barTop(vals) }) }, c => `${c.label}: ${c.parsed.y.toFixed(1)} dB`) });
-    $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Driver</th><th>Level</th><th>Sum of all products</th><th>as %</th></tr></thead><tbody>${qs.map(y =>
+    $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Driver</th><th>Level</th><th>${g.kind.id === "hd-spectrum" ? "Sum of all harmonics" : "Sum of all products"}</th><th>as %</th></tr></thead><tbody>${qs.map(y =>
       `<tr><td><span style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]}</span> ${esc(y.x.e.driver.name)}</td><td>${esc(lv(y.x.chosen.level))}</td><td>${fmtDb(y.q.value)}</td><td>${fmtPct(y.q.value)}</td></tr>`).join("")}</tbody></table></div>
-      <div class="hint2">Power sum of every product the chart shows, ${esc(relTo)}. Lower is better.</div>`;
+      <div class="hint2">Power sum of every ${g.kind.id === "hd-spectrum" ? "harmonic" : "product"} the chart shows, ${esc(relTo)}. Lower is better.</div>`;
     return;
   }
   const freqs = [...new Set(qs.flatMap(y => y.q.points.map(pt => pt.x)))].sort((a, b) => a - b);
@@ -316,11 +316,11 @@ function drawBars(g, picked) {
     newChart($("cchart"), { type: "line", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, data: freqs.map(f => at(y, f)),
       borderColor: COLORS[y.x.p.slot], backgroundColor: COLORS[y.x.p.slot], borderWidth: 2, spanGaps: true, tension: 0,
       pointStyle: MARKERS[y.x.p.slot], pointRadius: 5, pointBackgroundColor: COLORS[y.x.p.slot] })) },
-      options: chartOptions({ x: categoryAxis("Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
+      options: chartOptions({ x: categoryAxis((g.kind.x && g.kind.x.label) || "Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
   } else newChart($("cchart"), { type: "bar", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
     data: freqs.map(f => at(y, f)) })) },
-    options: chartOptions({ x: categoryAxis("Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
-  $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Product</th>${qs.map(y =>
+    options: chartOptions({ x: categoryAxis((g.kind.x && g.kind.x.label) || "Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
+  $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>${g.kind.id === "hd-spectrum" ? "Harmonic" : "Product"}</th>${qs.map(y =>
     `<th style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]} ${esc(y.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${freqs.map(f =>
     `<tr><td>${fmtHz(f)}</td>${qs.map(y => { const pt = y.q.points.find(q => q.x === f); return `<td>${pt ? pt.y.toFixed(1) : "—"}</td>`; }).join("")}</tr>`).join("")}
     <tr class="sumrow"><td>sum</td>${qs.map(y => { const s = y.x.quantities.find(q => q.id === "sum"); return `<td>${s && s.value != null ? s.value.toFixed(1) : "—"}</td>`; }).join("")}</tr></tbody></table></div>
