@@ -1,6 +1,5 @@
 # record id, then its HiFiCompass page when the record has none of its own
-# every driver with two-tone spectra on HiFiCompass (the reader now starts at the plot's own edge, so the
-# lower tone is read, and checks itself against the cursor readout printed on each chart)
+# every driver with two-tone spectra or one-tone spectra (one sine and its harmonics) on HiFiCompass
 sb-satori-mr16tx-8
 sb-satori-mw19tx-4
 sb-satori-tw29bnwg-4

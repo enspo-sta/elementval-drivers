@@ -1,5 +1,6 @@
 # record id, then its HiFiCompass page when the record has none of its own (captured by hand before)
-# a fresh pass of every automatically read driver, with the on-image check and the calibration for the overlay
+# every automatically read driver, now with the near-field responses (20 mm, and 5 mm for the MR16TX)
+sb-satori-mr16tx-8
 m74a-6
 t25a-6
 t25t-6

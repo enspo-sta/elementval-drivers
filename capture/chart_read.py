@@ -19,7 +19,7 @@ background colour before anything is read, so neither is a grid row or a curve. 
 are left out of a curve as well (bold text), and where a curve is not visible for more than a few columns
 the gap is reported instead of bridged. Everything it writes is numbers and text (capture/chart_read.json);
 no image is stored.
-  python3 capture/chart_read.py [--ids m74a-6,...] [--types response,harmonics,current,impedance]
+  python3 capture/chart_read.py [--ids m74a-6,...] [--types response,near-response,harmonics,current,impedance]
 """
 import argparse
 import datetime as dt
@@ -551,7 +551,7 @@ def share_names(res):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--ids")
-    ap.add_argument("--types", default="response,harmonics,current,impedance")
+    ap.add_argument("--types", default="response,near-response,harmonics,current,impedance")
     ap.add_argument("--limit", type=int, default=0, help="at most N charts of each type per driver (0 = all)")
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_read.json"))
     ap.add_argument("--keep", help="a directory to keep the fetched images in (a short-lived workflow artifact, never committed)")
@@ -596,7 +596,7 @@ def main():
                     Path(a.keep).mkdir(parents=True, exist_ok=True)
                     (Path(a.keep) / name).write_bytes(data)
                 try:
-                    rec = read_chart(path, ctype)
+                    rec = read_chart(path, "response" if ctype == "near-response" else ctype)   # a near-field response is drawn like one
                 except Exception as e:
                     rec = {"error": f"read failed: {e}"}
                 rec.update({"file": name, "url": url, "type": ctype})

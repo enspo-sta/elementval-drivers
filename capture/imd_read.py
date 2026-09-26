@@ -3,7 +3,7 @@
 the site). The charts are 1024 x 701, black, a green grid, the spectrum in yellow, dB on the left (0 to -100),
 frequency linear below. For every chart of the drivers in capture/imd_read_request.txt (an id, optionally its
 page address), this tool:
-  1. reads the test from the file name: the two tones, their ratio, and the low tone's peak excursion
+  1. reads the test from the file name (a one-tone chart: its tone, voltage and microphone distance): the two tones, their ratio, and the low tone's peak excursion
      (30hz255hz_xmax30hz3mm_4to1) or the drive voltage (500hz2v834.25khz2v83, 2v83rms_1khz10khz-1to1),
   2. fits the axes from the grid lines and the labels read by tesseract (dB rows, frequency columns, linear),
   3. reads the spectrum's highest point at the tones and at every product m*f1 + n*f2 up to the 5th order
@@ -40,8 +40,12 @@ def volts_of(t):
 
 
 def test_of(name):
-    """The test a chart shows, from its file name, or None."""
+    """The test a chart shows, from its file name, or None: two tones (f1, f2), or one tone (f0) whose harmonics
+    the chart shows (ptt10.0x04-nab-02_50mm_2v83_20hz.png: 20 Hz at 2.83 V, microphone at 50 mm)."""
     n = name.lower()
+    m = re.search(r"_(\d+)mm_" + V + r"_(\d+(?:\.\d+)?)hz\.(?:png|jpg)$", n)
+    if m:
+        return {"f0": float(m.group(3)), "drive_v": volts_of(m.group(2)), "distance_mm": int(m.group(1))}
     m = re.search(r"(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)hz_xmax(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)mm(?:_(\d+)to(\d+))?", n)
     if m:   # a file name without the ratio (ptt6.5w04-01a_30hz255hz_xmax30hz3mm.png) leaves it unstated
         return {"f1": float(m.group(1)), "f2": float(m.group(2)), "x_pk_mm": float(m.group(4)),
@@ -125,6 +129,17 @@ def negative_labels(words):
     return out
 
 
+def tones_of(test):
+    return [test["f0"]] if "f0" in test else [test["f1"], test["f2"]]
+
+
+def lines_of(test, fmax):
+    """The products a chart can show: the harmonics of one tone (order 2 to 10), or the two-tone products."""
+    if "f0" in test:
+        return [{"f": round(k * test["f0"], 3), "m": k, "n": 0, "order": k} for k in range(2, 11) if k * test["f0"] <= fmax]
+    return products(test["f1"], test["f2"], fmax)
+
+
 def products(f1, f2, fmax):
     out = []
     for m in range(-5, 6):
@@ -174,7 +189,7 @@ def read_chart(path, test):
     rec["columns_with_trace"] = len(level)
     col_of = lambda f: (f - xa[0]) / xa[1]
     fmax = xa[0] + xa[1] * x1
-    lines = [test["f1"], test["f2"]] + [p["f"] for p in products(test["f1"], test["f2"], fmax)]
+    lines = tones_of(test) + [p["f"] for p in lines_of(test, fmax)]
     near_line = set()
     for f in lines:
         c = int(round(col_of(f)))
@@ -188,10 +203,12 @@ def read_chart(path, test):
         flo = [level[k] for k in range(int(c) - 30, int(c) + 31) if k in level and k not in near_line]
         return (max(win) if win else None), (statistics.median(flo) if len(flo) >= 8 else None)
 
-    t1, f1floor = peak(test["f1"]); t2, f2floor = peak(test["f2"])
-    rec["tones"] = [{"f": test["f1"], "level": t1, "floor": f1floor}, {"f": test["f2"], "level": t2, "floor": f2floor}]
+    rec["tones"] = []
+    for f in tones_of(test):
+        lv, fl = peak(f)
+        rec["tones"].append({"f": f, "level": lv, "floor": fl})
     kept, low = [], 0
-    for p in products(test["f1"], test["f2"], fmax):
+    for p in lines_of(test, fmax):
         lv, fl = peak(p["f"])
         if lv is None:
             continue
@@ -205,7 +222,7 @@ def read_chart(path, test):
         f, stated = cur
         read, _ = peak(f)
         on = ya[0] + ya[1] * bot0 <= stated <= ya[0] + ya[1] * top0
-        tone = min((test["f1"], test["f2"]), key=lambda t: abs(t - f))
+        tone = min(tones_of(test), key=lambda t: abs(t - f))
         at_tone = abs(tone - f) <= max(3 * xa[1], 0.01 * tone)
         note = None
         if not at_tone:

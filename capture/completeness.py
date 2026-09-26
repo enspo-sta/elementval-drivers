@@ -29,9 +29,11 @@ from worklist import hifi_page, PUBLISHES  # noqa: E402
 HAND_KINDS = {"response": {"frequency-response"}, "harmonics": {"hd-frequency"}, "current": {"hd-current"},
               "impedance": {"impedance"}, "intermodulation": {"imd-summary", "imd-spectrum"}}
 
-READ = {"response", "harmonics", "current", "impedance"}           # what capture/chart_read.py reads
+READ = {"response", "near-response", "harmonics", "current", "impedance"}           # what capture/chart_read.py reads
+SPECTRA = {"intermodulation", "spectrum"}                                  # what capture/imd_read.py reads
 WHY = {
-    "intermodulation": "an intermodulation spectrum: not read automatically yet",
+    "intermodulation": "an intermodulation spectrum: not read yet (capture/imd_read.py)",
+    "spectrum": "a one-tone spectrum: not read yet (capture/imd_read.py)",
     "off-axis": "off-axis responses (several angles in one image): not read automatically",
     "near-field": "a near-field chart: not read automatically",
     "step": "a step response: not a frequency curve the database stores",
@@ -40,7 +42,8 @@ WHY = {
     "other": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)",
 }
 LABEL = {"response": "on-axis response", "harmonics": "harmonics", "current": "current distortion", "impedance": "impedance",
-         "intermodulation": "intermodulation", "off-axis": "off-axis", "near-field": "near field", "step": "step response",
+         "intermodulation": "intermodulation", "off-axis": "off-axis", "near-field": "near field",
+         "near-response": "near-field response", "spectrum": "one-tone spectrum", "step": "step response",
          "waterfall": "waterfall", "etc": "energy-time", "other": "older template"}
 
 
@@ -52,6 +55,11 @@ def main():
     rp = ROOT / "capture" / "chart_read.json"
     if rp.exists():
         for charts in json.loads(rp.read_text()).get("drivers", {}).values():
+            for c in charts:
+                read[c.get("file")] = c
+    ip = ROOT / "capture" / "imd_read.json"
+    if ip.exists():
+        for charts in json.loads(ip.read_text()).get("drivers", {}).values():
             for c in charts:
                 read[c.get("file")] = c
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec.get("pages", [])}
@@ -87,7 +95,7 @@ def main():
                     c["state"] = "missing"
                     if older:
                         c["why"] = WHY["other"]
-                    elif t in READ:
+                    elif t in READ or t in SPECTRA:
                         err = (read.get(name) or {}).get("error")
                         c["why"] = f"the automatic reading failed: {err}" if err else "readable automatically, not read yet"
                     else:

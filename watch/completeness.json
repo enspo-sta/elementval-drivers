@@ -795,22 +795,6 @@
    "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02",
    "charts": [
     {
-     "file": "ptt8.0x04-nab-02_coil.jpg",
-     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt8.0x04-nab-02_coil.jpg",
-     "type": "other",
-     "label": "older template",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
-    },
-    {
-     "file": "ptt8.0x04-nab-02_wires.jpg",
-     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt8.0x04-nab-02_wires.jpg",
-     "type": "other",
-     "label": "older template",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
-    },
-    {
      "file": "ptt8.0x04-nab-02_315mm_2v83_0deg.png",
      "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_2v83_0deg.png",
      "type": "response",
@@ -885,11 +869,11 @@
     {
      "file": "ptt8.0x04-nab-02_20mm_2v83_0deg.png",
      "url": "https://hificompass.com/sites/default/files/zamer/ptt8.0x04-nab-02_20mm_2v83_0deg.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_2v83_hpf2-50.png",
@@ -1144,14 +1128,13 @@
    "datasheet": null,
    "premium_or_login": null,
    "summary": {
-    "published": 44,
+    "published": 42,
     "stored": 35,
     "by_hand": 0,
-    "missing": 9,
+    "missing": 7,
     "missing_by_type": {
-     "older template": 2,
      "off-axis": 3,
-     "near field": 1,
+     "near-field response": 1,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -1245,11 +1228,11 @@
     {
      "file": "ptt10.0x04-nab-02_20mm_2v83_0deg.png",
      "url": "https://hificompass.com/sites/default/files/zamer/ptt10.0x04-nab-02_20mm_2v83_0deg.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_2v83_hpf2-50.png",
@@ -1310,47 +1293,47 @@
     {
      "file": "ptt10.0x04-nab-02_20mm_2v83.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_2v83.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_4v.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_4v.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_5v6.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_5v6.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_8v.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_8v.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_11v2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
@@ -1403,317 +1386,317 @@
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 8.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 11.2,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text2.png",
@@ -1838,7 +1821,8 @@
     "missing": 47,
     "missing_by_type": {
      "off-axis": 3,
-     "near field": 41,
+     "near-field response": 6,
+     "one-tone spectrum": 35,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2027,14 +2011,6 @@
    "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a",
    "charts": [
     {
-     "file": "ptt6.5x04-naa-08a_voice_coil2.jpg",
-     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt6.5x04-naa-08a_voice_coil2.jpg",
-     "type": "other",
-     "label": "older template",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
-    },
-    {
      "file": "ptt6.5x04-naa-08a_315mm_2v83_0grad.png",
      "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_2v83_0grad.png",
      "type": "response",
@@ -2109,11 +2085,11 @@
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_0grad.png",
      "url": "https://hificompass.com/sites/default/files/zamer/ptt6.5x04-naa-08a_20mm_2v83_0grad.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_2v83_hpf2-50.png",
@@ -2230,164 +2206,164 @@
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz2mm_4to1.png",
@@ -2472,14 +2448,14 @@
    "datasheet": null,
    "premium_or_login": null,
    "summary": {
-    "published": 53,
+    "published": 52,
     "stored": 26,
     "by_hand": 0,
-    "missing": 27,
+    "missing": 26,
     "missing_by_type": {
-     "older template": 1,
      "off-axis": 3,
-     "near field": 19,
+     "near-field response": 1,
+     "one-tone spectrum": 18,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -2668,26 +2644,26 @@
     {
      "file": "m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
-     "type": "other",
-     "label": "older template",
+     "type": "off-axis",
+     "label": "off-axis",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "off-axis responses (several angles in one image): not read automatically"
     },
     {
      "file": "m74t-6-off-axis-normalized-10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-10-50db.png",
-     "type": "other",
-     "label": "older template",
+     "type": "off-axis",
+     "label": "off-axis",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "off-axis responses (several angles in one image): not read automatically"
     },
     {
      "file": "m74t-6-off-axis-normalized-5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-5-30db.png",
-     "type": "other",
-     "label": "older template",
+     "type": "off-axis",
+     "label": "off-axis",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "off-axis responses (several angles in one image): not read automatically"
     },
     {
      "file": "m74t-6_315mm_1v41_hpf2-300_lpf4-10000.png",
@@ -2884,7 +2860,7 @@
     "by_hand": 0,
     "missing": 6,
     "missing_by_type": {
-     "older template": 3,
+     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3955,11 +3931,11 @@
     {
      "file": "mr16tx-8_5mm_1v_0deg.png",
      "url": "https://hificompass.com/sites/default/files/zamer/mr16tx-8_5mm_1v_0deg.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 1.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mr16tx-8_315mm_2v_hpf2-50.png",
@@ -4165,7 +4141,7 @@
     "missing": 8,
     "missing_by_type": {
      "off-axis": 3,
-     "near field": 1,
+     "near-field response": 1,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4252,11 +4228,11 @@
     {
      "file": "mw19tx-4_20mm_2v83_0grad.png",
      "url": "https://hificompass.com/sites/default/files/zamer/mw19tx-4_20mm_2v83_0grad.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "near-response",
+     "label": "near-field response",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_315mm_2v_hpf2-50.png",
@@ -4389,326 +4365,326 @@
     {
      "file": "mw19tx-4_20mm_2v_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_2v83_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 2.83,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_4v_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 4.0,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_20hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_20hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_30hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_30hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_40hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_40hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_50hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_50hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_75hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_75hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_100hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_100hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_150hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_150hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_220hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_220hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_20mm_5v6_300hz.png",
      "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_300hz.png",
-     "type": "near-field",
-     "label": "near field",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
      "volts": 5.6,
      "state": "missing",
-     "why": "a near-field chart: not read automatically"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png",
@@ -4784,7 +4760,8 @@
     "missing": 43,
     "missing_by_type": {
      "off-axis": 3,
-     "near field": 37,
+     "near-field response": 1,
+     "one-tone spectrum": 36,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -4998,7 +4975,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "tw29bnwg-4_impedance_10_ohm.png",

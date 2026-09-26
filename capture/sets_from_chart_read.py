@@ -24,8 +24,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
 from validate_db import validate  # noqa: E402
 
-KIND = {"response": "frequency-response", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
-TYPE = {"response": "Axial frequency response", "impedance": "Impedance", "harmonics": "HD (orders) vs frequency", "current": "Voice-coil current HD vs frequency"}
+KIND = {"response": "frequency-response", "near-response": "frequency-response", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
+TYPE = {"response": "Axial frequency response", "near-response": "Near-field frequency response", "impedance": "Impedance", "harmonics": "HD (orders) vs frequency", "current": "Voice-coil current HD vs frequency"}
 AXES = {"frequency-response": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "SPL", "unit": "dB"}},
         "impedance": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Impedance", "unit": "ohm"}},
         "hd-frequency": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Harmonic ratio", "unit": "dB re fund"}},
