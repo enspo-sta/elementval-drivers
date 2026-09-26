@@ -404,18 +404,37 @@ def read_chart(path, ctype):
             continue
         r, g, b = (int(hexv[i:i + 2], 16) for i in (1, 3, 5))
         grey = max(r, g, b) - min(r, g, b) < 30
-        if grey and ctype != "response":
+        if grey and ctype not in ("response", "off-axis-read"):
             continue                                   # grey: text, anti-aliasing (a grey harmonic is read by its legend name)
         # the on-axis response is a dark-grey line close to the grid's grey: a tolerance below their distance keeps
         # the grid lines out of its mask (they are masked off as well)
         tol = min(60, max(12, int(0.6 * min(dist(hexv, rcol or "#ffffff"), dist(hexv, ccol or "#ffffff"))))) if grey else 60
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols), tol=tol)
         if len(pts) < 50 or runs >= 3:
+            rec.setdefault("skipped", []).append({"colour": hexv, "pixels": c["pixels"], "columns": len(pts), "lines_per_column": runs})
             continue                                   # a dotted grid gives several runs per column; a curve gives one
         pts, clipped = off_top(pts, top_edge)
         points, gaps = resample(pts, xa, ya)
         curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps,
                        **({"clipped_top": clipped} if clipped else {})})
+    if ctype == "off-axis-read":
+        # one curve per angle, each in a colour of its own: every saturated colour the image draws (the exact colours,
+        # not the quantised candidates) that is not a curve yet is tried too
+        for dc in rec["drawn_colours"] or []:
+            hexv = dc["hex"]
+            r, g, b = (int(hexv[i:i + 2], 16) for i in (1, 3, 5))
+            if max(r, g, b) - min(r, g, b) < 60 or dc["pixels"] < MIN_CURVE_PIXELS or any(dist(hexv, cv["colour"]) <= 60 for cv in curves):
+                continue
+            pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
+            if len(pts) >= 50 and runs < 3:
+                pts, clipped = off_top(pts, top_edge)
+                points, gaps = resample(pts, xa, ya)
+                curves.append({"colour": hexv, "pixels": dc["pixels"], "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps,
+                               **({"clipped_top": clipped} if clipped else {})})
+            else:
+                rec.setdefault("skipped", []).append({"colour": hexv, "pixels": dc["pixels"], "columns": len(pts), "lines_per_column": runs})
+        for cv in curves:
+            cv["legend_text"] = legend_of_colour(path, img, rows, w, h, cv["colour"])
     curves.sort(key=lambda c: -c["columns"])
     rec["legend"] = legend(path, img, rows, w, h, bg)
     # every colour the legend names is read as a curve too (H3 in black, H4 in grey): the legend's own
@@ -522,6 +541,32 @@ def legend(path, img, rows, w, h, bg_hex="#000000"):
     return words
 
 
+def legend_of_colour(path, img, rows, w, h, colour_hex, tol=90):
+    """The legend text drawn in one colour: the band below the grid with only that colour's pixels kept (black on
+    white), read by tesseract. Each off-axis angle's label is in its curve's colour, so this reads one label at a
+    time even where the whole band read together loses one (light green on white)."""
+    import subprocess
+    import numpy as np
+    from PIL import Image
+    y0 = (rows[-1][1] + 2) if rows else int(h * 0.9)
+    if h - y0 < 8:
+        return ""
+    target = np.array([int(colour_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    band = img[y0:h, 0:w, :3].astype(int)
+    near = np.abs(band - target).sum(axis=2) <= tol
+    if near.sum() < 20:
+        return ""
+    im = Image.fromarray(np.where(near, 0, 255).astype("uint8"))
+    im = im.resize((im.width * 3, im.height * 3))
+    tmp = path.with_suffix(".legend_%s.png" % colour_hex.strip("#"))
+    im.save(tmp)
+    try:
+        out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11"], capture_output=True, text=True, timeout=60).stdout
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+    return re.sub(r"\s+", " ", out).strip()
+
+
 def checks(did, d, ctype, name, rec):
     out = []
     ts = d.get("ts") or {}
@@ -619,7 +664,7 @@ def main():
                     (Path(a.keep) / name).write_bytes(data)
                 try:
                     # a near-field response and the off-axis responses (one curve per angle) are drawn like a response
-                    rec = read_chart(path, "response" if ctype in ("near-response", "off-axis") else ctype)
+                    rec = read_chart(path, {"near-response": "response", "off-axis": "off-axis-read"}.get(ctype, ctype))
                 except Exception as e:
                     rec = {"error": f"read failed: {e}"}
                 rec.update({"file": name, "url": url, "type": ctype})
