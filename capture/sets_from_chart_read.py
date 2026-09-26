@@ -165,6 +165,9 @@ def build(read, db):
                 if "1 kHz" in c.get("check", "") and "tweeter" in (d.get("role") or ""):
                     note.append("a tweeter's stated sensitivity is an average over its band, so a difference at 1 kHz is expected")
             for cv in ch["curves"]:
+                if cv.get("clipped_top"):
+                    note.append(f"{cv.get('name') or cv['colour']}: runs above the chart's top line in {cv['clipped_top']} pixel column(s); "
+                                "those stretches are left out (the chart cuts the curve off there)")
                 if cv.get("gaps"):
                     note.append(f"{cv.get('name') or cv['colour']}: not visible in the chart between " + ", ".join(f"{g[0]:g} and {g[1]:g} Hz" for g in cv["gaps"]) + " (no points there)")
                 if cv.get("name_from"):

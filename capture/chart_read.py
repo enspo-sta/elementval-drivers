@@ -216,6 +216,13 @@ def read_curve(img, colour_hex, bg_hex, box, grid=((), ()), tol=60):
     return pts, (statistics.median(runs) if runs else 0)
 
 
+def off_top(pts, top_edge):
+    """Points drawn on the chart's top line are a curve that runs above the chart (cut off there), not a value: they
+    are left out (their stretch becomes a gap, reported like any other) and counted."""
+    kept = [(x, y) for x, y in pts if y > top_edge + 1]
+    return kept, len(pts) - len(kept)
+
+
 GAP_PX = 12   # columns without the curve: up to this many are bridged, more is a gap left out and reported
 
 
@@ -378,7 +385,16 @@ def read_chart(path, ctype):
     # the plot ends just above the lowest grid line (a curve at the chart's floor, -100 dB or 50 dB, is clipped
     # there and is not read as a value), and above the labels
     bottom_edge = min(rows[-1][0] - 1, label_top, h - 1) if rows else min(label_top, h - 1)
-    plot = [cols[0][0] + 1, rows[0][0] + 1, cols[-1][1] - 1, bottom_edge] if rows and cols else box
+    # the plot starts at the chart's top line, which may be a frame line left out of the grid (the HiFiCompass
+    # harmonics charts draw it at -20 dB, 5 dB above the first grey grid line): a curve in that band is read
+    top_edge = rows[0][0] + 1 if rows else box[1]
+    if rows and len(rows) > 1:
+        step = rows[1][0] - rows[0][0]
+        above = [r for r in rows_all if rows[0][0] - 1.6 * step <= r[0] < rows[0][0] - 2]
+        if above:
+            top_edge = min(r[0] for r in above) + 2
+    rec["plot_top"] = top_edge
+    plot = [cols[0][0] + 1, top_edge, cols[-1][1] - 1, bottom_edge] if rows and cols else box
     curves = []
     candidates = CP.all_colours(img, plot, bg, top=12)
     dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
@@ -396,8 +412,10 @@ def read_chart(path, ctype):
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols), tol=tol)
         if len(pts) < 50 or runs >= 3:
             continue                                   # a dotted grid gives several runs per column; a curve gives one
+        pts, clipped = off_top(pts, top_edge)
         points, gaps = resample(pts, xa, ya)
-        curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps})
+        curves.append({"colour": hexv, "pixels": c["pixels"] if hexv != rcol else len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps,
+                       **({"clipped_top": clipped} if clipped else {})})
     curves.sort(key=lambda c: -c["columns"])
     rec["legend"] = legend(path, img, rows, w, h, bg)
     # every colour the legend names is read as a curve too (H3 in black, H4 in grey): the legend's own
@@ -413,8 +431,10 @@ def read_chart(path, ctype):
             continue                                    # already read in a near colour, or the grid's own colour
         pts, runs = read_curve(img, hexv, bg, plot, (rows, cols))
         if len(pts) >= 50 and runs < 3:
+            pts, clipped = off_top(pts, top_edge)
             points, gaps = resample(pts, xa, ya)
-            curves.append({"colour": hexv, "pixels": len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps})
+            curves.append({"colour": hexv, "pixels": len(pts), "columns": len(pts), "lines_per_column": runs, "points": points, "gaps": gaps,
+                           **({"clipped_top": clipped} if clipped else {})})
     # every curve gets the legend name whose colour is nearest (one name per curve)
     taken = set()
     for c in sorted(curves, key=lambda c: -c["columns"]):

@@ -209,3 +209,14 @@ class ChartTypes(unittest.TestCase):
         self.assertFalse(CP.SKIP.search("https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png"))
         self.assertTrue(CP.SKIP.search("ptt6.5x04-naa-08a_voice_coil2.jpg"))
         self.assertTrue(CP.SKIP.search("ptt8.0x04-nab-02_wires.jpg"))
+
+
+class CutOffCurves(unittest.TestCase):
+    def test_points_on_the_top_line_are_left_out(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        try:
+            import chart_read as CR
+        except ImportError as e:
+            raise unittest.SkipTest(str(e))
+        kept, n = CR.off_top([(1, 36.0), (2, 36.5), (3, 40.0), (4, 80.0)], 36)
+        self.assertEqual((kept, n), ([(3, 40.0), (4, 80.0)], 2))
