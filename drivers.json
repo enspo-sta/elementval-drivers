@@ -492311,7 +492311,3086 @@
       "findings": "",
       "source": "https://hificompass.com/ru/speakers/measurements/satori/satori-wo24tx-8",
       "updated": "2026-09-26",
-      "measurements": [],
+      "measurements": [
+        {
+          "type": "Harmonics of one tone, 20 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 20 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 20,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_20hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_20hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 20,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 40,
+                  "y": -34.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 60,
+                  "y": -26.5,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 80,
+                  "y": -58.8,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 100,
+                  "y": -52.7,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -77.2,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 140,
+                  "y": -64.4,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -76.0,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -66.4,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -86.4,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_20hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 30 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 30 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 30,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_30hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_30hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 60,
+                  "y": -41.7,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 90,
+                  "y": -36.6,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -70.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -60.6,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -93.7,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 210,
+                  "y": -71.1,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -84.6,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 270,
+                  "y": -76.0,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -83.0,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_30hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 40 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 40 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 40,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_40hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_40hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 40,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 80,
+                  "y": -46.6,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -45.3,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -76.9,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -63.4,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -90.8,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 280,
+                  "y": -74.2,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 320,
+                  "y": -97.1,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 360,
+                  "y": -85.7,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_40hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 50 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 50 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 50,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_50hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_50hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H8, H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 100,
+                  "y": -48.0,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -51.8,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -81.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 250,
+                  "y": -67.1,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -99.6,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 350,
+                  "y": -81.0,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -91.1,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_50hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 75 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 75 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 75,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_75hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_75hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H6, H8, H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 75,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 150,
+                  "y": -49.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 225,
+                  "y": -62.4,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -86.1,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 375,
+                  "y": -79.8,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 525,
+                  "y": -88.6,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 675,
+                  "y": -93.7,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_75hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 100 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 100 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 100,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_100hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_100hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H6, H8, H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 200,
+                  "y": -53.4,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -66.2,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -97.1,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 500,
+                  "y": -88.6,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 700,
+                  "y": -88.8,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -97.3,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_100hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 150 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 150 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 150,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_150hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_150hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 150,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 300,
+                  "y": -61.4,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -85.7,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -97.1,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 750,
+                  "y": -83.6,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -98.4,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 1050,
+                  "y": -87.2,
+                  "label": "H7 (7th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_150hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 220 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 220 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 220,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_220hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_220hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H4; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 220,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 440,
+                  "y": -66.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 660,
+                  "y": -70.6,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 1100,
+                  "y": -75.6,
+                  "label": "H5 (5th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_220hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 300 Hz at 2.83 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 300 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 300,
+            "drive_v": 2.83,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_2v83_300hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_300hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 300,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 600,
+                  "y": -71.8,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -77.8,
+                  "label": "H3 (3rd harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_2v83_300hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 20 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 20 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 20,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_20hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_20hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 20,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 40,
+                  "y": -28.9,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 60,
+                  "y": -16.4,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 80,
+                  "y": -46.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 100,
+                  "y": -42.6,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -65.7,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 140,
+                  "y": -53.4,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -71.6,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -64.1,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -88.8,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_20hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 30 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 30 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 30,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_30hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_30hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 60,
+                  "y": -36.3,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 90,
+                  "y": -27.3,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -61.7,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -59.7,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -76.5,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 210,
+                  "y": -67.0,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -80.7,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 270,
+                  "y": -72.2,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -89.1,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_30hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 40 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 40 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 40,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_40hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_40hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 40,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 80,
+                  "y": -40.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -36.6,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -68.8,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -62.1,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -83.0,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 280,
+                  "y": -75.3,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 320,
+                  "y": -93.8,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 360,
+                  "y": -81.8,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -92.6,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_40hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 50 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 50 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 50,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_50hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_50hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 100,
+                  "y": -41.3,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -44.4,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -74.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 250,
+                  "y": -65.9,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -90.6,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 350,
+                  "y": -82.3,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -93.7,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -86.3,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 500,
+                  "y": -93.8,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_50hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 75 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 75 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 75,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_75hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_75hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H8, H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 75,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 150,
+                  "y": -43.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 225,
+                  "y": -56.5,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -82.5,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 375,
+                  "y": -76.9,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -85.9,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 525,
+                  "y": -87.7,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 675,
+                  "y": -93.1,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_75hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 100 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 100 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 100,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_100hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_100hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H8, H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 200,
+                  "y": -46.9,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -70.7,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -85.0,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 500,
+                  "y": -80.7,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -96.9,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 700,
+                  "y": -82.5,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -97.6,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_100hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 150 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 150 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 150,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_150hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_150hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 150,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 300,
+                  "y": -54.7,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -78.0,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -89.3,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 750,
+                  "y": -80.5,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -90.1,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 1050,
+                  "y": -91.3,
+                  "label": "H7 (7th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_150hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 220 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 220 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 220,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_220hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_220hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 220,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 440,
+                  "y": -58.5,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 660,
+                  "y": -65.2,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 880,
+                  "y": -84.8,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 1100,
+                  "y": -87.7,
+                  "label": "H5 (5th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_220hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 300 Hz at 5.6 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 300 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 300,
+            "drive_v": 5.6,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_5v6_300hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_300hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 300,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 600,
+                  "y": -66.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -63.4,
+                  "label": "H3 (3rd harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_5v6_300hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 20 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 20 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 20,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_20hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_20hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 20,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 40,
+                  "y": -21.1,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 60,
+                  "y": -4.2,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 80,
+                  "y": -24.6,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 100,
+                  "y": -13.7,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -30.7,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 140,
+                  "y": -23.7,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -36.8,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -35.4,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -47.5,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_20hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 30 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 30 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 30,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_30hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_30hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 60,
+                  "y": -29.6,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 90,
+                  "y": -16.3,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -61.0,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -41.3,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 180,
+                  "y": -57.2,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 210,
+                  "y": -50.5,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -65.3,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 270,
+                  "y": -65.5,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -77.4,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_30hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 40 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 40 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 40,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_40hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_40hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 40,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 80,
+                  "y": -33.9,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 120,
+                  "y": -26.9,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 160,
+                  "y": -55.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -60.3,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 240,
+                  "y": -72.9,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 280,
+                  "y": -67.5,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 320,
+                  "y": -83.7,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 360,
+                  "y": -73.8,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -92.9,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_40hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 50 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 50 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 50,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_50hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_50hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 100,
+                  "y": -35.0,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 150,
+                  "y": -35.6,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 200,
+                  "y": -67.0,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 250,
+                  "y": -74.9,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -77.2,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 350,
+                  "y": -76.3,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -96.2,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -76.7,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 500,
+                  "y": -99.3,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_50hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 75 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 75 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 75,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_75hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_75hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart; not on the chart (below its lowest level or not drawn): H10; the sum of all harmonics leaves them out",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 75,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 150,
+                  "y": -37.4,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 225,
+                  "y": -52.0,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -79.8,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 375,
+                  "y": -71.3,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -78.0,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 525,
+                  "y": -84.1,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -91.9,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 675,
+                  "y": -92.4,
+                  "label": "H9 (9th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_75hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 100 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 100 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 100,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_100hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_100hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 200,
+                  "y": -40.4,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 300,
+                  "y": -62.1,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 400,
+                  "y": -74.2,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 500,
+                  "y": -82.5,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -86.4,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 700,
+                  "y": -92.9,
+                  "label": "H7 (7th harmonic)"
+                },
+                {
+                  "x": 800,
+                  "y": -87.7,
+                  "label": "H8 (8th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -93.5,
+                  "label": "H9 (9th harmonic)"
+                },
+                {
+                  "x": 1000,
+                  "y": -94.2,
+                  "label": "H10 (10th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_100hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 150 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 150 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 150,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_150hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_150hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 150,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 300,
+                  "y": -48.9,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 450,
+                  "y": -65.2,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 600,
+                  "y": -89.1,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 750,
+                  "y": -78.5,
+                  "label": "H5 (5th harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -91.3,
+                  "label": "H6 (6th harmonic)"
+                },
+                {
+                  "x": 1050,
+                  "y": -90.2,
+                  "label": "H7 (7th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_150hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 220 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 220 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 220,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_220hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_220hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 220,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 440,
+                  "y": -53.4,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 660,
+                  "y": -71.1,
+                  "label": "H3 (3rd harmonic)"
+                },
+                {
+                  "x": 880,
+                  "y": -81.0,
+                  "label": "H4 (4th harmonic)"
+                },
+                {
+                  "x": 1100,
+                  "y": -89.7,
+                  "label": "H5 (5th harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_220hz.png"
+        },
+        {
+          "type": "Harmonics of one tone, 300 Hz at 11.2 V (microphone at 20 mm)",
+          "kind": "hd-spectrum",
+          "method": "one-tone spectrum 300 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of the tone and each harmonic)",
+          "conditions": {
+            "f0": 300,
+            "drive_v": 11.2,
+            "distance_mm": 20,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_20mm_11v2_300hz.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_300hz.png; the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, so each harmonic's level is its level relative to the tone; no check: no cursor readout found on the chart",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tone and harmonics",
+              "points": [
+                {
+                  "x": 300,
+                  "y": -0.03,
+                  "label": "tone"
+                },
+                {
+                  "x": 600,
+                  "y": -58.3,
+                  "label": "H2 (2nd harmonic)"
+                },
+                {
+                  "x": 900,
+                  "y": -59.9,
+                  "label": "H3 (3rd harmonic)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_20mm_11v2_300hz.png"
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 2 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 2,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz2mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz2mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -29.09 dB beside it); its level is the -26.97 dB the chart prints; 7 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -21.91,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -97.7,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -88.3,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -71.3,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -26.97,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -71.3,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -92.1,
+                  "label": "2·f1 + f2 (3rd order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -62.4,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -58.2,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -91.9,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -81.3,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -26.97,
+              "read_db": -29.09,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -29.09 dB beside it); its level is the -26.97 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 3,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz3mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz3mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -25.59 dB beside it); its level is the -23.47 dB the chart prints; 7 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -18.41,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -94.6,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -78.5,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -64.5,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -23.47,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -64.1,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -81.3,
+                  "label": "2·f1 + f2 (3rd order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -55.9,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -49.2,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -84.8,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -76.7,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -23.47,
+              "read_db": -25.59,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -25.59 dB beside it); its level is the -23.47 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 4.5 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 4.5,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz4.5mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz4.5mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -22.09 dB beside it); its level is the -20.02 dB the chart prints; 6 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -14.91,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -93.3,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 165,
+                  "y": -92.6,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -67.1,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -57.5,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -20.02,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -56.8,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -68.3,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 345,
+                  "y": -84.6,
+                  "label": "3·f1 + f2 (4th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -49.4,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -39.6,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -73.0,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -73.6,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz4.5mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -20.02,
+              "read_db": -22.09,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -22.09 dB beside it); its level is the -20.02 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 6 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 6,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz6mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz6mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -19.64 dB beside it); its level is the -17.58 dB the chart prints; 7 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -12.29,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -79.3,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 165,
+                  "y": -86.7,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -58.0,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -52.5,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -17.58,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -51.8,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -58.7,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 345,
+                  "y": -73.0,
+                  "label": "3·f1 + f2 (4th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -44.7,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -32.6,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -67.1,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -65.9,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz6mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -17.58,
+              "read_db": -19.64,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -19.64 dB beside it); its level is the -17.58 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 8 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 8,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz8mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz8mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -17.36 dB beside it); its level is the -15.32 dB the chart prints; 7 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -9.66,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -58.9,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 165,
+                  "y": -72.5,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -46.2,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -48.7,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -15.32,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -47.8,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -46.8,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 345,
+                  "y": -62.4,
+                  "label": "3·f1 + f2 (4th order)"
+                },
+                {
+                  "x": 600,
+                  "y": -96.7,
+                  "label": "3·f1 + 2·f2 (5th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -39.1,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -25.1,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -77.8,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -47.5,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz8mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -15.32,
+              "read_db": -17.36,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -17.36 dB beside it); its level is the -15.32 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 30 + 255 Hz, 4:1, low tone 9 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 30 + 255 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 30,
+            "f2": 255,
+            "ratio": "4:1",
+            "x_pk_mm": 9,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_30hz255hz_xmax30hz9mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz9mm_4to1text.png; the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -16.67 dB beside it); its level is the -14.57 dB the chart prints; 8 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 30,
+                  "y": -8.79,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 135,
+                  "y": -50.4,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 165,
+                  "y": -61.0,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 195,
+                  "y": -40.3,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 225,
+                  "y": -48.9,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 255,
+                  "y": -14.57,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 285,
+                  "y": -47.5,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 315,
+                  "y": -41.0,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 345,
+                  "y": -56.9,
+                  "label": "3·f1 + f2 (4th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 60,
+                  "y": -35.9,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 90,
+                  "y": -21.4,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 120,
+                  "y": -54.3,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 150,
+                  "y": -38.9,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_30hz255hz_xmax30hz9mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 254.88,
+              "stated_db": -14.57,
+              "read_db": -16.67,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 255 Hz tone's peak, whose top is hidden (read -16.67 dB beside it); its level is the -14.57 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 50 + 425 Hz, 4:1, low tone 2 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 50 + 425 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 50,
+            "f2": 425,
+            "ratio": "4:1",
+            "x_pk_mm": 2,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_50hz425hz_xmax50hz2mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz2mm_4to1text.png; the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -30.84 dB beside it); its level is the -29.35 dB the chart prints; 6 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -19.29,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 325,
+                  "y": -84.8,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 375,
+                  "y": -70.2,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 425,
+                  "y": -29.35,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 475,
+                  "y": -65.7,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 525,
+                  "y": -77.9,
+                  "label": "2·f1 + f2 (3rd order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -61.5,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 150,
+                  "y": -63.9,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 200,
+                  "y": -92.1,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 250,
+                  "y": -86.2,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_50hz425hz_xmax50hz2mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 424.8,
+              "stated_db": -29.35,
+              "read_db": -30.84,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -30.84 dB beside it); its level is the -29.35 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 50 + 425 Hz, 4:1, low tone 3 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 50 + 425 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 50,
+            "f2": 425,
+            "ratio": "4:1",
+            "x_pk_mm": 3,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_50hz425hz_xmax50hz3mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz3mm_4to1text.png; the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -27.34 dB beside it); its level is the -25.68 dB the chart prints; 6 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -15.79,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 225,
+                  "y": -93.3,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 275,
+                  "y": -95.1,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 325,
+                  "y": -77.9,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 375,
+                  "y": -62.9,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 425,
+                  "y": -25.68,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 475,
+                  "y": -59.0,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 525,
+                  "y": -68.3,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 575,
+                  "y": -95.6,
+                  "label": "3·f1 + f2 (4th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -54.3,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 150,
+                  "y": -55.5,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 200,
+                  "y": -83.7,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 250,
+                  "y": -83.7,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_50hz425hz_xmax50hz3mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 424.8,
+              "stated_db": -25.68,
+              "read_db": -27.34,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -27.34 dB beside it); its level is the -25.68 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 50 + 425 Hz, 4:1, low tone 4.5 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 50 + 425 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 50,
+            "f2": 425,
+            "ratio": "4:1",
+            "x_pk_mm": 4.5,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_50hz425hz_xmax50hz4.5mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz4.5mm_4to1text.png; the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -23.84 dB beside it); its level is the -22.39 dB the chart prints; 7 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -12.11,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 225,
+                  "y": -85.5,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 275,
+                  "y": -88.8,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 325,
+                  "y": -66.0,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 375,
+                  "y": -55.4,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 425,
+                  "y": -22.39,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 475,
+                  "y": -51.8,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 525,
+                  "y": -59.0,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 575,
+                  "y": -78.5,
+                  "label": "3·f1 + f2 (4th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -46.6,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 150,
+                  "y": -46.2,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 200,
+                  "y": -73.4,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 250,
+                  "y": -79.3,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_50hz425hz_xmax50hz4.5mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 424.8,
+              "stated_db": -22.39,
+              "read_db": -23.84,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -23.84 dB beside it); its level is the -22.39 dB the chart prints"
+            }
+          }
+        },
+        {
+          "type": "Intermodulation 50 + 425 Hz, 4:1, low tone 6 mm peak excursion",
+          "kind": "imd-products",
+          "method": "two-tone spectrum 50 + 425 Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
+          "conditions": {
+            "f1": 50,
+            "f2": 425,
+            "ratio": "4:1",
+            "x_pk_mm": 6,
+            "lab": "HiFiCompass"
+          },
+          "source": "HiFiCompass (wo24tx-8_50hz425hz_xmax50hz6mm_4to1text.png, automated reading)",
+          "confidence": "medium",
+          "note": "read from https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz6mm_4to1text.png; the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -21.56 dB beside it); its level is the -20.0 dB the chart prints; 8 product(s) under the noise floor left out; microphone distance not stated",
+          "chartType": "bar",
+          "axes": {
+            "x": {
+              "label": "Frequency",
+              "unit": "Hz",
+              "scale": "linear"
+            },
+            "y": {
+              "label": "Level on the chart's own scale",
+              "unit": "dB"
+            }
+          },
+          "series": [
+            {
+              "name": "tones and intermodulation products",
+              "points": [
+                {
+                  "x": 50,
+                  "y": -9.66,
+                  "label": "f1 (lower tone)"
+                },
+                {
+                  "x": 225,
+                  "y": -76.7,
+                  "label": "f2 − 4·f1 (5th order)"
+                },
+                {
+                  "x": 275,
+                  "y": -81.1,
+                  "label": "f2 − 3·f1 (4th order)"
+                },
+                {
+                  "x": 325,
+                  "y": -56.8,
+                  "label": "f2 − 2·f1 (3rd order)"
+                },
+                {
+                  "x": 375,
+                  "y": -50.3,
+                  "label": "f2 − f1 (2nd order)"
+                },
+                {
+                  "x": 425,
+                  "y": -20.0,
+                  "label": "f2 (upper tone)"
+                },
+                {
+                  "x": 475,
+                  "y": -46.8,
+                  "label": "f1 + f2 (2nd order)"
+                },
+                {
+                  "x": 525,
+                  "y": -51.7,
+                  "label": "2·f1 + f2 (3rd order)"
+                },
+                {
+                  "x": 1000,
+                  "y": -96.1,
+                  "label": "3·f1 + 2·f2 (5th order)"
+                }
+              ]
+            },
+            {
+              "name": "harmonics of each tone",
+              "points": [
+                {
+                  "x": 100,
+                  "y": -40.3,
+                  "label": "2·f1 (2nd order)"
+                },
+                {
+                  "x": 150,
+                  "y": -40.1,
+                  "label": "3·f1 (3rd order)"
+                },
+                {
+                  "x": 200,
+                  "y": -57.8,
+                  "label": "4·f1 (4th order)"
+                },
+                {
+                  "x": 250,
+                  "y": -61.1,
+                  "label": "5·f1 (5th order)"
+                }
+              ]
+            }
+          ],
+          "file": "wo24tx-8_50hz425hz_xmax50hz6mm_4to1text.png",
+          "check": {
+            "cursor": {
+              "f": 424.8,
+              "stated_db": -20.0,
+              "read_db": -21.56,
+              "difference_db": null,
+              "note": "the chart's red cursor line covers the 425 Hz tone's peak, whose top is hidden (read -21.56 dB beside it); its level is the -20.0 dB the chart prints"
+            }
+          }
+        }
+      ],
       "datasheet": "https://hificompass.com/sites/default/files/documents/9.5in-satori-wo24tx-8.pdf"
     },
     {
