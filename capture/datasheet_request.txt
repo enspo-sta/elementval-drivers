@@ -22,3 +22,7 @@ image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/spectra.jpg
 image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/imd.jpg
 image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg
 image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/step.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/wf.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/etc.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/hd315_0.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/hd20.jpg

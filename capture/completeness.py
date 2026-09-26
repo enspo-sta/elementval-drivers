@@ -97,7 +97,7 @@ def main():
                 elif HAND_KINDS.get(t, set()) & by_hand:
                     c["state"] = "by hand"
                     c["why"] = "a hand-captured set of this kind exists; it does not name the chart it came from"
-                elif shared[link] > 1:
+                elif shared[link] > 1 and re.search(r"/sites/default/files/[^/]+$", link):
                     c["state"] = "premium only"
                     c["why"] = (f"the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium "
                                 f"account'), the same picture on {shared[link]} drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)")
