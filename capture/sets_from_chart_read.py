@@ -24,9 +24,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
 from validate_db import validate  # noqa: E402
 
-KIND = {"response": "frequency-response", "near-response": "frequency-response", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
-TYPE = {"response": "Axial frequency response", "near-response": "Near-field frequency response", "impedance": "Impedance", "harmonics": "HD (orders) vs frequency", "current": "Voice-coil current HD vs frequency"}
+KIND = {"response": "frequency-response", "near-response": "frequency-response", "off-axis": "off-axis", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
+TYPE = {"response": "Axial frequency response", "near-response": "Near-field frequency response", "off-axis": "Off-axis response", "impedance": "Impedance", "harmonics": "HD (orders) vs frequency", "current": "Voice-coil current HD vs frequency"}
 AXES = {"frequency-response": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "SPL", "unit": "dB"}},
+        "off-axis": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "SPL", "unit": "dB"}},
+        "off-axis-normalized": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Level relative to on axis", "unit": "dB re 0°"}},
         "impedance": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Impedance", "unit": "ohm"}},
         "hd-frequency": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Harmonic ratio", "unit": "dB re fund"}},
         "hd-current": {"x": {"label": "Frequency", "unit": "Hz", "scale": "log"}, "y": {"label": "Current harmonic", "unit": "dB"}}}
@@ -111,6 +113,31 @@ def name_across_types(charts):
                 if nm not in taken:
                     cv["name"], cv["name_from"] = nm, "the legend of another chart of this driver"
                     taken.add(nm)
+
+
+def angles_of(ch, normalized):
+    """(curve, angle, how) for each curve of an off-axis chart. The angle is the one label its own colour writes in
+    the legend ("30grad"; "30grad/0grad" on a chart relative to on-axis). When the labels read are a series with
+    one step left out (0, 15, 30, 60: 45 missing) and exactly one curve has no label of its own (a light green label
+    the text recognition does not read), that curve takes the missing angle, and says so."""
+    out, loose = [], []
+    for cv in ch.get("curves") or []:
+        toks = [0 if t.upper() == "O" else int(re.sub(r"[Oo]", "0", t)) for t in re.findall(r"\b([O0-9]{1,2})\s*grad", cv.get("legend_text") or "")]
+        labels = toks[::2] if normalized and len(toks) % 2 == 0 and all(t == 0 for t in toks[1::2]) else toks
+        if len(labels) == 1:
+            out.append((cv, labels[0], "its legend label"))
+        else:
+            loose.append(cv)
+    known = sorted({a for _, a, _ in out})
+    if len(loose) == 1 and len(known) >= 3:
+        steps = [b - a for a, b in zip(known, known[1:])]
+        step = min(steps)
+        gaps = [a + step for a, b in zip(known, known[1:]) if b - a == 2 * step]
+        if step > 0 and len(gaps) == 1 and all(st in (step, 2 * step) for st in steps):
+            out.append((loose[0], gaps[0], f"the legend's layout: its label, between the {gaps[0] - step}° and {gaps[0] + step}° labels, "
+                                           "is drawn in a light colour the text recognition does not read"))
+            loose = []
+    return sorted(out, key=lambda t: t[1]), loose
 
 
 def build(read, db):
@@ -199,6 +226,29 @@ def build(read, db):
                         note.append(cond["spl_note"])
                     else:
                         waiting.append((did, name, f"no response chart to take the level from")); continue
+            elif kind == "off-axis":
+                normalized = "normalized" in name.lower()
+                named, loose = angles_of(ch, normalized)
+                if not named:
+                    waiting.append((did, name, "no curve carries an angle in the legend")); continue
+                series = [{"name": f"{a}°", "points": cv["points"]} for cv, a, how in named]
+                for cv, a, how in named:                    # the notes name the angle, not the colour
+                    note[:] = [n.replace(f"{cv['colour']}:", f"{a}°:") for n in note]
+                inferred = [f"{a}° from {how}" for cv, a, how in named if how != "its legend label"]
+                if inferred:
+                    note.append("; ".join(inferred))
+                if loose:
+                    note.append("curves without an angle left out: " + ", ".join(cv["colour"] for cv in loose))
+                missing = sorted(set(range(0, 91, 15)) & set(range(0, max(a for _, a, _ in named) + 1, 15)) - {a for _, a, _ in named})
+                if missing:
+                    note.append("not read on this chart (drawn under the other lines): " + ", ".join(f"{a}°" for a in missing))
+                cond["angles_deg"] = [a for _, a, _ in named]
+                if normalized:
+                    kind = "off-axis-normalized"
+                    m = re.search(r"normalized_(\d+)-(\d+)db", name.lower())
+                    if m:
+                        cond["chart_range_db"] = f"{m.group(1)}-{m.group(2)}"
+                    extra.append("relative to on axis" + (f", chart range {cond['chart_range_db']} dB" if cond.get("chart_range_db") else ""))
             elif kind == "frequency-response":
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
                 if cv.get("lines_per_column", 1) > 1.5:

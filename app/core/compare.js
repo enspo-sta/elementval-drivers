@@ -139,6 +139,8 @@ export function sortQuantities(ids) {
     if (r >= 0) return [r, 0];
     const m = id.match(/^H(\d+)\s+(\d+(?:\.\d+)?)\s*(k?)Hz$/i);
     if (m) return [Number(m[1]), Number(m[2]) * (m[3] ? 1000 : 1)];
+    const a = id.match(/^(\d+)°$/);                  // off-axis angles in order: 0°, 15°, 30°, ...
+    if (a) return [50, Number(a[1])];
     return [99, 0];
   };
   return ids.map((id, i) => ({ id, i, k: key(id) }))

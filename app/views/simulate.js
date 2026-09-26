@@ -7,6 +7,7 @@ import { store, familyOf, kindOf, fmtHz } from "../core/data.js";
 import { COLORS, MARKERS, MARK_CHARS, buildGroups } from "../core/compare.js";
 import * as SC from "../core/sim.js";
 import { ORDERS, buildCandidates, autoPick as pickDefault } from "../core/simpick.js";
+import { anglesOf, directivityOf } from "../core/directivity.js";
 import { writeHash, hasParams } from "../core/state.js";
 import { $, app, esc, navHtml, beginView, newChart, noChart, noChartMsg, xAxis, yAxis, chartOptions, markerRadius, badge,
          familyByName, condChips, exportHtml, wireExports, pct, fmtDb, fmtPct } from "../core/ui.js";
@@ -15,7 +16,7 @@ const ORDER_COLORS = { H2: "#f0a44a", H3: "#7aa2f7", H4: "#6fd19a", H5: "#c4a3ff
 const WAY_NAMES = { 2: ["low", "high"], 3: ["low", "mid", "high"], 4: ["low", "low mid", "high mid", "high"] };
 const XO_DEFAULT = { 2: [2000], 3: [350, 3000], 4: [120, 700, 4000] };
 const TYPICAL = SC.LAWS.typical.slopes;
-const sim = { mix: false, src: null, n: 3, w: null, c: [1, 1, 1, 1], x: null, t: null, L: 94, law: "measured",
+const sim = { mix: false, src: null, n: 3, w: null, c: [1, 1, 1, 1], x: null, t: null, L: 94, a: 0, law: "measured",
               s: Object.assign({}, TYPICAL), al: true, o: null, u: "db", sh: null, note: "" };
 const ORDER_SORT = a => ORDERS.filter(k => a.includes(k)).concat(a.includes("THD") ? ["THD"] : []);
 const clampSlope = v => Math.min(5, Math.max(-1, v));
@@ -32,6 +33,7 @@ function load(params) {
   sim.x = nums("x").length ? nums("x") : null;
   sim.t = params.get("t") ? params.get("t").split(",") : null;
   if (params.get("L") && isFinite(Number(params.get("L")))) sim.L = Number(params.get("L"));
+  sim.a = params.get("a") && isFinite(Number(params.get("a"))) ? Number(params.get("a")) : 0;
   if (["measured", "typical", "classic", "none"].includes(params.get("law"))) sim.law = params.get("law");
   const s = nums("s"); if (s.length === 4 && s.every(isFinite)) ORDERS.forEach((k, i) => (sim.s[k] = clampSlope(s[i])));
   sim.al = params.get("al") !== "0";
@@ -41,7 +43,7 @@ function load(params) {
 }
 function save() {
   writeHash("simulate", { mix: sim.mix ? "1" : "", src: sim.mix ? "" : sim.src, n: sim.n, w: sim.w.join(","), c: sim.c.slice(0, sim.n).join(","),
-    x: sim.x.join(","), t: sim.t.join(","), L: sim.L, law: sim.law, s: ORDERS.map(k => sim.s[k]).join(","), al: sim.al ? "" : "0",
+    x: sim.x.join(","), t: sim.t.join(","), L: sim.L, a: sim.a || "", law: sim.law, s: ORDERS.map(k => sim.s[k]).join(","), al: sim.al ? "" : "0",
     o: sim.o.join(","), u: sim.u === "pct" ? "pct" : "", sh: sim.sh || "" });
 }
 
@@ -110,6 +112,17 @@ function slopeFor(c) {
   return { fn: (k, f) => (curves[k] ? curves[k](f) : base(k)), text };
 }
 
+// the angle row: on axis, and every angle at least one picked driver was measured at
+function angleRow(chosen) {
+  const angs = [...new Set(chosen.flatMap(c => anglesOf(c.e.driver)))].sort((a, b) => a - b);
+  if (!angs.length && !sim.a) return "";
+  const have = a => chosen.filter(c => directivityOf(c.e.driver, a)).length;
+  return `<div class="lbl"><span>Angle</span><span class="hint">horizontal, from each driver's measured off-axis response</span></div>
+    <div class="togrow"><button class="tog small${sim.a ? "" : " on"}" data-sang="0">on axis</button>${angs.map(a =>
+      `<button class="tog small${sim.a === a ? " on" : ""}" data-sang="${a}">${a}°${have(a) < chosen.length ? ` · ${have(a)} of ${chosen.length} ways` : ""}</button>`).join("")}</div>
+    ${sim.a ? `<div class="hint2">At ${sim.a}° each way's output is its driver's measured response at that angle, relative to on axis, and each harmonic takes that response at its own frequency (2 to 5 times higher, where a driver beams more). The drivers are treated as sitting at one point: their spacing on the baffle, which shifts the crossover's summing off axis, is not included.</div>` : ""}`;
+}
+
 function render() {
   beginView(true);
   const { srcs, cands, chosen, avail, shows } = normalise();
@@ -129,6 +142,7 @@ function render() {
       <label class="numlbl">other <input type="number" class="num" id="sL" min="60" max="125" step="0.5" value="${sim.L}" aria-label="level in dB SPL at 1 m"> dB</label></div>
     ${chosen.length ? `<div class="hint2">Measured levels: ${chosen.map((c, i) => { const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
       return `way ${i + 1} ${lo === hi ? lo : lo + " to " + hi} dB`; }).join(" · ")}. Between a driver's measured levels its curves are interpolated; beyond them the level rule below takes over.</div>` : ""}
+    ${angleRow(chosen)}
     <div class="lbl"><span>Drivers and crossovers</span><span class="hint">low to high</span></div><div class="ways">`;
   for (let i = 0; i < sim.n; i++) {
     h += `<div class="way"><div class="wbody">
@@ -158,12 +172,16 @@ function render() {
   let res = null;
   if (chosen.length === sim.n && avail.length) {
     const slopes = chosen.map(c => slopeFor(c));
+    // off axis: each way's driver's measured response at the angle relative to its own on-axis response
+    const dirs = chosen.map(c => (sim.a ? directivityOf(c.e.driver, sim.a) : null));
+    if (sim.a) chosen.forEach((c, i) => { if (!dirs[i]) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) has no off-axis measurement at ${sim.a}°: where it plays, the speaker's output and distortion at ${sim.a}° are unknown (dashed or empty).`); });
     let fLo = Math.max(20, chosen[0].lo), fHi = Math.min(20000, chosen[sim.n - 1].hi);
     if (!(fHi > fLo * 1.5)) {
       warnings.push(`The lowest way's data begins at ${fmtHz(chosen[0].lo)} and the highest way's ends at ${fmtHz(chosen[sim.n - 1].hi)}: they do not overlap, so no speaker can be simulated from these drivers. Pick a lower way with data further up, or a higher way with data further down.`);
     } else res = SC.simulate({ freqs: SC.logGrid(fLo, fHi, 24), target: sim.L, orders: avail, aligned: sim.al,
       points: sim.x.map((fc, i) => ({ fc, type: sim.t[i] })),
-      ways: chosen.map((c, i) => ({ name: c.e.driver.name, curves: c.curves, slope: slopes[i].fn, count: sim.c[i] })) });
+      ways: chosen.map((c, i) => ({ name: c.e.driver.name, curves: c.curves, slope: slopes[i].fn, count: sim.c[i] })),
+      directivity: sim.a ? dirs.map(d => (d ? d.fn : () => null)) : null });
     if (res) {
     res.slopes = slopes;
     res.range = [res.freqs[0], res.freqs[res.freqs.length - 1]];
@@ -175,11 +193,12 @@ function render() {
     const merged = [];
     for (const gp of res.gaps) {
       const m = merged.find(x => x.way === gp.way && x.from === gp.from && x.to === gp.to);
-      if (m) m.orders.push(gp.order); else merged.push({ way: gp.way, from: gp.from, to: gp.to, orders: [gp.order] });
+      if (m && m.reason === gp.reason) m.orders.push(gp.order); else merged.push({ way: gp.way, reason: gp.reason, from: gp.from, to: gp.to, orders: [gp.order] });
     }
     const list = a => (a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0]);
     const span = gp => (fmtHz(gp.from) === fmtHz(gp.to) ? `at ${fmtHz(gp.from)}` : `from ${fmtHz(gp.from)} to ${fmtHz(gp.to)}`);
-    for (const gp of merged) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data ${span(gp)}, where it still plays within 40 dB of the other ways. There the speaker's ${list(gp.orders)} and THD are drawn dashed, from the other ways alone (where no way that matters has ${list(gp.orders)} data, that line is empty and THD is dashed from the other orders): the real value is at least that high. The summary table leaves those stretches out.`);
+    for (const gp of merged.filter(g => g.reason === "angle" && dirs[g.way])) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)})'s off-axis measurement at ${sim.a}° does not reach ${span(gp)} (for ${list(gp.orders)}, which lie at 2 to 5 times the frequency): there the speaker's ${list(gp.orders)} is drawn dashed from the other ways alone.`);
+    for (const gp of merged.filter(g => g.reason !== "angle")) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data ${span(gp)}, where it still plays within 40 dB of the other ways. There the speaker's ${list(gp.orders)} and THD are drawn dashed, from the other ways alone (where no way that matters has ${list(gp.orders)} data, that line is empty and THD is dashed from the other orders): the real value is at least that high. The summary table leaves those stretches out.`);
     chosen.forEach((c, i) => {
       const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
       if (sim.L > hi + 6) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at up to ${hi} dB; at ${sim.L} dB its result leans on the level rule more than on measurements.`);
@@ -195,7 +214,7 @@ function render() {
   } else if (chosen.length === sim.n) warnings.push("The picked drivers share no harmonic order (one source has only H2 and H3, another only H4 and H5).");
   const thdLabel = avail.length === 4 ? "THD" : `THD (${avail.join(" + ")} only)`;
   const fam = familyByName(sim.src);
-  h += `<div class="panel"><div class="ptitle">Speaker distortion at ${sim.L} dB · ${sim.n}-way${sim.mix ? " · sources mixed" : " · " + esc(sim.src) + " " + badge(fam)}</div>`;
+  h += `<div class="panel"><div class="ptitle">Speaker distortion at ${sim.L} dB · ${sim.a ? sim.a + "° off axis" : "on axis"} · ${sim.n}-way${sim.mix ? " · sources mixed" : " · " + esc(sim.src) + " " + badge(fam)}</div>`;
   if (sim.mix) h += `<div class="warn"><b>Sources mixed.</b> The drivers were measured by different sources, which measure in different ways; the result mixes their errors. Prefer one source.</div>`;
   h += `<div class="togrow">${shows.map(k => `<button class="tog${sim.o.includes(k) ? " on" : ""}" data-o="${k}"><span class="odot" style="background:${ORDER_COLORS[k]}"></span>${k === "THD" ? esc(thdLabel) : k}</button>`).join("")}
     <span class="sep"></span><button class="tog${sim.u === "db" ? " on" : ""}" data-su="db">dB</button><button class="tog${sim.u === "pct" ? " on" : ""}" data-su="pct">%</button></div>`;
@@ -209,7 +228,7 @@ function render() {
       <div class="legend">${chosen.map((c, i) => `<span class="lg"><span class="lgm" style="color:${COLORS[i]}">${MARK_CHARS[MARKERS[i]]}</span><span class="lgl dashed" style="border-color:${COLORS[i]}"></span>Way ${i + 1}: ${esc(c.e.driver.name)}${sim.c[i] > 1 ? " ×" + sim.c[i] : ""}</span>`).join("")}<span class="lg"><span class="lgl" style="background:#eef0f6"></span>speaker</span></div>
       ${noChart() ? "" : `<div class="chartbox"><canvas id="sshare"></canvas></div>`}
       <div class="hint2">Each way's harmonics relative to the speaker's summed output, so the shares add up (as power) to the speaker line.</div></div>
-      <div class="panel"><div class="ptitle">Crossover: level of each way</div>
+      <div class="panel"><div class="ptitle">Crossover: level of each way${sim.a ? ` at ${sim.a}° off axis (each driver's measured response at that angle)` : ""}</div>
       <div class="legend">${chosen.map((c, i) => `<span class="lg"><span class="lgl" style="background:${COLORS[i]}"></span>Way ${i + 1}</span>`).join("")}<span class="lg"><span class="lgl" style="background:#eef0f6"></span>sum</span></div>
       ${noChart() ? "" : `<div class="chartbox"><canvas id="sresp"></canvas></div>`}</div>
       <div class="panel"><div class="ptitle">Levels used for each driver</div>${chosen.map((c, i) =>
@@ -250,6 +269,7 @@ function wire() {
   const mix = $("smix"); if (mix) mix.onchange = () => { sim.mix = mix.checked; if (!sim.mix) sim.w = null; rerender(); };
   document.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { const n = Number(b.dataset.n); if (n !== sim.n) { sim.n = n; sim.x = null; sim.t = null; sim.w = null; sim.c = [1, 1, 1, 1]; } rerender(); });
   document.querySelectorAll("[data-slv]").forEach(b => b.onclick = () => { sim.L = Number(b.dataset.slv); rerender(); });
+  document.querySelectorAll("[data-sang]").forEach(b => b.onclick = () => { sim.a = Number(b.dataset.sang); rerender(); });
   const L = $("sL"); if (L) L.onchange = () => { const v = Number(L.value); if (L.value.trim() !== "" && v >= 60 && v <= 125) sim.L = v; else sim.note = `The level must be a number from 60 to 125 dB; kept ${sim.L} dB.`; rerender(); };
   document.querySelectorAll("[data-way]").forEach(s => s.onchange = () => { sim.w[Number(s.dataset.way)] = s.value; rerender(); });
   document.querySelectorAll("[data-count]").forEach(s => s.onchange = () => { sim.c[Number(s.dataset.count)] = Number(s.value); rerender(); });

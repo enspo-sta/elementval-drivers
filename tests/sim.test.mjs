@@ -195,3 +195,30 @@ test("simulate: several measured levels are interpolated at the level the driver
   const r = S.simulate({ freqs: [100], target: 95, orders: ["H2"], points: [{ fc: 2000, type: "LR4" }], ways: [way, flatDriver("high", 95)] });
   near(r.system.H2[0], -55, 0.01, "speaker H2 from the interpolated level");
 });
+
+test("off axis: the same directivity at f and at every harmonic leaves the ratios as they are", () => {
+  const flat = [{ x: 20, y: -40 }, { x: 20000, y: -40 }];
+  const way = { name: "a", curves: [{ L0: 90, hd: { H2: flat, H3: flat } }], slope: () => 1, count: 1 };
+  const base = { freqs: [100, 1000], target: 90, orders: ["H2", "H3"], points: [], ways: [way] };
+  const on = S.simulate(base);
+  const off = S.simulate(Object.assign({}, base, { directivity: [() => -6] }));
+  assert.deepEqual(off.system.H2.map(v => Math.round(v * 100) / 100), on.system.H2.map(v => Math.round(v * 100) / 100));
+  assert.ok(Math.abs(off.response.sum[0] - (on.response.sum[0] - 6)) < 1e-9, "the output is 6 dB lower");
+});
+
+test("off axis: a harmonic takes the directivity at its own frequency", () => {
+  const flat = [{ x: 20, y: -40 }, { x: 20000, y: -40 }];
+  const way = { name: "a", curves: [{ L0: 90, hd: { H2: flat } }], slope: () => 1, count: 1 };
+  // 0 dB at 1 kHz, -10 dB at 2 kHz (where H2 of 1 kHz lies)
+  const D = f => (f >= 1500 ? -10 : 0);
+  const r = S.simulate({ freqs: [1000], target: 90, orders: ["H2"], points: [], ways: [way], directivity: [D] });
+  assert.ok(Math.abs(r.system.H2[0] - -50) < 1e-9, `H2 ${r.system.H2[0]}`);
+});
+
+test("off axis: a way with no directivity where it plays makes the result a lower bound", () => {
+  const flat = [{ x: 20, y: -40 }, { x: 20000, y: -40 }];
+  const way = { name: "a", curves: [{ L0: 90, hd: { H2: flat } }], slope: () => 1, count: 1 };
+  const r = S.simulate({ freqs: [1000], target: 90, orders: ["H2"], points: [], ways: [way], directivity: [() => null] });
+  assert.equal(r.system.H2[0], null);
+  assert.equal(r.response.ways[0][0], null);
+});

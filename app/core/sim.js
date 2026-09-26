@@ -14,6 +14,12 @@
  *    expressed relative to the speaker's summed fundamental.
  *  - A driver playing more than 40 dB below the target at f is ignored there; if a driver that
  *    matters at f has no data at f, the speaker value at f is left empty rather than guessed.
+ *  - Off axis (opts.directivity, one function per way giving the driver's measured response at the chosen
+ *    angle relative to its own on-axis response, in dB, or null where it was not measured): each way's
+ *    output at f is scaled by D(f) and each of its harmonics by D(k·f), since a harmonic radiates at its own
+ *    frequency. The drivers are taken as sitting at one point: the path difference between them at an angle
+ *    (their spacing on the baffle) is not modelled. A way that matters with no D where it is needed counts
+ *    as missing data, like a missing harmonic curve.
  */
 
 // ---- complex numbers ----
@@ -195,23 +201,35 @@ export function simulate(opts) {
   system.THD = []; partial.THD = [];
   const response = { ways: ways.map(() => []), sum: [] };
 
+  const dir = opts.directivity || null;
+  const Dof = (i, f) => (dir && dir[i] ? dir[i](f) : 0);    // dB re the driver's own on-axis output; null: not measured
   freqs.forEach((f, fi) => {
-    const hs = wayResponses(f, points, !!opts.aligned);
+    const hs0 = wayResponses(f, points, !!opts.aligned);
+    const dF = hs0.map((h, i) => Dof(i, f));
+    // off axis: each way scaled by its directivity at f (a way with none there leaves the sum incomplete)
+    let dirMissing = false;
+    const hs = hs0.map((h, i) => {
+      if (dF[i] == null) { if (db(abs(h)) >= ignore) dirMissing = true; return C(0, 0); }
+      const g = Math.pow(10, dF[i] / 20);
+      return C(h.re * g, h.im * g);
+    });
     const sum = hs.reduce(add, C(0, 0));
     const lsys = target + db(abs(sum));
     response.sum.push(db(abs(sum)));
-    hs.forEach((h, i) => response.ways[i].push(db(abs(h))));
+    hs0.forEach((h, i) => response.ways[i].push(dF[i] == null ? null : db(abs(h)) + dF[i]));
     let thdPower = 0, thdOk = false, thdPartial = false;
     for (const k of orders) {
-      let power = 0, missing = false;
+      let power = 0, missing = dirMissing;
+      const n = Number(String(k).replace(/\D/g, "")) || 2;   // H3 -> 3: the harmonic lies at n·f
       ways.forEach((w, i) => {
-        const magDb = db(abs(hs[i]));
+        const magDb = db(abs(hs0[i]));                     // the driver plays the same whatever the angle
         if (magDb < ignore) { contrib[i][k].push(null); return; }
         const ld = target + magDb;                          // what the way plays at f
         const each = ld - 20 * Math.log10(w.count || 1);   // identical drivers share it equally
         const hd = harmonicAt(w, k, f, each);
-        if (hd == null) { missing = true; contrib[i][k].push(null); gapsRaw.push({ way: i, order: k, f, fi }); return; }
-        const absLevel = ld + hd;                          // their harmonics add in step (same ratio)
+        const dK = dF[i] == null ? null : Dof(i, n * f);
+        if (hd == null || dK == null) { missing = true; contrib[i][k].push(null); gapsRaw.push({ way: i, order: k, f, fi, reason: hd == null ? "data" : "angle" }); return; }
+        const absLevel = ld + hd + dK;                     // their harmonics add in step (same ratio); off axis at n·f
         contrib[i][k].push(absLevel - lsys);
         power += Math.pow(10, absLevel / 10);
       });
@@ -229,9 +247,9 @@ export function simulate(opts) {
   // merge gap points into ranges per way and order
   const gaps = [];
   for (const g of gapsRaw) {
-    const last = gaps.find(x => x.way === g.way && x.order === g.order && x.lastIndex === g.fi - 1);
+    const last = gaps.find(x => x.way === g.way && x.order === g.order && x.reason === g.reason && x.lastIndex === g.fi - 1);
     if (last) { last.to = g.f; last.lastIndex = g.fi; }
-    else gaps.push({ way: g.way, order: g.order, from: g.f, to: g.f, lastIndex: g.fi });
+    else gaps.push({ way: g.way, order: g.order, reason: g.reason, from: g.f, to: g.f, lastIndex: g.fi });
   }
   gaps.forEach(g => delete g.lastIndex);
   return { freqs, response, system, partial, contrib, gaps };

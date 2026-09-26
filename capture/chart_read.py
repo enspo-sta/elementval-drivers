@@ -624,6 +624,10 @@ def main():
     # a request line is a driver id, optionally followed by its HiFiCompass page address (a record captured
     # by hand before has no page address of its own)
     lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
+    # a "types: off-axis,response" line in the request reads only those chart types this run
+    for ln in [x for x in lines if x.lower().startswith("types:")]:
+        a.types = ln.split(":", 1)[1].replace(" ", "")
+    lines = [x for x in lines if not x.lower().startswith("types:")]
     ids = [ln.split()[0] for ln in lines]
     page_of = {ln.split()[0]: ln.split()[1] for ln in lines if len(ln.split()) > 1}
     types = set(a.types.split(","))
@@ -673,7 +677,9 @@ def main():
                 print(f"  {name}: legend {[(wd['text'], wd['colour']) for wd in rec.get('legend', [])][:10]} x {rec.get('x_axis')} y {rec.get('y_axis')} curves {[(c['colour'], c['columns'], c['lines_per_column'], len(c['points'])) for c in cv]} checks {rec['checks']} {rec.get('error', '')}", flush=True)
                 res.append(rec)
         share_names(res)
-        out["drivers"][did] = res
+        # charts read this run replace their earlier results; the driver's other charts keep theirs
+        fresh = {r.get("file") for r in res}
+        out["drivers"][did] = [r for r in out["drivers"].get(did, []) if r.get("file") not in fresh] + res
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
     print(f"written {a.out}")
 
