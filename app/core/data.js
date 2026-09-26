@@ -88,6 +88,13 @@ export function levelUnit(set) {
 /** What a level unit means, for an axis or a field. */
 export const LEVEL_TITLE = { dB: "dB SPL at 1 m", mm: "mm peak excursion of the low tone", V: "V drive" };
 
+/** The y axis of a set: its kind's, unless the set says its values are on the chart's own relative scale (a
+ *  near-field response read from a chart drawn in dB relative to its own reference). */
+export function yAxisOf(set, kind) {
+  const a = ((set && set.axes) || {}).y || {};
+  return a.relative ? a : (kind && kind.y) || a;
+}
+
 /** Two test tones of an intermodulation set as [f1, f2] Hz, or null. */
 export function tonesOf(set) {
   const m = [set.method, set.type].join(" ").match(/(\d+(?:\.\d+)?)\s*\+\s*(\d+(?:\.\d+)?)\s*Hz/i);

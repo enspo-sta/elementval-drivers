@@ -21,7 +21,7 @@ function table(curves, { title = "export", sep = ",", decimal = "." } = {}) {
     ...xs.map(x => [cell(x), ...lookup.map(m => cell(m.has(String(x)) ? m.get(String(x)) : ""))].join(sep)),
   ];
   const notes = [`# ${title}`, `# exported ${today()} from the driver database viewer`,
-    ...curves.map(c => `# ${c.label}: ${c.source}${c.sourceText ? " (" + c.sourceText.replace(/\s+/g, " ").slice(0, 160) + ")" : ""}`)];
+    ...curves.map(c => `# ${c.label}: ${c.source}${c.sourceText ? " (" + c.sourceText.replace(/\s+/g, " ").slice(0, 2000) + ")" : ""}`)];
   return notes.join("\n") + "\n" + lines.join("\n") + "\n";
 }
 

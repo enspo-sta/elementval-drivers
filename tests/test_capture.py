@@ -195,7 +195,7 @@ class ChartTypes(unittest.TestCase):
         import chart_probe as CP
         cases = {
             "https://hificompass.com/sites/default/files/zamer/ptt10.0x04-nab-02_20mm_2v83_0deg.png?itok=L5Tl": "near-response",
-            "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png": "near-response",
+            "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png": "harmonics",   # the near-field harmonics folder
             "mr16tx-8_5mm_1v_0deg.png?itok=x": "near-response",
             "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_150hz.png?itok=q": "spectrum",
             "mw19tx-4_20mm_2v_40hz.png": "spectrum",

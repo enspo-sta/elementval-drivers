@@ -83,6 +83,8 @@ def main():
                 t = CP.chart_type(link)
                 cond = conditions(name)
                 c = {"file": name, "url": link, "type": t, "label": LABEL.get(t, t)}
+                if t == "harmonics" and re.search(r"_(?:5|20)mm_", name):
+                    c["label"] = "near-field harmonics"
                 if cond.get("drive_v") is not None:
                     c["volts"] = cond["drive_v"]
                 older = name.lower().endswith((".jpg", ".jpeg"))       # the older one-image-per-quantity template

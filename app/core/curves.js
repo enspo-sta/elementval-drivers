@@ -1,6 +1,6 @@
 /* curves.js: turns stored measurement sets into the plain curves the exporters write
  * (see app/exporters/common.js for the fields). */
-import { familyOf, kindOf, levelOf, levelUnit } from "./data.js";
+import { familyOf, kindOf, levelOf, levelUnit, yAxisOf } from "./data.js";
 import { quantitiesOf } from "./compare.js";
 
 /** Curves of one set: one per quantity (series), or only the quantity ids given. Tables become one
@@ -13,14 +13,16 @@ export function curvesOfSet(driver, set, { only = null, quantities = null, label
   // its type says in brackets (an impedance read from a chart to 70 ohm and from one to 15 ohm)
   const c0 = set.conditions || {};
   const bracket = (String(set.type || "").match(/\(([^)]*)\)\s*$/) || [])[1];
-  const tag = level != null ? `${level} ${levelUnit(set)}` : c0.drive_v != null ? `${[].concat(c0.drive_v).join(" and ")} V` : bracket || null;
+  const near = typeof c0.distance_mm === "number" && c0.distance_mm < 100 ? `near field ${c0.distance_mm} mm` : null;
+  const tag = [level != null ? `${level} ${levelUnit(set)}` : c0.drive_v != null ? `${[].concat(c0.drive_v).join(" and ")} V` : bracket || null, near].filter(Boolean).join(" · ") || null;
+  const ya = yAxisOf(set, kind);
   const base = {
     driver, source: fam ? fam.name : "unknown source", sourceText: set.source || "", kind: kind.id, kindLabel: kind.label,
     level, tag, conditions: set.conditions || {}, set,
     xLabel: (kind.x && kind.x.label) || ((set.axes || {}).x || {}).label || (set.columns || [""])[0] || "x",
     xUnit: (kind.x && kind.x.unit) || ((set.axes || {}).x || {}).unit || "",
-    yLabel: (kind.y && kind.y.label) || ((set.axes || {}).y || {}).label || "",
-    yUnit: (kind.y && kind.y.unit) || ((set.axes || {}).y || {}).unit || "",
+    yLabel: ya.label || "",
+    yUnit: ya.unit || "",
   };
   const out = [];
   for (const q of qs) {

@@ -66,7 +66,7 @@ def cross_check(driver, f0, volts, pts):
             mine = next((p["y"] for p in pts if abs(p["x"] - k * f0) < 1e-6), None)
             if near and mine is not None:
                 theirs = min(near, key=lambda p: abs(math.log(p["x"] / f0)))["y"]
-                bits.append(f"{se['name']} {mine:.1f} here, {theirs:.1f} on the curve ({mine - theirs:+.1f} dB)")
+                bits.append(f"{se['name']} {mine:.1f} here, {theirs:.1f} on the curve ({round(mine, 1) - round(theirs, 1):+.1f} dB)")
         if bits:
             hpf = f", through {c['hpf']}" if c.get("hpf") else ""
             return (f"rough check against the harmonic-distortion chart at {volts:g} V ({m.get('file') or m.get('source')}, microphone at "
@@ -107,6 +107,12 @@ def one_tone(c, t, driver=None):
     if c.get("below_floor"):
         note.append(f"{c['below_floor']} harmonic(s) under the noise floor left out")
     f0 = num(t["f0"])
+    fmax = (c.get("x_axis") or [0, 0])[0] + (c.get("x_axis") or [0, 0])[1] * ((c.get("plot_x") or [0, 0])[1])
+    got = {p["order"] for p in c.get("products") or []}
+    unseen = [k for k in range(2, 11) if k * t["f0"] <= fmax and k not in got]
+    if unseen:
+        note.append("not on the chart (below its lowest level or not drawn): " + ", ".join(f"H{k}" for k in unseen) +
+                    "; the sum of all harmonics leaves them out")
     pts = [{"x": f0, "y": round(level, 2), "label": "tone"}]
     pts += [{"x": num(p["f"]), "y": p["level"], "label": f"H{p['order']} ({HARM.get(p['order'], str(p['order']) + 'th')} harmonic)"} for p in c.get("products") or []]
     cond = {"f0": f0, "drive_v": num(t["drive_v"]), "distance_mm": t["distance_mm"], "lab": "HiFiCompass"}
@@ -122,7 +128,7 @@ def one_tone(c, t, driver=None):
         "confidence": "medium",
         "note": "; ".join(note),
         "chartType": "bar",
-        "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level", "unit": "dB (the chart's scale)"}},
+        "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level on the chart's own scale", "unit": "dB"}},
         "series": [{"name": "tone and harmonics", "points": sorted(pts, key=lambda p: p["x"])}],
         "file": name,
         **({"check": {"cursor": {k: v for k, v in chk.items() if k != "column"}}} if chk else {}),
@@ -233,7 +239,7 @@ def build(read, db):
                 "confidence": "medium",
                 "note": "; ".join(note),
                 "chartType": "bar",
-                "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level", "unit": "dB (the chart's scale)"}},
+                "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level on the chart's own scale", "unit": "dB"}},
                 # the intermodulation products (both tones take part) first: Compare sums that series; the
                 # harmonics of each tone alone (2·f1, 3·f1, 2·f2 ...) are distortion of one tone and kept apart
                 "series": [{"name": "tones and intermodulation products", "points": pts}]

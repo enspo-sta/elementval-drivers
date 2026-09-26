@@ -926,7 +926,7 @@
      "file": "ptt8.0x04-nab-02_20mm_2v83_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_2v83_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 2.83,
      "state": "stored"
     },
@@ -934,7 +934,7 @@
      "file": "ptt8.0x04-nab-02_20mm_4v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_4v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 4.0,
      "state": "stored"
     },
@@ -942,7 +942,7 @@
      "file": "ptt8.0x04-nab-02_20mm_5v6_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_5v6_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 5.6,
      "state": "stored"
     },
@@ -950,7 +950,7 @@
      "file": "ptt8.0x04-nab-02_20mm_8v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_8v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 8.0,
      "state": "stored"
     },
@@ -958,7 +958,7 @@
      "file": "ptt8.0x04-nab-02_20mm_11v2_hpf2-20.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_11v2_hpf2-20.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 11.2,
      "state": "stored"
     },
@@ -1290,40 +1290,40 @@
     {
      "file": "ptt10.0x04-nab-02_20mm_2v83.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_2v83.png",
-     "type": "near-response",
-     "label": "near-field response",
+     "type": "harmonics",
+     "label": "near-field harmonics",
      "volts": 2.83,
      "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_4v.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_4v.png",
-     "type": "near-response",
-     "label": "near-field response",
+     "type": "harmonics",
+     "label": "near-field harmonics",
      "volts": 4.0,
      "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_5v6.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_5v6.png",
-     "type": "near-response",
-     "label": "near-field response",
+     "type": "harmonics",
+     "label": "near-field harmonics",
      "volts": 5.6,
      "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_8v.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_8v.png",
-     "type": "near-response",
-     "label": "near-field response",
+     "type": "harmonics",
+     "label": "near-field harmonics",
      "volts": 8.0,
      "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_11v2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png",
-     "type": "near-response",
-     "label": "near-field response",
+     "type": "harmonics",
+     "label": "near-field harmonics",
      "volts": 11.2,
      "state": "stored"
     },
@@ -1331,7 +1331,7 @@
      "file": "ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 16.0,
      "state": "stored"
     },
@@ -2097,7 +2097,7 @@
      "file": "ptt6.5x04-naa-08a_20mm_2v83_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_2v83_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 2.83,
      "state": "stored"
     },
@@ -2105,7 +2105,7 @@
      "file": "ptt6.5x04-naa-08a_20mm_4v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_4v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 4.0,
      "state": "stored"
     },
@@ -2113,7 +2113,7 @@
      "file": "ptt6.5x04-naa-08a_20mm_5v6_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_5v6_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 5.6,
      "state": "stored"
     },
@@ -2121,7 +2121,7 @@
      "file": "ptt6.5x04-naa-08a_20mm_8v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_8v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 8.0,
      "state": "stored"
     },
@@ -4217,7 +4217,7 @@
      "file": "mw19tx-4_20mm_2v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 2.0,
      "state": "stored"
     },
@@ -4225,7 +4225,7 @@
      "file": "mw19tx-4_20mm_2v83_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v83_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 2.83,
      "state": "stored"
     },
@@ -4233,7 +4233,7 @@
      "file": "mw19tx-4_20mm_4v_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_4v_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 4.0,
      "state": "stored"
     },
@@ -4241,7 +4241,7 @@
      "file": "mw19tx-4_20mm_5v6_hd.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_5v6_hd.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 5.6,
      "state": "stored"
     },
@@ -4249,7 +4249,7 @@
      "file": "mw19tx-4_20mm_8v_hpf2-20.png",
      "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_8v_hpf2-20.png",
      "type": "harmonics",
-     "label": "harmonics",
+     "label": "near-field harmonics",
      "volts": 8.0,
      "state": "stored"
     },

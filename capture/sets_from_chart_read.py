@@ -154,6 +154,9 @@ def build(read, db):
             note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
             if typed_note:
                 note.append(typed_note)
+            elif "/afc520/" in ch.get("url", "") and not re.search(r"hd|hpf", name.lower()):
+                note.append("a near-field harmonics chart by its folder (afc520/, where the other drivers' charts are named …_20mm_2v83_hd.png); "
+                            "its own name does not say so, and its curves are in the harmonic colours of this driver's other charts")
             if ch["type"] == "near-response" and ctype == "near-response":
                 note.append("a near-field response on the chart's own dB scale (not sound pressure at 1 m), kept apart from the 315 mm responses")
             scale = re.search(r"_(\d+)_ohm", name)
@@ -202,7 +205,7 @@ def build(read, db):
                     waiting.append((did, name, "more than one line in the response colour")); continue
                 series = [{"name": "SPL", "points": cv["points"]}]
                 at1k = [p["y"] for p in cv["points"] if 900 <= p["x"] <= 1100]
-                if at1k:
+                if at1k and ctype != "near-response":     # a near-field chart's scale is its own, not dB SPL
                     cond["spl_db_1khz"] = round(statistics.mean(at1k), 1)
             else:
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
@@ -218,7 +221,10 @@ def build(read, db):
             made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else "") + (f" ({', '.join(extra)})" if extra else ""), "kind": kind,
                               "method": "automated pixel reading (GitHub), calibrated from the chart's own grid and labels",
                               "conditions": cond, "source": f"HiFiCompass ({name}, automated reading)", "confidence": "medium",
-                              "note": "; ".join(note), "chartType": "line", "axes": AXES[kind], "series": series, "file": name,
+                              "note": "; ".join(note), "chartType": "line", "series": series, "file": name,
+                              # a near-field response is on the chart's own relative dB scale, not sound pressure at 1 m
+                              "axes": ({"x": AXES[kind]["x"], "y": {"label": "Level on the chart's own scale", "unit": "dB", "relative": True}}
+                                       if ctype == "near-response" else AXES[kind]),
                               **({"calibration": cal} if cal else {}),
                               **({"check": {"on_curve": shares}} if shares else {})}))
     return made, waiting

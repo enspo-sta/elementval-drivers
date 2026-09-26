@@ -41,7 +41,10 @@ TYPES = [("current", r"chd"), ("impedance", r"impedance|^imp_"), ("intermodulati
 
 
 def chart_type(url):
-    name = url.split("?")[0].rsplit("/", 1)[-1].lower()      # the file name without the address's ?itok=… part
+    path = url.split("?")[0].lower()
+    name = path.rsplit("/", 1)[-1]                            # the file name without the address's ?itok=… part
+    if "/afc520/" in path:
+        return "harmonics"                                    # the near-field harmonics folder (some names lack _hd)
     for t, rx in TYPES:
         if re.search(rx, name):
             return t

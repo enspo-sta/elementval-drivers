@@ -123,7 +123,10 @@ const hasLevels = c => c.sets.some(s => s.level != null || (s.set.conditions || 
 // at the same level apart (for example a chart without smoothing)
 function levelNames(card) {
   const base = card.sets.map(s => {
-    const v = (s.set.conditions || {}).drive_v;
+    const c = s.set.conditions || {}, v = c.drive_v;
+    // a near-field set: its drive voltage first; its level is the 1 m level of that voltage (from the far-field response)
+    if (typeof c.distance_mm === "number" && c.distance_mm < 100 && v != null && s.level != null && levelUnit(s.set) === "dB")
+      return `${[].concat(v).join(" and ")} V · ${Math.round(s.level * 100) / 100} dB at 1 m`;
     return levelName(s) + (s.level != null && v != null && levelUnit(s.set) !== "V" ? ` · ${[].concat(v).join(" and ")} V` : "");
   });
   return base.map((b, i) => {

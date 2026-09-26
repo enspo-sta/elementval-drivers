@@ -3,7 +3,7 @@
  * products). Levels are matched: every driver is drawn at its measured level closest to the target
  * level, and harmonic curves can be moved the rest of the way with the level rule. */
 import { registerView } from "../core/registry.js";
-import { store, driverById, fmtHz, LEVEL_TITLE } from "../core/data.js";
+import { store, driverById, fmtHz, LEVEL_TITLE, yAxisOf } from "../core/data.js";
 import { COLORS, MARKERS, MARK_CHARS, DASHES, MAX_PICK, TYPICAL_SLOPES, buildGroups, sourcesOf, defaultLevel, pickSet,
          shiftQuantities, describe } from "../core/compare.js";
 import { curvesOfSet } from "../core/curves.js";
@@ -170,8 +170,8 @@ function render() {
     if (view !== "curve" && g.levels.length > 1) h += `<div class="ptitle sub">Against level: how each driver's ${view === "bars" ? (g.kind.id === "hd-spectrum" ? "total harmonic distortion (sum of all harmonics)" : "total intermodulation (sum of all products)") : "chosen row"} grows with level</div>
       ${view === "table" ? `<div class="togrow">${cmp.rows.map(r => `<button class="tog small${levelRow(g) === r ? " on" : ""}" data-lr="${esc(r)}">${esc(rowName(r))}</button>`).join("")}</div>` : ""}
       ${noChart() ? "" : `<div class="chartbox"><canvas id="clvl"></canvas></div>`}<div id="clsum"></div>
-      <div class="exportrow">${exportHtml(() => againstLevelCurves(g, picked), "comparison_" + g.kind.id + "_against-level", "Export against level")}</div>`;
-    h += `<div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
+      <div class="exportrow">${exportHtml(() => againstLevelCurves(g, picked), groupStem(g) + "_against-level", "Export against level")}</div>`;
+    h += `<div class="exportrow">${exportHtml(() => exportCurves(g, picked), groupStem(g), "Export this comparison")}</div>`;
     h += `<details class="conds"><summary>Test conditions and sources of the picked drivers</summary>${picked.map(x =>
       `<div class="cond"><span style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]} ${esc(x.e.driver.name)}</span> <span class="dim">${esc(x.chosen.set.type)}${x.chosen.set.method ? " · " + esc(x.chosen.set.method) : ""}</span>${condChips(x.chosen.set.conditions, x.chosen.set.source)}${x.chosen.set.note ? `<div class="setnote">${esc(x.chosen.set.note)}</div>` : ""}</div>`).join("")}</details>`;
   }
@@ -187,6 +187,10 @@ function render() {
   }
   wireExports(app());
 }
+
+// "comparison_imd-products_30+255-Hz-4-1_4.5-mm": the file name says which measurement and level
+const groupStem = g => ["comparison", g.kind.id, g.label.split(" · ").slice(1).join(" "), cmp.L != null ? lv(cmp.L) : ""]
+  .filter(Boolean).join("_").replace(/[^\w.+-]+/g, "-").slice(0, 110);
 
 function exportCurves(g, picked) {
   return picked.flatMap(x => {
@@ -269,7 +273,8 @@ function drawCurves(g, picked) {
     });
   }
   const xt = `${(g.kind.x || {}).label || ""}${(g.kind.x || {}).unit ? " (" + g.kind.x.unit + ")" : ""}`;
-  const yT = g.kind.ratio ? (units === "pct" ? "% of fundamental" : "dB re fundamental") : `${(g.kind.y || {}).label || ""}${(g.kind.y || {}).unit ? " (" + g.kind.y.unit + ")" : ""}`;
+  const gy = yAxisOf(g.entries[0] && g.entries[0].sets[0] && g.entries[0].sets[0].set, g.kind);
+  const yT = g.kind.ratio ? (units === "pct" ? "% of fundamental" : "dB re fundamental") : `${gy.label || ""}${gy.unit ? " (" + gy.unit + ")" : ""}`;
   const xFmt = v => (log ? fmtHz(v) : v.toFixed(1) + " dB");
   newChart($("cchart"), { type: "line", data: { datasets: ds }, options: chartOptions({ x: xAxis(log, xt), y: yAxis(units, yT) },
     c => `${c.dataset.label}: ${units === "pct" ? c.parsed.y.toPrecision(3) + " %" : c.parsed.y.toFixed(1) + (g.kind.ratio ? " dB" : "")} at ${xFmt(c.parsed.x)}`) });
@@ -322,11 +327,11 @@ function drawBars(g, picked) {
   } else newChart($("cchart"), { type: "bar", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
     data: freqs.map(f => at(y, f)) })) },
     options: chartOptions({ x: categoryAxis((g.kind.x && g.kind.x.label) || "Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
-  $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>${g.kind.id === "hd-spectrum" ? "Harmonic" : "Product"}</th>${qs.map(y =>
+  $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>${g.kind.id === "hd-spectrum" ? "Harmonic" : qid === "products" ? "Product" : "Frequency"}</th>${qs.map(y =>
     `<th style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]} ${esc(y.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${freqs.map(f =>
     `<tr><td>${fmtHz(f)}</td>${qs.map(y => { const pt = y.q.points.find(q => q.x === f); return `<td>${pt ? pt.y.toFixed(1) : "—"}</td>`; }).join("")}</tr>`).join("")}
-    <tr class="sumrow"><td>sum</td>${qs.map(y => { const s = y.x.quantities.find(q => q.id === "sum"); return `<td>${s && s.value != null ? s.value.toFixed(1) : "—"}</td>`; }).join("")}</tr></tbody></table></div>
-    <div class="hint2">Values in ${esc(relTo)}; ${g.kind.id === "hd-spectrum" ? "the tone itself is" : "the test tones themselves are"} left out. Taller bars mean more distortion.</div>`;
+    ${qid === "products" ? `<tr class="sumrow"><td>sum</td>${qs.map(y => { const s = y.x.quantities.find(q => q.id === "sum"); return `<td>${s && s.value != null ? s.value.toFixed(1) : "—"}</td>`; }).join("")}</tr>` : ""}</tbody></table></div>
+    <div class="hint2">Values in ${esc(relTo)}; ${g.kind.id === "hd-spectrum" ? "the tone itself is" : "the test tones themselves are"} left out${qid === "products" ? "" : "; these are not part of the sum of all products"}. Taller bars mean more distortion.</div>`;
 }
 
 function drawTable(g, picked) {
@@ -370,7 +375,7 @@ function againstLevelCurves(g, picked) {
   return lines.filter(l => l.pts.length).map(l => ({
     label: `${l.x.e.driver.name} · ${what} against level`, driver: l.x.e.driver, source: g.family, kind: g.kind.id, kindLabel: g.kind.label,
     sourceText: l.x.e.sets.map(s => s.set.source).filter(Boolean).join("; "), quantity: `${what} against level`, level: null, tag: null,
-    conditions: {}, set: null, xLabel: `Level (${LEVEL_TITLE[unit]})`, xUnit: unit, yLabel: what, yUnit: relTo, points: l.pts.map(p => ({ x: p.x, y: p.y })),
+    conditions: {}, set: null, xLabel: unit === "V" ? "Drive per tone" : unit === "mm" ? "Peak excursion of the low tone" : "Sound pressure at 1 m", xUnit: unit, yLabel: what, yUnit: relTo, points: l.pts.map(p => ({ x: p.x, y: p.y })),
   }));
 }
 
