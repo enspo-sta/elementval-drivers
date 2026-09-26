@@ -1,9 +1,6 @@
-m74a-6
-t25a-6
-t25t-6
-t34a-4
-t34b-4
-sb-satori-mr16tx-8
-sb-satori-mw19tx-4
-sb-satori-tw29bnwg-4
-sb-satori-tw29txn-b
+# record id, then its HiFiCompass page when the record has none of its own (captured by hand before)
+purifi-ptt10-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02
+purifi-ptt8-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02
+ptt65x04naa08a https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a
+ptt13t04hag01 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt13t04-hag-01
+m74t-6 https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6

@@ -1,2 +1,5 @@
-m74a-6
-sb-satori-mr16tx-8
+# the older HiFiCompass template: one JPEG per quantity with every level on it
+sb-satori-wo24p-8 https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8
+sb-satori-wo24p-4 https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4
+sb-sb34nrxl75-8 https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8
+sb17nbac35-8 https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8

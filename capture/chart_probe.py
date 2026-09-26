@@ -27,9 +27,12 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 SKIP = re.compile(r"_side|_front|_back|_box|title|logo|SoundImports|clarity|eton|wood|acuton|no_data|banner", re.I)
 
 
-TYPES = [("current", r"chd"), ("impedance", r"impedance"), ("intermodulation", r"\d+hz\d|khz|to1"), ("harmonics", r"hpf|hd\.png|hd_|vhd"),
-         ("off-axis", r"offaxis"), ("near-field", r"_\d+mm_.*_\d+hz|_5mm_|_20mm_"), ("response", r"_0grad|_0deg"),
-         ("step", r"step"), ("waterfall", r"waterfall"), ("etc", r"_etc")]
+TYPES = [("current", r"chd"), ("impedance", r"impedance|^imp_"), ("intermodulation", r"\d+hz\d|khz|to1|^imd\.|^spectra\."),
+         ("harmonics", r"hpf|hd\.png|hd_|vhd|^hd315|^hd20"),
+         ("off-axis", r"offaxis"), ("near-field", r"_\d+mm_.*_\d+hz|_5mm_|_20mm_|^nf\."), ("response", r"_0grad|_0deg|^onaxis"),
+         ("step", r"step"), ("waterfall", r"waterfall|^wf\."), ("etc", r"_etc|^etc\.")]
+# the older HiFiCompass template (one JPEG per quantity, every level on it: onaxis_…jpg, hd315_0.jpg, hd20.jpg,
+# chd.jpg, imp_…jpg) is typed by the file name's start
 
 
 def chart_type(url):
@@ -240,7 +243,11 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="at most N charts of each type per driver (0 = all)")
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_probe.json"))
     a = ap.parse_args()
-    ids = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_probe_request.txt").read_text().splitlines()) if x.strip()]
+    # a request line is a record id, optionally followed by its HiFiCompass page address (for a record captured by
+    # hand before, which has no page address of its own)
+    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_probe_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
+    ids = [ln.split()[0] for ln in lines]
+    page_of = {ln.split()[0]: ln.split()[1] for ln in lines if len(ln.split()) > 1}
     inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
     db = json.loads((ROOT / "drivers.json").read_text())
     byid = {d["id"]: d for d in db["drivers"]}
@@ -251,7 +258,7 @@ def main():
         page = None
         for m, rec in inv["models"].items():
             for pg in rec["pages"]:
-                if d and pg.get("url") == d.get("source"):
+                if d and pg.get("url") == (page_of.get(did) or d.get("source")):
                     page = pg
         if not page:
             print(f"{did}: no inventory page matches the record's source", flush=True); continue

@@ -193,6 +193,20 @@ def main():
             d["measurements"] = [m for m in d["measurements"] if m.get("source") != s["source"]]
             d["measurements"].append(s)
             d["updated"] = read["date"]
+        # an earlier hand capture of the same HiFiCompass harmonics (a composite cut at 500 Hz, a curve normalised
+        # to one level) and the band figures taken from it are superseded once every level has been read in full:
+        # kept on the driver page as captured, left out of Compare, Simulate and the cross-checks
+        sys.path.insert(0, str(ROOT / "watch"))
+        from common import families_of, load_config
+        cfg = load_config()
+        for did in sorted({did for did, s in made if s["kind"] == "hd-frequency"}):
+            for m in byid[did]["measurements"]:
+                if m.get("superseded_by") or "automated" in str(m.get("method", "")):
+                    continue
+                if (families_of(m.get("source"), cfg) or [""])[0] == "HiFiCompass" and m.get("kind") in ("hd-frequency", "thd-bands"):
+                    m["superseded_by"] = (f"the automatic reading of the same HiFiCompass harmonic charts on {read['date']}, "
+                                          "every drive level at 1/24 octave over the range each chart shows (capture/chart_read.py)")
+                    print(f"superseded {did}: {m['type']} ({m.get('source')})")
         tmp = ROOT / "capture" / "_chart_read_candidate.json"
         tmp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])

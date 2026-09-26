@@ -115,6 +115,12 @@ def check_notes(d, rep):
                     f"a note says {key} was corrected to {val:g}, the stored {key} is {ts.get(key)!r}")
 
 
+def active(d):
+    """The sets the cross-checks compare: an earlier capture superseded by a full reading of the same charts
+    (superseded_by) is left out, as Compare and Simulate leave it out."""
+    return [m for m in d.get("measurements", []) if not m.get("superseded_by")]
+
+
 def check_sources(d, rep, cfg):
     for i, m in enumerate(d.get("measurements", [])):
         fams = families_of(m.get("source"), cfg)
@@ -126,7 +132,7 @@ def check_sources(d, rep, cfg):
 
 
 def check_sweep(d, rep, cfg):
-    for m in d.get("measurements", []):
+    for m in active(d):
         if m.get("type") != "HD vs SPL (level sweep)":
             continue
         fam = families_of(m.get("source"), cfg)
@@ -165,7 +171,7 @@ def thd_from(m, lo, hi):
 
 
 def check_band_thd(d, rep, cfg):
-    ms = d.get("measurements", [])
+    ms = active(d)
     for t in ms:
         if t.get("chartType") != "table" or "THD %" not in (t.get("columns") or []):
             continue
@@ -189,7 +195,7 @@ def check_band_thd(d, rep, cfg):
 
 
 def check_levels(d, rep, cfg):
-    curves = [c for c in d.get("measurements", []) if c.get("chartType") == "line" and c.get("type", "").startswith("HD")
+    curves = [c for c in active(d) if c.get("chartType") == "line" and c.get("type", "").startswith("HD")
               and "level sweep" not in c.get("type", "") and "current" not in c.get("type", "")
               and num((c.get("conditions") or {}).get("spl_db")) is not None]
     for i, a in enumerate(curves):
@@ -219,7 +225,7 @@ def check_levels(d, rep, cfg):
 
 
 def check_pair(d, rep, cfg, byid):
-    note = " ".join(str(m.get("note") or "") for m in d.get("measurements", []))
+    note = " ".join(str(m.get("note") or "") for m in active(d))
     mm = re.search(r"s_n measured: H2 ([\d.]+), H3 ([\d.]+), H4 ~?([\d.]+), H5 ([\d.]+)", note)
     if not mm or "dual" not in d["id"]:
         return
@@ -227,7 +233,7 @@ def check_pair(d, rep, cfg, byid):
     if not single:
         return
     slopes = dict(zip(("H2", "H3", "H4", "H5"), map(float, mm.groups())))
-    pair = next(m for m in d["measurements"] if m.get("chartType") == "line" and series(m, "H2"))
+    pair = next(m for m in active(d) if m.get("chartType") == "line" and series(m, "H2"))
     one = next((m for m in single["measurements"] if m.get("chartType") == "line" and m.get("type") == pair.get("type")), None)
     if not one:
         return
@@ -251,7 +257,7 @@ def check_excursion(d, rep):
     sd, xmax = num(ts.get("Sd")), num(ts.get("Xmax"))
     if not sd or not xmax:
         return
-    for m in d.get("measurements", []):
+    for m in active(d):
         if not m.get("type", "").startswith("Max SPL") or not m.get("series"):
             continue
         n = 2 if "dual" in d["id"] else 1
@@ -264,7 +270,7 @@ def check_excursion(d, rep):
 
 
 def check_tones(d, rep):
-    for m in d.get("measurements", []):
+    for m in active(d):
         if m.get("chartType") != "bar":
             continue
         tones = re.findall(r"(\d+)\s*\+\s*(\d+)\s*Hz", " ".join(str(m.get(k) or "") for k in ("method", "type")))

@@ -525,7 +525,11 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_read.json"))
     ap.add_argument("--keep", help="a directory to keep the fetched images in (a short-lived workflow artifact, never committed)")
     a = ap.parse_args()
-    ids = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text().splitlines()) if x.strip()]
+    # a request line is a driver id, optionally followed by its HiFiCompass page address (a record captured
+    # by hand before has no page address of its own)
+    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
+    ids = [ln.split()[0] for ln in lines]
+    page_of = {ln.split()[0]: ln.split()[1] for ln in lines if len(ln.split()) > 1}
     types = set(a.types.split(","))
     inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
     db = json.loads((ROOT / "drivers.json").read_text())
@@ -534,7 +538,8 @@ def main():
     last = [0.0]
     for did in ids:
         d = byid.get(did)
-        page = next((pg for rec in inv["models"].values() for pg in rec["pages"] if d and pg.get("url") == d.get("source")), None)
+        want = page_of.get(did) or (d or {}).get("source")
+        page = next((pg for rec in inv["models"].values() for pg in rec["pages"] if d and pg.get("url") == want), None)
         if not page:
             print(f"{did}: no inventory page", flush=True); continue
         charts = [im for im in page["charts"] if not CP.SKIP.search(im["original"]) and CP.chart_type(im["original"]) in types]

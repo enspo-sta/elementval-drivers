@@ -61,7 +61,7 @@ def main():
         for i, m in enumerate(d["measurements"]):
             fams = families_of(m.get("source"), cfg)
             dens = points_per_decade(m)
-            if dens is None or dens >= floor or not fams or fams[0].startswith("Derived"):
+            if m.get("superseded_by") or dens is None or dens >= floor or not fams or fams[0].startswith("Derived"):
                 continue
             n1 += 1
             lines.append(f"| {d['name']} (`{d['id']}`) | {i} | {m['type']} | {fams[0]} | {dens:.0f} per decade | {HOW.get(fams[0], 'original chart, then `capture/image_curves.py`')} |")
@@ -94,7 +94,7 @@ def main():
         by_fam = {}
         for m in d["measurements"]:
             fams = families_of(m.get("source"), cfg)
-            if fams:
+            if fams and not m.get("superseded_by"):
                 lvl = (m.get("conditions") or {}).get("spl_db")
                 by_fam.setdefault(fams[0], []).append(f"{m.get('kind')}{' ' + str(lvl) + ' dB' if isinstance(lvl, (int, float)) else ''}")
         # a record whose `source` names a measurement page but holds no set yet (a driver just added) is listed in full
@@ -104,7 +104,7 @@ def main():
                 continue
             have = sorted(set(by_fam.get(fam, [])))
             missing = [w for k, w in wants if not any(h.startswith(k) for h in have)]
-            normalised = [m for m in d["measurements"] if (families_of(m.get("source"), cfg) or [""])[0] == fam
+            normalised = [m for m in d["measurements"] if not m.get("superseded_by") and (families_of(m.get("source"), cfg) or [""])[0] == fam
                           and m.get("kind") == "hd-frequency" and "normali" in (str(m.get("source")) + str(m.get("note"))).lower()]
             if normalised:
                 missing.insert(0, "the harmonics at each drive level actually measured (the stored "
@@ -121,7 +121,7 @@ def main():
               f"Chosen at random for week {str(week)[4:]} of {str(week)[:4]} (the choice changes weekly). For each, capture the source's curve again and compare "
               "with the stored one; differences above 1 dB outside the noise floor need a note or a recapture.", ""]
     for d in pick:
-        sets = [f"{i}: {m['type']}" for i, m in enumerate(d["measurements"])
+        sets = [f"{i}: {m['type']}" for i, m in enumerate(d["measurements"]) if not m.get("superseded_by")
                 if (families_of(m.get("source"), cfg) or [""])[0] in ("HiFiCompass", "Manufacturer datasheet") and m.get("chartType") == "line"]
         lines.append(f"- **{d['name']}** (`{d['id']}`): sets {'; '.join(sets)}")
     auto = [(d, i, m) for d in db["drivers"] for i, m in enumerate(d["measurements"]) if "automated" in str(m.get("method", ""))]
