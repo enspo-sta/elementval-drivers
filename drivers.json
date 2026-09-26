@@ -313254,7 +313254,7 @@
       },
       "findings": "",
       "source": "https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8",
-      "updated": "2026-09-25",
+      "updated": "2026-09-26",
       "measurements": [
         {
           "type": "Axial frequency response @ 2.83 V",
@@ -313269,7 +313269,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_2v83_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_2v83_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.2, expected 89.0, stated sens 89.0, difference db 1.2",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_2v83_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.2, expected 89.0, stated sens 89.0, difference db 1.2; check on the image: SPL 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -314245,7 +314245,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_2v83_0deg.png"
+          "file": "mr16tx-8_315mm_2v83_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_2v83_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 1.0
+            }
+          }
         },
         {
           "type": "Axial frequency response @ 4 V",
@@ -314260,7 +314287,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_4v_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_4v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.2, expected 92.0, stated sens 89.0, difference db 1.2",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_4v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.2, expected 92.0, stated sens 89.0, difference db 1.2; check on the image: SPL 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -315236,7 +315263,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_4v_0deg.png"
+          "file": "mr16tx-8_315mm_4v_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_4v_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 1.0
+            }
+          }
         },
         {
           "type": "Axial frequency response @ 5.6 V",
@@ -315251,7 +315305,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_5v6_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_5v6_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.2, expected 94.9, stated sens 89.0, difference db 1.3",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_5v6_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.2, expected 94.9, stated sens 89.0, difference db 1.3; check on the image: SPL 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -316235,7 +316289,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_5v6_0deg.png"
+          "file": "mr16tx-8_315mm_5v6_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_5v6_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 0.996
+            }
+          }
         },
         {
           "type": "Axial frequency response @ 8 V",
@@ -316250,7 +316331,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_8v_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_8v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 99.2, expected 98.0, stated sens 89.0, difference db 1.2; #080808: not visible in the chart between 4865.8 and 5569.4 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_8v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 99.2, expected 98.0, stated sens 89.0, difference db 1.2; #080808: not visible in the chart between 4865.8 and 5569.4 Hz (no points there); check on the image: SPL 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -317214,7 +317295,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_8v_0deg.png"
+          "file": "mr16tx-8_315mm_8v_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_8v_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 1.0
+            }
+          }
         },
         {
           "type": "Axial frequency response @ 11.2 V",
@@ -317229,7 +317337,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_11v2_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_11v2_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 11.2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 102.2, expected 100.9, stated sens 89.0, difference db 1.3; #080808: not visible in the chart between 4562.7 and 5825.9 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_11v2_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 11.2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 102.2, expected 100.9, stated sens 89.0, difference db 1.3; #080808: not visible in the chart between 4562.7 and 5825.9 Hz (no points there); check on the image: SPL 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -318177,7 +318285,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_11v2_0deg.png"
+          "file": "mr16tx-8_315mm_11v2_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_11v2_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 1.0
+            }
+          }
         },
         {
           "type": "Axial frequency response @ 16 V",
@@ -318192,7 +318327,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_16v_0deg.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_16v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 16 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 105.2, expected 104.0, stated sens 89.0, difference db 1.2; #080808: not visible in the chart between 4196.7 and 6133.5 Hz, 6886.3 and 8139.8 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_16v_0deg.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check 16 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 105.2, expected 104.0, stated sens 89.0, difference db 1.2; #080808: not visible in the chart between 4196.7 and 6133.5 Hz, 6886.3 and 8139.8 Hz (no points there); check on the image: SPL 99 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -319100,7 +319235,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_16v_0deg.png"
+          "file": "mr16tx-8_315mm_16v_0deg.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              30,
+              53,
+              1244,
+              569
+            ],
+            "x": [
+              1.2206703910614525,
+              0.002793296089385475
+            ],
+            "y": [
+              113.62162162162161,
+              -0.10810810810810811
+            ],
+            "image": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_16v_0deg.png",
+            "colours": {
+              "SPL": "#080808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "SPL": 0.991
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 2 V",
@@ -319116,7 +319278,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_2v_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5: not visible in the chart between 4459.7 and 5871.4 Hz (no points there); level from the 2.83 V response at 1 kHz (90.2 dB) scaled by 20 log10(2/2.83)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5: not visible in the chart between 4459.7 and 5871.4 Hz (no points there); level from the 2.83 V response at 1 kHz (90.2 dB) scaled by 20 log10(2/2.83); check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -321830,7 +321992,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_2v_hpf2-50.png"
+          "file": "mr16tx-8_315mm_2v_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 2.83 V",
@@ -321845,7 +322038,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_2v83_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v83_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5: not visible in the chart between 4230.9 and 5975.4 Hz (no points there); level 90.2 dB at 1 m = the 2.83 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v83_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5: not visible in the chart between 4230.9 and 5975.4 Hz (no points there); level 90.2 dB at 1 m = the 2.83 V response read at 1 kHz; check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -324547,7 +324740,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_2v83_hpf2-50.png"
+          "file": "mr16tx-8_315mm_2v83_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v83_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 4 V",
@@ -324562,7 +324786,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_4v_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_4v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2 named after the legend of another chart of this driver; H5: not visible in the chart between 3549.7 and 5284.4 Hz, 5505.4 and 6152.8 Hz (no points there); level 93.2 dB at 1 m = the 4 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_4v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2 named after the legend of another chart of this driver; H5: not visible in the chart between 3549.7 and 5284.4 Hz, 5505.4 and 6152.8 Hz (no points there); level 93.2 dB at 1 m = the 4 V response read at 1 kHz; check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -327244,7 +327468,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_4v_hpf2-50.png"
+          "file": "mr16tx-8_315mm_4v_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_4v_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 5.6 V",
@@ -327259,7 +327514,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_5v6_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_5v6_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2 named after the legend of another chart of this driver; H5: not visible in the chart between 3157.7 and 5102.1 Hz, 5570.2 and 6045.7 Hz (no points there); H5 named after the legend of another chart of this driver; H3: not visible in the chart between 29.1 and 49.6 Hz (no points there); level 96.2 dB at 1 m = the 5.6 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_5v6_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2 named after the legend of another chart of this driver; H5: not visible in the chart between 3157.7 and 5102.1 Hz, 5570.2 and 6045.7 Hz (no points there); H5 named after the legend of another chart of this driver; H3: not visible in the chart between 29.1 and 49.6 Hz (no points there); level 96.2 dB at 1 m = the 5.6 V response read at 1 kHz; check on the image: H2 100 %, H3 100 %, H5 98 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -329857,7 +330112,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_5v6_hpf2-50.png"
+          "file": "mr16tx-8_315mm_5v6_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_5v6_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 0.984
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 8 V",
@@ -329872,7 +330158,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_8v_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_8v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 57.4 and 76.8 Hz (no points there); H5: not visible in the chart between 3529 and 3875.3 Hz, 4181.6 and 5042.8 Hz (no points there); level 99.2 dB at 1 m = the 8 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_8v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 57.4 and 76.8 Hz (no points there); H5: not visible in the chart between 3529 and 3875.3 Hz, 4181.6 and 5042.8 Hz (no points there); level 99.2 dB at 1 m = the 8 V response read at 1 kHz; check on the image: H2 100 %, H3 100 %, H5 98 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -332378,7 +332664,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_8v_hpf2-50.png"
+          "file": "mr16tx-8_315mm_8v_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_8v_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 0.98
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 11.2 V",
@@ -332393,7 +332710,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_11v2_hpf2-80.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_11v2_hpf2-80.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 70.8 and 120.6 Hz (no points there); H5: not visible in the chart between 3508.4 and 3807.9 Hz, 4230.9 and 5132.1 Hz (no points there); level 102.2 dB at 1 m = the 11.2 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_11v2_hpf2-80.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 70.8 and 120.6 Hz (no points there); H5: not visible in the chart between 3508.4 and 3807.9 Hz, 4230.9 and 5132.1 Hz (no points there); level 102.2 dB at 1 m = the 11.2 V response read at 1 kHz; check on the image: H2 99 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -335003,7 +335320,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_11v2_hpf2-80.png"
+          "file": "mr16tx-8_315mm_11v2_hpf2-80.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_11v2_hpf2-80.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 0.986,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "HD (orders) vs frequency @ 16 V",
@@ -335018,7 +335366,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_315mm_16v_hpf2-80.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_16v_hpf2-80.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5 named after the legend of another chart of this driver; H2: not visible in the chart between 69.6 and 200.6 Hz, 5315.4 and 5769.2 Hz, 13796.6 and 14887 Hz (no points there); H2 named after the legend of another chart of this driver; level 105.2 dB at 1 m = the 16 V response read at 1 kHz",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_16v_hpf2-80.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H5 named after the legend of another chart of this driver; H2: not visible in the chart between 69.6 and 200.6 Hz, 5315.4 and 5769.2 Hz, 13796.6 and 14887 Hz (no points there); H2 named after the legend of another chart of this driver; level 105.2 dB at 1 m = the 16 V response read at 1 kHz; check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -337260,7 +337608,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_315mm_16v_hpf2-80.png"
+          "file": "mr16tx-8_315mm_16v_hpf2-80.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_16v_hpf2-80.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 0.995
+            }
+          }
         },
         {
           "type": "Voice-coil current HD vs frequency @ 2.83 V",
@@ -337273,7 +337652,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_chd_2v83_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_2v83_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 31.8 and 34.3 Hz (no points there); H5: not visible in the chart between 129.4 and 242 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_2v83_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 31.8 and 34.3 Hz (no points there); H5: not visible in the chart between 129.4 and 242 Hz (no points there); check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -339923,7 +340302,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_chd_2v83_hpf2-50.png"
+          "file": "mr16tx-8_chd_2v83_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_2v83_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "Voice-coil current HD vs frequency @ 4 V",
@@ -339936,7 +340346,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_chd_4v_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_4v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 27.8 and 35.1 Hz (no points there); H5: not visible in the chart between 130.1 and 268.8 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_4v_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 27.8 and 35.1 Hz (no points there); H5: not visible in the chart between 130.1 and 268.8 Hz (no points there); check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -342554,7 +342964,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_chd_4v_hpf2-50.png"
+          "file": "mr16tx-8_chd_4v_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_4v_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 0.996,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "Voice-coil current HD vs frequency @ 5.6 V",
@@ -342567,7 +343008,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_chd_5v6_hpf2-50.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_5v6_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 24.7 and 35.5 Hz (no points there); H2 named after the legend of another chart of this driver; H5: not visible in the chart between 138 and 167.4 Hz, 215.2 and 283.4 Hz, 2108.7 and 4061.1 Hz (no points there); H5 named after the legend of another chart of this driver; H3: not visible in the chart between 42.1 and 47 Hz (no points there)",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_5v6_hpf2-50.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; H2: not visible in the chart between 24.7 and 35.5 Hz (no points there); H2 named after the legend of another chart of this driver; H5: not visible in the chart between 138 and 167.4 Hz, 215.2 and 283.4 Hz, 2108.7 and 4061.1 Hz (no points there); H5 named after the legend of another chart of this driver; H3: not visible in the chart between 42.1 and 47 Hz (no points there); check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -345101,7 +345542,38 @@
               ]
             }
           ],
-          "file": "mr16tx-8_chd_5v6_hpf2-50.png"
+          "file": "mr16tx-8_chd_5v6_hpf2-50.png",
+          "calibration": {
+            "width": 1276,
+            "height": 635,
+            "plot": [
+              34,
+              70,
+              1244,
+              552
+            ],
+            "x": [
+              1.2172808132147392,
+              0.0025412960609911056
+            ],
+            "y": [
+              -15.099277978339352,
+              -0.1444043321299639
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_5v6_hpf2-50.png",
+            "colours": {
+              "H2": "#0808f8",
+              "H3": "#000000",
+              "H5": "#f80808"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "H2": 1.0,
+              "H3": 1.0,
+              "H5": 1.0
+            }
+          }
         },
         {
           "type": "Impedance (chart to 150 ohm)",
@@ -345112,7 +345584,7 @@
           },
           "source": "HiFiCompass (mr16tx-8_impedance_150_ohm.png, automated reading)",
           "confidence": "medium",
-          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_150_ohm.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check impedance minimum against Re, read 6.66, stated 6.2; check impedance peak against Fs, read hz 35.02, read ohm 107.47, stated fs 35.0",
+          "note": "read automatically from https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_150_ohm.png on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave; check impedance minimum against Re, read 6.66, stated 6.2; check impedance peak against Fs, read hz 35.02, read ohm 107.47, stated fs 35.0; check on the image: Z 100 % of the read points lie on the drawn curve (within 2 px)",
           "chartType": "line",
           "axes": {
             "x": {
@@ -346276,7 +346748,34 @@
               ]
             }
           ],
-          "file": "mr16tx-8_impedance_150_ohm.png"
+          "file": "mr16tx-8_impedance_150_ohm.png",
+          "calibration": {
+            "width": 1187,
+            "height": 630,
+            "plot": [
+              35,
+              3,
+              1007,
+              614
+            ],
+            "x": [
+              0.5745974633164765,
+              0.0036968576709796672
+            ],
+            "y": [
+              150.3396739130435,
+              -0.24456521739130435
+            ],
+            "image": "https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_150_ohm.png",
+            "colours": {
+              "Z": "#18e818"
+            }
+          },
+          "check": {
+            "on_curve": {
+              "Z": 1.0
+            }
+          }
         }
       ],
       "datasheet": "https://hificompass.com/sites/default/files/documents/612in-satori-mr16tx-8.pdf"
