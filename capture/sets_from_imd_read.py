@@ -46,16 +46,51 @@ def product_name(m, n):
 HARM = {2: "2nd", 3: "3rd"}
 
 
-def one_tone(c, t):
+def cross_check(driver, f0, volts, pts):
+    """The same driver's harmonic-distortion curves (HiFiCompass, far field, the same drive voltage) at the tone's
+    frequency, beside this spectrum's harmonics: an independent check of the reading and of the chart's 0 dB."""
+    if not driver:
+        return None
+    for m in driver["measurements"]:
+        c = m.get("conditions") or {}
+        if m.get("kind") != "hd-frequency" or m.get("superseded_by") or c.get("drive_v") != volts or "HiFiCompass" not in str(m.get("source")):
+            continue
+        if (c.get("distance_mm") or 315) < 100:
+            continue
+        bits = []
+        for se in m.get("series") or []:
+            k = {"H2": 2, "H3": 3, "H5": 5}.get(se["name"])
+            if not k:
+                continue
+            near = [p for p in se["points"] if p.get("y") is not None and abs(math.log(p["x"] / f0)) < 0.03]
+            mine = next((p["y"] for p in pts if abs(p["x"] - k * f0) < 1e-6), None)
+            if near and mine is not None:
+                theirs = min(near, key=lambda p: abs(math.log(p["x"] / f0)))["y"]
+                bits.append(f"{se['name']} {mine:.1f} here, {theirs:.1f} on the curve ({mine - theirs:+.1f} dB)")
+        if bits:
+            hpf = f", through {c['hpf']}" if c.get("hpf") else ""
+            return (f"rough check against the harmonic-distortion chart at {volts:g} V ({m.get('file') or m.get('source')}, microphone at "
+                    f"{c.get('distance_mm', 315)} mm{hpf}) at {f0:g} Hz: " + "; ".join(bits) +
+                    " (a different microphone distance, a swept measurement and any high-pass filter make the two differ; "
+                    "they agree best for H2 well above the filter)")
+    return None
+
+
+def one_tone(c, t, driver=None):
     """A set of kind hd-spectrum from a one-tone chart, or the reason it waits."""
     name = c.get("file", "")
     tone = (c.get("tones") or [{}])[0]
     level = tone.get("level")
     if level is None:
         return None, "the tone was not found on the chart"
+    if tone.get("at_top") and tone.get("trace_pixels_above_top"):
+        return None, "the tone's peak goes above the chart's top line (cut off by the scale): its level cannot be read"
     chk = dict(c.get("check") or {})
     px = [r[2] for r in (chk.get("column") or {}).get("pixels") or []]
     note = [f"read from {c['url']}"]
+    if tone.get("at_top"):
+        note.append("the tone sits on the chart's top line (0 dB) with no trace above it: the chart is drawn relative to the tone, "
+                    "so each harmonic's level is its level relative to the tone")
     if px and chk.get("difference_db") is not None and abs(chk["difference_db"]) <= 3 and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
         note.append(f"the chart's red cursor line covers the tone's peak, whose top is hidden (read {level:.2f} dB beside it); "
                     f"its level is the {chk['stated_db']} dB the chart prints")
@@ -75,6 +110,9 @@ def one_tone(c, t):
     pts = [{"x": f0, "y": round(level, 2), "label": "tone"}]
     pts += [{"x": num(p["f"]), "y": p["level"], "label": f"H{p['order']} ({HARM.get(p['order'], str(p['order']) + 'th')} harmonic)"} for p in c.get("products") or []]
     cond = {"f0": f0, "drive_v": num(t["drive_v"]), "distance_mm": t["distance_mm"], "lab": "HiFiCompass"}
+    cc = cross_check(driver, f0, cond["drive_v"], pts)
+    if cc:
+        note.append(cc)
     return {
         "type": f"Harmonics of one tone, {f0} Hz at {num(t['drive_v'])} V (microphone at {t['distance_mm']} mm)",
         "kind": "hd-spectrum",
@@ -103,7 +141,7 @@ def build(read, db):
             if c.get("error"):
                 waiting.append((did, name, c["error"])); continue
             if "f0" in t:
-                st, why = one_tone(c, t)
+                st, why = one_tone(c, t, byid.get(did))
                 if st:
                     made.append((did, st))
                 else:

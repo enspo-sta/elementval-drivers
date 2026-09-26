@@ -326,7 +326,7 @@ function drawBars(g, picked) {
     `<th style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]} ${esc(y.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${freqs.map(f =>
     `<tr><td>${fmtHz(f)}</td>${qs.map(y => { const pt = y.q.points.find(q => q.x === f); return `<td>${pt ? pt.y.toFixed(1) : "—"}</td>`; }).join("")}</tr>`).join("")}
     <tr class="sumrow"><td>sum</td>${qs.map(y => { const s = y.x.quantities.find(q => q.id === "sum"); return `<td>${s && s.value != null ? s.value.toFixed(1) : "—"}</td>`; }).join("")}</tr></tbody></table></div>
-    <div class="hint2">Values in ${esc(relTo)}; the test tones themselves are left out. Taller bars mean more distortion.</div>`;
+    <div class="hint2">Values in ${esc(relTo)}; ${g.kind.id === "hd-spectrum" ? "the tone itself is" : "the test tones themselves are"} left out. Taller bars mean more distortion.</div>`;
 }
 
 function drawTable(g, picked) {
@@ -384,7 +384,7 @@ function drawAgainstLevel(g, picked) {
   $("clsum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Level</th>${lines.map(l =>
     `<th style="color:${COLORS[l.x.p.slot]}">${MARK_CHARS[MARKERS[l.x.p.slot]]} ${esc(l.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${levels.map(L =>
     `<tr><td>${esc(lv(L))}</td>${lines.map(l => { const p = l.pts.find(q => q.x === L); return `<td>${p ? p.y.toFixed(1) : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
-    <div class="hint2">${g.kind.view === "bars" ? "Power sum of every product, " + esc(relTo) : esc(relTo)}, at each level a driver was measured. A steeper line: the distortion grows faster with level.</div>`;
+    <div class="hint2">${g.kind.view === "bars" ? `Power sum of every ${g.kind.id === "hd-spectrum" ? "harmonic" : "product"}, ` + esc(relTo) : esc(relTo)}, at each level a driver was measured. A steeper line: the distortion grows faster with level.</div>`;
 }
 
 registerView({

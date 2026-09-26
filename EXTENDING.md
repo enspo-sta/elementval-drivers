@@ -77,7 +77,8 @@ registerExporter({
 
 and add `"./exporters/myformat.js",` to `app/modules.js`. It then shows in every export menu of the
 viewer (only where it accepts the curves) and in `node tools/export.mjs --list-formats`. A curve has
-`label, driver, source, kind, quantity, level, conditions, xLabel, xUnit, yLabel, yUnit, points`
+`label, driver, source, kind, quantity, level, tag (the level with its unit, the drive voltage or the chart
+a set was read from), conditions, xLabel, xUnit, yLabel, yUnit, points`
 (see `app/exporters/common.js`).
 
 ## Add a kind of measurement
@@ -97,7 +98,11 @@ Add an entry to `schema/kinds.json`, for example an off-axis response:
   level on the driver page, and interpolated in Simulate. `"drive"` when the level is a drive voltage.
   `"spl-near"` for kinds whose stated levels differ slightly between drivers although they were meant
   to be the same (an intermodulation summary at 91.1, 91.2 and 91.7 dB): Compare then offers one level
-  button per whole dB and treats a set within 1 dB of the target as measured at it.
+  button per whole dB and treats a set within 1 dB of the target as measured at it. `"stated"` when
+  the test states its level another way: the low tone's peak excursion (`conditions.x_pk_mm`, shown in
+  mm) or the drive voltage (`conditions.drive_v`, in V), as the HiFiCompass two-tone and one-tone
+  spectra do (kinds `imd-products` and `hd-spectrum`); `levelOf` and `levelUnit` in `app/core/data.js`
+  name the kinds that use it.
 - `match`: conditions that must be equal before two sets share a chart (for example the test tones
   of intermodulation, or the angle of an off-axis curve).
 

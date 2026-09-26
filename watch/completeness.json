@@ -1389,8 +1389,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_30hz.png",
@@ -1398,8 +1397,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_40hz.png",
@@ -1407,8 +1405,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_50hz.png",
@@ -1416,8 +1413,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_75hz.png",
@@ -1425,8 +1421,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_100hz.png",
@@ -1434,8 +1429,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_150hz.png",
@@ -1443,8 +1437,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_20hz.png",
@@ -1452,8 +1445,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_30hz.png",
@@ -1461,8 +1453,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_40hz.png",
@@ -1470,8 +1461,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_50hz.png",
@@ -1479,8 +1469,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_75hz.png",
@@ -1488,8 +1477,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_100hz.png",
@@ -1497,8 +1485,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_4v_150hz.png",
@@ -1506,8 +1493,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_20hz.png",
@@ -1515,8 +1501,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_30hz.png",
@@ -1524,8 +1509,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_40hz.png",
@@ -1533,8 +1517,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_50hz.png",
@@ -1542,8 +1525,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_75hz.png",
@@ -1551,8 +1533,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_100hz.png",
@@ -1560,8 +1541,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_5v6_150hz.png",
@@ -1569,8 +1549,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_20hz.png",
@@ -1578,8 +1557,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_30hz.png",
@@ -1587,8 +1565,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_40hz.png",
@@ -1596,8 +1573,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_50hz.png",
@@ -1605,8 +1581,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_75hz.png",
@@ -1614,8 +1589,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_100hz.png",
@@ -1623,8 +1597,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_8v_150hz.png",
@@ -1632,8 +1605,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_20hz.png",
@@ -1641,8 +1613,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_30hz.png",
@@ -1650,8 +1621,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_40hz.png",
@@ -1659,8 +1629,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_50hz.png",
@@ -1668,8 +1637,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_75hz.png",
@@ -1677,8 +1645,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_100hz.png",
@@ -1686,8 +1653,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_11v2_150hz.png",
@@ -1695,8 +1661,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text2.png",
@@ -1816,13 +1781,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 79,
-    "stored": 32,
+    "stored": 67,
     "by_hand": 0,
-    "missing": 47,
+    "missing": 12,
     "missing_by_type": {
      "off-axis": 3,
      "near-field response": 6,
-     "one-tone spectrum": 35,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2209,8 +2173,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_30hz.png",
@@ -2218,8 +2181,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_40hz.png",
@@ -2227,8 +2189,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_50hz.png",
@@ -2236,8 +2197,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_75hz.png",
@@ -2245,8 +2205,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_100hz.png",
@@ -2254,8 +2213,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_150hz.png",
@@ -2263,8 +2221,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_220hz.png",
@@ -2272,8 +2229,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_300hz.png",
@@ -2281,8 +2237,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_20hz.png",
@@ -2290,8 +2245,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_30hz.png",
@@ -2299,8 +2253,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_40hz.png",
@@ -2308,8 +2261,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_50hz.png",
@@ -2317,8 +2269,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_75hz.png",
@@ -2326,8 +2277,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_100hz.png",
@@ -2335,8 +2285,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_150hz.png",
@@ -2344,8 +2293,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_220hz.png",
@@ -2353,8 +2301,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_300hz.png",
@@ -2362,8 +2309,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz2mm_4to1.png",
@@ -2449,13 +2395,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 52,
-    "stored": 26,
+    "stored": 44,
     "by_hand": 0,
-    "missing": 26,
+    "missing": 8,
     "missing_by_type": {
      "off-axis": 3,
      "near-field response": 1,
-     "one-tone spectrum": 18,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4100,7 +4045,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "mr16tx-8_step_response.png",
@@ -4368,8 +4313,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_30hz.png",
@@ -4377,8 +4321,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_40hz.png",
@@ -4386,8 +4329,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_50hz.png",
@@ -4395,8 +4337,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_75hz.png",
@@ -4404,8 +4345,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_100hz.png",
@@ -4413,8 +4353,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_150hz.png",
@@ -4422,8 +4361,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_220hz.png",
@@ -4431,8 +4369,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v_300hz.png",
@@ -4440,8 +4377,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_20hz.png",
@@ -4449,8 +4385,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_30hz.png",
@@ -4458,8 +4393,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_40hz.png",
@@ -4467,8 +4401,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_50hz.png",
@@ -4476,8 +4409,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_75hz.png",
@@ -4485,8 +4417,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_100hz.png",
@@ -4494,8 +4425,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_150hz.png",
@@ -4503,8 +4433,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_220hz.png",
@@ -4512,8 +4441,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_300hz.png",
@@ -4521,8 +4449,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_20hz.png",
@@ -4530,8 +4457,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_30hz.png",
@@ -4539,8 +4465,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_40hz.png",
@@ -4548,8 +4473,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_50hz.png",
@@ -4557,8 +4481,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_75hz.png",
@@ -4566,8 +4489,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_100hz.png",
@@ -4575,8 +4497,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_150hz.png",
@@ -4584,8 +4505,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_220hz.png",
@@ -4593,8 +4513,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_4v_300hz.png",
@@ -4602,8 +4521,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_20hz.png",
@@ -4611,8 +4529,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_30hz.png",
@@ -4620,8 +4537,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_40hz.png",
@@ -4629,8 +4545,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_50hz.png",
@@ -4638,8 +4553,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_75hz.png",
@@ -4647,8 +4561,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_100hz.png",
@@ -4656,8 +4569,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_150hz.png",
@@ -4665,8 +4577,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_220hz.png",
@@ -4674,8 +4585,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_5v6_300hz.png",
@@ -4683,8 +4593,7 @@
      "type": "spectrum",
      "label": "one-tone spectrum",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png",
@@ -4755,13 +4664,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 70,
-    "stored": 27,
+    "stored": 63,
     "by_hand": 0,
-    "missing": 43,
+    "missing": 7,
     "missing_by_type": {
      "off-axis": 3,
      "near-field response": 1,
-     "one-tone spectrum": 36,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1

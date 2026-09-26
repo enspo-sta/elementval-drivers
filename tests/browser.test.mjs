@@ -377,3 +377,21 @@ test("Re-test fixes: series colours, chart scales named as charts, a card export
   assert.deepEqual(errors, []);
   await close();
 });
+
+test("One-tone spectra: harmonics relative to the tone, by drive voltage, in Compare and on the driver page", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#compare?src=HiFiCompass&g=HiFiCompass%3A%3Ahd-spectrum%7C40%7C20&L=2.83");
+  await page.waitForSelector("#cchart");
+  const text = await page.locator("body").textContent();
+  assert.match(text, /40 Hz tone, 20 mm/);
+  assert.match(text, /dB relative to the 40 Hz tone/);
+  assert.match(text, /total harmonic distortion \(sum of all harmonics\)/);
+  assert.match(await page.locator("#csum thead").textContent(), /Harmonic/);
+  assert.match(await page.locator("#clsum").textContent(), /2\.83 V/);
+  await page.goto(base + "#driver/sb-satori-mw19tx-4");
+  await page.waitForSelector(".setttl");
+  assert.ok(await page.locator(".setttl", { hasText: /one tone.*40 Hz tone, 20 mm · 4 levels/ }).count() === 1);
+  assert.ok(await page.locator(".chip", { hasText: /^tone 40 Hz$/ }).count() >= 1);
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

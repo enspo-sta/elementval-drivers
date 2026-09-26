@@ -103,7 +103,8 @@ export function badge(f) {
 export const familyByName = name => store.families.find(f => f.name === name) || null;
 
 const COND = { spl_db: v => v + " dB", spl_note: v => "level: " + v, test: v => String(v).replace(/_/g, " "), distance_mm: v => v + " mm", drive_v: v => (Array.isArray(v) ? v.join(" and ") : v) + " V", drive_V: v => v + " V",
-  f1: v => "f1 " + v, f2: v => "f2 " + v, ratio: v => v, x_pk_mm: v => "x̂ " + v + " mm", band: v => v, angle_deg: v => v + "°",
+  f1: v => "f1 " + v + (typeof v === "number" ? " Hz" : ""), f2: v => "f2 " + v + (typeof v === "number" ? " Hz" : ""), f0: v => "tone " + v + " Hz",
+  ratio: v => v, x_pk_mm: v => "peak excursion " + v + " mm", band: v => v, angle_deg: v => v + "°",
   hpf: v => v, lab: v => v, test: v => v, standard: v => v, space: v => v, ref: v => "re " + v, ref_spl_db: v => "ref " + v + " dB" };
 export function condChips(c, source) {
   if (!c || typeof c !== "object") c = c ? { note: c } : {};
