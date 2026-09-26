@@ -316,8 +316,8 @@ function completenessHtml(d) {
   if (!r) return "";
   const s = r.summary || {};
   const head = r.page
-    ? `${s.published} chart${s.published !== 1 ? "s" : ""} on its HiFiCompass page · ${s.stored} stored` + (s.by_hand ? ` · ${s.by_hand} by hand` : "") + ` · ${s.missing} not stored` +
-      (s.premium_only ? ` · ${s.premium_only} shown only to HiFiCompass Premium accounts` : "")
+    ? `${s.published} chart${s.published !== 1 ? "s" : ""} on its HiFiCompass page · ${s.stored} stored` + (s.by_hand ? ` · ${s.by_hand} by hand` : "") + ` · ${(s.missing || 0) + (s.premium_only || 0)} not stored` +
+      (s.premium_only ? ` (${s.premium_only} of them shown only to HiFiCompass Premium accounts)` : "")
     : r.page_note || "no HiFiCompass measurement page for this exact variant";
   const dsMiss = (r.datasheet_kinds || []).filter(x => !x.stored);
   let body = "";
@@ -328,7 +328,7 @@ function completenessHtml(d) {
     body += `<div class="tscroll"><table class="dtable ctab cmpl"><thead><tr><th>Chart</th><th>On the page</th><th>Stored</th><th>Not stored, why</th></tr></thead><tbody>${Object.entries(kinds).map(([label, k]) =>
       `<tr><td>${esc(label)}</td><td>${k.stored + k.hand + k.missing}</td><td>${k.stored}${k.hand ? ` + ${k.hand} by hand` : ""}</td><td>${k.missing ? `${k.missing}: ${esc([...k.why].join("; "))}` : "—"}</td></tr>`).join("")}</tbody></table></div>`;
     const miss = r.charts.filter(c => c.state === "missing" || c.state === "premium only");
-    if (miss.length) body += `<details class="conds"><summary>The ${miss.length} chart${miss.length !== 1 ? "s" : ""} not stored</summary><ul class="how">${miss.map(c =>
+    if (miss.length) body += `<details class="conds"><summary>The ${miss.length} chart${miss.length !== 1 ? "s" : ""} not stored${s.premium_only ? ` (${s.premium_only} of them Premium only)` : ""}</summary><ul class="how">${miss.map(c =>
       `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.file)}</a> · ${esc(c.label)}${c.volts != null ? " · " + esc(c.volts) + " V" : ""}${c.state === "premium only" ? " · Premium only" : ""}</li>`).join("")}</ul></details>`;
   }
   if (r.datasheet_kinds) body += `<p class="dim">Purifi datasheet figures: ${r.datasheet_kinds.map(x => `${esc(x.what)} ${x.stored ? "stored" : "<b>not stored</b>"}`).join(" · ")}</p>`;

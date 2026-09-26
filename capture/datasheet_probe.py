@@ -99,16 +99,20 @@ NUM = re.compile(r"^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$")
 
 
 def table_of(text):
-    """A measurement file's rows of numbers exactly as printed (frequency, dB, phase; or frequency, ohm, phase),
-    and the lines before them (the file's header: names the angle, the distance, the units)."""
-    head, rows = [], []
+    """A measurement file's rows of numbers (frequency and level, or frequency and ohm; the phase column is counted,
+    not kept), written to the precision the database stores (six significant digits of frequency, 0.001 of a unit):
+    the committed result holds the numbers the importer needs, not a copy of the file. Also the lines before the rows
+    (the header: names the angle, the distance, the units), the file's column count and the most decimals it prints."""
+    head, rows, columns, digits = [], [], 0, 0
     for ln in text.splitlines():
         cells = [c for c in re.split(r"[\s,;]+", ln.strip()) if c]
         if len(cells) >= 2 and all(NUM.match(c) for c in cells):
-            rows.append([float(c) for c in cells])
+            columns = max(columns, len(cells))
+            digits = max(digits, *(len(c.split(".")[1]) if "." in c else 0 for c in cells[:2]))
+            rows.append([float(f"{float(cells[0]):.6g}"), round(float(cells[1]), 3)])
         elif ln.strip() and not rows:
             head.append(ln.strip()[:200])
-    return head[:20], rows
+    return head[:20], rows, columns, digits
 
 
 def probe_data(data, name):
@@ -121,11 +125,11 @@ def probe_data(data, name):
                     continue
                 if not re.search(r"\.(frd|zma|txt|csv|dat)$", info.filename, re.I):
                     files.append({"name": info.filename, "skipped": "not a measurement file"}); continue
-                head, rows = table_of(z.read(info).decode("latin-1"))
-                files.append({"name": info.filename, "header": head, "rows": rows})
+                head, rows, cols, digits = table_of(z.read(info).decode("latin-1"))
+                files.append({"name": info.filename, "header": head, "columns": cols, "digits": digits, "rows": rows})
     else:
-        head, rows = table_of(data.decode("latin-1"))
-        files.append({"name": name, "header": head, "rows": rows})
+        head, rows, cols, digits = table_of(data.decode("latin-1"))
+        files.append({"name": name, "header": head, "columns": cols, "digits": digits, "rows": rows})
     return files
 
 
@@ -138,7 +142,7 @@ def probe_page(url, last):
     out = {"url": url, "title": strip((re.search(r"(?is)<title>(.*?)</title>", t) or [None, ""])[1]),
            "headings": [strip(h) for h in re.findall(r"(?is)<h[1-4][^>]*>(.*?)</h[1-4]>", t)][:80],
            "images": [], "data_links": [],
-           "text": body[:30000],
+           "text": " ".join(m.group(0) for m in re.finditer(r"Frequency Response data is generated[^.]*\.[^.]*\.[^.]*?Data is represented at [^.]*\.[^.]*\.?", body))[:1500],
            "angle_sentences": sorted({m.strip()[:300] for m in re.findall(r"[^.]*\b(?:off[- ]?axis|horizontal|vertical|polar|directivity|spinorama|degrees?)\b[^.]*\.", body, re.I)})[:60]}
     for m in re.finditer(r"(?is)<img\b([^>]*)>", t):
         attrs = dict((k.lower(), html.unescape(v)) for k, v in re.findall(r'([\w-]+)=["\']([^"\']*)["\']', m.group(1)))
@@ -182,9 +186,21 @@ def describe_image(path):
         out["plot_error"] = f"{type(e).__name__}: {e}"
     try:
         import chart_read as CR
-        rec = CR.read_chart(path, "off-axis-read")
-        out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration")}
-        out["off_axis_read"]["curves"] = [{k: c.get(k) for k in ("colour", "name", "columns", "lines_per_column", "gaps", "points")} for c in rec.get("curves", [])]
+        # text printed inside the plot is not a curve: the caption ('Mean SPL = 89.1dB (300 - 1000Hz @ 0°)'), a blue
+        # 'F3= 54Hz' note, and the legend's labels with the line drawn beside each ('0°', '15°', ...)
+        g = out.get("grid") or [[], []]
+        mask = []
+        if g[0] and g[1]:
+            gx0, gx1, gy0, gy1 = g[1][0][0], g[1][-1][1], g[0][0][0], g[0][-1][1]
+            for wd in words:
+                cx, cy = wd["x"] + wd["w"] / 2, wd["y"] + wd["h"] / 2
+                if gx0 < cx < gx1 and gy0 < cy < gy1:
+                    extra = 72 if re.match(r"^\d{1,2}°", wd["text"]) else 0      # the legend line left of an angle
+                    mask.append([wd["x"] - 3 - extra, wd["y"] - 3, wd["x"] + wd["w"] + 3, wd["y"] + wd["h"] + 3])
+        out["mask"] = mask
+        rec = CR.read_chart(path, "off-axis-read", mask=mask)
+        out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration", "plot_floor_row", "masked")}
+        out["off_axis_read"]["curves"] = [{k: c.get(k) for k in ("colour", "name", "columns", "lines_per_column", "gaps", "points", "clipped_top", "clipped_bottom", "on_curve")} for c in rec.get("curves", [])]
     except Exception as e:  # noqa: BLE001
         out["off_axis_read"] = {"error": f"{type(e).__name__}: {e}"}
     out["legend_swatches"] = legend_swatches(img, words, bg)
@@ -221,13 +237,28 @@ def legend_swatches(img, words, bg_hex):
     return out
 
 
+KEEP = re.compile(r"Setup:|Microphone:|Stimulus:|Gating|^Figure \d+|SPL ?@|Minimum impedance|Maximum impedance|Resonance freq|DC resistance|"
+                  r"\(rev\.|\(v\d|Polar angles|Listening Window", re.I)
+
+
+def excerpt(text):
+    """The lines of a datasheet page the importer reads (measurement conditions, figure captions, sensitivity,
+    impedance and resonance lines, the version), each with the two lines after it: not the page's whole text."""
+    lines = [re.sub(r"[ \t]+", " ", x).strip() for x in text.splitlines()]
+    keep = set()
+    for i, ln in enumerate(lines):
+        if KEEP.search(ln):
+            keep.update(range(i, min(len(lines), i + 3)))
+    return "\n".join(lines[i] for i in sorted(keep))[:3000]
+
+
 def probe_pdf(path):
     import pymupdf
     doc = pymupdf.open(str(path))
     out = {"pages": len(doc), "metadata": {k: v for k, v in (doc.metadata or {}).items() if v}, "page": []}
     for i, page in enumerate(doc, start=1):
         text = page.get_text()
-        rec = {"page": i, "text": re.sub(r"[ \t]+", " ", text).strip()[:4000], "size": [round(page.rect.width, 1), round(page.rect.height, 1)]}
+        rec = {"page": i, "text": excerpt(text), "size": [round(page.rect.width, 1), round(page.rect.height, 1)]}
         rec["images"] = len(page.get_images())  # a figure drawn as a picture has no vector lines to read
         ticks = []
         for w in page.get_text("words"):
@@ -273,6 +304,15 @@ def main():
     ap.add_argument("--keep", help="a directory to keep chart images in (a one-day workflow artifact, never committed)")
     a = ap.parse_args()
     lines = [x.strip() for x in (ROOT / "capture" / "datasheet_request.txt").read_text().splitlines() if x.strip() and not x.startswith("#")]
+    # a line too short for its form is reported and skipped, never a crash after the downloads
+    def well_formed(ln):
+        p_ = ln.split()
+        need = 3 if p_[0] in SITES or p_[0] == "image" else 2
+        if len(p_) < need:
+            print(f"request line skipped (needs {need} words): {ln}", flush=True)
+            return False
+        return True
+    lines = [x for x in lines if well_formed(x)]
     # "image record-id ADDRESS": a chart image kept for a look (--keep), with its size and colours noted here
     images = [x.split()[1:3] for x in lines if x.split()[0] == "image"]
     lines = [x for x in lines if x.split()[0] != "image"]
@@ -283,7 +323,9 @@ def main():
         lines = [x for x in lines if x.split()[0] in want]
         pages = [x for x in pages if x[1] in want]
     prev = Path(a.out)
-    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
+    before = json.loads(prev.read_text()) if prev.exists() else {}
+    # the drivers, pages and images requested this run replace their own earlier results; the others stay
+    out = {"date": dt.date.today().isoformat(), "drivers": before.get("drivers", {}), "pages": before.get("pages", {})}
     last = [0.0]
     log = lambda m: print(m, flush=True)
     urls = None
@@ -325,7 +367,6 @@ def main():
                 log(f"  data {ln_['label']}: {type(e).__name__}: {e}")
         out["drivers"][did] = rec
     site_urls = {}
-    out.setdefault("pages", {})
     for site, did, model, *given in pages:
         if site not in site_urls:
             site_urls[site] = sitemap_urls(SITES[site], last, log) | set()
@@ -353,7 +394,8 @@ def main():
             for im in rec.get("images", []):
                 if re.search(r"FRonoffaxis|FRnormalized|FR_Linearity", im.get("alt", "")):
                     wanted.append((did, im["src"]))
-    out["images"] = []
+    fresh_ids = {did for did, _ in wanted}
+    out["images"] = [i for i in before.get("images", []) if i.get("id") not in fresh_ids]
     for did, u in wanted:
         try:
             parts_ = urllib.parse.urlsplit(u)

@@ -66,7 +66,9 @@ def main():
     # a picture that several drivers' pages share is not a chart of one driver: on the older pages it is HiFiCompass's
     # Premium notice (read from all twelve: offaxis, nf, chd, spectra, imd, step, wf, etc, hd315_0, hd20 and the on-axis and
     # impedance pictures, on 26 September 2026: "This data is only available to users with a Premium account")
-    shared = Counter(link for pg in pages.values() for link in {im["original"].split("?")[0] for im in pg.get("charts", [])})
+    # counted per model, not per page: a driver's own chart on its Russian and English pages is not shared
+    shared = Counter(link for link, _ in {(im["original"].split("?")[0], model) for model, rec_ in inv["models"].items()
+                                          for pg in rec_.get("pages", []) for im in pg.get("charts", [])})
     out = {"date": dt.date.today().isoformat(), "inventory_date": inv.get("date"), "drivers": {}}
     for d in db["drivers"]:
         # a proxy or a pair is made from another record: it has no measurement page of its own
@@ -94,13 +96,15 @@ def main():
                 older = name.lower().endswith((".jpg", ".jpeg"))       # the older one-image-per-quantity template
                 if name in files:
                     c["state"] = "stored"
-                elif HAND_KINDS.get(t, set()) & by_hand:
-                    c["state"] = "by hand"
-                    c["why"] = "a hand-captured set of this kind exists; it does not name the chart it came from"
                 elif shared[link] > 1 and re.search(r"/sites/default/files/[^/]+$", link):
                     c["state"] = "premium only"
                     c["why"] = (f"the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium "
                                 f"account'), the same picture on {shared[link]} drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)")
+                    if HAND_KINDS.get(t, set()) & by_hand:
+                        c["why"] += "; a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
+                elif HAND_KINDS.get(t, set()) & by_hand:
+                    c["state"] = "by hand"
+                    c["why"] = "a hand-captured set of this kind exists; it does not name the chart it came from"
                 else:
                     c["state"] = "missing"
                     if older and "castom_img_zamer" in link:

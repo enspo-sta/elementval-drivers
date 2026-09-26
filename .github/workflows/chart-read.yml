@@ -31,16 +31,10 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
           python3 -m pip install -q pillow numpy
       - name: Read the charts
+        shell: bash   # pipefail: a crash of the script fails the step (tee alone would hide it)
         env:
           READ_LIMIT: ${{ vars.READ_LIMIT || 0 }}
-        run: python3 capture/chart_read.py --limit "$READ_LIMIT" --keep /tmp/charts | tee -a "$GITHUB_STEP_SUMMARY"
-      - name: Keep the images one day as an artifact (never committed; lets the reader be tuned offline)
-        uses: actions/upload-artifact@v4
-        with:
-          name: charts
-          path: /tmp/charts
-          retention-days: 1
-          if-no-files-found: ignore
+        run: python3 capture/chart_read.py --limit "$READ_LIMIT" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit the results
         run: |
           FILES="capture/chart_read.json"

@@ -1,8 +1,6 @@
 # record id, then its HiFiCompass page when the record has none of its own
 # the drivers to read in the next run; every other driver's results stay in chart_read.json
 # (capture/chart_read_request_all.txt lists every automatically read driver)
-# the off-axis charts of every automatically read driver
-types: off-axis
 sb-satori-mr16tx-8
 m74a-6
 t25a-6

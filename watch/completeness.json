@@ -550,7 +550,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -558,7 +558,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -566,23 +566,23 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "chd.jpg",
@@ -590,7 +590,7 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -598,7 +598,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
@@ -606,7 +606,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -614,7 +614,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -622,7 +622,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -630,7 +630,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -638,7 +638,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -651,9 +651,9 @@
    "summary": {
     "published": 15,
     "stored": 0,
-    "by_hand": 2,
+    "by_hand": 0,
     "missing": 3,
-    "premium_only": 10,
+    "premium_only": 12,
     "missing_by_type": {
      "gallery picture": 3
     }
@@ -669,7 +669,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -677,7 +677,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -685,23 +685,23 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "chd.jpg",
@@ -709,23 +709,23 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -733,7 +733,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -741,7 +741,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -749,7 +749,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -757,7 +757,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -770,9 +770,9 @@
    "summary": {
     "published": 12,
     "stored": 0,
-    "by_hand": 4,
+    "by_hand": 0,
     "missing": 0,
-    "premium_only": 8,
+    "premium_only": 12,
     "missing_by_type": {}
    }
   },
@@ -1792,7 +1792,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -1800,7 +1800,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -1808,7 +1808,7 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -1816,7 +1816,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
@@ -1824,7 +1824,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
@@ -1832,23 +1832,23 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -1856,7 +1856,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -1864,7 +1864,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -1872,7 +1872,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -1880,7 +1880,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -1893,9 +1893,9 @@
    "summary": {
     "published": 12,
     "stored": 0,
-    "by_hand": 2,
+    "by_hand": 0,
     "missing": 0,
-    "premium_only": 10,
+    "premium_only": 12,
     "missing_by_type": {}
    }
   },
@@ -2378,7 +2378,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -2386,7 +2386,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -2394,23 +2394,23 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md); a hand-captured set of this kind is stored (from an earlier capture; it does not name the chart)"
     },
     {
      "file": "chd.jpg",
@@ -2418,7 +2418,7 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -2426,7 +2426,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
@@ -2434,7 +2434,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -2442,7 +2442,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -2450,7 +2450,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -2458,7 +2458,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -2466,7 +2466,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -2479,9 +2479,9 @@
    "summary": {
     "published": 12,
     "stored": 0,
-    "by_hand": 2,
+    "by_hand": 0,
     "missing": 0,
-    "premium_only": 10,
+    "premium_only": 12,
     "missing_by_type": {}
    }
   },
@@ -5111,7 +5111,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -5119,7 +5119,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -5127,7 +5127,7 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -5135,7 +5135,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
@@ -5143,7 +5143,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
@@ -5151,7 +5151,7 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -5159,7 +5159,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
@@ -5167,7 +5167,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -5175,7 +5175,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -5183,7 +5183,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -5191,7 +5191,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -5199,7 +5199,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -5972,7 +5972,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -5980,7 +5980,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -5988,7 +5988,7 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -5996,7 +5996,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
@@ -6004,7 +6004,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
@@ -6012,7 +6012,7 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -6020,7 +6020,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
@@ -6028,7 +6028,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -6036,7 +6036,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -6044,7 +6044,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -6052,7 +6052,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -6060,7 +6060,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -6089,7 +6089,7 @@
      "type": "response",
      "label": "on-axis response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
@@ -6097,7 +6097,7 @@
      "type": "off-axis",
      "label": "off-axis",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
@@ -6105,7 +6105,7 @@
      "type": "near-field",
      "label": "near field",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -6113,7 +6113,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
@@ -6121,7 +6121,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
@@ -6129,7 +6129,7 @@
      "type": "current",
      "label": "current distortion",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -6137,7 +6137,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
@@ -6145,7 +6145,7 @@
      "type": "intermodulation",
      "label": "intermodulation",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
@@ -6153,7 +6153,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
@@ -6161,7 +6161,7 @@
      "type": "step",
      "label": "step response",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
@@ -6169,7 +6169,7 @@
      "type": "waterfall",
      "label": "waterfall",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
@@ -6177,7 +6177,7 @@
      "type": "etc",
      "label": "energy-time",
      "state": "premium only",
-     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 6 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [

@@ -143,10 +143,13 @@ def main():
             page = f" Page: <{known}> (what it offers: `capture/inventory.md`)." if known and fam in (page_fams or [fam]) else ""
             lines.append(f"- **{d['name']}** (`{d['id']}`), {fam}: stored {', '.join(have) or 'nothing'}.{page}")
             lines.append(f"  Add{' (' + prefix.rstrip(': ') + ')' if prefix else ''}: {'; '.join(missing) if missing else 'check every drive level is stored, as measured'}.")
-            prem = ((completeness.get(d["id"]) or {}).get("summary") or {}).get("premium_only") if fam == "HiFiCompass" else 0
+            # the Premium-only charts the database stores (step response, waterfall and energy-time are not frequency curves it keeps)
+            prem = [c for c in ((completeness.get(d["id"]) or {}).get("charts") or []) if c.get("state") == "premium only"
+                    and c.get("type") not in ("step", "waterfall", "etc")] if fam == "HiFiCompass" else []
             if prem:
-                lines.append(f"  HiFiCompass shows {prem} of this page's charts only to Premium accounts (a notice picture in their place, "
-                             "`watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).")
+                lines.append(f"  HiFiCompass shows {len(prem)} of this page's charts that the database keeps ({', '.join(sorted({c['label'] for c in prem}))}) "
+                             "only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium "
+                             "(`capture/CHROME_CAPTURE.md`, the section on Premium charts).")
 
     week = int(dt.date.today().strftime("%G%V"))
     pool = [d for d in db["drivers"] if any((families_of(m.get("source"), cfg) or [""])[0] in ("HiFiCompass", "Manufacturer datasheet") for m in d["measurements"])]

@@ -32,6 +32,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Read the pages
+        shell: bash   # pipefail: a crash of the script fails the step (tee alone would hide it)
         env:
           MODELS: ${{ inputs.models }}
         run: |

@@ -226,7 +226,10 @@ class CutOffCurves(unittest.TestCase):
         except ImportError as e:
             raise unittest.SkipTest(str(e))
         kept, n = CR.off_top([(1, 36.0), (2, 36.5), (3, 40.0), (4, 80.0)], 36)
-        self.assertEqual((kept, n), ([(3, 40.0), (4, 80.0)], 2))
+        self.assertEqual((kept, n), ([(3, 40.0), (4, 80.0)], (2, 0)))
+        # and on the floor line: bottom_edge is the last pixel row above it
+        kept, n = CR.off_top([(1, 36.0), (3, 40.0), (4, 79.0), (5, 80.0)], 36, 80)
+        self.assertEqual((kept, n), ([(3, 40.0), (4, 79.0)], (1, 1)))
 
 
 class DatasheetFiles(unittest.TestCase):
@@ -289,7 +292,8 @@ class DatasheetFiles(unittest.TestCase):
         self.assertIn("what 1 V gives", kinds["frequency-response"]["note"])
         zp = kinds["impedance"]["series"][0]["points"]
         self.assertLess(zp[0]["x"], zp[1]["x"])  # close low frequencies stay apart
-        self.assertEqual(kinds["impedance"]["conditions"]["drive_v"], 2.83)
+        self.assertNotIn("drive_v", kinds["impedance"]["conditions"])   # the file does not state it; the figure's caption is not proof
+        self.assertIn("drawn at 2.83 V", kinds["impedance"]["note"])
         self.assertIn("4.21 ohm at 300 Hz, the datasheet states 4.2 ohm", kinds["impedance"]["note"])
 
 
@@ -323,3 +327,58 @@ class PageCharts(unittest.TestCase):
     def test_gaps(self):
         pts = [{"x": 100.0 * 2 ** (i / 24), "y": 0} for i in range(24)] + [{"x": 400.0, "y": 0}]
         self.assertEqual(len(self.S.gaps_of(pts)), 1)
+
+
+class ChartFloor(unittest.TestCase):
+    """capture/chart_read.py reads down to the chart's floor line (the black bottom frame, one grid step below the
+    last grey grid row), not only to the last grey row: a harmonic at -98 dB on a chart ending at -100 dB is read."""
+
+    def test_curve_in_the_bottom_row(self):
+        import shutil
+        if not shutil.which("tesseract"):
+            raise unittest.SkipTest("tesseract is not installed")
+        try:
+            from PIL import Image, ImageDraw, ImageFont
+            sys.path.insert(0, str(ROOT / "capture"))
+            import chart_read as CR
+        except ImportError as e:
+            raise unittest.SkipTest(str(e))
+        im = Image.new("RGB", (1276, 635), (0, 224, 0))
+        d = ImageDraw.Draw(im)
+        font = ImageFont.load_default(size=18)
+        x0, x1, rows = 80, 1240, list(range(60, 589, 33))
+        for i, y in enumerate(rows):
+            d.line((x0, y, x1, y), fill=(0, 0, 0) if y in (rows[0], rows[-1]) else (128, 128, 128))
+            d.text((20, y - 9), str(-20 - 5 * i), fill=(0, 0, 0), font=font)
+        lx = lambda f: x0 + (math.log10(f) - math.log10(20)) / 3 * (x1 - x0)
+        for f in (20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000,
+                  6000, 7000, 8000, 9000, 10000, 20000):
+            d.line((round(lx(f)), rows[0], round(lx(f)), rows[-1]), fill=(128, 128, 128))
+        for f, label in ((20, "20"), (100, "100"), (1000, "1k"), (10000, "10k"), (20000, "20k")):
+            d.text((round(lx(f)) - 10, rows[-1] + 12), label, fill=(0, 0, 0), font=font)
+        curve = lambda f: -40 - 58 * math.exp(-((math.log10(f) - 2.3) ** 2) / 0.05)    # dips to -98 dB near 200 Hz
+        ydb = lambda v: rows[0] + (-20 - v) / 5 * 33
+        d.line([(lx(20 * 10 ** (i / 400 * 3)), ydb(curve(20 * 10 ** (i / 400 * 3)))) for i in range(401)], fill=(255, 0, 0), width=2)
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / "synthetic_315mm_4v_hpf2-60.png"
+            im.save(p)
+            rec = CR.read_chart(p, "harmonics")
+        self.assertEqual(rec.get("plot_floor_row"), rows[-1])
+        red = [c for c in rec["curves"] if c["colour"] == "#f80808"]
+        self.assertTrue(red, rec.get("skipped"))
+        low = min(red[0]["points"], key=lambda q: q["y"])
+        self.assertLess(low["y"], -97)                       # below -95 dB: the row the reader used to cut off
+        self.assertAlmostEqual(low["y"], curve(low["x"]), delta=0.5)
+
+
+class DatabaseLayout(unittest.TestCase):
+    """watch/common.py dumps_db: each curve's points on one line, the same data back."""
+
+    def test_round_trip(self):
+        sys.path.insert(0, str(ROOT / "watch"))
+        from common import dumps_db
+        db = {"drivers": [{"id": "x", "note": "a \u0000 NUL, \"quotes\", the word points", "measurements": [
+            {"series": [{"name": "0°", "points": [{"x": 20.0, "y": -1.5}, {"x": 40.0, "y": None}]}]}, {"series": [{"points": []}]}]}]}
+        text = dumps_db(db)
+        self.assertEqual(json.loads(text), db)
+        self.assertIn('"points": [{"x":20.0,"y":-1.5},{"x":40.0,"y":null}]', text)

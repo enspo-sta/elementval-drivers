@@ -179,8 +179,9 @@ function render() {
     // off axis: each way's driver's measured response at the angle relative to its own on-axis response
     const dirs = chosen.map(c => (sim.a ? dirOf(c, sim.a) : null));
     if (sim.a) chosen.forEach((c, i) => {
-      const f = dirs[i] && dirs[i].set ? familyOf(dirs[i].set) : null;
-      if (f && f.name !== c.e.family.name) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}): ${esc(c.e.family.name)} has no off-axis measurement of this driver at ${sim.a}°, so its response at that angle comes from ${esc(f.name)}.`);
+      if (!dirs[i] || !dirs[i].set) return;
+      const f = familyOf(dirs[i].set);
+      if (!f || f.name !== c.e.family.name) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}): ${esc(c.e.family.name)} has no off-axis measurement of this driver at ${sim.a}°, so its response at that angle comes from ${esc(f ? f.name : "a set of unknown source (" + (dirs[i].set.source || "no source named") + ")")}.`);
     });
     if (sim.a) chosen.forEach((c, i) => { if (!dirs[i]) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) has no off-axis measurement at ${sim.a}°: where it plays, the speaker's output and distortion at ${sim.a}° are unknown (dashed or empty).`); });
     let fLo = Math.max(20, chosen[0].lo), fHi = Math.min(20000, chosen[sim.n - 1].hi);

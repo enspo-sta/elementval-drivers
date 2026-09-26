@@ -75,6 +75,10 @@ def fmt_hz(f):
     return f"{f / 1000:.1f} kHz" if f >= 1000 else f"{f:.0f} Hz"
 
 
+def signed(v):
+    return "0.0" if abs(v) < 0.05 else f"{v:+.1f}"
+
+
 def chart_series(img):
     """[(angle, colour, points, columns)] from one image's reading, each angle's curve chosen by its legend colour."""
     ds = img.get("describe", {})
@@ -143,13 +147,14 @@ def build(probe, db):
             for a, _, p, _ in read["off-axis-normalized"][2]:
                 if a and p:
                     rel.setdefault(a, {})["norm"] = curve_fn(p)
-        grid = [100 * 2 ** (i / 6) for i in range(61)]
+        grid = [20 * 2 ** (i / 6) for i in range(60)]          # 20 Hz to 20 kHz, the charts' span
         agree = {}
         for a, d in rel.items():
             if "abs" in d and "norm" in d:
-                diffs = [abs(d["abs"](x) - d["norm"](x)) for x in grid if d["abs"](x) is not None and d["norm"](x) is not None]
-                if len(diffs) >= 5:
-                    agree[a] = (statistics.median(diffs), len(diffs))
+                both = [(x, abs(d["abs"](x) - d["norm"](x))) for x in grid if d["abs"](x) is not None and d["norm"](x) is not None]
+                if len(both) >= 5:
+                    worst = max(both, key=lambda t: t[1])
+                    agree[a] = (statistics.median(t[1] for t in both), len(both), both[0][0], both[-1][0], worst)
         for kind, (img, name, ser) in read.items():
             o = img["describe"]["off_axis_read"]
             cal = o.get("calibration") or {}
@@ -161,11 +166,16 @@ def build(probe, db):
                          ", ".join(f"{a}° {c}" for a, c, _, _ in ser))
             for a, c, p, cols in ser:
                 g = gaps_of(p) if p else []
+                cv = next((x for x in (img["describe"]["off_axis_read"].get("curves") or []) if x.get("points") is p), {})
+                if cv.get("clipped_bottom"):
+                    parts.append(f"{a}°: lies on the chart's floor line in {cv['clipped_bottom']} pixel column(s): below the chart there, left out")
+                if cv.get("clipped_top"):
+                    parts.append(f"{a}°: lies on the chart's top line in {cv['clipped_top']} pixel column(s): above the chart there, left out")
                 if not p:
                     parts.append(f"{a}°: its {c} line was not found in the chart (hidden under the others or drawn as a grid line); not stored")
                 elif g:
-                    parts.append(f"{a}°: not visible between " + ", ".join(f"{fmt_hz(x)} and {fmt_hz(y)}" for x, y in g[:6]) +
-                                 (" and elsewhere" if len(g) > 6 else "") + " (hidden under another line; no points there)")
+                    parts.append(f"{a}°: no points between " + ", ".join(f"{fmt_hz(x)} and {fmt_hz(y)}" for x, y in g[:6]) +
+                                 (" and elsewhere" if len(g) > 6 else "") + " (hidden under another line, or below the chart's floor)")
             if kind == "off-axis":
                 pm = printed_mean(img)
                 zero = next((p for a, _, p, _ in ser if a == 0 and p), None)
@@ -173,10 +183,11 @@ def build(probe, db):
                     ys = [q["y"] for q in zero if 300 <= q["x"] <= 1000]
                     if ys:
                         got = sum(ys) / len(ys)
-                        parts.append(f"check: the 0° curve's mean from 300 to 1000 Hz reads {got:.1f} dB; the chart prints 'Mean SPL = {pm:.1f}dB' ({got - pm:+.1f} dB)")
+                        parts.append(f"check: the 0° curve's mean from 300 to 1000 Hz reads {got:.1f} dB; the chart prints 'Mean SPL = {pm:.1f}dB' ({signed(got - pm)} dB)")
             for a in sorted(agree):
-                med, n = agree[a]
-                parts.append(f"{a}° relative to 0°, the sound-pressure chart against the normalized chart (median difference, 100 Hz to 20 kHz where both have points): {med:.2f} dB")
+                med, n, lo, hi, worst = agree[a]
+                parts.append(f"{a}° relative to 0°, the sound-pressure chart against the normalized chart, at {n} sixth-octave frequencies from "
+                             f"{fmt_hz(lo)} to {fmt_hz(hi)} where both have points: median difference {med:.2f} dB, largest {worst[1]:.1f} dB at {fmt_hz(worst[0])}")
             series = [{"name": f"{a}°", "points": [{"x": q["x"], "y": q["y"]} for q in p]} for a, _, p, _ in ser if p]
             angles = [a for a, _, p, _ in ser if p]
             y_label = ("Level relative to on axis", "dB re 0°") if kind == "off-axis-normalized" else ("SPL", "dB")

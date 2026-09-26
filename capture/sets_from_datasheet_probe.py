@@ -84,11 +84,12 @@ def build(probe, db):
             if len(angles) < 2 or 0 not in angles:
                 skipped.append((did, f"{dl['label']}: {'no off-axis files (on axis only)' if len(angles) < 2 else 'no 0° file'}")); continue
             series, zero_rows, phase = [], 0, False
+            digits = max((f.get("digits") or 0) for f in files)
             for a in angles:
                 f = next(x for x in files if angle_of(x["name"]) == a)
                 pts = [{"x": fx(r[0]), "y": round(r[1], 3)} for r in f["rows"] if r[0] > 0]
                 zero_rows += sum(1 for r in f["rows"] if r[0] <= 0)
-                phase = phase or any(len(r) > 2 for r in f["rows"])
+                phase = phase or (f.get("columns") or max(len(r) for r in f["rows"])) > 2
                 series.append({"name": f"{a}°", "points": pts})
             cond, text = conditions_text(rec.get("page", []))
             sens = stated_sensitivity(text)
@@ -105,17 +106,18 @@ def build(probe, db):
             model = rec["model"]
             steps = sorted({b - a for a, b in zip(angles, angles[1:])})
             spacing = zero[1]["x"] - zero[0]["x"] if len(zero) > 1 else 0
-            linear = len(zero) > 3 and abs((zero[2]["x"] - zero[1]["x"]) - spacing) < 1e-6 and spacing > 10
+            linear = len(zero) > 3 and spacing > 10 and abs((zero[2]["x"] - zero[1]["x"]) - spacing) < 1e-3 * spacing
             parts = [f"Purifi's measured files from the data download beside the datasheet ({dl['label']}, {dl['href']}): "
                      f"horizontal angles {angles[0]}° to {angles[-1]}°" + (f" in {steps[0]}° steps" if len(steps) == 1 else f" ({', '.join(str(a) + '°' for a in angles)})"),
-                     "the rows as the files print them, written to six significant digits of frequency and 0.001 dB (the files print up to 15 digits, far finer than any measurement)"]
+                     f"the files run from {zero[0]['x']:g} Hz to {zero[-1]['x']:g} Hz",
+                     "the rows as the files print them" + (f", written to six significant digits of frequency and 0.001 dB (the files print up to {digits} decimals, far finer than any measurement)" if digits > 3 else "")]
             if cond.get("setup"):
                 parts.append(f"datasheet's measurement conditions: {cond['setup']}; microphone: {cond.get('microphone', 'not stated')}; "
                              f"stimulus: {cond.get('stimulus', 'not stated')}; gating and smoothing: {cond.get('gating', 'not stated')}")
             elif cond.get("figure"):
                 parts.append(f"the datasheet's conditions for its responses: {cond['figure']}; infinite baffle (2π), as its sensitivity line says")
             if header and "dBV" in " ".join(header):
-                parts.append(f"the files' header names the level column 'dBV'; the levels match the stated sensitivity, so they are sound pressure in dB")
+                parts.append("the files' header names the level column 'dBV'; the levels match the stated sensitivity at 2.83 V, so they are sound pressure in dB")
             if linear:
                 parts.append(f"the files have {len(zero)} frequencies {spacing:.1f} Hz apart (a linear spacing), so below about 1 kHz there are few points")
             if check:
@@ -165,8 +167,10 @@ def build_others(probe, db):
                 name = f["name"]
                 pts = [r for r in f["rows"] if r[0] > 0]
                 left = [x for x in (("the row at 0 Hz (no place on a logarithmic frequency axis)" if len(pts) < len(f["rows"]) else ""),
-                                    ("the phase column (not drawn)" if any(len(r) > 2 for r in pts) else "")) if x]
-                tail = "; the rows as the file prints them, written to six significant digits of frequency and 0.001 of a unit" + ("; left out: " + " and ".join(left) if left else "")
+                                    ("the phase column (not drawn)" if (f.get("columns") or max(len(r) for r in pts)) > 2 else "")) if x]
+                tail = (f"; the file runs from {fx(pts[0][0]):g} Hz to {fx(pts[-1][0]):g} Hz; the rows as the file prints them" +
+                        (f", written to six significant digits of frequency and 0.001 of a unit (the file prints up to {f.get('digits')} decimals)" if (f.get("digits") or 0) > 3 else "") +
+                        ("; left out: " + " and ".join(left) if left else ""))
                 if re.search(r"\bZ\b|ZMA|Ohm|Zmag", name + " " + head) and angle_of(name) is None:
                     m = re.search(r"Impedance Response @ ?([\d.]+) ?V", text)
                     zmin = re.search(r"Minimum impedance above resonance\s*\n\s*([\d.]+)", text)
@@ -177,14 +181,24 @@ def build_others(probe, db):
                         low = min(above, key=lambda r: r[1]) if above else None
                         if low:
                             check = f"; check: the file's lowest impedance above resonance is {low[1]:.2f} ohm at {low[0]:.0f} Hz, the datasheet states {zmin.group(1)} ohm"
+                    zo = re.search(r"Maximum impedance\s*\n\s*([\d.]+)", text)
+                    peak = max(pts, key=lambda r: r[1])
+                    if zo:
+                        check += f"; its peak is {peak[1]:.1f} ohm at {peak[0]:.0f} Hz, the datasheet states a maximum of {zo.group(1)} ohm"
+                    rdc = re.search(r"DC resistance(?:, R\s*DC)?\s*\n\s*([\d.]+) ?Ω", text)
+                    if rdc:
+                        under = [r for r in pts if r[1] < 0.97 * float(rdc.group(1))]
+                        if under:
+                            check += (f"; below {max(r[0] for r in under):.1f} Hz the file reads under the {rdc.group(1)} ohm DC resistance the datasheet states "
+                                      f"(down to {min(r[1] for r in under):.2f} ohm): not possible for a voice coil, so a measurement artefact at the lowest frequencies, kept as published")
+                    # the drive level is not stated for the file: the figure's caption names one, but the same download's
+                    # sound-pressure file does not follow its figure's caption (it is at 1 V, the figure at 2.83 V)
                     cond = {"lab": "Purifi"}
-                    if m:
-                        cond["drive_v"] = float(m.group(1))
                     made.append((did, {
                         "type": "Impedance (Purifi's measured file)", "kind": "impedance",
                         "method": "measured file published by the manufacturer, read as numbers", "conditions": cond,
                         "source": source, "confidence": "high",
-                        "note": where + (f"; the datasheet's impedance figure is drawn at {m.group(1)} V" if m else "") + check + tail,
+                        "note": where + ("; the file does not state its drive level" + (f" (the datasheet's impedance figure is drawn at {m.group(1)} V, but the sound-pressure file of a Purifi download need not match its figure's caption)" if m else "")) + check + tail,
                         "chartType": "line", "axes": {**AXES, "y": {"label": "Impedance", "unit": "ohm"}},
                         "series": [{"name": "Z", "points": [{"x": fx(r[0]), "y": round(r[1], 3)} for r in pts]}]}))
                 elif re.search(r"SPL", name) and angle_of(name) is None:
@@ -199,7 +213,7 @@ def build_others(probe, db):
                         volts, why = 2.83, f"it reads {got:.1f} dB at {span} against {db_:.1f} dB stated at 2.83 V and 1 m ({diff:+.1f} dB)"
                     elif abs(diff - 20 * math.log10(1 / 2.83)) <= 0.5:
                         volts, why = 1.0, (f"it reads {got:.1f} dB at {span}, {abs(diff):.1f} dB under the {db_:.1f} dB stated at 2.83 V and 1 m, "
-                                           f"which is what 1 V gives (−9.0 dB); the drive is stated as 1 V from that (the file's level column is named '{head.split()[2] if len(head.split()) > 2 else head}')")
+                                           f"which is what 1 V gives (−9.0 dB); the drive is stated as 1 V from that (the file's header does not say: it names the level column 'dBV', as the 2.83 V files of other Purifi downloads do)")
                     else:
                         skipped.append((did, f"{name}: reads {got:.1f} dB against {db_:.1f} dB stated; level not known, not used")); continue
                     at1k = min(pts, key=lambda r: abs(math.log(r[0] / 1000)))[1]

@@ -30,6 +30,7 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
           python3 -m pip install -q pillow numpy
       - name: Read the charts
+        shell: bash   # pipefail: a crash of the script fails the step (tee alone would hide it)
         env:
           READ_LIMIT: ${{ vars.READ_LIMIT || 0 }}
         run: python3 capture/imd_read.py --limit "$READ_LIMIT" | tee -a "$GITHUB_STEP_SUMMARY"

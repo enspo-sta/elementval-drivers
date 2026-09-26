@@ -30,14 +30,10 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
           python3 -m pip install -q pymupdf pillow numpy
       - name: Probe the datasheets
-        run: python3 capture/datasheet_probe.py --keep /tmp/charts | tee -a "$GITHUB_STEP_SUMMARY"
-      - name: Keep the chart images one day as an artifact (never committed)
-        uses: actions/upload-artifact@v4
-        with:
-          name: charts
-          path: /tmp/charts
-          retention-days: 1
-          if-no-files-found: ignore
+        # bash runs with pipefail: a crash of the probe fails the step (tee alone would hide it). The images are
+        # described in the result as numbers and text; they are not kept (an artifact of a public repository is public)
+        shell: bash
+        run: python3 capture/datasheet_probe.py | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit the results
         run: |
           FILES="capture/datasheet_probe.json"
