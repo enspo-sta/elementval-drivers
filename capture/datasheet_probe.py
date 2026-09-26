@@ -138,6 +138,7 @@ def probe_page(url, last):
     out = {"url": url, "title": strip((re.search(r"(?is)<title>(.*?)</title>", t) or [None, ""])[1]),
            "headings": [strip(h) for h in re.findall(r"(?is)<h[1-4][^>]*>(.*?)</h[1-4]>", t)][:80],
            "images": [], "data_links": [],
+           "response_section": strip((re.search(r"(?is)On and Off-Axis Frequency Response(.*?)(?:<h[1-4][^>]*>\s*Harmonic)", t) or [None, ""])[1])[:3000],
            "angle_sentences": sorted({m.strip()[:300] for m in re.findall(r"[^.]*\b(?:off[- ]?axis|horizontal|vertical|polar|directivity|spinorama|degrees?)\b[^.]*\.", body, re.I)})[:60]}
     for m in re.finditer(r"(?is)<img\b([^>]*)>", t):
         attrs = dict((k.lower(), html.unescape(v)) for k, v in re.findall(r'([\w-]+)=["\']([^"\']*)["\']', m.group(1)))
@@ -183,10 +184,40 @@ def describe_image(path):
         import chart_read as CR
         rec = CR.read_chart(path, "off-axis-read")
         out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration")}
-        out["off_axis_read"]["curves"] = [{"colour": c.get("colour"), "name": c.get("name"), "columns": c.get("columns"), "points": len(c.get("points", [])),
-                                           "sample": c.get("points", [])[::max(1, len(c.get("points", [])) // 12)]} for c in rec.get("curves", [])]
+        out["off_axis_read"]["curves"] = [{k: c.get(k) for k in ("colour", "name", "columns", "lines_per_column", "gaps", "points")} for c in rec.get("curves", [])]
     except Exception as e:  # noqa: BLE001
         out["off_axis_read"] = {"error": f"{type(e).__name__}: {e}"}
+    out["legend_swatches"] = legend_swatches(img, words, bg)
+    return out
+
+
+def legend_swatches(img, words, bg_hex):
+    """For every printed angle ('0°', '15°', ...): the colour of the line drawn beside it (the legend's swatch),
+    looked for to the left of the label first, then to the right. Light greys and the background do not count."""
+    import numpy as np
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    h, w, _ = img.shape
+    out = []
+    for wd in words:
+        m = re.match(r"^(\d{1,2})°", wd["text"])
+        if not m:
+            continue
+        found = None
+        for side in ("left", "right"):
+            x0, x1 = (wd["x"] - 70, wd["x"] - 2) if side == "left" else (wd["x"] + wd["w"] + 2, wd["x"] + wd["w"] + 70)
+            y0, y1 = wd["y"] - 2, wd["y"] + wd["h"] + 2
+            x0, x1, y0, y1 = max(0, x0), min(w, x1), max(0, y0), min(h, y1)
+            if x1 - x0 < 5 or y1 - y0 < 3:
+                continue
+            px = img[y0:y1, x0:x1].reshape(-1, 3)
+            spread = px.max(axis=1) - px.min(axis=1)
+            keep = px[(np.abs(px - bg).sum(axis=1) >= 60) & ((spread > 60) | (px.max(axis=1) < 90))]
+            if len(keep) >= 8:
+                q = (keep // 16) * 16 + 8
+                keys, counts = np.unique(q, axis=0, return_counts=True)
+                found = {"side": side, "colour": "#%02x%02x%02x" % tuple(int(v) for v in keys[counts.argmax()]), "pixels": int(len(keep))}
+                break
+        out.append({"angle": int(m.group(1)), "text": wd["text"], "x": wd["x"], "y": wd["y"], "swatch": found})
     return out
 
 
