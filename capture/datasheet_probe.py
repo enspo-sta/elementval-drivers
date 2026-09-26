@@ -138,7 +138,7 @@ def probe_page(url, last):
     out = {"url": url, "title": strip((re.search(r"(?is)<title>(.*?)</title>", t) or [None, ""])[1]),
            "headings": [strip(h) for h in re.findall(r"(?is)<h[1-4][^>]*>(.*?)</h[1-4]>", t)][:80],
            "images": [], "data_links": [],
-           "response_section": strip((re.search(r"(?is)On and Off-Axis Frequency Response(.*?)(?:<h[1-4][^>]*>\s*Harmonic)", t) or [None, ""])[1])[:3000],
+           "text": body[:30000],
            "angle_sentences": sorted({m.strip()[:300] for m in re.findall(r"[^.]*\b(?:off[- ]?axis|horizontal|vertical|polar|directivity|spinorama|degrees?)\b[^.]*\.", body, re.I)})[:60]}
     for m in re.finditer(r"(?is)<img\b([^>]*)>", t):
         attrs = dict((k.lower(), html.unescape(v)) for k, v in re.findall(r'([\w-]+)=["\']([^"\']*)["\']', m.group(1)))
