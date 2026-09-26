@@ -337,14 +337,19 @@ function drawLevelBars(canvas, card, cols) {
       c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${c.label}`) });
 }
 
-// Points of a curve for a chart: where the source curve has a stretch without points wider than 1/6 octave (the
-// automatic reading could not see the curve there), the line breaks instead of bridging it.
+// Points of a curve for a chart: where the source curve has a stretch without points wider than 1/6 octave and
+// three times the curve's own spacing (the automatic reading could not see the curve there), the line breaks
+// instead of bridging it. A sparse hand capture (a point every 2/3 octave) is drawn whole. Same rule as Simulate.
 function withBreaks(points, log) {
+  const pts = points.map(p => ({ x: Number(p.x), y: p.y })).filter(p => p.x > 0);
+  if (!log || pts.length < 3) return pts;
+  const steps = pts.slice(1).map((p, i) => Math.log2(p.x / pts[i].x)).filter(v => v > 0).sort((a, b) => a - b);
+  const limit = Math.max(1 / 6, 3 * (steps[Math.floor(steps.length / 2)] || 0));
   const out = [];
-  points.forEach((p, i) => {
-    const prev = points[i - 1];
-    if (log && prev && prev.x > 0 && p.x > 0 && Math.log2(p.x / prev.x) > 1 / 6) out.push({ x: Math.sqrt(prev.x * p.x), y: null });
-    out.push({ x: p.x, y: p.y });
+  pts.forEach((p, i) => {
+    const prev = pts[i - 1];
+    if (prev && Math.log2(p.x / prev.x) > limit) out.push({ x: Math.sqrt(prev.x * p.x), y: null });
+    out.push(p);
   });
   return out;
 }
