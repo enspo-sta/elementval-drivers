@@ -1,0 +1,5 @@
+# record id, then its HiFiCompass page when the record has none of its own
+sb-satori-mr16tx-8
+m74a-6
+sb-satori-tw29bnwg-4
+purifi-ptt10-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02

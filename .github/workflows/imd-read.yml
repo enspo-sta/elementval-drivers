@@ -1,0 +1,56 @@
+name: Intermodulation read
+
+# Reads the two-tone intermodulation spectra of the drivers in capture/imd_read_request.txt (capture/imd_read.py).
+# Numbers only (capture/imd_read.json); no image is stored.
+on:
+  push:
+    paths:
+      - "capture/imd_read_request.txt"
+      - "capture/imd_read.py"
+      - ".github/workflows/imd-read.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: imd-read
+  cancel-in-progress: false
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr > /dev/null
+          python3 -m pip install -q pillow numpy
+      - name: Read the charts
+        env:
+          READ_LIMIT: ${{ vars.READ_LIMIT || 0 }}
+        run: python3 capture/imd_read.py --limit "$READ_LIMIT" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the results
+        run: |
+          FILES="capture/imd_read.json"
+          git add $FILES
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # this run's files are whole results and replace the committed ones outright (a merge of two runs' files
+          # mixes them): the commit is made on the branch's newest commit, the files kept in a tar meanwhile
+          tar cf /tmp/run-files.tar $FILES
+          for try in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            tar xf /tmp/run-files.tar
+            git add $FILES
+            if git diff --cached --quiet; then echo "unchanged against the branch's newest commit"; exit 0; fi
+            git commit -q -m "Intermodulation read: spectra of the requested charts"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((try * 15))
+          done
+          echo "could not push after five tries"; exit 1
