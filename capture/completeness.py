@@ -64,8 +64,8 @@ def main():
                 read[c.get("file")] = c
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec.get("pages", [])}
     # a picture that several drivers' pages share is not a chart of one driver: on the older pages it is HiFiCompass's
-    # Premium notice (read from offaxis.jpg, nf.jpg, chd.jpg, spectra.jpg, imd.jpg, step.jpg and the on-axis and
-    # impedance pictures on 26 September 2026: "This data is only available to users with a Premium account")
+    # Premium notice (read from all twelve: offaxis, nf, chd, spectra, imd, step, wf, etc, hd315_0, hd20 and the on-axis and
+    # impedance pictures, on 26 September 2026: "This data is only available to users with a Premium account")
     shared = Counter(link for pg in pages.values() for link in {im["original"].split("?")[0] for im in pg.get("charts", [])})
     out = {"date": dt.date.today().isoformat(), "inventory_date": inv.get("date"), "drivers": {}}
     for d in db["drivers"]:
