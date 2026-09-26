@@ -1,16 +1,5 @@
-# record id, then its HiFiCompass page when the record has none of its own (captured by hand before)
-# every automatically read driver (responses at 315 mm and near field, harmonics, current, impedance)
-sb-satori-mr16tx-8
-m74a-6
-t25a-6
-t25t-6
-t34a-4
-t34b-4
-sb-satori-mw19tx-4
-sb-satori-tw29bnwg-4
-sb-satori-tw29txn-b
-purifi-ptt10-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02
-purifi-ptt8-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02
-ptt65x04naa08a https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a
-ptt13t04hag01 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt13t04-hag-01
-m74t-6 https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6
+# record id, then its HiFiCompass page when the record has none of its own
+# the drivers to read in the next run; every other driver's results stay in chart_read.json
+# (capture/chart_read_request_all.txt lists every automatically read driver)
+wavecor-tw030wa11
+sb-satori-wo24tx-8

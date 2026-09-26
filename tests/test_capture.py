@@ -203,12 +203,19 @@ class ChartTypes(unittest.TestCase):
             "ptt10.0x04-nab-02_315mm_2v83_0deg.png?itok=a": "response",
             "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png?itok=L5": "current",
             "mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png": "intermodulation",
+            "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_4v-0deg.png?itok=x": "response",
+            "https://hificompass.com/sites/default/files/afc/wo24tx-8-315mm_2v83_0deg.png": "response",
+            "https://hificompass.com/sites/default/files/zamer/wo24tx-8_3mm_1v_0deg.png": "near-response",
         }
         for url, want in cases.items():
             self.assertEqual(CP.chart_type(url), want, url)
         self.assertFalse(CP.SKIP.search("https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png"))
         self.assertTrue(CP.SKIP.search("ptt6.5x04-naa-08a_voice_coil2.jpg"))
         self.assertTrue(CP.SKIP.search("ptt8.0x04-nab-02_wires.jpg"))
+        import sets_from_chart_read as S
+        self.assertEqual(S.conditions("wo24tx-8_315mm_4v-0deg.png")["drive_v"], 4.0)
+        self.assertEqual(S.conditions("wo24tx-8-315mm_2v83_0deg.png")["distance_mm"], 315)
+        self.assertEqual(S.conditions("wo24tx-8_315mm_11v2-0deg.png")["angle_deg"], 0)
 
 
 class CutOffCurves(unittest.TestCase):

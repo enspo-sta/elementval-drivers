@@ -32,9 +32,9 @@ TYPES = [("current", r"chd"), ("impedance", r"impedance|^imp_"), ("intermodulati
          ("off-axis", r"offaxis|off-axis"),
          # a near-field response (microphone at 5 or 20 mm, one drive voltage) and a one-tone spectrum (one sine, its
          # harmonics, microphone at 20 or 50 mm: mw19tx-4_20mm_2v_40hz.png)
-         ("near-response", r"_(?:5|20)mm_\d+v\d*(?:_0grad|_0deg)?\.(?:png|jpg)$"),
+         ("near-response", r"_(?:[1-9]|[1-9]\d)mm_\d+v\d*(?:[_-]0grad|[_-]0deg)?\.(?:png|jpg)$"),
          ("spectrum", r"_\d+mm_\d+v\d*_\d+(?:\.\d+)?hz\.(?:png|jpg)$"),
-         ("near-field", r"_\d+mm_.*_\d+hz|_5mm_|_20mm_|^nf\."), ("response", r"_0grad|_0deg|^onaxis"),
+         ("near-field", r"_\d+mm_.*_\d+hz|_5mm_|_20mm_|^nf\."), ("response", r"[_-]0grad|[_-]0deg|^onaxis"),
          ("step", r"step"), ("waterfall", r"waterfall|^wf\."), ("etc", r"_etc|^etc\.")]
 # the older HiFiCompass template (one JPEG per quantity, every level on it: onaxis_…jpg, hd315_0.jpg, hd20.jpg,
 # chd.jpg, imp_…jpg) is typed by the file name's start

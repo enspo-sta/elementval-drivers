@@ -33,7 +33,7 @@ AXES = {"frequency-response": {"x": {"label": "Frequency", "unit": "Hz", "scale"
 
 
 def volts(name):
-    m = re.search(r"_(\d+)v(\d*)(?:_|hd|\.)", name)
+    m = re.search(r"_(\d+)v(\d*)(?:[_-]|hd|\.)", name)       # wo24tx-8_315mm_4v-0deg.png: a hyphen after the voltage too
     if not m:
         return None
     return float(m.group(1) + ("." + m.group(2) if m.group(2) else ""))
@@ -44,7 +44,7 @@ def conditions(name):
     v = volts(name)
     if v is not None:
         c["drive_v"] = v
-    m = re.search(r"_(\d+)mm_", name)
+    m = re.search(r"[_-](\d+)mm_", name)                      # wo24tx-8-315mm_2v83_0deg.png: a hyphen before it
     if m:
         c["distance_mm"] = int(m.group(1))
     m = re.search(r"hpf(\d)-(\d+)", name)
@@ -55,7 +55,7 @@ def conditions(name):
         c["hpf"] = f"HPF {m.group(1)} Hz"
     if "nosmoothing" in name:
         c["smoothing"] = "none"
-    if re.search(r"_0(grad|deg)", name):
+    if re.search(r"[_-]0(grad|deg)", name):
         c["angle_deg"] = 0
     c["lab"] = "HiFiCompass"
     return c
