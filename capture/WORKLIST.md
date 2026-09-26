@@ -17,12 +17,13 @@ Below 40 points per decade (target 80, CAPTURE.md). Replace each set with `captu
 | Purifi PTT1.3T04-HAG-01 (`ptt13t04hag01`) | 0 | HD vs frequency (ratio) | Manufacturer datasheet | 20 per decade | PDF vector data: `capture/pdf_vectors.py` (Purifi draws its graphs as vector lines) |
 | SB Acoustics Satori WO24P-8 (`sb-satori-wo24p-8`) | 0 | HD (orders) vs frequency | HiFiCompass | 5 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 | SB Acoustics SB34NRXL75-8 (Norex) (`sb-sb34nrxl75-8`) | 0 | HD (orders) vs frequency | HiFiCompass | 5 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
-| Purifi PTT8.0X04-NAB-02 (`purifi-ptt8-0x04-nab-02`) | 0 | HD (orders) vs frequency | HiFiCompass | 5 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
-| Purifi PTT10.0X04-NAB-02 (`purifi-ptt10-0x04-nab-02`) | 0 | HD (orders) vs frequency | HiFiCompass | 5 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
+| Purifi PTT10.0X04-NAB-02 (`purifi-ptt10-0x04-nab-02`) | 19 | Voice-coil current HD vs frequency @ 2.83 V | HiFiCompass | 29 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 | SB Acoustics SB17CAC35-4 (proxy) (`sb17cac35-4`) | 0 | Large-signal compression vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | SB Acoustics SB17CAC35-4 (proxy) (`sb17cac35-4`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 0 | Large-signal compression vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
+| Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 20 | Voice-coil current HD vs frequency @ 5.6 V | HiFiCompass | 37 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
+| Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 21 | Voice-coil current HD vs frequency @ 8 V | HiFiCompass | 33 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 
 ## 2. Values that disagree: check against the source
 
@@ -32,7 +33,6 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 |---|---|---|
 | band THD | `ptt525x04naa05` | 450–1800 Hz at 94 dB: table 0.095 %, from the curve 0.0774 % (-1.8 dB) |
 | band THD | `ptt525x04naa05` | 80–5000 Hz at 94 dB: table 0.254 %, from the curve 0.157 % (-4.2 dB) |
-| band THD | `purifi-ptt10-0x04-nab-02` | 50–300 Hz at 91 dB: table 0.156 %, from the curve 0.128 % (-1.7 dB) |
 | notes | `purifi-ptt10-0x04-nab-02` | a note says Pe was corrected to 350, the stored Pe is 'TBD (est 400)' |
 | parameters | `m74a-6` | Qes: stored 0.75, from the others 0.7 (6.7 % apart) |
 | parameters | `t25a-6` | Qes: stored 0.82, from the others 0.568 (30.7 % apart) |
@@ -50,6 +50,19 @@ Level slopes that differ from the typical rule (H2 +1.0, H3 +0.7 dB per dB). Inf
 
 | Driver | Detail |
 |---|---|
+| `m74t-6` | H3: 104.5 dB curve minus 95.5 dB curve = +11.0 dB on average over 156 shared frequencies (typical slope expects +6.3 dB) |
+| `m74t-6` | H3: 104.5 dB curve minus 98.5 dB curve = +8.5 dB on average over 162 shared frequencies (typical slope expects +4.2 dB) |
+| `ptt13t04hag01` | H2: 102.9 dB curve minus 88 dB curve = +10.1 dB on average over 176 shared frequencies (typical slope expects +14.9 dB) |
+| `ptt13t04hag01` | H2: 102.9 dB curve minus 90.9 dB curve = +7.5 dB on average over 187 shared frequencies (typical slope expects +12.0 dB) |
+| `ptt13t04hag01` | H2: 102.9 dB curve minus 93.9 dB curve = +4.9 dB on average over 187 shared frequencies (typical slope expects +9.0 dB) |
+| `ptt13t04hag01` | H2: 102.9 dB curve minus 96.9 dB curve = +0.9 dB on average over 187 shared frequencies (typical slope expects +6.0 dB) |
+| `ptt13t04hag01` | H3: 102.9 dB curve minus 88 dB curve = +6.2 dB on average over 105 shared frequencies (typical slope expects +10.4 dB) |
+| `ptt65x04naa08a` | H2: 100.7 dB curve minus 85.7 dB curve = +11.0 dB on average over 216 shared frequencies (typical slope expects +15.0 dB) |
+| `ptt65x04naa08a` | H3: 100.7 dB curve minus 85.7 dB curve = +4.6 dB on average over 201 shared frequencies (typical slope expects +10.5 dB) |
+| `ptt65x04naa08a` | H3: 100.7 dB curve minus 85.7 dB curve = +6.0 dB on average over 175 shared frequencies (typical slope expects +10.5 dB) |
+| `ptt65x04naa08a` | H3: 100.7 dB curve minus 88.7 dB curve = +4.0 dB on average over 204 shared frequencies (typical slope expects +8.4 dB) |
+| `ptt65x04naa08a` | H3: 94.7 dB curve minus 85.7 dB curve = +1.6 dB on average over 153 shared frequencies (typical slope expects +6.3 dB) |
+| `purifi-ptt10-0x04-nab-02` | H2: 104.5 dB curve minus 86.5 dB curve = +13.7 dB on average over 240 shared frequencies (typical slope expects +18.0 dB) |
 | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 87.2 dB curve = +17.1 dB on average over 145 shared frequencies (typical slope expects +12.6 dB) |
 | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 90.2 dB curve = +15.0 dB on average over 148 shared frequencies (typical slope expects +10.5 dB) |
 | `sb-satori-mr16tx-8` | H3: 105.2 dB curve minus 93.2 dB curve = +12.5 dB on average over 150 shared frequencies (typical slope expects +8.4 dB) |
@@ -100,30 +113,32 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: frequency response figure; impedance figure; current distortion.
 - **Purifi PTT1.3T04-HAG-10** (`ptt13t04hag10`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level.
   Add: frequency response figure; impedance figure; current distortion; intermodulation spectra (both tone pairs).
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.9 dB, hd-frequency 88.0 dB, hd-frequency 90.9 dB, hd-frequency 93.9 dB, hd-frequency 96.9 dB, hd-frequency 99.9 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt13t04-hag-01> (what it offers: `capture/inventory.md`).
+  Add: two-tone intermodulation, where measured.
 - **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level.
   Add: frequency response figure; impedance figure; current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-8** (`sb-satori-wo24p-8`), HiFiCompass: stored hd-frequency 91 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
 - **SB Acoustics SB34NRXL75-8 (Norex)** (`sb-sb34nrxl75-8`), HiFiCompass: stored hd-frequency 91 dB, imd-summary 91.1 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered).
-- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), HiFiCompass: stored hd-frequency 91 dB, hd-frequency 94 dB, thd-bands 91 dB, thd-bands 94 dB. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02> (what it offers: `capture/inventory.md`).
-  Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02> (what it offers: `capture/inventory.md`).
+  Add: two-tone intermodulation, where measured.
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
-- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), HiFiCompass: stored hd-frequency 91 dB, imd-summary 91.67 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02> (what it offers: `capture/inventory.md`).
-  Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered).
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.5 dB, hd-frequency 104.5 dB, hd-frequency 86.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, imd-summary 91.67 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02> (what it offers: `capture/inventory.md`).
+  Add: check every drive level is stored, as measured.
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-4** (`sb-satori-wo24p-4`), HiFiCompass: stored imd-summary 91.15 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered).
-- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a> (what it offers: `capture/inventory.md`).
-  Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 100.7 dB, hd-frequency 85.7 dB, hd-frequency 88.7 dB, hd-frequency 91.7 dB, hd-frequency 94.7 dB, hd-frequency 97.7 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a> (what it offers: `capture/inventory.md`).
+  Add: two-tone intermodulation, where measured.
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics SB17NBAC35-8** (`sb17nbac35-8`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
-- **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6> (what it offers: `capture/inventory.md`).
-  Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+- **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.4 dB, hd-frequency 104.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6> (what it offers: `capture/inventory.md`).
+  Add: two-tone intermodulation, where measured.
 - **BlieSMa M74A-6** (`m74a-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.1 dB, hd-frequency 105.0 dB, hd-frequency 90.1 dB, hd-frequency 93.0 dB, hd-frequency 96.1 dB, hd-frequency 99.0 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **BlieSMa T25A-6** (`t25a-6`), HiFiCompass: stored frequency-response, hd-frequency 84.0 dB, hd-frequency 87.0 dB, hd-frequency 90.0 dB, hd-frequency 93.0 dB, hd-frequency 96.0 dB, hd-frequency 98.9 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25a-6> (what it offers: `capture/inventory.md`).
@@ -155,6 +170,112 @@ Chosen at random for week 39 of 2026 (the choice changes weekly). For each, capt
 
 Read on GitHub by `capture/chart_read.py` from the source's chart images and stored with confidence *medium*. Open the chart named in the set's note beside the viewer's curve; a difference above 1 dB (0.3 ohm for impedance) outside the noise floor needs a note or a recapture. The self-checks in each note compare the reading with the page's table.
 
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 2: Axial frequency response @ 2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 3: Axial frequency response @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 4: Axial frequency response @ 4 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 5: Axial frequency response @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 6: Axial frequency response @ 8 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 7: Axial frequency response @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 8: HD (orders) vs frequency @ 2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 9: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 10: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 11: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 12: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 13: HD (orders) vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 14: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 15: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 16: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 17: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 18: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 19: Voice-coil current HD vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 20: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 3.94, stated 4.6
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), set 21: Impedance (chart to 5 ohm) — check impedance minimum against Re, read 3.9, stated 4.6
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 5: Axial frequency response @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 6: Axial frequency response @ 4 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 7: Axial frequency response @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 8: Axial frequency response @ 8 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 9: Axial frequency response @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 10: Axial frequency response @ 16 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 11: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 12: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 13: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 14: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 15: HD (orders) vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 16: HD (orders) vs frequency @ 16 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 17: HD (orders) vs frequency @ 2.83 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 18: HD (orders) vs frequency @ 4 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 19: HD (orders) vs frequency @ 5.6 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 20: HD (orders) vs frequency @ 8 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 21: HD (orders) vs frequency @ 11.2 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 22: Voice-coil current HD vs frequency @ 1.41 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 23: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 24: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 25: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 26: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 27: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 28: Impedance (chart to 70 ohm) — check impedance minimum against Re, read 3.78, stated 3.55; check impedance peak against Fs, read hz 24.06, read ohm 49.84, stated fs 28.8
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 29: Impedance (chart to 7 ohm) — check impedance minimum against Re, read 3.73, stated 3.55
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 4: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 86.5, expected 88.0, stated sens 88.0, difference db -1.5
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 5: Axial frequency response @ 4 V — check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 89.5, expected 91.0, stated sens 88.0, difference db -1.5
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 6: Axial frequency response @ 5.6 V — check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 92.5, expected 93.9, stated sens 88.0, difference db -1.4
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 7: Axial frequency response @ 8 V — check 8 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 95.5, expected 97.0, stated sens 88.0, difference db -1.5
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 8: Axial frequency response @ 11.2 V — check 11.2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 98.5, expected 99.9, stated sens 88.0, difference db -1.5
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 9: Axial frequency response @ 16 V — check 16 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 101.5, expected 103.0, stated sens 88.0, difference db -1.6
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 10: Axial frequency response @ 22.5 V — check 22.5 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 104.5, expected 106.0, stated sens 88.0, difference db -1.5
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 11: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 12: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 13: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 14: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 15: HD (orders) vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 16: HD (orders) vs frequency @ 16 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 17: HD (orders) vs frequency @ 22.6 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 18: HD (orders) vs frequency @ 16 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 19: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 20: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 21: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 22: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 23: Voice-coil current HD vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 24: Impedance (chart to 70 ohm) — check impedance minimum against Re, read 4.69, stated 3.9; check impedance peak against Fs, read hz 22.71, read ohm 60.64, stated fs 24
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 25: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 4.63, stated 3.9
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 2: Axial frequency response @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 3: Axial frequency response @ 4 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 4: Axial frequency response @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 5: Axial frequency response @ 8 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 6: Axial frequency response @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 7: Axial frequency response @ 16 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 8: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 9: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 10: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 11: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 12: HD (orders) vs frequency @ 11.2 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 13: HD (orders) vs frequency @ 16 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 14: HD (orders) vs frequency @ 2.83 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 15: HD (orders) vs frequency @ 4 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 16: HD (orders) vs frequency @ 5.6 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 17: HD (orders) vs frequency @ 8 V (near field 20 mm) — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 18: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 19: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 20: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 21: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 22: Impedance (chart to 70 ohm) — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 2: Axial frequency response @ 1.41 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 3: Axial frequency response @ 2 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 4: Axial frequency response @ 2.83 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 5: Axial frequency response @ 4 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 6: Axial frequency response @ 5.6 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 7: Axial frequency response @ 8 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 8: HD (orders) vs frequency @ 1.41 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 9: HD (orders) vs frequency @ 2 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 10: HD (orders) vs frequency @ 2.83 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 11: HD (orders) vs frequency @ 4 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 12: HD (orders) vs frequency @ 5.6 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 13: HD (orders) vs frequency @ 8 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 14: Voice-coil current HD vs frequency @ 1 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 15: Voice-coil current HD vs frequency @ 1.41 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 16: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 17: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 18: Impedance (chart to 70 ohm) — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 19: Impedance (chart to 15 ohm) — no self-check possible for this kind
 - **BlieSMa M74A-6** (`m74a-6`), set 0: Axial frequency response @ 1.41 V — check 1.41 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.1, expected 88.9, stated sens 95.0, difference db 1.1
 - **BlieSMa M74A-6** (`m74a-6`), set 1: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.0, expected 92.0, stated sens 95.0, difference db 1.0
 - **BlieSMa M74A-6** (`m74a-6`), set 2: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.1, expected 95.0, stated sens 95.0, difference db 1.1

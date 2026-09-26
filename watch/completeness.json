@@ -252,8 +252,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_2v83_0deg.png",
@@ -261,8 +260,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_4v_0deg.png",
@@ -270,8 +268,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_5v6_0deg.png",
@@ -279,8 +276,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_8v_0deg.png",
@@ -288,8 +284,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_11v2_0deg.png",
@@ -297,8 +292,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01-non-smoothed-spl-frequency-response-magnitude.png",
@@ -338,8 +332,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_2v83_hpf2-800.png",
@@ -347,8 +340,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_4v_hpf2-800.png",
@@ -356,8 +348,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_5v6_hpf2-800.png",
@@ -365,8 +356,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_8v_hpf2-800.png",
@@ -374,8 +364,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_11v2_hpf2-800.png",
@@ -383,8 +372,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_2v_hpf2-800.png",
@@ -392,8 +380,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_2v83_hpf2-800.png",
@@ -401,8 +388,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_4v_hpf2-800.png",
@@ -410,8 +396,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_5v6_hpf2-800.png",
@@ -419,8 +404,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_8v_hpf2-800.png",
@@ -428,8 +412,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_chd_11v2_hpf2-800.png",
@@ -437,24 +420,21 @@
      "type": "current",
      "label": "current distortion",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_impedance_15_ohm.png",
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt1.3t04-hag-01_impedance_15_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_impedance_5_ohm.png",
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt1.3t04-hag-01_impedance_5_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_step_response.png",
@@ -522,16 +502,12 @@
    ],
    "summary": {
     "published": 27,
-    "stored": 0,
+    "stored": 20,
     "by_hand": 0,
-    "missing": 27,
+    "missing": 7,
     "missing_by_type": {
-     "on-axis response": 6,
      "older template": 1,
      "off-axis": 3,
-     "harmonics": 6,
-     "current distortion": 6,
-     "impedance": 2,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -840,8 +816,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_4v_0deg.png",
@@ -849,8 +824,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_5v6_0deg.png",
@@ -858,8 +832,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_8v_0deg.png",
@@ -867,8 +840,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_11v2_0deg.png",
@@ -876,8 +848,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_16v_0deg.png",
@@ -885,8 +856,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 16.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_offaxis.png",
@@ -927,8 +897,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_4v_hpf2-50.png",
@@ -936,8 +905,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_5v6_hpf2-50.png",
@@ -945,8 +913,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_8v_hpf2-50.png",
@@ -954,8 +921,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_11v2_hpf2-50.png",
@@ -963,8 +929,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 11.2,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_16v_hpf2-80.png",
@@ -972,8 +937,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 16.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_2v83_hd.png",
@@ -981,8 +945,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_4v_hd.png",
@@ -990,8 +953,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_5v6_hd.png",
@@ -999,8 +961,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_8v_hd.png",
@@ -1008,8 +969,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_11v2_hpf2-20.png",
@@ -1017,8 +977,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 11.2,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_1v41.png",
@@ -1026,8 +985,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 1.41,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_2v.png",
@@ -1035,8 +993,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_2v83_hpf2-20.png",
@@ -1044,8 +1001,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_4v_hpf2-20.png",
@@ -1053,8 +1009,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_5v6_hpf2-20.png",
@@ -1062,8 +1017,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_chd_8v_hpf2-20.png",
@@ -1071,8 +1025,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz2mm_4to1text.png",
@@ -1159,16 +1112,14 @@
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt8.0x04-nab-02_impedance_70_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_impedance_7_ohm.png",
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt8.0x04-nab-02_impedance_7_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_step_response.png",
@@ -1204,17 +1155,14 @@
    "premium_or_login": null,
    "summary": {
     "published": 44,
-    "stored": 0,
-    "by_hand": 11,
-    "missing": 33,
+    "stored": 25,
+    "by_hand": 0,
+    "missing": 19,
     "missing_by_type": {
      "older template": 2,
-     "on-axis response": 6,
      "off-axis": 3,
      "near field": 1,
-     "current distortion": 6,
      "intermodulation": 10,
-     "impedance": 2,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -1231,8 +1179,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_4v_0deg.png",
@@ -1240,8 +1187,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_5v6_0deg.png",
@@ -1249,8 +1195,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_8v_0deg.png",
@@ -1258,8 +1203,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_11v2_0deg.png",
@@ -1267,8 +1211,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_16v_0deg.png",
@@ -1276,8 +1219,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 16.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_22v5_0deg.png",
@@ -1285,8 +1227,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 22.5,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_offaxis.png",
@@ -1327,8 +1268,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_4v_hpf2-50.png",
@@ -1336,8 +1276,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_5v6_hpf2-50.png",
@@ -1345,8 +1284,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_8v_hpf2-50.png",
@@ -1354,8 +1292,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_11v2_hpf2-50.png",
@@ -1363,8 +1300,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 11.2,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_16v_hpf2-50.png",
@@ -1372,8 +1308,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 16.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_22v6_hpf2-50.png",
@@ -1381,8 +1316,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 22.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_2v83.png",
@@ -1435,8 +1369,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 16.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_chd_2v83.png",
@@ -1444,8 +1377,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_chd_4v.png",
@@ -1453,8 +1385,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_chd_5v6.png",
@@ -1462,8 +1393,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_chd_8v.png",
@@ -1471,8 +1401,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_chd_11v2.png",
@@ -1480,8 +1409,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50mm_2v83_20hz.png",
@@ -1883,16 +1811,14 @@
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt10.0x04-nab-02_impedance_70_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_impedance_15_ohm.png",
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt10.0x04-nab-02_impedance_15_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_step_response.png",
@@ -1928,15 +1854,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 79,
-    "stored": 0,
-    "by_hand": 18,
-    "missing": 61,
+    "stored": 22,
+    "by_hand": 10,
+    "missing": 47,
     "missing_by_type": {
-     "on-axis response": 7,
      "off-axis": 3,
      "near field": 41,
-     "current distortion": 5,
-     "impedance": 2,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2138,8 +2061,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_315mm_4v_0grad.png",
@@ -2147,8 +2069,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_315mm_5v6_0grad.png",
@@ -2156,8 +2077,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_315mm_8v_0grad.png",
@@ -2165,8 +2085,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_315mm_11v2_0grad.png",
@@ -2174,8 +2093,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_315mm_16v_0grad.png",
@@ -2183,8 +2101,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 16.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_offaxis.png",
@@ -2225,8 +2142,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_4v_hpf2-50.png",
@@ -2234,8 +2150,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_5v6_hpf2-50.png",
@@ -2243,8 +2158,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_8v_hpf2-50.png",
@@ -2252,8 +2166,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_11v2_hpf2-50.png",
@@ -2261,8 +2174,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 11.2,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_16v_hpf2-80.png",
@@ -2270,8 +2182,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 16.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_hd.png",
@@ -2279,8 +2190,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_4v_hd.png",
@@ -2288,8 +2198,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_5v6_hd.png",
@@ -2297,8 +2206,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_8v_hd.png",
@@ -2306,8 +2214,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_chd_2v83_hpf2-50.png",
@@ -2315,8 +2222,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_chd_4v_hpf2-50.png",
@@ -2324,8 +2230,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_chd_5v6_hpf2-50.png",
@@ -2333,8 +2238,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_chd_8v_hpf2-50.png",
@@ -2342,8 +2246,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_20hz.png",
@@ -2552,8 +2455,7 @@
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt6.5x04-naa-08a_impedance_70_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_impedance_10_ohm.png",
@@ -2561,7 +2463,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "ptt6.5x04-naa-08a_step_response.png",
@@ -2597,17 +2499,15 @@
    "premium_or_login": null,
    "summary": {
     "published": 53,
-    "stored": 0,
-    "by_hand": 10,
-    "missing": 43,
+    "stored": 21,
+    "by_hand": 0,
+    "missing": 32,
     "missing_by_type": {
      "older template": 1,
-     "on-axis response": 6,
      "off-axis": 3,
      "near field": 19,
-     "current distortion": 4,
      "intermodulation": 5,
-     "impedance": 2,
+     "impedance": 1,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2750,8 +2650,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 1.41,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_2v_0deg.png",
@@ -2759,8 +2658,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_2v83_0deg.png",
@@ -2768,8 +2666,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_4v_0deg.png",
@@ -2777,8 +2674,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_5v6_0deg.png",
@@ -2786,8 +2682,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_8v_0deg.png",
@@ -2795,8 +2690,7 @@
      "type": "response",
      "label": "on-axis response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
@@ -2828,8 +2722,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 1.41,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_2v_hpf2-300_lpf4-10000.png",
@@ -2837,8 +2730,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_2v83_hpf2-300_lpf4-10000.png",
@@ -2846,8 +2738,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 2.83,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_4v_hpf2-300_lpf4-10000.png",
@@ -2855,8 +2746,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 4.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_5v6_hpf2-300_lpf4-10000.png",
@@ -2864,8 +2754,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 5.6,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_8v_hpf2-300_lpf4-10000.png",
@@ -2873,8 +2762,7 @@
      "type": "harmonics",
      "label": "harmonics",
      "volts": 8.0,
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "m74t-6_chd_1v_hpf2-300.png",
@@ -2882,8 +2770,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 1.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_chd_1v41_hpf2-300.png",
@@ -2891,8 +2778,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 1.41,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_chd_2v_hpf2-300.png",
@@ -2900,8 +2786,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_chd_2v83_hpf2-300.png",
@@ -2909,8 +2794,7 @@
      "type": "current",
      "label": "current distortion",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_125hz1v1063hz1vtext.png",
@@ -2989,16 +2873,14 @@
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74t-6_impedance_70_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_impedance_15_ohm.png",
      "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74t-6_impedance_15_ohm.png",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_step_response.png",
@@ -3034,15 +2916,12 @@
    "premium_or_login": true,
    "summary": {
     "published": 33,
-    "stored": 0,
-    "by_hand": 6,
-    "missing": 27,
+    "stored": 18,
+    "by_hand": 0,
+    "missing": 15,
     "missing_by_type": {
-     "on-axis response": 6,
      "older template": 3,
-     "current distortion": 4,
      "intermodulation": 9,
-     "impedance": 2,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3242,7 +3121,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "the automatic reading failed: axes could not be fitted"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "m74a-6_step_response.png",
@@ -4297,7 +4176,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "the automatic reading failed: axes could not be fitted"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mr16tx-8_step_response.png",
@@ -5187,7 +5066,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "the automatic reading failed: axes could not be fitted"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "tw29bnwg-4_impedance_5_ohm.png",

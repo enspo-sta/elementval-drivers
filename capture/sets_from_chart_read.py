@@ -89,6 +89,30 @@ def level_by_volts(charts):
     return out
 
 
+def name_across_types(charts):
+    """A curve the legend reading left unnamed takes the name the same colour has in the driver's other charts
+    (the HiFiCompass template draws H2 blue, H3 black and H5 red on every harmonics and current chart)."""
+    dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
+    known = {}
+    for ch in charts:
+        for cv in ch.get("curves") or []:
+            if cv.get("name") and not cv.get("name_from"):
+                known.setdefault(cv["colour"], set()).add(cv["name"])
+    for ch in charts:
+        if ch.get("type") not in ("harmonics", "current"):
+            continue
+        taken = {cv["name"] for cv in ch.get("curves") or [] if cv.get("name")}
+        for cv in ch.get("curves") or []:
+            if cv.get("name"):
+                continue
+            near = sorted((dist(cv["colour"], k), k) for k in known)
+            if near and near[0][0] <= 30 and len(known[near[0][1]]) == 1:
+                nm = next(iter(known[near[0][1]]))
+                if nm not in taken:
+                    cv["name"], cv["name_from"] = nm, "the legend of another chart of this driver"
+                    taken.add(nm)
+
+
 def build(read, db):
     byid = {d["id"]: d for d in db["drivers"]}
     made, waiting = [], []
@@ -96,6 +120,7 @@ def build(read, db):
         d = byid.get(did)
         if not d:
             continue
+        name_across_types(charts)
         levels = level_by_volts(charts)
         for ch in charts:
             if ch.get("error") or not ch.get("curves"):
