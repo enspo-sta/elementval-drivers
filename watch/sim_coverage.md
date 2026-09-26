@@ -39,9 +39,9 @@ Default choice per speaker (what Simulate picks when it opens):
 
 | Driver | Data (every order) | Speaker and way | Band it plays in | Covered | Missing |
 |---|---|---|---|---|---|
-| BlieSMa M74A-6 | 100 Hz–20.2 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
-| BlieSMa M74A-6 | 100 Hz–20.2 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 77 % | H2 H3 H5 40 Hz–95 Hz |
-| BlieSMa M74A-6 | 100 Hz–20.2 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
+| BlieSMa M74A-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
+| BlieSMa M74A-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 77 % | H2 H3 H5 40 Hz–95 Hz |
+| BlieSMa M74A-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
 | BlieSMa M74T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
 | BlieSMa M74T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 77 % | H2 H3 H5 40 Hz–95 Hz |
 | BlieSMa M74T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
@@ -53,14 +53,14 @@ Default choice per speaker (what Simulate picks when it opens):
 | BlieSMa T25T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | BlieSMa T25T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
 | BlieSMa T25T-6 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
-| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 77 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
-| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 74 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
-| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 91 % | H5 9.12 kHz–12.2 kHz |
-| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 70 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
-| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 77 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
-| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 74 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
-| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 91 % | H5 9.12 kHz–12.2 kHz |
-| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 70 % | H3 14.5 kHz–19.3 kHz; H5 9.12 kHz–19.3 kHz |
+| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 75 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
+| BlieSMa T34A-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 75 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
+| BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 62 % | H3 14.5 kHz–19.3 kHz; H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–19.3 kHz |
 | Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 57 % | H3 14.5 kHz–19.3 kHz; H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–19.3 kHz |
 | Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 79 % | H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–12.2 kHz |
@@ -83,11 +83,11 @@ Default choice per speaker (what Simulate picks when it opens):
 | SB Acoustics Satori MR16TX-8 | 20 Hz–21.5 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
 | SB Acoustics Satori MR16TX-8 | 20 Hz–21.5 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 100 % | — |
 | SB Acoustics Satori MR16TX-8 | 20 Hz–21.5 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
-| SB Acoustics Satori MW19TX-4 | 20 Hz–21.5 kHz · H2 H3 H5 | 2-way, way 1 (low) | 20 Hz–6.09 kHz | 100 % | — |
-| SB Acoustics Satori MW19TX-4 | 20 Hz–21.5 kHz · H2 H3 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 100 % | — |
-| SB Acoustics Satori MW19TX-4 | 20 Hz–21.5 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
-| SB Acoustics Satori MW19TX-4 | 20 Hz–21.5 kHz · H2 H3 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
-| SB Acoustics Satori MW19TX-4 | 20 Hz–21.5 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 100 % | — |
+| SB Acoustics Satori MW19TX-4 | 20 Hz–21.2 kHz · H2 H3 H5 | 2-way, way 1 (low) | 20 Hz–6.09 kHz | 100 % | — |
+| SB Acoustics Satori MW19TX-4 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 100 % | — |
+| SB Acoustics Satori MW19TX-4 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
+| SB Acoustics Satori MW19TX-4 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
+| SB Acoustics Satori MW19TX-4 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 100 % | — |
 | SB Acoustics Satori TW29BNWG-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 75 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | SB Acoustics Satori TW29BNWG-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | SB Acoustics Satori TW29BNWG-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
@@ -110,9 +110,9 @@ Default choice per speaker (what Simulate picks when it opens):
 
 Default choice per speaker (what Simulate picks when it opens):
 
-- 2-way: way 1 Purifi PTT10.0X04-NAB-02; way 2 BlieSMa T34A-4 (no data: H3 14.5 kHz–19.3 kHz, H5 9.12 kHz–19.3 kHz)
-- 3-way: way 1 Purifi PTT10.0X04-NAB-02; way 2 Purifi PTT6.5X04-NAA-08A (no data: H5 8.61 kHz–9.12 kHz); way 3 BlieSMa T34A-4 (no data: H3 14.5 kHz–19.3 kHz, H5 9.12 kHz–19.3 kHz)
-- 4-way: way 1 SB Acoustics Satori WO24P-8; way 2 Purifi PTT6.5X04-NAA-08A; way 3 SB Acoustics Satori MR16TX-8 (no data: H5 8.61 kHz–12.2 kHz); way 4 BlieSMa T34A-4 (no data: H3 14.5 kHz–19.3 kHz, H5 9.12 kHz–19.3 kHz)
+- 2-way: way 1 Purifi PTT10.0X04-NAB-02; way 2 SB Acoustics Satori TW29BNWG-4 (no data: H3 14.5 kHz–19.3 kHz, H5 8.61 kHz–19.3 kHz)
+- 3-way: way 1 Purifi PTT10.0X04-NAB-02; way 2 Purifi PTT6.5X04-NAA-08A (no data: H5 8.61 kHz–9.12 kHz); way 3 SB Acoustics Satori TW29BNWG-4 (no data: H3 14.5 kHz–19.3 kHz, H5 8.61 kHz–19.3 kHz)
+- 4-way: way 1 SB Acoustics Satori WO24P-8; way 2 Purifi PTT6.5X04-NAA-08A; way 3 SB Acoustics Satori MR16TX-8 (no data: H5 8.61 kHz–12.2 kHz); way 4 SB Acoustics Satori TW29BNWG-4 (no data: H3 14.5 kHz–19.3 kHz, H5 8.61 kHz–19.3 kHz)
 
 ## Derived (model or calculation)
 
