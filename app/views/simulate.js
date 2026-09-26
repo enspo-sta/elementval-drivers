@@ -6,6 +6,7 @@ import { registerView } from "../core/registry.js";
 import { store, familyOf, kindOf, fmtHz } from "../core/data.js";
 import { COLORS, MARKERS, MARK_CHARS, buildGroups } from "../core/compare.js";
 import * as SC from "../core/sim.js";
+import { ORDERS, buildCandidates, autoPick as pickDefault } from "../core/simpick.js";
 import { writeHash, hasParams } from "../core/state.js";
 import { $, app, esc, navHtml, beginView, newChart, noChart, noChartMsg, xAxis, yAxis, chartOptions, markerRadius, badge,
          familyByName, condChips, exportHtml, wireExports, pct, fmtDb, fmtPct } from "../core/ui.js";
@@ -13,14 +14,12 @@ import { $, app, esc, navHtml, beginView, newChart, noChart, noChartMsg, xAxis, 
 const ORDER_COLORS = { H2: "#f0a44a", H3: "#7aa2f7", H4: "#6fd19a", H5: "#c4a3ff", THD: "#eef0f6" };
 const WAY_NAMES = { 2: ["low", "high"], 3: ["low", "mid", "high"], 4: ["low", "low mid", "high mid", "high"] };
 const XO_DEFAULT = { 2: [2000], 3: [350, 3000], 4: [120, 700, 4000] };
-const ORDERS = ["H2", "H3", "H4", "H5"];
 const TYPICAL = SC.LAWS.typical.slopes;
 const sim = { mix: false, src: null, n: 3, w: null, c: [1, 1, 1, 1], x: null, t: null, L: 94, law: "measured",
               s: Object.assign({}, TYPICAL), al: true, o: null, u: "db", sh: null, note: "" };
 const ORDER_SORT = a => ORDERS.filter(k => a.includes(k)).concat(a.includes("THD") ? ["THD"] : []);
 const clampSlope = v => Math.min(5, Math.max(-1, v));
 const cache = {};
-
 function load(params) {
   if (!hasParams(params)) return;
   const nums = k => (params.get(k) || "").split(",").filter(x => x !== "").map(Number);
@@ -45,56 +44,15 @@ function save() {
     o: sim.o.join(","), u: sim.u === "pct" ? "pct" : "", sh: sim.sh || "" });
 }
 
-// Candidates: one per driver and source, holding every harmonic-distortion level of that driver.
+// Candidates: one per driver and source, holding every harmonic-distortion level of that driver (core/simpick.js).
 function candidates(mix, src) {
   const key = (mix ? "mix" : "one") + "|" + (src || "");
   if (cache[key]) return cache[key];
-  const out = [];
-  for (const g of cache.groups || (cache.groups = buildGroups({ mix: false }))) {
-    if (g.kind.id !== "hd-frequency") continue;
-    for (const e of g.entries) {
-      if (!mix && e.family.name !== src) continue;
-      const curves = e.sets.filter(s => s.level != null).map(s => {
-        const hd = {};
-        s.quantities.forEach(q => { if (ORDERS.includes(q.id)) hd[q.id] = q.points; });
-        return { L0: s.level, hd, set: s.set };
-      }).filter(c => c.hd.H2 || c.hd.H3);
-      if (!curves.length) continue;
-      const xs = curves.flatMap(c => Object.values(c.hd).flat().map(p => p.x));
-      out.push({ id: e.id, e, curves, levels: curves.map(c => c.L0), orders: ORDERS.filter(k => curves.some(c => c.hd[k])),
-                 lo: Math.min(...xs), hi: Math.max(...xs) });
-    }
-  }
-  return (cache[key] = out.sort((a, b) => a.e.driver.name.localeCompare(b.e.driver.name) || (a.e.family.rank || 99) - (b.e.family.rank || 99)));
+  return (cache[key] = buildCandidates(cache.groups || (cache.groups = buildGroups({ mix: false })), mix, src));
 }
 function sources() {
   const names = new Set(candidates(true).map(c => c.e.family.name));
   return store.families.filter(f => names.has(f.name));
-}
-// Where a driver's role puts it in a speaker: 0 = lowest way, 1 = highest.
-function rolePos(role) {
-  const r = (role || "").toLowerCase();
-  if (/tweeter/.test(r)) return 1;
-  if (/^midrange/.test(r)) return 0.6;
-  if (/^midbass \/ mid/.test(r)) return 0.42;
-  if (/^midbass/.test(r)) return 0.38;
-  if (/^woofer \/ midbass/.test(r)) return 0.22;
-  if (/woofer/.test(r)) return 0.05;
-  return 0.5;
-}
-// Default driver per way: role fits the way and data covers the way's band (an octave beyond its crossovers).
-function autoPick(n, x, cands) {
-  const used = new Set(), out = [];
-  for (let i = 0; i < n; i++) {
-    const lo = Math.max(20, (i === 0 ? 20 : x[i - 1]) / 2), hi = Math.min(20000, (i === n - 1 ? 20000 : x[i]) * 2);
-    const width = Math.log(hi / lo), pos = i / (n - 1);
-    const score = c => Math.max(0, Math.log(Math.min(hi, c.hi) / Math.max(lo, c.lo))) / width - 1.2 * Math.abs(rolePos(c.e.driver.role) - pos) +
-      c.orders.length * 0.01 + c.levels.length * 0.005 + (used.has(c.id) ? -2 : 0);
-    const best = cands.slice().sort((a, b) => score(b) - score(a))[0];
-    out.push(best ? best.id : null);
-    if (best) used.add(best.id);
-  }
-  return out;
 }
 function normalise() {
   const srcs = sources();
@@ -107,7 +65,7 @@ function normalise() {
   const pairs = sim.x.map((fc, i) => ({ fc, t: sim.t[i] })).sort((a, b) => a.fc - b.fc);
   if (pairs.some((p, i) => p.fc !== sim.x[i])) sim.note = (sim.note ? sim.note + " " : "") + "The crossovers were put in rising order, each with its filter.";
   sim.x = pairs.map(p => p.fc); sim.t = pairs.map(p => p.t);
-  if (!sim.w || sim.w.length !== sim.n || sim.w.some(id => !cands.some(c => c.id === id))) sim.w = autoPick(sim.n, sim.x, cands);
+  if (!sim.w || sim.w.length !== sim.n || sim.w.some(id => !cands.some(c => c.id === id))) sim.w = pickDefault(sim.n, sim.x, sim.t, sim.al, cands);
   if (!(sim.L >= 60 && sim.L <= 125)) sim.L = 94;
   ORDERS.forEach(k => { if (!isFinite(sim.s[k])) sim.s[k] = TYPICAL[k]; });
   const chosen = sim.w.map(id => cands.find(c => c.id === id)).filter(Boolean);
@@ -218,7 +176,7 @@ function render() {
     }
     const list = a => (a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0]);
     const span = gp => (fmtHz(gp.from) === fmtHz(gp.to) ? `at ${fmtHz(gp.from)}` : `from ${fmtHz(gp.from)} to ${fmtHz(gp.to)}`);
-    for (const gp of merged) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data ${span(gp)}, where it still plays within 40 dB of the other ways. The speaker's ${list(gp.orders)} and THD are left empty there rather than guessed.`);
+    for (const gp of merged) warnings.push(`Way ${gp.way + 1} (${esc(chosen[gp.way].e.driver.name)}) has no ${list(gp.orders)} data ${span(gp)}, where it still plays within 40 dB of the other ways. There the speaker's ${list(gp.orders)} and THD are drawn dashed, from the other ways alone (where no way that matters has ${list(gp.orders)} data, that line is empty and THD is dashed from the other orders): the real value is at least that high. The summary table leaves those stretches out.`);
     chosen.forEach((c, i) => {
       const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
       if (sim.L > hi + 6) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) was measured at up to ${hi} dB; at ${sim.L} dB its result leans on the level rule more than on measurements.`);
@@ -239,7 +197,8 @@ function render() {
   h += `<div class="togrow">${shows.map(k => `<button class="tog${sim.o.includes(k) ? " on" : ""}" data-o="${k}"><span class="odot" style="background:${ORDER_COLORS[k]}"></span>${k === "THD" ? esc(thdLabel) : k}</button>`).join("")}
     <span class="sep"></span><button class="tog${sim.u === "db" ? " on" : ""}" data-su="db">dB</button><button class="tog${sim.u === "pct" ? " on" : ""}" data-su="pct">%</button></div>`;
   h += res ? (noChart() ? noChartMsg : `<div class="chartbox tall"><canvas id="schart"></canvas></div>`) : `<div class="empty">Nothing to show.</div>`;
-  if (res) h += `<div class="hint2">Simulated from ${fmtHz(res.range[0])} to ${fmtHz(res.range[1])}, where the lowest and the highest way have data.</div><div id="ssum"></div>
+  const anyPartial = res && sim.o.some(k => (res.partial[k] || []).some(Boolean));
+  if (res) h += `<div class="hint2">Simulated from ${fmtHz(res.range[0])} to ${fmtHz(res.range[1])}, where the lowest and the highest way have data.${anyPartial ? " Dashed: a way that still plays there has no data, so the line shows the other ways alone (the least the speaker can have)." : ""}</div><div id="ssum"></div>
     <div class="exportrow">${exportHtml(() => exportCurves(res, chosen, avail, thdLabel), `simulation_${sim.n}-way_${sim.L}dB`, "Export the results")}</div>`;
   h += warnings.map(w => `<div class="warn">${w}</div>`).join("") + `</div>`;
   if (res) {
@@ -257,7 +216,7 @@ function render() {
         <li>At every frequency each driver's harmonic ratio is taken at the level it actually plays at there. Between two measured levels the measured curves are interpolated; beyond the measured levels the nearest curve is moved by slope × level difference. Near a crossover a driver plays 6 dB lower (Linkwitz-Riley) or 3 dB lower (Butterworth), so its distortion drops.</li>
         <li>Several identical drivers in one way share the level: two drivers each play 6 dB lower.</li>
         <li>Harmonics of different drivers are added as powers, because their phases are unknown. The result is relative to the speaker's summed output.</li>
-        <li>A driver more than 40 dB below the others at a frequency is ignored there. Where a driver that matters has no data, the result is left empty.</li>
+        <li>A driver more than 40 dB below the others at a frequency is ignored there. Where a driver that matters has no data (its source curve ends, or the chart reading could not see the curve there), the result is drawn dashed from the other drivers alone, which is the least it can be; where no driver that matters has data, it is left empty. A stretch without points wider than 1/6 octave and three times the curve's own spacing counts as no data rather than being bridged by a straight line.</li>
         <li>Not included: the drivers' own frequency response and baffle, Doppler intermodulation between ways, and cabinet or port noise. Intermodulation is compared in the Compare tab instead.</li>
       </ul></details></div>`;
   }
@@ -273,8 +232,10 @@ function exportCurves(res, chosen, avail, thdLabel) {
     sourceText: `Simulated from ${chosen.map(c => c.e.driver.name).join(", ")}; crossovers ${sim.x.map((f, i) => `${f} Hz ${sim.t[i]}`).join(", ")}`,
     kind: "hd-frequency", kindLabel: "Simulated speaker harmonic distortion", level: sim.L, xLabel: "Frequency", xUnit: "Hz", yLabel: "Harmonic", yUnit: "dB re fundamental" };
   const curve = (label, quantity, ys) => Object.assign({}, base, { label, quantity, points: res.freqs.map((f, i) => ({ x: f, y: ys[i] })).filter(p => p.y != null) });
-  const out = ORDERS.filter(k => avail.includes(k)).map(k => curve(`speaker · ${k}`, k, res.system[k]));
-  out.push(curve(`speaker · ${thdLabel}`, "THD", res.system.THD));
+  // the speaker's curves are exported where every way that matters had data (a dashed stretch is a lower bound only)
+  const whole = k => res.system[k].map((v, i) => (res.partial[k][i] ? null : v));
+  const out = ORDERS.filter(k => avail.includes(k)).map(k => curve(`speaker · ${k}`, k, whole(k)));
+  out.push(curve(`speaker · ${thdLabel}`, "THD", whole("THD")));
   chosen.forEach((c, i) => avail.forEach(k => out.push(curve(`way ${i + 1} ${c.e.driver.name} · ${k} share`, `way${i + 1}-${k}`, res.contrib[i][k]))));
   chosen.forEach((c, i) => out.push(Object.assign(curve(`way ${i + 1} ${c.e.driver.name} · crossover level`, `way${i + 1}-level`, res.response.ways[i]), { kind: "frequency-response", yLabel: "Level", yUnit: "dB" })));
   return out;
@@ -315,8 +276,10 @@ function draw(res, chosen, avail, thdLabel) {
   const series = k => res.freqs.map((f, i) => ({ x: f, y: conv(res.system[k][i]) }));
   const lbl = k => (k === "THD" ? thdLabel : k);
   const tip = c => `${c.dataset.label}: ${c.parsed.y == null ? "—" : u === "pct" ? c.parsed.y.toPrecision(3) + " %" : c.parsed.y.toFixed(1) + " dB"} at ${fmtHz(c.parsed.x)}`;
+  // a stretch where a way that matters has no data is dashed: the speaker's value there is a lower bound
+  const dashed = k => ({ borderDash: ctx => (res.partial[k][ctx.p0DataIndex] || res.partial[k][ctx.p1DataIndex] ? [5, 4] : undefined) });
   newChart($("schart"), { type: "line", data: { datasets: sim.o.map(k => ({ label: lbl(k), data: series(k), borderColor: ORDER_COLORS[k], backgroundColor: ORDER_COLORS[k],
-    borderWidth: k === "THD" ? 3 : 2, pointRadius: 0, spanGaps: false, tension: 0.15 })) },
+    borderWidth: k === "THD" ? 3 : 2, pointRadius: 0, spanGaps: false, tension: 0.15, segment: dashed(k) })) },
     options: chartOptions({ x: xAxis(true, "Frequency of the fundamental (Hz)", 20, 20000), y: yAxis(u, yT) }, tip) });
   const k = sim.sh;
   const clip = v => (v == null || v < -120 ? null : conv(v));   // shares 120 dB down do not matter
@@ -327,7 +290,7 @@ function draw(res, chosen, avail, thdLabel) {
       const parts = avail.map(o => res.contrib[i][o][j]);
       return { x: f, y: parts.every(v => v == null) ? null : clip(10 * Math.log10(parts.reduce((s, v) => s + (v == null ? 0 : Math.pow(10, v / 10)), 0))) };
     }) }));
-  shareSets.push({ label: "speaker", data: series(k), borderColor: "#eef0f6", backgroundColor: "#eef0f6", borderWidth: 2.5, pointRadius: 0, spanGaps: false, tension: 0.15 });
+  shareSets.push({ label: "speaker", data: series(k), borderColor: "#eef0f6", backgroundColor: "#eef0f6", borderWidth: 2.5, pointRadius: 0, spanGaps: false, tension: 0.15, segment: dashed(k) });
   newChart($("sshare"), { type: "line", data: { datasets: shareSets }, options: chartOptions({ x: xAxis(true, "Frequency (Hz)", 20, 20000), y: yAxis(u, yT) }, tip) });
   const resp = chosen.map((c, i) => ({ label: `Way ${i + 1}`, borderColor: COLORS[i], backgroundColor: COLORS[i], borderWidth: 2, pointRadius: 0,
     data: res.freqs.map((f, j) => ({ x: f, y: Math.max(-60, res.response.ways[i][j]) })) }));
@@ -340,7 +303,7 @@ function draw(res, chosen, avail, thdLabel) {
   for (const o of sim.o) {
     t += `<tr><td><span class="odot" style="background:${ORDER_COLORS[o]}"></span>${esc(lbl(o))}</td>`;
     for (const [lo, hi] of bands) {
-      const pts = res.freqs.map((f, i) => ({ f, v: res.system[o][i] })).filter(p => p.f >= lo && p.f <= hi && p.v != null);
+      const pts = res.freqs.map((f, i) => ({ f, v: res.partial[o][i] ? null : res.system[o][i] })).filter(p => p.f >= lo && p.f <= hi && p.v != null);
       if (!pts.length) { t += `<td>—</td>`; continue; }
       const vs = pts.map(p => p.v).sort((a, b) => a - b), med = vs[Math.floor((vs.length - 1) / 2)];
       const top = pts.reduce((a, b) => (b.v > a.v ? b : a));

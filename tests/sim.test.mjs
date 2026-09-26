@@ -129,16 +129,50 @@ test("simulate: two identical drivers in a way each play 6 dB lower", () => {
   near(r.system.H3[0], -60 - 0.7 * 6.0206, 0.01, "H3 falls 4.2 dB with slope 0.7");
 });
 
-test("simulate: a missing curve where a driver matters leaves a gap; far outside its band it is ignored", () => {
+test("simulate: where a driver that matters has no data, the other ways give a lower bound marked partial; far outside its band it is ignored", () => {
   const low = flatDriver("low", 94);
   const high = { name: "high", L0: 94, hd: { H2: [{ x: 1000, y: -55 }, { x: 20000, y: -55 }] }, slope: () => 0 };
   const r = S.simulate({ freqs: [50, 1500, 5000], target: 94, orders: ["H2", "H3"], points: [{ fc: 2000, type: "LR4" }],
     ways: [low, high] });
   assert.notEqual(r.system.H2[0], null, "at 50 Hz the tweeter is > 40 dB down and ignored");
-  assert.equal(r.system.H3[1], null, "at 1.5 kHz the high way matters and has no H3");
-  assert.equal(r.system.THD[1], null, "THD needs every order");
+  assert.equal(r.partial.H2[0], false, "an ignored way does not make the value partial");
+  assert.notEqual(r.system.H3[1], null, "at 1.5 kHz the low way's H3 is still counted");
+  assert.equal(r.partial.H3[1], true, "the high way matters there and has no H3: partial");
+  assert.equal(r.partial.THD[1], true, "THD from a partial order is partial");
+  assert.ok(r.system.H3[1] < r.system.H3[0], "the partial value leaves the high way's share out (lower than the low way alone at full level)");
   near(r.system.H2[2], -55, 0.3, "H2 at 5 kHz comes from the high way");
+  assert.equal(r.partial.H2[2], false);
   assert.ok(r.gaps.some(g => g.way === 1 && g.order === "H3"), "gap reported for the high way's H3");
+  const none = S.simulate({ freqs: [10000], target: 94, orders: ["H3"], points: [{ fc: 2000, type: "LR4" }], ways: [low, high] });
+  assert.equal(none.system.H3[0], null, "no way that matters has H3 at 10 kHz: empty, not zero");
+  assert.equal(none.partial.H3[0], false);
+  assert.equal(none.system.THD[0], null, "no order has a value: no THD");
+  const some = S.simulate({ freqs: [10000], target: 94, orders: ["H2", "H3"], points: [{ fc: 2000, type: "LR4" }], ways: [low, high] });
+  assert.equal(some.system.H3[0], null);
+  near(some.system.THD[0], some.system.H2[0], 0.01, "THD from H2 alone where H3 has no value");
+  assert.equal(some.partial.THD[0], true, "and marked as the least it can be");
+});
+
+test("markGaps: a stretch without points much wider than the curve's spacing becomes missing; sparse captures stay whole", () => {
+  const dense = [];
+  for (let i = 0; i <= 48; i++) dense.push({ x: 100 * Math.pow(2, i / 24), y: -60 });
+  const holed = dense.filter(p => p.x < 180 || p.x > 260);             // about half an octave unseen
+  const m = S.markGaps(holed);
+  assert.equal(m.filter(p => p.y == null).length, 1, "one missing point in the hole");
+  assert.equal(S.interpLog(m, 220), null, "no straight line across the hole");
+  near(S.interpLog(m, 150), -60, 1e-9, "data either side still read");
+  assert.equal(S.markGaps(dense).filter(p => p.y == null).length, 0, "a whole curve has no gap");
+  const sparse = [20, 30, 50, 80, 100, 150, 200, 300, 500].map(x => ({ x, y: -50 }));
+  assert.equal(S.markGaps(sparse).filter(p => p.y == null).length, 0, "a hand capture every 2/3 octave is not split");
+});
+
+test("audibleBands: LR4 at 350 Hz and 3 kHz keeps the woofer within 40 dB up to about 1.1 kHz and the tweeter from about 950 Hz", () => {
+  const b = S.audibleBands([{ fc: 350, type: "LR4" }, { fc: 3000, type: "LR4" }], true);
+  assert.equal(b.length, 3);
+  assert.equal(b[0][0], 20);
+  assert.ok(b[0][1] > 1000 && b[0][1] < 1300, `woofer up to ${b[0][1]}`);
+  assert.ok(b[2][0] > 800 && b[2][0] < 1050, `tweeter from ${b[2][0]}`);
+  assert.ok(b[2][1] >= 19000);
 });
 
 test("dbToPct converts dB re fundamental to percent", () => {

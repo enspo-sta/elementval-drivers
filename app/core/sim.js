@@ -182,14 +182,17 @@ export function harmonicAt(way, k, f, L) {
  *   ignoreBelowDb: -40
  * }
  * Returns { freqs, response: {ways: [[dB]], sum: [dB]}, system: {H2: [dB|null], ..., THD: [...]},
- *           contrib: [{H2: [...], ...}] per way, gaps: [{way, order, from, to}] }
+ *           partial: {H2: [bool], ..., THD: [bool]}, contrib: [{H2: [...], ...}] per way, gaps: [{way, order, from, to}] }
+ * Where a way that matters has no data for an order, the speaker's value is the sum of the ways that do have
+ * data and partial is true there: the real value is at least that high. It is null only when no way that
+ * matters has data.
  */
 export function simulate(opts) {
   const { freqs, target, orders, points, ways } = opts;
   const ignore = opts.ignoreBelowDb == null ? -40 : opts.ignoreBelowDb;
-  const system = {}, contrib = ways.map(() => ({})), gapsRaw = [];
-  for (const k of orders) { system[k] = []; ways.forEach((w, i) => (contrib[i][k] = [])); }
-  system.THD = [];
+  const system = {}, partial = {}, contrib = ways.map(() => ({})), gapsRaw = [];
+  for (const k of orders) { system[k] = []; partial[k] = []; ways.forEach((w, i) => (contrib[i][k] = [])); }
+  system.THD = []; partial.THD = [];
   const response = { ways: ways.map(() => []), sum: [] };
 
   freqs.forEach((f, fi) => {
@@ -198,7 +201,7 @@ export function simulate(opts) {
     const lsys = target + db(abs(sum));
     response.sum.push(db(abs(sum)));
     hs.forEach((h, i) => response.ways[i].push(db(abs(h))));
-    let thdPower = 0, thdOk = true;
+    let thdPower = 0, thdOk = false, thdPartial = false;
     for (const k of orders) {
       let power = 0, missing = false;
       ways.forEach((w, i) => {
@@ -212,11 +215,15 @@ export function simulate(opts) {
         contrib[i][k].push(absLevel - lsys);
         power += Math.pow(10, absLevel / 10);
       });
-      const v = missing || power === 0 ? null : 10 * Math.log10(power) - lsys;
+      const v = power === 0 ? null : 10 * Math.log10(power) - lsys;
       system[k].push(v);
-      if (v == null) thdOk = false; else thdPower += Math.pow(10, v / 10);
+      partial[k].push(v != null && missing);
+      // THD from the orders that have a value; an order with no value, or a partial one, makes THD a lower bound
+      if (v == null) thdPartial = true; else { thdOk = true; thdPower += Math.pow(10, v / 10); if (missing) thdPartial = true; }
     }
-    system.THD.push(thdOk && thdPower > 0 ? 10 * Math.log10(thdPower) : null);
+    const thd = thdOk && thdPower > 0 ? 10 * Math.log10(thdPower) : null;
+    system.THD.push(thd);
+    partial.THD.push(thd != null && thdPartial);
   });
 
   // merge gap points into ranges per way and order
@@ -227,7 +234,37 @@ export function simulate(opts) {
     else gaps.push({ way: g.way, order: g.order, from: g.f, to: g.f, lastIndex: g.fi });
   }
   gaps.forEach(g => delete g.lastIndex);
-  return { freqs, response, system, contrib, gaps };
+  return { freqs, response, system, partial, contrib, gaps };
+}
+
+/** A measured curve with its unseen stretches marked: where two neighbouring points are further apart than
+ *  1/6 octave and three times the curve's typical spacing (the automatic chart reading leaves out what it
+ *  could not see), a null point is put between them, so interpLog gives null there instead of a straight
+ *  line across. Sparse hand captures (a point every 2/3 octave) are not split. */
+export function markGaps(points) {
+  const p = (points || []).filter(q => q && typeof q.x === "number" && q.x > 0 && q.y != null).sort((a, b) => a.x - b.x);
+  if (p.length < 3) return p;
+  const steps = p.slice(1).map((q, i) => Math.log2(q.x / p[i].x)).sort((a, b) => a - b);
+  const limit = Math.max(1 / 6, 3 * steps[Math.floor(steps.length / 2)]);
+  const out = [p[0]];
+  for (let i = 1; i < p.length; i++) {
+    if (Math.log2(p[i].x / p[i - 1].x) > limit) out.push({ x: Math.sqrt(p[i].x * p[i - 1].x), y: null });
+    out.push(p[i]);
+  }
+  return out;
+}
+
+/** Where a way plays within `ignoreDb` of the speaker's level: [lowest, highest] frequency on a 1/12-octave
+ *  grid from 20 Hz to 20 kHz, one pair per way. */
+export function audibleBands(points, aligned, ignoreDb = -40) {
+  const grid = logGrid(20, 20000, 12), n = points.length + 1;
+  const bands = Array.from({ length: n }, () => [null, null]);
+  for (const f of grid) {
+    wayResponses(f, points, aligned).forEach((h, i) => {
+      if (db(abs(h)) >= ignoreDb) { if (bands[i][0] == null) bands[i][0] = f; bands[i][1] = f; }
+    });
+  }
+  return bands.map(b => [b[0] ?? 20, b[1] ?? 20000]);
 }
 
 /** dB re fundamental -> percent */

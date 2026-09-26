@@ -38,10 +38,11 @@ h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
 .dtable td:first-child{color:var(--muted)}
 .dtable tr:last-child td{border-bottom:none}
 .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
-.chip{font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--panel2);color:var(--muted);padding:2px 8px;border-radius:999px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--panel2);color:var(--muted);padding:2px 8px;border-radius:999px;overflow-wrap:anywhere;max-width:100%}
 .chip.hint{color:var(--green)}
 .chip.src{color:var(--dim);background:transparent;padding-left:0}
-.setnote{font-size:12.5px;color:var(--amber2);background:rgba(240,164,74,.07);border-left:2px solid var(--amber);border-radius:0 8px 8px 0;padding:8px 12px;margin-top:8px;line-height:1.45}
+.setnote{font-size:12.5px;color:var(--amber2);background:rgba(240,164,74,.07);border-left:2px solid var(--amber);border-radius:0 8px 8px 0;padding:8px 12px;margin-top:8px;line-height:1.45;overflow-wrap:anywhere}
+.setnote a{color:var(--amber2);text-decoration:underline;text-underline-offset:2px}
 .empty{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--dim);text-align:center;padding:24px;border:1px dashed var(--line);border-radius:12px}
 .findings{font-size:14px;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 .err{color:var(--red);font-family:"IBM Plex Mono",monospace;font-size:13px;padding:16px;border:1px solid var(--red);border-radius:12px}
@@ -74,6 +75,8 @@ h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
 .togrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .tog{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:7px 12px;min-height:34px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .tog.small{font-size:11px;padding:6px 10px;min-height:32px}
+.togrow .rowlbl{font-size:11px;color:var(--dim);font-family:"IBM Plex Mono",monospace;min-width:44px}
+.togrow.lvrow{margin-bottom:6px}
 .tog.on{background:#2a2410;border-color:var(--amber);color:var(--amber2)}
 .tog .dash{display:block}
 .sep{width:1px;height:22px;background:var(--line);margin:0 4px}

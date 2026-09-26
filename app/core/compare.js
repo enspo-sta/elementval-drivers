@@ -146,6 +146,7 @@ export function buildGroups({ mix = false, drivers = allDrivers() } = {}) {
     (d.measurements || []).forEach((set, index) => {
       const fam = familyOf(set);
       if (!fam) return;
+      if (set.superseded_by) return;       // an earlier capture of charts read again in full: kept on the driver page only
       const kind = kindOf(set);
       const quantities = quantitiesOf(set, kind);
       if (!quantities.length) return;

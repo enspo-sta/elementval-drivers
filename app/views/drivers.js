@@ -18,7 +18,10 @@ const TS_EXTRA = { Vd: "cm³", Pe: "W", sens: "dB", sens1W: "dB/W", Mms: "g", Cm
 const ROLE_ORDER = ["tweeter", "tweeter (waveguide)", "midrange", "midbass", "midbass / mid", "midbass (survey)",
                     "woofer / midbass", "woofer", "woofer (pair)", "comparison"];
 const list = { filter: "", survey: false, scroll: 0, restore: false };
-const cardState = {};                  // chosen harmonic per chart card, remembered while the page is open
+const cardState = {};                  // per chart card: the harmonic shown and the level shown, remembered while the page is open
+// one colour per harmonic order when a single level is shown (the same colours as Simulate)
+const ORDER_COLORS = { H2: "#f0a44a", H3: "#7aa2f7", H4: "#6fd19a", H5: "#c4a3ff", THD: "#eef0f6" };
+const orderColor = (id, i) => ORDER_COLORS[id] || PALETTE[i % PALETTE.length];
 
 // Comparison charts stored in drivers.json 'comparisons' are shown as extra records.
 function comparisonRecords() {
@@ -98,18 +101,41 @@ function cardsOf(d, sourceName) {
     const fam = familyOf(set);
     if (sourceName && (!fam || fam.name !== sourceName)) return;
     const kind = kindOf(set);
-    const key = `${fam ? fam.name : "?"}::${kind.id}|${matchKey(set, kind)}|${kind.level ? "" : index}`;
+    // an earlier capture that a full reading of the same charts superseded gets a card of its own, after the others
+    const old = set.superseded_by ? "old" : "";
+    const key = `${fam ? fam.name : "?"}::${kind.id}|${matchKey(set, kind)}|${kind.level ? "" : index}|${old}`;
     let c = cards.find(x => x.key === key);
-    if (!c) { c = { key, fam, kind, sets: [] }; cards.push(c); }
+    if (!c) { c = { key, fam, kind, sets: [], old: !!old }; cards.push(c); }
     c.sets.push({ set, index, level: levelOf(set), quantities: quantitiesOf(set, kind) });
   });
   const order = store.families.map(f => f.name);
   cards.forEach(c => c.sets.sort((a, b) => (a.level ?? 0) - (b.level ?? 0)));
-  return cards.sort((a, b) => order.indexOf(a.fam && a.fam.name) - order.indexOf(b.fam && b.fam.name));
+  return cards.sort((a, b) => order.indexOf(a.fam && a.fam.name) - order.indexOf(b.fam && b.fam.name) || (a.old ? 1 : 0) - (b.old ? 1 : 0));
 }
 
 const levelName = s => (s.level != null ? `${Math.round(s.level * 10) / 10} dB` :
   (s.set.conditions || {}).drive_v != null ? `${[].concat(s.set.conditions.drive_v).join(" and ")} V` : s.set.method || `set ${s.index + 1}`);
+// the name of a level in a card: its sound pressure, the drive voltage it came from, and what tells two sets
+// at the same level apart (for example a chart without smoothing)
+function levelNames(card) {
+  const base = card.sets.map(s => {
+    const v = (s.set.conditions || {}).drive_v;
+    return levelName(s) + (s.level != null && v != null ? ` · ${[].concat(v).join(" and ")} V` : "");
+  });
+  return base.map((b, i) => {
+    if (base.indexOf(b) === base.lastIndexOf(b)) return b;
+    const m = String(card.sets[i].set.type || "").match(/\(([^)]*)\)\s*$/);
+    return `${b} · ${m ? m[1] : "set " + (card.sets[i].index + 1)}`;
+  });
+}
+
+// a note's web addresses become links (the chart a set was read from, a datasheet); the rest stays plain text
+function linkify(text) {
+  return esc(text).replace(/https?:\/\/[^\s<>"]+/g, u => {
+    const tail = (u.match(/[.,;:)]+$/) || [""])[0], url = u.slice(0, u.length - tail.length);
+    return `<a href="${url}" target="_blank" rel="noopener">${url}</a>${tail}`;
+  });
+}
 
 // the driver page keeps its scroll position when a toggle or source button redraws the same driver
 const shown = { id: null };
@@ -164,19 +190,37 @@ function showDetail(id, params) {
     const first = c.sets[0].set;
     const multi = c.sets.length > 1;
     const conf = CONF[first.confidence] || CONF.none;
-    const title = multi ? `${c.kind.label}${matchLabel(first, c.kind) ? " · " + matchLabel(first, c.kind) : ""} · ${c.sets.length} levels`
-      : `${first.type}${first.method ? " · " + first.method : ""}`;
+    const title = (multi ? `${c.kind.label}${matchLabel(first, c.kind) ? " · " + matchLabel(first, c.kind) : ""} · ${c.sets.length} levels`
+      : `${first.type}${first.method ? " · " + first.method : ""}`) + (c.old ? " · earlier capture" : "");
     h += `<div class="setttl"><span>${esc(title)}</span><span class="conf" style="color:${conf};border:1px solid ${conf}55">${esc(first.confidence || "none")}</span></div>`;
+    if (c.old) h += `<div class="setnote">Superseded: ${esc(first.superseded_by)}. Kept here as it was captured; Compare and Simulate use the newer sets.</div>`;
     const has = c.sets.some(s => s.quantities.length);
     if (!has) { h += `<div class="empty">no data</div>`; return; }
+    let shownSets = c.sets;               // the sets whose conditions and notes are listed under the card
     if (multi && c.kind.view === "curve") {
-      const ids = sortQuantities([...new Set(c.sets.flatMap(s => s.quantities.map(q => q.id)))]);
-      const pick = cardState[d.id + c.key] && ids.includes(cardState[d.id + c.key]) ? cardState[d.id + c.key] : ids[0];
-      h += `<div class="togrow">${ids.map(q => `<button class="tog small${q === pick ? " on" : ""}" data-card="${ci}" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>`;
-      const cols = levelColors(c.sets.length);
-      h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl" style="background:${cols[i]}"></span>${esc(levelName(s))}</span>`).join("")}</div>`;
-      h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
-      draws.push(() => drawLevels($("ch" + ci), c, pick, cols));
+      // two ways to look at several levels: one order at every level (all levels), or every order at one level
+      const st = cardState[d.id + c.key] || {};
+      const names = levelNames(c);
+      const one = st.lv != null ? c.sets.find(s => String(s.index) === st.lv) || null : null;
+      const ids = sortQuantities([...new Set((one ? [one] : c.sets).flatMap(s => s.quantities.map(q => q.id)))]);
+      const all = !!one && ids.length > 1;          // "all orders" exists only for a single level
+      const pick = st.q === "all" && all ? "all" : ids.includes(st.q) ? st.q : all ? "all" : ids[0];
+      h += `<div class="togrow lvrow"><span class="rowlbl">Level</span><button class="tog small${one ? "" : " on"}" data-card="${ci}" data-lv="all">all levels</button>${c.sets.map((s, i) =>
+        `<button class="tog small${one === s ? " on" : ""}" data-card="${ci}" data-lv="${s.index}">${esc(names[i])}</button>`).join("")}</div>`;
+      if (ids.length > 1 || !one) h += `<div class="togrow"><span class="rowlbl">${one ? "Show" : "Order"}</span>${all ? `<button class="tog small${pick === "all" ? " on" : ""}" data-card="${ci}" data-q="all">all orders</button>` : ""}${ids.map(q =>
+        `<button class="tog small${q === pick ? " on" : ""}" data-card="${ci}" data-q="${esc(q)}">${one ? `<span class="odot" style="background:${orderColor(q, ids.indexOf(q))}"></span>` : ""}${esc(q)}</button>`).join("")}</div>`;
+      if (one) {
+        shownSets = [one];
+        const qs = pick === "all" ? ids : [pick];
+        h += `<div class="legend">${qs.map(q => `<span class="lg"><span class="lgl" style="background:${orderColor(q, ids.indexOf(q))}"></span>${esc(q)} at ${esc(names[c.sets.indexOf(one)])}</span>`).join("")}</div>`;
+        h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
+        draws.push(() => drawOneLevel($("ch" + ci), c, one, qs, ids, names[c.sets.indexOf(one)]));
+      } else {
+        const cols = levelColors(c.sets.length);
+        h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl" style="background:${cols[i]}"></span>${esc(names[i])}</span>`).join("")}</div>`;
+        h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
+        draws.push(() => drawLevels($("ch" + ci), c, pick, cols, names));
+      }
     } else if (multi && c.kind.view === "bars") {
       const cols = levelColors(c.sets.length);
       h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl sq" style="background:${cols[i]}"></span>${esc(levelName(s))}</span>`).join("")}</div>`;
@@ -194,10 +238,10 @@ function showDetail(id, params) {
       }
     }
     const notes = new Set();
-    for (const s of c.sets) {
+    for (const s of shownSets) {
       h += condChips(s.set.conditions, s.set.source);
       // the same note on several levels of one measurement is shown once
-      if (s.set.note && !notes.has(s.set.note)) { notes.add(s.set.note); h += `<div class="setnote">${esc(s.set.note)}</div>`; }
+      if (s.set.note && !notes.has(s.set.note)) { notes.add(s.set.note); h += `<div class="setnote">${linkify(s.set.note)}</div>`; }
     }
     h += `<div class="exportrow">${exportHtml(() => c.sets.flatMap(s => curvesOfSet(d, s.set)), `${d.id}_${c.kind.id}${c.fam ? "_" + c.fam.name : ""}`)}</div>`;
   });
@@ -212,7 +256,13 @@ function showDetail(id, params) {
     showDetail(d.id, p);
   });
   document.querySelectorAll("[data-card]").forEach(b => b.onclick = () => {
-    cardState[d.id + cards[Number(b.dataset.card)].key] = b.dataset.q;
+    const key = d.id + cards[Number(b.dataset.card)].key, st = cardState[key] || (cardState[key] = {});
+    if (b.dataset.q != null) st.q = b.dataset.q;
+    if (b.dataset.lv != null) {
+      st.lv = b.dataset.lv === "all" ? null : b.dataset.lv;
+      // one level: every order at once; back to all levels: one order (the one shown before, else the first)
+      if (st.lv != null) { st.back = st.q !== "all" ? st.q : st.back; st.q = "all"; } else if (st.q === "all") st.q = st.back;
+    }
     showDetail(d.id, readHash().params);
   });
   draws.forEach(f => f());
@@ -260,11 +310,13 @@ function drawSet(canvas, set) {
   const isBar = set.chartType === "bar";
   const ys = (set.series || []).flatMap(s => (s.points || []).map(p => p.y)).filter(v => v != null).map(v => Number(v) + off);
   const base = isBar ? barBase(ys) : undefined;
-  const ds = (set.series || []).map((s, i) => ({
-    label: s.name, data: (s.points || []).map(p => ({ x: Number(p.x), y: p.y == null ? null : Number(p.y) + off })),
-    backgroundColor: isBar ? "#f0a44a" : PALETTE[i % PALETTE.length], borderColor: PALETTE[i % PALETTE.length],
-    borderWidth: isBar ? 0 : 2, pointRadius: 0, tension: 0.25, barThickness: isBar ? 6 : undefined, base,
-  }));
+  const logX = !isBar && ax.x && ax.x.scale === "log";
+  const ds = (set.series || []).map((s, i) => {
+    const pts = (s.points || []).map(p => ({ x: Number(p.x), y: p.y == null ? null : Number(p.y) + off }));
+    return { label: s.name, data: isBar ? pts : withBreaks(pts, logX), spanGaps: false,
+      backgroundColor: isBar ? "#f0a44a" : PALETTE[i % PALETTE.length], borderColor: PALETTE[i % PALETTE.length],
+      borderWidth: isBar ? 0 : 2, pointRadius: 0, tension: 0.25, barThickness: isBar ? 6 : undefined, base };
+  });
   // bars grow up from the bottom (as in Compare), so a taller bar is always more distortion
   const opts = chartOptions({ x: xAxis(!isBar && ax.x && ax.x.scale === "log", xt), y: yAxis("db", yt, isBar ? { min: base, max: barTop(ys) } : {}) });
   newChart(canvas, { type: isBar ? "bar" : "line", data: { datasets: ds }, options: opts });
@@ -285,18 +337,47 @@ function drawLevelBars(canvas, card, cols) {
       c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${c.label}`) });
 }
 
-function drawLevels(canvas, card, quantity, cols) {
+// Points of a curve for a chart: where the source curve has a stretch without points wider than 1/6 octave (the
+// automatic reading could not see the curve there), the line breaks instead of bridging it.
+function withBreaks(points, log) {
+  const out = [];
+  points.forEach((p, i) => {
+    const prev = points[i - 1];
+    if (log && prev && prev.x > 0 && p.x > 0 && Math.log2(p.x / prev.x) > 1 / 6) out.push({ x: Math.sqrt(prev.x * p.x), y: null });
+    out.push({ x: p.x, y: p.y });
+  });
+  return out;
+}
+
+function drawLevels(canvas, card, quantity, cols, names) {
   if (!canvas) return;
+  const log = (card.kind.x || {}).scale === "log";
   const ds = card.sets.map((s, i) => {
     const q = s.quantities.find(x => x.id === quantity);
-    return { label: levelName(s), data: q ? q.points.map(p => ({ x: p.x, y: p.y })) : [], borderColor: cols[i], backgroundColor: cols[i],
-             borderWidth: 2, pointRadius: 0, tension: 0.2 };
+    return { label: names ? names[i] : levelName(s), data: q ? withBreaks(q.points, log) : [], borderColor: cols[i], backgroundColor: cols[i],
+             borderWidth: 2, pointRadius: 0, tension: 0.2, spanGaps: false };
   });
   const k = card.kind;
   newChart(canvas, { type: "line", data: { datasets: ds }, options: chartOptions({
     x: xAxis((k.x || {}).scale === "log", `${(k.x || {}).label || ""}${(k.x || {}).unit ? " (" + k.x.unit + ")" : ""}`),
     y: yAxis("db", `${quantity} (${(k.y || {}).unit || ""})`) },
     c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${(k.x || {}).scale === "log" ? fmtHz(c.parsed.x) : c.parsed.x}`) });
+}
+
+// One level of a card: the chosen orders of that one set, one colour per order.
+function drawOneLevel(canvas, card, one, qs, ids, name) {
+  if (!canvas) return;
+  const k = card.kind, log = (k.x || {}).scale === "log";
+  const ds = qs.map(id => {
+    const q = one.quantities.find(x => x.id === id), col = orderColor(id, ids.indexOf(id));
+    return { label: `${id} at ${name}`, data: q ? withBreaks(q.points, log) : [], borderColor: col, backgroundColor: col,
+             borderWidth: id === "THD" ? 3 : 2, pointRadius: 0, tension: 0.2, spanGaps: false };
+  });
+  const unit = (k.y || {}).unit || "";
+  newChart(canvas, { type: "line", data: { datasets: ds }, options: chartOptions({
+    x: xAxis(log, `${(k.x || {}).label || ""}${(k.x || {}).unit ? " (" + k.x.unit + ")" : ""}`),
+    y: yAxis("db", `${qs.length === 1 ? qs[0] : (k.y || {}).label || "Level"} (${unit})`) },
+    c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} at ${log ? fmtHz(c.parsed.x) : c.parsed.x}`) });
 }
 
 registerView({

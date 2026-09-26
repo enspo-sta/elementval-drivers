@@ -183,9 +183,59 @@ test("Simulate: 2-, 3- and 4-way with every crossover type", { skip: skip() }, a
   await close();
 });
 
+test("Driver page: one level at a time shows every order of that level, and back to all levels", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/sb-satori-mr16tx-8");
+  await page.waitForSelector(".lvrow");
+  // the harmonics card: its level row, the order row after it
+  const hd = () => page.evaluateHandle(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /Harmonic distortion vs frequency/.test(e.textContent)); let n = t; while (n && !(n.classList && n.classList.contains("lvrow"))) n = n.nextElementSibling; return n; });
+  let row = await hd();
+  const levels = await row.$$eval("button", bs => bs.map(b => b.textContent.trim()));
+  assert.equal(levels[0], "all levels");
+  assert.ok(levels.length >= 8, `all levels plus seven: ${levels.join(", ")}`);
+  assert.ok(levels.slice(1).every(l => /dB · [\d.]+ V$/.test(l)), "each level names its sound pressure and drive voltage");
+  // all levels: one order at a time, a legend of levels
+  const orderRow = () => page.evaluate(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /Harmonic distortion vs frequency/.test(e.textContent)); let n = t; while (n && !(n.classList && n.classList.contains("lvrow"))) n = n.nextElementSibling; const o = n.nextElementSibling, lg = o.nextElementSibling; return { order: o.textContent.replace(/\s+/g, " ").trim(), legend: lg.textContent.replace(/\s+/g, " ").trim(), chips: [...document.querySelectorAll(".chips")].length }; });
+  const before = await orderRow();
+  assert.doesNotMatch(before.order, /all orders/, "with every level shown, one order at a time");
+  // one level: every order of that level, only that level's conditions
+  await (await row.$$("button"))[3].click();
+  await page.waitForTimeout(300);
+  const one = await orderRow();
+  assert.match(one.order, /all orders/);
+  assert.match(one.legend, /H2 at .*H3 at .*H5 at /, "the legend names every order at the chosen level");
+  assert.equal(one.legend.match(/ dB · /g).length, 3, "one level only");
+  assert.ok(one.chips < before.chips, "only the chosen level's conditions are listed");
+  // one order of that level
+  const h3 = await page.evaluateHandle(() => [...document.querySelectorAll("[data-q='H3']")].find(b => b.closest(".togrow").previousElementSibling.classList.contains("lvrow")));
+  await h3.click(); await page.waitForTimeout(300);
+  assert.equal((await orderRow()).legend.match(/ at /g).length, 1, "a single curve");
+  // back to all levels: the order chosen stays, the legend lists the levels again
+  row = await hd();
+  await (await row.$$("button"))[0].click(); await page.waitForTimeout(300);
+  const back = await orderRow();
+  assert.doesNotMatch(back.order, /all orders/);
+  assert.ok(back.legend.split(" dB · ").length - 1 >= 7, "every level in the legend again");
+  assert.deepEqual(errors, []);
+  await close();
+});
+
+test("Simulate: where a way that matters has no data, the speaker line is dashed and the table leaves it out", { skip: skip() }, async () => {
+  // the Purifi datasheet midrange PTT6.5M08 has harmonics from 600 Hz to 3 kHz only
+  const w = encodeURIComponent("ptt80x04nab01@Manufacturer datasheet,ptt65m08naa08@Manufacturer datasheet,ptt13t04hag01@Manufacturer datasheet");
+  const { page, errors, close } = await open(`#simulate?src=${encodeURIComponent("Manufacturer datasheet")}&n=3&w=${w}&x=350,3000`);
+  await page.waitForSelector("#schart");
+  const text = await page.textContent("#app");
+  assert.match(text, /has no H2 and H3 data from .* drawn dashed, from the other ways alone/, "the gap is named and said to be dashed");
+  assert.match(text, /Dashed: a way that still plays there has no data/);
+  const partial = await page.evaluate(() => { const c = Chart.getChart(document.getElementById("schart")); return c.data.datasets.map(d => typeof (d.segment || {}).borderDash === "function"); });
+  assert.ok(partial.every(Boolean), "every speaker curve can dash a stretch");
+  assert.deepEqual(errors, []);
+  await close();
+});
+
 for (const [name, size] of Object.entries(SIZES)) {
   test(`No sideways scrolling and usable controls at ${name} (${size.join("×")})`, { skip: skip() }, async () => {
-    for (const hash of ["", "#driver/purifi-ptt8-0x04-nab-02?src=HiFiCompass", "#driver/at-c-quenze-18-h-52-17-06-sd", "#compare", "#compare?src=diyAudio&g=diyAudio%3A%3Aimd-spectrum%7C40%2B96&q=products", "#simulate?n=4"]) {
+    for (const hash of ["", "#driver/purifi-ptt8-0x04-nab-02?src=HiFiCompass", "#driver/at-c-quenze-18-h-52-17-06-sd", "#driver/sb-satori-mr16tx-8", "#compare", "#compare?src=diyAudio&g=diyAudio%3A%3Aimd-spectrum%7C40%2B96&q=products", "#simulate?n=4"]) {
       const { page, errors, close } = await open(hash, size);
       await page.waitForTimeout(300);
       assert.ok(await noSidewaysScroll(page), `${hash || "list"} scrolls sideways at ${name}`);

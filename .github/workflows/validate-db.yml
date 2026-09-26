@@ -68,9 +68,10 @@ jobs:
       - run: python3 watch/coverage.py
       - run: python3 watch/check_consistency.py
       - run: python3 capture/worklist.py
+      - run: node tools/sim_coverage.mjs
       - name: Commit coverage list, consistency report and work list
         run: |
-          FILES="watch/coverage.md watch/coverage.json watch/consistency.md capture/WORKLIST.md"
+          FILES="watch/coverage.md watch/coverage.json watch/consistency.md capture/WORKLIST.md watch/sim_coverage.md"
           git add $FILES
           if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
           git config user.name "github-actions[bot]"

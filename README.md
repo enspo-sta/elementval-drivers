@@ -76,6 +76,7 @@ GitHub runs all of them on every push (`.github/workflows/validate-db.yml`).
 |---|---|
 | `watch/consistency.md` | values that should agree with each other, checked on every driver: Thiele/Small parameters against each other, Purifi's harmonic curves against their level sweeps, band-THD tables against their curves, calculated curves against their recipe, excursion limits against Sd and Xmax, test-tone levels |
 | `capture/WORKLIST.md` | what to capture next: curves below the capture minimum, disagreements to check at the source, every curve HiFiCompass and Purifi publish that is not stored yet, and a weekly random spot check |
+| `watch/sim_coverage.md` | for every driver and every way of a default 2-, 3- and 4-way speaker: where it still plays but has no harmonic data (Simulate draws the speaker's curve dashed there), and the drivers Simulate picks by default |
 | `capture/CHROME_CAPTURE.md` | how to capture from HiFiCompass (with your login) and Purifi on your own computer, with Claude Code and Chrome |
 
 ## Automatic updates
@@ -87,7 +88,7 @@ GitHub runs all of them on every push (`.github/workflows/validate-db.yml`).
 | Open one issue for new measurement pages about drivers already in the database | after each scan | issues labelled `driver-update` |
 | Rebuild the list of where every driver is measured | after each scan, and after each database change on `main` | `watch/coverage.md` |
 | Check both database files; test the viewer, the exports and the capture tools | every push and pull request that changes them | `.github/workflows/validate-db.yml` |
-| Rebuild the consistency report and the capture work list | after each change on `main` | `watch/consistency.md`, `capture/WORKLIST.md` |
+| Rebuild the consistency report, the capture work list and the Simulate coverage list | after each change on `main` | `watch/consistency.md`, `capture/WORKLIST.md`, `watch/sim_coverage.md` |
 | Back up everything (software, database, full history) | Sundays 03:40 UTC | `.github/workflows/backup.yml`, see `BACKUP.md` |
 | Find the lowest price of every driver at European shops | Mondays 05:40 UTC | `.github/workflows/prices.yml`, result in `prices.json` and `prices.md` |
 
@@ -135,6 +136,7 @@ python3 watch/validate_db.py               # check the database files
 python3 watch/coverage.py --stdout         # print where each driver is measured
 python3 watch/check_consistency.py         # rebuild watch/consistency.md
 python3 capture/worklist.py                # rebuild capture/WORKLIST.md
+node tools/sim_coverage.mjs                # rebuild watch/sim_coverage.md
 python3 watch/prices.py --dry-run          # scan the shops and print the prices found
 node --test tests/*.test.mjs               # test the viewer: maths, comparison rules, exports
 python3 -m unittest discover -s tests -p "test_*.py"   # test the capture tools and the price scanner
