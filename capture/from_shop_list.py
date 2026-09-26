@@ -56,20 +56,20 @@ def main():
     ap.add_argument("--root", default=str(ROOT))
     a = ap.parse_args()
     root = Path(a.root)
-    lst = json.loads(Path(a.list or root / "capture" / "tlhp_wishlist.json").read_text())
+    lst = json.loads(Path(a.list or root / "capture" / "tlhp_wishlist.json").read_text(encoding="utf-8"))
     shop, country, currency = lst.get("shop", "Toutlehautparleur"), lst.get("country", "FR"), lst.get("currency", "EUR")
     today = lst.get("date") or dt.date.today().isoformat()
     dbp = root / "drivers.json"
-    db = json.loads(dbp.read_text())
+    db = json.loads(dbp.read_text(encoding="utf-8"))
     drivers = db["drivers"]
     pricesp = root / "prices.json"
     try:
-        prices = json.loads(pricesp.read_text())
+        prices = json.loads(pricesp.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         prices = {"meta": {"updated": today, "rates_per_eur": {}, "shops_scanned": [], "notes": []}, "drivers": {}}
     rates = dict(prices.get("meta", {}).get("rates_per_eur") or {}, EUR=1.0)
     reqp = root / "capture" / "inventory_request.txt"
-    requested = [l.strip() for l in reqp.read_text().splitlines() if l.strip()] if reqp.exists() else []
+    requested = [l.strip() for l in reqp.read_text(encoding="utf-8").splitlines() if l.strip()] if reqp.exists() else []
     added, matched = [], []
     for item in lst["items"]:
         name = item["name"].strip()
@@ -99,9 +99,9 @@ def main():
             rec["offers"].append(offer)
             rec["offers"].sort(key=lambda o: (o.get("price_sek") is None, o.get("price_sek") or o["price"]))
     db["meta"] = dict(db.get("meta") or {}, updated=today)
-    dbp.write_text(dumps_db(db))
-    pricesp.write_text(json.dumps(prices, indent=1, ensure_ascii=False) + "\n")
-    reqp.write_text("\n".join(requested) + "\n")
+    dbp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
+    pricesp.write_text(json.dumps(prices, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+    reqp.write_text("\n".join(requested) + "\n", encoding="utf-8", newline="\n")
     print(f"{len(matched)} item(s) matched existing records ({', '.join(matched)}); {len(added)} new record(s) ({', '.join(added) or 'none'}); "
           f"{len(lst['items'])} {shop} offer(s) written; inventory request: {len(requested)} model(s)")
     if root == ROOT:

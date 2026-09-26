@@ -297,13 +297,13 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", default=str(ROOT / "capture" / "imd_read.json"))
     a = ap.parse_args()
-    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "imd_read_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
-    inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
-    byid = {d["id"]: d for d in json.loads((ROOT / "drivers.json").read_text())["drivers"]}
+    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "imd_read_request.txt").read_text(encoding="utf-8").splitlines()) if x.strip() and not x.strip().startswith("#")]
+    inv = json.loads((ROOT / "capture" / "inventory.json").read_text(encoding="utf-8"))
+    byid = {d["id"]: d for d in json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))["drivers"]}
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec["pages"]}
     # the drivers requested this time replace their own earlier results; the others' stay as they were read
     prev = Path(a.out)
-    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
+    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text(encoding="utf-8")).get("drivers", {}) if prev.exists() else {}}
     last = [0.0]
     for ln in lines:
         did = ln.split()[0]
@@ -332,7 +332,7 @@ def main():
                 print(f"  {name}: {test} axes x {rec.get('x_axis')} y {rec.get('y_axis')} tones {rec.get('tones')} products {len(rec.get('products', []))} (below floor {rec.get('below_floor')}) {rec.get('error', '')}", flush=True)
                 res.append(rec)
         out["drivers"][did] = res
-    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
+    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print("written", a.out)
 
 

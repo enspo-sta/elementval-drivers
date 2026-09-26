@@ -55,7 +55,7 @@ def hifi_page(d):
         return None
     norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
     models = [norm(w) for w in re.findall(r"[A-Za-z]*\d[\w.\-]*", d.get("name") or "") if len(norm(w)) >= 5]
-    pages = [pg["url"] for rec in json.loads(inv_p.read_text())["models"].values() for pg in rec.get("pages", [])
+    pages = [pg["url"] for rec in json.loads(inv_p.read_text(encoding="utf-8"))["models"].values() for pg in rec.get("pages", [])
              if "/speakers/measurements/" in pg.get("url", "")]
     for m in models:
         # the page address ends with the model number: "…naa-08a" is the 08A variant's page, not the 08's
@@ -67,9 +67,9 @@ def hifi_page(d):
 
 def main():
     cfg = load_config()
-    db = json.loads((ROOT / "drivers.json").read_text())
+    db = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
     cp_ = ROOT / "watch" / "completeness.json"
-    completeness = json.loads(cp_.read_text()).get("drivers", {}) if cp_.exists() else {}
+    completeness = json.loads(cp_.read_text(encoding="utf-8")).get("drivers", {}) if cp_.exists() else {}
     floor = cfg["capture"]["minimum_points_per_decade"]
     lines = ["# Capture work list", "",
              f"Written by `capture/worklist.py` on {dt.date.today().isoformat()}. How to work through it: `capture/CHROME_CAPTURE.md`.", ""]
@@ -90,7 +90,7 @@ def main():
         lines.append("| — | | nothing below the minimum | | | |")
 
     rep = cc.Report()
-    drivers = db["drivers"] + json.loads((ROOT / "drivers_survey_midbass.json").read_text())["drivers"]
+    drivers = db["drivers"] + json.loads((ROOT / "drivers_survey_midbass.json").read_text(encoding="utf-8"))["drivers"]
     byid = {d["id"]: d for d in drivers}
     for d in drivers:
         cc.check_parameters(d, rep); cc.check_notes(d, rep); cc.check_sources(d, rep, cfg); cc.check_sweep(d, rep, cfg)
@@ -170,7 +170,7 @@ def main():
         for d, i, m in auto:
             checks = [part for part in str(m.get("note", "")).split("; ") if part.startswith("check ")]
             lines.append(f"- **{d['name']}** (`{d['id']}`), set {i}: {m['type']} — {'; '.join(checks) if checks else 'no self-check possible for this kind'}")
-    OUT.write_text("\n".join(lines) + "\n")
+    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print(f"{OUT.relative_to(ROOT)}: {n1} to recapture, {len(diffs)} disagreements, {len(slopes)} level slopes off the rule, spot check {', '.join(d['id'] for d in pick)}, {len(auto)} automated sets")
 
 

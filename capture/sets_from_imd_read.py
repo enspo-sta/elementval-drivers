@@ -288,9 +288,9 @@ def main():
     ap.add_argument("--read", default=str(ROOT / "capture" / "imd_read.json"))
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
-    read = json.loads(Path(a.read).read_text())
+    read = json.loads(Path(a.read).read_text(encoding="utf-8"))
     dbp = ROOT / "drivers.json"
-    db = json.loads(dbp.read_text())
+    db = json.loads(dbp.read_text(encoding="utf-8"))
     made, waiting = build(read, db)
     for did, s in made:
         print(f"{did}: {s['type']} {sum(len(x['points']) for x in s['series'])} bars; {s['note'][-140:]}")
@@ -304,13 +304,13 @@ def main():
             d["measurements"].append(s)
             d["updated"] = read["date"]
         tmp = ROOT / "capture" / "_imd_read_candidate.json"
-        tmp.write_text(dumps_db(db))
+        tmp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
         errors = result[0] if isinstance(result, tuple) else result
         tmp.unlink()
         if errors:
             sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
-        dbp.write_text(dumps_db(db))
+        dbp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         print(f"{len(made)} set(s) written")
 
 

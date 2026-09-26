@@ -29,7 +29,7 @@ class Numbers(unittest.TestCase):
 class Matching(unittest.TestCase):
     def test_models_of_every_driver_in_the_database(self):
         drivers = P.load_drivers()
-        main = json.loads((ROOT / "drivers.json").read_text())["drivers"]
+        main = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))["drivers"]
         for d in main:
             self.assertTrue(P.models_of(d), d["name"])
         survey = [d for d in drivers if d not in main]
@@ -82,7 +82,7 @@ class Pages(unittest.TestCase):
         self.assertEqual(P.offers_from_page("<html>no price here</html>"), [])
 
     def test_config_is_valid(self):
-        cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text())
+        cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text(encoding="utf-8"))
         names = [s["name"] for s in cfg["shops"]]
         self.assertEqual(len(names), len(set(names)))
         for s in cfg["shops"]:
@@ -143,7 +143,7 @@ class Certificates(unittest.TestCase):
                                 "-days", "1", "-subj", "/CN=shop.example", "-addext", "authorityInfoAccess=caIssuers;URI:http://ca.example/int.der"],
                                capture_output=True)
             self.assertEqual(r.returncode, 0, r.stderr)
-            pem = Path(tmp + "/c.pem").read_text()
+            pem = Path(tmp + "/c.pem").read_text(encoding="utf-8")
             self.assertEqual(P.ca_issuers_url(pem), "http://ca.example/int.der")
             self.assertIsNone(P.ca_issuers_url("-----BEGIN CERTIFICATE-----\nnot a certificate\n-----END CERTIFICATE-----\n"))
             der = subprocess.run(["openssl", "x509", "-in", tmp + "/c.pem", "-outform", "DER"], capture_output=True).stdout
@@ -166,7 +166,7 @@ class Offers(unittest.TestCase):
         self.assertTrue(o2["login_prices"]); self.assertEqual(o2["shop_note"], "cheap when logged in"); self.assertNotIn("pack", o2)
 
     def test_config_marks_purifi_direct_as_box_prices(self):
-        cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text())
+        cfg = json.loads((ROOT / "watch" / "prices_config.json").read_text(encoding="utf-8"))
         purifi = next(s for s in cfg["shops"] if s["name"] == "Purifi (direct)")
         self.assertIn("box", purifi["pack"])
 
@@ -276,22 +276,22 @@ class ShopList(unittest.TestCase):
             root = Path(tmp)
             (root / "capture").mkdir()
             shutil.copy(ROOT / "drivers.json", root / "drivers.json")
-            (root / "prices.json").write_text(json.dumps({"meta": {"updated": "2026-09-25", "rates_per_eur": {"SEK": 11.29}}, "drivers": {}}))
-            (root / "capture" / "inventory_request.txt").write_text("BlieSMa M74A\n")
+            (root / "prices.json").write_text(json.dumps({"meta": {"updated": "2026-09-25", "rates_per_eur": {"SEK": 11.29}}, "drivers": {}}), encoding="utf-8", newline="\n")
+            (root / "capture" / "inventory_request.txt").write_text("BlieSMa M74A\n", encoding="utf-8", newline="\n")
             (root / "capture" / "tlhp_wishlist.json").write_text(json.dumps({"date": "2026-09-26", "shop": "Toutlehautparleur", "country": "FR", "currency": "EUR", "items": [
                 {"name": "Purifi PTT6.5X04-NAA-08", "url": "https://www.toutlehautparleur.com/purifi-ptt65x04-naa-08.html", "price_logged_in": 389.0, "price_public": 420.0, "list": "cart", "quantity": 2},
-                {"name": "Scan-Speak 18W/8531G00", "url": "https://www.toutlehautparleur.com/scan-speak-18w-8531g00.html", "price_logged_in": 205.0, "price_public": 219.0, "list": "wishlist"}]}))
+                {"name": "Scan-Speak 18W/8531G00", "url": "https://www.toutlehautparleur.com/scan-speak-18w-8531g00.html", "price_logged_in": 205.0, "price_public": 219.0, "list": "wishlist"}]}), encoding="utf-8", newline="\n")
             r = subprocess.run([sys.executable, str(ROOT / "capture" / "from_shop_list.py"), "--root", str(root)], capture_output=True, text=True)
             self.assertEqual(r.returncode, 0, r.stderr)
-            db = json.loads((root / "drivers.json").read_text())
+            db = json.loads((root / "drivers.json").read_text(encoding="utf-8"))
             byid = {d["id"]: d for d in db["drivers"]}
             self.assertEqual(byid["ptt65x04naa08"]["shop_pages"]["Toutlehautparleur"], "https://www.toutlehautparleur.com/purifi-ptt65x04-naa-08.html")
             new = byid["scan-speak-18w-8531g00"]
             self.assertEqual((new["name"], new["manufacturer"], new["measurements"], new["ts"]), ("Scan-Speak 18W/8531G00", "Scan-Speak", [], {}))
-            prices = json.loads((root / "prices.json").read_text())
+            prices = json.loads((root / "prices.json").read_text(encoding="utf-8"))
             o = prices["drivers"]["ptt65x04naa08"]["offers"][0]
             self.assertEqual((o["shop"], o["price"], o["price_logged_in"], o["checked"], o["hand_written"], o["price_sek"]), ("Toutlehautparleur", 420.0, 389.0, "2026-09-26", True, 4742))
-            self.assertEqual((root / "capture" / "inventory_request.txt").read_text().splitlines(), ["BlieSMa M74A", "Scan-Speak 18W/8531G00"])
+            self.assertEqual((root / "capture" / "inventory_request.txt").read_text(encoding="utf-8").splitlines(), ["BlieSMa M74A", "Scan-Speak 18W/8531G00"])
 
 
 class GluedAmounts(unittest.TestCase):

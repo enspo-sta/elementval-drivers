@@ -121,9 +121,9 @@ def main():
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--models", help="only these models of the inventory (comma-separated, as in the request file)")
     a = ap.parse_args()
-    inv = json.loads(Path(a.inventory).read_text())
+    inv = json.loads(Path(a.inventory).read_text(encoding="utf-8"))
     dbp = ROOT / "drivers.json"
-    db = json.loads(dbp.read_text())
+    db = json.loads(dbp.read_text(encoding="utf-8"))
     byid = {d["id"]: d for d in db["drivers"]}
     # a record made from a shop list (capture/from_shop_list.py) has no parameters and no measurement page yet:
     # it is matched by model number and filled rather than added twice
@@ -132,7 +132,7 @@ def main():
     used = {d.get("source") for d in db["drivers"]}
     req = ROOT / "capture" / "chart_read_request.txt"
     if req.exists():
-        used |= {ln.split()[1] for ln in req.read_text().splitlines() if len(ln.split()) > 1 and not ln.startswith("#")}
+        used |= {ln.split()[1] for ln in req.read_text(encoding="utf-8").splitlines() if len(ln.split()) > 1 and not ln.startswith("#")}
 
     def existing_for(r):
         if r["id"] in byid:
@@ -164,10 +164,10 @@ def main():
                 if k in r:
                     ex[k] = r[k]
         if fills:
-            dbp.write_text(dumps_db(db))
+            dbp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         for r in recs:
             tmp = ROOT / "capture" / f"_new_{r['id']}.json"
-            tmp.write_text(json.dumps(r, ensure_ascii=False))
+            tmp.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8", newline="\n")
             subprocess.run([sys.executable, str(ROOT / "capture" / "add_set.py"), "--new-driver", str(tmp)], check=True)
             tmp.unlink()
         print(f"{len(recs)} record(s) added, {len(fills)} filled")

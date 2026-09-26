@@ -310,7 +310,7 @@ def main():
     for name in ("drivers.json", "drivers_survey_midbass.json"):
         p = ROOT / name
         if p.exists():
-            drivers += json.loads(p.read_text())["drivers"]
+            drivers += json.loads(p.read_text(encoding="utf-8"))["drivers"]
     byid = {d["id"]: d for d in drivers}
     for d in drivers:
         check_parameters(d, rep)
@@ -337,7 +337,7 @@ def main():
     if args.stdout:
         print(text)
     else:
-        OUT.write_text(text)
+        OUT.write_text(text, encoding="utf-8", newline="\n")
         print(f"{OUT.relative_to(ROOT)}: {counts['ok']} ok, {counts['differs']} differ, {counts['check']} to check")
     return 1 if args.strict and rep.failed() else 0
 

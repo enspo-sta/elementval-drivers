@@ -45,7 +45,7 @@ def dumps_db(db):
 
 
 def load_config():
-    cfg = json.loads(CONFIG.read_text())
+    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     cfg["_patterns"] = {n: (p["brand"], re.compile(p["regex"], re.I)) for n, p in cfg["patterns"].items()}
     cfg["_families"] = [(f["name"], f["kind"], re.compile(f["match"], re.I)) for f in cfg["families"]]
     for s in cfg["sources"]:
@@ -86,7 +86,7 @@ def family_kind(name, cfg):
 
 def load_databases():
     """[(file name, database dict)] for the database files that exist."""
-    return [(p.name, json.loads(p.read_text())) for p in DATABASES if p.exists()]
+    return [(p.name, json.loads(p.read_text(encoding="utf-8"))) for p in DATABASES if p.exists()]
 
 
 def driver_keys(driver, cfg):

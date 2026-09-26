@@ -49,17 +49,17 @@ LABEL = {"response": "on-axis response", "harmonics": "harmonics", "current": "c
 
 def main():
     cfg = load_config()
-    inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
-    db = json.loads((ROOT / "drivers.json").read_text())
+    inv = json.loads((ROOT / "capture" / "inventory.json").read_text(encoding="utf-8"))
+    db = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
     read = {}
     rp = ROOT / "capture" / "chart_read.json"
     if rp.exists():
-        for charts in json.loads(rp.read_text()).get("drivers", {}).values():
+        for charts in json.loads(rp.read_text(encoding="utf-8")).get("drivers", {}).values():
             for c in charts:
                 read[c.get("file")] = c
     ip = ROOT / "capture" / "imd_read.json"
     if ip.exists():
-        for charts in json.loads(ip.read_text()).get("drivers", {}).values():
+        for charts in json.loads(ip.read_text(encoding="utf-8")).get("drivers", {}).values():
             for c in charts:
                 read[c.get("file")] = c
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec.get("pages", [])}
@@ -132,7 +132,7 @@ def main():
                           "premium_only": cnt["premium only"],
                           "missing_by_type": dict(Counter(c["label"] for c in rec["charts"] if c["state"] == "missing"))}
         out["drivers"][d["id"]] = rec
-    (ROOT / "watch" / "completeness.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+    (ROOT / "watch" / "completeness.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
 
     lines = ["# Does every driver have every curve?", "",
              f"Written by `capture/completeness.py` on {out['date']} from the HiFiCompass inventory of {inv.get('date')} "
@@ -163,7 +163,7 @@ def main():
     lines += ["", "Records without a HiFiCompass measurement page in the inventory: " + (", ".join(nopage) if nopage else "none") + ".",
               "(Either HiFiCompass has not measured that exact variant, or its page is a review without charts, or the record "
               "is a proxy or a pair made from another record.)"]
-    (ROOT / "watch" / "completeness.md").write_text("\n".join(lines) + "\n")
+    (ROOT / "watch" / "completeness.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     tot = Counter()
     for r in out["drivers"].values():
         for k in ("published", "stored", "by_hand", "premium_only", "missing"):

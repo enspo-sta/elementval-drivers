@@ -166,7 +166,7 @@ def describe_image(path):
     big = im.resize((im.width * 2, im.height * 2))
     tmp = path.with_suffix(".ocr.png")
     big.save(tmp)
-    tsv = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, text=True, timeout=300).stdout
+    tsv = subprocess.run([CP.TESSERACT or "tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, encoding="utf-8", errors="replace", timeout=300).stdout
     words = []
     for row in tsv.splitlines()[1:]:
         c = row.split("\t")
@@ -303,7 +303,7 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "capture" / "datasheet_probe.json"))
     ap.add_argument("--keep", help="a directory to keep chart images in (a one-day workflow artifact, never committed)")
     a = ap.parse_args()
-    lines = [x.strip() for x in (ROOT / "capture" / "datasheet_request.txt").read_text().splitlines() if x.strip() and not x.startswith("#")]
+    lines = [x.strip() for x in (ROOT / "capture" / "datasheet_request.txt").read_text(encoding="utf-8").splitlines() if x.strip() and not x.startswith("#")]
     # a line too short for its form is reported and skipped, never a crash after the downloads
     def well_formed(ln):
         p_ = ln.split()
@@ -323,7 +323,7 @@ def main():
         lines = [x for x in lines if x.split()[0] in want]
         pages = [x for x in pages if x[1] in want]
     prev = Path(a.out)
-    before = json.loads(prev.read_text()) if prev.exists() else {}
+    before = json.loads(prev.read_text(encoding="utf-8")) if prev.exists() else {}
     # the drivers, pages and images requested this run replace their own earlier results; the others stay
     out = {"date": dt.date.today().isoformat(), "drivers": before.get("drivers", {}), "pages": before.get("pages", {})}
     last = [0.0]
@@ -423,7 +423,7 @@ def main():
         except Exception as e:  # noqa: BLE001
             out["images"].append({"id": did, "url": u, "error": f"{type(e).__name__}: {e}"})
             log(f"image {did}: {u}: {type(e).__name__}: {e}")
-    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
+    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print("written", a.out)
 
 

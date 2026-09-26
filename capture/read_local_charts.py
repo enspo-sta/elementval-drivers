@@ -37,7 +37,7 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_read.json"))
     a = ap.parse_args()
     folder = Path(a.dir) if a.dir else ROOT / "incoming" / a.id
-    db = json.loads((ROOT / "drivers.json").read_text())
+    db = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
     d = next((x for x in db["drivers"] if x["id"] == a.id), None)
     if not d:
         sys.exit(f"no driver {a.id} in drivers.json")
@@ -45,7 +45,11 @@ def main():
     if not listing.exists():
         sys.exit(f"{listing} is missing: one line per image, tab-separated: file, type, address")
     res = []
-    for row in csv.reader(listing.read_text().splitlines(), delimiter="\t"):
+    if not CP.TESSERACT:
+        sys.exit("tesseract is not installed or not found: it reads the charts' axis numbers. On Windows: "
+                 "winget install -e --id UB-Mannheim.TesseractOCR, then run this again (or set TESSERACT to tesseract.exe's path)")
+    # utf-8-sig: a list saved by Notepad or PowerShell may begin with a byte-order mark
+    for row in csv.reader(listing.read_text(encoding="utf-8-sig").splitlines(), delimiter="\t"):
         if not row or not row[0].strip() or row[0].startswith("#"):
             continue
         name = row[0].strip()
@@ -62,7 +66,7 @@ def main():
             rec = CR.read_chart(path, {"near-response": "response", "off-axis": "off-axis-read"}.get(ctype, ctype))
         except Exception as e:  # noqa: BLE001
             rec = {"error": f"read failed: {e}"}
-        rec.update({"file": name, "url": url, "type": ctype, "read_on": "your computer (capture/read_local_charts.py)"})
+        rec.update({"file": name, "url": url, "type": ctype, "read_on": "David’s computer (capture/read_local_charts.py)"})
         rec["checks"] = CR.checks(a.id, d, ctype, name, rec) if not rec.get("error") else []
         cv = rec.get("curves", [])
         print(f"  {name}: {ctype}; x {rec.get('x_axis')} y {rec.get('y_axis')}; curves "
@@ -70,12 +74,12 @@ def main():
         res.append(rec)
     CR.share_names(res)
     prev = Path(a.out)
-    out = json.loads(prev.read_text()) if prev.exists() else {"drivers": {}}
+    out = json.loads(prev.read_text(encoding="utf-8")) if prev.exists() else {"drivers": {}}
     fresh = {r["file"] for r in res}
     out["drivers"][a.id] = [r for r in out["drivers"].get(a.id, []) if r.get("file") not in fresh] + res
     out["date"] = dt.date.today().isoformat()
-    prev.write_text(json.dumps(out, ensure_ascii=False) + "\n")
-    print(f"{len(res)} chart(s) read into {a.out}; next: python3 capture/sets_from_chart_read.py (to see), then --write")
+    prev.write_text(json.dumps(out, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+    print(f"{len(res)} chart(s) read into {a.out}; next: python capture/sets_from_chart_read.py (to see), then --write (python3 on Linux and macOS)")
 
 
 if __name__ == "__main__":

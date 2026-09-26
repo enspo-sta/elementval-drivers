@@ -54,7 +54,7 @@ def main():
     cfg = load_config()
     floor = cfg.get("capture", {}).get("minimum_points_per_decade", 40)
     state_path = Path(args.state)
-    state = json.loads(state_path.read_text()) if state_path.exists() else None
+    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else None
     evidence, names = lab_evidence(state, cfg)
     today = dt.date.today().isoformat()
 
@@ -150,8 +150,8 @@ def main():
     if args.stdout:
         print(text)
     else:
-        OUT_MD.write_text(text)
-        OUT_JSON.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
+        OUT_MD.write_text(text, encoding="utf-8", newline="\n")
+        OUT_JSON.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
         print(f"coverage: {len(in_db)} in database, {len(multi)} on the shortlist, {len(single)} single-source")
     return 0
 

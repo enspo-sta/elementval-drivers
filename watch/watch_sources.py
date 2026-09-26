@@ -159,7 +159,7 @@ def main():
     ignore = {key_of(x) for x in cfg.get("ignore", [])}
     in_db = database_keys(cfg)
     baseline = not STATE.exists()
-    state = {"sources": {}} if baseline else json.loads(STATE.read_text())
+    state = {"sources": {}} if baseline else json.loads(STATE.read_text(encoding="utf-8"))
     today = dt.date.today().isoformat()
 
     # Models already reported (or recorded at the baseline). Older state files without the list
@@ -216,7 +216,7 @@ def main():
                 "new_material": sorted(new_material.values(), key=lambda x: x["display"]),
                 "health": [{"source": n, "pages_ok": ok, "failed": f, "models": m, "measured": mm}
                            for n, ok, f, m, mm in health_rows]}
-    Path(args.out).write_text(json.dumps(findings, indent=2, ensure_ascii=False))
+    Path(args.out).write_text(json.dumps(findings, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
     # Catalogue: everything seen anywhere that is not in the database, measured or not.
     cat = {}
@@ -262,11 +262,11 @@ def main():
             fh.write(text)
 
     if not args.dry_run:
-        STATE.write_text(json.dumps(state, indent=1, ensure_ascii=False, sort_keys=True) + "\n")
-        CATALOGUE.write_text("\n".join(lines) + "\n")
+        STATE.write_text(json.dumps(state, indent=1, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+        CATALOGUE.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     else:
         print("\n".join(lines))
-        Path(args.out).with_suffix(".state.json").write_text(json.dumps(state, indent=1, ensure_ascii=False))
+        Path(args.out).with_suffix(".state.json").write_text(json.dumps(state, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n")
 
     dead = [n for n, ok, f, m, mm in health_rows if ok == 0]
     if len(dead) == len(health_rows):

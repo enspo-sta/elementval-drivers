@@ -96,8 +96,15 @@ test("ZIP: valid archive that Python's zipfile can read", () => {
   assert.deepEqual([...zip.slice(0, 4)], [0x50, 0x4b, 0x03, 0x04]);
   const dir = mkdtempSync(join(tmpdir(), "zip-"));
   writeFileSync(join(dir, "t.zip"), zip);
-  const py = spawnSync("python3", ["-c", "import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; sys.stdout.write('|'.join(n+'='+z.read(n).decode() for n in z.namelist()))", join(dir, "t.zip")], { encoding: "utf8" });
-  if (py.error) return;     // no Python on this machine: the signature and CRC checks above still ran
+  // python3 on Linux and macOS; on Windows python or py (python3 there is often a store placeholder that exits with 9009)
+  const env = { ...process.env, PYTHONUTF8: "1", PYTHONIOENCODING: "utf-8" };
+  const script = "import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; sys.stdout.write('|'.join(n+'='+z.read(n).decode() for n in z.namelist()))";
+  let py = null;
+  for (const cmd of ["python3", "python", "py"]) {
+    const r = spawnSync(cmd, ["-c", script, join(dir, "t.zip")], { encoding: "utf8", env });
+    if (!r.error && r.status !== 9009 && !/Python was not found/.test(r.stderr || "")) { py = r; break; }
+  }
+  if (!py) return;          // no Python on this machine: the signature and CRC checks above still ran
   assert.equal(py.status, 0, py.stderr);
   assert.equal(py.stdout, "a.txt=hello|ö/b.csv=x,y\n1,2\n");
 });

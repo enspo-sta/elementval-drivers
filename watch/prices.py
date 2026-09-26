@@ -579,7 +579,7 @@ def load_drivers():
     for f in ("drivers.json", "drivers_survey_midbass.json"):
         p = ROOT / f
         if p.exists():
-            out += json.loads(p.read_text())["drivers"]
+            out += json.loads(p.read_text(encoding="utf-8"))["drivers"]
     return out
 
 
@@ -644,7 +644,7 @@ def previous_offers(shop, today):
     """The shop's offers in the committed prices.json, marked as kept from that scan (for a shop that could
     not be reached at all in this scan; a note says so, the kept-from date is the first scan they came from)."""
     try:
-        prev = json.loads(OUT.read_text())
+        prev = json.loads(OUT.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return {}
     since = prev.get("meta", {}).get("updated") or "an earlier scan"
@@ -753,7 +753,7 @@ def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, s
     today = dt.date.today().isoformat()
     byid = {d["id"]: d for d in drivers}
     try:
-        carry_hand_written(offers, json.loads(OUT.read_text()))
+        carry_hand_written(offers, json.loads(OUT.read_text(encoding="utf-8")))
     except (OSError, ValueError):
         pass
     for lst in offers.values():
@@ -782,8 +782,8 @@ def write_outputs(offers, shop_notes, rates, rate_date, drivers, cfg, dry_run, s
         print(json.dumps(data, indent=1, ensure_ascii=False))
         print(text)
     else:
-        OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
-        OUT_MD.write_text(text)
+        OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+        OUT_MD.write_text(text, encoding="utf-8", newline="\n")
         print(f"prices.json: {len(data['drivers'])} drivers with a price, {len(missing)} without")
     if summary:
         Path(summary).open("a").write(text)
@@ -797,7 +797,7 @@ def main():
     ap.add_argument("--driver")
     ap.add_argument("--summary", help="append the report to this file (for example $GITHUB_STEP_SUMMARY)")
     a = ap.parse_args()
-    cfg = json.loads(CONFIG.read_text())
+    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     drivers = load_drivers()
     rates, rate_date = ecb_rates()
     offers, notes = scan(cfg, drivers, a.shop, a.driver)

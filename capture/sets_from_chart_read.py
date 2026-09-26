@@ -213,7 +213,8 @@ def build(read, db):
                 extra.append(f"near field {cond['distance_mm']} mm")
             if cond.get("smoothing") == "none":
                 extra.append("no smoothing")
-            note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
+            where = f"on {ch['read_on']}" if ch.get("read_on") else "on GitHub (capture/chart_read.py)"
+            note = [f"read automatically from {ch['url'] or ch['file']} {where}: axes from the chart's grid and labels, curve by colour, 1/24 octave"]
             if typed_note:
                 note.append(typed_note)
             elif "/afc520/" in ch.get("url", "") and not re.search(r"hd|hpf", name.lower()):
@@ -307,7 +308,7 @@ def build(read, db):
                 cal = dict(ch["calibration"], image=ch["url"],
                            colours={s["name"]: next((cv["colour"] for cv in ch["curves"] if cv.get("points") is s["points"]), None) for s in series})
             made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else "") + (f" ({', '.join(extra)})" if extra else ""), "kind": kind,
-                              "method": "automated pixel reading (GitHub), calibrated from the chart's own grid and labels",
+                              "method": f"automated pixel reading ({'on David’s computer' if ch.get('read_on') else 'GitHub'}), calibrated from the chart's own grid and labels",
                               "conditions": cond, "source": f"HiFiCompass ({name}, automated reading)", "confidence": "medium",
                               "note": "; ".join(note), "chartType": "line", "series": series, "file": name,
                               # a near-field response is on the chart's own relative dB scale, not sound pressure at 1 m
@@ -384,9 +385,9 @@ def main():
     ap.add_argument("--read", default=str(ROOT / "capture" / "chart_read.json"))
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
-    read = json.loads(Path(a.read).read_text())
+    read = json.loads(Path(a.read).read_text(encoding="utf-8"))
     dbp = ROOT / "drivers.json"
-    db = json.loads(dbp.read_text())
+    db = json.loads(dbp.read_text(encoding="utf-8"))
     made, waiting = build(read, db)
     for did, s in made:
         print(f"{did}: {s['type']} ({s['kind']}) {len(s['series'])} series, {len(s['series'][0]['points'])} points; {s['note'][:160]}")
@@ -414,13 +415,13 @@ def main():
                                           "every drive level at 1/24 octave over the range each chart shows (capture/chart_read.py)")
                     print(f"superseded {did}: {m['type']} ({m.get('source')})")
         tmp = ROOT / "capture" / "_chart_read_candidate.json"
-        tmp.write_text(dumps_db(db))
+        tmp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
         errors = result[0] if isinstance(result, tuple) else result
         tmp.unlink()
         if errors:
             sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
-        dbp.write_text(dumps_db(db))
+        dbp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         print(f"{len(made)} set(s) written")
 
 

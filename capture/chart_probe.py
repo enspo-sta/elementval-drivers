@@ -14,7 +14,9 @@ is stored in the repository. Obeys the site's 10-second pause between requests.
 import argparse
 import datetime as dt
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -23,6 +25,21 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def find_tesseract():
+    """The tesseract program: the TESSERACT setting, else on PATH, else where the Windows installer puts it (it does
+    not add itself to PATH), else None."""
+    for c in (os.environ.get("TESSERACT"), shutil.which("tesseract"),
+              r"C:\Program Files\Tesseract-OCR\tesseract.exe", r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+              os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe")):
+        found = c and (c if os.path.isfile(c) else shutil.which(c))
+        if found:
+            return found
+    return None
+
+
+TESSERACT = find_tesseract()
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 elementval-drivers-probe/1.0"
 SKIP = re.compile(r"_side|_front|_back|_box|title|logo|SoundImports|clarity|eton|wood|acuton|no_data|banner|_coil\.|_coil\d|_wires\.", re.I)   # photos and banners, not charts (a photo: …_coil.jpg, …_voice_coil2.jpg; the folder voice_coil_curr/ holds charts)
 
@@ -99,8 +116,8 @@ def ocr_words(path, crop, scale=3):
     tmp = path.with_suffix(".crop.png")
     part.save(tmp)
     try:
-        out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "-c", "tessedit_char_whitelist=0123456789.,-kKHzdBmsOhm%", "tsv"],
-                             capture_output=True, text=True, timeout=120).stdout
+        out = subprocess.run([TESSERACT or "tesseract", str(tmp), "stdout", "--psm", "11", "-c", "tessedit_char_whitelist=0123456789.,-kKHzdBmsOhm%", "tsv"],
+                             capture_output=True, encoding="utf-8", errors="replace", timeout=120).stdout
     except (OSError, subprocess.TimeoutExpired) as e:
         return [{"error": str(e)}]
     words = []
@@ -253,11 +270,11 @@ def main():
     a = ap.parse_args()
     # a request line is a record id, optionally followed by its HiFiCompass page address (for a record captured by
     # hand before, which has no page address of its own)
-    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_probe_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
+    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_probe_request.txt").read_text(encoding="utf-8").splitlines()) if x.strip() and not x.strip().startswith("#")]
     ids = [ln.split()[0] for ln in lines]
     page_of = {ln.split()[0]: ln.split()[1] for ln in lines if len(ln.split()) > 1}
-    inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
-    db = json.loads((ROOT / "drivers.json").read_text())
+    inv = json.loads((ROOT / "capture" / "inventory.json").read_text(encoding="utf-8"))
+    db = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
     byid = {d["id"]: d for d in db["drivers"]}
     out = {"date": dt.date.today().isoformat(), "drivers": {}}
     last = [0.0]
@@ -297,7 +314,7 @@ def main():
                 print(f"  {name}: {rec.get('width')}x{rec.get('height')} bg {rec.get('background')} box {rec.get('plot_box')} grid {len(rec.get('grid_rows', []))} rows {len(rec.get('grid_cols', []))} cols colours {[c['hex'] for c in rec.get('colours', [])[:5]]} bottom {[w['text'] for w in rec.get('bottom_words', []) if 'text' in w][:12]} left {[w['text'] for w in rec.get('left_words', []) if 'text' in w][:8]}", flush=True)
                 res.append(rec)
         out["drivers"][did] = res
-    Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
+    Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"written {a.out}")
 
 

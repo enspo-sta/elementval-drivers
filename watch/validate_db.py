@@ -26,7 +26,7 @@ from common import family_kind, families_of, load_config, points_per_decade
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 CONFIDENCE = {"high", "medium", "low", "none"}
-KINDS = {k["id"]: k for k in json.loads((ROOT / "schema" / "kinds.json").read_text())["kinds"]}
+KINDS = {k["id"]: k for k in json.loads((ROOT / "schema" / "kinds.json").read_text(encoding="utf-8"))["kinds"]}
 
 
 def level_of(m):
@@ -99,7 +99,7 @@ def validate(paths):
     comparisons = []
     for path in paths:
         try:
-            db = json.loads(Path(path).read_text())
+            db = json.loads(Path(path).read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as e:
             errors.append(f"{path}: cannot parse ({e})")
             continue

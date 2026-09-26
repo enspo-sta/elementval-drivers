@@ -537,7 +537,7 @@ def legend(path, img, rows, w, h, bg_hex="#000000"):
     tmp = path.with_suffix(".legend.png")
     im.save(tmp)
     try:
-        out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, text=True, timeout=120).stdout
+        out = subprocess.run([CP.TESSERACT or "tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, encoding="utf-8", errors="replace", timeout=120).stdout
     except (OSError, subprocess.TimeoutExpired):
         return []
     words = []
@@ -584,7 +584,7 @@ def legend_of_colour(path, img, rows, w, h, colour_hex, tol=90):
     tmp = path.with_suffix(".legend_%s.png" % colour_hex.strip("#"))
     im.save(tmp)
     try:
-        out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11"], capture_output=True, text=True, timeout=60).stdout
+        out = subprocess.run([CP.TESSERACT or "tesseract", str(tmp), "stdout", "--psm", "11"], capture_output=True, encoding="utf-8", errors="replace", timeout=60).stdout
     except (OSError, subprocess.TimeoutExpired):
         return ""
     return re.sub(r"\s+", " ", out).strip()
@@ -646,7 +646,7 @@ def main():
     a = ap.parse_args()
     # a request line is a driver id, optionally followed by its HiFiCompass page address (a record captured
     # by hand before has no page address of its own)
-    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text().splitlines()) if x.strip() and not x.strip().startswith("#")]
+    lines = [x.strip() for x in (a.ids.split(",") if a.ids else (ROOT / "capture" / "chart_read_request.txt").read_text(encoding="utf-8").splitlines()) if x.strip() and not x.strip().startswith("#")]
     # a "types: off-axis,response" line in the request reads only those chart types this run
     for ln in [x for x in lines if x.lower().startswith("types:")]:
         a.types = ln.split(":", 1)[1].replace(" ", "")
@@ -654,12 +654,12 @@ def main():
     ids = [ln.split()[0] for ln in lines]
     page_of = {ln.split()[0]: ln.split()[1] for ln in lines if len(ln.split()) > 1}
     types = set(a.types.split(","))
-    inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
-    db = json.loads((ROOT / "drivers.json").read_text())
+    inv = json.loads((ROOT / "capture" / "inventory.json").read_text(encoding="utf-8"))
+    db = json.loads((ROOT / "drivers.json").read_text(encoding="utf-8"))
     byid = {d["id"]: d for d in db["drivers"]}
     # the drivers requested this time replace their own earlier results; the others' stay as they were read
     prev = Path(a.out)
-    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
+    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text(encoding="utf-8")).get("drivers", {}) if prev.exists() else {}}
     last = [0.0]
     for did in ids:
         d = byid.get(did)
@@ -703,7 +703,7 @@ def main():
         # charts read this run replace their earlier results; the driver's other charts keep theirs
         fresh = {r.get("file") for r in res}
         out["drivers"][did] = [r for r in out["drivers"].get(did, []) if r.get("file") not in fresh] + res
-    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
+    Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"written {a.out}")
 
 

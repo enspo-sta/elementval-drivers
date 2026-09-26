@@ -38,10 +38,10 @@ def main():
     ap.add_argument("--file", default=str(DB))
     a = ap.parse_args()
     path = Path(a.file)
-    db = json.loads(path.read_text())
+    db = json.loads(path.read_text(encoding="utf-8"))
     today = dt.date.today().isoformat()
     if a.new_driver:
-        rec = json.loads(Path(a.new_driver).read_text())
+        rec = json.loads(Path(a.new_driver).read_text(encoding="utf-8"))
         rec.setdefault("measurements", [])
         if any(d["id"] == rec.get("id") for d in db["drivers"]):
             sys.exit(f"{rec.get('id')} is already in {path.name}; identities are never merged, pick a new id for a variant")
@@ -54,10 +54,10 @@ def main():
         d = next((x for x in db["drivers"] if x["id"] == a.driver), None)
         if not d:
             sys.exit(f"no driver {a.driver} in {path.name}")
-        m = json.loads(Path(a.set).read_text())
+        m = json.loads(Path(a.set).read_text(encoding="utf-8"))
         series = list(m.get("series") or [])
         for f in a.series:
-            series += json.loads(Path(f).read_text())["series"]
+            series += json.loads(Path(f).read_text(encoding="utf-8"))["series"]
         if series:
             m["series"] = series
         m["captured"] = today
@@ -74,7 +74,7 @@ def main():
         d["updated"] = today
     db["meta"]["updated"] = today
     tmp = path.with_suffix(".check.json")
-    tmp.write_text(dumps_db(db))
+    tmp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
     try:
         errors, warnings, _ = validate([tmp])
     finally:
@@ -82,7 +82,7 @@ def main():
     if errors:
         print("Not written; the result would have these errors:", *errors, sep="\n  ")
         sys.exit(1)
-    path.write_text(dumps_db(db))
+    path.write_text(dumps_db(db), encoding="utf-8", newline="\n")
     print(f"{what} in {path.name}. {len(warnings)} warning(s) in the file:", *warnings[:20], sep="\n  ")
 
 

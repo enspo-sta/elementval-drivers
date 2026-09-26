@@ -1,0 +1,9 @@
+# Line endings: the repository stores text with LF, on every computer (Windows included), so a file written on
+# Windows does not show every line as changed. Pictures and PDFs are never touched.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary

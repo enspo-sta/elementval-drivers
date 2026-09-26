@@ -233,9 +233,9 @@ def main():
     ap.add_argument("--probe", default=str(ROOT / "capture" / "datasheet_probe.json"))
     ap.add_argument("--write", action="store_true")
     a = ap.parse_args()
-    probe = json.loads(Path(a.probe).read_text())
+    probe = json.loads(Path(a.probe).read_text(encoding="utf-8"))
     dbp = ROOT / "drivers.json"
-    db = json.loads(dbp.read_text())
+    db = json.loads(dbp.read_text(encoding="utf-8"))
     made, skipped = build(probe, db)
     more, more_skipped = build_others(probe, db)
     made += more
@@ -252,13 +252,13 @@ def main():
             d["measurements"].append(s)
             d["updated"] = probe["date"]
         tmp = ROOT / "capture" / "_datasheet_candidate.json"
-        tmp.write_text(dumps_db(db))
+        tmp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
         errors = result[0] if isinstance(result, tuple) else result
         tmp.unlink()
         if errors:
             sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
-        dbp.write_text(dumps_db(db))
+        dbp.write_text(dumps_db(db), encoding="utf-8", newline="\n")
         print(f"{len(made)} set(s) written")
 
 

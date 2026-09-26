@@ -4,13 +4,14 @@
   python3 capture/image_curves.py colors chart.png --plot 88,40,1240,590
       the most common colours inside the plot area (ignores greys), to find each series' colour
   python3 capture/image_curves.py extract chart.png --plot 88,40,1240,590 --x 20,20000 --xlog \
-      --y=-100,0 --color "#e8412c" --name H2 [--tol 60] [--skip x0,y0,x1,y1 ...] > h2.json
+      --y=-100,0 --color "#e8412c" --name H2 [--tol 60] [--skip x0,y0,x1,y1 ...] --out h2.json
 
   --plot   left,top,right,bottom pixel of the plot frame (where the axis ends sit)
   --x      axis values at the left and right frame edges; --xlog for a logarithmic axis
   --y      axis values at the bottom and top frame edges; write --y=-100,0 (with "=") when the
            first value is negative
   --skip   rectangles to ignore (legend boxes, printed labels), in pixels
+  --out    the file to write (without it the curve is printed; on Windows use --out, not "> file")
 Each pixel column's matching pixels give one point (their middle); the result is resampled to
 1/24 octave on a logarithmic axis (CAPTURE.md target). Writes {"series": [{"name", "points"}]}.
 
@@ -91,7 +92,14 @@ def cmd_extract(a):
             pts.append((f, va + t * (vb - va)))
     else:
         pts = raw
-    print(json.dumps({"series": [{"name": a.name, "points": [{"x": round(x, 2 if x < 1000 else 1), "y": round(y, 2)} for x, y in pts]}]}, indent=1))
+    text = json.dumps({"series": [{"name": a.name, "points": [{"x": round(x, 2 if x < 1000 else 1), "y": round(y, 2)} for x, y in pts]}]}, indent=1)
+    if a.out:
+        # a file written here is UTF-8 on every computer (PowerShell's ">" would write UTF-16, which add_set.py cannot read)
+        from pathlib import Path
+        Path(a.out).write_text(text + "\n", encoding="utf-8", newline="\n")
+        print(f"{len(pts)} points written to {a.out}")
+    else:
+        print(text)
 
 
 def main():
@@ -112,6 +120,7 @@ def main():
     e.add_argument("--tol", type=float, default=60)
     e.add_argument("--skip", action="append")
     e.add_argument("--per-octave", type=int, default=24)
+    e.add_argument("--out", help="write the curve to this file (use this on Windows instead of > file)")
     a = ap.parse_args()
     {"colors": cmd_colors, "extract": cmd_extract}[a.cmd](a)
 

@@ -203,7 +203,7 @@ def main():
             })
             log(f"  {m}: {base} — {len(charts)} chart images, {len(files)} data files, {len(p.tables)} tables, {len(p.headings)} headings")
         out["models"][m] = rec
-    Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
+    Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     lines = [f"# {a.source} inventory ({out['date']})", "", "Written by `capture/inventory.py` on GitHub. What each measurement page offers, for `capture/CHROME_CAPTURE.md`.", ""]
     for m, rec in out["models"].items():
         lines.append(f"## {m}")
@@ -224,7 +224,7 @@ def main():
                 for row in t[:40]:
                     lines.append("    | " + " | ".join(row) + " |")
         lines.append("")
-    Path(a.md).write_text("\n".join(lines) + "\n")
+    Path(a.md).write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     log(f"written {a.out} and {a.md}")
 
 
