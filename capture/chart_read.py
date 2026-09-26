@@ -571,7 +571,7 @@ def share_names(res):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--ids")
-    ap.add_argument("--types", default="response,near-response,harmonics,current,impedance")
+    ap.add_argument("--types", default="response,near-response,off-axis,harmonics,current,impedance")
     ap.add_argument("--limit", type=int, default=0, help="at most N charts of each type per driver (0 = all)")
     ap.add_argument("--out", default=str(ROOT / "capture" / "chart_read.json"))
     ap.add_argument("--keep", help="a directory to keep the fetched images in (a short-lived workflow artifact, never committed)")
@@ -618,7 +618,8 @@ def main():
                     Path(a.keep).mkdir(parents=True, exist_ok=True)
                     (Path(a.keep) / name).write_bytes(data)
                 try:
-                    rec = read_chart(path, "response" if ctype == "near-response" else ctype)   # a near-field response is drawn like one
+                    # a near-field response and the off-axis responses (one curve per angle) are drawn like a response
+                    rec = read_chart(path, "response" if ctype in ("near-response", "off-axis") else ctype)
                 except Exception as e:
                     rec = {"error": f"read failed: {e}"}
                 rec.update({"file": name, "url": url, "type": ctype})
