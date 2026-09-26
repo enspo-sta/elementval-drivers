@@ -199,7 +199,7 @@ def describe_image(path):
                     mask.append([wd["x"] - 3 - extra, wd["y"] - 3, wd["x"] + wd["w"] + 3, wd["y"] + wd["h"] + 3])
         out["mask"] = mask
         rec = CR.read_chart(path, "off-axis-read", mask=mask)
-        out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration", "plot_floor_row", "masked")}
+        out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration", "plot_floor_row", "masked", "rows_found", "rows_kept", "left_labels")}
         out["off_axis_read"]["curves"] = [{k: c.get(k) for k in ("colour", "name", "columns", "lines_per_column", "gaps", "points", "clipped_top", "clipped_bottom", "on_curve")} for c in rec.get("curves", [])]
     except Exception as e:  # noqa: BLE001
         out["off_axis_read"] = {"error": f"{type(e).__name__}: {e}"}

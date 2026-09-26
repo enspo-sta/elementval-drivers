@@ -392,8 +392,13 @@ def read_chart(path, ctype, mask=None):
     floor_row = rows[-1][0] if rows else None
     if rows and len(rows) > 1:
         step = rows[1][0] - rows[0][0]
+        # the lowest line with a value label printed beside it (the labels decide, not the line's colour) ...
+        labelled = [r[0] for r in rows_all if r[0] > rows[-1][0] and
+                    any("text" in wd and re.fullmatch(r"-?\d+(?:\.\d+)?", wd["text"]) and abs(wd["y"] - r[0]) <= 6 for wd in left)]
         below = [r for r in rows_all if rows[-1][0] + 0.6 * step <= r[0] <= rows[-1][0] + 1.4 * step]
-        if below:
+        if labelled:
+            floor_row = max(labelled)
+        elif below:                                    # ... else the frame line one grid step below the last grid row
             floor_row = min(r[0] for r in below)
     rec["plot_floor_row"] = floor_row
     bottom_edge = min(floor_row - 1, h - 1) if rows else min(label_top, h - 1)
