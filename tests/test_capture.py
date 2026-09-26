@@ -102,3 +102,81 @@ class ImageCurves(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TwoToneSpectrum(unittest.TestCase):
+    """capture/imd_read.py on a HiFiCompass-style two-tone chart drawn here: black, green grid, yellow
+    spectrum, 0 to -100 dB, 0 to 600 Hz, a cursor readout below. The lower tone sits left of the first
+    labelled grid line, where the first reader missed it."""
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            import numpy  # noqa: F401
+            from PIL import Image, ImageDraw, ImageFont
+        except ImportError:
+            raise unittest.SkipTest("Pillow or numpy not installed")
+        import shutil
+        if not shutil.which("tesseract"):
+            raise unittest.SkipTest("tesseract not installed")
+        font = next((p for p in ("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",) if Path(p).exists()), None)
+        if not font:
+            raise unittest.SkipTest("no font to draw the labels")
+        sys.path.insert(0, str(ROOT / "capture"))
+        import imd_read
+        cls.I = imd_read
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.path = Path(cls.tmp.name) / "chart.png"
+        im = Image.new("RGB", (1024, 701), (0, 0, 0)); d = ImageDraw.Draw(im)
+        f = ImageFont.truetype(font, 13)
+        top, bot, left, right = 46, 618, 33, 964
+        Y = lambda db: top + (0 - db) / 100 * (bot - top)
+        for i in range(0, 101, 2):
+            y = round(Y(-i)); d.line([(left, y), (right, y)], fill=(8, 72, 8) if i % 10 else (16, 110, 16))
+        for i in range(11):
+            x = round(left + i * (right - left) / 10); d.line([(x, top), (x, bot)], fill=(16, 110, 16))
+            d.text((2, round(Y(-10 * i)) - 7), f"{-10 * i:.1f}", font=f, fill=(220, 220, 220))
+            if i:
+                d.text((x - 10, bot + 8), str(60 * i), font=f, fill=(220, 220, 220))
+        d.text((140, bot + 40), "254.88Hz,-23.10dB", font=f, fill=(220, 220, 220))
+        cls.lines = {30: -11.0, 255: -23.1, 225: -61.0, 285: -59.4, 90: -57.3, 195: -74.4, 315: -71.8}
+        prev = None
+        for x in range(left, right + 1):
+            hz = (x - left) / (right - left) * 600
+            db = -95 + 2 * math.sin(x * 1.7)
+            for lf, lv in cls.lines.items():
+                if abs(hz - lf) < 0.33:
+                    db = max(db, lv)
+            p = (x, Y(db))
+            if prev:
+                d.line([prev, p], fill=(240, 240, 40))
+            prev = p
+        im.save(cls.path)
+        cls.rec = imd_read.read_chart(cls.path, imd_read.test_of("mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png"))
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def test_file_names(self):
+        t = self.I.test_of
+        self.assertEqual(t("mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png"), {"f1": 30.0, "f2": 255.0, "x_pk_mm": 1.5, "ratio": "4:1"})
+        self.assertEqual(t("ptt6.5w04-01a_30hz255hz_xmax30hz3mm.png")["ratio"], None)
+        self.assertEqual(t("m74a-6_315mm_500hz2v834.25khz2v83.png"), {"f1": 500.0, "f2": 4250.0, "drive_v": 2.83, "ratio": "1:1"})
+        self.assertEqual(t("tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1_0.png")["drive_v"], 2.83)
+
+    def test_both_tones_and_products(self):
+        r = self.rec
+        self.assertNotIn("error", r)
+        tones = {x["f"]: x["level"] for x in r["tones"]}
+        self.assertAlmostEqual(tones[30.0], -11.0, delta=0.6)       # left of the first labelled grid line
+        self.assertAlmostEqual(tones[255.0], -23.1, delta=0.6)
+        got = {p["f"]: p["level"] for p in r["products"]}
+        for f in (90, 195, 225, 285, 315):
+            self.assertAlmostEqual(got[f], self.lines[f], delta=0.6, msg=f"{f} Hz")
+        self.assertFalse(set(got) - {90, 195, 225, 285, 315}, "a product in the noise was kept")
+
+    def test_cursor_check(self):
+        c = self.rec["check"]
+        self.assertEqual((c["f"], c["stated_db"]), (254.88, -23.1))
+        self.assertLess(abs(c["difference_db"]), 0.6)

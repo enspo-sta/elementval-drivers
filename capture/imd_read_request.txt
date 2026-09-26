@@ -1,5 +1,12 @@
 # record id, then its HiFiCompass page when the record has none of its own
+# every driver with two-tone spectra on HiFiCompass (the reader now starts at the plot's own edge, so the
+# lower tone is read, and checks itself against the cursor readout printed on each chart)
 sb-satori-mr16tx-8
-m74a-6
+sb-satori-mw19tx-4
 sb-satori-tw29bnwg-4
+sb-satori-tw29txn-b
+m74a-6
+m74t-6 https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6
 purifi-ptt10-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02
+purifi-ptt8-0x04-nab-02 https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02
+ptt65x04naa08a https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a

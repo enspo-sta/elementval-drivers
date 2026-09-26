@@ -8,7 +8,10 @@ page address), this tool:
   2. fits the axes from the grid lines and the labels read by tesseract (dB rows, frequency columns, linear),
   3. reads the spectrum's highest point at the tones and at every product m*f1 + n*f2 up to the 5th order
      that falls on the chart, and the noise floor around each (a product less than 6 dB above its floor is
-     left out and counted),
+     left out and counted); the chart runs from the plot's own left edge (0 Hz), not from the first grid
+     line, so a low tone left of it is read too,
+  4. checks the reading against the cursor readout the chart prints ("254.88Hz,-26.59dB"): the reading at
+     that frequency beside the printed level, when the level is on the chart,
 and writes capture/imd_read.json (numbers and text only; no image is stored).
 
   python3 capture/imd_read.py [--ids mr16tx-8,...] [--limit N]
@@ -39,9 +42,10 @@ def volts_of(t):
 def test_of(name):
     """The test a chart shows, from its file name, or None."""
     n = name.lower()
-    m = re.search(r"(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)hz_xmax(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)mm_(\d+)to(\d+)", n)
-    if m:
-        return {"f1": float(m.group(1)), "f2": float(m.group(2)), "x_pk_mm": float(m.group(4)), "ratio": f"{m.group(5)}:{m.group(6)}"}
+    m = re.search(r"(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)hz_xmax(\d+(?:\.\d+)?)hz(\d+(?:\.\d+)?)mm(?:_(\d+)to(\d+))?", n)
+    if m:   # a file name without the ratio (ptt6.5w04-01a_30hz255hz_xmax30hz3mm.png) leaves it unstated
+        return {"f1": float(m.group(1)), "f2": float(m.group(2)), "x_pk_mm": float(m.group(4)),
+                "ratio": f"{m.group(5)}:{m.group(6)}" if m.group(5) else None}
     m = re.search(r"(\d+(?:\.\d+)?)(k?)hz" + V + r"(\d+(?:\.\d+)?)(k?)hz" + V, n)
     if m:
         f1 = float(m.group(1)) * (1000 if m.group(2) else 1); f2 = float(m.group(4)) * (1000 if m.group(5) else 1)
@@ -66,6 +70,31 @@ def x_linear(cols, words):
             pairs.append((near[0], v))
     pairs = CR.monotone(pairs, increasing=True)
     return CR.fit_line(pairs)
+
+
+def plot_span(img, row, inside, bg_hex):
+    """The plot's left and right edges: the grid row drawn through `inside`, followed out to where it ends."""
+    import numpy as np
+    bg = np.array([int(bg_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    line = np.abs(img[row].astype(int) - bg).sum(axis=1) >= 40
+    lo = hi = inside
+    while lo > 0 and line[lo - 1]:
+        lo -= 1
+    while hi < line.size - 1 and line[hi + 1]:
+        hi += 1
+    return lo, hi
+
+
+CURSOR = re.compile(r"(\d+\.\d+)\s*Hz\s*,\s*(-?\d+(?:\.\d+)?)\s*dB", re.I)
+
+
+def cursor_of(words):
+    """The cursor readout the chart prints (frequency, level), or None."""
+    for w in words:
+        m = CURSOR.search(w.get("text", ""))
+        if m:
+            return float(m.group(1)), float(m.group(2))
+    return None
 
 
 def products(f1, f2, fmax):
@@ -105,7 +134,10 @@ def read_chart(path, test):
     r_, g_, b_ = img[:, :, 0], img[:, :, 1], img[:, :, 2]
     mask = (r_ > 150) & (g_ > 150) & (b_ < 120)
     top0, bot0 = rows[0][0], rows[-1][0]
-    x0, x1 = cols[0][0], cols[-1][0]
+    mid = rows[len(rows) // 2][0]
+    x0, x1 = plot_span(img, mid, cols[0][0], bg)
+    x0 = max(x0, int(math.ceil((0 - xa[0]) / xa[1])))     # nothing left of 0 Hz
+    rec["plot_x"] = [x0, x1]
     level = {}
     for c in range(x0, x1 + 1):
         ys = np.nonzero(mask[top0:bot0 + 1, c])[0]
@@ -140,6 +172,14 @@ def read_chart(path, test):
         kept.append(dict(p, level=round(lv, 1), floor=None if fl is None else round(fl, 1)))
     rec["products"] = kept
     rec["below_floor"] = low
+    cur = cursor_of(bottom + left)
+    if cur:
+        f, stated = cur
+        read, _ = peak(f)
+        on = ya[0] + ya[1] * bot0 <= stated <= ya[0] + ya[1] * top0
+        rec["check"] = {"f": f, "stated_db": stated, "read_db": None if read is None else round(read, 2),
+                        "difference_db": round(read - stated, 2) if (read is not None and on) else None,
+                        "note": None if on else "the printed level is off the chart's scale"}
     return rec
 
 

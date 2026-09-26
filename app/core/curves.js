@@ -1,6 +1,6 @@
 /* curves.js: turns stored measurement sets into the plain curves the exporters write
  * (see app/exporters/common.js for the fields). */
-import { familyOf, kindOf, levelOf } from "./data.js";
+import { familyOf, kindOf, levelOf, levelUnit } from "./data.js";
 import { quantitiesOf } from "./compare.js";
 
 /** Curves of one set: one per quantity (series), or only the quantity ids given. Tables become one
@@ -19,7 +19,7 @@ export function curvesOfSet(driver, set, { only = null, quantities = null, label
   };
   const out = [];
   for (const q of qs) {
-    const label = `${labelPrefix || driver.name}${q.label && q.id !== "products" ? " · " + q.label : ""}${level != null ? " · " + level + " dB" : ""}`;
+    const label = `${labelPrefix || driver.name}${q.label && q.id !== "products" ? " · " + q.label : ""}${level != null ? " · " + level + " " + levelUnit(set) : ""}`;
     if (q.points) {
       out.push(Object.assign({}, base, { label, quantity: q.id, points: q.points.map(p => ({ x: p.x, y: p.y })),
         yUnit: q.relTo ? q.relTo.replace(/^dB /, "dB, ") : base.yUnit, xLabel: kind.view === "bars" ? "Product frequency" : base.xLabel }));
