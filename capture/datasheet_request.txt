@@ -6,3 +6,7 @@ ptt65x04naa08 PTT6.5X04-NAA-08
 ptt525x04naa05 PTT5.25X04-NAA-05
 ptt13t04hag10 PTT1.3T04-HAG-10
 ptt13t04hag01 PTT1.3T04-HAG-01
+# a site's measurement page, as text (headings, images, data links, sentences about angles):
+# SITE record-id MODEL [page-address]
+erin sb17cac35-4 SB17CAC35-4
+erin ptt65w04-paper PTT6.5W04

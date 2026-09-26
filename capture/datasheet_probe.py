@@ -29,7 +29,8 @@ sys.path.insert(0, str(ROOT / "capture"))
 import chart_probe as CP  # noqa: E402  (fetch: a browser's user agent, a pause between requests)
 import pdf_vectors as PV  # noqa: E402
 
-SITES = {"purifi": ["https://purifi-audio.com/sitemap.xml", "https://purifi-audio.com/sitemap_index.xml",
+SITES = {"erin": ["https://www.erinsaudiocorner.com/sitemap.xml", "https://www.erinsaudiocorner.com/driveunits/"],
+         "purifi": ["https://purifi-audio.com/sitemap.xml", "https://purifi-audio.com/sitemap_index.xml",
                     "https://purifi-audio.com/product-sitemap.xml", "https://purifi-audio.com/page-sitemap.xml"]}
 ANGLE = re.compile(r"off[- ]?axis|\bangle|degree|°|\bdeg\b|polar|horizontal|directivity|dispersion", re.I)
 norm = lambda s: re.sub(r"[^a-z0-9]+", "", s.lower())
@@ -54,6 +55,10 @@ def sitemap_urls(starts, last, log):
         locs = [html.unescape(x) for x in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", t)]
         todo += [x for x in locs if re.search(r"\.xml(\.gz)?$", x) and x not in seen]
         urls |= {x for x in locs if not re.search(r"\.xml(\.gz)?$", x)}
+        if not locs:  # an HTML index page: its links on the same site
+            host = urllib.parse.urlparse(u).netloc
+            urls |= {h for h in (urllib.parse.urljoin(u, html.unescape(x)) for x in re.findall(r"href=[\"']([^\"'#]+)[\"']", t))
+                     if urllib.parse.urlparse(h).netloc == host}
     return urls
 
 
@@ -124,6 +129,27 @@ def probe_data(data, name):
     return files
 
 
+def probe_page(url, last):
+    """A measurement page as text: title, headings, every image (address, alt text, caption), links to data files,
+    and the sentences that speak of angles (off axis, horizontal, vertical, polar, directivity)."""
+    t = text_of(CP.fetch(url, last, delay=3.0))
+    strip = lambda x: re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", x))).strip()
+    body = strip(re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t))
+    out = {"url": url, "title": strip((re.search(r"(?is)<title>(.*?)</title>", t) or [None, ""])[1]),
+           "headings": [strip(h) for h in re.findall(r"(?is)<h[1-4][^>]*>(.*?)</h[1-4]>", t)][:80],
+           "images": [], "data_links": [],
+           "angle_sentences": sorted({m.strip()[:300] for m in re.findall(r"[^.]*\b(?:off[- ]?axis|horizontal|vertical|polar|directivity|spinorama|degrees?)\b[^.]*\.", body, re.I)})[:60]}
+    for m in re.finditer(r"(?is)<img\b([^>]*)>", t):
+        attrs = dict((k.lower(), html.unescape(v)) for k, v in re.findall(r'([\w-]+)=["\']([^"\']*)["\']', m.group(1)))
+        src = attrs.get("src") or attrs.get("data-src") or ""
+        if src:
+            out["images"].append({"src": urllib.parse.urljoin(url, src), "alt": attrs.get("alt", "")[:200]})
+    for h, label in re.findall(r"(?is)<a\b[^>]*href=[\"']([^\"'#]+)[\"'][^>]*>(.*?)</a>", t):
+        if re.search(r"\.(zip|frd|zma|txt|csv|xlsx?|mdat|pdf)(\?|$)", h, re.I):
+            out["data_links"].append({"href": urllib.parse.urljoin(url, html.unescape(h)), "label": strip(label)[:120]})
+    return out
+
+
 def probe_pdf(path):
     import pymupdf
     doc = pymupdf.open(str(path))
@@ -175,9 +201,12 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "capture" / "datasheet_probe.json"))
     a = ap.parse_args()
     lines = [x.strip() for x in (ROOT / "capture" / "datasheet_request.txt").read_text().splitlines() if x.strip() and not x.startswith("#")]
+    pages = [(site, *rest) for site, rest in ((x.split()[0], x.split()[1:]) for x in lines if x.split()[0] in SITES)]
+    lines = [x for x in lines if x.split()[0] not in SITES]
     if a.ids:
         want = set(a.ids.split(","))
         lines = [x for x in lines if x.split()[0] in want]
+        pages = [x for x in pages if x[1] in want]
     prev = Path(a.out)
     out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
     last = [0.0]
@@ -220,6 +249,26 @@ def main():
                 rec["data"].append({"href": ln_["href"], "label": ln_["label"], "error": f"{type(e).__name__}: {e}"})
                 log(f"  data {ln_['label']}: {type(e).__name__}: {e}")
         out["drivers"][did] = rec
+    site_urls = {}
+    out.setdefault("pages", {})
+    for site, did, model, *given in pages:
+        if site not in site_urls:
+            site_urls[site] = sitemap_urls(SITES[site], last, log) | set()
+            log(f"{site}: {len(site_urls[site])} addresses in the sitemaps")
+        key = norm(model)
+        found = given or sorted(u for u in site_urls[site] if key in norm(u))[:4]
+        recs = []
+        for u in found:
+            try:
+                recs.append(probe_page(u, last))
+                log(f"{did} {model}: {u}: {len(recs[-1]['images'])} images, {len(recs[-1]['data_links'])} data links, {len(recs[-1]['angle_sentences'])} sentences about angles")
+            except Exception as e:  # noqa: BLE001
+                recs.append({"url": u, "error": f"{type(e).__name__}: {e}"})
+                log(f"{did} {model}: {u}: {type(e).__name__}: {e}")
+        if not found:
+            log(f"{did} {model}: no page on {site} names the model")
+        out["pages"][did] = {"site": site, "model": model, "found": recs,
+                             "candidates": sorted(u for u in site_urls[site] if key[:6] in norm(u))[:20]}
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
     print("written", a.out)
 
