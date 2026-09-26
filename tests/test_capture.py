@@ -185,3 +185,27 @@ class TwoToneSpectrum(unittest.TestCase):
         c = self.rec["check"]
         self.assertEqual((c["f"], c["stated_db"]), (254.88, -23.1))
         self.assertLess(abs(c["difference_db"]), 0.6)
+
+
+class ChartTypes(unittest.TestCase):
+    """The chart type from a file name, with or without the address's ?itok=… part."""
+
+    def test_types(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        import chart_probe as CP
+        cases = {
+            "https://hificompass.com/sites/default/files/zamer/ptt10.0x04-nab-02_20mm_2v83_0deg.png?itok=L5Tl": "near-response",
+            "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png": "near-response",
+            "mr16tx-8_5mm_1v_0deg.png?itok=x": "near-response",
+            "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_150hz.png?itok=q": "spectrum",
+            "mw19tx-4_20mm_2v_40hz.png": "spectrum",
+            "m74t-6-off-axis-normalized-5-30db.png": "off-axis",
+            "ptt10.0x04-nab-02_315mm_2v83_0deg.png?itok=a": "response",
+            "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png?itok=L5": "current",
+            "mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png": "intermodulation",
+        }
+        for url, want in cases.items():
+            self.assertEqual(CP.chart_type(url), want, url)
+        self.assertFalse(CP.SKIP.search("https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png"))
+        self.assertTrue(CP.SKIP.search("ptt6.5x04-naa-08a_voice_coil2.jpg"))
+        self.assertTrue(CP.SKIP.search("ptt8.0x04-nab-02_wires.jpg"))

@@ -41,7 +41,7 @@ TYPES = [("current", r"chd"), ("impedance", r"impedance|^imp_"), ("intermodulati
 
 
 def chart_type(url):
-    name = url.rsplit("/", 1)[-1].lower()
+    name = url.split("?")[0].rsplit("/", 1)[-1].lower()      # the file name without the address's ?itok=… part
     for t, rx in TYPES:
         if re.search(rx, name):
             return t

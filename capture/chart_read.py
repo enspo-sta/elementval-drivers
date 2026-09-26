@@ -565,7 +565,9 @@ def main():
     inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
     db = json.loads((ROOT / "drivers.json").read_text())
     byid = {d["id"]: d for d in db["drivers"]}
-    out = {"date": dt.date.today().isoformat(), "drivers": {}}
+    # the drivers requested this time replace their own earlier results; the others' stay as they were read
+    prev = Path(a.out)
+    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
     last = [0.0]
     for did in ids:
         d = byid.get(did)
