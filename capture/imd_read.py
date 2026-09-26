@@ -101,6 +101,41 @@ def cursor_of(words):
     return None
 
 
+def hexc(k):
+    return "#%02x%02x%02x" % tuple(int(v) for v in k[:3])
+
+
+def dist(a, b):
+    return sum(abs(int(a[i]) - int(b[i])) for i in range(3))
+
+
+def rgb(hx):
+    return [int(hx[i:i + 2], 16) for i in (1, 3, 5)]
+
+
+def trace_colour(img, y0, y1, x0, x1, bg, grid):
+    """The spectrum's colour: the most common saturated colour in the plot that is neither the background nor the
+    grid (the two-tone charts draw it yellow on black). When the most common colour of the whole image is itself
+    saturated and differs from the image's corner, the spectrum is drawn filled in it (a coloured area under the
+    curve) and its top edge is the level. Returns (colour, how, the candidates seen)."""
+    import numpy as np
+    sub = img[y0:y1 + 1, x0:x1 + 1, :3].reshape(-1, 3).astype(int)
+    keys, counts = np.unique((sub // 16) * 16 + 8, axis=0, return_counts=True)
+    order = counts.argsort()[::-1]
+    seen, cand = [], []
+    for i in order[:24]:
+        k = keys[i]
+        seen.append([hexc(k), int(counts[i])])
+        if dist(k, rgb(bg)) < 60 or (grid and dist(k, rgb(grid)) < 60) or max(k) - min(k) < 60 or max(k) < 120:   # greys, text, dark grid
+            continue
+        cand.append(hexc(k))
+    corner = img[3, 3, :3].astype(int)
+    b = rgb(bg)
+    if max(b) - min(b) > 100 and dist(b, corner) > 60:
+        return bg, "filled", seen
+    return (cand[0] if cand else None), "line", seen
+
+
 def lattice(cols):
     """The grid columns: the largest set of candidates on one evenly spaced lattice (a tall spectral line,
     such as a tone near the top of the chart, is found as a column too and is not on it)."""
@@ -173,13 +208,17 @@ def read_chart(path, test):
                 "bottom_labels": [(t.get("text"), t.get("x")) for t in bottom][:16]})
     if not ya or not xa or xa[1] <= 0 or ya[1] >= 0:
         rec["error"] = "axes could not be fitted"; return rec
-    # the spectrum: yellow; its highest pixel in every column is the level there
-    r_, g_, b_ = img[:, :, 0], img[:, :, 1], img[:, :, 2]
-    mask = (r_ > 150) & (g_ > 150) & (b_ < 120)
     top0, bot0 = rows[0][0], rows[-1][0]
     mid = rows[len(rows) // 2][0]
     x0, x1 = plot_span(img, mid, cols[0][0], bg)
     x0 = max(x0, int(math.ceil((0 - xa[0]) / xa[1])))     # nothing left of 0 Hz
+    # the spectrum: its highest pixel of the trace colour in every column is the level there
+    tc, how, seen = trace_colour(img, top0, bot0, x0, x1, bg, rcol)
+    rec.update({"trace_colour": tc, "trace_drawn": how, "colours_seen": seen[:12], "corner": hexc(img[3, 3])})
+    if not tc:
+        rec["error"] = "no spectrum colour found"; return rec
+    near = np.abs(img[:, :, :3].astype(int) - np.array(rgb(tc))).sum(axis=2)
+    mask = near < (60 if how == "line" else 40)
     rec["plot_x"] = [x0, x1]
     level = {}
     for c in range(x0, x1 + 1):
@@ -254,7 +293,9 @@ def main():
     inv = json.loads((ROOT / "capture" / "inventory.json").read_text())
     byid = {d["id"]: d for d in json.loads((ROOT / "drivers.json").read_text())["drivers"]}
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec["pages"]}
-    out = {"date": dt.date.today().isoformat(), "drivers": {}}
+    # the drivers requested this time replace their own earlier results; the others' stay as they were read
+    prev = Path(a.out)
+    out = {"date": dt.date.today().isoformat(), "drivers": json.loads(prev.read_text()).get("drivers", {}) if prev.exists() else {}}
     last = [0.0]
     for ln in lines:
         did = ln.split()[0]
