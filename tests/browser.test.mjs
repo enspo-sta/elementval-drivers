@@ -316,3 +316,28 @@ for (const [name, size] of Object.entries(SIZES)) {
     }
   });
 }
+
+test("Intermodulation read from HiFiCompass: one excursion at a time on the driver page, millimetres in Compare", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/purifi-ptt10-0x04-nab-02");
+  const title = page.locator(".setttl", { hasText: /stated excursion or voltage.*30 \+ 255 Hz, 4:1/ }).first();
+  await title.scrollIntoViewIfNeeded();
+  const row = page.locator(".lvrow", { has: page.locator("button", { hasText: /^4\.5 mm$/ }) }).first();
+  assert.deepEqual(await row.locator("button").allTextContents(), ["all levels", "3 mm", "4.5 mm", "6 mm", "9 mm", "12 mm"]);
+  const before = await chartCount(page);
+  await row.locator("button", { hasText: /^4\.5 mm$/ }).click();
+  await page.waitForTimeout(300);
+  const legend = await page.locator(".legend", { hasText: /at 4\.5 mm/ }).first().textContent();
+  assert.match(legend, /tones and intermodulation products at 4\.5 mm/);
+  assert.match(legend, /harmonics of each tone at 4\.5 mm/);
+  assert.equal(await chartCount(page), before, "the card still has one chart");
+  assert.ok(await page.locator(".setnote", { hasText: /check: the chart prints -23\.11 dB at 254\.88 Hz/ }).count() === 1, "only the picked level's note");
+  await page.goto(base + "#compare?src=HiFiCompass&g=HiFiCompass%3A%3Aimd-products%7C30%2B255%7C4%3A1&L=4.5");
+  await page.waitForSelector("canvas");
+  const picks = await page.locator("body").textContent();
+  assert.match(picks, /measured at 3, 4\.5, 6, 9, 12 mm/);
+  assert.doesNotMatch(picks, /measured at 3, 4\.5, 6, 9, 12 dB/);
+  assert.match(picks, /mm peak excursion of the low tone/);
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

@@ -224,13 +224,15 @@ export function describe(entry) {
   const q = s.quantities[0], c = s.set.conditions || {};
   const bits = [];
   const levels = entry.sets.map(x => x.level).filter(v => v != null);
-  if (levels.length) bits.push(levels.length > 1 ? `measured at ${levels.map(v => Math.round(v * 10) / 10).join(", ")} dB` : `${Math.round(levels[0] * 10) / 10} dB`);
+  const unit = levelUnit(s.set), stated = unit !== "dB";
+  if (levels.length) bits.push(levels.length > 1 ? `measured at ${levels.map(v => Math.round(v * 100) / 100).join(", ")} ${unit}` : `${Math.round(levels[0] * 100) / 100} ${unit}`);
   if (q.points && q.points.length && s.set.chartType !== "bar") {
     const xs = entry.sets.flatMap(x => (x.quantities[0].points || []).map(p => p.x));
     bits.push(`${Math.max(...entry.sets.map(x => (x.quantities[0].points || []).length))} points`);
     if (/Hz/.test(((s.set.axes || {}).x || {}).unit || "")) bits.push(`${fmtHz(Math.min(...xs))} to ${fmtHz(Math.max(...xs))}`);
   }
-  if (c.x_pk_mm != null) bits.push(`${c.x_pk_mm} mm peak excursion`);
+  if (c.x_pk_mm != null && !stated) bits.push(`${c.x_pk_mm} mm peak excursion`);
+  if (stated) bits.push(unit === "mm" ? "peak excursion of the low tone" : "drive per tone");
   if (s.set.confidence) bits.push(`${s.set.confidence} confidence`);
   return bits.join(" · ");
 }

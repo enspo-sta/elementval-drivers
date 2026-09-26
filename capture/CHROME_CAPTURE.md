@@ -35,9 +35,11 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >    request file `capture/chart_read_request.txt`) reads the on-axis response, harmonics, current
 >    distortion and impedance charts of HiFiCompass by itself and `python3 capture/sets_from_chart_read.py
 >    --write` stores them as sets of confidence *medium* (section 5 of the work list lists them: check
->    each by eye against its chart). Capture by hand what the job does not take: the intermodulation
->    charts (their printed values are in the "text" image variants), the off-axis charts, the 10 Ω
->    impedance zooms, every table, and any chart whose reading the job reports as failed.
+>    each by eye against its chart). A second job (`capture/imd_read.py`, request file
+>    `capture/imd_read_request.txt`) reads the two-tone intermodulation spectra; `python3
+>    capture/sets_from_imd_read.py --write` stores them (kind imd-products). Capture by hand what the jobs
+>    do not take: the off-axis charts, the 10 Ω impedance zooms, every table, and any chart whose reading
+>    a job reports as failed or waiting.
 > 3. HiFiCompass: I am logged in in this Chrome. Start at
 >    <https://hificompass.com/en/speakers/measurements>, find each driver listed in the work list and
 >    download the original of every chart on its page (remove `/styles/<style>/public/` from the image
@@ -92,4 +94,5 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 | `capture/image_curves.py` | Reads a curve of one colour from a chart image and resamples it to 1/24 octave. Checked on a test chart: within 0.3 dB (one pixel). |
 | `capture/add_set.py` | Adds or replaces a measurement set in `drivers.json`; refuses anything the validation check would reject. |
 | `capture/chart_read.py` | Runs on GitHub (which can reach HiFiCompass): reads the response, harmonics, current-distortion and impedance charts of the drivers in `capture/chart_read_request.txt`, calibrated from each chart's grid and labels, with self-checks against the page's table; `capture/sets_from_chart_read.py --write` turns the result into sets. |
+| `capture/imd_read.py` | Runs on GitHub: reads the two-tone intermodulation spectra of the drivers in `capture/imd_read_request.txt` (the test from the file name, the peaks at both tones and every product up to the 5th order, checked against the cursor readout each chart prints); `capture/sets_from_imd_read.py --write` turns the result into sets. |
 | `capture/worklist.py` | Rebuilds `capture/WORKLIST.md` from the database: low resolution, disagreements, missing curves, a weekly random spot check. |

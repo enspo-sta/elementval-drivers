@@ -121,25 +121,25 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
 - **SB Acoustics SB34NRXL75-8 (Norex)** (`sb-sb34nrxl75-8`), HiFiCompass: stored hd-frequency 91 dB, imd-summary 91.1 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered).
-- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02> (what it offers: `capture/inventory.md`).
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
-- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.5 dB, hd-frequency 104.5 dB, hd-frequency 86.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, imd-summary 91.67 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02> (what it offers: `capture/inventory.md`).
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.5 dB, hd-frequency 104.5 dB, hd-frequency 86.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, imd-products, imd-summary 91.67 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02> (what it offers: `capture/inventory.md`).
   Add: check every drive level is stored, as measured.
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-4** (`sb-satori-wo24p-4`), HiFiCompass: stored imd-summary 91.15 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered).
-- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 100.7 dB, hd-frequency 85.7 dB, hd-frequency 88.7 dB, hd-frequency 91.7 dB, hd-frequency 94.7 dB, hd-frequency 97.7 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a> (what it offers: `capture/inventory.md`).
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 100.7 dB, hd-frequency 85.7 dB, hd-frequency 88.7 dB, hd-frequency 91.7 dB, hd-frequency 94.7 dB, hd-frequency 97.7 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics SB17NBAC35-8** (`sb17nbac35-8`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
-- **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.4 dB, hd-frequency 104.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6> (what it offers: `capture/inventory.md`).
+- **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.4 dB, hd-frequency 104.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, imd-products, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **BlieSMa M74A-6** (`m74a-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.1 dB, hd-frequency 105.0 dB, hd-frequency 90.1 dB, hd-frequency 93.0 dB, hd-frequency 96.1 dB, hd-frequency 99.0 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> (what it offers: `capture/inventory.md`).
+- **BlieSMa M74A-6** (`m74a-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.1 dB, hd-frequency 105.0 dB, hd-frequency 90.1 dB, hd-frequency 93.0 dB, hd-frequency 96.1 dB, hd-frequency 99.0 dB, imd-products, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **BlieSMa T25A-6** (`t25a-6`), HiFiCompass: stored frequency-response, hd-frequency 84.0 dB, hd-frequency 87.0 dB, hd-frequency 90.0 dB, hd-frequency 93.0 dB, hd-frequency 96.0 dB, hd-frequency 98.9 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25a-6> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
@@ -149,13 +149,13 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: two-tone intermodulation, where measured.
 - **BlieSMa T34B-4** (`t34b-4`), HiFiCompass: stored frequency-response, hd-frequency 100.1 dB, hd-frequency 85.1 dB, hd-frequency 88.1 dB, hd-frequency 91.1 dB, hd-frequency 94.1 dB, hd-frequency 97.1 dB, impedance. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34b-4> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 87.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8> (what it offers: `capture/inventory.md`).
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 87.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.9 dB, hd-frequency 104.9 dB, hd-frequency 89.9 dB, hd-frequency 92.9 dB, hd-frequency 95.9 dB, hd-frequency 98.9 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4> (what it offers: `capture/inventory.md`).
+- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.9 dB, hd-frequency 104.9 dB, hd-frequency 89.9 dB, hd-frequency 92.9 dB, hd-frequency 95.9 dB, hd-frequency 98.9 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.5 dB, hd-frequency 105.5 dB, hd-frequency 108.5 dB, hd-frequency 90.5 dB, hd-frequency 93.5 dB, hd-frequency 96.5 dB, hd-frequency 99.5 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4> (what it offers: `capture/inventory.md`).
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.5 dB, hd-frequency 105.5 dB, hd-frequency 108.5 dB, hd-frequency 90.5 dB, hd-frequency 93.5 dB, hd-frequency 96.5 dB, hd-frequency 99.5 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.6 dB, hd-frequency 87.7 dB, hd-frequency 90.6 dB, hd-frequency 93.6 dB, hd-frequency 96.6 dB, hd-frequency 99.6 dB, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b> (what it offers: `capture/inventory.md`).
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.6 dB, hd-frequency 87.7 dB, hd-frequency 90.6 dB, hd-frequency 93.6 dB, hd-frequency 96.6 dB, hd-frequency 99.6 dB, imd-products, impedance. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 
 ## 4. Random spot check
@@ -215,6 +215,16 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 27: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 28: Impedance (chart to 70 ohm) — check impedance minimum against Re, read 3.78, stated 3.55; check impedance peak against Fs, read hz 24.06, read ohm 49.84, stated fs 28.8
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 29: Impedance (chart to 7 ohm) — check impedance minimum against Re, read 3.73, stated 3.55
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 30: Intermodulation 30 + 255 Hz, 4:1, low tone 2 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 31: Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 32: Intermodulation 30 + 255 Hz, 4:1, low tone 4.5 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 33: Intermodulation 30 + 255 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 34: Intermodulation 30 + 255 Hz, 4:1, low tone 9 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 35: Intermodulation 30 + 255 Hz, 4:1, low tone 10 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 36: Intermodulation 50 + 425 Hz, 4:1, low tone 1 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 37: Intermodulation 50 + 425 Hz, 4:1, low tone 2 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 38: Intermodulation 50 + 425 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), set 39: Intermodulation 50 + 425 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 4: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 86.5, expected 88.0, stated sens 88.0, difference db -1.5
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 5: Axial frequency response @ 4 V — check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 89.5, expected 91.0, stated sens 88.0, difference db -1.5
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 6: Axial frequency response @ 5.6 V — check 5.6 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 92.5, expected 93.9, stated sens 88.0, difference db -1.4
@@ -237,6 +247,16 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 23: Voice-coil current HD vs frequency @ 11.2 V — no self-check possible for this kind
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 24: Impedance (chart to 70 ohm) — check impedance minimum against Re, read 4.69, stated 3.9; check impedance peak against Fs, read hz 22.71, read ohm 60.64, stated fs 24
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 25: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 4.63, stated 3.9
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 26: Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 27: Intermodulation 30 + 255 Hz, 4:1, low tone 4.5 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 28: Intermodulation 30 + 255 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 29: Intermodulation 30 + 255 Hz, 4:1, low tone 9 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 30: Intermodulation 30 + 255 Hz, 4:1, low tone 12 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 31: Intermodulation 50 + 425 Hz, 4:1, low tone 1 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 32: Intermodulation 50 + 425 Hz, 4:1, low tone 2 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 33: Intermodulation 50 + 425 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 34: Intermodulation 50 + 425 Hz, 4:1, low tone 4.5 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 35: Intermodulation 50 + 425 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 2: Axial frequency response @ 2.83 V — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 3: Axial frequency response @ 4 V — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 4: Axial frequency response @ 5.6 V — no self-check possible for this kind
@@ -258,6 +278,11 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 20: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 21: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 22: Impedance (chart to 70 ohm) — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 23: Intermodulation 30 + 255 Hz, 4:1, low tone 2 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 24: Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 25: Intermodulation 30 + 255 Hz, 4:1, low tone 4.5 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 26: Intermodulation 30 + 255 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
+- **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 27: Intermodulation 30 + 255 Hz, 4:1, low tone 9 mm peak excursion — no self-check possible for this kind
 - **BlieSMa M74T-6** (`m74t-6`), set 2: Axial frequency response @ 1.41 V — no self-check possible for this kind
 - **BlieSMa M74T-6** (`m74t-6`), set 3: Axial frequency response @ 2 V — no self-check possible for this kind
 - **BlieSMa M74T-6** (`m74t-6`), set 4: Axial frequency response @ 2.83 V — no self-check possible for this kind
@@ -276,6 +301,15 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **BlieSMa M74T-6** (`m74t-6`), set 17: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
 - **BlieSMa M74T-6** (`m74t-6`), set 18: Impedance (chart to 70 ohm) — no self-check possible for this kind
 - **BlieSMa M74T-6** (`m74t-6`), set 19: Impedance (chart to 15 ohm) — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 20: Intermodulation 125 + 1063 Hz, 1:1, 1 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 21: Intermodulation 125 + 1063 Hz, 1:1, 1.41 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 22: Intermodulation 125 + 1063 Hz, 1:1, 2 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 23: Intermodulation 125 + 1063 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 24: Intermodulation 125 + 1063 Hz, 1:1, 4 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 25: Intermodulation 500 + 4250 Hz, 1:1, 1 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 26: Intermodulation 500 + 4250 Hz, 1:1, 1.41 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 27: Intermodulation 500 + 4250 Hz, 1:1, 2 V per tone — no self-check possible for this kind
+- **BlieSMa M74T-6** (`m74t-6`), set 28: Intermodulation 500 + 4250 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
 - **BlieSMa M74A-6** (`m74a-6`), set 0: Axial frequency response @ 1.41 V — check 1.41 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.1, expected 88.9, stated sens 95.0, difference db 1.1
 - **BlieSMa M74A-6** (`m74a-6`), set 1: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.0, expected 92.0, stated sens 95.0, difference db 1.0
 - **BlieSMa M74A-6** (`m74a-6`), set 2: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.1, expected 95.0, stated sens 95.0, difference db 1.1
@@ -292,6 +326,10 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **BlieSMa M74A-6** (`m74a-6`), set 13: Voice-coil current HD vs frequency @ 2 V — no self-check possible for this kind
 - **BlieSMa M74A-6** (`m74a-6`), set 14: Voice-coil current HD vs frequency @ 2.83 V — no self-check possible for this kind
 - **BlieSMa M74A-6** (`m74a-6`), set 15: Impedance (chart to 50 ohm) — check impedance minimum against Re, read 5.98, stated 5.6; check impedance peak against Fs, read hz 391.2, read ohm 45.26, stated fs 400.0
+- **BlieSMa M74A-6** (`m74a-6`), set 16: Intermodulation 500 + 4250 Hz, 1:1, 1 V per tone — no self-check possible for this kind
+- **BlieSMa M74A-6** (`m74a-6`), set 17: Intermodulation 500 + 4250 Hz, 1:1, 1.41 V per tone — no self-check possible for this kind
+- **BlieSMa M74A-6** (`m74a-6`), set 18: Intermodulation 500 + 4250 Hz, 1:1, 2 V per tone — no self-check possible for this kind
+- **BlieSMa M74A-6** (`m74a-6`), set 19: Intermodulation 500 + 4250 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
 - **BlieSMa T25A-6** (`t25a-6`), set 0: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 84.0, expected 90.0, stated sens 93.0, difference db -6.0
 - **BlieSMa T25A-6** (`t25a-6`), set 1: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 87.0, expected 93.0, stated sens 93.0, difference db -6.0
 - **BlieSMa T25A-6** (`t25a-6`), set 2: Axial frequency response @ 4 V — check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.0, expected 96.0, stated sens 93.0, difference db -6.0
@@ -367,6 +405,16 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 14: Voice-coil current HD vs frequency @ 4 V — check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)
 - **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 15: Voice-coil current HD vs frequency @ 5.6 V — check on the image: H2 100 %, H3 100 %, H5 100 % of the read points lie on the drawn curve (within 2 px)
 - **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 16: Impedance (chart to 150 ohm) — check impedance minimum against Re, read 6.66, stated 6.2; check impedance peak against Fs, read hz 35.02, read ohm 107.47, stated fs 35.0; check on the image: Z 100 % of the read points lie on the drawn curve (within 2 px)
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 17: Intermodulation 30 + 255 Hz, 4:1, low tone 1 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 18: Intermodulation 30 + 255 Hz, 4:1, low tone 1.5 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 19: Intermodulation 30 + 255 Hz, 4:1, low tone 2 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 20: Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 21: Intermodulation 30 + 255 Hz, 4:1, low tone 4 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 22: Intermodulation 125 + 1063 Hz, 1:1, 2 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 23: Intermodulation 125 + 1063 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 24: Intermodulation 125 + 1063 Hz, 1:1, 4 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 25: Intermodulation 125 + 1063 Hz, 1:1, 5.6 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`), set 26: Intermodulation 125 + 1063 Hz, 1:1, 8 V per tone — no self-check possible for this kind
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 0: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 89.9, expected 90.0, stated sens 93.0, difference db -0.0
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 1: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 92.9, expected 93.0, stated sens 93.0, difference db -0.1
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 2: Axial frequency response @ 4 V — check 4 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 95.9, expected 96.0, stated sens 93.0, difference db -0.1
@@ -391,6 +439,9 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 21: Voice-coil current HD vs frequency @ 8 V — no self-check possible for this kind
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 22: Impedance (chart to 70 ohm) — check impedance minimum against Re, read 4.0, stated 3.4; check impedance peak against Fs, read hz 32.12, read ohm 59.32, stated fs 32.0
 - **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 23: Impedance (chart to 7 ohm) — check impedance minimum against Re, read 3.93, stated 3.4
+- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 24: Intermodulation 30 + 255 Hz, 4:1, low tone 3 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 25: Intermodulation 30 + 255 Hz, 4:1, low tone 6 mm peak excursion — no self-check possible for this kind
+- **SB Acoustics Satori MW19TX-4** (`sb-satori-mw19tx-4`), set 26: Intermodulation 30 + 255 Hz, 4:1, low tone 9 mm peak excursion — no self-check possible for this kind
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 0: Axial frequency response @ 1.41 V — check 1.41 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.5, expected 90.9, stated sens 97.0, difference db -0.4
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 1: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.5, expected 94.0, stated sens 97.0, difference db -0.5
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 2: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 96.5, expected 97.0, stated sens 97.0, difference db -0.5
@@ -411,6 +462,9 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 17: Voice-coil current HD vs frequency @ 4 V — no self-check possible for this kind
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 18: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
 - **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 19: Impedance (chart to 5 ohm) — check impedance minimum against Re, read 3.03, stated 3.0
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 20: Intermodulation 1000 + 10000 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 21: Intermodulation 2000 + 10000 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori TW29BNWG-4** (`sb-satori-tw29bnwg-4`), set 22: Intermodulation 800 + 10000 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 0: Axial frequency response @ 1.41 V — check 1.41 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 87.7, expected 89.9, stated sens 96.0, difference db -2.3
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 1: Axial frequency response @ 2 V — check 2 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 90.6, expected 93.0, stated sens 96.0, difference db -2.4
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 2: Axial frequency response @ 2.83 V — check 2.83 V response at 1 kHz against the stated sensitivity (2.83 V, scaled by the voltage), read 93.6, expected 96.0, stated sens 96.0, difference db -2.4
@@ -430,3 +484,5 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 16: Voice-coil current HD vs frequency @ 5.6 V — no self-check possible for this kind
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 17: Impedance (chart to 15 ohm) — check impedance minimum against Re, read 3.04, stated 3.0; check impedance peak against Fs, read hz 620.99, read ohm 10.31, stated fs 600.0
 - **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 18: Impedance (chart to 5 ohm) — check impedance minimum against Re, read 3.04, stated 3.0
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 19: Intermodulation 1000 + 10000 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind
+- **SB Acoustics Satori TW29TXN-B** (`sb-satori-tw29txn-b`), set 20: Intermodulation 19000 + 20000 Hz, 1:1, 2.83 V per tone — no self-check possible for this kind

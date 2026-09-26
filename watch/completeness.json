@@ -1032,80 +1032,70 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz2mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz10mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz10mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_impedance_70_ohm.png",
@@ -1155,14 +1145,13 @@
    "premium_or_login": null,
    "summary": {
     "published": 44,
-    "stored": 25,
+    "stored": 35,
     "by_hand": 0,
-    "missing": 19,
+    "missing": 9,
     "missing_by_type": {
      "older template": 2,
      "off-axis": 3,
      "near field": 1,
-     "intermodulation": 10,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -1731,80 +1720,70 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz12mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz12mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz4.5mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz4.5mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text2.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text2.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "by hand",
-     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_impedance_70_ohm.png",
@@ -1854,8 +1833,8 @@
    "premium_or_login": null,
    "summary": {
     "published": 79,
-    "stored": 22,
-    "by_hand": 10,
+    "stored": 32,
+    "by_hand": 0,
     "missing": 47,
     "missing_by_type": {
      "off-axis": 3,
@@ -2415,40 +2394,35 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz2mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz3mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz3mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz4.5mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz4.5mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz6mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz6mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz9mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz9mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_impedance_70_ohm.png",
@@ -2499,14 +2473,13 @@
    "premium_or_login": null,
    "summary": {
     "published": 53,
-    "stored": 21,
+    "stored": 26,
     "by_hand": 0,
-    "missing": 32,
+    "missing": 27,
     "missing_by_type": {
      "older template": 1,
      "off-axis": 3,
      "near field": 19,
-     "intermodulation": 5,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -2801,72 +2774,63 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz1v1063hz1vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_125hz1v411063hz1v41text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz1v411063hz1v41text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_125hz2v1063hz2vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz2v1063hz2vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_125hz2v831063hz2v83text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz2v831063hz2v83text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_125hz4v1063hz4vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz4v1063hz4vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_500hz1v4.25khz1vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz1v4.25khz1vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_500hz1v414.25khz1v41text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz1v414.25khz1v41text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_500hz2v4.25khz2vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz2v4.25khz2vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_500hz2v834.25khz2v83text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz2v834.25khz2v83text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74t-6_impedance_70_ohm.png",
@@ -2916,12 +2880,11 @@
    "premium_or_login": true,
    "summary": {
     "published": 33,
-    "stored": 18,
+    "stored": 27,
     "by_hand": 0,
-    "missing": 15,
+    "missing": 6,
     "missing_by_type": {
      "older template": 3,
-     "intermodulation": 9,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3081,32 +3044,28 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v4.25khz1v.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74a-6_315mm_500hz1v414.25khz1v41.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v414.25khz1v41.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74a-6_315mm_500hz2v4.25khz2vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v4.25khz2vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74a-6_315mm_500hz2v834.25khz2v83.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v834.25khz2v83.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "m74a-6_impedance_50_ohm.png",
@@ -3157,12 +3116,11 @@
    "premium_or_login": true,
    "summary": {
     "published": 27,
-    "stored": 16,
+    "stored": 20,
     "by_hand": 0,
-    "missing": 11,
+    "missing": 7,
     "missing_by_type": {
      "off-axis": 3,
-     "intermodulation": 4,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4088,80 +4046,70 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_30hz255hz_xmax30hz4mm_4to1text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz4mm_4to1text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_125hz2v1063hz2vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v1063hz2vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_125hz2v831063hz2v83text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v831063hz2v83text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_125hz4v1063hz4vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz4v1063hz4vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_125hz5v61063hz5v6text.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz5v61063hz5v6text.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_125hz8v1063hz8vtext.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz8v1063hz8vtext.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_impedance_150_ohm.png",
@@ -4212,13 +4160,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 35,
-    "stored": 17,
+    "stored": 27,
     "by_hand": 0,
-    "missing": 18,
+    "missing": 8,
     "missing_by_type": {
      "off-axis": 3,
      "near field": 1,
-     "intermodulation": 10,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4768,24 +4715,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_30hz255hz_xmax30hz6mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz6mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_30hz255hz_xmax30hz9mm_4to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz9mm_4to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_impedance_70_ohm.png",
@@ -4835,13 +4779,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 70,
-    "stored": 24,
+    "stored": 27,
     "by_hand": 0,
-    "missing": 46,
+    "missing": 43,
     "missing_by_type": {
      "off-axis": 3,
      "near field": 37,
-     "intermodulation": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -5033,24 +4976,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1_0.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png",
@@ -5109,12 +5049,12 @@
    "premium_or_login": null,
    "summary": {
     "published": 31,
-    "stored": 20,
+    "stored": 23,
     "by_hand": 0,
-    "missing": 11,
+    "missing": 8,
     "missing_by_type": {
      "off-axis": 3,
-     "intermodulation": 4,
+     "intermodulation": 1,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -5291,16 +5231,14 @@
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_1khz10khz-1to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "tw29txn-b_315mm_2v83rms_19khz20khz-1to1.png",
      "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_19khz20khz-1to1.png",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "an intermodulation spectrum: not read automatically yet"
+     "state": "stored"
     },
     {
      "file": "tw29txn-4_impedance_15_ohm.png",
@@ -5350,12 +5288,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 27,
-    "stored": 19,
+    "stored": 21,
     "by_hand": 0,
-    "missing": 8,
+    "missing": 6,
     "missing_by_type": {
      "off-axis": 3,
-     "intermodulation": 2,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1

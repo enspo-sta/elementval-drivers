@@ -57,16 +57,29 @@ def build(read, db):
             up = tones.get(round(t.get("f2", -1), 3)) or {}
             if up.get("level") is None:
                 waiting.append((did, name, "the upper tone was not found on the chart")); continue
-            chk = c.get("check") or {}
+            chk = dict(c.get("check") or {})
+            covered = None
+            col = chk.get("column") or {}
+            px = [r[2] for r in col.get("pixels") or []]
+            if px and chk.get("difference_db") is not None and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
+                # the chart's red cursor line is drawn over the tone's own column and hides the top of its peak (the
+                # columns beside it show the flanks only): the tone's level is then the one the chart prints
+                near = min(tones, key=lambda f: abs(f - chk["f"]))
+                covered = (near, tones[near].get("level"))
+                tones[near] = dict(tones[near], level=chk["stated_db"])
+                chk.update(difference_db=None, note=f"the chart's red cursor line covers the {num(near)} Hz tone's peak, whose top "
+                           f"is hidden (read {covered[1]:.2f} dB beside it); its level is the {chk['stated_db']} dB the chart prints")
+                up = tones.get(round(t.get("f2", -1), 3)) or {}
             if chk.get("difference_db") is not None and abs(chk["difference_db"]) > 1.5:
                 waiting.append((did, name, f"the reading differs from the chart's printed readout by {chk['difference_db']} dB")); continue
             pts = []
             for f, x in sorted(tones.items()):
                 if x.get("level") is not None:
                     pts.append({"x": num(f), "y": round(x["level"], 1), "label": "f1 (lower tone)" if f == round(t["f1"], 3) else "f2 (upper tone)"})
+            harm = []
             for p in c.get("products") or []:
-                pts.append({"x": num(p["f"]), "y": p["level"], "label": f"{product_name(p['m'], p['n'])} ({ORD[p['order']]})"})
-            pts.sort(key=lambda p: p["x"])
+                (harm if p["m"] == 0 or p["n"] == 0 else pts).append({"x": num(p["f"]), "y": p["level"], "label": f"{product_name(p['m'], p['n'])} ({ORD[p['order']]})"})
+            pts.sort(key=lambda p: p["x"]); harm.sort(key=lambda p: p["x"])
             f1, f2 = num(t["f1"]), num(t["f2"])
             cond = {"f1": f1, "f2": f2}
             if t.get("ratio"):
@@ -81,36 +94,40 @@ def build(read, db):
             if m:
                 cond["distance_mm"] = int(m.group(1))
             cond["lab"] = "HiFiCompass"
-            note = [f"read automatically from {c['url']} on GitHub (capture/imd_read.py): axes from the chart's grid and labels, "
-                    "the spectrum by colour, its highest point within 3 pixels of each tone and product"]
-            if chk:
-                if chk.get("difference_db") is not None:
-                    note.append(f"check against the cursor readout the chart prints: {chk['f']} Hz, printed {chk['stated_db']} dB, "
-                                f"read {chk['read_db']} dB, difference {chk['difference_db']} dB")
-                else:
-                    note.append(f"the chart's cursor readout ({chk['f']} Hz, {chk['stated_db']} dB): {chk.get('note') or 'no check'}")
+            # short: the same card lists one note per level (how the reading works is in the method and in the
+            # kind's note in schema/kinds.json)
+            note = [f"read from {c['url']}"]
+            if chk and chk.get("difference_db") is not None:
+                note.append(f"check: the chart prints {chk['stated_db']} dB at {chk['f']} Hz, read {chk['read_db']} dB ({chk['difference_db']:+.2f} dB)")
+            elif covered:
+                note.append(chk["note"])
+            elif chk:
+                note.append(f"no check: {chk.get('note') or 'the cursor readout could not be used'}")
             else:
-                note.append("no cursor readout found on the chart to check against")
+                note.append("no check: no cursor readout found on the chart")
             if c.get("below_floor"):
-                note.append(f"{c['below_floor']} product(s) less than 6 dB above the noise floor left out")
+                note.append(f"{c['below_floor']} product(s) under the noise floor left out")
             if f1 not in [p["x"] for p in pts]:
-                note.append(f"the lower tone ({f1} Hz) was not found on the chart")
+                note.append(f"lower tone ({f1} Hz) not found")
             if not t.get("ratio"):
-                note.append("the tone ratio is not stated in the file name")
+                note.append("tone ratio not stated")
             if "distance_mm" not in cond:
-                note.append("the microphone distance is not stated in the file name")
+                note.append("microphone distance not stated")
             ratio = f", {t['ratio']}" if t.get("ratio") else ""
             made.append((did, {
                 "type": f"Intermodulation {f1} + {f2} Hz{ratio}, {what}",
                 "kind": "imd-products",
-                "method": f"two-tone spectrum {f1} + {f2} Hz, automated pixel reading (GitHub)",
+                "method": f"two-tone spectrum {f1} + {f2} Hz, automated pixel reading on GitHub (capture/imd_read.py: axes from the chart's grid and labels, the spectrum by colour, its highest point within 3 pixels of each tone and product)",
                 "conditions": cond,
                 "source": f"HiFiCompass ({name}, automated reading)",
                 "confidence": "medium",
                 "note": "; ".join(note),
                 "chartType": "bar",
                 "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level", "unit": "dB (the chart's scale)"}},
-                "series": [{"name": "tones and products", "points": pts}],
+                # the intermodulation products (both tones take part) first: Compare sums that series; the
+                # harmonics of each tone alone (2·f1, 3·f1, 2·f2 ...) are distortion of one tone and kept apart
+                "series": [{"name": "tones and intermodulation products", "points": pts}]
+                          + ([{"name": "harmonics of each tone", "points": harm}] if harm else []),
                 "file": name,
                 **({"check": {"cursor": {k: v for k, v in chk.items() if k != "column"}}} if chk else {}),
             }))
@@ -127,7 +144,7 @@ def main():
     db = json.loads(dbp.read_text())
     made, waiting = build(read, db)
     for did, s in made:
-        print(f"{did}: {s['type']} {len(s['series'][0]['points'])} bars; {s['note'][-140:]}")
+        print(f"{did}: {s['type']} {sum(len(x['points']) for x in s['series'])} bars; {s['note'][-140:]}")
     for did, f, why in waiting:
         print(f"waiting {did} {f}: {why}")
     if a.write and made:

@@ -224,10 +224,25 @@ function showDetail(id, params) {
         if (c.sets.some(x => x.set.calibration)) h += `<div class="hint2">Pick one level above to check its reading against the source chart.</div>`;
       }
     } else if (multi && c.kind.view === "bars") {
-      const cols = levelColors(c.sets.length);
-      h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl sq" style="background:${cols[i]}"></span>${esc(levelName(s))}</span>`).join("")}</div>`;
-      h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
-      draws.push(() => drawLevelBars($("ch" + ci), c, cols));
+      // every level side by side, or one level with all its bars (the harmonics of each tone too)
+      const st = cardState[d.id + c.key] || {};
+      const names = levelNames(c);
+      const one = st.lv != null ? c.sets.find(s => String(s.index) === st.lv) || null : null;
+      h += `<div class="togrow lvrow"><span class="rowlbl">Level</span><button class="tog small${one ? "" : " on"}" data-card="${ci}" data-lv="all">all levels</button>${c.sets.map((s, i) =>
+        `<button class="tog small${one === s ? " on" : ""}" data-card="${ci}" data-lv="${s.index}">${esc(names[i])}</button>`).join("")}</div>`;
+      if (one) {
+        shownSets = [one];
+        const series = one.set.series || [];
+        h += `<div class="legend">${series.map((x, i) => `<span class="lg"><span class="lgl sq" style="background:${PALETTE[i % PALETTE.length]}"></span>${esc(x.name)} at ${esc(names[c.sets.indexOf(one)])}</span>`).join("")}</div>`;
+        h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
+        draws.push(() => drawSet($("ch" + ci), one.set));
+      } else {
+        const cols = levelColors(c.sets.length);
+        h += `<div class="legend">${c.sets.map((s, i) => `<span class="lg"><span class="lgl sq" style="background:${cols[i]}"></span>${esc(names[i])}</span>`).join("")}</div>`;
+        h += noChart() ? noChartMsg : `<div class="chartbox"><canvas id="ch${ci}"></canvas></div>`;
+        draws.push(() => drawLevelBars($("ch" + ci), c, cols));
+        if (c.sets.some(s => (s.set.series || []).length > 1)) h += `<div class="hint2">Pick one level to see the harmonics of each tone as well.</div>`;
+      }
     } else {
       for (const s of c.sets) {
         if (s.set.chartType === "table") { h += renderTable(s.set); continue; }
