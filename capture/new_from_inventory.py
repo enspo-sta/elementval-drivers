@@ -30,11 +30,20 @@ ROLE = [("tw", "tweeter"), ("t2", "tweeter"), ("t3", "tweeter"), ("mr", "midrang
 ID_PREFIX = {"bliesma-": "", "satori-": "sb-satori-", "sb-acoustics-": "sb-"}   # the database's id style: m74t-6, sb-satori-wo24p-8
 
 
-def role_of(model):
+def role_of(model, ts=None):
+    """The role from the model code (tw…, mr…, wo…; 12MW300: a size, then MW for mid-woofer), else from the measured
+    parameters: a resonance of 400 Hz or more on under 20 cm² is a tweeter; under 200 cm², 80 Hz or more and under
+    4 mm of excursion is a midrange."""
     m = model.lower().split()[-1]
     for pre, role in ROLE:
-        if m.startswith(pre):
+        if m.startswith(pre) or re.match(r"\d+" + pre, m):
             return role + (" (waveguide)" if role == "tweeter" and "wg" in m else "")
+    ts = ts or {}
+    fs, sd, xm = ts.get("Fs"), ts.get("Sd"), ts.get("Xmax")
+    if fs and sd and fs >= 400 and sd < 20:
+        return "tweeter"
+    if fs and sd and xm is not None and sd < 200 and fs >= 80 and xm < 4:
+        return "midrange"
     return ""
 
 
@@ -96,7 +105,7 @@ def records(inv):
         files = [f["href"] for f in pg["data_files"] if f["href"].lower().endswith(".pdf")]
         ts = ts_from_tables(pg["tables"])
         material, coil = ts.pop("material", None), ts.get("coil_mm")
-        rec = {"id": record_id(slug), "name": name, "manufacturer": maker.replace(" Satori", ""), "role": role_of(model),
+        rec = {"id": record_id(slug), "name": name, "manufacturer": maker.replace(" Satori", ""), "role": role_of(model, ts),
                "band": (f"{material} diaphragm" if material else "") + (f", {coil:g} mm voice coil" if coil else ""),
                "ts": ts, "findings": "", "source": pg["url"], "updated": inv["date"], "measurements": []}
         if files:
@@ -109,6 +118,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--inventory", default=str(ROOT / "capture" / "inventory.json"))
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--models", help="only these models of the inventory (comma-separated, as in the request file)")
     a = ap.parse_args()
     inv = json.loads(Path(a.inventory).read_text())
     dbp = ROOT / "drivers.json"
@@ -116,15 +126,27 @@ def main():
     byid = {d["id"]: d for d in db["drivers"]}
     # a record made from a shop list (capture/from_shop_list.py) has no parameters and no measurement page yet:
     # it is matched by model number and filled rather than added twice
+    # a page a record already uses (its source, or its line in the chart-read request) is that record's, whatever
+    # its id: the Purifi records have ids of their own (purifi-ptt10-0x04-nab-02 for the page purifi-ptt100x04-nab-02)
+    used = {d.get("source") for d in db["drivers"]}
+    req = ROOT / "capture" / "chart_read_request.txt"
+    if req.exists():
+        used |= {ln.split()[1] for ln in req.read_text().splitlines() if len(ln.split()) > 1 and not ln.startswith("#")}
+
     def existing_for(r):
         if r["id"] in byid:
             return byid[r["id"]]
+        if r["source"] in used:
+            return next((d for d in db["drivers"] if d.get("source") == r["source"]), {"id": "(page in use)", "measurements": [1]})
         text = P.norm(r["name"])
         for d in db["drivers"]:
             if not d.get("measurements") and not d.get("ts") and any(P.model_regex(m).search(text) for m in P.models_of(d)):
                 return d
         return None
     recs, fills = [], []
+    only = {m.strip() for m in a.models.split(",")} if a.models else None
+    if only:
+        inv = dict(inv, models={k: v for k, v in inv["models"].items() if k in only})
     for r in records(inv):
         ex = existing_for(r)
         if ex is None:

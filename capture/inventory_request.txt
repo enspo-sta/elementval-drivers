@@ -22,5 +22,5 @@ Purifi PTT1.3T04
 SB Acoustics SB26ADC
 Wavecor TW030WA11
 SB Acoustics Satori WO24TX
-12MW300
-MAN06
+SB Audience 12MW300
+Lavoce MAN06
