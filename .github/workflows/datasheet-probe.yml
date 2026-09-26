@@ -1,0 +1,53 @@
+name: Datasheet probe
+
+# Finds the Purifi datasheets named in capture/datasheet_request.txt and writes what their pages draw (capture/datasheet_probe.py).
+# Numbers and text only (capture/datasheet_probe.json); the PDF is never stored.
+on:
+  push:
+    paths:
+      - "capture/datasheet_request.txt"
+      - "capture/datasheet_probe.py"
+      - ".github/workflows/datasheet-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: datasheet-probe
+  cancel-in-progress: false
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Tools
+        run: |
+          python3 -m pip install -q pymupdf
+      - name: Probe the datasheets
+        run: python3 capture/datasheet_probe.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the results
+        run: |
+          FILES="capture/datasheet_probe.json"
+          git add $FILES
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # this run's files are whole results and replace the committed ones outright (a merge of two runs' files
+          # mixes them): the commit is made on the branch's newest commit, the files kept in a tar meanwhile
+          tar cf /tmp/run-files.tar $FILES
+          for try in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            tar xf /tmp/run-files.tar
+            git add $FILES
+            if git diff --cached --quiet; then echo "unchanged against the branch's newest commit"; exit 0; fi
+            git commit -q -m "Datasheet probe: vector lines and numbers of the requested datasheets"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((try * 15))
+          done
+          echo "could not push after five tries"; exit 1

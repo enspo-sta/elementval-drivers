@@ -1,0 +1,8 @@
+# Purifi datasheets to probe (capture/datasheet_probe.py, run by .github/workflows/datasheet-probe.yml).
+# record-id MODEL [pdf-address]   (no address: the PDF is found through purifi-audio.com's sitemap)
+ptt65m08naa08 PTT6.5M08-NAA-08
+ptt80x04nab01 PTT8.0X04-NAB-01
+ptt65x04naa08 PTT6.5X04-NAA-08
+ptt525x04naa05 PTT5.25X04-NAA-05
+ptt13t04hag10 PTT1.3T04-HAG-10
+ptt13t04hag01 PTT1.3T04-HAG-01
