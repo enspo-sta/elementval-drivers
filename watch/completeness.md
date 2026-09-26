@@ -30,6 +30,11 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
 | SB Acoustics Satori MW19TX-4 | <https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4> | 70 | 64 | 0 | 6 | energy-time 1, off-axis 3, step response 1, waterfall 1 | 21 / 24 |
 | SB Acoustics Satori TW29BNWG-4 | <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4> | 31 | 23 | 0 | 8 | energy-time 1, impedance 1, intermodulation 1, off-axis 3, step response 1, waterfall 1 | 18 / 22 |
 | SB Acoustics Satori TW29TXN-B | <https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b> | 27 | 21 | 0 | 6 | energy-time 1, off-axis 3, step response 1, waterfall 1 | 15 / 19 |
+| SB Acoustics SB26ADC-C000-4 | <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb26adc-c000-4> | 12 | 0 | 0 | 12 | current distortion 1, energy-time 1, harmonics 2, impedance 1, intermodulation 2, near field 1, off-axis 1, on-axis response 1, step response 1, waterfall 1 | 18 / 22 |
+| Wavecor TW030WA11 | <https://hificompass.com/ru/speakers/measurements/wavecor/wavecor-tw030wa11> | 18 | 11 | 0 | 7 | energy-time 1, impedance 1, off-axis 3, step response 1, waterfall 1 | 20 / 23 |
+| SB Acoustics Satori WO24TX-8 | <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24tx-8> | 71 | 65 | 0 | 6 | energy-time 1, off-axis 3, step response 1, waterfall 1 | 21 / 24 |
+| SB Audience Rosso 12MW300 | <https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300> | 12 | 0 | 0 | 12 | current distortion 1, energy-time 1, harmonics 2, impedance 1, intermodulation 2, near field 1, off-axis 1, on-axis response 1, step response 1, waterfall 1 | 21 / 24 |
+| Lavoce MAN062.00-8 | <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8> | 12 | 0 | 0 | 12 | current distortion 1, energy-time 1, harmonics 2, impedance 1, intermodulation 2, near field 1, off-axis 1, on-axis response 1, step response 1, waterfall 1 | 19 / 22 |
 
 ## Every chart not stored, and why
 
@@ -192,6 +197,60 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
   - [tw29txn-4_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/tw29txn-4_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
   - [tw29txn-b_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/tw29txn-b_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
   - [tw29txn-4_etc.png](https://hificompass.com/sites/default/files/zamer/etc/tw29txn-4_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
+- **SB Acoustics SB26ADC-C000-4** (`sb-sb26adc-c000-4`), <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb26adc-c000-4>:
+  - [onaxis_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg) · on-axis response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [offaxis.jpg](https://hificompass.com/sites/default/files/offaxis.jpg) · off-axis: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [nf.jpg](https://hificompass.com/sites/default/files/nf.jpg) · near field: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd315_0.jpg](https://hificompass.com/sites/default/files/hd315_0.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd20.jpg](https://hificompass.com/sites/default/files/hd20.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [chd.jpg](https://hificompass.com/sites/default/files/chd.jpg) · current distortion: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [spectra.jpg](https://hificompass.com/sites/default/files/spectra.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imd.jpg](https://hificompass.com/sites/default/files/imd.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imp_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg) · impedance: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [step.jpg](https://hificompass.com/sites/default/files/step.jpg) · step response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [wf.jpg](https://hificompass.com/sites/default/files/wf.jpg) · waterfall: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [etc.jpg](https://hificompass.com/sites/default/files/etc.jpg) · energy-time: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+- **Wavecor TW030WA11** (`wavecor-tw030wa11`), <https://hificompass.com/ru/speakers/measurements/wavecor/wavecor-tw030wa11>:
+  - [tw030wa11_offaxis.png](https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [tw030wa11_offaxis_normalized_10-50db.png](https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-50db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [tw030wa11_offaxis_normalized_10-25db.png](https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-25db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [tw030wa11_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/tw030wa11_impedance_10_ohm.png) · impedance: missing, the automatic reading failed: axes could not be fitted
+  - [tw030wa11_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/tw030wa11_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
+  - [tw030wa11_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/tw030wa11_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
+  - [tw030wa11_etc.png](https://hificompass.com/sites/default/files/zamer/etc/tw030wa11_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
+- **SB Acoustics Satori WO24TX-8** (`sb-satori-wo24tx-8`), <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24tx-8>:
+  - [wo24tx-8-offaxis.png](https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [wo24tx-8-offaxis_normalized_10-50db.png](https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_10-50db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [wo24tx-8-offaxis_normalized_5-30db.png](https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_5-30db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
+  - [wo24tx-8_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/wo24tx-8_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
+  - [wo24tx-8_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/wo24tx-8_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
+  - [wo24tx-8_etc.png](https://hificompass.com/sites/default/files/zamer/etc/wo24tx-8_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
+- **SB Audience Rosso 12MW300** (`sb-audience-rosso-12mw300`), <https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300>:
+  - [onaxis_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg) · on-axis response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [offaxis.jpg](https://hificompass.com/sites/default/files/offaxis.jpg) · off-axis: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [nf.jpg](https://hificompass.com/sites/default/files/nf.jpg) · near field: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd315_0.jpg](https://hificompass.com/sites/default/files/hd315_0.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd20.jpg](https://hificompass.com/sites/default/files/hd20.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [chd.jpg](https://hificompass.com/sites/default/files/chd.jpg) · current distortion: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [spectra.jpg](https://hificompass.com/sites/default/files/spectra.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imd.jpg](https://hificompass.com/sites/default/files/imd.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imp_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg) · impedance: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [step.jpg](https://hificompass.com/sites/default/files/step.jpg) · step response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [wf.jpg](https://hificompass.com/sites/default/files/wf.jpg) · waterfall: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [etc.jpg](https://hificompass.com/sites/default/files/etc.jpg) · energy-time: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+- **Lavoce MAN062.00-8** (`lavoce-man06200-8`), <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8>:
+  - [onaxis_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg) · on-axis response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [offaxis.jpg](https://hificompass.com/sites/default/files/offaxis.jpg) · off-axis: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [nf.jpg](https://hificompass.com/sites/default/files/nf.jpg) · near field: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd315_0.jpg](https://hificompass.com/sites/default/files/hd315_0.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [hd20.jpg](https://hificompass.com/sites/default/files/hd20.jpg) · harmonics: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [chd.jpg](https://hificompass.com/sites/default/files/chd.jpg) · current distortion: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [spectra.jpg](https://hificompass.com/sites/default/files/spectra.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imd.jpg](https://hificompass.com/sites/default/files/imd.jpg) · intermodulation: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [imp_spread100_size1_font70.jpg](https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg) · impedance: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [step.jpg](https://hificompass.com/sites/default/files/step.jpg) · step response: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [wf.jpg](https://hificompass.com/sites/default/files/wf.jpg) · waterfall: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
+  - [etc.jpg](https://hificompass.com/sites/default/files/etc.jpg) · energy-time: missing, the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)
 
 ## Purifi datasheets: the figures a Purifi datasheet has, stored or not
 

@@ -5168,6 +5168,1137 @@
      "energy-time": 1
     }
    }
+  },
+  "sb-sb26adc-c000-4": {
+   "name": "SB Acoustics SB26ADC-C000-4",
+   "page": "https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb26adc-c000-4",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/sb26adc-c000-4.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/sb26adc-c000-4.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 12,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "harmonics": 2,
+     "current distortion": 1,
+     "intermodulation": 2,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "wavecor-tw030wa11": {
+   "name": "Wavecor TW030WA11",
+   "page": "https://hificompass.com/ru/speakers/measurements/wavecor/wavecor-tw030wa11",
+   "charts": [
+    {
+     "file": "tw030wa11_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw030wa11_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw030wa11_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw030wa11_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw030wa11_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw030wa11_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw030wa11_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw030wa11_offaxis_normalized_10-25db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-25db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw030wa11_315mm_2v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw030wa11_315mm_2v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_2v83_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw030wa11_315mm_2v83_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_4v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw030wa11_315mm_4v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_5v6_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw030wa11_315mm_5v6_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_315mm_8v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw030wa11_315mm_8v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_impedance_10_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw030wa11_impedance_10_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the automatic reading failed: axes could not be fitted"
+    },
+    {
+     "file": "tw030wa11_impedance_5_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw030wa11_impedance_5_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "tw030wa11_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/tw030wa11_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw030wa11_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/tw030wa11_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw030wa11_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/tw030wa11_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/wavecor_tw030wa11_12_tweeters_specifications.pdf"
+   ],
+   "table_rows": 23,
+   "parameters": 20,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/wavecor_tw030wa11_12_tweeters_specifications.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 18,
+    "stored": 11,
+    "by_hand": 0,
+    "missing": 7,
+    "missing_by_type": {
+     "off-axis": 3,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-wo24tx-8": {
+   "name": "SB Acoustics Satori WO24TX-8",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-wo24tx-8",
+   "charts": [
+    {
+     "file": "wo24tx-8-315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8-315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_4v-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_4v-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_5v6-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_5v6-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_8v-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_8v-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_11v2-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_11v2-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_16v-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_16v-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 16.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_22v-0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/wo24tx-8_315mm_22v-0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 22.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8-offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "wo24tx-8-offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "wo24tx-8-offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "wo24tx-8_3mm_1v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/wo24tx-8_3mm_1v_0deg.png",
+     "type": "near-response",
+     "label": "near-field response",
+     "volts": 1.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_11v2_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_11v2_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_16v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_16v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_315mm_22v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/wo24tx-8_315mm_22v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 22.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_2v83_hd.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_4v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_4v_hd.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_5v6_hd.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_8v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_8v_hd.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_11v2_hd.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_16v_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/wo24tx-8_20mm_16v_hpf2-20.png",
+     "type": "harmonics",
+     "label": "near-field harmonics",
+     "volts": 16.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_chd_2v83.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/wo24tx-8_chd_2v83.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_chd_4v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/wo24tx-8_chd_4v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_chd_5v6.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/wo24tx-8_chd_5v6.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_chd_8v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/wo24tx-8_chd_8v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_chd_11v2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/wo24tx-8_chd_11v2.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_20hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_30hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_40hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_50hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_75hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_100hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_150hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_220hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_2v83_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_2v83_300hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_20hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_30hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_40hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_50hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_75hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_100hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_150hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_220hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_5v6_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_5v6_300hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_20hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_30hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_40hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_50hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_75hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_100hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_150hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_220hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_20mm_11v2_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/wo24tx-8_20mm_11v2_300hz.png",
+     "type": "spectrum",
+     "label": "one-tone spectrum",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz4.5mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz4.5mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz6mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz6mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz8mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz8mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_30hz255hz_xmax30hz9mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_30hz255hz_xmax30hz9mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_50hz425hz_xmax50hz2mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz2mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_50hz425hz_xmax50hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_50hz425hz_xmax50hz4.5mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz4.5mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_50hz425hz_xmax50hz6mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/wo24tx-8_50hz425hz_xmax50hz6mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_impedance_100_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/wo24tx-8_impedance_100_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/wo24tx-8_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "wo24tx-8_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/wo24tx-8_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "wo24tx-8_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/wo24tx-8_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "wo24tx-8_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/wo24tx-8_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/9.5in-satori-wo24tx-8.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 21,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/9.5in-satori-wo24tx-8.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 71,
+    "stored": 65,
+    "by_hand": 0,
+    "missing": 6,
+    "missing_by_type": {
+     "off-axis": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-audience-rosso-12mw300": {
+   "name": "SB Audience Rosso 12MW300",
+   "page": "https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/rosso-12mw300.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 21,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/rosso-12mw300.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 12,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "harmonics": 2,
+     "current distortion": 1,
+     "intermodulation": 2,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "lavoce-man06200-8": {
+   "name": "Lavoce MAN062.00-8",
+   "page": "https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/man062.00-8_datasheet.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 19,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/man062.00-8_datasheet.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 12,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "harmonics": 2,
+     "current distortion": 1,
+     "intermodulation": 2,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
   }
  }
 }

@@ -100,6 +100,10 @@ Default choice per speaker (what Simulate picks when it opens):
 | SB Acoustics Satori WO24P-8 | 20 Hz–500 Hz · H2 H3 H4 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 80 % | H2 H3 H4 H5 508 Hz–1.08 kHz |
 | SB Acoustics Satori WO24P-8 | 20 Hz–500 Hz · H2 H3 H4 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
 | SB Acoustics Satori WO24P-8 | 20 Hz–500 Hz · H2 H3 H4 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 63 % | H2 H3 H4 H5 508 Hz–2.15 kHz |
+| SB Acoustics Satori WO24TX-8 | 20 Hz–21.2 kHz · H2 H3 H5 | 2-way, way 1 (low) | 20 Hz–6.09 kHz | 100 % | — |
+| SB Acoustics Satori WO24TX-8 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 100 % | — |
+| SB Acoustics Satori WO24TX-8 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
+| SB Acoustics Satori WO24TX-8 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 100 % | — |
 | SB Acoustics SB17NBAC35-8 | 81 Hz–5.48 kHz · H2 H3 H4 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 88 % | H2 H3 H4 H5 5.75 kHz–9.12 kHz |
 | SB Acoustics SB17NBAC35-8 | 81 Hz–5.48 kHz · H2 H3 H4 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 81 % | H2 H3 H4 H5 40 Hz–80 Hz |
 | SB Acoustics SB17NBAC35-8 | 81 Hz–5.48 kHz · H2 H3 H4 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 80 % | H2 H3 H4 H5 5.75 kHz–12.2 kHz |
@@ -107,6 +111,10 @@ Default choice per speaker (what Simulate picks when it opens):
 | SB Acoustics SB34NRXL75-8 (Norex) | 20 Hz–500 Hz · H2 H3 H4 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 80 % | H2 H3 H4 H5 508 Hz–1.08 kHz |
 | SB Acoustics SB34NRXL75-8 (Norex) | 20 Hz–500 Hz · H2 H3 H4 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
 | SB Acoustics SB34NRXL75-8 (Norex) | 20 Hz–500 Hz · H2 H3 H4 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 63 % | H2 H3 H4 H5 508 Hz–2.15 kHz |
+| Wavecor TW030WA11 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 75 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| Wavecor TW030WA11 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| Wavecor TW030WA11 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
+| Wavecor TW030WA11 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 
 Default choice per speaker (what Simulate picks when it opens):
 
