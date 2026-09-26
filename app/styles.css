@@ -85,7 +85,7 @@ h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
 .odot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 input.filter.small{padding:8px 10px;min-height:36px;font-size:13px;margin:0 0 8px}
 .picks{display:flex;flex-direction:column;gap:4px;max-height:380px;overflow:auto}
-.pick{display:grid;grid-template-columns:auto auto 1fr;gap:2px 10px;align-items:center;padding:7px 10px;border-radius:9px;background:var(--panel2);border:1px solid transparent;cursor:pointer}
+.pick{flex-shrink:0;display:grid;grid-template-columns:auto auto 1fr;gap:2px 10px;align-items:center;padding:7px 10px;border-radius:9px;background:var(--panel2);border:1px solid transparent;cursor:pointer}
 .pick.on{border-color:var(--line);background:#222a3a}
 .pick.dis{opacity:.45;cursor:not-allowed}
 .pick input{accent-color:var(--amber);width:20px;height:20px}
@@ -94,7 +94,9 @@ input.filter.small{padding:8px 10px;min-height:36px;font-size:13px;margin:0 0 8p
 .pn{font-size:14px}
 .pd{grid-column:3;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:4px 0 10px;font-size:13px}
-.lg{display:inline-flex;align-items:center;flex-wrap:wrap;gap:2px 6px;max-width:100%}
+.lg{display:inline-flex;align-items:center;flex-wrap:nowrap;gap:2px 6px;max-width:100%}
+.lg .lgl,.lg .lgm{flex:none}
+.lg>span:not(.lgl):not(.lgm){min-width:0;white-space:normal;overflow-wrap:anywhere}
 .lg .dim{white-space:nowrap}
 .lg.off{opacity:.55}
 .lgm{font-size:14px;line-height:1}
@@ -106,6 +108,8 @@ input.filter.small{padding:8px 10px;min-height:36px;font-size:13px;margin:0 0 8p
 .tscroll[data-scrolls]::before{content:"scroll sideways for more \2192";display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim);padding:0 0 4px}
 .ctab{font-size:12px}
 .ctab td,.ctab th{white-space:nowrap}
+/* a driver's name in a column head wraps, so five drivers fit on a laptop */
+.ctab th{white-space:normal;max-width:13ch;vertical-align:bottom;line-height:1.25}
 .ctab tr.sumrow td{border-top:1px solid var(--line);color:var(--amber2)}
 .warn{font-size:13px;color:var(--amber2);background:rgba(240,164,74,.08);border:1px solid rgba(240,164,74,.35);border-radius:10px;padding:9px 12px;margin:10px 0 0;line-height:1.45}
 .warn b{color:var(--amber)}

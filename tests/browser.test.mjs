@@ -341,3 +341,39 @@ test("Intermodulation read from HiFiCompass: one excursion at a time on the driv
   assert.deepEqual(errors, []);
   await close();
 });
+
+test("Re-test fixes: series colours, chart scales named as charts, a card exports what it shows, the sum exports alone, exact tone names", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/purifi-ptt10-0x04-nab-02");
+  // impedance read from two chart scales: charts, not levels, named by their scale
+  const imp = page.locator(".setttl", { hasText: /^Impedance · 2 charts/ }).first();
+  assert.equal(await imp.count(), 1);
+  assert.ok(await page.locator(".lvrow button", { hasText: /^chart to 70 ohm$/ }).count() >= 1);
+  // one level of an intermodulation card: each series its own colour, as in its legend
+  const row = page.locator(".lvrow", { has: page.locator("button", { hasText: /^4\.5 mm$/ }) }).first();
+  await row.locator("button", { hasText: /^4\.5 mm$/ }).click();
+  await page.waitForTimeout(300);
+  const colours = await page.evaluate(() => {
+    const ch = Object.values(Chart.instances).find(c => c.data.datasets.some(d => d.label === "harmonics of each tone"));
+    return ch ? ch.data.datasets.map(d => d.backgroundColor) : [];
+  });
+  assert.ok(colours.length >= 2 && new Set(colours).size === colours.length, `bar colours ${colours}`);
+  // its export holds that one level only, and its name says which
+  const card = page.locator(".setttl", { hasText: /stated excursion.*30 \+ 255 Hz/ }).first();
+  const btn = card.locator("xpath=following::div[contains(@class,'exportrow')][1]//button[@data-dl]");
+  const [download] = await Promise.all([page.waitForEvent("download"), btn.click()]);
+  assert.match(download.suggestedFilename(), /4\.5-mm/, "the level picked is in the name");
+  assert.match(await page.locator(".expmsg").filter({ hasText: /files in one ZIP/ }).first().textContent(), /^[2-3] files in one ZIP$/, "that level's tables only, not every level's");
+  // Compare: the sum alone in its export; the reference tone named exactly
+  await page.goto(base + "#compare?src=HiFiCompass&g=HiFiCompass%3A%3Aimd-products%7C125%2B1063%7C1%3A1&L=2.83&q=sum");
+  await page.waitForSelector("#cchart");
+  assert.match(await page.locator("#csum").textContent(), /1\.063 kHz tone/);
+  const [d2] = await Promise.all([page.waitForEvent("download"), page.locator(".exportrow [data-dl]").last().click()]);
+  const f2 = join(dl, d2.suggestedFilename()); await d2.saveAs(f2);
+  const text = await readFile(f2, "utf8");
+  assert.match(d2.suggestedFilename(), /\.csv$/);
+  assert.match(text, /Sum of all products/);
+  assert.doesNotMatch(text, /^500,/m, "no product rows in the sum's export");
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

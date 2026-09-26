@@ -56,7 +56,7 @@ def one_tone(c, t):
     chk = dict(c.get("check") or {})
     px = [r[2] for r in (chk.get("column") or {}).get("pixels") or []]
     note = [f"read from {c['url']}"]
-    if px and chk.get("difference_db") is not None and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
+    if px and chk.get("difference_db") is not None and abs(chk["difference_db"]) <= 3 and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
         note.append(f"the chart's red cursor line covers the tone's peak, whose top is hidden (read {level:.2f} dB beside it); "
                     f"its level is the {chk['stated_db']} dB the chart prints")
         level = chk["stated_db"]
@@ -72,7 +72,7 @@ def one_tone(c, t):
     if c.get("below_floor"):
         note.append(f"{c['below_floor']} harmonic(s) under the noise floor left out")
     f0 = num(t["f0"])
-    pts = [{"x": f0, "y": round(level, 1), "label": "tone"}]
+    pts = [{"x": f0, "y": round(level, 2), "label": "tone"}]
     pts += [{"x": num(p["f"]), "y": p["level"], "label": f"H{p['order']} ({HARM.get(p['order'], str(p['order']) + 'th')} harmonic)"} for p in c.get("products") or []]
     cond = {"f0": f0, "drive_v": num(t["drive_v"]), "distance_mm": t["distance_mm"], "lab": "HiFiCompass"}
     return {
@@ -117,7 +117,9 @@ def build(read, db):
             covered = None
             col = chk.get("column") or {}
             px = [r[2] for r in col.get("pixels") or []]
-            if px and chk.get("difference_db") is not None and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
+            if px and chk.get("difference_db") is not None and abs(chk["difference_db"]) <= 3 and sum(v == "#ff0000" for v in px) >= 0.8 * len(px):
+                # (within 3 dB: further than that the flanks beside the line cannot belong to the printed peak, and the
+                # chart waits like any other that disagrees with its readout)
                 # the chart's red cursor line is drawn over the tone's own column and hides the top of its peak (the
                 # columns beside it show the flanks only): the tone's level is then the one the chart prints
                 near = min(tones, key=lambda f: abs(f - chk["f"]))
@@ -131,7 +133,7 @@ def build(read, db):
             pts = []
             for f, x in sorted(tones.items()):
                 if x.get("level") is not None:
-                    pts.append({"x": num(f), "y": round(x["level"], 1), "label": "f1 (lower tone)" if f == round(t["f1"], 3) else "f2 (upper tone)"})
+                    pts.append({"x": num(f), "y": round(x["level"], 2), "label": "f1 (lower tone)" if f == round(t["f1"], 3) else "f2 (upper tone)"})
             harm, both = [], []
             for p in c.get("products") or []:
                 # every way (m, n) up to the 5th order of reaching this frequency: when the upper tone is a whole
@@ -207,28 +209,33 @@ def build(read, db):
 
 
 def level_check(made):
-    """Across the levels of one test of one driver: the tones should rise with the drive (6 dB per doubling of
-    voltage, as the charts of most drivers show). Where they do not, the chart's scale is likely set per
-    measurement, so only values relative to a tone compare across levels; the notes say so."""
+    """Across the levels of one test of one driver the tones should rise with the drive: by 20 log10 of the voltage
+    ratio, or of the excursion ratio (a motor below its limits). Where a step between neighbouring levels rises less
+    than half of that, or falls, the chart's scale is likely set per measurement, so only values relative to a tone
+    compare across levels; the notes of every set of that test say so."""
     groups = {}
     for did, s in made:
         c = s["conditions"]
-        if s["kind"] != "imd-products" or not isinstance(c.get("drive_v"), (int, float)):
+        key = "x_pk_mm" if isinstance(c.get("x_pk_mm"), (int, float)) else "drive_v" if isinstance(c.get("drive_v"), (int, float)) else None
+        if s["kind"] != "imd-products" or not key:
             continue
-        groups.setdefault((did, c["f1"], c["f2"]), []).append(s)
-    for sets in groups.values():
+        groups.setdefault((did, c["f1"], c["f2"], key), []).append(s)
+    for (did, f1, f2, key), sets in groups.items():
         if len(sets) < 2:
             continue
-        sets.sort(key=lambda s: s["conditions"]["drive_v"])
+        sets.sort(key=lambda s: s["conditions"][key])
         up = lambda s: next(p["y"] for p in s["series"][0]["points"] if p["x"] == s["conditions"]["f2"])
-        lo, hi = sets[0], sets[-1]
-        expect = 20 * math.log10(hi["conditions"]["drive_v"] / lo["conditions"]["drive_v"])
-        rise = up(hi) - up(lo)
-        if expect >= 6 and rise < expect / 2:
+        unit = "mm" if key == "x_pk_mm" else "V"
+        bad = []
+        for lo, hi in zip(sets, sets[1:]):
+            a, b = lo["conditions"][key], hi["conditions"][key]
+            expect, rise = 20 * math.log10(b / a), up(hi) - up(lo)
+            if expect >= 1 and rise < expect / 2:
+                bad.append(f"{a:g} to {b:g} {unit}: {rise:+.1f} dB where {expect:+.1f} dB is expected")
+        if bad:
             for s in sets:
-                s["note"] += (f"; the upper tone rises {rise:+.1f} dB from {lo['conditions']['drive_v']:g} to {hi['conditions']['drive_v']:g} V "
-                              f"where the voltage ratio gives {expect:+.1f} dB: the chart's scale looks set per measurement, so compare "
-                              "values relative to the tone (as Compare does), not the tone levels themselves")
+                s["note"] += ("; the upper tone does not rise with the drive as expected (" + ", ".join(bad) + "): the chart's scale looks "
+                              "set per measurement, so compare values relative to the tone (as Compare does), not the tone levels themselves")
 
 
 def main():

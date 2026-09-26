@@ -129,7 +129,7 @@ function render() {
   if (g.levels.length) {
     const count = L => g.entries.filter(e => e.sets.some(s => (g.kind.level === "spl-near" ? Math.abs(s.level - L) <= 1 : s.level === L))).length;
     h += `<div class="lbl"><span>Level</span><span class="hint">each driver uses its measured level closest to this</span></div>
-      <div class="togrow"><input type="number" class="num" id="cL" min="${unit === "dB" ? 40 : 0}" max="${unit === "dB" ? 140 : 1000}" step="${unit === "dB" ? 1 : 0.1}" value="${cmp.L}"><span class="dim">${esc(LEVEL_TITLE[unit])}</span><span class="sep"></span>
+      <div class="togrow"><input type="number" class="num" id="cL" min="${unit === "dB" ? 40 : 0}" max="${unit === "dB" ? 140 : 1000}" step="${unit === "dB" ? 1 : 0.1}" value="${cmp.L}"><span class="dim">${esc(LEVEL_TITLE[unit])}</span>
       ${g.levels.map(L => `<button class="tog small${L === cmp.L ? " on" : ""}" data-lvl="${L}">${lv(L)} · ${count(L)}</button>`).join("")}</div>`;
     if (g.kind.id === "hd-frequency") h += `<label class="ds" style="margin:8px 0 0"><input type="checkbox" id="cshift" ${cmp.shift ? "checked" : ""}> move each curve the rest of the way to the target with the level rule (H2 +1.0, H3 to H5 +0.7 dB per dB)</label>`;
   }
@@ -159,7 +159,7 @@ function render() {
   h += `<div class="panel"><div class="ptitle">${esc(g.label)}${cmp.L != null ? " · target " + lv(cmp.L) : ""}${cmp.mix ? "" : " · " + esc(g.family) + " " + badge(fam)}</div>`;
   if (cmp.mix) h += `<div class="warn"><b>Sources mixed.</b> Each source measures differently (distance, room or anechoic, windowing, smoothing, calibration), so differences between sources can be larger than differences between drivers. Use this to see how sources disagree, not to rank drivers. Most reliable first: ${srcs.map(f => esc(f.name) + " (" + esc(f.reliability) + ")").join(", ")}.</div>`;
   const off = picked.filter(x => x.chosen.delta && !(g.kind.level === "spl-near" && Math.abs(x.chosen.delta) < 1));
-  if (off.length && !cmp.shift) h += `<div class="warn">Not measured at ${lv(cmp.L)}: ${off.map(x => `${esc(x.e.driver.name)} (nearest ${lv(x.chosen.level)})`).join(", ")}. Its nearest level is drawn${g.kind.id === "hd-frequency" ? "; tick “move each curve” to correct the rest with the level rule" : ""}.</div>`;
+  if (off.length && !cmp.shift) h += `<div class="warn">Not measured at ${lv(cmp.L)}: ${off.map(x => `${esc(x.e.driver.name)} (nearest ${lv(x.chosen.level)})`).join(", ")}. ${off.length > 1 ? "Their nearest levels are drawn" : "Its nearest level is drawn"}${g.kind.id === "hd-frequency" ? "; tick “move each curve” to correct the rest with the level rule" : ""}.</div>`;
   if (!picked.length) h += `<div class="empty">Pick at least one driver above.</div>`;
   else {
     const drawn = x => cmp.q.some(qid => x.quantities.some(q => q.id === qid));
@@ -169,7 +169,8 @@ function render() {
     // intermodulation against level: every measured level of each picked driver, one line each
     if (view !== "curve" && g.levels.length > 1) h += `<div class="ptitle sub">Against level: how each driver's ${view === "bars" ? (g.kind.id === "hd-spectrum" ? "total harmonic distortion (sum of all harmonics)" : "total intermodulation (sum of all products)") : "chosen row"} grows with level</div>
       ${view === "table" ? `<div class="togrow">${cmp.rows.map(r => `<button class="tog small${levelRow(g) === r ? " on" : ""}" data-lr="${esc(r)}">${esc(rowName(r))}</button>`).join("")}</div>` : ""}
-      ${noChart() ? "" : `<div class="chartbox"><canvas id="clvl"></canvas></div>`}<div id="clsum"></div>`;
+      ${noChart() ? "" : `<div class="chartbox"><canvas id="clvl"></canvas></div>`}<div id="clsum"></div>
+      <div class="exportrow">${exportHtml(() => againstLevelCurves(g, picked), "comparison_" + g.kind.id + "_against-level", "Export against level")}</div>`;
     h += `<div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
     h += `<details class="conds"><summary>Test conditions and sources of the picked drivers</summary>${picked.map(x =>
       `<div class="cond"><span style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]} ${esc(x.e.driver.name)}</span> <span class="dim">${esc(x.chosen.set.type)}${x.chosen.set.method ? " · " + esc(x.chosen.set.method) : ""}</span>${condChips(x.chosen.set.conditions, x.chosen.set.source)}${x.chosen.set.note ? `<div class="setnote">${esc(x.chosen.set.note)}</div>` : ""}</div>`).join("")}</details>`;
@@ -189,7 +190,8 @@ function render() {
 
 function exportCurves(g, picked) {
   return picked.flatMap(x => {
-    const only = g.kind.view === "table" ? null : cmp.q.filter(q => q !== "sum");
+    // what the chart shows: the sums when "sum" is picked, else the products (or curves) picked
+    const only = g.kind.view === "table" ? null : cmp.q.includes("sum") ? ["sum"] : cmp.q;
     const curves = curvesOfSet(x.e.driver, x.chosen.set, { quantities: x.quantities, only: only && only.length ? only : null });
     if (g.kind.view === "table") curves.forEach(c => { c.points = c.points.filter(p => cmp.rows.includes(p.x)); });
     const moved = cmp.shift && x.chosen.delta;
@@ -346,7 +348,8 @@ const levelRow = g => (cmp.rows && cmp.rows.includes(cmp.lr) ? cmp.lr : (cmp.row
 
 /** Intermodulation against level: for each picked driver, every set of this measurement it has (all levels),
  *  as the sum of all products (a spectrum) or the chosen row (a summary table). One line and marker per driver. */
-function drawAgainstLevel(g, picked) {
+// every measured level of each picked driver: the sum (bars) or the chosen row (tables), one line per driver
+function againstLevel(g, picked) {
   const qid = g.kind.view === "bars" ? "sum" : cmp.q[0], row = levelRow(g);
   const valueOf = s => {
     const q = s.quantities.find(y => y.id === qid);
@@ -357,6 +360,22 @@ function drawAgainstLevel(g, picked) {
   };
   const lines = picked.map(x => ({ x, pts: x.e.sets.filter(s => s.level != null).map(s => ({ x: s.level, y: valueOf(s) })).filter(p => p.y != null).sort((a, b) => a.x - b.x) }));
   const relTo = g.kind.view === "bars" ? ((picked[0].quantities.find(q => q.id === "sum") || {}).relTo || "dB") : `${rowName(row)} (dB)`;
+  return { lines, relTo, row };
+}
+
+/** The against-level lines as curves for the export: x is the level (in its unit), y the value. */
+function againstLevelCurves(g, picked) {
+  const { lines, relTo, row } = againstLevel(g, picked);
+  const what = g.kind.view === "bars" ? (g.kind.id === "hd-spectrum" ? "sum of all harmonics" : "sum of all products") : rowName(row);
+  return lines.filter(l => l.pts.length).map(l => ({
+    label: `${l.x.e.driver.name} · ${what} against level`, driver: l.x.e.driver, source: g.family, kind: g.kind.id, kindLabel: g.kind.label,
+    sourceText: l.x.e.sets.map(s => s.set.source).filter(Boolean).join("; "), quantity: `${what} against level`, level: null, tag: null,
+    conditions: {}, set: null, xLabel: `Level (${LEVEL_TITLE[unit]})`, xUnit: unit, yLabel: what, yUnit: relTo, points: l.pts.map(p => ({ x: p.x, y: p.y })),
+  }));
+}
+
+function drawAgainstLevel(g, picked) {
+  const { lines, relTo } = againstLevel(g, picked);
   newChart($("clvl"), { type: "line", data: { datasets: lines.map(l => ({ label: l.x.e.driver.name, data: l.pts,
     borderColor: COLORS[l.x.p.slot], backgroundColor: COLORS[l.x.p.slot], borderWidth: 2, tension: 0, pointStyle: MARKERS[l.x.p.slot], pointRadius: 5,
     pointBackgroundColor: COLORS[l.x.p.slot] })) },

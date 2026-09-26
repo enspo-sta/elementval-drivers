@@ -2,6 +2,7 @@
  * A second variant uses semicolons and decimal commas, which Excel expects with Swedish settings. */
 import { registerExporter } from "../core/registry.js";
 import { fmt, safeName, today } from "./common.js";
+import { store } from "../core/data.js";
 
 function table(curves, { title = "export", sep = ",", decimal = "." } = {}) {
   const cell = v => {
@@ -29,13 +30,15 @@ function table(curves, { title = "export", sep = ",", decimal = "." } = {}) {
 function files(curves, opts, suffix) {
   const groups = new Map();
   for (const c of curves) {
-    const key = [c.kind, c.category ? "rows" : "x", c.category ? (c.set && c.set.type) || "" : ""].join("|");
+    // a table's rows: one file per table type; a computed value (the sum of all products) at several levels: one file
+    const tableType = (store.kindById[c.kind] || {}).view === "table" ? (c.set && c.set.type) || "" : c.quantity || "";
+    const key = [c.kind, c.category ? "rows" : "x", c.category ? tableType : ""].join("|");
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(c);
   }
   const title = opts.title || "export";
   return [...groups.values()].map((g, i, all) => ({
-    name: safeName(title, all.length > 1 ? g[0].kind : null, all.length > 1 && g[0].category ? (g[0].set && g[0].set.type) : null) + suffix + ".csv",
+    name: safeName(title, all.length > 1 ? g[0].kind : null, all.length > 1 && g[0].category ? ((store.kindById[g[0].kind] || {}).view === "table" ? (g[0].set && g[0].set.type) : g[0].quantity) : null) + suffix + ".csv",
     text: table(g, Object.assign({}, opts, { title })),
   }));
 }

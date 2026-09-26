@@ -3,6 +3,7 @@
 import { getViews, getExporters } from "./registry.js";
 import { store, fmtHz } from "./data.js";
 import { makeZip } from "./zip.js";
+import { uniqueNames } from "../exporters/common.js";
 import { dbToPct } from "./sim.js";
 
 export const $ = id => document.getElementById(id);
@@ -70,11 +71,13 @@ export function markerRadius(n, slot) {
 // Bars grow up from the bottom, so a taller bar always means more distortion, also for negative dB.
 export function barBase(values) {
   const v = values.filter(x => x != null);
-  return v.length && v.every(x => x <= 0) ? Math.floor(Math.min(...v) / 10) * 10 - 10 : 0;
+  // ends on a multiple of 20 dB, so the axis's own ticks (every 10 or 20 dB) end there too and no extra tick
+  // label crowds the last regular one
+  return v.length && v.every(x => x <= 0) ? Math.floor((Math.min(...v) - 5) / 20) * 20 : 0;
 }
 export function barTop(values) {
   const v = values.filter(x => x != null);
-  return v.length && v.every(x => x <= 0) ? Math.min(0, Math.ceil(Math.max(...v) / 10) * 10 + 5) : undefined;
+  return v.length && v.every(x => x <= 0) ? Math.min(0, Math.ceil((Math.max(...v) + 5) / 20) * 20) : undefined;
 }
 /** Colours for several levels of one driver, from cool (lowest level) to warm (highest). */
 const LEVEL_RAMP = ["#56B4E9", "#009E73", "#F0E442", "#E69F00", "#D55E00", "#CC79A7", "#9ecae1", "#eef0f6"];
@@ -141,13 +144,13 @@ export function wireExports(root = document) {
     if (!usable.length) { el.hidden = true; return; }
     const build = () => {
       const x = usable.find(e => e.id === sel.value) || usable[0];
-      return x.files(curves.filter(c => x.accepts(c) && kindAllows(c, x)), { title: src.title });
+      return uniqueNames(x.files(curves.filter(c => x.accepts(c) && kindAllows(c, x)), { title: src.title }));
     };
     el.querySelector("[data-dl]").onclick = () => {
       const files = build();
       if (!files.length) { msg.textContent = "nothing to export in this format"; return; }
       if (files.length === 1) download(files[0].name, files[0].text, (usable.find(e => e.id === sel.value) || {}).mime);
-      else download(src.title.replace(/[^\w.+-]+/g, "-") + ".zip", makeZip(files), "application/zip");
+      else download(`${src.title}_${sel.value}`.replace(/[^\w.+-]+/g, "-") + ".zip", makeZip(files), "application/zip");
       msg.textContent = files.length === 1 ? files[0].name : `${files.length} files in one ZIP`;
     };
     el.querySelector("[data-copy]").onclick = async () => {

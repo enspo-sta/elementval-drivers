@@ -107,4 +107,6 @@ export const fmtSek = v => (v == null ? "" : Math.round(v).toLocaleString("sv-SE
 export const fmtPrice = o => `${o.price.toLocaleString("sv-SE", { maximumFractionDigits: 2 })} ${o.currency}`;
 
 export const fmtHz = f => (f >= 1000 ? Math.round(f / 100) / 10 + " kHz" : Math.round(f) + " Hz");
+/** A test tone's frequency exactly as the test states it (1063 Hz, 4.25 kHz), not rounded like an axis label. */
+export const toneHz = f => (f >= 1000 ? Math.round(f) / 1000 + " kHz" : Math.round(f * 100) / 100 + " Hz");
 export const fmtLevel = L => (L == null ? "" : (Math.round(L * 10) / 10) + " dB");
