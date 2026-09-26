@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Measurement sets from capture/chart_read.json (curves read on GitHub from HiFiCompass chart images).
+"""Measurement sets from capture/chart_read.json (curves read on GitHub from HiFiCompass chart images, or on David's
+computer by capture/read_local_charts.py). --ids limits a run to the drivers named.
 
 For every chart read without error: the drive voltage, distance and high-pass filter from the file name
 (m74a-6_315mm_2v83_hpf2-300.png), the kind from the chart type, the curves as series. A response chart
@@ -384,8 +385,15 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--read", default=str(ROOT / "capture" / "chart_read.json"))
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--ids", help="only these drivers (comma-separated ids); the others in chart_read.json are left as they are")
     a = ap.parse_args()
     read = json.loads(Path(a.read).read_text(encoding="utf-8"))
+    if a.ids:
+        want = {x.strip() for x in a.ids.split(",") if x.strip()}
+        unknown = want - set(read["drivers"])
+        if unknown:
+            print(f"not in {a.read}: {', '.join(sorted(unknown))}")
+        read["drivers"] = {k: v for k, v in read["drivers"].items() if k in want}
     dbp = ROOT / "drivers.json"
     db = json.loads(dbp.read_text(encoding="utf-8"))
     made, waiting = build(read, db)
@@ -397,9 +405,11 @@ def main():
         byid = {d["id"]: d for d in db["drivers"]}
         for did, s in made:
             d = byid[did]
+            before = next((m for m in d["measurements"] if m.get("source") == s["source"]), None)
             d["measurements"] = [m for m in d["measurements"] if m.get("source") != s["source"]]
             d["measurements"].append(s)
-            d["updated"] = read["date"]
+            if before != s:                    # a driver whose sets come out the same keeps its date
+                d["updated"] = read["date"]
         # an earlier hand capture of the same HiFiCompass harmonics (a composite cut at 500 Hz, a curve normalised
         # to one level) and the band figures taken from it are superseded once every level has been read in full:
         # kept on the driver page as captured, left out of Compare, Simulate and the cross-checks

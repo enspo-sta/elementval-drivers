@@ -91,8 +91,10 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 On these pages, a visitor who is not logged in with Premium sees a notice picture in place of each chart
 ("This data is only available to users with a Premium account"; `watch/completeness.md` lists them).
 
-**On a Windows PC,** set it up once as the Windows section below says. Then, in the `elementval-drivers` folder,
-run `git pull` and `claude --chrome`, and type:
+Everything this section uses is on the branch `claude/driver-database-auto-update-5o8ylq` (not yet on `main`).
+**Moving the cloud session to your PC** (`claude --chrome --teleport <session id>`, run in your `elementval-drivers`
+folder) switches to that branch by itself; then type *Continue with the Premium capture.* **Starting fresh** instead:
+in the folder run `git checkout claude/driver-database-auto-update-5o8ylq`, `git pull` and `claude --chrome`, and type:
 
 > Read capture/CHROME_CAPTURE.md and do the section "The charts HiFiCompass shows only to Premium accounts".
 
@@ -103,27 +105,34 @@ What Claude does then (these are its instructions; you do not paste them):
 > in one plain sentence, and ask before you install anything or change anything outside this folder.
 >
 > **Rules for the whole task**
+> - Work on the branch `claude/driver-database-auto-update-5o8ylq` (check with `git branch --show-current`; if it is
+>   another, `git checkout claude/driver-database-auto-update-5o8ylq` after asking David).
 > - On Windows run Python as `python` (or `py` if `python` is not found), never `python3`: there `python3` is
 >   usually a Microsoft Store placeholder that prints "Python was not found". Wherever this repository says
->   `python3`, run `python`.
+>   `python3`, run `python`. Run the commands below with the Bash tool (Git Bash).
 > - Write files with the scripts or the Write tool, never with PowerShell's `>` or `Out-File` (they write UTF-16).
 > - Everything downloaded goes under `incoming/<driver id>/`, which Git ignores. Never commit anything from
 >   `incoming/`: the repository is public.
-> - Change only the data. If a script or a test fails for another reason, tell David and do not edit the code.
+> - Change only the seven drivers' data. If a script or test fails for another reason, or a check reports something
+>   about another driver, tell David and change nothing there.
+> - If an action is blocked by the permission mode, tell David in plain words what it is and why, and wait.
 >
 > 0. **Check this computer** and show David the result as a short list: `git --version`, `git config user.name`,
 >    `git config user.email`, `python --version` (3.10 or newer), `python -c "import PIL, numpy; print('ok')"`,
->    `python -c "import sys; sys.path.insert(0, 'capture'); import chart_probe as CP; print(CP.TESSERACT)"` (it
->    must print a path to tesseract, not None), `node --version` (21 or newer).
+>    `python -c "import sys; sys.path.insert(0, 'capture'); import chart_probe as CP; print(CP.TESSERACT)"` (a path
+>    to tesseract, not None), `node --version` (21 or newer), and `python -c "import sys; print(sys.flags.utf8_mode)"`
+>    (1: set by `.claude/settings.json`; if 0, tell David to exit and start `claude --chrome --continue` in this folder).
 >    - For anything missing, say in one sentence what it is for and ask before installing it with winget, one
 >      package at a time, adding `-e --accept-source-agreements --accept-package-agreements`: `Git.Git`,
 >      `Python.Python.3.13`, `UB-Mannheim.TesseractOCR`, `OpenJS.NodeJS.LTS`. Python packages:
 >      `python -m pip install pillow numpy`. Windows may ask David to click Yes.
 >    - A program installed during this session is not on this session's path. If Git, Python or Node.js had to be
->      installed, tell David to close this window, open a new PowerShell window, type `cd $HOME\elementval-drivers`
->      and `claude --chrome --continue`, and run the checks again. (Tesseract is found without this.)
->    - If `git config user.name` or `user.email` is empty, ask David for his name and the email address of his
->      GitHub account, and set them with `git config --global`.
+>      installed, tell David to close this window, open a new PowerShell window, type
+>      `cd $HOME\elementval-drivers; claude --chrome --continue` (with his folder), and run the checks again.
+>      Tesseract is found without this.
+>    - If `git config user.name` or `user.email` is empty, ask David for his name and an email address for his
+>      commits; tell him it becomes public in this public repository and that GitHub's private address
+>      (Settings → Emails, `…@users.noreply.github.com`) works too. Set them with `git config --global`.
 >    - Run `git pull` and `git status`. If there are changes you did not make, stop and tell David.
 >    Do not start step 1 until every check passes.
 > 1. **Open each page**, waiting 10 seconds between HiFiCompass pages:
@@ -136,13 +145,11 @@ What Claude does then (these are its instructions; you do not paste them):
 >    - `lavoce-man06200-8`: <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8>
 > 2. If a chart still shows the notice "This data is only available to users with a Premium account", **stop and
 >    tell David**: the account in this Chrome does not have Premium.
-> 3. **Save the charts.** On each page, note the address of every chart image and of the `.frd` and `.zma` files
->    where offered. Take each chart's original image (remove `/styles/<style>/public/` from its address). Leave out
->    the step response, waterfall and energy-time charts: the database does not keep them. Off-axis first, then the
->    on-axis response, harmonics at 315 mm and at 20 mm, current distortion, impedance, the near-field response and
->    the two intermodulation pictures. Save each file under `incoming/<driver id>/` with its own name and extension
->    (a `.jpg` stays `.jpg`; if two would share a name, put the chart type in front). Download from the terminal
->    first, one driver per command (this waits 10 seconds between requests):
+> 3. **Save the charts and data files.** On each page, note the address of every chart image and of every `.frd`
+>    and `.zma` file. Take each chart's original image (remove `/styles/<style>/public/` from its address). Leave out
+>    the step response, waterfall and energy-time charts: the database does not keep them. Save everything under
+>    `incoming/<driver id>/` with its own name and extension. Download from the terminal first, one driver per
+>    command (it waits 10 seconds between requests, never overwrites, and goes on past a refused address):
 >
 >    ```
 >    python - <<'PY'
@@ -151,62 +158,92 @@ What Claude does then (these are its instructions; you do not paste them):
 >    folder.mkdir(parents=True, exist_ok=True)
 >    for url in ["<address 1>", "<address 2>"]:
 >        p = folder / url.split("?")[0].rsplit("/", 1)[-1]
->        p.write_bytes(CP.fetch(url, last)); print(p.name, p.stat().st_size, "bytes")
+>        if p.exists():
+>            p = folder / ((CP.chart_type(url) or "other") + "_" + p.name)
+>        try:
+>            p.write_bytes(CP.fetch(url, last)); print(p.name, p.stat().st_size, "bytes")
+>        except Exception as e:
+>            print("refused:", url, e)
 >    PY
 >    ```
 >
->    Then look at every saved picture yourself. If one is the Premium notice, or the download is refused, the file
->    is served only to the logged-in browser: in the Chrome tab, fetch the address with the login
+>    Then look at every saved picture yourself. If one is the Premium notice, or the download was refused, the file is
+>    served only to the logged-in browser: in the Chrome tab, fetch the address with the login
 >    (`fetch(address, {credentials: "include"})`) and save it through a download link. Chrome puts it in David's
 >    Downloads folder (`~/Downloads` in Git Bash); move it into `incoming/<driver id>/`. If Chrome asks whether the
 >    site may download several files, ask David to click Allow.
-> 4. **List the chart images** in `incoming/<driver id>/charts.tsv` (write it with the Write tool), one line per
->    image, separated by tabs: file name, chart type (`response`, `near-response`, `off-axis`, `harmonics`,
->    `current` or `impedance`), and the image's address on hificompass.com. Leave the intermodulation pictures out
->    of this list (no reader on this computer takes them); name them in the pull request as saved but not read.
-> 5. **Read the charts.**
->    - For each driver: `python capture/read_local_charts.py --id <driver id>`.
->    - Then `python capture/sets_from_chart_read.py` and look only at the lines for these seven ids (it prints
->      every driver in `capture/chart_read.json`).
->    - Look at every chart yourself beside its reading: the axes, the angle or drive level of each curve, the checks.
->    - The automatic reader stores one set per picture, at the voltage in the file name. These older pages may put
->      several drive levels in one picture: such a picture must not be stored that way, and must not be renamed to
->      one voltage; read it by hand (below). Rename a picture in the newer pattern (`<model>_315mm_2v83_0deg.png`,
->      `<model>_offaxis.png`, `<model>_offaxis_normalized_5-30db.png`, `<model>_315mm_4v_hpf2-60.png`,
->      `<model>_20mm_4v_hd.png`, `<model>_chd_4v.png`, `<model>_impedance_100_ohm.png`) only when it holds exactly
->      one drive level and one distance, and keep its real extension.
->    - When the automatic reading is right: `python capture/sets_from_chart_read.py --write`.
->    - Read by hand a chart with several levels, one where the reader says "axes could not be fitted", or one whose
->      reading does not sit on the curve: follow `CAPTURE.md` with `capture/image_curves.py` (`colors`, then
->      `extract ... --out incoming/<driver id>/<name>.json`). Set the plot frame and the axis values by looking at the
->      picture, then plot the points over the picture and check they sit on the curve. Add each drive level as its
->      own set: `python capture/add_set.py --driver <id> --set <meta.json> --series <file>.json`, with `kind` from
->      `schema/kinds.json`, `conditions.spl_db` (the level at 1 m as HiFiCompass states it; never add a distance
->      correction), `conditions.drive_v`, `conditions.distance_mm` (315, or 20 for the near-field pictures), and a
->      source such as "HiFiCompass off-axis (original image, logged in with Premium)".
+> 4. **Decide what each picture holds, before reading anything.** Look at each picture:
+>    - **One drive level, one distance** (or one off-axis chart, or one impedance chart): rename it to the newer
+>      HiFiCompass pattern, with every value read from the chart itself and the real extension kept: response
+>      `<model>_315mm_<V>v<dec>_0deg.<ext>` (2.83 V is `2v83`), near-field response `<model>_<mm>mm_<V>v_0deg.<ext>`,
+>      off-axis `<model>_offaxis.<ext>` or `<model>_offaxis_normalized_<lo>-<hi>db.<ext>`, harmonics
+>      `<model>_315mm_<V>v_hpf2-<Hz>.<ext>` (leave out `_hpf…` when the chart states no filter; near field
+>      `<model>_20mm_<V>v_hpf2-<Hz>.<ext>`), current distortion `<model>_chd_<V>v.<ext>`, impedance
+>      `<model>_impedance_<full scale>_ohm.<ext>`. Then list it in `incoming/<driver id>/charts.tsv` (write it with the
+>      Write tool), one line per picture, separated by tabs: file name, chart type (`response`, `near-response`,
+>      `off-axis`, `harmonics`, `current` or `impedance`; always filled in), and the picture's address.
+>    - **Several drive levels in one picture**: do not list it and do not rename it; read it by hand (step 5b).
+>    - **Intermodulation pictures**: do not list them; they stay saved but unread (no reader for them runs here).
+> 5. **Read and store.**
+>    a. Automatic: for each driver, `python capture/read_local_charts.py --id <driver id>` (each run replaces the
+>       driver's earlier readings on this computer, so fixing charts.tsv and running again is always safe). Then
+>       `python capture/sets_from_chart_read.py --ids <the seven ids, comma-separated>` and compare every set with its
+>       chart yourself: the axes, the drive level, the angle or harmonic of each curve, and the checks printed. Only
+>       when every reading is right: `python capture/sets_from_chart_read.py --ids <the seven ids> --write`. A harmonics
+>       chart it holds back with "no response chart to take the level from" (its level's response was read by hand) is
+>       stored by hand as in 5b.
+>    b. By hand (a picture with several levels, one the reader could not fit, or a reading that does not sit on the
+>       curve): follow `CAPTURE.md` with `capture/image_curves.py` (`colors`, then `extract … --out
+>       incoming/<driver id>/<name>.json`, one curve at a time). Black or grey curves (H3, the on-axis response) do
+>       not show in `colors`: take their colour by looking at the picture, and keep grid lines out with `--skip`.
+>       Plot the points over the picture and check they sit on the curve (a throwaway script under `incoming/` is
+>       fine). Store each drive level as its own set with `python capture/add_set.py --driver <id> --set <meta.json>
+>       --series <file>.json [--series <file>.json …]`, all harmonics of one level in one set.
+>       `meta.json` copies an automatically read set of the same kind from another HiFiCompass driver in
+>       drivers.json (for example `sb-satori-wo24tx-8`) and changes only the values: `type` ("Axial frequency response
+>       @ 2.83 V", "HD (orders) vs frequency @ 2.83 V", "Voice-coil current HD vs frequency @ 2.83 V", "Off-axis
+>       response", "Impedance (chart to 100 ohm)"), `kind`, `chartType` "line", `axes`, `confidence` "medium",
+>       `method` "pixel reading on David's computer (capture/image_curves.py)", `source` "HiFiCompass (<file>, logged in
+>       with Premium, read by hand)", and `conditions` exactly as that set has them: a response `drive_v`,
+>       `distance_mm` 315, `angle_deg` 0, `lab` "HiFiCompass", `spl_db_1khz`; harmonics `drive_v`, `distance_mm`, `hpf`
+>       (when stated), `lab`, `spl_db`; current distortion `drive_v`, `lab`; off-axis `lab`, `angles_deg`
+>       (normalized: also `chart_range_db`); impedance `lab`. Series names: `SPL`, `0°`/`15°`/…, `H2` to `H5`, `Z`.
+>       A harmonics set's `spl_db` is the same drive level's 315 mm response read at 1 kHz; if that response is not
+>       available, take the nearest level's and scale it by 20·log10(V/V0), saying so in the note; with no response
+>       at all, do not store the harmonics. Never add a distance correction (HiFiCompass states its levels at 1 m).
+>       Once every harmonics level of a driver is stored, mark that driver's older hand-captured HiFiCompass
+>       `hd-frequency` and `thd-bands` sets as superseded: `"superseded_by": "the reading of the same HiFiCompass
+>       harmonic charts on <date>, every drive level (logged in with Premium)"`.
+>    c. Data files: `python capture/file_curves.py incoming/<id>/<file>.frd --name SPL --out incoming/<id>/<name>.json`
+>       (a `.zma` with `--name Z`), then store it with `add_set.py` like 5b, `method` "measured data file (HiFiCompass
+>       .frd)" or ".zma", `confidence` "high", and the conditions the page states for that file (drive level,
+>       distance); if the page does not state them, say so in the note. A data file comes before a picture of the same
+>       curve: store both, the note of the picture's set naming the file.
 > 6. **Check:** `python watch/validate_db.py`, `python capture/completeness.py`, `python capture/worklist.py` and
->    `node --test tests/*.test.mjs`; fix what they report in the data. In `git diff --stat`, if `drivers.json` shows
->    almost every line changed, the line endings changed: stop and tell David.
-> 7. **Hand it over:** commit to a new branch named `capture/<today's date>` with only the repository files you
->    changed (`drivers.json`, `capture/chart_read.json`, `watch/completeness.json`, `watch/completeness.md`,
->    `capture/WORKLIST.md`), never `incoming/`. Push it; the first push opens a browser window to sign in to GitHub,
->    so tell David to sign in there. If the `gh` tool is installed and logged in, open a pull request with it;
->    otherwise give David the link Git prints after the push. In the pull request list every chart address and, for
->    every set, whether the automatic reader or `capture/image_curves.py` read it. List the saved intermodulation
->    pictures as not read. Do not merge it.
+>    `node --test tests/*.test.mjs`. Fix only errors in the seven drivers' sets; report anything else to David without
+>    changing it. `git diff --stat` and `git diff drivers.json` must touch only the seven drivers' records (and
+>    `capture/chart_read.json`); if other drivers changed, stop and tell David. The seven will still show as
+>    "Premium only" in `watch/completeness.md` (it compares with the public page's notice pictures); that is expected.
+> 7. **Hand it over:** from this branch, create a new branch `capture/<today's date>` and commit only
+>    `drivers.json` and `capture/chart_read.json` (never `incoming/`; the reports are rebuilt on GitHub). Push it; the
+>    first push opens a browser window to sign in to GitHub, so tell David to sign in there. Open the pull request
+>    against `claude/driver-database-auto-update-5o8ylq` (not `main`): with the `gh` tool if it is installed and
+>    logged in, otherwise give David the link Git prints. In the pull request list every chart and data-file address,
+>    for every set whether the automatic reader, `capture/image_curves.py` or a data file gave it, and the saved
+>    intermodulation pictures as not read. Do not merge it.
 
 ### Set up a Windows PC once
 
-In PowerShell (Start menu, type PowerShell, press Enter):
+In PowerShell (Start menu, type PowerShell, open **Windows PowerShell**, not the ones marked x86 or ISE):
 
 1. Claude Code: `irm https://claude.ai/install.ps1 | iex`, then close the window and open a new one
    (<https://code.claude.com/docs/en/setup>).
 2. The tools, in one line:
-   `winget install -e --accept-source-agreements --accept-package-agreements --id Git.Git; winget install -e --accept-source-agreements --accept-package-agreements --id Python.Python.3.13; winget install -e --accept-source-agreements --accept-package-agreements --id UB-Mannheim.TesseractOCR; winget install -e --accept-source-agreements --accept-package-agreements --id OpenJS.NodeJS.LTS`
+   `winget install -e --id Git.Git --accept-source-agreements --accept-package-agreements; winget install -e --id Python.Python.3.13 --accept-source-agreements --accept-package-agreements; winget install -e --id UB-Mannheim.TesseractOCR --accept-source-agreements --accept-package-agreements; winget install -e --id OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements`
    Click Yes when Windows asks. Close the window and open a new one.
-3. `python -m pip install pillow numpy`
-4. `cd $HOME` then `git clone https://github.com/enspo-sta/elementval-drivers.git` (not in the Desktop or
-   Documents folder, which OneDrive may sync).
+3. `python -m pip install pillow numpy` (if it says "Python was not found": `py -m pip install pillow numpy`).
+4. `cd $HOME; git clone -b claude/driver-database-auto-update-5o8ylq https://github.com/enspo-sta/elementval-drivers.git`
+   (not in the Desktop or Documents folder, which OneDrive may sync).
 5. In Chrome, install the Claude in Chrome extension
    (<https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn>) and sign in to it with
    the same Claude account (<https://code.claude.com/docs/en/chrome>).
@@ -225,5 +262,6 @@ the scripts read and write every file as UTF-8, so Windows' own character set do
 | `capture/imd_read.py` | Runs on GitHub: reads the two-tone intermodulation spectra of the drivers in `capture/imd_read_request.txt` (the test from the file name, the peaks at both tones and every product up to the 5th order, checked against the cursor readout each chart prints); `capture/sets_from_imd_read.py --write` turns the result into sets. |
 | `capture/datasheet_probe.py` | Runs on GitHub (which can reach Purifi): finds each model in `capture/datasheet_request.txt` on purifi-audio.com, and writes the datasheet's text, printed numbers and vector lines, and the measured files in the downloads beside it (off-axis responses, impedance, on-axis response), as numbers only; `capture/sets_from_datasheet_probe.py --write` turns the files into sets after checking each against the datasheet's stated sensitivity or minimum impedance. |
 | `capture/sets_from_page_charts.py` | Turns off-axis charts read from a lab's page by `capture/datasheet_probe.py` (Erin's Audio Corner: request lines `erin record-id MODEL`) into sets: each curve named by the colour of its legend line, checked against the chart's printed mean level and against the normalized chart. |
-| `capture/read_local_charts.py` | Reads chart images saved on your computer (listed in `incoming/<id>/charts.tsv`) with the GitHub job's reader and adds them to `capture/chart_read.json`, for `capture/sets_from_chart_read.py --write`. |
+| `capture/read_local_charts.py` | Reads chart images saved on your computer (listed in `incoming/<id>/charts.tsv`, the whole list for that driver: each run replaces its earlier local readings) with the GitHub job's reader and adds them to `capture/chart_read.json`, for `capture/sets_from_chart_read.py --ids <ids> --write`. |
+| `capture/file_curves.py` | Turns a `.frd` or `.zma` data file into a series file for `capture/add_set.py`, every row as the file prints it. |
 | `capture/worklist.py` | Rebuilds `capture/WORKLIST.md` from the database: low resolution, disagreements, missing curves, a weekly random spot check. |

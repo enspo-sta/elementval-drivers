@@ -13,6 +13,9 @@ Chart types: response, near-response, off-axis, harmonics, current, impedance. N
 names its newer charts, so the importer reads the conditions from it: the drive voltage as _2v83_ or _4v_, the
 distance as _315mm_, a normalized off-axis chart as _offaxis_normalized_5-30db (its range in dB).
 
+charts.tsv is the whole list for the driver: each run replaces every earlier local reading of that driver, so a
+picture taken off the list (for example one that holds several drive levels) leaves nothing behind.
+
   python3 capture/read_local_charts.py --id sb-satori-wo24p-8
 """
 import argparse
@@ -75,8 +78,9 @@ def main():
     CR.share_names(res)
     prev = Path(a.out)
     out = json.loads(prev.read_text(encoding="utf-8")) if prev.exists() else {"drivers": {}}
-    fresh = {r["file"] for r in res}
-    out["drivers"][a.id] = [r for r in out["drivers"].get(a.id, []) if r.get("file") not in fresh] + res
+    # charts.tsv is the whole list for this driver on this computer: every earlier local reading of the driver is
+    # replaced (a picture taken off the list, or renamed, leaves nothing behind); readings made on GitHub stay
+    out["drivers"][a.id] = [r for r in out["drivers"].get(a.id, []) if not r.get("read_on")] + res
     out["date"] = dt.date.today().isoformat()
     prev.write_text(json.dumps(out, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"{len(res)} chart(s) read into {a.out}; next: python capture/sets_from_chart_read.py (to see), then --write (python3 on Linux and macOS)")

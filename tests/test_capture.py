@@ -393,3 +393,32 @@ class StrayPoints(unittest.TestCase):
         self.assertEqual(len(kept), 30)
         self.assertEqual([q["x"] for q in dropped], [20.0, 9000.0])
         self.assertEqual(S.islands(run), (run, []))
+
+
+class LocalCapture(unittest.TestCase):
+    """capture/file_curves.py and capture/read_local_charts.py, as used on David's computer."""
+
+    def test_file_curves_keeps_rows_as_printed(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        import file_curves as FC
+        text = "* HiFiCompass\n0 50 0\n20 80.1234 -12\n25.5,81.2,-10\nfreq db\n"
+        self.assertEqual(FC.rows_of(text), [(20.0, 80.123), (25.5, 81.2)])
+
+    def test_local_readings_replace_the_drivers_earlier_ones(self):
+        import shutil
+        if not shutil.which("tesseract"):
+            raise unittest.SkipTest("tesseract is not installed")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            out = tmp / "chart_read.json"
+            out.write_text(json.dumps({"date": "2026-09-01", "drivers": {"m74t-6": [
+                {"file": "old_local.png", "read_on": "David’s computer", "curves": []},
+                {"file": "from_github.png", "curves": []}]}}), encoding="utf-8")
+            from PIL import Image
+            Image.new("RGB", (400, 300), (255, 255, 255)).save(tmp / "blank_offaxis.png")
+            (tmp / "charts.tsv").write_bytes("﻿blank_offaxis.png\toff-axis\thttps://example.invalid/a.png\n".encode("utf-8"))
+            r = subprocess.run([sys.executable, str(ROOT / "capture" / "read_local_charts.py"), "--id", "m74t-6", "--dir", str(tmp),
+                                "--out", str(out)], capture_output=True, text=True, encoding="utf-8", cwd=ROOT)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            files = [c["file"] for c in json.loads(out.read_text(encoding="utf-8"))["drivers"]["m74t-6"]]
+            self.assertEqual(files, ["from_github.png", "blank_offaxis.png"])   # the old local reading is gone
