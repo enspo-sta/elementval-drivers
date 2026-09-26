@@ -56,22 +56,35 @@ def sitemap_urls(starts, last, log):
 
 
 def find_pdf(model, urls, last, log):
-    """The datasheet PDF for MODEL: a PDF address naming the model, else the PDFs linked from the product page."""
+    """The datasheet PDF for MODEL: a PDF address naming the model, else the document links of its pages
+    (Purifi's shop links datasheets as /web/content/... downloads without a .pdf ending: a link counts only
+    when the file it returns starts as a PDF does)."""
     key = norm(model)
     direct = sorted(u for u in urls if u.lower().endswith(".pdf") and key in norm(u.rsplit("/", 1)[-1]))
     if direct:
-        return direct[0], "the sitemap lists it"
+        return direct[0], "the sitemap lists it", []
     pages = sorted(u for u in urls if key in norm(u))
-    for pg in pages[:4]:
+    seen = []
+    for pg in pages[:6]:
         try:
             t = text_of(CP.fetch(pg, last, delay=3.0))
         except Exception as e:  # noqa: BLE001
             log(f"  cannot read {pg}: {e}"); continue
-        pdfs = [urllib.parse.urljoin(pg, html.unescape(h)) for h in re.findall(r"href=[\"']([^\"'#]+\.pdf)[\"']", t, re.I)]
-        pdfs = sorted(set(pdfs), key=lambda h: (key not in norm(h), "data" not in h.lower(), h))
-        if pdfs:
-            return pdfs[0], f"linked from {pg}"
-    return None, f"no PDF found (product pages tried: {', '.join(pages[:4]) or 'none'})"
+        links = []
+        for m in re.finditer(r"<a\b[^>]*href=[\"']([^\"'#]+)[\"'][^>]*>(.*?)</a>", t, re.I | re.S):
+            h, label = html.unescape(m.group(1)), re.sub(r"<[^>]+>|\s+", " ", m.group(2)).strip()
+            if re.search(r"\.pdf|/web/content|/documents?/|download|attachment|datasheet|data-sheet", h + " " + label, re.I):
+                links.append((urllib.parse.urljoin(pg, h), label[:80]))
+        links = sorted(set(links), key=lambda x: ("sheet" not in (x[0] + x[1]).lower(), x[0]))
+        seen += [{"page": pg, "href": h, "label": lb} for h, lb in links]
+        for h, lb in links[:8]:
+            try:
+                data = CP.fetch(h, last, delay=3.0)
+            except Exception as e:  # noqa: BLE001
+                log(f"  cannot read {h}: {e}"); continue
+            if data[:5] == b"%PDF-":
+                return h, f"linked from {pg} as '{lb}'", seen
+    return None, f"no PDF found (product pages tried: {', '.join(pages[:6]) or 'none'})", seen
 
 
 def probe_pdf(path):
@@ -141,9 +154,12 @@ def main():
             if urls is None:
                 urls = sitemap_urls(SITES["purifi"], last, log)
                 log(f"{len(urls)} addresses in the sitemaps")
-            url, how = find_pdf(model, urls, last, log)
+                out["sitemap_documents"] = sorted(u for u in urls if re.search(r"\.pdf|datasheet|download|/web/content|/documents?/", u, re.I))[:300]
+            url, how, links = find_pdf(model, urls, last, log)
+        else:
+            links = []
         log(f"{did} {model}: {url} ({how})")
-        rec = {"model": model, "pdf": url, "found": how}
+        rec = {"model": model, "pdf": url, "found": how, "links": links}
         if url:
             try:
                 with tempfile.TemporaryDirectory() as tmp:
