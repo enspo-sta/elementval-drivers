@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
+from common import dumps_db  # noqa: E402  (the database's layout: each curve's points on one line)
 from validate_db import validate  # noqa: E402
 
 KIND = {"response": "frequency-response", "near-response": "frequency-response", "off-axis": "off-axis", "impedance": "impedance", "harmonics": "hd-frequency", "current": "hd-current"}
@@ -410,13 +411,13 @@ def main():
                                           "every drive level at 1/24 octave over the range each chart shows (capture/chart_read.py)")
                     print(f"superseded {did}: {m['type']} ({m.get('source')})")
         tmp = ROOT / "capture" / "_chart_read_candidate.json"
-        tmp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        tmp.write_text(dumps_db(db))
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
         errors = result[0] if isinstance(result, tuple) else result
         tmp.unlink()
         if errors:
             sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
-        dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        dbp.write_text(dumps_db(db))
         print(f"{len(made)} set(s) written")
 
 

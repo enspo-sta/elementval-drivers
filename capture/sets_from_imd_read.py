@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
+from common import dumps_db  # noqa: E402  (the database's layout: each curve's points on one line)
 from validate_db import validate  # noqa: E402
 
 ORD = {1: "tone", 2: "2nd order", 3: "3rd order", 4: "4th order", 5: "5th order"}
@@ -303,13 +304,13 @@ def main():
             d["measurements"].append(s)
             d["updated"] = read["date"]
         tmp = ROOT / "capture" / "_imd_read_candidate.json"
-        tmp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        tmp.write_text(dumps_db(db))
         result = validate([str(tmp), str(ROOT / "drivers_survey_midbass.json")])
         errors = result[0] if isinstance(result, tuple) else result
         tmp.unlink()
         if errors:
             sys.exit("not written, the validator says: " + "; ".join(str(e) for e in errors[:5]))
-        dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+        dbp.write_text(dumps_db(db))
         print(f"{len(made)} set(s) written")
 
 

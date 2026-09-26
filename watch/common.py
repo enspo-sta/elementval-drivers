@@ -16,6 +16,29 @@ STATE = ROOT / "watch" / "state.json"
 DATABASES = [ROOT / "drivers.json", ROOT / "drivers_survey_midbass.json"]
 
 
+def dumps_db(db):
+    """The database as text: indented for reading, but each curve's points on one line (a point per four lines
+    made the file several times larger and slow to load on a phone). Same data, only the layout differs."""
+    kept = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            out = {}
+            for k, v in o.items():
+                if k == "points" and isinstance(v, list):
+                    kept.append(json.dumps(v, ensure_ascii=False, separators=(",", ":")))
+                    out[k] = f"\x00{len(kept) - 1}\x00"
+                else:
+                    out[k] = walk(v)
+            return out
+        if isinstance(o, list):
+            return [walk(x) for x in o]
+        return o
+
+    text = json.dumps(walk(db), indent=2, ensure_ascii=False)
+    return re.sub(r'"\\u0000(\d+)\\u0000"', lambda m: kept[int(m.group(1))], text) + "\n"
+
+
 def load_config():
     cfg = json.loads(CONFIG.read_text())
     cfg["_patterns"] = {n: (p["brand"], re.compile(p["regex"], re.I)) for n, p in cfg["patterns"].items()}

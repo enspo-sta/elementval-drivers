@@ -23,6 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
+from common import dumps_db  # noqa: E402  (the database's layout: each curve's points on one line)
 import prices as P  # noqa: E402  (models_of, model_regex, norm, to_sek)
 
 TWO_WORD_BRANDS = ["SB Acoustics", "Dayton Audio", "Scan-Speak", "Parts Express", "Peerless by Tymphany", "Eton", "Wavecor", "Audio Technology", "Acoustic Technology"]
@@ -98,7 +99,7 @@ def main():
             rec["offers"].append(offer)
             rec["offers"].sort(key=lambda o: (o.get("price_sek") is None, o.get("price_sek") or o["price"]))
     db["meta"] = dict(db.get("meta") or {}, updated=today)
-    dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+    dbp.write_text(dumps_db(db))
     pricesp.write_text(json.dumps(prices, indent=1, ensure_ascii=False) + "\n")
     reqp.write_text("\n".join(requested) + "\n")
     print(f"{len(matched)} item(s) matched existing records ({', '.join(matched)}); {len(added)} new record(s) ({', '.join(added) or 'none'}); "

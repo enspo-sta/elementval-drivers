@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
+from common import dumps_db  # noqa: E402  (the database's layout: each curve's points on one line)
 from validate_db import validate  # noqa: E402
 
 DB = ROOT / "drivers.json"
@@ -73,7 +74,7 @@ def main():
         d["updated"] = today
     db["meta"]["updated"] = today
     tmp = path.with_suffix(".check.json")
-    tmp.write_text(json.dumps(db, indent=2, ensure_ascii=False))
+    tmp.write_text(dumps_db(db))
     try:
         errors, warnings, _ = validate([tmp])
     finally:
@@ -81,7 +82,7 @@ def main():
     if errors:
         print("Not written; the result would have these errors:", *errors, sep="\n  ")
         sys.exit(1)
-    path.write_text(json.dumps(db, indent=2, ensure_ascii=False))
+    path.write_text(dumps_db(db))
     print(f"{what} in {path.name}. {len(warnings)} warning(s) in the file:", *warnings[:20], sep="\n  ")
 
 

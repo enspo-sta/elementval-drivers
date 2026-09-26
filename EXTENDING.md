@@ -145,6 +145,10 @@ Tables use `columns` and `rows` instead of `axes` and `series`. Rules that never
 comes from one source; a calculation is filed under the Derived source; driver identities are
 never merged (a variant is its own record); curves are captured as described in `CAPTURE.md`.
 
+Write the database with `dumps_db` from `watch/common.py` (every script in `capture/` does): indented,
+but each curve's `points` on one line. A point per four lines made the file several times larger and
+slow to load on a phone.
+
 ## Before you push
 
 ```sh

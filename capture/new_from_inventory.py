@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "watch"))
+from common import dumps_db  # noqa: E402  (the database's layout: each curve's points on one line)
 import prices as P  # noqa: E402
 # HiFiCompass "Technical data" labels -> keys of the record's `ts` (the existing records' names). The code in
 # parentheses is used where the label has one ("Free air resonance, (Fs)"); the others by their wording.
@@ -163,7 +164,7 @@ def main():
                 if k in r:
                     ex[k] = r[k]
         if fills:
-            dbp.write_text(json.dumps(db, indent=2, ensure_ascii=False) + "\n")
+            dbp.write_text(dumps_db(db))
         for r in recs:
             tmp = ROOT / "capture" / f"_new_{r['id']}.json"
             tmp.write_text(json.dumps(r, ensure_ascii=False))
