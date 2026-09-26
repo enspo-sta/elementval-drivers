@@ -166,10 +166,20 @@ def build(read, db):
             else:
                 cv = max(ch["curves"], key=lambda c: c["pixels"])
                 series = [{"name": "Z", "points": cv["points"]}]
+            # how well the reading sits on the chart: every read point put back on the image (chart_read.py)
+            shares = {s["name"]: cv.get("on_curve") for s in series for cv in ch["curves"] if cv.get("points") is s["points"] and cv.get("on_curve") is not None}
+            if shares:
+                note.append("check on the image: " + ", ".join(f"{k} {round(100 * v)} %" for k, v in shares.items()) + " of the read points lie on the drawn curve (within 2 px)")
+            cal = None
+            if ch.get("calibration"):
+                cal = dict(ch["calibration"], image=ch["url"],
+                           colours={s["name"]: next((cv["colour"] for cv in ch["curves"] if cv.get("points") is s["points"]), None) for s in series})
             made.append((did, {"type": TYPE[ctype] + (f" @ {cond['drive_v']:g} V" if cond.get("drive_v") is not None else "") + (f" ({', '.join(extra)})" if extra else ""), "kind": kind,
                               "method": "automated pixel reading (GitHub), calibrated from the chart's own grid and labels",
                               "conditions": cond, "source": f"HiFiCompass ({name}, automated reading)", "confidence": "medium",
-                              "note": "; ".join(note), "chartType": "line", "axes": AXES[kind], "series": series, "file": name}))
+                              "note": "; ".join(note), "chartType": "line", "axes": AXES[kind], "series": series, "file": name,
+                              **({"calibration": cal} if cal else {}),
+                              **({"check": {"on_curve": shares}} if shares else {})}))
     return made, waiting
 
 

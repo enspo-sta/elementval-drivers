@@ -421,8 +421,39 @@ def read_chart(path, ctype):
         best = min(((dist(c["colour"], hexv), name) for name, hexv in named.items() if name not in taken), default=None)
         if best and best[0] <= 200:
             c["name"] = best[1]; taken.add(best[1])
+    # the check a person would do by eye: every read point put back on the image, and the share that lands on
+    # the curve's own colour (within 2 px); where the curve is drawn under another it counts as a miss
+    for c in curves:
+        c["on_curve"] = on_curve_share(img, c["colour"], c["points"], xa, ya)
     rec["curves"] = curves
+    rec["calibration"] = {"width": w, "height": h, "plot": [int(v) for v in plot], "x": [xa[0], xa[1]], "y": [ya[0], ya[1]]}
     return rec
+
+
+def on_curve_share(img, colour_hex, points, xa, ya, tol=60, reach=2):
+    """Share of the read points that, put back on the image with the axis fits, land within `reach` pixels of a
+    pixel of the curve's colour. 1.0 means every point sits on the drawn curve."""
+    import numpy as np
+    if not points:
+        return None
+    target = np.array([int(colour_hex[i:i + 2], 16) for i in (1, 3, 5)])
+    if max(target) - min(target) < 30:
+        tol = 40
+    mask = np.sqrt(((img - target) ** 2).sum(axis=2)) <= tol
+    h, w = mask.shape
+    hits = n = 0
+    for p in points:
+        if p.get("y") is None or p.get("x", 0) <= 0:
+            continue
+        x = (math.log10(p["x"]) - xa[0]) / xa[1]
+        y = (p["y"] - ya[0]) / ya[1]
+        xi, yi = int(round(x)), int(round(y))
+        if not (0 <= xi < w and 0 <= yi < h):
+            continue
+        n += 1
+        if mask[max(0, yi - reach):yi + reach + 1, max(0, xi - 1):xi + 2].any():
+            hits += 1
+    return round(hits / n, 3) if n else None
 
 
 def legend(path, img, rows, w, h, bg_hex="#000000"):
