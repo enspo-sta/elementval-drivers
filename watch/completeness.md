@@ -165,7 +165,7 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
   - [ptt6.5x04-naa-08a_20mm_5v6_150hz.png](https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_150hz.png) · near field · 5.6 V: missing, a near-field chart: not read automatically
   - [ptt6.5x04-naa-08a_20mm_5v6_220hz.png](https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_220hz.png) · near field · 5.6 V: missing, a near-field chart: not read automatically
   - [ptt6.5x04-naa-08a_20mm_5v6_300hz.png](https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_300hz.png) · near field · 5.6 V: missing, a near-field chart: not read automatically
-  - [ptt6.5x04-naa-08a_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/ptt6.5x04-naa-08a_impedance_10_ohm.png) · impedance: missing, readable automatically, not read yet
+  - [ptt6.5x04-naa-08a_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/ptt6.5x04-naa-08a_impedance_10_ohm.png) · impedance: missing, the automatic reading failed: axes could not be fitted
   - [ptt6.5x04-naa-08a_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/ptt6.5x04-naa-08a_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
   - [ptt6.5x04-naa-08a_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/ptt6.5x04-naa-08a_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
   - [ptt6.5x04-naa-08a_etc.png](https://hificompass.com/sites/default/files/zamer/etc/ptt6.5x04-naa-08a_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
@@ -193,7 +193,7 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
   - [m74a-6_offaxis.png](https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [m74a-6_offaxis_normalized_10-50db.png](https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [m74a-6_offaxis_normalized_5-30db.png](https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_5-30db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
-  - [m74a-6_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_10_ohm.png) · impedance: missing, readable automatically, not read yet
+  - [m74a-6_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_10_ohm.png) · impedance: missing, the automatic reading failed: axes could not be fitted
   - [m74a-6_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/m74a-6_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
   - [m74a-6_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/m74a-6_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
   - [m74a-6_etc.png](https://hificompass.com/sites/default/files/zamer/etc/m74a-6_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
@@ -230,7 +230,7 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
   - [mr16tx-8_offaxis_normalized_10-50db.png](https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_10-50db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [mr16tx-8_offaxis_normalized_5-30db.png](https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_5-30db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [mr16tx-8_5mm_1v_0deg.png](https://hificompass.com/sites/default/files/zamer/mr16tx-8_5mm_1v_0deg.png) · near field · 1.0 V: missing, a near-field chart: not read automatically
-  - [mr16tx-8_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_10_ohm.png) · impedance: missing, the automatic reading failed: axes could not be fitted
+  - [mr16tx-8_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_10_ohm.png) · impedance: missing, readable automatically, not read yet
   - [mr16tx-8_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/mr16tx-8_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
   - [mr16tx-8_waterfall.png](https://hificompass.com/sites/default/files/zamer/Waterfall/mr16tx-8_waterfall.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
   - [mr16tx-8_etc.png](https://hificompass.com/sites/default/files/zamer/etc/mr16tx-8_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores
@@ -283,7 +283,7 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
   - [tw29bnwg-4_offaxis_normalized_10-50db.png](https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_10-50db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [tw29bnwg-4_offaxis_normalized_5-30db.png](https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_5-30db.png) · off-axis: missing, off-axis responses (several angles in one image): not read automatically
   - [tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png](https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png) · intermodulation: missing, an intermodulation spectrum: not read automatically yet
-  - [tw29bnwg-4_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_10_ohm.png) · impedance: missing, readable automatically, not read yet
+  - [tw29bnwg-4_impedance_10_ohm.png](https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_10_ohm.png) · impedance: missing, the automatic reading failed: axes could not be fitted
   - [tw29bnwg-4_step_response.png](https://hificompass.com/sites/default/files/zamer/stepresp/tw29bnwg-4_step_response.png) · step response: missing, a step response: not a frequency curve the database stores
   - [tw29bnwg-4_waterfall_0.png](https://hificompass.com/sites/default/files/zamer/Waterfall/tw29bnwg-4_waterfall_0.png) · waterfall: missing, a waterfall: not a frequency curve the database stores
   - [tw29bnwg-4_etc.png](https://hificompass.com/sites/default/files/zamer/etc/tw29bnwg-4_etc.png) · energy-time: missing, an energy-time curve: not a frequency curve the database stores

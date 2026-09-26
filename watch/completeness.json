@@ -2437,7 +2437,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "ptt6.5x04-naa-08a_step_response.png",
@@ -3080,7 +3080,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "m74a-6_step_response.png",
@@ -4124,7 +4124,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "the automatic reading failed: axes could not be fitted"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "mr16tx-8_step_response.png",
@@ -5006,7 +5006,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "tw29bnwg-4_impedance_5_ohm.png",
