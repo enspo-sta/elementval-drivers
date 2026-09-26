@@ -2525,7 +2525,7 @@ No measurement page found on the site.
     | Ratio BL/√Re | 4.34 N/√W |
     | Ratio Fs/Qts | 72 Hz |
 
-## 12MW300
+## SB Audience 12MW300
 - Page: <https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300> — SB Audience Rosso 12MW300 | HiFiCompass - всё для акустических систем и не только — mentions premium or login
   - Headings: Вы здесь · Технические данные · None premium content · Отличительные особенности/комментарии · Осевая АЧХ · Внеосевая АЧХ · Нормированная к 200 Гц АЧХ в ближнем поле (20 мм) · Частотная зависимость Кг (расстояние 315 мм) · Частотная зависимость Кг (расстояние 20 мм) · Гармонические искажения тока звуковой катушки · Спектр гармонических искажений в ближнем поле (20 мм) · Интермодуляционные искажения · Частотная характеристика модуля импеданса · Переходная характеристика · Водопад · Энергетическая огибающая (ETC) · КОНТАКТЫ · ПОСЛЕДНИЕ НОВОСТИ · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
   - Levels mentioned: 2.83, 100.00
@@ -2589,7 +2589,7 @@ No measurement page found on the site.
     | Ratio BL/√Re | 7.63 N/√W |
     | Ratio Fs/Qts | 178 Hz |
 
-## MAN06
+## Lavoce MAN06
 - Page: <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8> — Lavoce MAN062.00-8 | HiFiCompass — mentions premium or login
   - Headings: You are here · Technical data · None premium content · Features/comments · Axial magnitude frequency response · Off axis magnitude frequency response · Near field FR (20 mm) normalized to 200Hz · HD frequency response (315 mm distance) · HD frequency response (20 mm distance) · Voice coil current harmonic distortion · Near field HD spectrum (20 mm distance) · Intermodulation distortion · Impedance frequency response · Step response · Waterfall · Energy-Time Curve (ETC) · Poll · Your favorite power amp type · Compare · CONTACTS · LAST NEWS · T34T-4_title2.jpg · grt145w-4_side.jpg · ptt5.25m08-naa-05_side2.jpg · ptt5.25x04-naa-05_front.jpg
   - Levels mentioned: 2.83, 98.00
