@@ -19,3 +19,8 @@ Purifi PTT6.5M08
 Purifi PTT6.5W04
 Purifi PTT5.25X04
 Purifi PTT1.3T04
+SB Acoustics SB26ADC
+Wavecor TW030WA11
+SB Acoustics Satori WO24TX
+12MW300
+MAN06
