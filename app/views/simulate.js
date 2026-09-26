@@ -19,6 +19,7 @@ const sim = { mix: false, src: null, n: 3, w: null, c: [1, 1, 1, 1], x: null, t:
               s: Object.assign({}, TYPICAL), al: true, o: null, u: "db", sh: null, note: "" };
 const ORDER_SORT = a => ORDERS.filter(k => a.includes(k)).concat(a.includes("THD") ? ["THD"] : []);
 const clampSlope = v => Math.min(5, Math.max(-1, v));
+const LEVELS = [80, 85, 90, 94, 100, 105, 110];      // one tap each; any other level in the field beside them
 const cache = {};
 function load(params) {
   if (!hasParams(params)) return;
@@ -122,10 +123,12 @@ function render() {
     return `<button class="srcbtn${!sim.mix && f.name === sim.src ? " on" : ""}" data-ssrc="${esc(f.name)}" ${sim.mix ? "disabled" : ""}><span class="sn">${esc(f.name)}</span>${badge(f)}<span class="cnt">${n} driver${n !== 1 ? "s" : ""}</span></button>`;
   }).join("")}</div>
     <label class="ds" style="margin:10px 0 0"><input type="checkbox" id="smix" ${sim.mix ? "checked" : ""}> mix sources (not recommended)</label>
-    <div class="grid2">
-      <div><div class="lbl"><span>Ways</span></div><div class="togrow">${[2, 3, 4].map(n => `<button class="tog${sim.n === n ? " on" : ""}" data-n="${n}">${n}-way</button>`).join("")}</div></div>
-      <div><div class="lbl"><span>Level</span><span class="hint">dB SPL at 1 m</span></div><input type="number" class="num" id="sL" min="60" max="125" step="1" value="${sim.L}"></div>
-    </div>
+    <div class="lbl"><span>Ways</span></div><div class="togrow">${[2, 3, 4].map(n => `<button class="tog${sim.n === n ? " on" : ""}" data-n="${n}">${n}-way</button>`).join("")}</div>
+    <div class="lbl"><span>Level</span><span class="hint">the speaker's sound pressure at 1 m</span></div>
+    <div class="togrow">${LEVELS.map(v => `<button class="tog small${sim.L === v ? " on" : ""}" data-slv="${v}">${v} dB</button>`).join("")}
+      <label class="numlbl">other <input type="number" class="num" id="sL" min="60" max="125" step="0.5" value="${sim.L}" aria-label="level in dB SPL at 1 m"> dB</label></div>
+    ${chosen.length ? `<div class="hint2">Measured levels: ${chosen.map((c, i) => { const lo = Math.min(...c.levels), hi = Math.max(...c.levels);
+      return `way ${i + 1} ${lo === hi ? lo : lo + " to " + hi} dB`; }).join(" · ")}. Between a driver's measured levels its curves are interpolated; beyond them the level rule below takes over.</div>` : ""}
     <div class="lbl"><span>Drivers and crossovers</span><span class="hint">low to high</span></div><div class="ways">`;
   for (let i = 0; i < sim.n; i++) {
     h += `<div class="way"><div class="wbody">
@@ -246,6 +249,7 @@ function wire() {
   document.querySelectorAll("[data-ssrc]").forEach(b => b.onclick = () => { sim.src = b.dataset.ssrc; sim.w = null; rerender(); });
   const mix = $("smix"); if (mix) mix.onchange = () => { sim.mix = mix.checked; if (!sim.mix) sim.w = null; rerender(); };
   document.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { const n = Number(b.dataset.n); if (n !== sim.n) { sim.n = n; sim.x = null; sim.t = null; sim.w = null; sim.c = [1, 1, 1, 1]; } rerender(); });
+  document.querySelectorAll("[data-slv]").forEach(b => b.onclick = () => { sim.L = Number(b.dataset.slv); rerender(); });
   const L = $("sL"); if (L) L.onchange = () => { const v = Number(L.value); if (L.value.trim() !== "" && v >= 60 && v <= 125) sim.L = v; else sim.note = `The level must be a number from 60 to 125 dB; kept ${sim.L} dB.`; rerender(); };
   document.querySelectorAll("[data-way]").forEach(s => s.onchange = () => { sim.w[Number(s.dataset.way)] = s.value; rerender(); });
   document.querySelectorAll("[data-count]").forEach(s => s.onchange = () => { sim.c[Number(s.dataset.count)] = Number(s.value); rerender(); });

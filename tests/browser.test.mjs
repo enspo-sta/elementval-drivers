@@ -233,6 +233,44 @@ test("Simulate: where a way that matters has no data, the speaker line is dashed
   await close();
 });
 
+test("Simulate: level buttons and any level in the field; the measured levels are named", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#simulate?src=HiFiCompass");
+  await page.waitForSelector("#schart");
+  await page.click('[data-slv="100"]'); await page.waitForSelector("#schart");
+  assert.match(await page.textContent(".panel .ptitle"), /at 100 dB/);
+  await page.fill("#sL", "97.5"); await page.press("#sL", "Enter"); await page.waitForSelector("#schart");
+  assert.match(await page.textContent(".panel .ptitle"), /at 97\.5 dB/);
+  assert.match(await page.textContent("#app"), /Measured levels: way 1 [\d.]+ to [\d.]+ dB/, "each way's measured levels are named");
+  assert.deepEqual(errors, []);
+  await close();
+});
+
+test("Compare: intermodulation as lines per driver and against level, with tables; plain row names", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#compare?src=diyAudio&g=diyAudio%3A%3Aimd-spectrum%7C40%2B96&q=products");
+  await page.waitForSelector("#cchart");
+  await page.click('[data-st="lines"]'); await page.waitForSelector("#clvl");
+  assert.equal(await page.evaluate(() => Chart.getChart(document.getElementById("cchart")).config.type), "line");
+  const lv = await page.evaluate(() => Chart.getChart(document.getElementById("clvl")).data.datasets.map(d => d.data.length));
+  assert.ok(lv.length >= 2 && lv.some(n => n >= 2), "every picked driver's levels, several for some");
+  assert.ok((await page.$$("#clsum tbody tr")).length >= 2, "a table of the levels");
+  await page.goto(page.url().replace(/#.*/, "#compare?src=HiFiCompass&g=" + encodeURIComponent("HiFiCompass::imd-summary|30+255|4:1")));
+  await page.waitForSelector("#cchart");
+  assert.match(await page.textContent("#csum"), /2nd-order products, re the 30 Hz tone/, "summary rows in plain words");
+  assert.deepEqual(errors, []);
+  await close();
+});
+
+test("Driver page: does it have every curve its source publishes?", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/sb-satori-mr16tx-8");
+  await page.waitForSelector(".cmplbox");
+  assert.match(await page.textContent(".cmplbox summary"), /\d+ charts on its HiFiCompass page · \d+ stored/);
+  await page.click(".cmplbox summary");
+  assert.ok((await page.$$(".cmpl tbody tr")).length >= 5, "one row per kind of chart");
+  assert.match(await page.textContent(".cmplbox"), /hificompass\.com/);
+  assert.deepEqual(errors, []);
+  await close();
+});
+
 for (const [name, size] of Object.entries(SIZES)) {
   test(`No sideways scrolling and usable controls at ${name} (${size.join("×")})`, { skip: skip() }, async () => {
     for (const hash of ["", "#driver/purifi-ptt8-0x04-nab-02?src=HiFiCompass", "#driver/at-c-quenze-18-h-52-17-06-sd", "#driver/sb-satori-mr16tx-8", "#compare", "#compare?src=diyAudio&g=diyAudio%3A%3Aimd-spectrum%7C40%2B96&q=products", "#simulate?n=4"]) {

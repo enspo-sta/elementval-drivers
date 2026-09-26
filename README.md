@@ -76,6 +76,7 @@ GitHub runs all of them on every push (`.github/workflows/validate-db.yml`).
 |---|---|
 | `watch/consistency.md` | values that should agree with each other, checked on every driver: Thiele/Small parameters against each other, Purifi's harmonic curves against their level sweeps, band-THD tables against their curves, calculated curves against their recipe, excursion limits against Sd and Xmax, test-tone levels |
 | `capture/WORKLIST.md` | what to capture next: curves below the capture minimum, disagreements to check at the source, every curve HiFiCompass and Purifi publish that is not stored yet, and a weekly random spot check |
+| `watch/completeness.md` | does every driver have every curve its source publishes: each HiFiCompass chart and whether it is stored, and why not; the figures of each Purifi datasheet (also shown on each driver page) |
 | `watch/sim_coverage.md` | for every driver and every way of a default 2-, 3- and 4-way speaker: where it still plays but has no harmonic data (Simulate draws the speaker's curve dashed there), and the drivers Simulate picks by default |
 | `capture/CHROME_CAPTURE.md` | how to capture from HiFiCompass (with your login) and Purifi on your own computer, with Claude Code and Chrome |
 
@@ -137,6 +138,7 @@ python3 watch/coverage.py --stdout         # print where each driver is measured
 python3 watch/check_consistency.py         # rebuild watch/consistency.md
 python3 capture/worklist.py                # rebuild capture/WORKLIST.md
 node tools/sim_coverage.mjs                # rebuild watch/sim_coverage.md
+python3 capture/completeness.py            # rebuild watch/completeness.md and .json
 python3 watch/prices.py --dry-run          # scan the shops and print the prices found
 node --test tests/*.test.mjs               # test the viewer: maths, comparison rules, exports
 python3 -m unittest discover -s tests -p "test_*.py"   # test the capture tools and the price scanner

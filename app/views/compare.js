@@ -11,7 +11,15 @@ import { writeHash, hasParams } from "../core/state.js";
 import { $, app, esc, navHtml, beginView, newChart, noChart, noChartMsg, xAxis, yAxis, categoryAxis, chartOptions, markerRadius,
          barBase, barTop, badge, familyByName, condChips, exportHtml, wireExports, pct, fmtDb, fmtPct } from "../core/ui.js";
 
-const cmp = { mix: false, src: null, g: null, q: [], picks: null, u: "db", rows: null, L: null, shift: false, filt: "", pickScroll: 0 };
+const cmp = { mix: false, src: null, g: null, q: [], picks: null, u: "db", rows: null, L: null, shift: false, filt: "", pickScroll: 0, st: "bars", lr: null };
+// plain names for the rows of an intermodulation summary table (the stored keys stay as they are)
+const ROW_NAMES = {
+  IMA2_rel_f30: "2nd-order products, re the 30 Hz tone", IMA3_rel_f30: "3rd-order products, re the 30 Hz tone",
+  IMD2_rel_carrier: "2nd-order products, re the 255 Hz tone", IMD3_rel_carrier: "3rd-order products, re the 255 Hz tone",
+  HD2: "2nd harmonic", HD3: "3rd harmonic", HD4: "4th harmonic", HD5: "5th harmonic",
+  doppler_rel_carrier: "Doppler (frequency modulation), re the 255 Hz tone", motor_IMD2_est: "2nd-order products from the motor (estimate)",
+};
+const rowName = r => ROW_NAMES[r] || r.replace(/_/g, " ");
 const cache = {};
 const groups = mix => cache[mix ? "mix" : "one"] || (cache[mix ? "mix" : "one"] = buildGroups({ mix }));
 const driversIn = g => new Set(g.entries.map(e => e.driver.id)).size;
@@ -29,12 +37,15 @@ function load(params) {
   cmp.rows = params.get("r") ? params.get("r").split("|") : null;
   cmp.L = params.get("L") != null && isFinite(Number(params.get("L"))) ? Number(params.get("L")) : null;
   cmp.shift = params.get("shift") === "1";
+  cmp.st = params.get("st") === "lines" ? "lines" : "bars";
+  cmp.lr = params.get("lr") || null;
 }
 function save() {
   writeHash("compare", {
     mix: cmp.mix ? "1" : "", src: cmp.mix ? "" : cmp.src, g: cmp.g, q: cmp.q.join(","),
     d: cmp.picks && !cmp.picks.length ? "none" : (cmp.picks || []).slice().sort((a, b) => a.slot - b.slot).map(p => p.id).join(","),
     u: cmp.u === "pct" ? "pct" : "", r: cmp.rows ? cmp.rows.join("|") : "", L: cmp.L, shift: cmp.shift ? "1" : "",
+    st: cmp.st === "lines" ? "lines" : "", lr: cmp.lr || "",
   });
 }
 
@@ -129,7 +140,9 @@ function render() {
   if (view === "curve" && g.kind.ratio) h += `<span class="sep"></span><button class="tog${cmp.u === "db" ? " on" : ""}" data-u="db">dB</button><button class="tog${cmp.u === "pct" ? " on" : ""}" data-u="pct">%</button>`;
   h += `</div>`;
   if (view === "table") h += `<div class="lbl"><span>Rows</span><span class="hint">tap to leave a row out</span></div><div class="togrow">${rowLabels(g, cmp.q[0]).map(r =>
-    `<button class="tog small${cmp.rows.includes(r) ? " on" : ""}" data-row="${esc(r)}">${esc(r)}</button>`).join("")}</div>`;
+    `<button class="tog small${cmp.rows.includes(r) ? " on" : ""}" data-row="${esc(r)}" title="${esc(r)}">${esc(rowName(r))}</button>`).join("")}</div>`;
+  if (view === "bars" && cmp.q[0] === "products") h += `<div class="lbl"><span>Draw the products as</span></div><div class="togrow">${["bars", "lines"].map(v =>
+    `<button class="tog small${cmp.st === v ? " on" : ""}" data-st="${v}">${v === "bars" ? "bars side by side" : "one line per driver"}</button>`).join("")}</div>`;
   h += `<div class="lbl"><span>Drivers</span><span class="hint">${picked.length} picked · up to ${MAX_PICK}</span></div>`;
   if (g.entries.length > 8) h += `<input class="filter small" id="cfilt" placeholder="filter drivers…" value="${esc(cmp.filt)}" autocomplete="off">`;
   h += `<div class="picks">${g.entries.map(e => {
@@ -150,7 +163,12 @@ function render() {
     const drawn = x => cmp.q.some(qid => x.quantities.some(q => q.id === qid));
     h += `<div class="legend">${picked.map(x => `<span class="lg${drawn(x) ? "" : " off"}"><span class="lgm" style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]}</span><span class="lgl${view === "curve" ? "" : " sq"}" style="background:${COLORS[x.p.slot]}"></span>${esc(entryName(x.e))}<span class="dim">${esc(drawn(x) ? levelNote(x) : " · no " + cmp.q.join(", ") + " in this set")}</span></span>`).join("")}</div>`;
     h += noChart() ? noChartMsg : `<div class="chartbox tall"><canvas id="cchart"></canvas></div>`;
-    h += `<div id="csum"></div><div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
+    h += `<div id="csum"></div>`;
+    // intermodulation against level: every measured level of each picked driver, one line each
+    if (view !== "curve" && g.levels.length > 1) h += `<div class="ptitle sub">Against level: how each driver's ${view === "bars" ? "total intermodulation (sum of all products)" : "chosen row"} grows with level</div>
+      ${view === "table" ? `<div class="togrow">${cmp.rows.map(r => `<button class="tog small${levelRow(g) === r ? " on" : ""}" data-lr="${esc(r)}">${esc(rowName(r))}</button>`).join("")}</div>` : ""}
+      ${noChart() ? "" : `<div class="chartbox"><canvas id="clvl"></canvas></div>`}<div id="clsum"></div>`;
+    h += `<div class="exportrow">${exportHtml(() => exportCurves(g, picked), "comparison_" + g.kind.id, "Export this comparison")}</div>`;
     h += `<details class="conds"><summary>Test conditions and sources of the picked drivers</summary>${picked.map(x =>
       `<div class="cond"><span style="color:${COLORS[x.p.slot]}">${MARK_CHARS[MARKERS[x.p.slot]]} ${esc(x.e.driver.name)}</span> <span class="dim">${esc(x.chosen.set.type)}${x.chosen.set.method ? " · " + esc(x.chosen.set.method) : ""}</span>${condChips(x.chosen.set.conditions, x.chosen.set.source)}${x.chosen.set.note ? `<div class="setnote">${esc(x.chosen.set.note)}</div>` : ""}</div>`).join("")}</details>`;
   }
@@ -162,6 +180,7 @@ function render() {
     if (view === "curve") drawCurves(g, picked);
     else if (view === "bars") drawBars(g, picked);
     else drawTable(g, picked);
+    if (view !== "curve" && g.levels.length > 1) drawAgainstLevel(g, picked);
   }
   wireExports(app());
 }
@@ -200,6 +219,8 @@ function wire(g) {
     render();
   });
   document.querySelectorAll("[data-u]").forEach(b => b.onclick = () => { cmp.u = b.dataset.u; render(); });
+  document.querySelectorAll("[data-st]").forEach(b => b.onclick = () => { cmp.st = b.dataset.st; render(); });
+  document.querySelectorAll("[data-lr]").forEach(b => b.onclick = () => { cmp.lr = b.dataset.lr; render(); });
   document.querySelectorAll("[data-row]").forEach(b => b.onclick = () => {
     const r = b.dataset.row;
     if (cmp.rows.includes(r)) { if (cmp.rows.length > 1) cmp.rows = cmp.rows.filter(x => x !== r); }
@@ -287,8 +308,15 @@ function drawBars(g, picked) {
   }
   const freqs = [...new Set(qs.flatMap(y => y.q.points.map(pt => pt.x)))].sort((a, b) => a - b);
   const all = qs.flatMap(y => y.q.points.map(pt => pt.y)), base = barBase(all);
-  newChart($("cchart"), { type: "bar", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
-    data: freqs.map(f => { const pt = y.q.points.find(q => q.x === f); return pt ? pt.y : null; }) })) },
+  const at = (y, f) => { const pt = y.q.points.find(q => q.x === f); return pt ? pt.y : null; };
+  if (cmp.st === "lines") {
+    // one line per driver through its products: easier to compare than five bars side by side
+    newChart($("cchart"), { type: "line", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, data: freqs.map(f => at(y, f)),
+      borderColor: COLORS[y.x.p.slot], backgroundColor: COLORS[y.x.p.slot], borderWidth: 2, spanGaps: true, tension: 0,
+      pointStyle: MARKERS[y.x.p.slot], pointRadius: 5, pointBackgroundColor: COLORS[y.x.p.slot] })) },
+      options: chartOptions({ x: categoryAxis("Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
+  } else newChart($("cchart"), { type: "bar", data: { labels: freqs.map(fmtHz), datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
+    data: freqs.map(f => at(y, f)) })) },
     options: chartOptions({ x: categoryAxis("Product frequency", 50), y: yAxis("db", relTo, { min: base, max: barTop(all) }) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.label}`) });
   $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Product</th>${qs.map(y =>
     `<th style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]} ${esc(y.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${freqs.map(f =>
@@ -302,13 +330,40 @@ function drawTable(g, picked) {
   const qs = picked.map(x => ({ x, q: x.quantities.find(y => y.id === qid) })).filter(y => y.q);
   const val = (y, r) => { const row = y.q.rows.find(z => z.label === r); return row ? row.value : null; };
   const tvals = qs.flatMap(y => rows.map(r => val(y, r))), base = barBase(tvals);
-  newChart($("cchart"), { type: "bar", data: { labels: rows, datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
+  newChart($("cchart"), { type: "bar", data: { labels: rows.map(rowName), datasets: qs.map(y => ({ label: y.x.e.driver.name, backgroundColor: COLORS[y.x.p.slot], base,
     data: rows.map(r => val(y, r)) })) },
     options: chartOptions({ x: categoryAxis(""), y: yAxis("db", qid, { min: base || undefined, max: barTop(tvals) }) }, c => `${c.dataset.label}: ${c.parsed.y} (${c.label})`) });
   $("csum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>${esc((picked[0].chosen.set.columns || [""])[0])}</th>${qs.map(y =>
     `<th style="color:${COLORS[y.x.p.slot]}">${MARK_CHARS[MARKERS[y.x.p.slot]]} ${esc(y.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${rows.map(r =>
-    `<tr><td>${esc(r)}</td>${qs.map(y => { const v = val(y, r); return `<td>${v == null ? "—" : v}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
-    <div class="hint2">Column: ${esc(qid)}.${qs.some(y => y.x.chosen.level != null) ? " Levels: " + qs.map(y => `${esc(y.x.e.driver.name)} ${esc(lv(y.x.chosen.level))}`).join(", ") + "." : ""}</div>`;
+    `<tr><td title="${esc(r)}">${esc(rowName(r))}</td>${qs.map(y => { const v = val(y, r); return `<td>${v == null ? "—" : v}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="hint2">Column: ${esc(qid)}. Lower (more negative) is less distortion.${qs.some(y => y.x.chosen.level != null) ? " Levels: " + qs.map(y => `${esc(y.x.e.driver.name)} ${esc(lv(y.x.chosen.level))}`).join(", ") + "." : ""}</div>`;
+}
+
+// the row a table's level graph shows: the one chosen, else the first row shown
+const levelRow = g => (cmp.rows && cmp.rows.includes(cmp.lr) ? cmp.lr : (cmp.rows || [])[0]);
+
+/** Intermodulation against level: for each picked driver, every set of this measurement it has (all levels),
+ *  as the sum of all products (a spectrum) or the chosen row (a summary table). One line and marker per driver. */
+function drawAgainstLevel(g, picked) {
+  const qid = g.kind.view === "bars" ? "sum" : cmp.q[0], row = levelRow(g);
+  const valueOf = s => {
+    const q = s.quantities.find(y => y.id === qid);
+    if (!q) return null;
+    if (g.kind.view === "bars") return q.value;
+    const r = q.rows.find(z => z.label === row);
+    return r ? r.value : null;
+  };
+  const lines = picked.map(x => ({ x, pts: x.e.sets.filter(s => s.level != null).map(s => ({ x: s.level, y: valueOf(s) })).filter(p => p.y != null).sort((a, b) => a.x - b.x) }));
+  const relTo = g.kind.view === "bars" ? ((picked[0].quantities.find(q => q.id === "sum") || {}).relTo || "dB") : `${rowName(row)} (dB)`;
+  newChart($("clvl"), { type: "line", data: { datasets: lines.map(l => ({ label: l.x.e.driver.name, data: l.pts,
+    borderColor: COLORS[l.x.p.slot], backgroundColor: COLORS[l.x.p.slot], borderWidth: 2, tension: 0, pointStyle: MARKERS[l.x.p.slot], pointRadius: 5,
+    pointBackgroundColor: COLORS[l.x.p.slot] })) },
+    options: chartOptions({ x: Object.assign(xAxis(false, "Level (dB SPL at 1 m)"), {}), y: yAxis("db", relTo) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.parsed.x} dB`) });
+  const levels = [...new Set(lines.flatMap(l => l.pts.map(p => p.x)))].sort((a, b) => a - b);
+  $("clsum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Level</th>${lines.map(l =>
+    `<th style="color:${COLORS[l.x.p.slot]}">${MARK_CHARS[MARKERS[l.x.p.slot]]} ${esc(l.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${levels.map(L =>
+    `<tr><td>${esc(lv(L))}</td>${lines.map(l => { const p = l.pts.find(q => q.x === L); return `<td>${p ? p.y.toFixed(1) : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="hint2">${g.kind.view === "bars" ? "Power sum of every product, " + esc(relTo) : esc(relTo)}, at each level a driver was measured. A steeper line: the distortion grows faster with level.</div>`;
 }
 
 registerView({

@@ -58,7 +58,8 @@ def hifi_page(d):
     pages = [pg["url"] for rec in json.loads(inv_p.read_text())["models"].values() for pg in rec.get("pages", [])
              if "/speakers/measurements/" in pg.get("url", "")]
     for m in models:
-        hit = [u for u in pages if m in norm(u.rsplit("/", 1)[-1])]
+        # the page address ends with the model number: "…naa-08a" is the 08A variant's page, not the 08's
+        hit = [u for u in pages if norm(u.rsplit("/", 1)[-1]).endswith(m)]
         if len(hit) == 1:
             return hit[0]
     return None

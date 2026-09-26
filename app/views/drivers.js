@@ -165,7 +165,7 @@ function showDetail(id, params) {
     h += `<div class="tsgrid">${TS.map(([k, u]) => `<div class="ts"><div class="k">${k}</div><div class="v">${d.ts && d.ts[k] != null && d.ts[k] !== "" ? esc(d.ts[k]) + (u ? `<span style="color:#7b859c;font-size:11px"> ${u}</span>` : "") : "—"}</div></div>`).join("")}</div>
       ${extra ? `<div class="tsmore">${extra}</div>` : ""}`;
   }
-  if (!d.isComparison) h += pricesHtml(d);
+  if (!d.isComparison) h += pricesHtml(d) + completenessHtml(d);
   if (d.isComparison) {
     const cf = familyOf(d.measurements[0]);
     if (cf) h += `<div class="srcrow small"><span class="srcbtn on"><span class="sn">${esc(cf.name)}</span>${badge(cf)}</span></div>`;
@@ -269,6 +269,32 @@ function showDetail(id, params) {
   wireExports(app());
   window.scrollTo(0, keep);
   shown.id = d.id;
+}
+
+// Does this driver have every curve its source publishes? From watch/completeness.json (capture/completeness.py).
+function completenessHtml(d) {
+  const r = store.completeness && store.completeness.drivers[d.id];
+  if (!r) return "";
+  const s = r.summary || {};
+  const head = r.page
+    ? `${s.published} chart${s.published !== 1 ? "s" : ""} on its HiFiCompass page · ${s.stored} stored` + (s.by_hand ? ` · ${s.by_hand} by hand` : "") + ` · ${s.missing} not stored`
+    : r.page_note || "no HiFiCompass measurement page for this exact variant";
+  const dsMiss = (r.datasheet_kinds || []).filter(x => !x.stored);
+  let body = "";
+  if (r.page) {
+    const kinds = {};
+    r.charts.forEach(c => { const k = kinds[c.label] || (kinds[c.label] = { stored: 0, hand: 0, missing: 0, why: new Set() }); if (c.state === "stored") k.stored++; else if (c.state === "by hand") k.hand++; else { k.missing++; k.why.add(c.why); } });
+    body += `<p class="dim">Page: <a href="${esc(r.page)}" target="_blank" rel="noopener">${esc(r.page)}</a>${r.data_files && r.data_files.length ? ` · files offered: ${r.data_files.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.split("/").pop())}</a>`).join(", ")}` : ""}</p>`;
+    body += `<div class="tscroll"><table class="dtable ctab cmpl"><thead><tr><th>Chart</th><th>On the page</th><th>Stored</th><th>Not stored, why</th></tr></thead><tbody>${Object.entries(kinds).map(([label, k]) =>
+      `<tr><td>${esc(label)}</td><td>${k.stored + k.hand + k.missing}</td><td>${k.stored}${k.hand ? ` + ${k.hand} by hand` : ""}</td><td>${k.missing ? `${k.missing}: ${esc([...k.why].join("; "))}` : "—"}</td></tr>`).join("")}</tbody></table></div>`;
+    const miss = r.charts.filter(c => c.state === "missing");
+    if (miss.length) body += `<details class="conds"><summary>The ${miss.length} chart${miss.length !== 1 ? "s" : ""} not stored</summary><ul class="how">${miss.map(c =>
+      `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.file)}</a> · ${esc(c.label)}${c.volts != null ? " · " + esc(c.volts) + " V" : ""}</li>`).join("")}</ul></details>`;
+  }
+  if (r.datasheet_kinds) body += `<p class="dim">Purifi datasheet figures: ${r.datasheet_kinds.map(x => `${esc(x.what)} ${x.stored ? "stored" : "<b>not stored</b>"}`).join(" · ")}</p>`;
+  const done = r.page ? s.missing === 0 && !dsMiss.length : !dsMiss.length;
+  return `<details class="cmplbox"><summary><span class="lbl2">Every curve from the source?</span> <span class="${done ? "ok" : "dim"}">${esc(head)}${dsMiss.length ? ` · ${dsMiss.length} datasheet figure${dsMiss.length !== 1 ? "s" : ""} not stored` : ""}</span></summary>${body}
+    <p class="dim">Checked ${esc(store.completeness.date)} against the HiFiCompass inventory of ${esc(store.completeness.inventory_date || "?")} (capture/completeness.py).</p></details>`;
 }
 
 // Lowest prices from prices.json (rebuilt weekly by watch/prices.py).

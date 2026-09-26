@@ -7,25 +7,27 @@ export const FILES = {
   sources: "./watch/config.json",
   kinds: "./schema/kinds.json",
   prices: "./prices.json",
+  completeness: "./watch/completeness.json",
 };
 
-export const store = { db: null, survey: null, families: [], kinds: [], kindById: {}, prices: null };
+export const store = { db: null, survey: null, families: [], kinds: [], kindById: {}, prices: null, completeness: null };
 
 /** Load every file (the survey and the settings are optional). fetchJson(url) returns parsed JSON or null. */
 export async function loadAll(fetchJson) {
-  const [db, survey, config, kinds, prices] = await Promise.all([
+  const [db, survey, config, kinds, prices, completeness] = await Promise.all([
     fetchJson(FILES.main), fetchJson(FILES.survey).catch(() => null),
     fetchJson(FILES.sources).catch(() => null), fetchJson(FILES.kinds).catch(() => null),
-    fetchJson(FILES.prices).catch(() => null),
+    fetchJson(FILES.prices).catch(() => null), fetchJson(FILES.completeness).catch(() => null),
   ]);
   if (!db) throw new Error("drivers.json could not be read");
-  setData({ db, survey, config, kinds, prices });
+  setData({ db, survey, config, kinds, prices, completeness });
 }
 
 /** Use already-parsed files (tests, tools). */
-export function setData({ db, survey, config, kinds, prices }) {
+export function setData({ db, survey, config, kinds, prices, completeness }) {
   store.db = db;
   store.prices = prices && prices.drivers ? prices : null;
+  store.completeness = completeness && completeness.drivers ? completeness : null;
   store.survey = survey || null;
   store.families = ((config && config.families) || []).slice().sort((a, b) => (a.rank || 99) - (b.rank || 99));
   store.kinds = (kinds && kinds.kinds) || [];

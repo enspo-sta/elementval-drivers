@@ -1,0 +1,5487 @@
+{
+ "date": "2026-09-26",
+ "inventory_date": "2026-09-26",
+ "drivers": {
+  "ptt65m08naa08": {
+   "name": "Purifi PTT6.5M08-NAA-08",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 8,
+   "datasheet": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": false
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": true
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": true
+    }
+   ],
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt80x04nab01": {
+   "name": "Purifi PTT8.0X04-NAB-01",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 8,
+   "datasheet": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": true
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": false
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": true
+    }
+   ],
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt65x04naa08": {
+   "name": "Purifi PTT6.5X04-NAA-08",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 8,
+   "datasheet": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": true
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": false
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": true
+    }
+   ],
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt525x04naa05": {
+   "name": "Purifi PTT5.25X04-NAA-05",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 8,
+   "datasheet": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": true
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": false
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": true
+    }
+   ],
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt13t04hag10": {
+   "name": "Purifi PTT1.3T04-HAG-10",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 2,
+   "datasheet": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": true
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": false
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": false
+    }
+   ],
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt13t04hag01": {
+   "name": "Purifi PTT1.3T04-HAG-01",
+   "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt13t04-hag-01",
+   "charts": [
+    {
+     "file": "ptt1.3t04-hag-01_315mm_2v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_2v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_11v2_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01_315mm_11v2_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01-non-smoothed-spl-frequency-response-magnitude.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt1.3t04-hag-01-non-smoothed-spl-frequency-response-magnitude.png",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_2v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_2v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_2v83_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_4v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_5v6_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_8v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_8v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_315mm_11v2_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt1.3t04-hag-01_315mm_11v2_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_2v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_2v_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_2v83_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_4v_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_5v6_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_8v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_8v_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_chd_11v2_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt1.3t04-hag-01_chd_11v2_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt1.3t04-hag-01_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_impedance_5_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt1.3t04-hag-01_impedance_5_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/ptt1.3t04-hag-01_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/ptt1.3t04-hag-01_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt1.3t04-hag-01_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/ptt1.3t04-hag-01_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/ptt1.3t04-hag-01_-_data_sheet_v0.91.pdf"
+   ],
+   "table_rows": 17,
+   "parameters": 2,
+   "datasheet": null,
+   "premium_or_login": null,
+   "datasheet_kinds": [
+    {
+     "kind": "frequency-response",
+     "what": "frequency response figure",
+     "stored": false
+    },
+    {
+     "kind": "impedance",
+     "what": "impedance figure",
+     "stored": false
+    },
+    {
+     "kind": "hd-frequency",
+     "what": "harmonic distortion vs frequency at 94 dB",
+     "stored": true
+    },
+    {
+     "kind": "hd-level",
+     "what": "harmonic distortion vs level (level sweeps)",
+     "stored": true
+    },
+    {
+     "kind": "hd-current",
+     "what": "current distortion",
+     "stored": false
+    },
+    {
+     "kind": "imd-spectrum",
+     "what": "intermodulation spectra (both tone pairs)",
+     "stored": false
+    }
+   ],
+   "summary": {
+    "published": 27,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 27,
+    "missing_by_type": {
+     "on-axis response": 6,
+     "older template": 1,
+     "off-axis": 3,
+     "harmonics": 6,
+     "current distortion": 6,
+     "impedance": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-wo24p-8": {
+   "name": "SB Acoustics Satori WO24P-8",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8",
+   "charts": [
+    {
+     "file": "wo24p-8_3.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_3.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wo24p-8_1.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_1.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wo24p-8_2.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_2.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/9in_satori_wo24p-8.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 16,
+   "datasheet": null,
+   "premium_or_login": true,
+   "summary": {
+    "published": 15,
+    "stored": 0,
+    "by_hand": 2,
+    "missing": 13,
+    "missing_by_type": {
+     "older template": 3,
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "current distortion": 1,
+     "intermodulation": 2,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-sb34nrxl75-8": {
+   "name": "SB Acoustics SB34NRXL75-8 (Norex)",
+   "page": "https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/sb34nrxl75-8.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 15,
+   "datasheet": null,
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 4,
+    "missing": 8,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "current distortion": 1,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "purifi-ptt8-0x04-nab-02": {
+   "name": "Purifi PTT8.0X04-NAB-02",
+   "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02",
+   "charts": [
+    {
+     "file": "ptt8.0x04-nab-02_coil.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt8.0x04-nab-02_coil.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_wires.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt8.0x04-nab-02_wires.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_11v2_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_11v2_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_16v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt8.0x04-nab-02_315mm_16v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 16.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/ptt8.0x04-nab-02_20mm_2v83_0deg.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_11v2_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_11v2_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_315mm_16v_hpf2-80.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt8.0x04-nab-02_315mm_16v_hpf2-80.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_2v83_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_2v83_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_4v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_4v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_5v6_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_5v6_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_8v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_8v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_20mm_11v2_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt8.0x04-nab-02_20mm_11v2_hpf2-20.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_1v41.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_1v41.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.41,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_2v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_2v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_2v83_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_2v83_hpf2-20.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_4v_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_4v_hpf2-20.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_5v6_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_5v6_hpf2-20.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_chd_8v_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt8.0x04-nab-02_chd_8v_hpf2-20.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz2mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz2mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_30hz255hz_xmax30hz10mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_30hz255hz_xmax30hz10mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt8.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_impedance_70_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt8.0x04-nab-02_impedance_70_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_impedance_7_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt8.0x04-nab-02_impedance_7_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/ptt8.0x04-nab-02_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/ptt8.0x04-nab-02_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt8.0x04-nab-02_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/ptt8.0x04-nab-02_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/ptt8.0x04-nab-02-data-sheet-0.99.pdf"
+   ],
+   "table_rows": 23,
+   "parameters": 17,
+   "datasheet": null,
+   "premium_or_login": null,
+   "summary": {
+    "published": 44,
+    "stored": 0,
+    "by_hand": 11,
+    "missing": 33,
+    "missing_by_type": {
+     "older template": 2,
+     "on-axis response": 6,
+     "off-axis": 3,
+     "near field": 1,
+     "current distortion": 6,
+     "intermodulation": 10,
+     "impedance": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "purifi-ptt10-0x04-nab-02": {
+   "name": "Purifi PTT10.0X04-NAB-02",
+   "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt100x04-nab-02",
+   "charts": [
+    {
+     "file": "ptt10.0x04-nab-02_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_11v2_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_11v2_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_16v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_16v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 16.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_22v5_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt10.0x04-nab-02_315mm_22v5_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 22.5,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/ptt10.0x04-nab-02_20mm_2v83_0deg.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_11v2_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_11v2_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_16v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_16v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_315mm_22v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt10.0x04-nab-02_315mm_22v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 22.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_2v83.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_2v83.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_4v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_4v.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_5v6.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_5v6.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_8v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_8v.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_11v2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_11v2.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_chd_2v83.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_2v83.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_chd_4v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_4v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_chd_5v6.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_5v6.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_chd_8v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_8v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_chd_11v2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt10.0x04-nab-02_chd_11v2.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_2v83_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_2v83_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_4v_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_4v_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_5v6_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_5v6_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_8v_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_8v_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50mm_11v2_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt10.0x04-nab-02_50mm_11v2_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz3mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz4.5mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz6mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz9mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_30hz255hz_xmax30hz12mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_30hz255hz_xmax30hz12mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz1mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz2mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz3mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz4.5mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz4.5mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text2.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt10.0x04-nab-02_50hz425hz_xmax50hz6mm_4to1text2.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_impedance_70_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt10.0x04-nab-02_impedance_70_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt10.0x04-nab-02_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/ptt10.0x04-nab-02_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/ptt10.0x04-nab-02_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt10.0x04-nab-02_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/ptt10.0x04-nab-02_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/ptt10.0x04-nab-01_-_data_sheet_0.95.pdf"
+   ],
+   "table_rows": 21,
+   "parameters": 11,
+   "datasheet": null,
+   "premium_or_login": null,
+   "summary": {
+    "published": 79,
+    "stored": 0,
+    "by_hand": 18,
+    "missing": 61,
+    "missing_by_type": {
+     "on-axis response": 7,
+     "off-axis": 3,
+     "near field": 41,
+     "current distortion": 5,
+     "impedance": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-sb34nrxl75-8-dual": {
+   "name": "SB Acoustics SB34NRXL75-8 ×2 (coherent pair)",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 4,
+   "datasheet": null,
+   "page_note": "made from another record (a proxy or a pair): no measurement page of its own",
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "sb-satori-wo24p-4": {
+   "name": "SB Acoustics Satori WO24P-4",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/wo24p-4.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 0,
+   "datasheet": null,
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 2,
+    "missing": 10,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "harmonics": 2,
+     "current distortion": 1,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb17cac35-4": {
+   "name": "SB Acoustics SB17CAC35-4 (proxy)",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 0,
+   "datasheet": null,
+   "page_note": "made from another record (a proxy or a pair): no measurement page of its own",
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt65w04-paper": {
+   "name": "Purifi PTT6.5W04 (paper, proxy)",
+   "page": null,
+   "charts": [],
+   "data_files": [],
+   "table_rows": 0,
+   "parameters": 0,
+   "datasheet": null,
+   "page_note": "made from another record (a proxy or a pair): no measurement page of its own",
+   "summary": {
+    "published": 0,
+    "stored": 0,
+    "by_hand": 0,
+    "missing": 0,
+    "missing_by_type": {}
+   }
+  },
+  "ptt65x04naa08a": {
+   "name": "Purifi PTT6.5X04-NAA-08A",
+   "page": "https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a",
+   "charts": [
+    {
+     "file": "ptt6.5x04-naa-08a_voice_coil2.jpg",
+     "url": "https://hificompass.com/sites/default/files/castom_img_zamer/ptt6.5x04-naa-08a_voice_coil2.jpg",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_11v2_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_11v2_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_315mm_16v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/ptt6.5x04-naa-08a_315mm_16v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 16.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/ptt6.5x04-naa-08a_20mm_2v83_0grad.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_11v2_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_11v2_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_0.3m_16v_hpf2-80.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/ptt6.5x04-naa-08a_0.3m_16v_hpf2-80.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_2v83_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_4v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_4v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_5v6_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_8v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/ptt6.5x04-naa-08a_20mm_8v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_chd_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt6.5x04-naa-08a_chd_2v83_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_chd_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt6.5x04-naa-08a_chd_4v_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_chd_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt6.5x04-naa-08a_chd_5v6_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_chd_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/ptt6.5x04-naa-08a_chd_8v_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_2v83_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_2v83_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_20mm_5v6_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/ptt6.5x04-naa-08a_20mm_5v6_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz2mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz2mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz4.5mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz4.5mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz6mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz6mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_30hz255hz_xmax30hz9mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/ptt6.5x04-naa-08a_30hz255hz_xmax30hz9mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_impedance_70_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt6.5x04-naa-08a_impedance_70_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_impedance_10_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/ptt6.5x04-naa-08a_impedance_10_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/ptt6.5x04-naa-08a_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/ptt6.5x04-naa-08a_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "ptt6.5x04-naa-08a_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/ptt6.5x04-naa-08a_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/ptt6.5x04-naa-08-data-sheet-0.95.pdf"
+   ],
+   "table_rows": 23,
+   "parameters": 0,
+   "datasheet": null,
+   "premium_or_login": null,
+   "summary": {
+    "published": 53,
+    "stored": 0,
+    "by_hand": 10,
+    "missing": 43,
+    "missing_by_type": {
+     "older template": 1,
+     "on-axis response": 6,
+     "off-axis": 3,
+     "near field": 19,
+     "current distortion": 4,
+     "intermodulation": 5,
+     "impedance": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb17nbac35-8": {
+   "name": "SB Acoustics SB17NBAC35-8",
+   "page": "https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8",
+   "charts": [
+    {
+     "file": "onaxis_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
+     "type": "response",
+     "label": "on-axis response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "offaxis.jpg",
+     "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "nf.jpg",
+     "url": "https://hificompass.com/sites/default/files/nf.jpg",
+     "type": "near-field",
+     "label": "near field",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "hd315_0.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "hd20.jpg",
+     "url": "https://hificompass.com/sites/default/files/hd20.jpg",
+     "type": "harmonics",
+     "label": "harmonics",
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "chd.jpg",
+     "url": "https://hificompass.com/sites/default/files/chd.jpg",
+     "type": "current",
+     "label": "current distortion",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "spectra.jpg",
+     "url": "https://hificompass.com/sites/default/files/spectra.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imd.jpg",
+     "url": "https://hificompass.com/sites/default/files/imd.jpg",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "imp_spread100_size1_font70.jpg",
+     "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "step.jpg",
+     "url": "https://hificompass.com/sites/default/files/step.jpg",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "wf.jpg",
+     "url": "https://hificompass.com/sites/default/files/wf.jpg",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "etc.jpg",
+     "url": "https://hificompass.com/sites/default/files/etc.jpg",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/6in_sb17nbac35-8.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 0,
+   "datasheet": null,
+   "premium_or_login": true,
+   "summary": {
+    "published": 12,
+    "stored": 0,
+    "by_hand": 2,
+    "missing": 10,
+    "missing_by_type": {
+     "on-axis response": 1,
+     "off-axis": 1,
+     "near field": 1,
+     "current distortion": 1,
+     "intermodulation": 2,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "m74t-6": {
+   "name": "BlieSMa M74T-6",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6",
+   "charts": [
+    {
+     "file": "m74t-6_315mm_1v41_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_1v41_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_2v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_2v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74t-6_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "m74t-6-off-axis-normalized-10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-10-50db.png",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "m74t-6-off-axis-normalized-5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-5-30db.png",
+     "type": "other",
+     "label": "older template",
+     "state": "missing",
+     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+    },
+    {
+     "file": "m74t-6_315mm_1v41_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_1v41_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_315mm_2v_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_2v_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_315mm_2v83_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_2v83_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_315mm_4v_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_4v_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_315mm_5v6_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_5v6_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_315mm_8v_hpf2-300_lpf4-10000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74t-6_315mm_8v_hpf2-300_lpf4-10000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "by hand",
+     "why": "a hand-captured set of this kind exists; it does not name the chart it came from"
+    },
+    {
+     "file": "m74t-6_chd_1v_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74t-6_chd_1v_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_chd_1v41_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74t-6_chd_1v41_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.41,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_chd_2v_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74t-6_chd_2v_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_chd_2v83_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74t-6_chd_2v83_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_315mm_125hz1v1063hz1vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz1v1063hz1vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_125hz1v411063hz1v41text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz1v411063hz1v41text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_125hz2v1063hz2vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz2v1063hz2vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_125hz2v831063hz2v83text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz2v831063hz2v83text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_125hz4v1063hz4vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_125hz4v1063hz4vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_500hz1v4.25khz1vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz1v4.25khz1vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_500hz1v414.25khz1v41text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz1v414.25khz1v41text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_500hz2v4.25khz2vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz2v4.25khz2vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_315mm_500hz2v834.25khz2v83text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74t-6_315mm_500hz2v834.25khz2v83text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74t-6_impedance_70_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74t-6_impedance_70_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74t-6_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "readable automatically, not read yet"
+    },
+    {
+     "file": "m74t-6_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/m74t-6_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "m74t-6_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/m74t-6_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "m74t-6_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/m74t-6_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/bleisma_m74t-6.pdf"
+   ],
+   "table_rows": 21,
+   "parameters": 0,
+   "datasheet": null,
+   "premium_or_login": true,
+   "summary": {
+    "published": 33,
+    "stored": 0,
+    "by_hand": 6,
+    "missing": 27,
+    "missing_by_type": {
+     "on-axis response": 6,
+     "older template": 3,
+     "current distortion": 4,
+     "intermodulation": 9,
+     "impedance": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "m74a-6": {
+   "name": "BlieSMa M74A-6",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6",
+   "charts": [
+    {
+     "file": "m74a-6_315mm_1v41_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_1v41_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/m74a-6_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "m74a-6_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "m74a-6_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "m74a-6_315mm_1v41_hpf2-300_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_1v41_hpf2-300_0.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_2v0_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_2v0_hpf2-300.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_2v83_hpf2-300_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_2v83_hpf2-300_0.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_4v_hpf2-300_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_4v_hpf2-300_0.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_5v6_hpf2-300_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_5v6_hpf2-300_0.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_8v_hpf2-300_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/m74a-6_315mm_8v_hpf2-300_0.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_1v41_chd_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_1v41_chd_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_2v0_chd_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_2v0_chd_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_2v83_chd_hpf2-300.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/m74a-6_2v83_chd_hpf2-300.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_315mm_500hz1v4.25khz1v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v4.25khz1v.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74a-6_315mm_500hz1v414.25khz1v41.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz1v414.25khz1v41.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74a-6_315mm_500hz2v4.25khz2vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v4.25khz2vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74a-6_315mm_500hz2v834.25khz2v83.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/m74a-6_315mm_500hz2v834.25khz2v83.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "m74a-6_impedance_50_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_50_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "m74a-6_impedance_10_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/m74a-6_impedance_10_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the automatic reading failed: axes could not be fitted"
+    },
+    {
+     "file": "m74a-6_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/m74a-6_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "m74a-6_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/m74a-6_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "m74a-6_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/m74a-6_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/datasheet-m74a.pdf"
+   ],
+   "table_rows": 21,
+   "parameters": 17,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/datasheet-m74a.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 27,
+    "stored": 16,
+    "by_hand": 0,
+    "missing": 11,
+    "missing_by_type": {
+     "off-axis": 3,
+     "intermodulation": 4,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "t25a-6": {
+   "name": "BlieSMa T25A-6",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25a-6",
+   "charts": [
+    {
+     "file": "t25a-6_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_11v2_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25a-6_315mm_11v2_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25a-6_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25a-6_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25a-6_315mm_2v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_2v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_2v83_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_4v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_5v6_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_8v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_8v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_315mm_11v2_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25a-6_315mm_11v2_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t25a-6_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_impedance_7_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t25a-6_impedance_7_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t25a-6_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/t25a-6_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "t25a-6_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/t25a-6_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "t25a-6_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/t25a-6_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/datasheet-t25a-6.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/datasheet-t25a-6.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 20,
+    "stored": 14,
+    "by_hand": 0,
+    "missing": 6,
+    "missing_by_type": {
+     "off-axis": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "t25t-6": {
+   "name": "BlieSMa T25T-6",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t25t-6",
+   "charts": [
+    {
+     "file": "t25t-6_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25t-6_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25t-6_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25t-6_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25t-6_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_11v2_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t25t-6_315mm_11v2_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25t-6_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25t-6_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t25t-6_315mm_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_2v83_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_4v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_5v6_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_8v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_8v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_315mm_11v2_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t25t-6_315mm_11v2_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_chd_2v83.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_2v83.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_chd_4v.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_4v.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_chd_5v6.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/t25t-6_chd_5v6.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_impedance_20_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t25t-6_impedance_20_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_impedance_7_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t25t-6_impedance_7_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t25t-6_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/t25t-6_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "t25t-6_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/t25t-6_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "t25t-6_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/t25t-6_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/datasheet_t25t-6.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/datasheet_t25t-6.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 21,
+    "stored": 15,
+    "by_hand": 0,
+    "missing": 6,
+    "missing_by_type": {
+     "off-axis": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "t34a-4": {
+   "name": "BlieSMa T34A-4",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34a-4",
+   "charts": [
+    {
+     "file": "t34a-4_315mm_1v41_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_1v41_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_11v2_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_11v2_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_1v41_0grad_nosmoothing.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34a-4_315mm_1v41_0grad_nosmoothing.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34a-4_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34a-4_offaxis_normalized_10-25db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-25db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34a-4_315mm_1v41hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_1v41hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_2vhd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_2vhd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_2v83hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_2v83hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_4vhd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_4vhd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_5v6hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_5v6hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_315mm_8vhd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34a-4_315mm_8vhd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_impedance_7_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t34a-4_impedance_7_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_impedance_20_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t34a-4_impedance_20_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t34a-4_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/t34a-4_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "t34a-4_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/t34a-4_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "t34a-4_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/t34a-4_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/datasheet_t34a-4.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/datasheet_t34a-4.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 21,
+    "stored": 15,
+    "by_hand": 0,
+    "missing": 6,
+    "missing_by_type": {
+     "off-axis": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "t34b-4": {
+   "name": "BlieSMa T34B-4",
+   "page": "https://hificompass.com/en/speakers/measurements/bliesma/bliesma-t34b-4",
+   "charts": [
+    {
+     "file": "t34b-4_315mm_1v41_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_1v41_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/t34b-4_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_offaxis_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_0.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34b-4_315mm_offaxis_normalized_10-50db_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-50db_0.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34b-4_315mm_offaxis_normalized_10-25db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-25db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "t34b-4_315mm_1v41hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_1v41hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_2vhd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_2vhd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_2v83hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_2v83hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_4vhd_hpf200hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_4vhd_hpf200hz.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_5v6hd_hpf200hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_5v6hd_hpf200hz.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_315mm_8vhd_hpf200hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/t34b-4_315mm_8vhd_hpf200hz.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_impedance_5_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t34b-4_impedance_5_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_impedance_20_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/t34b-4_impedance_20_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "t34b-4_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/t34b-4_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "t34b-4_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/t34b-4_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "t34b-4_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/t34b-4_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/t34b-4.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/t34b-4.pdf",
+   "premium_or_login": true,
+   "summary": {
+    "published": 20,
+    "stored": 14,
+    "by_hand": 0,
+    "missing": 6,
+    "missing_by_type": {
+     "off-axis": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-mr16tx-8": {
+   "name": "SB Acoustics Satori MR16TX-8",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-mr16tx-8",
+   "charts": [
+    {
+     "file": "mr16tx-8_315mm_2v83_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_2v83_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_4v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_4v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_5v6_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_5v6_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_8v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_8v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_11v2_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_11v2_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_16v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mr16tx-8_315mm_16v_0deg.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 16.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mr16tx-8_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mr16tx-8_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mr16tx-8_5mm_1v_0deg.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/mr16tx-8_5mm_1v_0deg.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 1.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mr16tx-8_315mm_2v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_11v2_hpf2-80.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_11v2_hpf2-80.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_315mm_16v_hpf2-80.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mr16tx-8_315mm_16v_hpf2-80.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 16.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_chd_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_2v83_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_chd_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_4v_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_chd_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mr16tx-8_chd_5v6_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz1.5mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz2mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz3mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_30hz255hz_xmax30hz4mm_4to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_30hz255hz_xmax30hz4mm_4to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_125hz2v1063hz2vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v1063hz2vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_125hz2v831063hz2v83text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz2v831063hz2v83text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_125hz4v1063hz4vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz4v1063hz4vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_125hz5v61063hz5v6text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz5v61063hz5v6text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_125hz8v1063hz8vtext.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mr16tx-8_125hz8v1063hz8vtext.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mr16tx-8_impedance_150_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_150_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "mr16tx-8_impedance_10_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/mr16tx-8_impedance_10_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the automatic reading failed: axes could not be fitted"
+    },
+    {
+     "file": "mr16tx-8_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/mr16tx-8_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "mr16tx-8_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/mr16tx-8_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "mr16tx-8_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/mr16tx-8_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/612in-satori-mr16tx-8.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 21,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/612in-satori-mr16tx-8.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 35,
+    "stored": 17,
+    "by_hand": 0,
+    "missing": 18,
+    "missing_by_type": {
+     "off-axis": 3,
+     "near field": 1,
+     "intermodulation": 10,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-mw19tx-4": {
+   "name": "SB Acoustics Satori MW19TX-4",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-mw19tx-4",
+   "charts": [
+    {
+     "file": "mw19tx-4_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_11v2_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/mw19tx-4_315mm_11v2_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mw19tx-4_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mw19tx-4_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/mw19tx-4_20mm_2v83_0grad.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_315mm_2v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_2v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_2v83_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_2v83_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_4v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_4v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_5v6_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_5v6_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_8v_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_8v_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_315mm_11v2_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/mw19tx-4_315mm_11v2_hpf2-50.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_2v83_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_4v_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_hd.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_5v6_hd.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_8v_hpf2-20.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc520/mw19tx-4_20mm_8v_hpf2-20.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_2v_chd_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_2v_chd_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_2v83_chd_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_2v83_chd_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_4v_chd_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_4v_chd_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_5v6_chd_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_5v6_chd_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_8v_chd_hpf2-50.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/mw19tx-4_8v_chd_hpf2-50.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_2v83_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_2v83_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 2.83,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_4v_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_4v_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 4.0,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_20hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_20hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_30hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_30hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_40hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_40hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_50hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_50hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_75hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_75hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_100hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_100hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_150hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_150hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_220hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_220hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_20mm_5v6_300hz.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/spectr/mw19tx-4_20mm_5v6_300hz.png",
+     "type": "near-field",
+     "label": "near field",
+     "volts": 5.6,
+     "state": "missing",
+     "why": "a near-field chart: not read automatically"
+    },
+    {
+     "file": "mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz3mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mw19tx-4_30hz255hz_xmax30hz6mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz6mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mw19tx-4_30hz255hz_xmax30hz9mm_4to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/mw19tx-4_30hz255hz_xmax30hz9mm_4to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "mw19tx-4_impedance_70_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/mw19tx-4_impedance_70_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_impedance_7_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/mw19tx-4_impedance_7_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "mw19tx-4_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/mw19tx-4_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "mw19tx-4_waterfall_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/mw19tx-4_waterfall_0.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "mw19tx-4_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/mw19tx-4_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/7.5in-satori-mw19tx-4.pdf"
+   ],
+   "table_rows": 24,
+   "parameters": 21,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/7.5in-satori-mw19tx-4.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 70,
+    "stored": 24,
+    "by_hand": 0,
+    "missing": 46,
+    "missing_by_type": {
+     "off-axis": 3,
+     "near field": 37,
+     "intermodulation": 3,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-tw29bnwg-4": {
+   "name": "SB Acoustics Satori TW29BNWG-4",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-tw29bnwg-4",
+   "charts": [
+    {
+     "file": "tw29bnwg-4_315mm_1v41_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_1v41_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_11v2_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29bnwg-4_315mm_11v2_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29bnwg-4_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29bnwg-4_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_1v41_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_1v41_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_2v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_2v83_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_4v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_5v6_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_8v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_8v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_11v2_hpf2-1000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29bnwg-4_315mm_11v2_hpf2-1000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 11.2,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_1v41_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_1v41_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_2v_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_2v_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_2v83_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_2v83_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_4v_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_4v_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_5v6_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29bnwg-4_5v6_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_1khz10khz-1to1_0.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_2khz10khz-1to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_800hz10khz-1to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29bnwg-4_315mm_2v83rms_19khz20khz_1to1text.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29bnwg-4_impedance_10_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_10_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "missing",
+     "why": "the automatic reading failed: axes could not be fitted"
+    },
+    {
+     "file": "tw29bnwg-4_impedance_5_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw29bnwg-4_impedance_5_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "tw29bnwg-4_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/tw29bnwg-4_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw29bnwg-4_waterfall_0.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/tw29bnwg-4_waterfall_0.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw29bnwg-4_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/tw29bnwg-4_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/satori-tw29bnwg-4.pdf"
+   ],
+   "table_rows": 22,
+   "parameters": 18,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/satori-tw29bnwg-4.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 31,
+    "stored": 20,
+    "by_hand": 0,
+    "missing": 11,
+    "missing_by_type": {
+     "off-axis": 3,
+     "intermodulation": 4,
+     "impedance": 1,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  },
+  "sb-satori-tw29txn-b": {
+   "name": "SB Acoustics Satori TW29TXN-B",
+   "page": "https://hificompass.com/ru/speakers/measurements/satori/satori-tw29txn-b",
+   "charts": [
+    {
+     "file": "tw29txn-4_315mm_1v41_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_1v41_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_2v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_2v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_2v83_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_2v83_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_4v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_4v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_5v6_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_5v6_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_8v_0grad.png",
+     "url": "https://hificompass.com/sites/default/files/afc/tw29txn-4_315mm_8v_0grad.png",
+     "type": "response",
+     "label": "on-axis response",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_offaxis.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29txn-4_offaxis_normalized_10-50db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_10-50db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29txn-4_offaxis_normalized_5-30db.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_5-30db.png",
+     "type": "off-axis",
+     "label": "off-axis",
+     "state": "missing",
+     "why": "off-axis responses (several angles in one image): not read automatically"
+    },
+    {
+     "file": "tw29txn-4_315mm_1v41_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_1v41_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_2v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_2v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_2v83_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_2v83_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_4v_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_4v_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_5v6_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_5v6_hpf2-800.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_315mm_8v_hpf2-1000.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/afc315/tw29txn-4_315mm_8v_hpf2-1000.png",
+     "type": "harmonics",
+     "label": "harmonics",
+     "volts": 8.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_1v41_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_1v41_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 1.41,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_2v_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_2v_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_2v83_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_2v83_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 2.83,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_4v_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_4v_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 4.0,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_5v6_chd_hpf2-800.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/voice_coil_curr/tw29txn-b_5v6_chd_hpf2-800.png",
+     "type": "current",
+     "label": "current distortion",
+     "volts": 5.6,
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-b_315mm_2v83rms_1khz10khz-1to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_1khz10khz-1to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29txn-b_315mm_2v83rms_19khz20khz-1to1.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Intermodulation_distortion/tw29txn-b_315mm_2v83rms_19khz20khz-1to1.png",
+     "type": "intermodulation",
+     "label": "intermodulation",
+     "state": "missing",
+     "why": "an intermodulation spectrum: not read automatically yet"
+    },
+    {
+     "file": "tw29txn-4_impedance_15_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw29txn-4_impedance_15_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_impedance_5_ohm.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/module_impedance/tw29txn-4_impedance_5_ohm.png",
+     "type": "impedance",
+     "label": "impedance",
+     "state": "stored"
+    },
+    {
+     "file": "tw29txn-4_step_response.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/stepresp/tw29txn-4_step_response.png",
+     "type": "step",
+     "label": "step response",
+     "state": "missing",
+     "why": "a step response: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw29txn-b_waterfall.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/Waterfall/tw29txn-b_waterfall.png",
+     "type": "waterfall",
+     "label": "waterfall",
+     "state": "missing",
+     "why": "a waterfall: not a frequency curve the database stores"
+    },
+    {
+     "file": "tw29txn-4_etc.png",
+     "url": "https://hificompass.com/sites/default/files/zamer/etc/tw29txn-4_etc.png",
+     "type": "etc",
+     "label": "energy-time",
+     "state": "missing",
+     "why": "an energy-time curve: not a frequency curve the database stores"
+    }
+   ],
+   "data_files": [
+    "https://hificompass.com/sites/default/files/documents/tw29txn4.pdf"
+   ],
+   "table_rows": 19,
+   "parameters": 15,
+   "datasheet": "https://hificompass.com/sites/default/files/documents/tw29txn4.pdf",
+   "premium_or_login": null,
+   "summary": {
+    "published": 27,
+    "stored": 19,
+    "by_hand": 0,
+    "missing": 8,
+    "missing_by_type": {
+     "off-axis": 3,
+     "intermodulation": 2,
+     "step response": 1,
+     "waterfall": 1,
+     "energy-time": 1
+    }
+   }
+  }
+ }
+}

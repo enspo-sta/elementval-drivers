@@ -75,6 +75,8 @@ h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px}
 .togrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .tog{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:7px 12px;min-height:34px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .tog.small{font-size:11px;padding:6px 10px;min-height:32px}
+.numlbl{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+.numlbl .num{width:84px}
 .togrow .rowlbl{font-size:11px;color:var(--dim);font-family:"IBM Plex Mono",monospace;min-width:44px}
 .togrow.lvrow{margin-bottom:6px}
 .tog.on{background:#2a2410;border-color:var(--amber);color:var(--amber2)}
@@ -144,3 +146,11 @@ ul.how li{margin-bottom:4px}
 .price .ctab td,.price .ctab th{white-space:normal}
 .price .ctab td:nth-child(2),.price .ctab td:nth-child(3){white-space:nowrap}
 @media (max-width:480px){ .export .sel.mini{flex-basis:100%} }
+.cmplbox{background:var(--panel2);border-radius:10px;padding:10px 12px;margin:0 0 14px}
+.cmplbox>summary{cursor:pointer;min-height:32px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px}
+.cmplbox .lbl2{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.cmplbox .ok{color:var(--green)}
+.cmplbox p{font-size:12.5px;margin:8px 0 0;overflow-wrap:anywhere}
+.cmplbox a{color:var(--muted)}
+.price .ctab td,.cmpl td,.cmpl th{white-space:normal}
+.ptitle.sub{font-size:13px;margin-top:18px}
