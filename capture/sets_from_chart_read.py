@@ -126,6 +126,15 @@ def build(read, db):
             if ch.get("error") or not ch.get("curves"):
                 waiting.append((did, ch["file"], ch.get("error") or "no curve read")); continue
             ctype, name = ch["type"], ch["file"]
+            typed_note = None
+            named = [cv for cv in ch["curves"] if cv.get("name") in ("H2", "H3", "H4", "H5")]
+            if ctype == "near-response" and len(named) >= 2 and max(p["y"] for cv in named for p in cv["points"]) < -10:
+                # a near-field chart whose name does not say what it holds (ptt10.0x04-nab-02_20mm_4v.png in the folder
+                # afc520/): several curves in the harmonic colours, all well below the fundamental, are harmonics
+                ctype = "harmonics"
+                typed_note = ("typed from its content, as the file name does not say: " + ", ".join(cv["name"] for cv in named) +
+                              " in the harmonic colours of this driver's other charts, all below -10 dB; the same folder (afc520/) holds the "
+                              "other drivers' near-field harmonic charts, named …_20mm_2v83_hd.png")
             kind = KIND.get(ctype)
             if not kind:
                 continue
@@ -143,6 +152,10 @@ def build(read, db):
             if cond.get("smoothing") == "none":
                 extra.append("no smoothing")
             note = [f"read automatically from {ch['url']} on GitHub (capture/chart_read.py): axes from the chart's grid and labels, curve by colour, 1/24 octave"]
+            if typed_note:
+                note.append(typed_note)
+            if ch["type"] == "near-response" and ctype == "near-response":
+                note.append("a near-field response on the chart's own dB scale (not sound pressure at 1 m), kept apart from the 315 mm responses")
             scale = re.search(r"_(\d+)_ohm", name)
             for c in ch.get("checks", []):
                 if "peak" in c.get("check", "") and scale and c.get("read_ohm", 0) >= 0.97 * float(scale.group(1)):

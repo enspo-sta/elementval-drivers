@@ -872,8 +872,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_315mm_2v83_hpf2-50.png",
@@ -1129,12 +1128,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 42,
-    "stored": 35,
+    "stored": 36,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 6,
     "missing_by_type": {
      "off-axis": 3,
-     "near-field response": 1,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -1231,8 +1229,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_315mm_2v83_hpf2-50.png",
@@ -1296,8 +1293,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_4v.png",
@@ -1305,8 +1301,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 4.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_5v6.png",
@@ -1314,8 +1309,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 5.6,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_8v.png",
@@ -1323,8 +1317,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 8.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_11v2.png",
@@ -1332,8 +1325,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 11.2,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_16v_hpf2-20.png",
@@ -1781,12 +1773,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 79,
-    "stored": 67,
+    "stored": 73,
     "by_hand": 0,
-    "missing": 12,
+    "missing": 6,
     "missing_by_type": {
      "off-axis": 3,
-     "near-field response": 6,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2052,8 +2043,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_0.3m_2v83_hpf2-50.png",
@@ -2395,12 +2385,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 52,
-    "stored": 44,
+    "stored": 45,
     "by_hand": 0,
-    "missing": 8,
+    "missing": 7,
     "missing_by_type": {
      "off-axis": 3,
-     "near-field response": 1,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -3879,8 +3868,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 1.0,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_315mm_2v_hpf2-50.png",
@@ -4081,12 +4069,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 35,
-    "stored": 27,
+    "stored": 28,
     "by_hand": 0,
-    "missing": 8,
+    "missing": 7,
     "missing_by_type": {
      "off-axis": 3,
-     "near-field response": 1,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4176,8 +4163,7 @@
      "type": "near-response",
      "label": "near-field response",
      "volts": 2.83,
-     "state": "missing",
-     "why": "readable automatically, not read yet"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_315mm_2v_hpf2-50.png",
@@ -4664,12 +4650,11 @@
    "premium_or_login": null,
    "summary": {
     "published": 70,
-    "stored": 63,
+    "stored": 64,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 6,
     "missing_by_type": {
      "off-axis": 3,
-     "near-field response": 1,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1

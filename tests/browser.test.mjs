@@ -274,10 +274,12 @@ test("Driver page: a reading drawn over the source chart (a stand-in image here)
     const lv = await page.evaluateHandle(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /Harmonic distortion vs frequency/.test(e.textContent)); let n = t; while (n && !(n.classList && n.classList.contains("lvrow"))) n = n.nextElementSibling; return n; });
     await (await lv.$$("button"))[2].click();
     await page.waitForSelector("[data-ovl]");
-    assert.match(await page.textContent(".ovlrow"), /read points on the drawn curve: H2 \d+ %/);
-    await page.click("[data-ovl]");
+    // the harmonics card's own check row (other cards on the page have theirs)
+    const row = page.locator(".ovlrow", { hasText: /read points on the drawn curve: H2 \d+ %/ }).first();
+    assert.equal(await row.count(), 1);
+    await row.locator("[data-ovl]").click();
     await page.waitForTimeout(600);
-    const r = await page.evaluate(() => { const box = document.querySelector(".ovlbox"), c = box.querySelector("canvas"), d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data;
+    const r = await page.evaluate(() => { const box = [...document.querySelectorAll(".ovlbox")].find(b => b.previousElementSibling && /H2 \d+ %/.test(b.previousElementSibling.textContent)) || document.querySelector(".ovlbox"), c = box.querySelector("canvas"), d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data;
       let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) n++; return { failed: box.classList.contains("failed"), painted: n, hint: box.nextElementSibling.textContent }; });
     if (serve) assert.ok(!r.failed && r.painted > 500, `the reading is drawn on the chart (${r.painted} pixels)`);
     else assert.ok(r.failed && /could not be loaded/.test(r.hint), "a blocked image says so and keeps the link");

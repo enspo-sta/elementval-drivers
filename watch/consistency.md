@@ -4,7 +4,7 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 "differs" means the stored values disagree by more than the tolerance and need a look at the source;
 "check" means the value could not be tested (text where a number belongs, or a curve that does not cover the band).
 
-701 ok, 60 differ, 12 to check.
+789 ok, 62 differ, 12 to check.
 
 | Result | Check | Driver | Detail |
 |---|---|---|---|
@@ -23,6 +23,8 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 | differs | levels | ptt65x04naa08a | H2: 100.7 dB curve minus 85.7 dB curve = +11.0 dB on average over 216 shared frequencies (typical slope expects +15.0 dB) |
 | differs | levels | ptt65x04naa08a | H3: 100.7 dB curve minus 85.7 dB curve = +6.0 dB on average over 175 shared frequencies (typical slope expects +10.5 dB) |
 | differs | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 86.5 dB curve = +13.7 dB on average over 240 shared frequencies (typical slope expects +18.0 dB) |
+| differs | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 86.5 dB curve = +13.6 dB on average over 213 shared frequencies (typical slope expects +18.0 dB) |
+| differs | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 89.5 dB curve = +10.9 dB on average over 215 shared frequencies (typical slope expects +15.0 dB) |
 | differs | levels | sb-satori-mr16tx-8 | H3: 105.2 dB curve minus 87.2 dB curve = +17.1 dB on average over 145 shared frequencies (typical slope expects +12.6 dB) |
 | differs | levels | sb-satori-mr16tx-8 | H3: 105.2 dB curve minus 90.2 dB curve = +15.0 dB on average over 148 shared frequencies (typical slope expects +10.5 dB) |
 | differs | levels | sb-satori-mr16tx-8 | H3: 105.2 dB curve minus 93.2 dB curve = +12.5 dB on average over 150 shared frequencies (typical slope expects +8.4 dB) |
@@ -287,6 +289,14 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 86.5 dB curve = +11.6 dB on average over 241 shared frequencies (typical slope expects +15.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 86.5 dB curve = +8.0 dB on average over 183 shared frequencies (typical slope expects +10.5 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 86.5 dB curve = +10.5 dB on average over 182 shared frequencies (typical slope expects +12.6 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 89.5 dB curve minus 86.5 dB curve = +3.7 dB on average over 215 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 89.5 dB curve minus 86.5 dB curve = +0.5 dB on average over 169 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 86.5 dB curve = +6.4 dB on average over 215 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 86.5 dB curve = +2.3 dB on average over 167 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 86.5 dB curve = +9.0 dB on average over 215 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 86.5 dB curve = +4.0 dB on average over 171 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 86.5 dB curve = +11.7 dB on average over 215 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 86.5 dB curve = +5.5 dB on average over 168 shared frequencies (typical slope expects +8.4 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 86.5 dB curve = +14.6 dB on average over 216 shared frequencies (typical slope expects +15.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 86.5 dB curve = +7.0 dB on average over 163 shared frequencies (typical slope expects +10.5 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 89.5 dB curve = +2.4 dB on average over 242 shared frequencies (typical slope expects +3.0 dB) |
@@ -299,6 +309,14 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 89.5 dB curve = +7.0 dB on average over 189 shared frequencies (typical slope expects +8.4 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 89.5 dB curve = +11.9 dB on average over 241 shared frequencies (typical slope expects +15.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 89.5 dB curve = +9.5 dB on average over 188 shared frequencies (typical slope expects +10.5 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 89.5 dB curve minus 86.5 dB curve = +1.1 dB on average over 214 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 89.5 dB curve minus 86.5 dB curve = +2.0 dB on average over 168 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 89.5 dB curve = +4.4 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 89.5 dB curve = +1.3 dB on average over 172 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 89.5 dB curve = +7.0 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 89.5 dB curve = +3.0 dB on average over 176 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 89.5 dB curve = +9.7 dB on average over 216 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 89.5 dB curve = +4.6 dB on average over 173 shared frequencies (typical slope expects +6.3 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 89.5 dB curve = +12.5 dB on average over 217 shared frequencies (typical slope expects +12.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 89.5 dB curve = +6.1 dB on average over 168 shared frequencies (typical slope expects +8.4 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 92.5 dB curve = +2.7 dB on average over 242 shared frequencies (typical slope expects +3.0 dB) |
@@ -309,6 +327,14 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 92.5 dB curve = +5.8 dB on average over 199 shared frequencies (typical slope expects +6.3 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 92.5 dB curve = +9.5 dB on average over 241 shared frequencies (typical slope expects +12.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 92.5 dB curve = +8.4 dB on average over 198 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 86.5 dB curve = +3.8 dB on average over 214 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 86.5 dB curve = +3.3 dB on average over 173 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 89.5 dB curve = +1.1 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 89.5 dB curve = +1.9 dB on average over 179 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 92.5 dB curve = +4.2 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 92.5 dB curve = +1.8 dB on average over 185 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 92.5 dB curve = +6.9 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 92.5 dB curve = +3.6 dB on average over 183 shared frequencies (typical slope expects +4.2 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 92.5 dB curve = +9.8 dB on average over 217 shared frequencies (typical slope expects +9.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 92.5 dB curve = +5.3 dB on average over 177 shared frequencies (typical slope expects +6.3 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 95.5 dB curve = +2.0 dB on average over 242 shared frequencies (typical slope expects +3.0 dB) |
@@ -317,18 +343,82 @@ Written by `watch/check_consistency.py`. Values that should agree with each othe
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 95.5 dB curve = +3.9 dB on average over 202 shared frequencies (typical slope expects +4.2 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 95.5 dB curve = +6.8 dB on average over 241 shared frequencies (typical slope expects +9.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 95.5 dB curve = +6.5 dB on average over 200 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 86.5 dB curve = +6.8 dB on average over 214 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 86.5 dB curve = +5.3 dB on average over 176 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 89.5 dB curve = +4.0 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 89.5 dB curve = +4.0 dB on average over 182 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 92.5 dB curve = +1.3 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 92.5 dB curve = +2.0 dB on average over 180 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 95.5 dB curve = +4.0 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 95.5 dB curve = +1.6 dB on average over 186 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 95.5 dB curve = +6.9 dB on average over 217 shared frequencies (typical slope expects +6.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 95.5 dB curve = +3.3 dB on average over 180 shared frequencies (typical slope expects +4.2 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 98.5 dB curve = +2.8 dB on average over 242 shared frequencies (typical slope expects +3.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 98.5 dB curve = +1.8 dB on average over 206 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 98.5 dB curve = +4.8 dB on average over 241 shared frequencies (typical slope expects +6.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 98.5 dB curve = +4.4 dB on average over 204 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 86.5 dB curve = +8.8 dB on average over 214 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 86.5 dB curve = +7.4 dB on average over 178 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 89.5 dB curve = +6.0 dB on average over 216 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 89.5 dB curve = +6.0 dB on average over 184 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 92.5 dB curve = +3.3 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 92.5 dB curve = +4.0 dB on average over 182 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 95.5 dB curve = +0.7 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 95.5 dB curve = +2.2 dB on average over 190 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 98.5 dB curve = +4.9 dB on average over 217 shared frequencies (typical slope expects +3.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 98.5 dB curve = +1.5 dB on average over 182 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 101.5 dB curve = +2.0 dB on average over 241 shared frequencies (typical slope expects +3.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 101.5 dB curve = +2.5 dB on average over 207 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 86.5 dB curve = +11.6 dB on average over 214 shared frequencies (typical slope expects +15.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 86.5 dB curve = +9.2 dB on average over 178 shared frequencies (typical slope expects +10.5 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 89.5 dB curve = +8.9 dB on average over 216 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 89.5 dB curve = +7.8 dB on average over 184 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 92.5 dB curve = +6.1 dB on average over 216 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 92.5 dB curve = +5.9 dB on average over 183 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 95.5 dB curve = +3.5 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 95.5 dB curve = +4.1 dB on average over 191 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 98.5 dB curve = +0.8 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 98.5 dB curve = +2.2 dB on average over 188 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 86.5 dB curve = +11.7 dB on average over 179 shared frequencies (typical slope expects +12.6 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 89.5 dB curve = +10.3 dB on average over 185 shared frequencies (typical slope expects +10.5 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 92.5 dB curve = +8.2 dB on average over 215 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 92.5 dB curve = +8.3 dB on average over 184 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 95.5 dB curve = +5.6 dB on average over 215 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 95.5 dB curve = +6.6 dB on average over 192 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 98.5 dB curve = +2.9 dB on average over 215 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 98.5 dB curve = +4.7 dB on average over 189 shared frequencies (typical slope expects +4.2 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H2: 104.5 dB curve minus 101.5 dB curve = +0.0 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
 | ok | levels | purifi-ptt10-0x04-nab-02 | H3: 104.5 dB curve minus 101.5 dB curve = +2.9 dB on average over 184 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 89.5 dB curve minus 86.5 dB curve = +2.8 dB on average over 213 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 89.5 dB curve minus 86.5 dB curve = +1.6 dB on average over 179 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 86.5 dB curve = +5.5 dB on average over 213 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 86.5 dB curve = +3.4 dB on average over 176 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 86.5 dB curve = +8.1 dB on average over 213 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 86.5 dB curve = +5.1 dB on average over 181 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 86.5 dB curve = +10.8 dB on average over 213 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 86.5 dB curve = +7.1 dB on average over 177 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 86.5 dB curve = +13.8 dB on average over 214 shared frequencies (typical slope expects +15.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 86.5 dB curve = +9.1 dB on average over 172 shared frequencies (typical slope expects +10.5 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 92.5 dB curve minus 89.5 dB curve = +2.7 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 92.5 dB curve minus 89.5 dB curve = +1.8 dB on average over 185 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 89.5 dB curve = +5.3 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 89.5 dB curve = +3.6 dB on average over 187 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 89.5 dB curve = +8.1 dB on average over 216 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 89.5 dB curve = +5.6 dB on average over 184 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 89.5 dB curve = +11.0 dB on average over 216 shared frequencies (typical slope expects +12.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 89.5 dB curve = +7.6 dB on average over 179 shared frequencies (typical slope expects +8.4 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 95.5 dB curve minus 92.5 dB curve = +2.6 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 95.5 dB curve minus 92.5 dB curve = +1.9 dB on average over 187 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 92.5 dB curve = +5.3 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 92.5 dB curve = +3.8 dB on average over 183 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 92.5 dB curve = +8.3 dB on average over 216 shared frequencies (typical slope expects +9.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 92.5 dB curve = +5.9 dB on average over 178 shared frequencies (typical slope expects +6.3 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 98.5 dB curve minus 95.5 dB curve = +2.7 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 98.5 dB curve minus 95.5 dB curve = +2.1 dB on average over 191 shared frequencies (typical slope expects +2.1 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 95.5 dB curve = +5.7 dB on average over 216 shared frequencies (typical slope expects +6.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 95.5 dB curve = +4.2 dB on average over 186 shared frequencies (typical slope expects +4.2 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H2: 101.5 dB curve minus 98.5 dB curve = +3.0 dB on average over 216 shared frequencies (typical slope expects +3.0 dB) |
+| ok | levels | purifi-ptt10-0x04-nab-02 | H3: 101.5 dB curve minus 98.5 dB curve = +2.2 dB on average over 189 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt8-0x04-nab-02 | H2: 93.2 dB curve minus 90.2 dB curve = +3.4 dB on average over 242 shared frequencies (typical slope expects +3.0 dB) |
 | ok | levels | purifi-ptt8-0x04-nab-02 | H3: 93.2 dB curve minus 90.2 dB curve = +1.5 dB on average over 187 shared frequencies (typical slope expects +2.1 dB) |
 | ok | levels | purifi-ptt8-0x04-nab-02 | H2: 96.2 dB curve minus 90.2 dB curve = +6.2 dB on average over 242 shared frequencies (typical slope expects +6.0 dB) |
