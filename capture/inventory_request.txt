@@ -1,4 +1,5 @@
 BlieSMa M74A
+BlieSMa M74T
 BlieSMa T25A
 BlieSMa T25T
 BlieSMa T34A
@@ -7,3 +8,14 @@ SB Acoustics Satori MR16TX
 SB Acoustics Satori MW19TX
 SB Acoustics Satori TW29BNWG
 SB Acoustics Satori TW29TX
+SB Acoustics Satori WO24P
+SB Acoustics SB34NRXL75
+SB Acoustics SB17NBAC35
+SB Acoustics SB17CAC35
+Purifi PTT10.0X04
+Purifi PTT8.0X04
+Purifi PTT6.5X04
+Purifi PTT6.5M08
+Purifi PTT6.5W04
+Purifi PTT5.25X04
+Purifi PTT1.3T04
