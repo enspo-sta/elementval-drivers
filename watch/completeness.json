@@ -14,12 +14,12 @@
     {
      "kind": "frequency-response",
      "what": "frequency response figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",
@@ -62,12 +62,12 @@
     {
      "kind": "frequency-response",
      "what": "frequency response figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",
@@ -110,12 +110,12 @@
     {
      "kind": "frequency-response",
      "what": "frequency response figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",
@@ -163,7 +163,7 @@
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",
@@ -211,7 +211,7 @@
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",
@@ -474,7 +474,7 @@
     {
      "kind": "impedance",
      "what": "impedance figure",
-     "stored": false
+     "stored": true
     },
     {
      "kind": "hd-frequency",

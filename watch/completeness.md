@@ -208,12 +208,12 @@ Written by `capture/completeness.py` on 2026-09-26 from the HiFiCompass inventor
 
 | Driver | frequency response figure | impedance figure | harmonic distortion vs frequency at 94 dB | harmonic distortion vs level (level sweeps) | current distortion | intermodulation spectra (both tone pairs) |
 |---|---|---|---|---|---|---|
-| Purifi PTT6.5M08-NAA-08 | **missing** | **missing** | stored | **missing** | stored | stored |
-| Purifi PTT8.0X04-NAB-01 | **missing** | **missing** | stored | stored | **missing** | stored |
-| Purifi PTT6.5X04-NAA-08 | **missing** | **missing** | stored | stored | **missing** | stored |
-| Purifi PTT5.25X04-NAA-05 | **missing** | **missing** | stored | stored | **missing** | stored |
-| Purifi PTT1.3T04-HAG-10 | **missing** | **missing** | stored | stored | **missing** | **missing** |
-| Purifi PTT1.3T04-HAG-01 | **missing** | **missing** | stored | stored | **missing** | **missing** |
+| Purifi PTT6.5M08-NAA-08 | stored | stored | stored | **missing** | stored | stored |
+| Purifi PTT8.0X04-NAB-01 | stored | stored | stored | stored | **missing** | stored |
+| Purifi PTT6.5X04-NAA-08 | stored | stored | stored | stored | **missing** | stored |
+| Purifi PTT5.25X04-NAA-05 | **missing** | stored | stored | stored | **missing** | stored |
+| Purifi PTT1.3T04-HAG-10 | **missing** | stored | stored | stored | **missing** | **missing** |
+| Purifi PTT1.3T04-HAG-01 | **missing** | stored | stored | stored | **missing** | **missing** |
 
 Records without a HiFiCompass measurement page in the inventory: Purifi PTT6.5M08-NAA-08, Purifi PTT8.0X04-NAB-01, Purifi PTT6.5X04-NAA-08, Purifi PTT5.25X04-NAA-05, Purifi PTT1.3T04-HAG-10, SB Acoustics SB34NRXL75-8 ×2 (coherent pair), SB Acoustics SB17CAC35-4 (proxy), Purifi PTT6.5W04 (paper, proxy).
 (Either HiFiCompass has not measured that exact variant, or its page is a review without charts, or the record is a proxy or a pair made from another record.)

@@ -423,3 +423,30 @@ test("Off axis: every angle on the driver page, one angle across drivers in Comp
   assert.deepEqual(errors, []);
   await close();
 });
+
+test("Off axis from Purifi's measured files: 0° to 85° on the driver page, in Compare, and first in Simulate when Purifi is the source", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/ptt13t04hag10");
+  const t0 = Date.now();
+  await page.waitForSelector(".setttl");
+  const card = page.locator(".setttl", { hasText: /Off-axis response \(Purifi's measured files\)/ });
+  assert.equal(await card.count(), 1);
+  const legend = await page.evaluate(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /Purifi's measured files/.test(e.textContent));
+    let n = t; while (n && !(n.classList && n.classList.contains("legend"))) n = n.nextElementSibling; return n ? n.textContent : ""; });
+  for (const a of ["0°", "5°", "45°", "85°"]) assert.ok(legend.includes(a), `legend has ${a}: ${legend}`);
+  await page.goto(base + "#compare?src=Manufacturer%20datasheet&g=Manufacturer%20datasheet%3A%3Aoff-axis%7C1000&q=30%C2%B0");
+  await page.waitForSelector("#cchart");
+  assert.match(await page.locator(".ptitle").first().textContent(), /Off-axis response .* 1000 mm · Manufacturer datasheet/);
+  const on = await page.$$eval("[data-q].on", a => a.map(x => x.textContent.trim()));
+  assert.ok(on.includes("30°"), `30° chosen: ${on}`);
+  assert.equal((await page.locator("[data-q]").allTextContents()).filter(s => /°$/.test(s.trim())).length, 18);
+  const body = await page.locator("body").textContent();
+  assert.match(body, /PTT1\.3T04-HAG-10/);
+  assert.match(body, /PTT5\.25X04-NAA-05/);
+  assert.ok(Date.now() - t0 < 20000, "the large Purifi sets draw within 20 s");
+  await page.goto(base + "#simulate?src=Manufacturer%20datasheet&a=30");
+  await page.waitForSelector("#schart");
+  assert.match(await page.locator(".ptitle").first().textContent(), /30° off axis/);
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

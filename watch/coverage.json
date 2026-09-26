@@ -1,5 +1,5 @@
 {
- "date": "2026-09-25",
+ "date": "2026-09-26",
  "scan_state": false,
  "in_database": [
   {
@@ -8,7 +8,7 @@
    "role": "midrange",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 4
+    "Manufacturer datasheet": 6
    },
    "derived_sets": 0,
    "also_measured_at": {},
@@ -25,7 +25,7 @@
    "role": "woofer / midbass",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 4
+    "Manufacturer datasheet": 6
    },
    "derived_sets": 1,
    "also_measured_at": {},
@@ -41,7 +41,7 @@
    "role": "midbass / mid",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 4
+    "Manufacturer datasheet": 6
    },
    "derived_sets": 1,
    "also_measured_at": {},
@@ -57,7 +57,7 @@
    "role": "midrange",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 4,
+    "Manufacturer datasheet": 6,
     "HiFiCompass": 2
    },
    "derived_sets": 1,
@@ -74,7 +74,7 @@
    "role": "tweeter (waveguide)",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 2
+    "Manufacturer datasheet": 4
    },
    "derived_sets": 0,
    "also_measured_at": {},
@@ -90,12 +90,13 @@
    "role": "tweeter (waveguide)",
    "file": "drivers.json",
    "captured": {
-    "Manufacturer datasheet": 2
+    "Manufacturer datasheet": 4,
+    "HiFiCompass": 23
    },
    "derived_sets": 0,
    "also_measured_at": {},
    "tracked": true,
-   "independent_sources": 1,
+   "independent_sources": 2,
    "below_capture_minimum": [
     "HD vs frequency (ratio) (20/decade)"
    ]
@@ -138,7 +139,7 @@
    "role": "woofer / midbass",
    "file": "drivers.json",
    "captured": {
-    "HiFiCompass": 4
+    "HiFiCompass": 43
    },
    "derived_sets": 1,
    "also_measured_at": {},
@@ -154,14 +155,15 @@
    "role": "woofer",
    "file": "drivers.json",
    "captured": {
-    "HiFiCompass": 3
+    "HiFiCompass": 79
    },
    "derived_sets": 1,
    "also_measured_at": {},
    "tracked": true,
    "independent_sources": 1,
    "below_capture_minimum": [
-    "HD (orders) vs frequency (5/decade)"
+    "HD (orders) vs frequency (5/decade)",
+    "Voice-coil current HD vs frequency @ 2.83 V (29/decade)"
    ]
   },
   {
@@ -230,13 +232,16 @@
    "role": "midbass / mid",
    "file": "drivers.json",
    "captured": {
-    "HiFiCompass": 2
+    "HiFiCompass": 50
    },
    "derived_sets": 0,
    "also_measured_at": {},
    "tracked": true,
    "independent_sources": 1,
-   "below_capture_minimum": []
+   "below_capture_minimum": [
+    "Voice-coil current HD vs frequency @ 5.6 V (37/decade)",
+    "Voice-coil current HD vs frequency @ 8 V (33/decade)"
+   ]
   },
   {
    "id": "sb17nbac35-8",
@@ -258,7 +263,7 @@
    "role": "midrange",
    "file": "drivers.json",
    "captured": {
-    "HiFiCompass": 2
+    "HiFiCompass": 32
    },
    "derived_sets": 0,
    "also_measured_at": {},
@@ -267,8 +272,198 @@
    "below_capture_minimum": []
   },
   {
+   "id": "m74a-6",
+   "name": "BlieSMa M74A-6",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 23
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "t25a-6",
+   "name": "BlieSMa T25A-6",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 17
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "t25t-6",
+   "name": "BlieSMa T25T-6",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 18
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "t34a-4",
+   "name": "BlieSMa T34A-4",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 18
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "t34b-4",
+   "name": "BlieSMa T34B-4",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 17
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-satori-mr16tx-8",
+   "name": "SB Acoustics Satori MR16TX-8",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 31
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-satori-mw19tx-4",
+   "name": "SB Acoustics Satori MW19TX-4",
+   "role": "woofer / midbass",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 67
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-satori-tw29bnwg-4",
+   "name": "SB Acoustics Satori TW29BNWG-4",
+   "role": "tweeter (waveguide)",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 26
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-satori-tw29txn-b",
+   "name": "SB Acoustics Satori TW29TXN-B",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 24
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-sb26adc-c000-4",
+   "name": "SB Acoustics SB26ADC-C000-4",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {},
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 0,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "wavecor-tw030wa11",
+   "name": "Wavecor TW030WA11",
+   "role": "tweeter",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 14
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-satori-wo24tx-8",
+   "name": "SB Acoustics Satori WO24TX-8",
+   "role": "woofer",
+   "file": "drivers.json",
+   "captured": {
+    "HiFiCompass": 68
+   },
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": true,
+   "independent_sources": 1,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "sb-audience-rosso-12mw300",
+   "name": "SB Audience Rosso 12MW300",
+   "role": "woofer / midbass",
+   "file": "drivers.json",
+   "captured": {},
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 0,
+   "below_capture_minimum": []
+  },
+  {
+   "id": "lavoce-man06200-8",
+   "name": "Lavoce MAN062.00-8",
+   "role": "midrange",
+   "file": "drivers.json",
+   "captured": {},
+   "derived_sets": 0,
+   "also_measured_at": {},
+   "tracked": false,
+   "independent_sources": 0,
+   "below_capture_minimum": []
+  },
+  {
    "id": "at-c-quenze-18-h-52-17-06-sd",
-   "name": "Acoustic Technology (AT) AT C-Quenze 18 H 52 17 06 SD",
+   "name": "Acoustic Technology (AT) C-Quenze 18 H 52 17 06 SD",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -282,7 +477,7 @@
   },
   {
    "id": "diysg-anarchy-704",
-   "name": "DIY Sound Group DIYSG Anarchy 704",
+   "name": "DIY Sound Group Anarchy 704",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -296,7 +491,7 @@
   },
   {
    "id": "dcs165",
-   "name": "Dayton Audio Dayton DCS165",
+   "name": "Dayton Audio DCS165",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -310,7 +505,7 @@
   },
   {
    "id": "e180he-44-coils-in-series",
-   "name": "Dayton Audio Dayton E180HE-44 Coils in series",
+   "name": "Dayton Audio E180HE-44 Coils in series",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -324,7 +519,7 @@
   },
   {
    "id": "e180he-44-single-coil",
-   "name": "Dayton Audio Dayton E180HE-44 single coil",
+   "name": "Dayton Audio E180HE-44 single coil",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -338,7 +533,7 @@
   },
   {
    "id": "rs-180-4",
-   "name": "Dayton Audio Dayton RS 180-4",
+   "name": "Dayton Audio RS 180-4",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -352,7 +547,7 @@
   },
   {
    "id": "rs-225-8",
-   "name": "Dayton Audio Dayton RS 225-8",
+   "name": "Dayton Audio RS 225-8",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -366,7 +561,7 @@
   },
   {
    "id": "rss-210hf-4",
-   "name": "Dayton Audio Dayton RSS 210HF-4",
+   "name": "Dayton Audio RSS 210HF-4",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -380,7 +575,7 @@
   },
   {
    "id": "rss-210ho-4",
-   "name": "Dayton Audio Dayton RSS 210HO-4",
+   "name": "Dayton Audio RSS 210HO-4",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -394,7 +589,7 @@
   },
   {
    "id": "ps180",
-   "name": "Dayton Audio Dayton ps180",
+   "name": "Dayton Audio PS180",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -408,7 +603,7 @@
   },
   {
    "id": "mcm-55-2421",
-   "name": "MCM MCM 55-2421",
+   "name": "MCM 55-2421",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -422,7 +617,7 @@
   },
   {
    "id": "misco-bwx-6502",
-   "name": "MISCO Misco BWX-6502",
+   "name": "MISCO BWX-6502",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -436,7 +631,7 @@
   },
   {
    "id": "morel-kw-1",
-   "name": "Morel Morel KW-1",
+   "name": "Morel KW-1",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -450,7 +645,7 @@
   },
   {
    "id": "xxls-830842",
-   "name": "Peerless Peerless XXLS 830842",
+   "name": "Peerless XXLS 830842",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -464,7 +659,7 @@
   },
   {
    "id": "ptt6.5x04-nfa-01",
-   "name": "Purifi Purifi PTT6.5X04-NFA-01",
+   "name": "Purifi PTT6.5X04-NFA-01",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -478,7 +673,7 @@
   },
   {
    "id": "radio-shack-40-1354a",
-   "name": "RadioShack Radio Shack 40-1354A",
+   "name": "RadioShack 40-1354A",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -492,7 +687,7 @@
   },
   {
    "id": "sb23mfcl45-4",
-   "name": "SB Acoustics SB Acoustics SB23MFCL45-4",
+   "name": "SB Acoustics SB23MFCL45-4",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -506,7 +701,7 @@
   },
   {
    "id": "seas-l26roy-x1001-04-4",
-   "name": "SEAS Seas L26ROY X1001-04-4",
+   "name": "SEAS L26ROY X1001-04-4",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {
@@ -520,7 +715,7 @@
   },
   {
    "id": "sw182bd03",
-   "name": "Wavecor Wavecor SW182BD03",
+   "name": "Wavecor SW182BD03",
    "role": "midbass (survey)",
    "file": "drivers_survey_midbass.json",
    "captured": {

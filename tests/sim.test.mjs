@@ -2,6 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import * as S from "../app/core/sim.js";
+import { anglesOf, directivityOf } from "../app/core/directivity.js";
 const { abs, add, C } = S._c;
 const dB = x => 20 * Math.log10(x);
 const near = (a, b, tol, msg) => assert.ok(Math.abs(a - b) <= tol, `${msg}: ${a} is not within ${tol} of ${b}`);
@@ -221,4 +222,24 @@ test("off axis: a way with no directivity where it plays makes the result a lowe
   const r = S.simulate({ freqs: [1000], target: 90, orders: ["H2"], points: [], ways: [way], directivity: [() => null] });
   assert.equal(r.system.H2[0], null);
   assert.equal(r.response.ways[0][0], null);
+});
+
+test("off axis: the chosen source's measurement is used before another source's", () => {
+  const line = (y0, y1) => [{ x: 100, y: y0 }, { x: 10000, y: y1 }];
+  const driver = { measurements: [
+    { kind: "off-axis-normalized", source: "lab", type: "lab relative", series: [{ name: "0°", points: line(0, 0) }, { name: "30°", points: line(-1, -1) }] },
+    { kind: "off-axis", source: "maker", type: "maker", series: [{ name: "0°", points: line(90, 90) }, { name: "30°", points: line(87, 87) }, { name: "45°", points: line(85, 85) }] },
+  ] };
+  assert.deepEqual(anglesOf(driver), [30, 45]);
+  // no order: the source's relative chart first, as before
+  assert.equal(directivityOf(driver, 30).fn(1000), -1);
+  // the maker chosen: its sound pressure at 30° minus its 0°
+  const maker = { order: m => (m.source === "maker" ? 0 : 1) };
+  assert.equal(directivityOf(driver, 30, maker).fn(1000), -3);
+  assert.equal(directivityOf(driver, 30, maker).set.source, "maker");
+  // the lab chosen but it has no 45°: the maker's is used, and the set says whose it is
+  const lab = { order: m => (m.source === "lab" ? 0 : 1) };
+  assert.equal(directivityOf(driver, 45, lab).set.source, "maker");
+  assert.equal(directivityOf(driver, 45, lab).fn(1000), -5);
+  assert.equal(directivityOf(driver, 60, lab), null);
 });

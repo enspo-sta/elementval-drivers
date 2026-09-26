@@ -62,7 +62,12 @@ test("FRD only takes sound pressure curves; ZMA only impedance", () => {
   const [f] = exp("frd").files([maxSpl]);
   const line = f.text.split("\n").find(l => l && !l.startsWith("*"));
   assert.equal(line.split("\t").length, 3);
-  assert.ok(!all.some(c => exp("zma").accepts(c)), "no impedance curves stored yet");
+  // Purifi's measured impedance file: the only curve a ZMA takes, written row for row
+  const zs = all.filter(c => exp("zma").accepts(c));
+  assert.ok(zs.length >= 1 && zs.every(c => c.kind === "impedance"), "only impedance curves");
+  assert.ok(!exp("frd").accepts(zs[0]), "FRD does not take impedance");
+  const rows = exp("zma").files([zs[0]])[0].text.split("\n").filter(l => l && !l.startsWith("*"));
+  assert.equal(rows.length, zs[0].points.length);
   const z = { driver: d, source: "test", kind: "impedance", xUnit: "Hz", points: [{ x: 20, y: 7.1 }, { x: 40, y: 12.5 }] };
   assert.ok(exp("zma").accepts(z));
   assert.match(exp("zma").files([z])[0].text, /^20\t7\.1\t0$/m);

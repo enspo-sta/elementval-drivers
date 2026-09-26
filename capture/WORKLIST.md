@@ -33,6 +33,8 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 |---|---|---|
 | band THD | `ptt525x04naa05` | 450–1800 Hz at 94 dB: table 0.095 %, from the curve 0.0774 % (-1.8 dB) |
 | band THD | `ptt525x04naa05` | 80–5000 Hz at 94 dB: table 0.254 %, from the curve 0.157 % (-4.2 dB) |
+| curves | `ptt13t04hag01` | set 26 (Impedance (Purifi's measured file)) Z: frequencies not strictly increasing |
+| curves | `ptt13t04hag10` | set 3 (Impedance (Purifi's measured file)) Z: frequencies not strictly increasing |
 | notes | `purifi-ptt10-0x04-nab-02` | a note says Pe was corrected to 350, the stored Pe is 'TBD (est 400)' |
 | parameters | `m74a-6` | Qes: stored 0.75, from the others 0.7 (6.7 % apart) |
 | parameters | `t25a-6` | Qes: stored 0.82, from the others 0.568 (30.7 % apart) |
@@ -120,22 +122,22 @@ Level slopes that differ from the typical rule (H2 +1.0, H3 +0.7 dB per dB). Inf
 
 Stored now, and what to add. Capture each drive level as its own set with the SPL it gives at 1 m.
 
-- **Purifi PTT6.5M08-NAA-08** (`ptt65m08naa08`), Manufacturer datasheet: stored hd-current, hd-frequency 94 dB, imd-spectrum 94 dB.
-  Add: frequency response figure; impedance figure; harmonic distortion vs level (level sweeps).
-- **Purifi PTT8.0X04-NAB-01** (`ptt80x04nab01`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, imd-spectrum 80 dB.
-  Add: frequency response figure; impedance figure; current distortion.
-- **Purifi PTT6.5X04-NAA-08** (`ptt65x04naa08`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, imd-spectrum 80 dB.
-  Add: frequency response figure; impedance figure; current distortion.
+- **Purifi PTT6.5M08-NAA-08** (`ptt65m08naa08`), Manufacturer datasheet: stored frequency-response, hd-current, hd-frequency 94 dB, imd-spectrum 94 dB, impedance.
+  Add: harmonic distortion vs level (level sweeps).
+- **Purifi PTT8.0X04-NAB-01** (`ptt80x04nab01`), Manufacturer datasheet: stored frequency-response, hd-frequency 94 dB, hd-level, imd-spectrum 80 dB, impedance.
+  Add: current distortion.
+- **Purifi PTT6.5X04-NAA-08** (`ptt65x04naa08`), Manufacturer datasheet: stored frequency-response, hd-frequency 94 dB, hd-level, imd-spectrum 80 dB, impedance.
+  Add: current distortion.
 - **Purifi PTT5.25X04-NAA-05** (`ptt525x04naa05`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB.
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
-- **Purifi PTT5.25X04-NAA-05** (`ptt525x04naa05`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, imd-spectrum 80 dB.
-  Add: frequency response figure; impedance figure; current distortion.
-- **Purifi PTT1.3T04-HAG-10** (`ptt13t04hag10`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level.
-  Add: frequency response figure; impedance figure; current distortion; intermodulation spectra (both tone pairs).
+- **Purifi PTT5.25X04-NAA-05** (`ptt525x04naa05`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, imd-spectrum 80 dB, impedance, off-axis.
+  Add: frequency response figure; current distortion.
+- **Purifi PTT1.3T04-HAG-10** (`ptt13t04hag10`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, impedance, off-axis.
+  Add: frequency response figure; current distortion; intermodulation spectra (both tone pairs).
 - **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.9 dB, hd-frequency 88.0 dB, hd-frequency 90.9 dB, hd-frequency 93.9 dB, hd-frequency 96.9 dB, hd-frequency 99.9 dB, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt13t04-hag-01> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
-- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level.
-  Add: frequency response figure; impedance figure; current distortion; intermodulation spectra (both tone pairs).
+- **Purifi PTT1.3T04-HAG-01** (`ptt13t04hag01`), Manufacturer datasheet: stored hd-frequency 94 dB, hd-level, impedance, off-axis.
+  Add: frequency response figure; current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-8** (`sb-satori-wo24p-8`), HiFiCompass: stored hd-frequency 91 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
 - **SB Acoustics SB34NRXL75-8 (Norex)** (`sb-sb34nrxl75-8`), HiFiCompass: stored hd-frequency 91 dB, imd-summary 91.1 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8> (what it offers: `capture/inventory.md`).
@@ -193,7 +195,7 @@ Chosen at random for week 39 of 2026 (the choice changes weekly). For each, capt
 
 - **SB Acoustics Satori WO24TX-8** (`sb-satori-wo24tx-8`): sets 37: Axial frequency response @ 2.83 V; 38: Axial frequency response @ 4 V; 39: Axial frequency response @ 5.6 V; 40: Axial frequency response @ 8 V; 41: Axial frequency response @ 11.2 V; 42: Axial frequency response @ 16 V; 43: Axial frequency response @ 22 V; 44: Near-field frequency response @ 1 V (near field 3 mm); 45: HD (orders) vs frequency @ 2.83 V; 46: HD (orders) vs frequency @ 4 V; 47: HD (orders) vs frequency @ 5.6 V; 48: HD (orders) vs frequency @ 8 V; 49: HD (orders) vs frequency @ 11.2 V; 50: HD (orders) vs frequency @ 16 V; 51: HD (orders) vs frequency @ 22 V; 52: HD (orders) vs frequency @ 2.83 V (near field 20 mm); 53: HD (orders) vs frequency @ 4 V (near field 20 mm); 54: HD (orders) vs frequency @ 5.6 V (near field 20 mm); 55: HD (orders) vs frequency @ 8 V (near field 20 mm); 56: HD (orders) vs frequency @ 11.2 V (near field 20 mm); 57: HD (orders) vs frequency @ 16 V (near field 20 mm); 58: Voice-coil current HD vs frequency @ 2.83 V; 59: Voice-coil current HD vs frequency @ 4 V; 60: Voice-coil current HD vs frequency @ 5.6 V; 61: Voice-coil current HD vs frequency @ 8 V; 62: Voice-coil current HD vs frequency @ 11.2 V; 63: Impedance (chart to 100 ohm); 64: Impedance (chart to 15 ohm); 65: Off-axis response; 66: Off-axis response (relative to on axis, chart range 10-50 dB); 67: Off-axis response (relative to on axis, chart range 5-30 dB)
 - **SB Acoustics Satori MR16TX-8** (`sb-satori-mr16tx-8`): sets 10: Axial frequency response @ 2.83 V; 11: Axial frequency response @ 4 V; 12: Axial frequency response @ 5.6 V; 13: Axial frequency response @ 8 V; 14: Axial frequency response @ 11.2 V; 15: Axial frequency response @ 16 V; 16: Near-field frequency response @ 1 V (near field 5 mm); 17: HD (orders) vs frequency @ 2 V; 18: HD (orders) vs frequency @ 2.83 V; 19: HD (orders) vs frequency @ 4 V; 20: HD (orders) vs frequency @ 5.6 V; 21: HD (orders) vs frequency @ 8 V; 22: HD (orders) vs frequency @ 11.2 V; 23: HD (orders) vs frequency @ 16 V; 24: Voice-coil current HD vs frequency @ 2.83 V; 25: Voice-coil current HD vs frequency @ 4 V; 26: Voice-coil current HD vs frequency @ 5.6 V; 27: Impedance (chart to 150 ohm); 28: Off-axis response; 29: Off-axis response (relative to on axis, chart range 10-50 dB); 30: Off-axis response (relative to on axis, chart range 5-30 dB)
-- **Purifi PTT5.25X04-NAA-05** (`ptt525x04naa05`): sets 0: HD vs frequency (ratio); 3: HD vs SPL (level sweep); 5: HD (orders) vs frequency @ 94 dB
+- **Purifi PTT5.25X04-NAA-05** (`ptt525x04naa05`): sets 0: HD vs frequency (ratio); 3: HD vs SPL (level sweep); 5: HD (orders) vs frequency @ 94 dB; 7: Off-axis response (Purifi's measured files); 8: Impedance (Purifi's measured file)
 
 ## 5. Sets read automatically from chart images (check by eye)
 

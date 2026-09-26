@@ -227,3 +227,67 @@ class CutOffCurves(unittest.TestCase):
             raise unittest.SkipTest(str(e))
         kept, n = CR.off_top([(1, 36.0), (2, 36.5), (3, 40.0), (4, 80.0)], 36)
         self.assertEqual((kept, n), ([(3, 40.0), (4, 80.0)], 2))
+
+
+class DatasheetFiles(unittest.TestCase):
+    """capture/sets_from_datasheet_probe.py: Purifi's measured files into sets, checked against the datasheet."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        import sets_from_datasheet_probe as S
+        self.S = S
+
+    def page(self, text):
+        return [{"page": 2, "text": text}]
+
+    def probe(self, files, text):
+        return {"date": "2026-09-26", "drivers": {"x": {"model": "PTT1-TEST", "page": self.page(text),
+                "data": [{"label": "Frequency Response & Impedance Data", "href": "https://purifi-audio.com/doc/1", "files": files}]}}}
+
+    def db(self):
+        return {"drivers": [{"id": "x", "source": "Purifi datasheet PTT1-TEST v1.00 (Jan 2026)", "measurements": []}]}
+
+    def test_angles_from_file_names(self):
+        self.assertEqual(self.S.angle_of("PTT1.3T04-HAG-10 FRD hor 85.txt"), 85)
+        self.assertEqual(self.S.angle_of("PTT5.25X04-NAA-05 - SPL_30deg.txt"), 30)
+        self.assertIsNone(self.S.angle_of("PTT5.25X04-NAA-05 - SPL.txt"))
+        self.assertIsNone(self.S.angle_of("PTT1.3T04-HAG-10 ZMA.txt"))
+
+    def test_stated_sensitivity(self):
+        text = "SPL@2.83 Vrms/1 m, 3 kHz, ref. 20 µPa (infinite baffle / 2pi) \n96.0 \ndB"
+        self.assertEqual(self.S.stated_sensitivity(text), (96.0, 3000.0, 3000.0))
+        text = "SPL@2.83V rms/1m, 300Hz -800Hz , ref. 20µPa (infinite baffle / 2pi) \n84.9 \ndB"
+        self.assertEqual(self.S.stated_sensitivity(text), (84.9, 300.0, 800.0))
+
+    def test_off_axis_set_as_published_and_level_checked(self):
+        text = "SPL@2.83 Vrms/1 m, 1 kHz, ref. 20 µPa (infinite baffle / 2pi) \n90.0 \ndB"
+        rows = lambda y: [[0.0, 50.0, 0.0], [500.0, y, 1.0], [1000.0, y, 2.0], [2000.0, y - 1, 3.0]]
+        files = [{"name": f"T FRD hor {a}.txt", "header": ["f_Hz,spl_dB,phase_deg"], "rows": rows(90.123456 - a / 10)} for a in (0, 5, 10)]
+        made, skipped = self.S.build(self.probe(files, text), self.db())
+        self.assertEqual(len(made), 1, skipped)
+        s = made[0][1]
+        self.assertEqual([x["name"] for x in s["series"]], ["0°", "5°", "10°"])
+        self.assertEqual(s["series"][0]["points"][0], {"x": 500.0, "y": 90.123})  # the 0 Hz row left out
+        self.assertIn("left out: the row at 0 Hz", s["note"])
+        self.assertIn("+0.1 dB", s["note"])
+        # a file whose level misses the stated sensitivity is not used
+        made, skipped = self.S.build(self.probe(files, text.replace("90.0", "80.0")), self.db())
+        self.assertEqual(made, [])
+        self.assertIn("not used", skipped[0][1])
+
+    def test_on_axis_file_at_one_volt_and_impedance(self):
+        text = ("SPL@2.83Vrms/1m, 300Hz -800Hz , ref. 20µPa (infinite baffle / 2pi) \n89.0 \ndB\n"
+                "Resonance frequency \n30 Hz\nMinimum impedance above resonance \n4.2 \nΩ\nFigure 2 Impedance Response @ 2.83V \n")
+        spl = [[f, 80.0, 0.0] for f in (100.0, 300.0, 500.0, 800.0, 1000.0)]
+        z = [[0.366211, 3.1, 0.0], [0.366212, 3.2, 0.0], [300.0, 4.21, 0.0], [1000.0, 6.0, 0.0]]
+        files = [{"name": "W - SPL.txt", "header": ["freq [Hz]          dBV  Phase [deg]"], "rows": spl},
+                 {"name": "W - Z.txt", "header": ["freq [Hz]          Ohm  Phase [deg]"], "rows": z}]
+        made, skipped = self.S.build_others(self.probe(files, text), self.db())
+        kinds = {s["kind"]: s for _, s in made}
+        self.assertEqual(set(kinds), {"frequency-response", "impedance"}, skipped)
+        self.assertEqual(kinds["frequency-response"]["conditions"]["drive_v"], 1.0)  # 9.0 dB under 2.83 V
+        self.assertIn("what 1 V gives", kinds["frequency-response"]["note"])
+        zp = kinds["impedance"]["series"][0]["points"]
+        self.assertLess(zp[0]["x"], zp[1]["x"])  # close low frequencies stay apart
+        self.assertEqual(kinds["impedance"]["conditions"]["drive_v"], 2.83)
+        self.assertIn("4.21 ohm at 300 Hz, the datasheet states 4.2 ohm", kinds["impedance"]["note"])

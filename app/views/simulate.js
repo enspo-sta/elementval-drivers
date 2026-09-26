@@ -112,11 +112,15 @@ function slopeFor(c) {
   return { fn: (k, f) => (curves[k] ? curves[k](f) : base(k)), text };
 }
 
+// off axis: the chosen source's measurement first, then the other sources by reliability
+const dirOrder = c => set => { const f = familyOf(set); return !f ? 999 : f.name === c.e.family.name ? 0 : 1 + (f.rank || 99); };
+const dirOf = (c, a) => directivityOf(c.e.driver, a, { order: dirOrder(c) });
+
 // the angle row: on axis, and every angle at least one picked driver was measured at
 function angleRow(chosen) {
   const angs = [...new Set(chosen.flatMap(c => anglesOf(c.e.driver)))].sort((a, b) => a - b);
   if (!angs.length && !sim.a) return "";
-  const have = a => chosen.filter(c => directivityOf(c.e.driver, a)).length;
+  const have = a => chosen.filter(c => dirOf(c, a)).length;
   return `<div class="lbl"><span>Angle</span><span class="hint">horizontal, from each driver's measured off-axis response</span></div>
     <div class="togrow"><button class="tog small${sim.a ? "" : " on"}" data-sang="0">on axis</button>${angs.map(a =>
       `<button class="tog small${sim.a === a ? " on" : ""}" data-sang="${a}">${a}°${have(a) < chosen.length ? ` · ${have(a)} of ${chosen.length} ways` : ""}</button>`).join("")}</div>
@@ -173,7 +177,11 @@ function render() {
   if (chosen.length === sim.n && avail.length) {
     const slopes = chosen.map(c => slopeFor(c));
     // off axis: each way's driver's measured response at the angle relative to its own on-axis response
-    const dirs = chosen.map(c => (sim.a ? directivityOf(c.e.driver, sim.a) : null));
+    const dirs = chosen.map(c => (sim.a ? dirOf(c, sim.a) : null));
+    if (sim.a) chosen.forEach((c, i) => {
+      const f = dirs[i] && dirs[i].set ? familyOf(dirs[i].set) : null;
+      if (f && f.name !== c.e.family.name) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}): ${esc(c.e.family.name)} has no off-axis measurement of this driver at ${sim.a}°, so its response at that angle comes from ${esc(f.name)}.`);
+    });
     if (sim.a) chosen.forEach((c, i) => { if (!dirs[i]) warnings.push(`Way ${i + 1} (${esc(c.e.driver.name)}) has no off-axis measurement at ${sim.a}°: where it plays, the speaker's output and distortion at ${sim.a}° are unknown (dashed or empty).`); });
     let fLo = Math.max(20, chosen[0].lo), fHi = Math.min(20000, chosen[sim.n - 1].hi);
     if (!(fHi > fLo * 1.5)) {

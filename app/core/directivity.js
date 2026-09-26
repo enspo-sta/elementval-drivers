@@ -19,16 +19,27 @@ export function anglesOf(driver) {
   return [...out].sort((a, b) => a - b);
 }
 
-/** { fn(f) -> dB re on axis | null, from } for one angle, or null when the driver has none. 0° is 0 dB. */
-export function directivityOf(driver, angle) {
+/** { fn(f) -> dB re on axis | null, from, set } for one angle, or null when the driver has none. 0° is 0 dB.
+ * opts.order(set) -> number: sets with a lower number are tried first (Simulate: the chosen source first, then the
+ * others by reliability), so one source's measurements are not mixed with another's while the chosen one has them. */
+export function directivityOf(driver, angle, opts = {}) {
   if (!angle) return { fn: () => 0, from: "on axis" };
-  const norm = offSets(driver).filter(m => m.kind === "off-axis-normalized")
-    .sort((a, b) => rangeOrder(a) - rangeOrder(b));
+  const order = opts.order || (() => 0);
+  const groups = [...new Set(offSets(driver).map(order))].sort((a, b) => a - b);
+  for (const g of groups) {
+    const found = fromSets(offSets(driver).filter(m => order(m) === g), angle);
+    if (found) return found;
+  }
+  return null;
+}
+
+function fromSets(sets, angle) {
+  const norm = sets.filter(m => m.kind === "off-axis-normalized").sort((a, b) => rangeOrder(a) - rangeOrder(b));
   for (const m of norm) {
     const s = (m.series || []).find(x => angleOf(x.name) === angle);
     if (s && pts(s).length > 1) return { fn: curveFn(pts(s)), from: m.type, set: m };
   }
-  for (const m of offSets(driver).filter(m => m.kind === "off-axis")) {
+  for (const m of sets.filter(m => m.kind === "off-axis")) {
     const s = (m.series || []).find(x => angleOf(x.name) === angle), s0 = (m.series || []).find(x => angleOf(x.name) === 0);
     if (s && s0 && pts(s).length > 1 && pts(s0).length > 1) {
       const a = curveFn(pts(s)), b = curveFn(pts(s0));
