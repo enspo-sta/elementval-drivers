@@ -245,7 +245,15 @@ def read_chart(path, test):
     rec["tones"] = []
     for f in tones_of(test):
         lv, fl = peak(f)
-        rec["tones"].append({"f": f, "level": lv, "floor": fl})
+        t = {"f": f, "level": lv, "floor": fl}
+        c = int(round(col_of(f)))
+        if lv is not None and top0 > 0 and abs(lv - (ya[0] + ya[1] * top0)) < 0.2:
+            # the tone touches the chart's top line: is the trace drawn above it (a peak cut off by the scale), or does
+            # the chart put the tone at its top (a scale relative to the tone)?
+            above = int(mask[max(0, top0 - 20):top0, max(0, c - 3):c + 4].sum())
+            t["at_top"] = True
+            t["trace_pixels_above_top"] = above
+        rec["tones"].append(t)
     kept, low = [], 0
     for p in lines_of(test, fmax):
         lv, fl = peak(p["f"])
