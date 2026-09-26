@@ -3,7 +3,7 @@
  * example HiFiCompass's axial sound pressure and harmonics at several drive levels) share one chart,
  * one colour per level. */
 import { registerView } from "../core/registry.js";
-import { store, allDrivers, familyOf, kindOf, levelOf, isSurvey, pricesOf, priceDate, fmtSek, fmtPrice } from "../core/data.js";
+import { store, allDrivers, familyOf, kindOf, levelOf, levelUnit, isSurvey, pricesOf, priceDate, fmtSek, fmtPrice } from "../core/data.js";
 import { quantitiesOf, matchKey, matchLabel, sortQuantities } from "../core/compare.js";
 import { curvesOfSet, curvesOfDriver } from "../core/curves.js";
 import { readHash, writeHash } from "../core/state.js";
@@ -113,14 +113,14 @@ function cardsOf(d, sourceName) {
   return cards.sort((a, b) => order.indexOf(a.fam && a.fam.name) - order.indexOf(b.fam && b.fam.name) || (a.old ? 1 : 0) - (b.old ? 1 : 0));
 }
 
-const levelName = s => (s.level != null ? `${Math.round(s.level * 10) / 10} dB` :
+const levelName = s => (s.level != null ? `${Math.round(s.level * 100) / 100} ${levelUnit(s.set)}` :
   (s.set.conditions || {}).drive_v != null ? `${[].concat(s.set.conditions.drive_v).join(" and ")} V` : s.set.method || `set ${s.index + 1}`);
 // the name of a level in a card: its sound pressure, the drive voltage it came from, and what tells two sets
 // at the same level apart (for example a chart without smoothing)
 function levelNames(card) {
   const base = card.sets.map(s => {
     const v = (s.set.conditions || {}).drive_v;
-    return levelName(s) + (s.level != null && v != null ? ` · ${[].concat(v).join(" and ")} V` : "");
+    return levelName(s) + (s.level != null && v != null && levelUnit(s.set) !== "V" ? ` · ${[].concat(v).join(" and ")} V` : "");
   });
   return base.map((b, i) => {
     if (base.indexOf(b) === base.lastIndexOf(b)) return b;

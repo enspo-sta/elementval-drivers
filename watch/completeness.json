@@ -2463,7 +2463,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "the automatic reading failed: axes could not be fitted"
+     "why": "readable automatically, not read yet"
     },
     {
      "file": "ptt6.5x04-naa-08a_step_response.png",
@@ -4176,7 +4176,7 @@
      "type": "impedance",
      "label": "impedance",
      "state": "missing",
-     "why": "readable automatically, not read yet"
+     "why": "the automatic reading failed: axes could not be fitted"
     },
     {
      "file": "mr16tx-8_step_response.png",

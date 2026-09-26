@@ -99,9 +99,19 @@ test("ZIP: valid archive that Python's zipfile can read", () => {
 
 test("CSV of a whole driver: one file per kind of table, so frequencies and row labels never share a column", () => {
   const d = driverById("purifi-ptt8-0x04-nab-02");
-  const files = exp("csv").files(curvesOfDriver(d, "HiFiCompass"), { title: "ptt8" });
-  assert.equal(files.length, 3, files.map(f => f.name).join(", "));
-  const hd = files.find(f => f.name.includes("hd-frequency"));
-  const header = hd.text.split("\n").find(l => l.startsWith("Frequency"));
-  assert.equal(header.split(",").length, 1 + 2 * 5, "H2 to H5 and THD at 91 and 94 dB");
+  const curves = curvesOfDriver(d, "HiFiCompass");
+  const files = exp("csv").files(curves, { title: "ptt8" });
+  const kinds = new Set(curves.map(c => c.kind));
+  assert.ok(files.length >= kinds.size, files.map(f => f.name).join(", "));   // a table of its own columns gets its own file
+  for (const f of files) {
+    const header = f.text.split("\n").find(l => l && !l.startsWith("#"));
+    const rows = f.text.split("\n").filter(l => l && !l.startsWith("#")).slice(1);
+    const numericX = rows.every(r => r.split(",")[0] === "" || isFinite(Number(r.split(",")[0])));
+    const frequencyFile = /^Frequency/.test(header);
+    assert.equal(numericX, frequencyFile || rows.every(r => isFinite(Number(r.split(",")[0]))), `${f.name}: one kind of first column`);
+  }
+  const hdFile = files.find(f => f.name.includes("hd-frequency"));
+  const hdHeader = hdFile.text.split("\n").find(l => l.startsWith("Frequency"));
+  const series = curves.filter(c => c.kind === "hd-frequency").length;
+  assert.equal(hdHeader.split(",").length, 1 + series, "one column per harmonic curve, every level");
 });

@@ -73,9 +73,20 @@ export function kindOf(set) {
 /** The sound pressure level a set was taken at (dB SPL at 1 m), or null. */
 export function levelOf(set) {
   const c = set.conditions || {};
+  if (set.kind === "imd-products") return typeof c.x_pk_mm === "number" ? c.x_pk_mm : typeof c.drive_v === "number" ? c.drive_v : null;
   const v = typeof c.spl_db === "number" ? c.spl_db : typeof c.ref_spl_db === "number" ? c.ref_spl_db : null;
   return v;
 }
+
+/** The unit of a set's level: dB (sound pressure at 1 m), or for a test stated otherwise mm (the low tone's peak
+ *  excursion) or V (the drive voltage). */
+export function levelUnit(set) {
+  const c = (set && set.conditions) || {};
+  if (set && set.kind === "imd-products") return typeof c.x_pk_mm === "number" ? "mm" : "V";
+  return "dB";
+}
+/** What a level unit means, for an axis or a field. */
+export const LEVEL_TITLE = { dB: "dB SPL at 1 m", mm: "mm peak excursion of the low tone", V: "V drive" };
 
 /** Two test tones of an intermodulation set as [f1, f2] Hz, or null. */
 export function tonesOf(set) {

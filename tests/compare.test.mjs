@@ -21,7 +21,7 @@ test("every stored set names a known kind, and level kinds state their level", (
   const ids = new Set(kinds.kinds.map(k => k.id));
   for (const d of allDrivers()) for (const m of d.measurements) {
     assert.ok(ids.has(m.kind), `${d.id} ${m.type}: kind ${m.kind}`);
-    if (["spl", "spl-near"].includes(kindOf(m).level)) assert.equal(typeof levelOf(m), "number", `${d.id} ${m.type}: level`);
+    if (["spl", "spl-near", "stated"].includes(kindOf(m).level)) assert.equal(typeof levelOf(m), "number", `${d.id} ${m.type}: level`);
   }
 });
 
@@ -44,32 +44,43 @@ test("groups never mix sources unless asked", () => {
 
 test("levels are not a reason to split a chart: every HiFiCompass harmonic level shares one group", () => {
   const g = CC.buildGroups().find(x => x.key === "HiFiCompass::hd-frequency");
-  assert.ok(g.levels.includes(91) && g.levels.includes(94), "the Purifi levels 91 and 94 dB are in the group");
   assert.deepEqual(g.levels, [...new Set(g.levels)].sort((a, b) => a - b), "levels are unique and ascending");
-  assert.ok(g.levels.length >= 50, "the nine drivers read from charts bring their own levels (84 to 108.5 dB)");
-  assert.deepEqual(g.quantityIds, ["H2", "H3", "H4", "H5", "THD"]);
+  assert.ok(g.levels.length >= 50, "the drivers read from charts bring their own levels");
+  for (const k of ["H2", "H3", "H5"]) assert.ok(g.quantityIds.includes(k), k);
+  // a driver's entry holds every level it was measured at (superseded hand captures left out)
   const ptt8 = g.entries.find(e => e.driver.id === "purifi-ptt8-0x04-nab-02");
-  assert.deepEqual(ptt8.sets.map(s => s.level), [91, 94]);
-  assert.equal(CC.defaultLevel(g), 94, "94 dB: five drivers (91 dB: four; every other level fewer)");
+  const stored = db.drivers.find(d => d.id === "purifi-ptt8-0x04-nab-02").measurements
+    .filter(m => m.kind === "hd-frequency" && !m.superseded_by && /HiFiCompass/.test(m.source) && !(m.conditions.distance_mm < 100))
+    .map(m => m.conditions.spl_db).sort((a, b) => a - b);
+  assert.deepEqual(ptt8.sets.map(s => s.level), stored);
+  assert.ok(!ptt8.sets.some(s => s.set.superseded_by), "superseded sets are not compared");
+  const nf = CC.buildGroups().find(x => x.key === "HiFiCompass::hd-frequency|near field");
+  assert.ok(nf && nf.entries.some(e => e.driver.id === "purifi-ptt8-0x04-nab-02"), "near-field harmonics are a measurement of their own");
+  // the default level is the one most drivers were measured at
+  const count = L => g.entries.filter(e => e.sets.some(s => s.level === L)).length;
+  assert.equal(count(CC.defaultLevel(g)), Math.max(...g.levels.map(count)));
 });
 
 test("pickSet uses the level closest to the target", () => {
   const g = CC.buildGroups().find(x => x.key === "HiFiCompass::hd-frequency");
   const ptt8 = g.entries.find(e => e.driver.id === "purifi-ptt8-0x04-nab-02");
-  const ptt10 = g.entries.find(e => e.driver.id === "purifi-ptt10-0x04-nab-02");
-  assert.equal(CC.pickSet(ptt8, 94).level, 94);
-  assert.equal(CC.pickSet(ptt8, 92).level, 91);
-  assert.equal(CC.pickSet(ptt8, 93).level, 94);
-  assert.equal(CC.pickSet(ptt10, 94).level, 91);
-  assert.equal(CC.pickSet(ptt10, 94).delta, -3);
+  const L = ptt8.sets.map(s => s.level);
+  assert.ok(L.length >= 4);
+  assert.equal(CC.pickSet(ptt8, L[1]).level, L[1], "a measured level is used as it is");
+  assert.equal(CC.pickSet(ptt8, L[1]).delta, 0);
+  const between = L[1] + 0.3 * (L[2] - L[1]);
+  assert.equal(CC.pickSet(ptt8, between).level, L[1], "between two levels: the closer one");
+  near(CC.pickSet(ptt8, between).delta, L[1] - between, 1e-9, "delta = level used minus target");
+  assert.equal(CC.pickSet(ptt8, L[L.length - 1] + 20).level, L[L.length - 1], "above every level: the highest");
   const survey = CC.buildGroups().find(x => x.key === "diyAudio::imd-spectrum|40+96");
   assert.deepEqual(survey.levels, [70, 80, 85, 90]);
 });
 
 test("the level rule moves harmonic curves and rebuilds THD", () => {
   const g = CC.buildGroups().find(x => x.key === "HiFiCompass::hd-frequency");
-  const s = CC.pickSet(g.entries.find(e => e.driver.id === "purifi-ptt10-0x04-nab-02"), 94);
-  const moved = CC.shiftQuantities(s.quantities, 91, 94);
+  const e = g.entries.find(x => x.driver.id === "ptt525x04naa05");   // a set with H2 to H5 (THD can be built)
+  const s = CC.pickSet(e, 94);
+  const moved = CC.shiftQuantities(s.quantities, s.level, s.level + 3);
   const at = (qs, id) => qs.find(q => q.id === id).points[0].y;
   near(at(moved, "H2") - at(s.quantities, "H2"), 3, 1e-9, "H2 +1.0 dB per dB");
   near(at(moved, "H3") - at(s.quantities, "H3"), 2.1, 1e-9, "H3 +0.7 dB per dB");

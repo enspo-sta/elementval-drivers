@@ -3,7 +3,7 @@
  * products). Levels are matched: every driver is drawn at its measured level closest to the target
  * level, and harmonic curves can be moved the rest of the way with the level rule. */
 import { registerView } from "../core/registry.js";
-import { store, driverById, fmtHz } from "../core/data.js";
+import { store, driverById, fmtHz, LEVEL_TITLE } from "../core/data.js";
 import { COLORS, MARKERS, MARK_CHARS, DASHES, MAX_PICK, TYPICAL_SLOPES, buildGroups, sourcesOf, defaultLevel, pickSet,
          shiftQuantities, describe } from "../core/compare.js";
 import { curvesOfSet } from "../core/curves.js";
@@ -83,7 +83,8 @@ function normalise() {
   if (!cmp.q.length) cmp.q = [g.quantityIds[0]];
   if (cmp.picks) cmp.picks = cmp.picks.filter(p => g.entries.some(e => e.id === p.id));
   if (!cmp.picks) cmp.picks = g.entries.slice(0, MAX_PICK).map((e, slot) => ({ id: e.id, slot }));
-  if (g.levels.length) { if (cmp.L == null || !(cmp.L >= 40 && cmp.L <= 140)) cmp.L = defaultLevel(g); }
+  unit = g.levelUnit || "dB";
+  if (g.levels.length) { if (cmp.L == null || !(unit === "dB" ? cmp.L >= 40 && cmp.L <= 140 : cmp.L > 0 && cmp.L <= 1000)) cmp.L = defaultLevel(g); }
   else cmp.L = null;
   if (!g.kind.ratio || g.kind.id !== "hd-frequency") cmp.shift = false;
   if (g.kind.view === "table") {
@@ -95,7 +96,8 @@ function normalise() {
 }
 const freeSlot = () => { for (let s = 0; s < MAX_PICK; s++) if (!cmp.picks.some(p => p.slot === s)) return s; return -1; };
 const entryName = e => e.driver.name + (cmp.mix ? " · " + e.family.name : "");
-const lv = L => (L == null ? "" : `${Math.round(L * 10) / 10} dB`);
+let unit = "dB";                      // the shown group's level unit: dB, or mm or V for a test stated otherwise
+const lv = L => (L == null ? "" : `${Math.round(L * 100) / 100} ${unit}`);
 
 /** Picked entries with the set used for each (closest level) and its quantities (moved if asked). */
 function resolvePicks(g) {
@@ -106,7 +108,7 @@ function resolvePicks(g) {
     return Object.assign(x, { chosen, quantities });
   });
 }
-const levelNote = x => (x.chosen.level == null ? "" : ` · ${lv(x.chosen.level)}${x.chosen.delta ? (cmp.shift && x.chosen.delta ? `, moved to ${lv(cmp.L)}` : ` (${x.chosen.delta > 0 ? "+" : ""}${Math.round(x.chosen.delta * 10) / 10} dB from target)`) : ""}`);
+const levelNote = x => (x.chosen.level == null ? "" : ` · ${lv(x.chosen.level)}${x.chosen.delta ? (cmp.shift && x.chosen.delta ? `, moved to ${lv(cmp.L)}` : ` (${x.chosen.delta > 0 ? "+" : ""}${Math.round(x.chosen.delta * 100) / 100} ${unit} from target)`) : ""}`);
 
 function render() {
   beginView(true);
@@ -127,7 +129,7 @@ function render() {
   if (g.levels.length) {
     const count = L => g.entries.filter(e => e.sets.some(s => (g.kind.level === "spl-near" ? Math.abs(s.level - L) <= 1 : s.level === L))).length;
     h += `<div class="lbl"><span>Level</span><span class="hint">each driver uses its measured level closest to this</span></div>
-      <div class="togrow"><input type="number" class="num" id="cL" min="40" max="140" step="1" value="${cmp.L}"><span class="dim">dB SPL at 1 m</span><span class="sep"></span>
+      <div class="togrow"><input type="number" class="num" id="cL" min="${unit === "dB" ? 40 : 0}" max="${unit === "dB" ? 140 : 1000}" step="${unit === "dB" ? 1 : 0.1}" value="${cmp.L}"><span class="dim">${esc(LEVEL_TITLE[unit])}</span><span class="sep"></span>
       ${g.levels.map(L => `<button class="tog small${L === cmp.L ? " on" : ""}" data-lvl="${L}">${lv(L)} · ${count(L)}</button>`).join("")}</div>`;
     if (g.kind.id === "hd-frequency") h += `<label class="ds" style="margin:8px 0 0"><input type="checkbox" id="cshift" ${cmp.shift ? "checked" : ""}> move each curve the rest of the way to the target with the level rule (H2 +1.0, H3 to H5 +0.7 dB per dB)</label>`;
   }
@@ -207,7 +209,7 @@ function wire(g) {
     render();
   };
   const sel = $("cgrp"); if (sel) sel.onchange = () => { cmp.g = sel.value; cmp.q = []; cmp.picks = null; cmp.rows = null; cmp.L = null; cmp.pickScroll = 0; render(); };
-  const L = $("cL"); if (L) L.onchange = () => { const v = Number(L.value); if (v >= 40 && v <= 140) cmp.L = v; render(); };
+  const L = $("cL"); if (L) L.onchange = () => { const v = Number(L.value); if (unit === "dB" ? v >= 40 && v <= 140 : v > 0 && v <= 1000) cmp.L = v; render(); };
   document.querySelectorAll("[data-lvl]").forEach(b => b.onclick = () => { cmp.L = Number(b.dataset.lvl); render(); });
   const sh = $("cshift"); if (sh) sh.onchange = () => { cmp.shift = sh.checked; render(); };
   document.querySelectorAll("[data-q]").forEach(b => b.onclick = () => {
@@ -358,7 +360,7 @@ function drawAgainstLevel(g, picked) {
   newChart($("clvl"), { type: "line", data: { datasets: lines.map(l => ({ label: l.x.e.driver.name, data: l.pts,
     borderColor: COLORS[l.x.p.slot], backgroundColor: COLORS[l.x.p.slot], borderWidth: 2, tension: 0, pointStyle: MARKERS[l.x.p.slot], pointRadius: 5,
     pointBackgroundColor: COLORS[l.x.p.slot] })) },
-    options: chartOptions({ x: Object.assign(xAxis(false, "Level (dB SPL at 1 m)"), {}), y: yAxis("db", relTo) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.parsed.x} dB`) });
+    options: chartOptions({ x: xAxis(false, `Level (${LEVEL_TITLE[unit]})`), y: yAxis("db", relTo) }, c => `${c.dataset.label}: ${c.parsed.y.toFixed(1)} dB at ${c.parsed.x} ${unit}`) });
   const levels = [...new Set(lines.flatMap(l => l.pts.map(p => p.x)))].sort((a, b) => a - b);
   $("clsum").innerHTML = `<div class="tscroll"><table class="dtable ctab"><thead><tr><th>Level</th>${lines.map(l =>
     `<th style="color:${COLORS[l.x.p.slot]}">${MARK_CHARS[MARKERS[l.x.p.slot]]} ${esc(l.x.e.driver.name)}</th>`).join("")}</tr></thead><tbody>${levels.map(L =>

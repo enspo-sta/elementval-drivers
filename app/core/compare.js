@@ -6,7 +6,7 @@
  * several levels offers all of them, and the chart uses, for every driver, the level closest to the
  * target level (pickSet), so levels are always matched as closely as the data allows.
  */
-import { allDrivers, familyOf, kindOf, levelOf, tonesOf, fmtHz, num } from "./data.js";
+import { allDrivers, familyOf, kindOf, levelOf, tonesOf, fmtHz, num, levelUnit } from "./data.js";
 
 // Okabe and Ito's colour-blind safe palette; never more than five drivers at once.
 export const COLORS = ["#E69F00", "#56B4E9", "#009E73", "#F0E442", "#CC79A7"];
@@ -23,6 +23,8 @@ export function matchKey(set, kind) {
   return (kind.match || []).map(m => {
     if (m === "tones") { const t = tonesOf(set); return t ? t.join("+") : ""; }
     if (m === "type") return set.type || "";
+    // a near-field measurement (the microphone within 100 mm of the cone) is not compared with far-field ones
+    if (m === "field") return typeof c.distance_mm === "number" && c.distance_mm < 100 ? "near field" : "";
     return String(c[m] == null ? "" : c[m]);
   }).join("|");
 }
@@ -33,6 +35,7 @@ export function matchLabel(set, kind) {
   for (const m of kind.match || []) {
     if (m === "tones") { const t = tonesOf(set); if (t) bits.push(`${t[0]} + ${t[1]} Hz`); }
     else if (m === "type") { if (set.type && set.type !== kind.label) bits.push(set.type); }
+    else if (m === "field") { const v = (set.conditions || {}).distance_mm; if (typeof v === "number" && v < 100) bits.push(`near field, ${v} mm`); }
     else if (m === "ratio") { const r = (set.conditions || {}).ratio; if (r) bits.push(r); }
     else if (m === "distance_mm") { const v = (set.conditions || {}).distance_mm; if (v) bits.push(`${v} mm`); }
     else if (m === "angle_deg") { const v = (set.conditions || {}).angle_deg; if (v != null && v !== "") bits.push(`${v}°`); }
@@ -171,6 +174,8 @@ export function buildGroups({ mix = false, drivers = allDrivers() } = {}) {
     const near = g.kind.level === "spl-near";
     g.entries.forEach(e => e.sets.forEach(s => { s.quantities.forEach(q => ids.add(q.id)); if (s.level != null) levels.add(s.level); }));
     g.quantityIds = sortQuantities([...ids]);
+    const first = g.entries.flatMap(e => e.sets)[0];
+    g.levelUnit = first ? levelUnit(first.set) : "dB";
     g.levels = near ? nearLevels([...levels]) : [...levels].sort((a, b) => a - b);
     g.entries.forEach(e => e.sets.sort((a, b) => (a.level ?? 0) - (b.level ?? 0)));
     g.entries.sort((a, b) => (a.family.rank || 99) - (b.family.rank || 99) || a.driver.name.localeCompare(b.driver.name));

@@ -47,6 +47,8 @@ def check_set(where, m, errors, warnings, cfg):
         errors.append(f"{where}: kind {m['kind']!r} is not in schema/kinds.json ({', '.join(KINDS)})")
     elif kind and kind.get("level") in ("spl", "spl-near") and level_of(m) is None:
         errors.append(f"{where}: a {kind['id']} set must state its level as a number in conditions.spl_db")
+    elif kind and kind.get("level") == "stated" and not any(isinstance((m.get("conditions") or {}).get(k), numbers.Number) for k in ("x_pk_mm", "drive_v")):
+        errors.append(f"{where}: a {kind['id']} set must state its level as a number in conditions.x_pk_mm (mm) or conditions.drive_v (V)")
     fams = families_of(m.get("source"), cfg)
     if m.get("source") and not fams:
         errors.append(f"{where}: source {m['source'][:60]!r} names no known source family; name the source "

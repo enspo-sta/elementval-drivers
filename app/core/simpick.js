@@ -19,7 +19,7 @@ export function hasData(pts, f) {
 export function buildCandidates(groups, mix, src) {
   const out = [];
   for (const g of groups) {
-    if (g.kind.id !== "hd-frequency") continue;
+    if (g.kind.id !== "hd-frequency" || /near field/.test(g.key)) continue;   // near-field curves are not the driver's far-field output
     for (const e of g.entries) {
       if (!mix && e.family.name !== src) continue;
       const curves = e.sets.filter(s => s.level != null).map(s => {
