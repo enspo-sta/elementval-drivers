@@ -176,6 +176,11 @@ class TwoToneSpectrum(unittest.TestCase):
             self.assertAlmostEqual(got[f], self.lines[f], delta=0.6, msg=f"{f} Hz")
         self.assertFalse(set(got) - {90, 195, 225, 285, 315}, "a product in the noise was kept")
 
+    def test_lost_minus_and_stray_column(self):
+        self.assertEqual([w["text"] for w in self.I.negative_labels([{"text": "10.0"}, {"text": "-20.0"}, {"text": "s"}])], ["-10.0", "-20.0", "s"])
+        cols = [[x, x] for x in (63, 191, 319, 448, 576, 704, 832, 874, 917, 960)]
+        self.assertEqual([c[0] for c in self.I.lattice(cols)], [63, 191, 319, 448, 576, 704, 832, 960])
+
     def test_cursor_check(self):
         c = self.rec["check"]
         self.assertEqual((c["f"], c["stated_db"]), (254.88, -23.1))

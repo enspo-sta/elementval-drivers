@@ -88,7 +88,7 @@ def build(read, db):
                     note.append(f"check against the cursor readout the chart prints: {chk['f']} Hz, printed {chk['stated_db']} dB, "
                                 f"read {chk['read_db']} dB, difference {chk['difference_db']} dB")
                 else:
-                    note.append(f"the chart's cursor readout ({chk['f']} Hz, {chk['stated_db']} dB) is off its scale, so no check")
+                    note.append(f"the chart's cursor readout ({chk['f']} Hz, {chk['stated_db']} dB): {chk.get('note') or 'no check'}")
             else:
                 note.append("no cursor readout found on the chart to check against")
             if c.get("below_floor"):
@@ -112,7 +112,7 @@ def build(read, db):
                 "axes": {"x": {"label": "Frequency", "unit": "Hz", "scale": "linear"}, "y": {"label": "Level", "unit": "dB (the chart's scale)"}},
                 "series": [{"name": "tones and products", "points": pts}],
                 "file": name,
-                **({"check": {"cursor": chk}} if chk else {}),
+                **({"check": {"cursor": {k: v for k, v in chk.items() if k != "column"}}} if chk else {}),
             }))
     return made, waiting
 

@@ -97,6 +97,34 @@ def cursor_of(words):
     return None
 
 
+def lattice(cols):
+    """The grid columns: the largest set of candidates on one evenly spaced lattice (a tall spectral line,
+    such as a tone near the top of the chart, is found as a column too and is not on it)."""
+    xs = [c[0] for c in cols]
+    if len(xs) < 3:
+        return cols
+    best = []
+    for i in range(len(xs)):
+        for j in range(i + 1, len(xs)):
+            step = xs[j] - xs[i]
+            if step < 20:
+                continue
+            on = [c for c in cols if abs((c[0] - xs[i]) / step - round((c[0] - xs[i]) / step)) * step <= 2]
+            if len(on) > len(best):
+                best = on
+    return best or cols
+
+
+def negative_labels(words):
+    """The dB labels of these charts run from 0 down to -100; the OCR sometimes drops the minus sign
+    ("10.0" for "-10.0"), so every label is taken as zero or below."""
+    out = []
+    for w in words:
+        v = CR.number(w.get("text", ""))
+        out.append(dict(w, text=str(-abs(v))) if v is not None else w)
+    return out
+
+
 def products(f1, f2, fmax):
     out = []
     for m in range(-5, 6):
@@ -119,13 +147,13 @@ def read_chart(path, test):
     box = CP.plot_box(img, bg) or [0, 0, w - 1, h - 1]
     rows, cols, rcol, ccol = CP.grid_lines(img, box, bg)
     rows = [r for r in rows if r[1] - r[0] < 4]
-    cols = [c for c in cols if c[1] - c[0] < 4]
+    cols = lattice([c for c in cols if c[1] - c[0] < 4])
     rec = {"size": [w, h], "background": bg, "rows": len(rows), "cols": [c[0] for c in cols][:40], "grid_row_colour": rcol}
     if len(rows) < 4 or len(cols) < 3:
         rec["error"] = "grid not found"; return rec
     left = CP.safe_ocr(path, [0, 0, max(cols[0][0] - 2, 40), h], w, h)
     bottom = CP.safe_ocr(path, [0, rows[-1][1] + 2, w, h], w, h)
-    ya, xa = CR.y_axis(rows, left), x_linear(cols, bottom)
+    ya, xa = CR.y_axis(rows, negative_labels(left)), x_linear(cols, bottom)
     rec.update({"y_axis": ya, "x_axis": xa, "left_labels": [(t.get("text"), t.get("y")) for t in left][:16],
                 "bottom_labels": [(t.get("text"), t.get("x")) for t in bottom][:16]})
     if not ya or not xa or xa[1] <= 0 or ya[1] >= 0:
@@ -177,9 +205,25 @@ def read_chart(path, test):
         f, stated = cur
         read, _ = peak(f)
         on = ya[0] + ya[1] * bot0 <= stated <= ya[0] + ya[1] * top0
+        tone = min((test["f1"], test["f2"]), key=lambda t: abs(t - f))
+        at_tone = abs(tone - f) <= max(3 * xa[1], 0.01 * tone)
+        note = None
+        if not at_tone:
+            note = "the cursor is not on a tone (the printed level is one point of the noise or a product, not a peak), so no check"
+        elif not on:
+            note = "the printed level is off the chart's scale"
+        elif read is None:
+            note = "the cursor's frequency is outside the part of the chart that was read"
         rec["check"] = {"f": f, "stated_db": stated, "read_db": None if read is None else round(read, 2),
-                        "difference_db": round(read - stated, 2) if (read is not None and on) else None,
-                        "note": None if on else "the printed level is off the chart's scale"}
+                        "difference_db": round(read - stated, 2) if note is None else None, "note": note}
+        # the pixels of the cursor's column from 6 px above the printed level to 6 px below the reading, for a
+        # reading that disagrees (to see what is drawn there without the image)
+        c = int(round(col_of(f)))
+        if note is None and abs(read - stated) > 0.3 and 0 <= c < w:
+            y_st = int(round((stated - ya[0]) / ya[1])); y_rd = int(round((read - ya[0]) / ya[1]))
+            ys = range(max(0, min(y_st, y_rd) - 6), min(h, max(y_st, y_rd) + 7))
+            rec["check"]["column"] = {"x": c, "y_printed": y_st, "y_read": y_rd,
+                                      "pixels": [[y] + ["#%02x%02x%02x" % tuple(int(v) for v in img[y, cc, :3]) for cc in (c - 1, c, c + 1)] for y in ys]}
     return rec
 
 
