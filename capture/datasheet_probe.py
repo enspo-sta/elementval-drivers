@@ -20,6 +20,8 @@ import re
 import sys
 import tempfile
 import urllib.parse
+import io
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -85,6 +87,41 @@ def find_pdf(model, urls, last, log):
             if data[:5] == b"%PDF-":
                 return h, f"linked from {pg} as '{lb}'", seen
     return None, f"no PDF found (product pages tried: {', '.join(pages[:6]) or 'none'})", seen
+
+
+DATA = re.compile(r"frequency response|\bfrd\b|\bzma\b|impedance data", re.I)
+NUM = re.compile(r"^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$")
+
+
+def table_of(text):
+    """A measurement file's rows of numbers exactly as printed (frequency, dB, phase; or frequency, ohm, phase),
+    and the lines before them (the file's header: names the angle, the distance, the units)."""
+    head, rows = [], []
+    for ln in text.splitlines():
+        cells = [c for c in re.split(r"[\s,;]+", ln.strip()) if c]
+        if len(cells) >= 2 and all(NUM.match(c) for c in cells):
+            rows.append([float(c) for c in cells])
+        elif ln.strip() and not rows:
+            head.append(ln.strip()[:200])
+    return head[:20], rows
+
+
+def probe_data(data, name):
+    """The measurement files in a download (a zip of .frd/.zma/.txt files, or one such file)."""
+    files = []
+    if data[:4] == b"PK\x03\x04":
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            for info in z.infolist():
+                if info.is_dir() or info.file_size > 3_000_000:
+                    continue
+                if not re.search(r"\.(frd|zma|txt|csv|dat)$", info.filename, re.I):
+                    files.append({"name": info.filename, "skipped": "not a measurement file"}); continue
+                head, rows = table_of(z.read(info).decode("latin-1"))
+                files.append({"name": info.filename, "header": head, "rows": rows})
+    else:
+        head, rows = table_of(data.decode("latin-1"))
+        files.append({"name": name, "header": head, "rows": rows})
+    return files
 
 
 def probe_pdf(path):
@@ -170,6 +207,18 @@ def main():
             except Exception as e:  # noqa: BLE001
                 rec["error"] = f"{type(e).__name__}: {e}"
                 log(f"  {rec['error']}")
+        rec["data"] = []
+        for ln_ in links:
+            if not DATA.search(html.unescape(ln_["label"])):
+                continue
+            try:
+                blob = CP.fetch(ln_["href"], last, delay=3.0)
+                files = probe_data(blob, ln_["label"])
+                rec["data"].append({"href": ln_["href"], "label": html.unescape(ln_["label"]), "files": files})
+                log(f"  data {ln_['label']}: {[(f['name'], len(f.get('rows', []))) for f in files]}")
+            except Exception as e:  # noqa: BLE001
+                rec["data"].append({"href": ln_["href"], "label": ln_["label"], "error": f"{type(e).__name__}: {e}"})
+                log(f"  data {ln_['label']}: {type(e).__name__}: {e}")
         out["drivers"][did] = rec
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
     print("written", a.out)
