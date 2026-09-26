@@ -162,8 +162,7 @@
    "tracked": true,
    "independent_sources": 1,
    "below_capture_minimum": [
-    "HD (orders) vs frequency (5/decade)",
-    "Voice-coil current HD vs frequency @ 2.83 V (29/decade)"
+    "HD (orders) vs frequency (5/decade)"
    ]
   },
   {
@@ -240,10 +239,7 @@
    "also_measured_at": {},
    "tracked": true,
    "independent_sources": 1,
-   "below_capture_minimum": [
-    "Voice-coil current HD vs frequency @ 5.6 V (37/decade)",
-    "Voice-coil current HD vs frequency @ 8 V (33/decade)"
-   ]
+   "below_capture_minimum": []
   },
   {
    "id": "sb17nbac35-8",

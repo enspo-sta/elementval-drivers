@@ -61,10 +61,10 @@ Default choice per speaker (what Simulate picks when it opens):
 | BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
 | BlieSMa T34B-4 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
-| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 62 % | H3 14.5 kHz–19.3 kHz; H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–19.3 kHz |
-| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 57 % | H3 14.5 kHz–19.3 kHz; H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–19.3 kHz |
-| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 79 % | H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–12.2 kHz |
-| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 51 % | H3 14.5 kHz–19.3 kHz; H5 2.87 kHz–3.84 kHz; H5 4.31 kHz–4.56 kHz; H5 8.61 kHz–19.3 kHz |
+| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 2-way, way 2 (high) | 640 Hz–19.3 kHz | 75 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 3-way, way 3 (high) | 959 Hz–19.3 kHz | 72 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
+| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
+| Purifi PTT1.3T04-HAG-01 | 100 Hz–21.6 kHz · H2 H3 H5 | 4-way, way 4 (high) | 1.36 kHz–19.3 kHz | 68 % | H3 14.5 kHz–19.3 kHz; H5 8.61 kHz–19.3 kHz |
 | Purifi PTT10.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 2-way, way 1 (low) | 20 Hz–6.09 kHz | 100 % | — |
 | Purifi PTT10.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 100 % | — |
 | Purifi PTT10.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
@@ -77,7 +77,7 @@ Default choice per speaker (what Simulate picks when it opens):
 | Purifi PTT6.5X04-NAA-08A | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 3 (high mid) | 226 Hz–12.2 kHz | 90 % | H5 8.61 kHz–12.2 kHz |
 | Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 2-way, way 1 (low) | 20 Hz–6.09 kHz | 100 % | — |
 | Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 1 (low) | 20 Hz–1.08 kHz | 100 % | — |
-| Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 94 % | H5 6.45 kHz–7.24 kHz; H5 8.61 kHz–9.12 kHz |
+| Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
 | Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 1 (low) | 20 Hz–359 Hz | 100 % | — |
 | Purifi PTT8.0X04-NAB-02 | 20 Hz–21.2 kHz · H2 H3 H5 | 4-way, way 2 (low mid) | 40 Hz–2.15 kHz | 100 % | — |
 | SB Acoustics Satori MR16TX-8 | 20 Hz–21.5 kHz · H2 H3 H5 | 3-way, way 2 (mid) | 113 Hz–9.12 kHz | 97 % | H5 8.61 kHz–9.12 kHz |
