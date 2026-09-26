@@ -27,9 +27,16 @@ jobs:
           fetch-depth: 0
       - name: Tools
         run: |
-          python3 -m pip install -q pymupdf
+          python3 -m pip install -q pymupdf pillow
       - name: Probe the datasheets
-        run: python3 capture/datasheet_probe.py | tee -a "$GITHUB_STEP_SUMMARY"
+        run: python3 capture/datasheet_probe.py --keep /tmp/charts | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Keep the chart images one day as an artifact (never committed)
+        uses: actions/upload-artifact@v4
+        with:
+          name: charts
+          path: /tmp/charts
+          retention-days: 1
+          if-no-files-found: ignore
       - name: Commit the results
         run: |
           FILES="capture/datasheet_probe.json"

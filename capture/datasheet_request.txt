@@ -10,3 +10,8 @@ ptt13t04hag01 PTT1.3T04-HAG-01
 # SITE record-id MODEL [page-address]
 erin sb17cac35-4 SB17CAC35-4
 erin ptt65w04-paper PTT6.5W04
+# a chart image kept one day as a workflow artifact for a look (never committed): image record-id ADDRESS
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/offaxis.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_1.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_2.jpg
+image sb-satori-wo24p-8 https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_3.jpg

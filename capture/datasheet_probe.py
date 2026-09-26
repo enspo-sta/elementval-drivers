@@ -199,8 +199,12 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--ids")
     ap.add_argument("--out", default=str(ROOT / "capture" / "datasheet_probe.json"))
+    ap.add_argument("--keep", help="a directory to keep chart images in (a one-day workflow artifact, never committed)")
     a = ap.parse_args()
     lines = [x.strip() for x in (ROOT / "capture" / "datasheet_request.txt").read_text().splitlines() if x.strip() and not x.startswith("#")]
+    # "image record-id ADDRESS": a chart image kept for a look (--keep), with its size and colours noted here
+    images = [x.split()[1:3] for x in lines if x.split()[0] == "image"]
+    lines = [x for x in lines if x.split()[0] != "image"]
     pages = [(site, *rest) for site, rest in ((x.split()[0], x.split()[1:]) for x in lines if x.split()[0] in SITES)]
     lines = [x for x in lines if x.split()[0] not in SITES]
     if a.ids:
@@ -269,6 +273,34 @@ def main():
             log(f"{did} {model}: no page on {site} names the model")
         out["pages"][did] = {"site": site, "model": model, "found": recs,
                              "candidates": sorted(u for u in site_urls[site] if key[:6] in norm(u))[:20]}
+    keep = Path(a.keep) if a.keep else None
+    if keep:
+        keep.mkdir(parents=True, exist_ok=True)
+    wanted = [(did, u) for did, u in images]
+    for did, pg in out["pages"].items():
+        for rec in pg.get("found", []):
+            for im in rec.get("images", []):
+                if re.search(r"FRonoffaxis|FRnormalized|FR_Linearity", im.get("alt", "")):
+                    wanted.append((did, im["src"]))
+    out["images"] = []
+    for did, u in wanted:
+        try:
+            data = CP.fetch(u, last, delay=3.0)
+            name = f"{did}__" + re.sub(r"[^A-Za-z0-9._-]+", "_", urllib.parse.unquote(u.rsplit("/", 1)[-1].split("?")[0]))
+            info = {"id": did, "url": u, "file": name, "bytes": len(data)}
+            try:
+                from PIL import Image
+                with Image.open(io.BytesIO(data)) as img:
+                    info["size"] = list(img.size)
+            except Exception:  # noqa: BLE001
+                pass
+            if keep:
+                (keep / name).write_bytes(data)
+            out["images"].append(info)
+            log(f"image {did}: {u} {info.get('size')} {len(data)} bytes")
+        except Exception as e:  # noqa: BLE001
+            out["images"].append({"id": did, "url": u, "error": f"{type(e).__name__}: {e}"})
+            log(f"image {did}: {u}: {type(e).__name__}: {e}")
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False) + "\n")
     print("written", a.out)
 
