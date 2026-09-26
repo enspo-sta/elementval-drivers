@@ -22,7 +22,8 @@ Below 40 points per decade (target 80, CAPTURE.md). Replace each set with `captu
 | SB Acoustics SB17CAC35-4 (proxy) (`sb17cac35-4`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 0 | Large-signal compression vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
-| Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 2 | Off-axis response | Erin's Audio Corner | 38 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
+| Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 2 | Off-axis response | Erin's Audio Corner | 33 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
+| Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 3 | Off-axis response (normalized against 0°) | Erin's Audio Corner | 40 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 44 | Voice-coil current HD vs frequency @ 5.6 V | HiFiCompass | 37 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 | Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 45 | Voice-coil current HD vs frequency @ 8 V | HiFiCompass | 33 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 

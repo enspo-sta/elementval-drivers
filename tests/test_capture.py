@@ -313,7 +313,7 @@ class PageCharts(unittest.TestCase):
         self.assertEqual(f("#88f888", strict=False), "g")  # a thin legend line is drawn lighter
 
     def test_series_by_legend_colour(self):
-        pts = lambda y: [{"x": 100.0, "y": y}, {"x": 1000.0, "y": y}]
+        pts = lambda y: [{"x": 100.0 * 2 ** (i / 24), "y": y} for i in range(80)]
         img = {"describe": {
             "legend_swatches": [{"angle": 0, "swatch": {"colour": "#080808"}}, {"angle": 15, "swatch": {"colour": "#88f888"}},
                                 {"angle": 30, "swatch": {"colour": "#f88888"}}, {"angle": 60, "swatch": {"colour": "#8888f8"}}],
@@ -382,3 +382,14 @@ class DatabaseLayout(unittest.TestCase):
         text = dumps_db(db)
         self.assertEqual(json.loads(text), db)
         self.assertIn('"points": [{"x":20.0,"y":-1.5},{"x":40.0,"y":null}]', text)
+
+
+class StrayPoints(unittest.TestCase):
+    def test_islands(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        import sets_from_page_charts as S
+        run = [{"x": 1000 * 2 ** (i / 24), "y": 0.0} for i in range(30)]
+        kept, dropped = S.islands([{"x": 20.0, "y": -14.0}] + run + [{"x": 9000.0, "y": -34.0}])
+        self.assertEqual(len(kept), 30)
+        self.assertEqual([q["x"] for q in dropped], [20.0, 9000.0])
+        self.assertEqual(S.islands(run), (run, []))

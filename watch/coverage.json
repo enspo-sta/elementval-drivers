@@ -224,7 +224,8 @@
    "below_capture_minimum": [
     "Large-signal compression vs frequency (37/decade)",
     "Large-signal distortion vs frequency (37/decade)",
-    "Off-axis response (38/decade)"
+    "Off-axis response (33/decade)",
+    "Off-axis response (normalized against 0°) (40/decade)"
    ]
   },
   {

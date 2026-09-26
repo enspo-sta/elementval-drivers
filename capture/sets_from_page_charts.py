@@ -71,6 +71,24 @@ def gaps_of(points, factor=2 ** (1 / 3)):
     return [(a, b) for a, b in zip(xs, xs[1:]) if b / a > factor]
 
 
+def islands(points, factor=2 ** (1 / 3), least=3):
+    """(kept, dropped): runs of fewer than `least` points cut off by gaps on both sides are stray marks the reader
+    caught (a tick, a letter's edge), not the curve."""
+    p = sorted(points, key=lambda q: q["x"])
+    runs, cur = [], []
+    for q in p:
+        if cur and q["x"] / cur[-1]["x"] > factor:
+            runs.append(cur); cur = []
+        cur.append(q)
+    if cur:
+        runs.append(cur)
+    if len(runs) < 2:
+        return p, []
+    kept = [q for r in runs if len(r) >= least for q in r]
+    dropped = [q for r in runs if len(r) < least for q in r]
+    return kept, dropped
+
+
 def fmt_hz(f):
     return f"{f / 1000:.1f} kHz" if f >= 1000 else f"{f:.0f} Hz"
 
@@ -96,7 +114,10 @@ def chart_series(img):
             out.append((angle, NAMES[fam], [], 0))
             continue
         best = max(cands, key=lambda c: c.get("columns") or 0)
-        out.append((angle, NAMES[fam], best["points"], best.get("columns") or 0))
+        kept, dropped = islands(best["points"])
+        best["stray"] = dropped
+        best["kept"] = kept
+        out.append((angle, NAMES[fam], kept, best.get("columns") or 0))
     return out
 
 
@@ -166,7 +187,10 @@ def build(probe, db):
                          ", ".join(f"{a}° {c}" for a, c, _, _ in ser))
             for a, c, p, cols in ser:
                 g = gaps_of(p) if p else []
-                cv = next((x for x in (img["describe"]["off_axis_read"].get("curves") or []) if x.get("points") is p), {})
+                cv = next((x for x in (img["describe"]["off_axis_read"].get("curves") or []) if x.get("kept") is p), {})
+                if cv.get("stray"):
+                    parts.append(f"{a}°: {len(cv['stray'])} stray point(s) left out (a run of fewer than three points between gaps, at " +
+                                 ", ".join(fmt_hz(q["x"]) for q in cv["stray"][:5]) + ": a mark the reader caught, not the curve)")
                 if cv.get("clipped_bottom"):
                     parts.append(f"{a}°: lies on the chart's floor line in {cv['clipped_bottom']} pixel column(s): below the chart there, left out")
                 if cv.get("clipped_top"):

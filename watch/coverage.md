@@ -21,7 +21,7 @@ Each source is counted separately: a driver measured by HiFiCompass and by Erin'
 | Purifi PTT1.3T04-HAG-10 | tweeter (waveguide) | Manufacturer datasheet (4) | none found | 1 | HD vs frequency (ratio) (20/decade) |
 | Purifi PTT10.0X04-NAB-02 | woofer | HiFiCompass (79); derived (1) | none found | 1 | HD (orders) vs frequency (5/decade); Voice-coil current HD vs frequency @ 2.83 V (29/decade) |
 | Purifi PTT6.5M08-NAA-08 | midrange | Manufacturer datasheet (6) | none found | 1 | HD (orders) (11/decade); HD (current-domain) (5/decade) |
-| Purifi PTT6.5W04 (paper, proxy) | midbass / mid | Erin's Audio Corner (4) | not tracked (no model number the scan follows) | 1 | Large-signal compression vs frequency (37/decade); Large-signal distortion vs frequency (37/decade); Off-axis response (38/decade) |
+| Purifi PTT6.5W04 (paper, proxy) | midbass / mid | Erin's Audio Corner (4) | not tracked (no model number the scan follows) | 1 | Large-signal compression vs frequency (37/decade); Large-signal distortion vs frequency (37/decade); Off-axis response (33/decade); Off-axis response (normalized against 0°) (40/decade) |
 | Purifi PTT6.5X04-NAA-08 | midbass / mid | Manufacturer datasheet (6); derived (1) | none found | 1 | HD vs frequency (ratio) (20/decade) |
 | Purifi PTT6.5X04-NAA-08A | midbass / mid | HiFiCompass (50) | none found | 1 | Voice-coil current HD vs frequency @ 5.6 V (37/decade); Voice-coil current HD vs frequency @ 8 V (33/decade) |
 | Purifi PTT8.0X04-NAB-01 | woofer / midbass | Manufacturer datasheet (6); derived (1) | none found | 1 | HD vs frequency (ratio) (20/decade) |
