@@ -450,3 +450,18 @@ test("Off axis from Purifi's measured files: 0° to 85° on the driver page, in 
   assert.deepEqual(errors, []);
   await close();
 });
+
+test("Off axis read from Erin's Audio Corner: both charts on the driver page, and in Compare against each other", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/sb17cac35-4");
+  await page.waitForSelector(".setttl");
+  assert.equal(await page.locator(".setttl", { hasText: /^Off-axis response(?! \()/ }).count() >= 1, true);
+  assert.equal(await page.locator(".setttl", { hasText: /Off-axis response \(normalized against 0°\)/ }).count(), 1);
+  await page.goto(base + "#compare?src=Erin%27s%20Audio%20Corner&g=Erin%27s%20Audio%20Corner%3A%3Aoff-axis%7C1000&q=30%C2%B0");
+  await page.waitForSelector("#cchart");
+  const body = await page.locator("body").textContent();
+  assert.match(body, /SB17CAC35-4/);
+  assert.match(body, /PTT6\.5W04/);
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

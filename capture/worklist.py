@@ -68,6 +68,8 @@ def hifi_page(d):
 def main():
     cfg = load_config()
     db = json.loads((ROOT / "drivers.json").read_text())
+    cp_ = ROOT / "watch" / "completeness.json"
+    completeness = json.loads(cp_.read_text()).get("drivers", {}) if cp_.exists() else {}
     floor = cfg["capture"]["minimum_points_per_decade"]
     lines = ["# Capture work list", "",
              f"Written by `capture/worklist.py` on {dt.date.today().isoformat()}. How to work through it: `capture/CHROME_CAPTURE.md`.", ""]
@@ -141,6 +143,10 @@ def main():
             page = f" Page: <{known}> (what it offers: `capture/inventory.md`)." if known and fam in (page_fams or [fam]) else ""
             lines.append(f"- **{d['name']}** (`{d['id']}`), {fam}: stored {', '.join(have) or 'nothing'}.{page}")
             lines.append(f"  Add{' (' + prefix.rstrip(': ') + ')' if prefix else ''}: {'; '.join(missing) if missing else 'check every drive level is stored, as measured'}.")
+            prem = ((completeness.get(d["id"]) or {}).get("summary") or {}).get("premium_only") if fam == "HiFiCompass" else 0
+            if prem:
+                lines.append(f"  HiFiCompass shows {prem} of this page's charts only to Premium accounts (a notice picture in their place, "
+                             "`watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).")
 
     week = int(dt.date.today().strftime("%G%V"))
     pool = [d for d in db["drivers"] if any((families_of(m.get("source"), cfg) or [""])[0] in ("HiFiCompass", "Manufacturer datasheet") for m in d["measurements"])]

@@ -291,3 +291,35 @@ class DatasheetFiles(unittest.TestCase):
         self.assertLess(zp[0]["x"], zp[1]["x"])  # close low frequencies stay apart
         self.assertEqual(kinds["impedance"]["conditions"]["drive_v"], 2.83)
         self.assertIn("4.21 ohm at 300 Hz, the datasheet states 4.2 ohm", kinds["impedance"]["note"])
+
+
+class PageCharts(unittest.TestCase):
+    """capture/sets_from_page_charts.py: a curve named by the colour of its legend line."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "capture"))
+        import sets_from_page_charts as S
+        self.S = S
+
+    def test_colour_families(self):
+        f = self.S.family
+        self.assertEqual([f("#080808"), f("#282828"), f("#f80808"), f("#08f808"), f("#0808f8"), f("#2828f8"), f("#4848f8")], ["k", "k", "r", "g", "b", "b", None])  # a pale edge shade is not a curve
+        self.assertIsNone(f("#d8d8f8"))                    # a light tint is not a curve
+        self.assertIsNone(f("#b8b8b8"))                    # nor a grey grid line
+        self.assertEqual(f("#88f888", strict=False), "g")  # a thin legend line is drawn lighter
+
+    def test_series_by_legend_colour(self):
+        pts = lambda y: [{"x": 100.0, "y": y}, {"x": 1000.0, "y": y}]
+        img = {"describe": {
+            "legend_swatches": [{"angle": 0, "swatch": {"colour": "#080808"}}, {"angle": 15, "swatch": {"colour": "#88f888"}},
+                                {"angle": 30, "swatch": {"colour": "#f88888"}}, {"angle": 60, "swatch": {"colour": "#8888f8"}}],
+            "off_axis_read": {"curves": [
+                {"colour": "#0808f8", "columns": 900, "points": pts(-6)}, {"colour": "#4848f8", "columns": 300, "points": pts(-9)},
+                {"colour": "#f80808", "columns": 500, "points": pts(-3)}, {"colour": "#080808", "columns": 1400, "points": pts(0)},
+                {"colour": "#d8d8f8", "columns": 1200, "points": pts(-20)}]}}}
+        got = {a: (c, p[0]["y"] if p else None) for a, c, p, _ in self.S.chart_series(img)}
+        self.assertEqual(got, {0: ("black", 0), 15: ("green", None), 30: ("red", -3), 60: ("blue", -6)})
+
+    def test_gaps(self):
+        pts = [{"x": 100.0 * 2 ** (i / 24), "y": 0} for i in range(24)] + [{"x": 400.0, "y": 0}]
+        self.assertEqual(len(self.S.gaps_of(pts)), 1)

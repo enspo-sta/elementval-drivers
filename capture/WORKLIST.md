@@ -22,6 +22,7 @@ Below 40 points per decade (target 80, CAPTURE.md). Replace each set with `captu
 | SB Acoustics SB17CAC35-4 (proxy) (`sb17cac35-4`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 0 | Large-signal compression vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 1 | Large-signal distortion vs frequency | Erin's Audio Corner | 37 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
+| Purifi PTT6.5W04 (paper, proxy) (`ptt65w04-paper`) | 2 | Off-axis response | Erin's Audio Corner | 38 per decade | original chart (Dropbox or site image, 1600 × 900), then `capture/image_curves.py` |
 | Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 44 | Voice-coil current HD vs frequency @ 5.6 V | HiFiCompass | 37 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 | Purifi PTT6.5X04-NAA-08A (`ptt65x04naa08a`) | 45 | Voice-coil current HD vs frequency @ 8 V | HiFiCompass | 33 per decade | original image (remove `/styles/<style>/public/` from the image address), then `capture/image_curves.py` |
 
@@ -33,8 +34,6 @@ From `watch/check_consistency.py` (full list in `watch/consistency.md`).
 |---|---|---|
 | band THD | `ptt525x04naa05` | 450–1800 Hz at 94 dB: table 0.095 %, from the curve 0.0774 % (-1.8 dB) |
 | band THD | `ptt525x04naa05` | 80–5000 Hz at 94 dB: table 0.254 %, from the curve 0.157 % (-4.2 dB) |
-| curves | `ptt13t04hag01` | set 26 (Impedance (Purifi's measured file)) Z: frequencies not strictly increasing |
-| curves | `ptt13t04hag10` | set 3 (Impedance (Purifi's measured file)) Z: frequencies not strictly increasing |
 | notes | `purifi-ptt10-0x04-nab-02` | a note says Pe was corrected to 350, the stored Pe is 'TBD (est 400)' |
 | parameters | `m74a-6` | Qes: stored 0.75, from the others 0.7 (6.7 % apart) |
 | parameters | `t25a-6` | Qes: stored 0.82, from the others 0.568 (30.7 % apart) |
@@ -140,8 +139,10 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: frequency response figure; current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-8** (`sb-satori-wo24p-8`), HiFiCompass: stored hd-frequency 91 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+  HiFiCompass shows 10 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **SB Acoustics SB34NRXL75-8 (Norex)** (`sb-sb34nrxl75-8`), HiFiCompass: stored hd-frequency 91 dB, imd-summary 91.1 dB, thd-bands 91 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics above 500 Hz, up to the end of the page's harmonics charts (the stored curve stops at 500 Hz, so Simulate has no data above it where this driver still plays; `watch/sim_coverage.md`); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered).
+  HiFiCompass shows 8 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.2 dB, hd-frequency 105.2 dB, hd-frequency 90.2 dB, hd-frequency 93.2 dB, hd-frequency 96.2 dB, hd-frequency 99.2 dB, imd-products, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt80x04-nab-02> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **Purifi PTT8.0X04-NAB-02** (`purifi-ptt8-0x04-nab-02`), Manufacturer datasheet: stored nothing.
@@ -152,12 +153,14 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics Satori WO24P-4** (`sb-satori-wo24p-4`), HiFiCompass: stored imd-summary 91.15 dB. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered).
+  HiFiCompass shows 10 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 100.7 dB, hd-frequency 85.7 dB, hd-frequency 88.7 dB, hd-frequency 91.7 dB, hd-frequency 94.7 dB, hd-frequency 97.7 dB, hd-spectrum, imd-products, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/ru/speakers/measurements/purifi/purifi-ptt65x04-naa-08a> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), Manufacturer datasheet: stored nothing.
   Add (if Purifi publishes a datasheet for this exact variant): frequency response figure; impedance figure; harmonic distortion vs frequency at 94 dB; harmonic distortion vs level (level sweeps); current distortion; intermodulation spectra (both tone pairs).
 - **SB Acoustics SB17NBAC35-8** (`sb17nbac35-8`), HiFiCompass: stored hd-frequency 94 dB, thd-bands 94 dB. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8> (what it offers: `capture/inventory.md`).
   Add: the harmonics at each drive level actually measured (the stored 94 dB curve was normalised from them; keep it until they are in); axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+  HiFiCompass shows 10 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **BlieSMa M74T-6** (`m74t-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.4 dB, hd-frequency 104.5 dB, hd-frequency 89.5 dB, hd-frequency 92.5 dB, hd-frequency 95.5 dB, hd-frequency 98.5 dB, imd-products, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74t-6> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **BlieSMa M74A-6** (`m74a-6`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 102.1 dB, hd-frequency 105.0 dB, hd-frequency 90.1 dB, hd-frequency 93.0 dB, hd-frequency 96.1 dB, hd-frequency 99.0 dB, imd-products, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/en/speakers/measurements/bliesma/bliesma-m74a-6> (what it offers: `capture/inventory.md`).
@@ -180,14 +183,17 @@ Stored now, and what to add. Capture each drive level as its own set with the SP
   Add: two-tone intermodulation, where measured.
 - **SB Acoustics SB26ADC-C000-4** (`sb-sb26adc-c000-4`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb26adc-c000-4> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+  HiFiCompass shows 12 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **Wavecor TW030WA11** (`wavecor-tw030wa11`), HiFiCompass: stored frequency-response, hd-frequency 101.3 dB, hd-frequency 89.3 dB, hd-frequency 92.3 dB, hd-frequency 95.3 dB, hd-frequency 98.3 dB, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/ru/speakers/measurements/wavecor/wavecor-tw030wa11> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **SB Acoustics Satori WO24TX-8** (`sb-satori-wo24tx-8`), HiFiCompass: stored frequency-response, hd-current, hd-frequency 101.6 dB, hd-frequency 104.6 dB, hd-frequency 107.6 dB, hd-frequency 89.6 dB, hd-frequency 92.6 dB, hd-frequency 95.6 dB, hd-frequency 98.6 dB, hd-spectrum, imd-products, impedance, off-axis, off-axis-normalized. Page: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24tx-8> (what it offers: `capture/inventory.md`).
   Add: two-tone intermodulation, where measured.
 - **SB Audience Rosso 12MW300** (`sb-audience-rosso-12mw300`), HiFiCompass: stored nothing. Page: <https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+  HiFiCompass shows 12 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 - **Lavoce MAN062.00-8** (`lavoce-man06200-8`), HiFiCompass: stored nothing. Page: <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8> (what it offers: `capture/inventory.md`).
   Add: axial sound pressure at every drive level shown (one set per drive voltage, with its SPL at 1 m); harmonics H2 to H5 at every drive level shown, as measured (not normalised to one level: the viewer interpolates); impedance (use the .zma file when offered); two-tone intermodulation, where measured.
+  HiFiCompass shows 12 of this page's charts only to Premium accounts (a notice picture in their place, `watch/completeness.md`): capture them logged in with Premium (`capture/CHROME_CAPTURE.md`).
 
 ## 4. Random spot check
 
@@ -339,6 +345,10 @@ Read on GitHub by `capture/chart_read.py` from the source's chart images and sto
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 77: Off-axis response — check on the image: 0° 94 %, 15° 96 %, 30° 99 %, 45° 100 %, 60° 100 % of the read points lie on the drawn curve (within 2 px)
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 78: Off-axis response (relative to on axis, chart range 10-50 dB) — check on the image: 0° 99 %, 15° 93 %, 30° 97 %, 60° 100 % of the read points lie on the drawn curve (within 2 px)
 - **Purifi PTT10.0X04-NAB-02** (`purifi-ptt10-0x04-nab-02`), set 79: Off-axis response (relative to on axis, chart range 5-30 dB) — check on the image: 0° 98 %, 15° 93 %, 30° 97 %, 45° 100 %, 60° 100 % of the read points lie on the drawn curve (within 2 px)
+- **SB Acoustics SB17CAC35-4 (proxy)** (`sb17cac35-4`), set 2: Off-axis response — no self-check possible for this kind
+- **SB Acoustics SB17CAC35-4 (proxy)** (`sb17cac35-4`), set 3: Off-axis response (normalized against 0°) — no self-check possible for this kind
+- **Purifi PTT6.5W04 (paper, proxy)** (`ptt65w04-paper`), set 2: Off-axis response — no self-check possible for this kind
+- **Purifi PTT6.5W04 (paper, proxy)** (`ptt65w04-paper`), set 3: Off-axis response (normalized against 0°) — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 2: Harmonics of one tone, 20 Hz at 2.83 V (microphone at 20 mm) — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 3: Harmonics of one tone, 30 Hz at 2.83 V (microphone at 20 mm) — no self-check possible for this kind
 - **Purifi PTT6.5X04-NAA-08A** (`ptt65x04naa08a`), set 4: Harmonics of one tone, 40 Hz at 2.83 V (microphone at 20 mm) — no self-check possible for this kind

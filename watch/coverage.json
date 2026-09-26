@@ -198,7 +198,7 @@
    "role": "midbass",
    "file": "drivers.json",
    "captured": {
-    "Erin's Audio Corner": 2
+    "Erin's Audio Corner": 4
    },
    "derived_sets": 0,
    "also_measured_at": {},
@@ -215,7 +215,7 @@
    "role": "midbass / mid",
    "file": "drivers.json",
    "captured": {
-    "Erin's Audio Corner": 2
+    "Erin's Audio Corner": 4
    },
    "derived_sets": 0,
    "also_measured_at": {},
@@ -223,7 +223,8 @@
    "independent_sources": 1,
    "below_capture_minimum": [
     "Large-signal compression vs frequency (37/decade)",
-    "Large-signal distortion vs frequency (37/decade)"
+    "Large-signal distortion vs frequency (37/decade)",
+    "Off-axis response (38/decade)"
    ]
   },
   {

@@ -47,6 +47,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -95,6 +96,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -143,6 +145,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -191,6 +194,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -239,6 +243,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -502,6 +507,7 @@
     "stored": 23,
     "by_hand": 0,
     "missing": 4,
+    "premium_only": 0,
     "missing_by_type": {
      "older template": 1,
      "step response": 1,
@@ -518,49 +524,49 @@
      "file": "wo24p-8_3.jpg",
      "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_3.jpg",
      "type": "other",
-     "label": "older template",
+     "label": "gallery picture",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "a picture from the page's gallery (on the WO24P-8 page these are product photos, not charts)"
     },
     {
      "file": "wo24p-8_1.jpg",
      "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_1.jpg",
      "type": "other",
-     "label": "older template",
+     "label": "gallery picture",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "a picture from the page's gallery (on the WO24P-8 page these are product photos, not charts)"
     },
     {
      "file": "wo24p-8_2.jpg",
      "url": "https://hificompass.com/sites/default/files/castom_img_zamer/wo24p-8_2.jpg",
      "type": "other",
-     "label": "older template",
+     "label": "gallery picture",
      "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "why": "a picture from the page's gallery (on the WO24P-8 page these are product photos, not charts)"
     },
     {
      "file": "onaxis_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -583,56 +589,56 @@
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -646,18 +652,10 @@
     "published": 15,
     "stored": 0,
     "by_hand": 2,
-    "missing": 13,
+    "missing": 3,
+    "premium_only": 10,
     "missing_by_type": {
-     "older template": 3,
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "current distortion": 1,
-     "intermodulation": 2,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
+     "gallery picture": 3
     }
    }
   },
@@ -670,24 +668,24 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -710,8 +708,8 @@
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -734,32 +732,32 @@
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -773,17 +771,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 4,
-    "missing": 8,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "current distortion": 1,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 8,
+    "missing_by_type": {}
    }
   },
   "purifi-ptt8-0x04-nab-02": {
@@ -1124,6 +1114,7 @@
     "stored": 39,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -1765,6 +1756,7 @@
     "stored": 76,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -1786,6 +1778,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -1798,48 +1791,48 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
@@ -1862,32 +1855,32 @@
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -1901,18 +1894,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 2,
-    "missing": 10,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "harmonics": 2,
-     "current distortion": 1,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 10,
+    "missing_by_type": {}
    }
   },
   "sb17cac35-4": {
@@ -1929,6 +1913,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -1946,6 +1931,7 @@
     "stored": 0,
     "by_hand": 0,
     "missing": 0,
+    "premium_only": 0,
     "missing_by_type": {}
    }
   },
@@ -2373,6 +2359,7 @@
     "stored": 48,
     "by_hand": 0,
     "missing": 4,
+    "premium_only": 0,
     "missing_by_type": {
      "impedance": 1,
      "step response": 1,
@@ -2390,24 +2377,24 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
@@ -2430,56 +2417,56 @@
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -2493,18 +2480,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 2,
-    "missing": 10,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "current distortion": 1,
-     "intermodulation": 2,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 10,
+    "missing_by_type": {}
    }
   },
   "m74t-6": {
@@ -2774,6 +2752,7 @@
     "stored": 30,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -3006,6 +2985,7 @@
     "stored": 23,
     "by_hand": 0,
     "missing": 4,
+    "premium_only": 0,
     "missing_by_type": {
      "impedance": 1,
      "step response": 1,
@@ -3186,6 +3166,7 @@
     "stored": 17,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -3373,6 +3354,7 @@
     "stored": 18,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -3560,6 +3542,7 @@
     "stored": 18,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -3739,6 +3722,7 @@
     "stored": 17,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -4029,6 +4013,7 @@
     "stored": 31,
     "by_hand": 0,
     "missing": 4,
+    "premium_only": 0,
     "missing_by_type": {
      "impedance": 1,
      "step response": 1,
@@ -4606,6 +4591,7 @@
     "stored": 67,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -4871,6 +4857,7 @@
     "stored": 26,
     "by_hand": 0,
     "missing": 5,
+    "premium_only": 0,
     "missing_by_type": {
      "intermodulation": 1,
      "impedance": 1,
@@ -5106,6 +5093,7 @@
     "stored": 24,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -5122,96 +5110,96 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -5225,19 +5213,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 0,
-    "missing": 12,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "harmonics": 2,
-     "current distortion": 1,
-     "intermodulation": 2,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 12,
+    "missing_by_type": {}
    }
   },
   "wavecor-tw030wa11": {
@@ -5397,6 +5375,7 @@
     "stored": 14,
     "by_hand": 0,
     "missing": 4,
+    "premium_only": 0,
     "missing_by_type": {
      "impedance": 1,
      "step response": 1,
@@ -5975,6 +5954,7 @@
     "stored": 68,
     "by_hand": 0,
     "missing": 3,
+    "premium_only": 0,
     "missing_by_type": {
      "step response": 1,
      "waterfall": 1,
@@ -5991,96 +5971,96 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -6094,19 +6074,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 0,
-    "missing": 12,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "harmonics": 2,
-     "current distortion": 1,
-     "intermodulation": 2,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 12,
+    "missing_by_type": {}
    }
   },
   "lavoce-man06200-8": {
@@ -6118,96 +6088,96 @@
      "url": "https://hificompass.com/sites/default/files/onaxis_spread100_size1_font70.jpg",
      "type": "response",
      "label": "on-axis response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "offaxis.jpg",
      "url": "https://hificompass.com/sites/default/files/offaxis.jpg",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "nf.jpg",
      "url": "https://hificompass.com/sites/default/files/nf.jpg",
      "type": "near-field",
      "label": "near field",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd315_0.jpg",
      "url": "https://hificompass.com/sites/default/files/hd315_0.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "hd20.jpg",
      "url": "https://hificompass.com/sites/default/files/hd20.jpg",
      "type": "harmonics",
      "label": "harmonics",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "chd.jpg",
      "url": "https://hificompass.com/sites/default/files/chd.jpg",
      "type": "current",
      "label": "current distortion",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "spectra.jpg",
      "url": "https://hificompass.com/sites/default/files/spectra.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imd.jpg",
      "url": "https://hificompass.com/sites/default/files/imd.jpg",
      "type": "intermodulation",
      "label": "intermodulation",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "imp_spread100_size1_font70.jpg",
      "url": "https://hificompass.com/sites/default/files/imp_spread100_size1_font70.jpg",
      "type": "impedance",
      "label": "impedance",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "step.jpg",
      "url": "https://hificompass.com/sites/default/files/step.jpg",
      "type": "step",
      "label": "step response",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "wf.jpg",
      "url": "https://hificompass.com/sites/default/files/wf.jpg",
      "type": "waterfall",
      "label": "waterfall",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     },
     {
      "file": "etc.jpg",
      "url": "https://hificompass.com/sites/default/files/etc.jpg",
      "type": "etc",
      "label": "energy-time",
-     "state": "missing",
-     "why": "the older one-image-per-quantity template: capture by hand (capture/CHROME_CAPTURE.md)"
+     "state": "premium only",
+     "why": "the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium account'), the same picture on 7 drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)"
     }
    ],
    "data_files": [
@@ -6221,19 +6191,9 @@
     "published": 12,
     "stored": 0,
     "by_hand": 0,
-    "missing": 12,
-    "missing_by_type": {
-     "on-axis response": 1,
-     "off-axis": 1,
-     "near field": 1,
-     "harmonics": 2,
-     "current distortion": 1,
-     "intermodulation": 2,
-     "impedance": 1,
-     "step response": 1,
-     "waterfall": 1,
-     "energy-time": 1
-    }
+    "missing": 0,
+    "premium_only": 12,
+    "missing_by_type": {}
    }
   }
  }

@@ -63,6 +63,10 @@ def main():
             for c in charts:
                 read[c.get("file")] = c
     pages = {pg["url"]: pg for rec in inv["models"].values() for pg in rec.get("pages", [])}
+    # a picture that several drivers' pages share is not a chart of one driver: on the older pages it is HiFiCompass's
+    # Premium notice (read from offaxis.jpg, nf.jpg, chd.jpg, spectra.jpg, imd.jpg, step.jpg and the on-axis and
+    # impedance pictures on 26 September 2026: "This data is only available to users with a Premium account")
+    shared = Counter(link for pg in pages.values() for link in {im["original"].split("?")[0] for im in pg.get("charts", [])})
     out = {"date": dt.date.today().isoformat(), "inventory_date": inv.get("date"), "drivers": {}}
     for d in db["drivers"]:
         # a proxy or a pair is made from another record: it has no measurement page of its own
@@ -93,9 +97,16 @@ def main():
                 elif HAND_KINDS.get(t, set()) & by_hand:
                     c["state"] = "by hand"
                     c["why"] = "a hand-captured set of this kind exists; it does not name the chart it came from"
+                elif shared[link] > 1:
+                    c["state"] = "premium only"
+                    c["why"] = (f"the page shows HiFiCompass's Premium notice here ('This data is only available to users with a Premium "
+                                f"account'), the same picture on {shared[link]} drivers' pages: capture by hand when logged in with Premium (capture/CHROME_CAPTURE.md)")
                 else:
                     c["state"] = "missing"
-                    if older:
+                    if older and "castom_img_zamer" in link:
+                        c["why"] = "a picture from the page's gallery (on the WO24P-8 page these are product photos, not charts)"
+                        c["label"] = "gallery picture"
+                    elif older:
                         c["why"] = WHY["other"]
                     elif t in READ or t in SPECTRA:
                         err = (read.get(name) or {}).get("error")
@@ -114,6 +125,7 @@ def main():
             rec["datasheet_kinds"] = [{"kind": k, "what": w, "stored": k in have} for k, w in PUBLISHES["Manufacturer datasheet"]]
         cnt = Counter(c["state"] for c in rec["charts"])
         rec["summary"] = {"published": len(rec["charts"]), "stored": cnt["stored"], "by_hand": cnt["by hand"], "missing": cnt["missing"],
+                          "premium_only": cnt["premium only"],
                           "missing_by_type": dict(Counter(c["label"] for c in rec["charts"] if c["state"] == "missing"))}
         out["drivers"][d["id"]] = rec
     (ROOT / "watch" / "completeness.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
@@ -121,13 +133,14 @@ def main():
     lines = ["# Does every driver have every curve?", "",
              f"Written by `capture/completeness.py` on {out['date']} from the HiFiCompass inventory of {inv.get('date')} "
              "(`capture/inventory.json`). A chart is *stored* when a set names its file (the automatic reading does), "
-             "*by hand* when a hand-captured set of the same kind exists (it does not name the chart), else *missing*.", "",
-             "| Driver | HiFiCompass page | Charts | Stored | By hand | Missing | Missing, by kind | Parameters stored / table rows |",
-             "|---|---|---|---|---|---|---|---|"]
+             "*by hand* when a hand-captured set of the same kind exists (it does not name the chart), *Premium only* when the "
+             "page shows HiFiCompass's Premium notice in its place, else *missing*.", "",
+             "| Driver | HiFiCompass page | Charts | Stored | By hand | Premium only | Missing | Missing, by kind | Parameters stored / table rows |",
+             "|---|---|---|---|---|---|---|---|---|"]
     for did, r in out["drivers"].items():
         s = r["summary"]
         miss = ", ".join(f"{k} {v}" for k, v in sorted(s["missing_by_type"].items())) or "—"
-        lines.append(f"| {r['name']} | {('<' + r['page'] + '>') if r['page'] else 'none found'} | {s['published']} | {s['stored']} | {s['by_hand']} | {s['missing']} | {miss} | {r['parameters']} / {r['table_rows']} |")
+        lines.append(f"| {r['name']} | {('<' + r['page'] + '>') if r['page'] else 'none found'} | {s['published']} | {s['stored']} | {s['by_hand']} | {s['premium_only']} | {s['missing']} | {miss} | {r['parameters']} / {r['table_rows']} |")
     lines += ["", "## Every chart not stored, and why", ""]
     for did, r in out["drivers"].items():
         miss = [c for c in r["charts"] if c["state"] != "stored"]
@@ -149,10 +162,10 @@ def main():
     (ROOT / "watch" / "completeness.md").write_text("\n".join(lines) + "\n")
     tot = Counter()
     for r in out["drivers"].values():
-        for k in ("published", "stored", "by_hand", "missing"):
+        for k in ("published", "stored", "by_hand", "premium_only", "missing"):
             tot[k] += r["summary"][k]
     print(f"watch/completeness.md: {len(out['drivers'])} drivers, {tot['published']} charts published, {tot['stored']} stored, "
-          f"{tot['by_hand']} by hand, {tot['missing']} missing")
+          f"{tot['by_hand']} by hand, {tot['premium_only']} Premium only, {tot['missing']} missing")
 
 
 if __name__ == "__main__":
