@@ -86,6 +86,47 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 >    it every source address, and for every set whether it came from PDF vectors, a data file or an
 >    image. Do not merge it.
 
+## The charts HiFiCompass shows only to Premium accounts (seven drivers)
+
+On these pages, a visitor who is not logged in with Premium sees a notice picture in place of each chart
+("This data is only available to users with a Premium account"; `watch/completeness.md` lists them). In the
+`elementval-drivers` folder run `git pull`, then `claude --chrome`, and paste this:
+
+> Capture the HiFiCompass charts that are shown only to Premium accounts, for the seven drivers below. I am
+> logged in to HiFiCompass in this Chrome.
+>
+> 1. Open each page, waiting 10 seconds between HiFiCompass pages:
+>    - `sb-satori-wo24p-8`: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-8>
+>    - `sb-satori-wo24p-4`: <https://hificompass.com/ru/speakers/measurements/satori/satori-wo24p-4>
+>    - `sb-sb34nrxl75-8`: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb34nrxl75-8>
+>    - `sb17nbac35-8`: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb17nbac35-8>
+>    - `sb-sb26adc-c000-4`: <https://hificompass.com/ru/speakers/measurements/sbacoustics/sb-acoustics-sb26adc-c000-4>
+>    - `sb-audience-rosso-12mw300`: <https://hificompass.com/ru/speakers/measurements/sb-audience/sb-audience-rosso-12mw300>
+>    - `lavoce-man06200-8`: <https://hificompass.com/en/speakers/measurements/lavoce/lavoce-man06200-8>
+> 2. If a chart still shows the notice "This data is only available to users with a Premium account",
+>    stop and tell me: the account in this Chrome does not have Premium.
+> 3. Off-axis first, then the on-axis response at every drive level, harmonics (315 mm and 20 mm), current
+>    distortion, impedance and the near-field response. Save the original of each chart image (remove
+>    `/styles/<style>/public/` from its address) under `incoming/<driver id>/` (ignored by Git: never
+>    commit source files, the repository is public). Name each file the way HiFiCompass names its newer
+>    charts, so the conditions can be read from the name: `<model>_315mm_2v83_0deg.png` for a response,
+>    `<model>_offaxis.png` and `<model>_offaxis_normalized_5-30db.png` for off-axis, `<model>_315mm_4v_hpf2-60.png`
+>    for harmonics, `<model>_chd_4v.png` for current distortion, `<model>_impedance_100_ohm.png` for
+>    impedance. Also save the `.frd` and `.zma` files where offered.
+> 4. List the images in `incoming/<driver id>/charts.tsv`, one line per image, separated by tabs: file
+>    name, chart type (response, near-response, off-axis, harmonics, current or impedance) and the image's
+>    address on hificompass.com.
+> 5. For each driver run `python3 capture/read_local_charts.py --id <driver id>`, then
+>    `python3 capture/sets_from_chart_read.py` and read what it would make. Look at every chart yourself
+>    beside the reading: axes, the angle or level of each curve, and the checks printed. When the reading
+>    is right run `python3 capture/sets_from_chart_read.py --write`. When the reader cannot fit a chart
+>    (for example the older charts have no axis labels it can read), capture it with
+>    `capture/image_curves.py` as `CAPTURE.md` describes and add it with `capture/add_set.py`.
+> 6. Then run `python3 watch/validate_db.py`, `python3 capture/completeness.py`, `python3 capture/worklist.py`
+>    and `node --test tests/*.test.mjs`, and fix what they report.
+> 7. Commit to a new branch named `capture/<today's date>`, push it and open a pull request listing every
+>    chart address and how each set was read. Do not merge it.
+
 ## What the tools do
 
 | Tool | Does |
@@ -97,4 +138,5 @@ In the `elementval-drivers` folder run `git pull`, then `claude --chrome`, and p
 | `capture/imd_read.py` | Runs on GitHub: reads the two-tone intermodulation spectra of the drivers in `capture/imd_read_request.txt` (the test from the file name, the peaks at both tones and every product up to the 5th order, checked against the cursor readout each chart prints); `capture/sets_from_imd_read.py --write` turns the result into sets. |
 | `capture/datasheet_probe.py` | Runs on GitHub (which can reach Purifi): finds each model in `capture/datasheet_request.txt` on purifi-audio.com, and writes the datasheet's text, printed numbers and vector lines, and the measured files in the downloads beside it (off-axis responses, impedance, on-axis response), as numbers only; `capture/sets_from_datasheet_probe.py --write` turns the files into sets after checking each against the datasheet's stated sensitivity or minimum impedance. |
 | `capture/sets_from_page_charts.py` | Turns off-axis charts read from a lab's page by `capture/datasheet_probe.py` (Erin's Audio Corner: request lines `erin record-id MODEL`) into sets: each curve named by the colour of its legend line, checked against the chart's printed mean level and against the normalized chart. |
+| `capture/read_local_charts.py` | Reads chart images saved on your computer (listed in `incoming/<id>/charts.tsv`) with the GitHub job's reader and adds them to `capture/chart_read.json`, for `capture/sets_from_chart_read.py --write`. |
 | `capture/worklist.py` | Rebuilds `capture/WORKLIST.md` from the database: low resolution, disagreements, missing curves, a weekly random spot check. |
