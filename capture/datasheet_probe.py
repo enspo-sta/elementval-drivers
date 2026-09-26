@@ -150,6 +150,46 @@ def probe_page(url, last):
     return out
 
 
+def describe_image(path):
+    """An image as numbers and text: every word printed on it with its box, the background, the plot box, grid lines
+    and colours (capture/chart_probe.py), and a try of the HiFiCompass off-axis reader (capture/chart_read.py)."""
+    import subprocess
+    import numpy as np
+    from PIL import Image
+    out = {}
+    im = Image.open(path).convert("RGB")
+    big = im.resize((im.width * 2, im.height * 2))
+    tmp = path.with_suffix(".ocr.png")
+    big.save(tmp)
+    tsv = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True, text=True, timeout=300).stdout
+    words = []
+    for row in tsv.splitlines()[1:]:
+        c = row.split("\t")
+        if len(c) == 12 and c[11].strip() and float(c[10]) > 30:
+            x, y, w, h = (int(v) / 2 for v in c[6:10])
+            words.append({"text": c[11], "x": round(x), "y": round(y), "w": round(w), "h": round(h), "conf": round(float(c[10]))})
+    out["words"] = words
+    img = np.asarray(im).astype(int)
+    bg, mean, share = CP.background(img)
+    out["background"] = {"colour": bg, "mean": mean, "share": share}
+    try:
+        box = CP.plot_box(img, bg)
+        out["plot_box"] = [int(v) for v in box]
+        out["grid"] = CP.grid_lines(img, box, bg)
+        out["colours"] = CP.all_colours(img, box, bg, top=16)
+    except Exception as e:  # noqa: BLE001
+        out["plot_error"] = f"{type(e).__name__}: {e}"
+    try:
+        import chart_read as CR
+        rec = CR.read_chart(path, "off-axis-read")
+        out["off_axis_read"] = {k: rec.get(k) for k in ("x_axis", "y_axis", "legend", "skipped", "error", "calibration")}
+        out["off_axis_read"]["curves"] = [{"colour": c.get("colour"), "name": c.get("name"), "columns": c.get("columns"), "points": len(c.get("points", [])),
+                                           "sample": c.get("points", [])[::max(1, len(c.get("points", [])) // 12)]} for c in rec.get("curves", [])]
+    except Exception as e:  # noqa: BLE001
+        out["off_axis_read"] = {"error": f"{type(e).__name__}: {e}"}
+    return out
+
+
 def probe_pdf(path):
     import pymupdf
     doc = pymupdf.open(str(path))
@@ -285,6 +325,8 @@ def main():
     out["images"] = []
     for did, u in wanted:
         try:
+            parts_ = urllib.parse.urlsplit(u)
+            u = urllib.parse.urlunsplit(parts_._replace(path=urllib.parse.quote(urllib.parse.unquote(parts_.path))))
             data = CP.fetch(u, last, delay=3.0)
             name = f"{did}__" + re.sub(r"[^A-Za-z0-9._-]+", "_", urllib.parse.unquote(u.rsplit("/", 1)[-1].split("?")[0]))
             info = {"id": did, "url": u, "file": name, "bytes": len(data)}
@@ -294,6 +336,13 @@ def main():
                     info["size"] = list(img.size)
             except Exception:  # noqa: BLE001
                 pass
+            with tempfile.TemporaryDirectory() as tmpd:
+                pth = Path(tmpd) / name
+                pth.write_bytes(data)
+                try:
+                    info["describe"] = describe_image(pth)
+                except Exception as e:  # noqa: BLE001
+                    info["describe"] = {"error": f"{type(e).__name__}: {e}"}
             if keep:
                 (keep / name).write_bytes(data)
             out["images"].append(info)
