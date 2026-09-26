@@ -307,24 +307,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt1.3t04-hag-01_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt1.3t04-hag-01_315mm_2v_hpf2-800.png",
@@ -502,12 +499,11 @@
    ],
    "summary": {
     "published": 27,
-    "stored": 20,
+    "stored": 23,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 4,
     "missing_by_type": {
      "older template": 1,
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -847,24 +843,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt8.0x04-nab-02_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt8.0x04-nab-02_20mm_2v83_0deg.png",
@@ -1128,11 +1121,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 42,
-    "stored": 36,
+    "stored": 39,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -1204,24 +1196,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt10.0x04-nab-02_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt10.0x04-nab-02_20mm_2v83_0deg.png",
@@ -1773,11 +1762,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 79,
-    "stored": 73,
+    "stored": 76,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2018,24 +2006,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/ptt6.5x04-naa-08a_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "ptt6.5x04-naa-08a_20mm_2v83_0grad.png",
@@ -2385,11 +2370,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 52,
-    "stored": 45,
+    "stored": 48,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 4,
     "missing_by_type": {
-     "off-axis": 3,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -2580,24 +2564,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-smoothed-spl-frequency-response-magnitude.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74t-6-off-axis-normalized-10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74t-6-off-axis-normalized-5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74t-6-off-axis-normalized-5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74t-6_315mm_1v41_hpf2-300_lpf4-10000.png",
@@ -2790,11 +2771,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 33,
-    "stored": 27,
+    "stored": 30,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -2858,24 +2838,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74a-6_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74a-6_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/m74a-6_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "m74a-6_315mm_1v41_hpf2-300_0.png",
@@ -3026,11 +3003,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 27,
-    "stored": 20,
+    "stored": 23,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 4,
     "missing_by_type": {
-     "off-axis": 3,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -3095,24 +3071,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25a-6_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25a-6_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25a-6_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25a-6_315mm_2v_hpf2-800.png",
@@ -3210,11 +3183,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 20,
-    "stored": 14,
+    "stored": 17,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3270,24 +3242,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25t-6_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25t-6_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t25t-6_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t25t-6_315mm_2v83_hpf2-800.png",
@@ -3401,11 +3370,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 21,
-    "stored": 15,
+    "stored": 18,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3477,24 +3445,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34a-4_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34a-4_offaxis_normalized_10-25db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34a-4_offaxis_normalized_10-25db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34a-4_315mm_1v41hd.png",
@@ -3592,11 +3557,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 21,
-    "stored": 15,
+    "stored": 18,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3660,24 +3624,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_0.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34b-4_315mm_offaxis_normalized_10-50db_0.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-50db_0.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34b-4_315mm_offaxis_normalized_10-25db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/t34b-4_315mm_offaxis_normalized_10-25db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "t34b-4_315mm_1v41hd.png",
@@ -3775,11 +3736,10 @@
    "premium_or_login": true,
    "summary": {
     "published": 20,
-    "stored": 14,
+    "stored": 17,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -3843,24 +3803,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mr16tx-8_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mr16tx-8_5mm_1v_0deg.png",
@@ -4069,11 +4026,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 35,
-    "stored": 28,
+    "stored": 31,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 4,
     "missing_by_type": {
-     "off-axis": 3,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -4138,24 +4094,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/mw19tx-4_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "mw19tx-4_20mm_2v83_0grad.png",
@@ -4650,11 +4603,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 70,
-    "stored": 64,
+    "stored": 67,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -4726,24 +4678,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29bnwg-4_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29bnwg-4_315mm_1v41_hpf2-800.png",
@@ -4919,11 +4868,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 31,
-    "stored": 23,
+    "stored": 26,
     "by_hand": 0,
-    "missing": 8,
+    "missing": 5,
     "missing_by_type": {
-     "off-axis": 3,
      "intermodulation": 1,
      "impedance": 1,
      "step response": 1,
@@ -4989,24 +4937,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29txn-4_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29txn-4_offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw29txn-4_offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw29txn-4_315mm_1v41_hpf2-800.png",
@@ -5158,11 +5103,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 27,
-    "stored": 21,
+    "stored": 24,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1
@@ -5345,24 +5289,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw030wa11_offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw030wa11_offaxis_normalized_10-25db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/tw030wa11_offaxis_normalized_10-25db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "tw030wa11_315mm_2v_hd.png",
@@ -5453,11 +5394,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 18,
-    "stored": 11,
+    "stored": 14,
     "by_hand": 0,
-    "missing": 7,
+    "missing": 4,
     "missing_by_type": {
-     "off-axis": 3,
      "impedance": 1,
      "step response": 1,
      "waterfall": 1,
@@ -5530,24 +5470,21 @@
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "wo24tx-8-offaxis_normalized_10-50db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_10-50db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "wo24tx-8-offaxis_normalized_5-30db.png",
      "url": "https://hificompass.com/sites/default/files/zamer/noaxis/wo24tx-8-offaxis_normalized_5-30db.png",
      "type": "off-axis",
      "label": "off-axis",
-     "state": "missing",
-     "why": "off-axis responses (several angles in one image): not read automatically"
+     "state": "stored"
     },
     {
      "file": "wo24tx-8_3mm_1v_0deg.png",
@@ -6035,11 +5972,10 @@
    "premium_or_login": null,
    "summary": {
     "published": 71,
-    "stored": 65,
+    "stored": 68,
     "by_hand": 0,
-    "missing": 6,
+    "missing": 3,
     "missing_by_type": {
-     "off-axis": 3,
      "step response": 1,
      "waterfall": 1,
      "energy-time": 1

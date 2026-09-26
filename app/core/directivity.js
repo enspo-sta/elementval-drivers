@@ -1,8 +1,8 @@
 /* directivity.js: a driver's measured off-axis response relative to its own on-axis response, for Simulate.
  * No DOM, so it is tested on its own (node --test tests/).
  *
- * From the source's own relative charts (kind off-axis-normalized) when they have the angle, the finer chart
- * range first (5-30 dB before 10-50 dB); else from the off-axis sound pressure (kind off-axis) as the angle's
+ * From the source's own relative charts (kind off-axis-normalized) when they have the angle, the chart drawn
+ * over the smallest range of dB first (10-25 or 5-30 dB before 10-50 dB); else from the off-axis sound pressure (kind off-axis) as the angle's
  * curve minus the 0° curve. Where lines lie on top of each other the chart reading has gaps; a line hidden
  * under others lies where they are, so the curve is interpolated across its gaps here. Outside the measured
  * range there is no value (null). Superseded sets are not used. */
@@ -38,7 +38,8 @@ export function directivityOf(driver, angle) {
   return null;
 }
 
-const rangeOrder = m => { const r = (m.conditions || {}).chart_range_db || ""; return r === "5-30" ? 0 : r ? 1 : 2; };
+// the chart drawn over the smallest range of dB first (5-30 or 10-25 before 10-50): its reading is the finest
+const rangeOrder = m => { const r = String((m.conditions || {}).chart_range_db || "").match(/^(\d+)-(\d+)$/); return r ? Number(r[2]) - Number(r[1]) : 999; };
 function curveFn(p) {
   const lo = p[0].x, hi = p[p.length - 1].x;
   return f => (f < lo || f > hi ? null : interpLog(p, f));

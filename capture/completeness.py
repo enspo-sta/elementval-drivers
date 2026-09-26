@@ -29,7 +29,7 @@ from worklist import hifi_page, PUBLISHES  # noqa: E402
 HAND_KINDS = {"response": {"frequency-response"}, "harmonics": {"hd-frequency"}, "current": {"hd-current"},
               "impedance": {"impedance"}, "intermodulation": {"imd-summary", "imd-spectrum"}}
 
-READ = {"response", "near-response", "harmonics", "current", "impedance"}           # what capture/chart_read.py reads
+READ = {"response", "near-response", "off-axis", "harmonics", "current", "impedance"}           # what capture/chart_read.py reads
 SPECTRA = {"intermodulation", "spectrum"}                                  # what capture/imd_read.py reads
 WHY = {
     "intermodulation": "an intermodulation spectrum: not read yet (capture/imd_read.py)",

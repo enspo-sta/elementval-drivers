@@ -37,6 +37,7 @@ export function matchLabel(set, kind) {
     else if (m === "type") { if (set.type && set.type !== kind.label) bits.push(set.type); }
     else if (m === "field") { const v = (set.conditions || {}).distance_mm; if (typeof v === "number" && v < 100) bits.push(`near field, ${v} mm`); }
     else if (m === "ratio") { const r = (set.conditions || {}).ratio; if (r) bits.push(r); }
+    else if (m === "chart_range_db") { const r = (set.conditions || {}).chart_range_db; if (r) bits.push(`chart range ${r} dB`); }
     else if (m === "f0") { const f = num((set.conditions || {}).f0); if (f != null) bits.push(`${toneHz(f)} tone`); }
     else if (m === "distance_mm") { const v = (set.conditions || {}).distance_mm; if (v) bits.push(`${v} mm`); }
     else if (m === "angle_deg") { const v = (set.conditions || {}).angle_deg; if (v != null && v !== "") bits.push(`${v}°`); }

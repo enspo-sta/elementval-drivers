@@ -397,3 +397,29 @@ test("One-tone spectra: harmonics relative to the tone, by drive voltage, in Com
   assert.deepEqual(errors, []);
   await close();
 });
+
+test("Off axis: every angle on the driver page, one angle across drivers in Compare, an angle in Simulate", { skip: skip() }, async () => {
+  const { page, errors, close } = await open("#driver/m74t-6");
+  const card = page.locator(".setttl", { hasText: /Off-axis response \(relative to on axis, chart range 5-30 dB\)/ }).first();
+  assert.equal(await card.count(), 1);
+  const legend = await page.evaluate(() => { const t = [...document.querySelectorAll(".setttl")].find(e => /chart range 5-30 dB/.test(e.textContent) && /Off-axis/.test(e.textContent));
+    let n = t; while (n && !(n.classList && n.classList.contains("legend"))) n = n.nextElementSibling; return n ? n.textContent : ""; });
+  for (const a of ["0°", "15°", "30°", "60°"]) assert.ok(legend.includes(a), `legend has ${a}: ${legend}`);
+  assert.ok(await page.locator(".chip", { hasText: /^chart range 5-30 dB$/ }).count() >= 1);
+  await page.goto(base + "#compare?src=HiFiCompass&g=HiFiCompass%3A%3Aoff-axis-normalized%7C5-30&q=30%C2%B0");
+  await page.waitForSelector("#cchart");
+  const shows = await page.locator("[data-q]").allTextContents();
+  assert.deepEqual(shows.map(s => s.trim()).filter(s => /°$/.test(s)).slice(0, 3), ["0°", "15°", "30°"]);
+  assert.match(await page.locator(".ptitle").first().textContent(), /relative to on axis · chart range 5-30 dB/);
+  await page.goto(base + "#simulate?src=HiFiCompass&a=30");
+  await page.waitForSelector("#schart");
+  assert.match(await page.locator(".ptitle").first().textContent(), /30° off axis/);
+  assert.ok(await page.locator("[data-sang]", { hasText: /^30°/ }).count() === 1);
+  assert.match(await page.locator("body").textContent(), /treated as sitting at one point/);
+  await page.locator("[data-sang='0']").click();
+  await page.waitForTimeout(400);
+  assert.match(await page.locator(".ptitle").first().textContent(), /on axis/);
+  assert.ok(await noSidewaysScroll(page));
+  assert.deepEqual(errors, []);
+  await close();
+});

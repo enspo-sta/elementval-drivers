@@ -115,20 +115,54 @@ def name_across_types(charts):
                     taken.add(nm)
 
 
+ANGLES = {0, 15, 30, 45, 60, 75, 90}
+
+
+def _angle(text):
+    """'30grad', '30', '30/0', '30grad/0grad', 'Ograd' -> 30 or 0; anything else None."""
+    t = text.strip().replace("O", "0").replace("o", "0")
+    m = re.fullmatch(r"/?(\d{1,2})(?:grad)?(?:/0(?:grad)?)?", t)
+    return int(m.group(1)) if m and int(m.group(1)) in ANGLES else None
+
+
 def angles_of(ch, normalized):
-    """(curve, angle, how) for each curve of an off-axis chart. The angle is the one label its own colour writes in
-    the legend ("30grad"; "30grad/0grad" on a chart relative to on-axis). When the labels read are a series with
-    one step left out (0, 15, 30, 60: 45 missing) and exactly one curve has no label of its own (a light green label
-    the text recognition does not read), that curve takes the missing angle, and says so."""
+    """(curve, angle, how) for each curve of an off-axis chart, and the curves left without one. The legend row is
+    the row of words below the axis numbers where the coloured labels are; each label ("30grad", "30", "30/0") is
+    matched to the curve of its colour. Where a colour's label was not read there, the text read in that colour
+    alone counts when it holds exactly one angle (15° steps). When the labels read are a series with one step
+    left out and exactly one curve has no label, that curve takes the missing angle, and says so. A curve read
+    twice (two shades of one line) keeps the better reading."""
+    dist = lambda a, b: sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (1, 3, 5))
+    grey = lambda h: max(int(h[i:i + 2], 16) for i in (1, 3, 5)) - min(int(h[i:i + 2], 16) for i in (1, 3, 5)) < 40
+    words = [w for w in ch.get("legend") or [] if w.get("colour")]
+    coloured = [w for w in words if not grey(w["colour"]) and _angle(w["text"]) is not None]
+    row = []
+    if coloured:
+        y0 = statistics.median(w["y"] for w in coloured)
+        row = [w for w in words if abs(w["y"] - y0) <= 6 and _angle(w["text"]) is not None]
     out, loose = [], []
     for cv in ch.get("curves") or []:
-        toks = [0 if t.upper() == "O" else int(re.sub(r"[Oo]", "0", t)) for t in re.findall(r"\b([O0-9]{1,2})\s*grad", cv.get("legend_text") or "")]
-        labels = toks[::2] if normalized and len(toks) % 2 == 0 and all(t == 0 for t in toks[1::2]) else toks
-        if len(labels) == 1:
-            out.append((cv, labels[0], "its legend label"))
-        else:
-            loose.append(cv)
-    known = sorted({a for _, a, _ in out})
+        mine = sorted((w for w in row if dist(w["colour"], cv["colour"]) <= 90), key=lambda w: w["x"])
+        ang = _angle(mine[0]["text"]) if mine else None
+        how = "its legend label"
+        if ang is None:
+            cands = {int(x) for x in re.findall(r"(?<![\d.])(\d{1,2})(?:\s*grad)?(?:\s*/\s*[0O](?:\s*grad)?)?(?![\d.])",
+                                                (cv.get("legend_text") or "").replace("O", "0")) if int(x) in ANGLES}
+            if normalized:
+                pairs = re.findall(r"(\d{1,2})\s*(?:grad)?\s*/\s*0", (cv.get("legend_text") or "").replace("O", "0"))
+                cands = {int(x) for x in pairs if int(x) in ANGLES} or cands
+            ang = cands.pop() if len(cands) == 1 else None
+            how = "its legend label (read in its own colour)"
+        (out.append((cv, ang, how)) if ang is not None else loose.append(cv))
+    # one curve per angle: two shades of one line read twice keep the reading with more columns and the better
+    # share of points on the drawn line
+    best = {}
+    for cv, ang, how in out:
+        k = (cv.get("columns", 0), cv.get("on_curve") or 0)
+        if ang not in best or k > (best[ang][0].get("columns", 0), best[ang][0].get("on_curve") or 0):
+            best[ang] = (cv, ang, how)
+    out = list(best.values())
+    known = sorted(best)
     if len(loose) == 1 and len(known) >= 3:
         steps = [b - a for a, b in zip(known, known[1:])]
         step = min(steps)
@@ -245,7 +279,7 @@ def build(read, db):
                 cond["angles_deg"] = [a for _, a, _ in named]
                 if normalized:
                     kind = "off-axis-normalized"
-                    m = re.search(r"normalized_(\d+)-(\d+)db", name.lower())
+                    m = re.search(r"normalized[_-](\d+)-(\d+)db", name.lower())
                     if m:
                         cond["chart_range_db"] = f"{m.group(1)}-{m.group(2)}"
                     extra.append("relative to on axis" + (f", chart range {cond['chart_range_db']} dB" if cond.get("chart_range_db") else ""))
@@ -277,7 +311,68 @@ def build(read, db):
                                        if ctype == "near-response" else AXES[kind]),
                               **({"calibration": cal} if cal else {}),
                               **({"check": {"on_curve": shares}} if shares else {})}))
+    offaxis_agreement(made)
     return made, waiting
+
+
+def _curve_fn(pts):
+    p = sorted((q for q in pts if q.get("y") is not None), key=lambda q: q["x"])
+
+    def f(x):
+        if not p or x < p[0]["x"] or x > p[-1]["x"]:
+            return None
+        for a, b in zip(p, p[1:]):
+            if a["x"] <= x <= b["x"]:
+                t = math.log(x / a["x"]) / math.log(b["x"] / a["x"]) if b["x"] > a["x"] else 0
+                return a["y"] + t * (b["y"] - a["y"])
+        return None
+    return f
+
+
+def offaxis_agreement(made):
+    """A driver's three off-axis charts show one measurement: the sound pressure at each angle, and each angle
+    relative to on axis at two chart ranges. Per angle, each chart's curve relative to on axis (the sound-pressure
+    chart's angle minus its 0°) is compared with the others' from 1 to 20 kHz; the median difference goes in every
+    set's note. An angle named from the legend's layout, not from its own label, is kept only where another chart
+    agrees within 0.5 dB; otherwise it is left out and the note says so."""
+    grid = [1000 * 2 ** (i / 6) for i in range(26)]
+    by = {}
+    for did, s in made:
+        if s["kind"] in ("off-axis", "off-axis-normalized"):
+            by.setdefault(did, []).append(s)
+    for did, sets in by.items():
+        rel = {}                                              # angle -> [(set, f)]
+        for s in sets:
+            fs = {x["name"]: _curve_fn(x["points"]) for x in s["series"]}
+            for a, f in fs.items():
+                if a == "0°":
+                    continue
+                if s["kind"] == "off-axis":
+                    f0 = fs.get("0°")
+                    if not f0:
+                        continue
+                    f = (lambda x, f=f, f0=f0: None if f(x) is None or f0(x) is None else f(x) - f0(x))
+                rel.setdefault(a, []).append((s, f))
+        name = lambda s: "the sound-pressure chart" if s["kind"] == "off-axis" else f"the {s['conditions'].get('chart_range_db', '')} dB chart"
+        for a, lst in rel.items():
+            med = {}
+            for i in range(len(lst)):
+                for j in range(i + 1, len(lst)):
+                    d = [abs(lst[i][1](x) - lst[j][1](x)) for x in grid if lst[i][1](x) is not None and lst[j][1](x) is not None]
+                    if len(d) >= 5:
+                        med[(i, j)] = statistics.median(d)
+            for i, (s, _) in enumerate(lst):
+                mine = {j if i == k else k: v for (k, j), v in med.items() if i in (k, j)}
+                inferred = f"{a} from the legend's layout" in s["note"]
+                if inferred and not any(v <= 0.5 for v in mine.values()):
+                    s["series"] = [x for x in s["series"] if x["name"] != a]
+                    s["conditions"]["angles_deg"] = [v for v in s["conditions"]["angles_deg"] if f"{v}°" != a]
+                    s["note"] += (f"; {a} left out: its label was not read and no other chart of this driver confirms the line within 0.5 dB"
+                                  + (" (" + ", ".join(f"{name(lst[j][0])} {v:.1f} dB" for j, v in mine.items()) + ")" if mine else ""))
+                    continue
+                if mine:
+                    s.setdefault("check", {}).setdefault("agreement_db", {})[a] = {name(lst[j][0]): round(v, 2) for j, v in mine.items()}
+                    s["note"] += f"; {a} against the driver's other off-axis charts (median difference, 1 to 20 kHz): " + ", ".join(f"{name(lst[j][0])} {v:.2f} dB" for j, v in mine.items())
 
 
 def main():
