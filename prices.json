@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-09-25",
+  "updated": "2026-09-26",
   "rates_date": "2026-09-25",
   "rates_per_eur": {
    "CHF": 0.9445,
@@ -30,18 +30,19 @@
    "BlieSMa (direct)"
   ],
   "notes": [
-   "SoundImports: 33576 addresses, 117 matching pages, 28 prices read",
-   "Audio-hi.fi: 10596 addresses, 36 matching pages, 17 prices read",
+   "SoundImports: 129 matching pages, only the first 120 read",
+   "SoundImports: 33564 addresses, 129 matching pages, 31 prices read",
+   "Audio-hi.fi: 10596 addresses, 38 matching pages, 18 prices read",
    "Lautsprechershop (Strassacker): 5402 addresses, 0 matching pages, 0 prices read",
    "Intertechnik: 10 addresses, 0 matching pages, 0 prices read",
    "Toutlehautparleur: no sitemap found and no product page reached from the front page",
    "Audiophonics: 24816 addresses, 14 matching pages, 7 prices read",
-   "HiFi-Kit: 4110 addresses, 12 matching pages, 11 prices read",
+   "HiFi-Kit: 4110 addresses, 15 matching pages, 14 prices read",
    "Speakerbuddies: 1 addresses, 0 matching pages, 0 prices read",
    "Europe Audio: no sitemap found and no product page reached from the front page",
    "Loudspeakerfreaks: no sitemap found and no product page reached from the front page",
    "Hificollective: no sitemap found and no product page reached from the front page",
-   "Willys-HiFi: 1056 addresses, 10 matching pages, 9 prices read",
+   "Willys-HiFi: 1056 addresses, 11 matching pages, 10 prices read",
    "Purifi (direct): 101 addresses, 8 matching pages, 7 prices read",
    "BlieSMa (direct): no sitemap found and no product page reached from the front page"
   ],
@@ -518,6 +519,34 @@
     }
    ]
   },
+  "sb-audience-rosso-12mw300": {
+   "name": "SB Audience Rosso 12MW300",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-audience-rosso-12mw300.html",
+     "page_title": "SB Audience ROSSO-12MW300 Mid-range Woofer - SoundImports",
+     "model": "12MW300",
+     "price": 169.95,
+     "currency": "EUR",
+     "availability": "InStock",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 1919
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-audience-rosso-12mw300.html",
+     "page_title": "Rosso-12MW300",
+     "model": "12MW300",
+     "price": 1980.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 1980
+    }
+   ]
+  },
   "sb-satori-mr16tx-8": {
    "name": "SB Acoustics Satori MR16TX-8",
    "offers": [
@@ -820,6 +849,96 @@
      "currency": "SEK",
      "availability": "InStock",
      "price_sek": 2758
+    }
+   ]
+  },
+  "sb-satori-wo24tx-8": {
+   "name": "SB Acoustics Satori WO24TX-8",
+   "offers": [
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-wo24tx-8.html",
+     "page_title": "SB Acoustics Satori WO24TX-8 Textreme woofer - SoundImports",
+     "model": "WO24TX-8",
+     "price": 399.95,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      330.54,
+      399.95
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 4515
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-satori-wo24tx-8.html",
+     "page_title": "SB Acoustics SATORI WO24TX-8",
+     "model": "WO24TX-8",
+     "price": 4730.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 4730
+    }
+   ]
+  },
+  "sb-sb26adc-c000-4": {
+   "name": "SB Acoustics SB26ADC-C000-4",
+   "offers": [
+    {
+     "shop": "Willys-HiFi",
+     "country": "GB",
+     "url": "https://willys-hifi.com/products/sb-acoustics-sb26adc-c000-4-tweeter",
+     "page_title": "SB Acoustics SB26ADC-C000-4 Tweeter - Willys-Hifi Ltd",
+     "model": "SB26ADC-C000-4",
+     "price": 41.44,
+     "currency": "GBP",
+     "availability": "InStock",
+     "price_sek": 544
+    },
+    {
+     "shop": "Audio-hi.fi",
+     "country": "FI",
+     "url": "https://audio-hi.fi/en/sb_acoustics_sb26adc-c000-4_2060-p-658.html",
+     "page_title": "SB Acoustics SB26ADC-C000-4 - €48.60 : AUDIO-HI.FI, Loudspeaker shop",
+     "model": "SB26ADC-C000-4",
+     "price": 48.6,
+     "currency": "EUR",
+     "availability": null,
+     "price_note": "read from the page title",
+     "shop_note": "the go-to distributor in Europe for BlieSMa",
+     "price_sek": 549
+    },
+    {
+     "shop": "HiFi-Kit",
+     "country": "SE",
+     "url": "https://www.hifikit.se/sb-acoustics-sb26adc-c000-4.html",
+     "page_title": "SB26ADC-C000-4",
+     "model": "SB26ADC-C000-4",
+     "price": 565.0,
+     "currency": "SEK",
+     "availability": "InStock",
+     "price_sek": 565
+    },
+    {
+     "shop": "SoundImports",
+     "country": "NL",
+     "url": "https://www.soundimports.eu/en/sb-acoustics-sb26adc-c000-4.html",
+     "page_title": "SB Acoustics SB26ADC-C000-4 Dome Tweeter - SoundImports",
+     "model": "SB26ADC-C000-4",
+     "price": 52.45,
+     "currency": "EUR",
+     "availability": null,
+     "prices_on_page": [
+      43.35,
+      52.45
+     ],
+     "price_note": "read from the page's price element, not from structured data; check the page; several amounts on the page, the lowest is used",
+     "shop_note": "often the most expensive; no longer carries BlieSMa",
+     "price_sek": 592
     }
    ]
   },
